@@ -170,6 +170,40 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .lsb-cat img.sil{filter:brightness(0);opacity:.12}
 .lsb-cat .lc-t{font:600 10px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:#B99B5E}
 .lsb-cat .lc-n{font:600 11.5px/1.35 var(--sans);color:var(--navy)}
+/* ---- Listening Fix-it Game ---- */
+@keyframes rgPop{0%{transform:scale(.55);opacity:0}70%{transform:scale(1.14)}100%{transform:scale(1);opacity:1}}
+@keyframes rgShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+@keyframes rgFlash{0%,100%{background:var(--bad-bg);border-color:var(--bad-line)}45%{background:#F3C3B0;border-color:var(--bad)}}
+.rg-view{max-width:760px}
+.rg-hero{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+.rg-hero svg{width:46px;height:46px;flex-shrink:0}
+.rg-playbox{display:flex;align-items:center;gap:10px;margin:4px 0 14px}
+.rg-playbtn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:99px;border:none;background:var(--teal);color:#fff;font:700 14px var(--sans);cursor:pointer;transition:transform .12s ease}
+.rg-playbtn:hover{transform:translateY(-1px)}
+.rg-article{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:20px 24px}
+.rg-article .rd-p{font-size:16px;line-height:2.15}
+.rg-blank{display:inline-block;border-bottom:2px dashed var(--bad);color:var(--ink);background:var(--bad-bg);border-radius:5px;padding:1px 5px;cursor:pointer;transition:background .12s ease}
+.rg-blank:hover{background:#F3D3C2}
+.rg-blank.fixed{border-bottom:none;background:none;color:var(--good);font-weight:700;cursor:default;padding:1px 3px}
+.rg-blank.shake{animation:rgShake .42s ease}
+.rg-blank.fixed.pop{animation:rgPop .32s ease}
+.rg-bank{background:var(--teal-bg);border:1.5px solid var(--teal-line);border-radius:16px;padding:16px 18px;margin-top:16px}
+.rg-bank-h{font:700 13px var(--sans);color:var(--navy);margin-bottom:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+.rg-bank-h span{font:400 12px var(--sans);color:var(--muted)}
+.rg-chips{display:flex;flex-wrap:wrap;gap:9px}
+.rg-chip{display:inline-flex;align-items:center;gap:7px;font:600 14px var(--sans);color:var(--ink);background:var(--paper);border:1.5px solid var(--bad-line);border-radius:99px;padding:8px 16px;cursor:pointer;transition:all .12s ease}
+.rg-chip:hover{border-color:var(--bad);transform:translateY(-1px)}
+.rg-chip.sel{background:var(--bad);border-color:var(--bad);color:#fff;transform:translateY(-2px)}
+.rg-chip.used{opacity:.28;pointer-events:none}
+.rg-chip.flash{animation:rgFlash .42s ease}
+.rg-let{font:700 11px var(--mono);opacity:.6}
+.rg-status{text-align:center;font:600 14px var(--sans);color:var(--muted);padding:12px;margin-top:8px}
+.rg-status b{color:var(--navy);font-size:16px}
+.rg-status.done{color:var(--good);font:700 16px var(--sans)}
+@media (max-width:640px){
+  .rg-article{padding:16px 15px}
+  .rg-article .rd-p{font-size:15px;line-height:2}
+}
 /* ---- Unit reads (題組閱讀) ---- */
 .ur-entry{display:block;width:100%;text-align:left;font:600 13.5px var(--sans);color:#3C7D72;background:#E4F1EE;border:1.5px dashed #A8CFC7;border-radius:12px;padding:11px 16px;margin-top:8px;cursor:pointer;transition:all .13s ease}
 .ur-entry:hover{background:#D7EAE4;border-style:solid;transform:translateY(-1px)}
@@ -2014,6 +2048,7 @@ function route(){
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
   else if(h[0]==="unitread" && h[1]) renderUnitRead(h[1]);
+  else if(h[0]==="readgame" && h[1]) renderReadGame(h[1], h[2]||RD_LEVEL||"a");
   else if(h[0]==="listenexam") startListenExam();
   else renderHome();
   paintHeader();
@@ -3483,6 +3518,7 @@ const READINGS = [
  topic:"The World Cup Final", zh:"世界盃決賽",
  src:"BBC Sport · CNN · NPR", date:"2026-07-16", week:"7/13–7/19",
  tag:"Sport 運動", icon:"ball",
+ proper:["Spain","Argentina","Messi","Lamine","Yamal","MetLife","Jersey","France","England","Atlanta","Dallas","Mexico","Canada","States","United","Qatar","World","Cup"],
  levels:{
   a:{cefr:"A1–A2", zh:"初級", w:112,
    title:"Spain and Argentina in the Final",
@@ -3571,6 +3607,7 @@ const READINGS = [
  topic:"Europe's First Total Eclipse in 27 Years", zh:"歐洲 27 年來首見日全食",
  src:"BBC · CNN · NASA · ESA", date:"2026-07-16", week:"7/20–7/26",
  tag:"Science 科學", icon:"eclipse",
+ proper:["Moon","Sun","Earth","Greenland","Iceland","Spain","Portugal","Europe","Arctic","Atlantic","Iberian","ESA","NASA"],
  levels:{
   a:{cefr:"A1–A2", zh:"初級", w:118,
    title:"The Sky Will Go Dark",
@@ -3659,6 +3696,7 @@ const READINGS = [
  topic:"The Biggest Stock Market Debut Ever", zh:"史上最大規模上市案",
  src:"CNN Business · CNBC · Reuters", date:"2026-07-16", week:"7/27–8/2",
  tag:"Business 財經", icon:"rocket",
+ proper:["SpaceX","Musk","Tesla","Starlink","Aramco","Saudi","June"],
  levels:{
   a:{cefr:"A1–A2", zh:"初級", w:115,
    title:"A Rocket Company Sells Its Shares",
@@ -3745,6 +3783,285 @@ const READINGS = [
 ];
 
 /* 單元題組閱讀 — 貓島情境短文，自然嵌入該單元文法點 */
+/* =====================================================
+   聽力更正遊戲 Listening Fix-it Game
+   自動從當前文章挑生難字、自動配對干擾字，全離線運算
+   ===================================================== */
+/* =====================================================
+   聽力更正遊戲 Listening Fix-it Game
+   自動從當前文章挑生難字、自動配對干擾字，全離線運算
+   ===================================================== */
+/* =====================================================
+   聽力更正遊戲 Listening Fix-it Game
+   自動從當前文章挑生難字、自動配對干擾字，全離線運算
+   ===================================================== */
+/* =====================================================
+   聽力更正遊戲 Listening Fix-it Game
+   自動從當前文章挑生難字、自動配對干擾字，全離線運算
+   ===================================================== */
+const RG_STOP = new Set(("a an the and or but so because if unless when while after before "+
+ "is am are was were be been being do does did have has had will would can could "+
+ "should may might must shall not no yes this that these those it its he she they "+
+ "him her them his their our your my me us we you i in on at to of for with from "+
+ "by as into onto over under about than then there here out up down off again very "+
+ "more most much many some any all each every other another such only just also "+
+ "too so well even still back get got go went come came make made take took see "+
+ "saw say said know knew one two three first second third new old good great small "+
+ "long own same right left last next few both "+
+ // 常見動詞（含變化）
+ "become became begin began bring build built cannot choose chosen close closed "+
+ "compare compared complete completed consider continue create creating decide "+
+ "direct during either enough exactly explain follow force gives given happen "+
+ "include increase indeed instead involve itself learn leave level likely lower "+
+ "matter maybe mean member might minute move need nothing notice occur offer offers "+
+ "open order pass past perhaps place plan play played point present provide reach "+
+ "reached reaching read real realize receive recognize record reduce remain remains "+
+ "remember remove report represent require respond result return rise run seem seems "+
+ "sense serve served several shall share short shot should show shows since single "+
+ "size sort speak spend staff stand start started state stay step still stop store "+
+ "study stuff subject success such suggest support sure take talk teach team tell "+
+ "term test than thank that their them themselves then theory there these they thing "+
+ "think this those though thought through throughout thus today together total "+
+ "toward town trade travel treat treatment trial true try turn type under until "+
+ "upon usually value various view voice wait walk want watch weight well west "+
+ "whatever when where whether which while white whole whom whose wide wife will "+
+ "wish within without woman wonder word work worker world worry would write writer "+
+ "wrong year yet young ago able above across afternoon against almost along already "+
+ "although among appeared around aside became begins behind believe belong beside "+
+ "besides better between beyond bit called cause certain certainly change changed "+
+ "chance clear clearly common company compared consequence corner countries couple "+
+ "course covered cross current dear despite different difficult during earlier "+
+ "early either else entire entirely especially european evening event events "+
+ "eventually everyone exactly example except excited exist expect experience fact "+
+ "fairly family figure finally fine follow following forward front full fully "+
+ "future generally generation giant gives goes government group hand having health "+
+ "hills history hotel hour however human idea ideas immediately important including "+
+ "indeed industry information inside interest interesting itself join keep kind "+
+ "known lack language large larger late later leading least less letting light "+
+ "line list little local located location machinery main mainly major making "+
+ "manage manner markets meaning meant merely middle might miles million minutes "+
+ "moment months months moon morning nation national nations natural nature nearby "+
+ "nearly never nights normal north northern nowhere numbers ocean often once online "+
+ "only opening opinion opposite otherwise outside overall paper parents particular "+
+ "particularly parts peninsula people percent perfect period personal personally "+
+ "picture pieces places planet played players playing pleased popular population "+
+ "position positive possible possibly practice pretty previous private probably "+
+ "problem problems process produced product products program progress project "+
+ "provided provider public purpose quality question quickly quite rarely rather "+
+ "reaction ready reason recent recently region regular related relatively remained "+
+ "reminded remote reported reportedly rest result reveal roughly round safely scale "+
+ "scene season seconds seems seen sending sends sentence separate series serious "+
+ "sharing shared short shortly showed sides significant similar simple simply "+
+ "situation slightly slow small social society solid somewhat something sometimes "+
+ "somewhere sound source special specific spent spread stage stated statement "+
+ "states station stayed stopped strange stretch striking strong students stuff "+
+ "surface sweep taken taking talking technology terms therefore though thousand "+
+ "thousands throughout title today together toward towards travel trying twice "+
+ "typically ultimately understand understood unless unusual usual usually various "+
+ "views virtually visible visited visiting waiting warning weeks western whatever "+
+ "whenever whichever willing wishes without worked working works worth writing "+
+ "years yesterday afternoon evening morning night today tomorrow yesterday "+
+ "really makes looks money number times service business owner ended broken "+
+ "badly buying defined sport track victory account becomes draws insist reply "+
+ "canada united spanish football coast earth ground service golden narrow "+
+ "harder poorly directly equally viewed placed priced paying").split(/\s+/));
+
+// 300+ 常見詞→干擾字 對照表（涵蓋三篇文章＋一般時事字彙），確保干擾字語意相關、詞性一致、可自然融入句子
+const RG_BANK = {
+ final:"opener", champion:"finalist", champions:"finalists", trophy:"medal", stadium:"arena",
+ tournament:"championship", teams:"squads", team:"squad", players:"athletes", player:"athlete",
+ captain:"coach", record:"average", records:"averages", hosted:"organized", hosts:"sponsors",
+ host:"sponsor", matches:"rounds", match:"round", games:"rounds", game:"round", goal:"point",
+ goals:"points", assist:"pass", assists:"passes", forward:"defender", defeat:"defeated:draw",
+ defeating:"drawing with", beat:"tied", won:"drew", win:"tie", winning:"drawing", lost:"tied",
+ losing:"tying", knocked:"pushed", semifinal:"quarterfinal", "semi-final":"quarter-final",
+ quarterfinals:"semifinals", disappointment:"excitement", stars:"legends", star:"legend",
+ fans:"critics", millions:"thousands", billion:"million", trillion:"billion", raised:"collected",
+ shares:"bonds", share:"bond", stock:"currency", market:"exchange", price:"cost", prices:"costs",
+ valued:"rated", valuation:"rating", offering:"listing", company:"corporation", companies:"corporations",
+ founded:"launched", founder:"director", losses:"debts", profit:"income", profitable:"successful",
+ revenue:"income", investors:"shareholders", investor:"shareholder", analysts:"economists",
+ analyst:"economist", multiples:"ratios", capital:"funding", growth:"expansion", satellite:"probe",
+ satellites:"probes", internet:"network", rocket:"shuttle", rockets:"shuttles", reusable:"disposable",
+ launch:"mission", eclipse:"blackout", total:"complete", partial:"limited", visible:"noticeable",
+ path:"route", totality:"darkness", corona:"halo", atmosphere:"surface", researchers:"analysts",
+ scientists:"experts", mainland:"continental", rare:"unusual", brief:"short", spectacle:"display",
+ travelers:"tourists", visitors:"tourists", travel:"journey", photographers:"filmmakers",
+ sunset:"twilight", horizon:"skyline", glasses:"goggles", safety:"protection", danger:"risk",
+ dangerous:"risky", warning:"alert", block:"obstruct", blocked:"obstructed", chasers:"hunters",
+ naked:"bare", instruments:"devices", isolate:"detect", appeal:"attraction", quantify:"measure",
+ booked:"reserved", advance:"beforehand", expected:"predicted", significant:"notable",
+ remarkable:"impressive", unremarkable:"ordinary", mechanics:"physics", geography:"location",
+ shadow:"outline", conventionally:"typically", descending:"dropping", approaches:"nears",
+ exceed:"surpass", fragility:"delicacy", categorically:"absolutely", assumption:"belief",
+ delivers:"provides", uncovered:"revealed", scientifically:"technically", offering:"providing",
+ struggle:"attempt", struggles:"attempts", ordinary:"typical", briefly:"momentarily",
+ debut:"launch", crowded:"pushed", eclipsing:"surpassing", secured:"obtained", session:"period",
+ holds:"owns", holdings:"assets", stake:"share", widely:"commonly", declared:"named", founded:"established",
+ arm:"branch", accumulated:"gathered", generates:"produces", implies:"suggests", sector:"industry",
+ mature:"established", measurement:"calculation", aspiration:"ambition", counter:"opposing",
+ wishful:"hopeful", genuinely:"truly", novel:"emerging", pricing:"valuing", dominant:"leading",
+ infrastructure:"foundation", orbital:"planetary", economy:"industry", prescient:"insightful",
+ "self-serving":"biased", settled:"resolved", debut:"opening", unambiguously:"clearly",
+ appetite:"demand", reservations:"doubts", commit:"invest", verdicts:"judgments", bets:"wagers",
+ headline:"leading", figures:"numbers", establishes:"proves", sound:"reliable", assemble:"gather",
+ firms:"companies", implies:"indicates", industry:"sector", currently:"presently", according:"reportedly",
+ filing:"report", widely:"broadly", carried:"driven", intervention:"action", inspired:"triggered",
+ comeback:"recovery", rescued:"saved", slipping:"fading", longevity:"experience", genius:"talent",
+ chasing:"pursuing", triumph:"victory", threat:"danger", barely:"scarcely", closing:"final",
+ stages:"rounds", denying:"preventing", narrative:"storyline", legitimate:"reasonable",
+ dispute:"argument", edition:"version", staged:"organized", retain:"keep", edition:"version",
+ arrive:"return", holders:"champions", supplied:"provided", kept:"recorded", contrast:"comparison",
+ threat:"attack", forward:"striker", triumph:"success", teenage:"young", competition:"contest",
+ organisers:"planners", precisely:"exactly", built:"created", expanded:"widened", dilutes:"weakens",
+ broadens:"widens", reach:"scope", debate:"discussion", beyond:"without", largest:"biggest",
+ settle:"decide", question:"issue", wait:"delay", lasted:"continued", moved:"transferred",
+ recorded:"logged", schedule:"timetable", checked:"verified", cancelled:"called off",
+ announce:"declare", announced:"declared", decision:"choice", direction:"course", stronger:"harsher",
+ expected:"forecast", carefully:"closely", roof:"shelter", usually:"typically", thank:"reward",
+ unhappy:"upset", storm:"tempest", windy:"gusty", boats:"vessels", fishermen:"sailors",
+ returned:"headed back", weather:"forecast", report:"bulletin", knocked:"toppled", sign:"banner",
+ kittens:"cats", scared:"frightened", experienced:"encountered", stories:"tales", asleep:"dozing",
+ stopped:"eased", carried:"swept", branches:"twigs", cleaning:"tidying", promised:"pledged",
+ extra:"bonus", finished:"completed", cookies:"treats", curious:"inquisitive", quiet:"calm",
+ friendly:"cheerful", waits:"lingers", notice:"announcement", welcome:"greet", island:"isle",
+ cats:"felines", cat:"feline", visitors:"guests", mistake:"error", hide:"vanish", advice:"tips",
+ happy:"delighted", space:"room", staff:"crew", choices:"options", seat:"table", book:"reserve",
+ adult:"guardian", port:"harbor", join:"meet", easy:"simple", muddy:"soggy", mosquitoes:"insects",
+ steps:"stairs", temple:"shrine", hurry:"rush", door:"gate", lighthouse:"beacon", forest:"woods",
+ hill:"slope", beach:"shore", rock:"boulder", map:"chart", storm:"gale", typhoon:"cyclone",
+ pass:"move", stronger:"fiercer", cancel:"scrap", website:"webpage", office:"desk", roof:"cover",
+ announce:"reveal", safe:"secure", stay:"remain", cake:"dessert", sandwiches:"snacks",
+ honey:"syrup", plate:"dish", smell:"scent", staff:"team", weekend:"holiday", weekends:"holidays",
+ children:"kids", child:"kid", table:"seat",
+ absent:"missing", agency:"bureau", annual:"yearly", argument:"claim",
+ astronomical:"scientific", attacking:"scoring", building:"structure",
+ buildings:"structures", carmaker:"automaker", caution:"care", cautious:"careful",
+ certified:"approved", collections:"funds", comfortably:"easily",
+ "company's":"firm's", "competition's":"tournament's", contrasts:"differences",
+ "counter-argument":"rebuttal", darkest:"deepest", defending:"reigning",
+ delivered:"achieved", demonstrate:"prove", distinction:"difference",
+ dollars:"euros", earnings:"profits", eclipses:"blackouts", established:"proven",
+ exceeding:"surpassing", faint:"dim", format:"structure", giants:"leaders",
+ hillside:"slope", hotels:"inns", inconveniently:"awkwardly", industries:"sectors",
+ initial:"opening", lifts:"raises", lionel:"the star", logistical:"organizational",
+ optionality:"potential", outer:"outside", possibility:"chance",
+ "quarter-finals":"last eight", "record-breaking":"history-making",
+ reliably:"consistently", remembered:"recalled", "semi-finals":"final four",
+ slides:"passes", solar:"sun", stadiums:"arenas", stakes:"investments",
+ stretched:"spanned", strictly:"purely", "sun's":"star's", sunglasses:"shades",
+ supporters:"backers", sweeping:"crossing", trading:"dealing",
+ trillionaire:"billionaire", undertaking:"endeavor", unthinkable:"impossible",
+ valuable:"precious", virtue:"merit", visibly:"clearly", whereas:"while",
+ "world's":"planet's", "moon's":"lunar", "today's":"current",
+ biggest:"largest", erase:"remove", exited:"withdrew"
+};
+const RG_POOL = {
+ noun:["region","system","process","project","measure","policy","factor","impact","result","effort",
+  "level","source","target","output","object","subject","context","survey","concept","aspect"],
+ verb:["appear","remain","suggest","involve","require","produce","create","reduce","increase",
+  "improve","support","achieve","explain","examine","confirm","expect","imagine","observe"],
+ adj:["typical","serious","modern","distant","separate","complex","gradual","obvious","possible",
+  "recent","various","similar","local","global","careful","steady","genuine","limited"],
+ adv:["quickly","slowly","closely","directly","clearly","rarely","gradually","nearly","almost","simply"]
+};
+function rgGuessPOS(w){
+  const s = w.toLowerCase();
+  if(/ly$/.test(s)) return "adv";
+  if(/(tion|ment|ity|ness|ance|ence|ship|hood)$/.test(s)) return "noun";
+  if(/(ful|ive|ous|al|ic|able|ible)$/.test(s)) return "adj";
+  if(/(ed|ing|ize|ise|fy)$/.test(s)) return "verb";
+  return "noun";
+}
+function rgMatchCase(sample, word){
+  if(/^[A-Z]/.test(sample) && !/^[A-Z]+$/.test(sample)) return word[0].toUpperCase()+word.slice(1);
+  if(/^[A-Z]+$/.test(sample) && sample.length>1) return word.toUpperCase();
+  return word;
+}
+function rgDistractor(word, used){
+  const key = word.toLowerCase().replace(/[^a-z'-]/g,"");
+  let cand = RG_BANK[key];
+  if(cand && cand.includes(":")) cand = cand.split(":")[0];
+  if(!cand){
+    const pool = RG_POOL[rgGuessPOS(key)];
+    const opts = pool.filter(p=>p!==key && !used.has(p));
+    cand = opts.length ? opts[Math.floor(Math.random()*opts.length)] : pool[0];
+  }
+  used.add(cand.toLowerCase());
+  return rgMatchCase(word, cand);
+}
+// 數字詞、星期、月份 — 一律排除，避免被誤選為「生難字」
+const RG_NUMWORD = new Set(("one two three four five six seven eight nine ten eleven twelve thirteen "+
+ "fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty "+
+ "seventy eighty ninety hundred thousand monday tuesday wednesday thursday friday "+
+ "saturday sunday january february march april may june july august september "+
+ "october november december").split(" "));
+function rgIsNumOrDate(lw){
+  if(RG_NUMWORD.has(lw)) return true;
+  const parts = lw.split("-");
+  return parts.length>1 && parts.every(p=>RG_NUMWORD.has(p));
+}
+// 自動挑生難字：排除虛字/專有名詞/數字與日期，依長度與難度排序，依等級決定題數
+function rgPickWords(paragraphs, level, proper, seed){
+  const rand = rgSeeded(seed);
+  const seen = new Map(); // lower -> first original-case token
+  const re = /[A-Za-z][A-Za-z'-]*/g;
+  paragraphs.forEach(p=>{
+    let m; while((m = re.exec(p))){
+      const w = m[0], lw = w.toLowerCase();
+      if(!seen.has(lw)) seen.set(lw, w);
+    }
+  });
+  const properLower = new Set((proper||[]).map(x=>x.toLowerCase()));
+  const minLen = {a:5, b:5, c:6}[level] || 5;
+  // 篩選條件：非虛字、非專有名詞、非數字/日期、長度達標
+  let cands = [...seen.entries()].filter(([lw,w])=>
+    lw.length>=minLen && !RG_STOP.has(lw) && !properLower.has(lw) && !rgIsNumOrDate(lw));
+  // 難度分數：越長、越少見（不在 RG_BANK 代表較常見的簡單延伸詞也可，但優先挑有干擾字庫的字，品質較穩）
+  cands.sort((a,b)=>{
+    const score = ([lw]) => (RG_BANK[lw]?3:0) + lw.length;
+    return score(b)-score(a) || (rand()-0.5);
+  });
+  const n = {a:4, b:6, c:8}[level] || 5;
+  // 加一點隨機性：從前 n*2 名裡隨機取 n 個，避免每次都一模一樣又不失品質
+  const topPool = cands.slice(0, Math.max(n*2, n));
+  const picked = [];
+  const idxs = topPool.map((_,i)=>i);
+  while(picked.length < Math.min(n, topPool.length)){
+    const j = Math.floor(rand()*idxs.length);
+    picked.push(topPool[idxs[j]]);
+    idxs.splice(j,1);
+  }
+  return picked.map(([lw,w])=>w);
+}
+function rgSeeded(seed){
+  let s = seed>>>0 || 1;
+  return function(){ s ^= s<<13; s ^= s>>>17; s ^= s<<5; s >>>= 0; return (s%100000)/100000; };
+}
+function rgEscapeRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"); }
+// 建立每段落的 segments（文字／干擾字），確保每個目標字只出現一次
+function rgBuildParas(paragraphs, pairs){
+  let remaining = pairs.slice();
+  return paragraphs.map((p,pi)=>{
+    const spans = [];
+    remaining = remaining.filter(pair=>{
+      const re = new RegExp("\\b"+rgEscapeRe(pair.correct)+"\\b","i");
+      const m = re.exec(p);
+      if(m){ spans.push({start:m.index, end:m.index+m[0].length, correct:pair.correct, wrong:pair.wrong, id:"rg"+pi+"-"+m.index}); return false; }
+      return true;
+    });
+    spans.sort((a,b)=>a.start-b.start);
+    const segs = []; let last = 0;
+    spans.forEach(sp=>{
+      if(sp.start>last) segs.push({type:"text", content:p.slice(last, sp.start)});
+      segs.push({type:"wrong", content:sp.wrong, correct:sp.correct, id:sp.id});
+      last = sp.end;
+    });
+    if(last<p.length) segs.push({type:"text", content:p.slice(last)});
+    return segs;
+  });
+}
+
 const UNIT_READS = {
 "u1": {
  title:"Welcome to Englishcat Island!", zh:"歡迎來到英語貓咪島", genre:"公告 Notice", fmt:"notice", w:158,
@@ -4142,6 +4459,81 @@ function isoWeek(d){
 function weekArticle(){ return READINGS[(isoWeek(new Date())+1) % READINGS.length]; }
 function rdById(id){ return READINGS.find(r=>r.id===id) || weekArticle(); }
 
+/* ---- 聽力更正遊戲 UI ---- */
+let RG = null; // {id, lvl, pairs, paras, fixed:{}, selIdx:null, shakeId:null, flashIdx:null, rewarded:Set}
+function rgBuild(id, lvl, reseed){
+  const r = rdById(id); lvl = r.levels[lvl] ? lvl : "a";
+  const seed = reseed || (Date.now() & 0xffff);
+  const words = rgPickWords(r.levels[lvl].text, lvl, r.proper, seed);
+  const used = new Set(words.map(w=>w.toLowerCase()));
+  const pairs = words.map(w=>({correct:w, wrong:rgDistractor(w, used)}));
+  const paras = rgBuildParas(r.levels[lvl].text, pairs);
+  RG = {id, lvl, pairs, paras, seed, fixed:{}, selIdx:null, shakeId:null, flashIdx:null, rewarded:new Set()};
+}
+function rgShuffle(){ rgBuild(RG.id, RG.lvl, (Date.now()&0xffff)); renderReadGame(RG.id, RG.lvl); }
+function rgSetLevel(lvl){ rgBuild(RG.id, lvl); renderReadGame(RG.id, lvl); }
+function rgSelectChip(i){
+  if(RG.pairs[i].used) return;
+  RG.selIdx = (RG.selIdx===i) ? null : i;
+  renderReadGame(RG.id, RG.lvl, true);
+}
+function rgTryFix(segId, correct){
+  if(RG.fixed[segId]) return;
+  if(RG.selIdx===null){ toast("先在下面選一個單字 🔍"); return; }
+  const chip = RG.pairs[RG.selIdx];
+  if(chip.correct.toLowerCase() === correct.toLowerCase()){
+    RG.fixed[segId] = chip.correct;
+    chip.used = true;
+    RG.selIdx = null;
+    if(!RG.rewarded.has(segId)){ RG.rewarded.add(segId); store.addXP(1); }
+    const total = RG.pairs.length, done = Object.keys(RG.fixed).length;
+    if(done===total){ setTimeout(()=>{ store.addXP(3); toast("🎉 全部更正完畢！+3 XP"); }, 300); }
+  } else {
+    RG.shakeId = segId; RG.flashIdx = RG.selIdx;
+    setTimeout(()=>{ RG.shakeId=null; RG.flashIdx=null; renderReadGame(RG.id, RG.lvl, true); }, 450);
+  }
+  renderReadGame(RG.id, RG.lvl, true);
+}
+function renderReadGame(id, lvl, keepScroll){
+  const y = keepScroll ? window.scrollY : 0;
+  if(!RG || RG.id!==id || (lvl && RG.lvl!==lvl)) rgBuild(id, lvl || RD_LEVEL || "a");
+  const r = rdById(RG.id);
+  const LET = "abcdefgh";
+  const tabs = [["a","A1–A2"],["b","B1–B2"],["c","C1–C2"]]
+    .map(t=>`<button class="rd-lv-tab ${RG.lvl===t[0]?"active":""}" onclick="rgSetLevel('${t[0]}')">${t[1]}</button>`).join("");
+  const parasHTML = RG.paras.map(segs=>`<p class="rd-p" style="padding-left:0">${segs.map(seg=>{
+    if(seg.type==="text") return esc(seg.content);
+    const fixed = RG.fixed[seg.id];
+    const shaking = RG.shakeId===seg.id;
+    return `<span class="rg-blank ${fixed?"fixed pop":""} ${shaking?"shake":""}" onclick="rgTryFix('${seg.id}','${seg.correct.replace(/'/g,"\\'")}')">${fixed || esc(seg.content)}</span>`;
+  }).join("")}</p>`).join("");
+  const bank = RG.pairs.map((p,i)=>{
+    const sel = RG.selIdx===i, used = !!p.used, flash = RG.flashIdx===i;
+    return `<button class="rg-chip ${sel?"sel":""} ${used?"used":""} ${flash?"flash":""}" onclick="rgSelectChip(${i})">
+      <span class="rg-let">${LET[i]}</span>${esc(p.correct)}</button>`;
+  }).join("");
+  const total = RG.pairs.length, done = Object.keys(RG.fixed).length;
+  const speakBtn = tts.ok ? `<button class="rg-playbtn" onclick="tts.speak(${JSON.stringify(r.levels[RG.lvl].text.join(" "))},0.88)">🔊 播放全文</button><button class="btn btn-ghost" onclick="tts.stop()">⏹</button>` : "";
+  app.innerHTML = `<div class="view rg-view">
+    <div class="crumb"><a href="#/reading/${r.id}">${r.topic}</a> › 聽力更正遊戲</div>
+    <div class="rg-hero">${RD_ART[r.icon]||""}<div>
+      <div class="eyebrow" style="margin:0">Listening Fix-it · 聽力更正遊戲</div>
+      <h1 class="display" style="margin:2px 0 0">${r.topic}</h1></div></div>
+    <p class="lede">仔細聽全文，找出<b>文章裡跟音檔不一樣的字</b>（有虛線底線），從下方單字庫選出正確的字修正它。單字是系統自動從這篇文章挑出的較難詞彙。</p>
+    <div class="rd-lv-tabs">${tabs}<button class="btn btn-ghost" onclick="rgShuffle()" style="margin-left:auto">🔀 換一批單字</button></div>
+    <div class="rg-playbox">${speakBtn}<span class="lx-hint">可重複播放</span></div>
+    <div class="rg-article">${parasHTML}</div>
+    <div class="rg-bank">
+      <div class="rg-bank-h">📚 單字庫 Word Bank<span>先點單字，再點文章中虛線的錯字</span></div>
+      <div class="rg-chips">${bank}</div>
+    </div>
+    <div class="rg-status ${done===total?"done":""}">${done===total
+      ? "🎉 全部更正完畢！聽力超強！"
+      : `已更正 <b>${done} / ${total}</b> 個錯誤`}</div>
+  </div>`;
+  if(keepScroll) window.scrollTo(0, y);
+}
+
 function renderReadings(){
   const cur = weekArticle();
   const cards = READINGS.map(r=>{
@@ -4220,7 +4612,8 @@ function renderReading(id, keepScroll){
         <span class="rd-wc">${lv.cefr}｜${lv.zh}｜${lv.w} words</span></div>
       ${paras}
       <div class="rd-tools">${speakBtn}
-        <button class="btn btn-ghost" onclick="rdToggleGloss()">${RD_GLOSS?"隱藏":"顯示"}單字表 Glossary</button></div>
+        <button class="btn btn-ghost" onclick="rdToggleGloss()">${RD_GLOSS?"隱藏":"顯示"}單字表 Glossary</button>
+        <button class="btn btn-primary" onclick="location.hash='#/readgame/${r.id}/${RD_LEVEL}'">🎮 聽力更正遊戲 Fix-it Game</button></div>
       ${RD_GLOSS?`<div class="rd-gloss">${gloss}</div>`:""}
     </div>
     <h2 class="section" style="margin-top:24px">Comprehension Questions<span class="zh-term">閱讀測驗</span></h2>
