@@ -1983,18 +1983,53 @@ function catLevelNow(){
 const tts = {
   ok: ("speechSynthesis" in window),
   voice: null,
+  _q: [], _cancel: false,
+  /* Rank every English voice and keep the most natural one the device offers.
+     The big quality jump on modern devices comes from the neural voices:
+     Windows/Edge "… Online (Natural)", Apple "(Enhanced)/(Premium)", Google. */
   pick(){ if(!this.ok) return;
-    const vs = speechSynthesis.getVoices().filter(v=>v.lang && v.lang.toLowerCase().startsWith("en"));
-    this.voice = vs.find(v=>/google us english/i.test(v.name))
-              || vs.find(v=>v.lang==="en-US" && /female|samantha|aria|jenny/i.test(v.name))
-              || vs.find(v=>v.lang==="en-US") || vs[0] || null; },
-  stop(){ if(this.ok) speechSynthesis.cancel(); },
-  speak(text, rate){ if(!this.ok || !text) return;
-    speechSynthesis.cancel();
+    const all = speechSynthesis.getVoices().filter(v=>v.lang && /^en/i.test(v.lang));
+    if(!all.length) return;
+    const score = v => {
+      const n = (v.name||"").toLowerCase(); let s = 0;
+      if(/natural|neural/.test(n))    s += 70;   // Microsoft neural voices
+      if(/enhanced|premium/.test(n))  s += 65;   // Apple downloaded high-quality voices
+      if(/online/.test(n))            s += 35;   // MS online = cloud neural
+      if(/google/.test(n))            s += 45;   // Google voices: clearly better than legacy
+      if(/\b(aria|jenny|ava|zoe|allison|samantha|serena|nova|emma|libby|sonia|michelle|evan)\b/.test(n)) s += 22;
+      if(v.lang==="en-US")            s += 12;
+      else if(v.lang==="en-GB")       s += 8;
+      else                            s += 3;
+      if(/female/i.test(v.name))      s += 4;
+      if(/espeak|pico|compact|eloquence/.test(n)) s -= 60;               // known robotic engines
+      if(/microsoft (david|mark|zira|hazel|george|susan|catherine|james|linda|richard)\b/.test(n) && !/online|natural/.test(n)) s -= 12; // legacy SAPI
+      return s;
+    };
+    this.voice = all.slice().sort((a,b)=>score(b)-score(a))[0] || null; },
+  stop(){ if(this.ok){ this._cancel = true; this._q = []; speechSynthesis.cancel(); } },
+  _one(text, rate, pitch, onend){
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US"; u.rate = rate || 0.95; u.pitch = 1.05;
+    u.lang = (this.voice && this.voice.lang) || "en-US";
+    u.rate = rate || 0.95; u.pitch = (pitch==null?1.0:pitch);
     if(this.voice) u.voice = this.voice;
-    speechSynthesis.speak(u); }
+    u.onend = onend; u.onerror = onend;
+    try{ speechSynthesis.resume(); }catch(e){}
+    speechSynthesis.speak(u); },
+  /* Speak sentence by sentence with a short gap. Two wins over one long utterance:
+     a more human rhythm, and no more mid-read cut-off on long texts in Chrome. */
+  speak(text, rate, pitch){ if(!this.ok || !text) return;
+    this.stop(); this._cancel = false;
+    const parts = String(text).replace(/\s+/g," ").match(/[^.!?…]+[.!?…]*["”')]*|\S+$/g) || [text];
+    this._q = parts.map(s=>s.trim()).filter(Boolean);
+    const next = () => {
+      if(this._cancel || !this._q.length) return;
+      const s = this._q.shift();
+      this._one(s, rate, pitch, () => {
+        if(this._cancel || !this._q.length) return;
+        setTimeout(next, this._q.length ? 170 : 0);   // brief breath between sentences
+      });
+    };
+    next(); }
 };
 if(tts.ok){ tts.pick(); speechSynthesis.onvoiceschanged = ()=>tts.pick(); }
 const stripTags = s => (s||"").replace(/<[^>]*>/g,"");
