@@ -4774,6 +4774,20 @@ function rgBuild(id, lvl, reseed){
 }
 function rgShuffle(){ rgBuild(RG.id, RG.lvl, (Date.now()&0xffff)); renderReadGame(RG.id, RG.lvl); }
 function rgSetLevel(lvl){ rgBuild(RG.id, lvl); renderReadGame(RG.id, lvl); }
+function rgPlay(){
+  if(!RG) return;
+  tts.stop();                                   // also stops any playing mp3
+  const r = rdById(RG.id), lvl = RG.lvl, lv = r.levels[lvl];
+  const fallback = () => tts.speak(lv.text.join(" "), 0.88);
+  const src = RD_AUDIO[r.id] && RD_AUDIO[r.id][lvl];
+  if(src){
+    const a = new Audio(src); rdAudioEl = a;
+    a.onended = () => { if(rdAudioEl===a) rdAudioEl=null; };
+    a.play().catch(() => { if(rdAudioEl===a){ rdAudioEl=null; fallback(); } });
+    return;
+  }
+  fallback();
+}
 function rgSelectChip(i){
   if(RG.pairs[i].used) return;
   RG.selIdx = (RG.selIdx===i) ? null : i;
@@ -4815,7 +4829,7 @@ function renderReadGame(id, lvl, keepScroll){
       <span class="rg-let">${LET[i]}</span>${esc(p.correct)}</button>`;
   }).join("");
   const total = RG.pairs.length, done = Object.keys(RG.fixed).length;
-  const speakBtn = tts.ok ? `<button class="rg-playbtn" onclick="tts.speak(${JSON.stringify(r.levels[RG.lvl].text.join(" "))},0.88)">🔊 播放全文</button><button class="btn btn-ghost" onclick="tts.stop()">⏹</button>` : "";
+  const speakBtn = `<button class="rg-playbtn" onclick="rgPlay()">🔊 播放全文</button><button class="btn btn-ghost" onclick="tts.stop()">⏹</button>`;
   app.innerHTML = `<div class="view rg-view">
     <div class="crumb"><a href="#/reading/${r.id}">${r.topic}</a> › 聽力更正遊戲</div>
     <div class="rg-hero">${RD_ART[r.icon]||""}<div>
