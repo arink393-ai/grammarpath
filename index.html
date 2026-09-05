@@ -285,6 +285,9 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rd-card-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
 .rd-tag{font:700 10.5px var(--sans);color:#3C7D72;background:#E4F1EE;border:1px solid #C6E2DC;border-radius:99px;padding:2px 9px}
 .rd-src{font:400 11px var(--sans);color:var(--muted)}
+.rd-source{margin-top:18px;padding:13px 16px;border-top:1px solid var(--line);font:400 12px/1.75 var(--sans);color:var(--muted)}
+.rd-source-h{font:700 10.5px var(--sans);color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.rd-source b{color:var(--body);font-weight:600}
 .rd-card-lv{font:500 11px var(--sans);color:var(--faint);margin-top:5px}
 .rd-note{font:400 12.5px/1.7 var(--sans);color:var(--muted);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px}
 .rd-hero{display:flex;gap:14px;align-items:flex-start;margin:6px 0 4px}
@@ -4922,6 +4925,7 @@ function rdSheetHTML(r, lv){
   <h2>Comprehension Questions 閱讀測驗</h2>
   ${qs}
   ${discuss?`<h2>Discussion 討論與延伸</h2><ol class="disc">${discuss}</ol>`:""}
+  <div class="src-note">📰 Source 資料來源：改寫自 ${rdEsc(r.src)} 等媒體之公開報導（${rdEsc(r.date)}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</div>
   <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}</div>
 </section>`;
 }
@@ -4953,6 +4957,7 @@ h2{font:700 13pt system-ui,sans-serif;color:#7A5B49;border-bottom:2px solid #EEE
 .qn{font-weight:700} .qtag{font:600 9px system-ui,sans-serif;color:#B4623B;background:#FCF0E8;border-radius:99px;padding:1px 7px;margin-left:8px;vertical-align:middle;white-space:nowrap}
 .opts{padding-left:20px;font:11pt system-ui,sans-serif} .opt{margin:3px 0}
 ol.disc{padding-left:22px} ol.disc li{margin:6px 0}
+.src-note{font:9.5pt/1.5 system-ui,sans-serif;color:#666;border-top:1px solid #ddd;margin-top:18px;padding-top:9px}
 .answers{display:none;margin-top:22px;border-top:2px dashed #ccc;padding-top:12px}
 body.show-ak .answers{display:block}
 .answers .lbl{font:700 10px system-ui,sans-serif;color:#B4623B;letter-spacing:.08em}
@@ -5037,6 +5042,8 @@ function renderReading(id, keepScroll){
     <div class="rd-cta">${cta}</div>
     <div class="rd-discuss"><h3>💬 Discussion 討論與延伸</h3>
       <ol>${r.discuss.map(d=>`<li>${d}</li>`).join("")}</ol></div>
+    <div class="rd-source"><div class="rd-source-h">📰 資料來源 Source</div>
+      改寫自 <b>${r.src}</b> 等媒體之公開報導（${r.date}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載；文中觀點與用字為教學改寫，著作權歸原報導媒體所有。</div>
   </div>`;
   if(keepScroll) window.scrollTo(0, y);
 }
