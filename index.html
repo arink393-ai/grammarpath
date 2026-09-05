@@ -271,6 +271,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 }
 /* ---- News reading ---- */
 .rd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:18px 0}
+.rd-actions{margin:14px 0 -2px}
 .rd-card{display:flex;gap:12px;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
 .rd-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--teal-line)}
 .rd-card.now{border-color:var(--teal);background:linear-gradient(160deg,#FFFDF9,#FCF0E8)}
@@ -4867,6 +4868,7 @@ function renderReadings(){
     <div class="eyebrow">News reading · 每週時事閱讀</div>
     <h1 class="display">Read the World<span class="zh-term-lg">讀懂世界</span></h1>
     <p class="lede">取材自 BBC、CNN 等國際媒體的重大時事，改寫成 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度。同一則新聞、三個版本，全班可以讀同一個主題再一起討論。文章每週自動更換，也可以直接點下面任何一篇。</p>
+    <div class="rd-actions"><button class="btn btn-ghost" onclick="rdPrintAll()">🖨 批次列印全部文章（三種難度）</button></div>
     <div class="rd-grid">${cards}</div>
     <div class="rd-note">📖 題型參考國中會考與大考：主旨大意、細節理解、字義推敲、推論、語氣與篇章結構。<br>
     ✍️ 文章由 Claude 依據各家媒體報導的<b>事實</b>重新撰寫成分級英文，非原文轉載。</div>
@@ -4898,22 +4900,38 @@ function rdSpeak(id, li){
 }
 /* Printable worksheet: opens a clean, self-contained page (article + glossary +
    MCQs + discussion) with a student/teacher toggle, then the browser print dialog. */
-function rdPrint(id, li){
-  const r = rdById(id), lv = r.levels[li];
-  const esc = s => String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-  const plain = s => esc(String(s==null?"":s).replace(/<[^>]*>/g,""));   // drop <b> etc, then escape
-  const LET = ["A","B","C","D","E","F"];
-  const paras   = lv.text.map(p=>`<p>${esc(p)}</p>`).join("");
-  const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${esc(g[0])}</b> <i>${esc(g[1])}</i> ${esc(g[2])}</span>`).join("");
+const rdEsc   = s => String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const rdPlain = s => rdEsc(String(s==null?"":s).replace(/<[^>]*>/g,""));   // drop <b> etc, then escape
+const RD_LET  = ["A","B","C","D","E","F"];
+/* One printable worksheet block (a single article at a single level). */
+function rdSheetHTML(r, lv){
+  const paras   = lv.text.map(p=>`<p>${rdEsc(p)}</p>`).join("");
+  const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${rdEsc(g[0])}</b> <i>${rdEsc(g[1])}</i> ${rdEsc(g[2])}</span>`).join("");
   const qs = (lv.q||[]).map((q,i)=>{
-    const opts = (q.opts||[]).map((o,oi)=>`<div class="opt">(${LET[oi]}) ${plain(o)}</div>`).join("");
-    return `<div class="q"><div class="qh"><span class="qn">${i+1}.</span> ${plain(q.q)}<span class="qtag">${esc(q.t)}</span></div><div class="opts">${opts}</div></div>`;
+    const opts = (q.opts||[]).map((o,oi)=>`<div class="opt">(${RD_LET[oi]}) ${rdPlain(o)}</div>`).join("");
+    return `<div class="q"><div class="qh"><span class="qn">${i+1}.</span> ${rdPlain(q.q)}<span class="qtag">${rdEsc(q.t)}</span></div><div class="opts">${opts}</div></div>`;
   }).join("");
-  const answers = (lv.q||[]).map((q,i)=>`<div class="ak"><b>${i+1}. (${LET[q.a]})</b> ${plain(q.why)}</div>`).join("");
-  const discuss = (r.discuss||[]).map(d=>`<li>${esc(d)}</li>`).join("");
+  const answers = (lv.q||[]).map((q,i)=>`<div class="ak"><b>${i+1}. (${RD_LET[q.a]})</b> ${rdPlain(q.why)}</div>`).join("");
+  const discuss = (r.discuss||[]).map(d=>`<li>${rdEsc(d)}</li>`).join("");
+  return `<section class="sheet">
+  <div class="name-row"><span>Name 姓名: ____________</span><span>Class 班級: ________</span><span>Date 日期: ________</span><span>Score 分數: ______</span></div>
+  <h1>${rdPlain(lv.title)}</h1>
+  <div class="meta"><span class="cefr">${rdEsc(lv.cefr)}</span>${rdEsc(r.topic)} · ${rdEsc(r.zh)} · 改寫自 ${rdEsc(r.src)}</div>
+  <div class="article">${paras}</div>
+  ${gloss?`<h2>Words 單字</h2><div class="gloss">${gloss}</div>`:""}
+  <h2>Comprehension Questions 閱讀測驗</h2>
+  ${qs}
+  ${discuss?`<h2>Discussion 討論與延伸</h2><ol class="disc">${discuss}</ol>`:""}
+  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}</div>
+</section>`;
+}
+/* Build + open a print window from a list of {r, lv} sections (each = one page). */
+function rdOpenWorksheet(sections, docTitle){
+  if(!sections.length) return;
+  const body = sections.map(s=>rdSheetHTML(s.r, s.lv)).join("");
   const doc =
 `<!doctype html><html lang="en"><head><meta charset="utf-8">
-<title>${plain(lv.title)} — ${esc(lv.cefr)}</title>
+<title>${rdPlain(docTitle)}</title>
 <style>
 *{box-sizing:border-box}
 body{font:12pt/1.55 Georgia,'Times New Roman',serif;color:#111;margin:0;background:#eee}
@@ -4939,31 +4957,29 @@ ol.disc{padding-left:22px} ol.disc li{margin:6px 0}
 body.show-ak .answers{display:block}
 .answers .lbl{font:700 10px system-ui,sans-serif;color:#B4623B;letter-spacing:.08em}
 .ak{font:10.5pt system-ui,sans-serif;margin:5px 0}
-@media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
+@media print{ .bar{display:none} body{background:#fff}
+  .sheet{box-shadow:none;margin:0;max-width:none;padding:0;page-break-before:always}
+  .sheet:first-of-type{page-break-before:avoid} }
 @page{margin:1.6cm}
 </style></head><body>
 <div class="bar">
   <span>🐱 English Cat Island</span>
   <button onclick="window.print()">🖨 列印 / 存成 PDF</button>
   <button class="sec" onclick="document.body.classList.toggle('show-ak')">顯示／隱藏解答（教師版）</button>
-  <span class="hint">預設為學生版（無解答）。要印答案卷就先按上面「顯示解答」。</span>
+  <span class="hint">共 ${sections.length} 頁 · 預設為學生版（無解答）。要印答案就先按「顯示解答」。</span>
 </div>
-<div class="sheet">
-  <div class="name-row"><span>Name 姓名: ____________</span><span>Class 班級: ________</span><span>Date 日期: ________</span><span>Score 分數: ______</span></div>
-  <h1>${plain(lv.title)}</h1>
-  <div class="meta"><span class="cefr">${esc(lv.cefr)}</span>${esc(r.topic)} · ${esc(r.zh)} · 改寫自 ${esc(r.src)}</div>
-  <div class="article">${paras}</div>
-  ${gloss?`<h2>Words 單字</h2><div class="gloss">${gloss}</div>`:""}
-  <h2>Comprehension Questions 閱讀測驗</h2>
-  ${qs}
-  ${discuss?`<h2>Discussion 討論與延伸</h2><ol class="disc">${discuss}</ol>`:""}
-  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}</div>
-</div>
+${body}
 <\/body><\/html>`;
   const w = window.open("", "_blank");
   if(!w){ toast("請允許彈出視窗才能列印 🖨"); return; }
   w.document.open(); w.document.write(doc); w.document.close();
 }
+/* One article, current level */
+function rdPrint(id, li){ const r = rdById(id); rdOpenWorksheet([{r, lv:r.levels[li]}], rdPlain(r.levels[li].title)+" — "+r.levels[li].cefr); }
+/* One article, all three levels (A1-A2 / B1-B2 / C1-C2), one page each */
+function rdPrintLevels(id){ const r = rdById(id); const secs = ["a","b","c"].filter(k=>r.levels[k]).map(k=>({r, lv:r.levels[k]})); rdOpenWorksheet(secs, r.topic+"（三種難度）"); }
+/* Every reading article, all three levels — a full packet */
+function rdPrintAll(){ const secs = []; READINGS.forEach(r=>["a","b","c"].forEach(k=>{ if(r.levels[k]) secs.push({r, lv:r.levels[k]}); })); rdOpenWorksheet(secs, "English Cat Island — 全部時事閱讀"); }
 let rdCurId = null;
 
 function renderReading(id, keepScroll){
@@ -5012,6 +5028,7 @@ function renderReading(id, keepScroll){
       <div class="rd-tools">${speakBtn}
         <button class="btn btn-ghost" onclick="rdToggleGloss()">${RD_GLOSS?"隱藏":"顯示"}單字表 Glossary</button>
         <button class="btn btn-ghost" onclick="rdPrint('${r.id}','${RD_LEVEL}')">🖨 列印練習卷 Print</button>
+        <button class="btn btn-ghost" onclick="rdPrintLevels('${r.id}')">🖨 三級合印</button>
         <button class="btn btn-primary" onclick="location.hash='#/readgame/${r.id}/${RD_LEVEL}'">🎮 聽力更正遊戲 Fix-it Game</button></div>
       ${RD_GLOSS?`<div class="rd-gloss">${gloss}</div>`:""}
     </div>
