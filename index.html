@@ -309,9 +309,16 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-canvas .gl{stroke:#E8DCC8;stroke-width:1.5}
 .abc-canvas .gl.d{stroke-dasharray:5 6}
 .abc-canvas .gl.b{stroke:#C9B79E;stroke-width:2}
-.abc-canvas .abc-ink{fill:none;stroke:var(--navy);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-.abc-canvas .abc-fill{fill:var(--teal);opacity:0;transition:opacity .45s ease}
-.abc-canvas .abc-pen{fill:var(--teal);stroke:#fff;stroke-width:1.5;opacity:0}
+.abc-canvas .abc-ghost{fill:#ECE3D3}
+.abc-canvas .abc-ink{fill:none;stroke:var(--navy);stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+.abc-canvas .abc-pen{fill:var(--teal);stroke:#fff;stroke-width:2;opacity:0}
+.abc-canvas .abc-onum{opacity:0;transition:opacity .2s ease}
+.abc-canvas .abc-arrow{fill:var(--teal)}
+.abc-canvas .abc-numbg{fill:var(--teal)}
+.abc-canvas .abc-numtx{fill:#fff;font:700 13px var(--sans)}
+.abc-headinfo{display:flex;flex-direction:column;gap:4px}
+.abc-phon{font:600 13px var(--mono);color:var(--amber);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:8px;padding:2px 10px;align-self:flex-start}
+.abc-phon b{font-weight:700}
 .abc-ctrls{display:flex;gap:9px;flex-wrap:wrap;margin-top:6px}
 .rd-card-lv{font:500 11px var(--sans);color:var(--faint);margin-top:5px}
 .rd-note{font:400 12.5px/1.7 var(--sans);color:var(--muted);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px}
@@ -5102,7 +5109,7 @@ function abcEnsureFont(){
   });
   return abcFontLoading;
 }
-/* guideline geometry (shared by animation) */
+/* guideline geometry: cap 30→185, x-height line 75, descender 229 */
 const ABC_G = { W:220, H:252, top:30, mid:75, base:185, desc:229 };
 function abcPathData(char){
   const f = abcFont, G = ABC_G;
@@ -5114,40 +5121,132 @@ function abcPathData(char){
   const dx = G.W/2 - (bb.x1 + bb.x2)/2;
   return f.getPath(char, dx, G.base, size).toPathData(2);
 }
+/* Hand-authored centreline strokes in teaching order (coords in the ABC_G grid).
+   Numbers ①②③ and start arrows are derived from each stroke's start + tangent. */
+const LETTER_STROKES = {
+  A:["M110 32 L64 185","M110 32 L156 185","M83 132 L137 132"],
+  B:["M74 32 L74 185","M74 32 C132 34 132 104 74 106","M74 106 C144 108 144 185 74 185"],
+  C:["M154 66 C120 24 58 40 58 108 C58 176 120 192 154 150"],
+  D:["M74 32 L74 185","M74 32 C148 42 148 175 74 185"],
+  E:["M78 32 L78 185","M78 32 L150 32","M78 108 L138 108","M78 185 L150 185"],
+  F:["M78 32 L78 185","M78 32 L150 32","M78 108 L134 108"],
+  G:["M154 66 C120 24 58 40 58 108 C58 176 124 194 156 152 L156 118 L122 118"],
+  H:["M70 32 L70 185","M150 32 L150 185","M70 108 L150 108"],
+  I:["M82 32 L138 32","M110 32 L110 185","M82 185 L138 185"],
+  J:["M96 32 L150 32","M138 32 L138 150 C138 188 84 192 72 156"],
+  K:["M72 32 L72 185","M150 32 L74 112","M98 96 L152 185"],
+  L:["M78 32 L78 185","M78 185 L150 185"],
+  M:["M62 185 L62 32","M62 32 L110 138","M110 138 L158 32","M158 32 L158 185"],
+  N:["M66 185 L66 32","M66 32 L154 185","M154 185 L154 32"],
+  O:["M110 32 C60 32 56 185 110 185 C164 185 160 32 110 32"],
+  P:["M76 32 L76 185","M76 32 C140 34 140 106 76 108"],
+  Q:["M110 32 C60 32 56 185 110 185 C164 185 160 32 110 32","M124 148 L164 194"],
+  R:["M76 32 L76 185","M76 32 C140 34 140 106 76 108","M98 108 L150 185"],
+  S:["M152 62 C138 26 70 24 68 74 C66 114 152 108 152 152 C152 196 76 196 60 158"],
+  T:["M55 32 L165 32","M110 32 L110 185"],
+  U:["M66 32 L66 140 C66 190 154 190 154 140 L154 32"],
+  V:["M62 32 L110 185 L158 32"],
+  W:["M52 32 L82 185 L110 78 L138 185 L168 32"],
+  X:["M68 32 L152 185","M152 32 L68 185"],
+  Y:["M66 32 L110 110","M154 32 L110 110","M110 110 L110 185"],
+  Z:["M62 32 L158 32 L64 185 L158 185"],
+  a:["M150 104 C120 74 68 84 68 130 C68 178 128 192 150 150","M150 92 L150 185"],
+  b:["M74 30 L74 185","M74 150 C74 118 150 118 150 152 C150 184 74 184 74 152"],
+  c:["M146 100 C120 72 72 84 72 130 C72 176 120 188 146 160"],
+  d:["M150 30 L150 185","M150 152 C150 118 74 118 74 152 C74 184 150 184 150 150"],
+  e:["M72 138 L146 138 C148 106 74 100 72 132 C70 176 120 190 148 156"],
+  f:["M146 44 C118 24 90 34 90 76 L90 185","M66 96 L128 96"],
+  g:["M150 100 C120 74 72 84 72 126 C72 168 128 178 150 150","M150 92 L150 200 C150 230 92 234 74 208"],
+  h:["M74 30 L74 185","M74 120 C90 96 150 96 150 128 L150 185"],
+  i:["M110 96 L110 185","M110 62 L110 71"],
+  j:["M130 96 L130 205 C130 232 82 232 70 204","M130 62 L130 71"],
+  k:["M74 30 L74 185","M140 96 L80 142","M100 128 L146 185"],
+  l:["M108 30 L108 172 C108 186 118 190 128 185"],
+  m:["M72 96 L72 185","M72 122 C84 100 116 100 116 128 L116 185","M116 122 C128 100 162 100 162 128 L162 185"],
+  n:["M74 96 L74 185","M74 122 C90 100 150 100 150 130 L150 185"],
+  o:["M110 96 C72 96 72 185 110 185 C148 185 148 96 110 96"],
+  p:["M74 96 L74 229","M74 152 C74 120 150 120 150 152 C150 184 74 184 74 150"],
+  q:["M150 96 L150 229","M150 152 C150 120 74 120 74 152 C74 184 150 184 150 150"],
+  r:["M78 96 L78 185","M78 124 C92 102 128 100 146 108"],
+  s:["M142 108 C130 90 82 90 82 116 C82 140 138 138 138 164 C138 190 86 190 76 172"],
+  t:["M108 46 L108 168 C108 186 122 188 136 181","M78 96 L140 96"],
+  u:["M74 96 L74 160 C74 188 150 188 150 158","M150 96 L150 185"],
+  v:["M72 96 L110 185 L148 96"],
+  w:["M60 96 L84 185 L110 118 L136 185 L160 96"],
+  x:["M76 96 L146 185","M146 96 L76 185"],
+  y:["M74 96 L112 172","M150 96 L84 229"],
+  z:["M78 96 L146 96 L80 185 L148 185"]
+};
+const ABC_SOUND = {
+  A:"/æ/ a-apple",B:"/b/ b-bear",C:"/k/ c-cat",D:"/d/ d-dog",E:"/ɛ/ e-egg",
+  F:"/f/ f-fish",G:"/g/ g-goat",H:"/h/ h-hat",I:"/ɪ/ i-igloo",J:"/dʒ/ j-juice",
+  K:"/k/ k-kite",L:"/l/ l-lion",M:"/m/ m-moon",N:"/n/ n-nest",O:"/ɒ/ o-orange",
+  P:"/p/ p-pig",Q:"/kw/ qu-queen",R:"/r/ r-rainbow",S:"/s/ s-sun",T:"/t/ t-tree",
+  U:"/ʌ/ u-umbrella",V:"/v/ v-van",W:"/w/ w-whale",X:"/ks/ -fox",Y:"/j/ y-yo-yo",Z:"/z/ z-zebra"
+};
 function abcCanvasSVG(char){
-  const G = ABC_G, d = abcPathData(char);
+  const G = ABC_G, ghost = abcPathData(char);
+  const strokes = LETTER_STROKES[char];
+  const inkHTML = (strokes && strokes.length)
+    ? strokes.map(d=>`<path class="abc-ink" d="${d}"/>`).join("")
+    : `<path class="abc-ink" d="${ghost}"/>`;   // fallback: trace the outline
   return `<svg viewBox="0 0 ${G.W} ${G.H}" class="abc-canvas">
     <line class="gl s" x1="6" y1="${G.top}" x2="${G.W-6}" y2="${G.top}"/>
     <line class="gl d" x1="6" y1="${G.mid}" x2="${G.W-6}" y2="${G.mid}"/>
     <line class="gl b" x1="6" y1="${G.base}" x2="${G.W-6}" y2="${G.base}"/>
     <line class="gl d" x1="6" y1="${G.desc}" x2="${G.W-6}" y2="${G.desc}"/>
-    <path class="abc-fill" d="${d}"/>
-    <path class="abc-ink" d="${d}"/>
+    <path class="abc-ghost" d="${ghost}"/>
+    <g class="abc-strokes">${inkHTML}</g>
+    <g class="abc-marks"></g>
     <circle class="abc-pen" r="6"/>
   </svg>`;
 }
-function abcAnimate(canvas, delay){
-  const ink = canvas.querySelector(".abc-ink"),
-        fill = canvas.querySelector(".abc-fill"),
-        pen = canvas.querySelector(".abc-pen");
-  if(!ink) return;
-  const len = ink.getTotalLength();
-  ink.style.strokeDasharray = len; ink.style.strokeDashoffset = len;
-  fill.style.opacity = 0; pen.style.opacity = 0;
-  const dur = Math.min(2600, Math.max(1100, len*3.2));
-  let t0 = null;
-  const step = (t)=>{
-    if(t0===null) t0 = t;
-    const p = Math.min(1, (t - t0)/dur);
-    ink.style.strokeDashoffset = len*(1-p);
-    const pt = ink.getPointAtLength(len*p);
-    pen.setAttribute("cx", pt.x); pen.setAttribute("cy", pt.y); pen.style.opacity = p<1?1:0;
-    if(p<1) requestAnimationFrame(step);
-    else fill.style.opacity = 1;
-  };
-  setTimeout(()=> requestAnimationFrame(step), delay||0);
+/* place numbered badges + start arrows from each stroke's start point & tangent */
+function abcBuildMarks(canvas){
+  const inks = [...canvas.querySelectorAll(".abc-ink")];
+  const g = canvas.querySelector(".abc-marks");
+  if(!g || g.dataset.built) return; g.dataset.built = "1";
+  inks.forEach((p,i)=>{
+    const L = p.getTotalLength(); if(!L) return;
+    const p0 = p.getPointAtLength(0), p1 = p.getPointAtLength(Math.min(14,L));
+    let dx = p1.x-p0.x, dy = p1.y-p0.y; const m = Math.hypot(dx,dy)||1; dx/=m; dy/=m;
+    const nx = p0.x - dx*17 - dy*3, ny = p0.y - dy*17 + dx*3;   // badge sits behind the start
+    const tip = 10, w = 5;
+    const tri = `${p0.x+dx*tip},${p0.y+dy*tip} ${p0.x-dy*w},${p0.y+dx*w} ${p0.x+dy*w},${p0.y-dx*w}`;
+    g.insertAdjacentHTML("beforeend",
+      `<g class="abc-onum" data-i="${i}"><polygon class="abc-arrow" points="${tri}"/>`+
+      `<circle class="abc-numbg" cx="${nx}" cy="${ny}" r="11"/>`+
+      `<text class="abc-numtx" x="${nx}" y="${ny+4}" text-anchor="middle">${i+1}</text></g>`);
+  });
 }
-function abcReplay(){ document.querySelectorAll("#abcStage .abc-canvas").forEach((c,i)=> abcAnimate(c, i*550)); }
+function abcAnimate(canvas, delay){
+  const inks = [...canvas.querySelectorAll(".abc-ink")];
+  const pen = canvas.querySelector(".abc-pen");
+  const nums = [...canvas.querySelectorAll(".abc-onum")];
+  if(!inks.length) return;
+  inks.forEach(p=>{ const L=p.getTotalLength(); p.style.strokeDasharray=L; p.style.strokeDashoffset=L; });
+  nums.forEach(n=> n.style.opacity=0);
+  if(pen) pen.style.opacity=0;
+  let k = 0;
+  const drawStroke = ()=>{
+    if(k>=inks.length){ if(pen) pen.style.opacity=0; return; }
+    const p = inks[k], L = p.getTotalLength();
+    if(nums[k]) nums[k].style.opacity=1;
+    const dur = Math.min(1500, Math.max(480, L*3));
+    let t0 = null;
+    const step = (t)=>{
+      if(t0===null) t0=t;
+      const pr = Math.min(1,(t-t0)/dur);
+      p.style.strokeDashoffset = L*(1-pr);
+      if(pen){ const pt=p.getPointAtLength(L*pr); pen.setAttribute("cx",pt.x); pen.setAttribute("cy",pt.y); pen.style.opacity=1; }
+      if(pr<1) requestAnimationFrame(step);
+      else { k++; setTimeout(drawStroke, 240); }
+    };
+    requestAnimationFrame(step);
+  };
+  setTimeout(drawStroke, delay||0);
+}
+function abcReplay(){ document.querySelectorAll("#abcStage .abc-canvas").forEach((c,i)=> abcAnimate(c, i*500)); }
 function abcGo(ch){ location.hash = "#/abc/" + ch; }
 function renderABCGrid(){
   const cells = ABC.map(ch=>{
@@ -5177,7 +5276,10 @@ function renderLetter(ch){
     <div class="crumb"><a href="#/abc">A–Z 字母書寫</a> › ${ch}${ch.toLowerCase()}</div>
     <div class="abc-head">
       <h1 class="display" style="margin:0">${ch}<span style="color:var(--muted)">${ch.toLowerCase()}</span></h1>
-      <div class="abc-kwbig">${emoji} <b>${ch}</b> is for <b>${word}</b></div>
+      <div class="abc-headinfo">
+        <div class="abc-kwbig">${emoji} <b>${ch}</b> is for <b>${word}</b></div>
+        <div class="abc-phon">🔤 發音 <b>${ABC_SOUND[ch]}</b></div>
+      </div>
     </div>
     <div class="abc-stage" id="abcStage">
       <div class="abc-slot"><div class="abc-lab">大寫 Uppercase</div><div id="abcUp" class="abc-hold">載入中…</div></div>
@@ -5194,6 +5296,8 @@ function renderLetter(ch){
     const up = document.getElementById("abcUp"), lo = document.getElementById("abcLo");
     if(!up || !lo || abcCurrent!==ch) return;
     up.innerHTML = abcCanvasSVG(ch); lo.innerHTML = abcCanvasSVG(ch.toLowerCase());
+    up.querySelectorAll(".abc-canvas").forEach(abcBuildMarks);
+    lo.querySelectorAll(".abc-canvas").forEach(abcBuildMarks);
     abcReplay();
   }).catch(()=>{
     const s = document.getElementById("abcStage");
@@ -5201,10 +5305,11 @@ function renderLetter(ch){
   });
 }
 /* ---- printable trace worksheet (original layout) ---- */
-function abcRuledLine(text, cls){
-  const y = {top:24, mid:56, base:110, desc:128}, W=1000, H=138, size=112;
+function abcRuledLine(text, cls, spacing, size){
+  const y = {top:24, mid:56, base:110, desc:128}, W=1000, H=138;
+  size = size || 112; spacing = (spacing==null?46:spacing);
   const letters = text
-    ? `<text x="46" y="${y.base}" font-family="AndikaPrint,'Comic Sans MS',sans-serif" font-size="${size}" letter-spacing="46" fill="${cls==='model'?'#B4623B':'#CFCFCF'}">${text}</text>`
+    ? `<text x="40" y="${y.base}" font-family="AndikaPrint,'Comic Sans MS',sans-serif" font-size="${size}" letter-spacing="${spacing}" fill="${cls==='model'?'#B4623B':'#CFCFCF'}">${text}</text>`
     : "";
   return `<svg class="rl" viewBox="0 0 ${W} ${H}">
     <line class="g s" x1="0" y1="${y.top}" x2="${W}" y2="${y.top}"/>
@@ -5214,17 +5319,19 @@ function abcRuledLine(text, cls){
     ${letters}</svg>`;
 }
 function abcSheetHTML(ch){
-  const [word, emoji] = ABC_KEY[ch], lo = ch.toLowerCase();
+  const [word, emoji] = ABC_KEY[ch], lo = ch.toLowerCase(), w = word.toLowerCase();
   const rep = s => (s + " ").repeat(6).trim();
   return `<section class="sheet">
     <div class="wshead"><div class="wsbig andika">${ch}${lo}</div>
-      <div class="wskw">${emoji}<div><b>${ch}</b> is for <b>${word}</b></div></div></div>
+      <div class="wskw">${emoji}<div><b>${ch}</b> is for <b>${word}</b><div class="wsphon">🔤 發音 ${ABC_SOUND[ch]}</div></div></div></div>
     <div class="wslabel">Trace 描一描</div>
     ${abcRuledLine(ch+lo, "model")}
     ${abcRuledLine(rep(ch), "trace")}
     ${abcRuledLine(rep(lo), "trace")}
+    <div class="wslabel">Word 關鍵字：${word}</div>
+    ${abcRuledLine(w, "model", 10, 96)}
+    ${abcRuledLine(w, "trace", 10, 96)}
     <div class="wslabel">Write 自己寫寫看</div>
-    ${abcRuledLine("", "")}
     ${abcRuledLine("", "")}
   </section>`;
 }
@@ -5245,6 +5352,7 @@ body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background
 .wsbig{font-size:64pt;line-height:1;color:#7A5B49}
 .wskw{display:flex;align-items:center;gap:10px;font:600 17pt system-ui,sans-serif;color:#555}
 .wskw b{color:#B4623B}
+.wsphon{font:600 11pt system-ui,sans-serif;color:#8a7a5a;margin-top:3px}
 .wslabel{font:700 11pt system-ui,sans-serif;color:#7A5B49;margin:16px 0 4px}
 .rl{width:100%;height:auto;display:block;margin:2px 0}
 .g{stroke:#D8CBB6;stroke-width:2} .g.b{stroke:#B79B78;stroke-width:2.5} .g.d{stroke-dasharray:7 9}
