@@ -4896,6 +4896,74 @@ function rdSpeak(id, li){
   }
   fallback();                                   // no mp3 yet → improved browser voice
 }
+/* Printable worksheet: opens a clean, self-contained page (article + glossary +
+   MCQs + discussion) with a student/teacher toggle, then the browser print dialog. */
+function rdPrint(id, li){
+  const r = rdById(id), lv = r.levels[li];
+  const esc = s => String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const plain = s => esc(String(s==null?"":s).replace(/<[^>]*>/g,""));   // drop <b> etc, then escape
+  const LET = ["A","B","C","D","E","F"];
+  const paras   = lv.text.map(p=>`<p>${esc(p)}</p>`).join("");
+  const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${esc(g[0])}</b> <i>${esc(g[1])}</i> ${esc(g[2])}</span>`).join("");
+  const qs = (lv.q||[]).map((q,i)=>{
+    const opts = (q.opts||[]).map((o,oi)=>`<div class="opt">(${LET[oi]}) ${plain(o)}</div>`).join("");
+    return `<div class="q"><div class="qh"><span class="qn">${i+1}.</span> ${plain(q.q)}<span class="qtag">${esc(q.t)}</span></div><div class="opts">${opts}</div></div>`;
+  }).join("");
+  const answers = (lv.q||[]).map((q,i)=>`<div class="ak"><b>${i+1}. (${LET[q.a]})</b> ${plain(q.why)}</div>`).join("");
+  const discuss = (r.discuss||[]).map(d=>`<li>${esc(d)}</li>`).join("");
+  const doc =
+`<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>${plain(lv.title)} — ${esc(lv.cefr)}</title>
+<style>
+*{box-sizing:border-box}
+body{font:12pt/1.55 Georgia,'Times New Roman',serif;color:#111;margin:0;background:#eee}
+.bar{position:sticky;top:0;z-index:5;background:#333;color:#fff;padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font:600 13px system-ui,-apple-system,sans-serif}
+.bar button{font:600 13px system-ui,sans-serif;padding:7px 14px;border-radius:6px;border:none;cursor:pointer;background:#E08862;color:#fff}
+.bar button.sec{background:#666}
+.bar .hint{font-weight:400;opacity:.75}
+.sheet{max-width:760px;margin:16px auto;background:#fff;padding:40px 46px;box-shadow:0 1px 6px rgba(0,0,0,.15)}
+.name-row{font:11px system-ui,sans-serif;color:#333;border:1px solid #ccc;border-radius:6px;padding:9px 12px;margin-bottom:18px;display:flex;gap:26px;flex-wrap:wrap}
+h1{font-size:19pt;margin:0 0 5px;line-height:1.25}
+.meta{font:10.5px system-ui,sans-serif;color:#555;margin-bottom:18px}
+.cefr{display:inline-block;border:1px solid #E08862;color:#B4623B;border-radius:99px;padding:1px 9px;font:700 10px system-ui,sans-serif;margin-right:6px}
+.article p{margin:0 0 10px;text-align:justify}
+h2{font:700 13pt system-ui,sans-serif;color:#7A5B49;border-bottom:2px solid #EEE0D0;padding-bottom:4px;margin:24px 0 12px}
+.gloss{font:10.5pt system-ui,sans-serif;background:#FBF3E8;border:1px solid #F0E2CE;border-radius:8px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.gloss .g b{color:#111} .gloss .g i{color:#555;font-style:italic}
+.q{margin:0 0 15px;break-inside:avoid;page-break-inside:avoid}
+.qh{font:600 11.5pt system-ui,sans-serif;margin-bottom:5px}
+.qn{font-weight:700} .qtag{font:600 9px system-ui,sans-serif;color:#B4623B;background:#FCF0E8;border-radius:99px;padding:1px 7px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+.opts{padding-left:20px;font:11pt system-ui,sans-serif} .opt{margin:3px 0}
+ol.disc{padding-left:22px} ol.disc li{margin:6px 0}
+.answers{display:none;margin-top:22px;border-top:2px dashed #ccc;padding-top:12px}
+body.show-ak .answers{display:block}
+.answers .lbl{font:700 10px system-ui,sans-serif;color:#B4623B;letter-spacing:.08em}
+.ak{font:10.5pt system-ui,sans-serif;margin:5px 0}
+@media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
+@page{margin:1.6cm}
+</style></head><body>
+<div class="bar">
+  <span>🐱 English Cat Island</span>
+  <button onclick="window.print()">🖨 列印 / 存成 PDF</button>
+  <button class="sec" onclick="document.body.classList.toggle('show-ak')">顯示／隱藏解答（教師版）</button>
+  <span class="hint">預設為學生版（無解答）。要印答案卷就先按上面「顯示解答」。</span>
+</div>
+<div class="sheet">
+  <div class="name-row"><span>Name 姓名: ____________</span><span>Class 班級: ________</span><span>Date 日期: ________</span><span>Score 分數: ______</span></div>
+  <h1>${plain(lv.title)}</h1>
+  <div class="meta"><span class="cefr">${esc(lv.cefr)}</span>${esc(r.topic)} · ${esc(r.zh)} · 改寫自 ${esc(r.src)}</div>
+  <div class="article">${paras}</div>
+  ${gloss?`<h2>Words 單字</h2><div class="gloss">${gloss}</div>`:""}
+  <h2>Comprehension Questions 閱讀測驗</h2>
+  ${qs}
+  ${discuss?`<h2>Discussion 討論與延伸</h2><ol class="disc">${discuss}</ol>`:""}
+  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}</div>
+</div>
+<\/body><\/html>`;
+  const w = window.open("", "_blank");
+  if(!w){ toast("請允許彈出視窗才能列印 🖨"); return; }
+  w.document.open(); w.document.write(doc); w.document.close();
+}
 let rdCurId = null;
 
 function renderReading(id, keepScroll){
@@ -4943,6 +5011,7 @@ function renderReading(id, keepScroll){
       ${paras}
       <div class="rd-tools">${speakBtn}
         <button class="btn btn-ghost" onclick="rdToggleGloss()">${RD_GLOSS?"隱藏":"顯示"}單字表 Glossary</button>
+        <button class="btn btn-ghost" onclick="rdPrint('${r.id}','${RD_LEVEL}')">🖨 列印練習卷 Print</button>
         <button class="btn btn-primary" onclick="location.hash='#/readgame/${r.id}/${RD_LEVEL}'">🎮 聽力更正遊戲 Fix-it Game</button></div>
       ${RD_GLOSS?`<div class="rd-gloss">${gloss}</div>`:""}
     </div>
