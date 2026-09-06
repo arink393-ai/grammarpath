@@ -5122,8 +5122,24 @@ function abcLoadArt(){
   ));
   return abcArtLoading;
 }
-/* guideline geometry: cap 30→185, x-height line 75, descender 229 */
-const ABC_G = { W:220, H:252, top:30, mid:75, base:185, desc:229 };
+/* guideline geometry — balanced primary grid: the dashed x-height line sits
+   halfway between the top line and the baseline. */
+const ABC_G = { W:220, H:252, top:36, mid:108, base:180, desc:226 };
+/* The strokes were authored on an older grid (30/75/185/229). Remap every y in a
+   path 'd' onto the new grid so letters stay aligned to the lines. */
+function abcMapY(y){
+  const o = [30,75,185,229], n = [ABC_G.top, ABC_G.mid, ABC_G.base, ABC_G.desc];
+  if(y <= o[0]) return n[0] + (y-o[0])*(n[1]-n[0])/(o[1]-o[0]);
+  for(let i=0;i<o.length-1;i++){ if(y <= o[i+1]) return n[i] + (y-o[i])*(n[i+1]-n[i])/(o[i+1]-o[i]); }
+  const k = o.length-1; return n[k] + (y-o[k])*(n[k]-n[k-1])/(o[k]-o[k-1]);
+}
+function abcRemapD(d){
+  return d.replace(/([MLC])([^MLC]*)/g, (m, cmd, args)=>{
+    const nums = args.trim().split(/[ ,]+/).filter(s=>s!=="").map(Number);
+    for(let i=1;i<nums.length;i+=2) nums[i] = +abcMapY(nums[i]).toFixed(1);
+    return cmd + nums.join(" ");
+  });
+}
 function abcPathData(char){
   const f = abcFont, G = ABC_G;
   const upe = f.unitsPerEm;
@@ -5201,7 +5217,7 @@ function abcCanvasSVG(char){
   const G = ABC_G, ghost = abcPathData(char);
   const strokes = LETTER_STROKES[char];
   const inkHTML = (strokes && strokes.length)
-    ? strokes.map(d=>`<path class="abc-ink" d="${d}"/>`).join("")
+    ? strokes.map(d=>`<path class="abc-ink" d="${abcRemapD(d)}"/>`).join("")
     : `<path class="abc-ink" d="${ghost}"/>`;   // fallback: trace the outline
   return `<svg viewBox="0 0 ${G.W} ${G.H}" class="abc-canvas">
     <line class="gl s" x1="6" y1="${G.top}" x2="${G.W-6}" y2="${G.top}"/>
@@ -5363,7 +5379,7 @@ function abcStrokeDir(d){
 /* one glyph drawn from centreline strokes, in the ABC_G grid; options: dotted / marks / color */
 function abcGlyphMarkup(char, o){
   o = o || {};
-  const strokes = LETTER_STROKES[char] || [];
+  const strokes = (LETTER_STROKES[char] || []).map(abcRemapD);
   const dash = o.dotted ? ' stroke-dasharray="1 15"' : '';
   const paths = strokes.map(d=>`<path d="${d}" fill="none" stroke="${o.color||'#CFCFCF'}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"${dash}/>`).join("");
   let marks = "";
@@ -5385,13 +5401,13 @@ function abcTraceRow(char){
     + `<line class="g d" x1="0" y1="${G.mid}" x2="${W}" y2="${G.mid}"/>`
     + `<line class="g b" x1="0" y1="${G.base}" x2="${W}" y2="${G.base}"/>`
     + `<line class="g d" x1="0" y1="${G.desc}" x2="${W}" y2="${G.desc}"/>`;
-  const start = (LETTER_STROKES[char]||["M110 110"])[0];
-  const [sx] = abcStrokeStart(start), sy = abcStrokeStart(start)[1];
+  const start = abcRemapD((LETTER_STROKES[char]||["M110 110"])[0]);
+  const [sx, sy] = abcStrokeStart(start);
   let x = cx0, cells = "";
   cells += `<g transform="translate(${x-110},0)">${abcGlyphMarkup(char,{color:'#5A4232'})}</g>`; x += step;           // solid model
   for(let i=0;i<4;i++){ cells += `<g transform="translate(${x-110},0)">${abcGlyphMarkup(char,{dotted:true,marks:i===0})}</g>`; x += step; }  // dotted, first numbered
   for(let i=0;i<2;i++){ cells += `<circle cx="${x-110+sx}" cy="${sy}" r="6" fill="#E0533A"/>`; x += step; }            // write: start dots only
-  return `<svg class="trow" viewBox="0 22 ${W} 214">${rule}${cells}</svg>`;
+  return `<svg class="trow" viewBox="0 28 ${W} 206">${rule}${cells}</svg>`;
 }
 /* letter-recognition grid: target (both cases) hidden among confusable distractors */
 function abcCircleGrid(ch){
@@ -5403,12 +5419,13 @@ function abcCircleGrid(ch){
   for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
   return `<div class="cgrid andika">${pool.map(c=>`<span>${c}</span>`).join("")}</div>`;
 }
-/* pencil-control warm-up patterns (dotted, to trace) */
+/* pencil-control warm-up patterns (dotted, to trace) — larger area */
 function abcPatternRow(kind){
-  const W=1000, H=110; let d="";
-  if(kind==="zig"){ d="M16 92"; for(let x=16;x<=984;x+=56) d+=` L ${x+28} 18 L ${x+56} 92`; }
-  else if(kind==="wave"){ d="M16 58"; for(let x=16;x<984;x+=64) d+=` Q ${x+32} 8 ${x+64} 58`; }
-  else { d="M16 88"; for(let x=16;x<960;x+=72) d+=` C ${x+16} 14 ${x+56} 14 ${x+72} 88`; }
+  const W=1000, H=150; let d="";
+  if(kind==="zig"){ d="M20 126"; for(let x=20;x<=980;x+=64) d+=` L ${x+32} 22 L ${x+64} 126`; }
+  else if(kind==="wave"){ d="M20 82"; for(let x=20;x<980;x+=72) d+=` Q ${x+36} 14 ${x+72} 82`; }
+  else if(kind==="hump"){ d="M20 122"; for(let x=20;x<956;x+=80) d+=` C ${x+18} 20 ${x+62} 20 ${x+80} 122`; }
+  else { d="M24 74"; for(let x=24;x<952;x+=72) d+=` C ${x+18} 118 ${x+54} 30 ${x+72} 74`; }   // loops
   return `<svg class="prow" viewBox="0 0 ${W} ${H}"><path d="${d}" fill="none" stroke="#CBB89C" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 14"/></svg>`;
 }
 /* single word to trace on a ruled line */
@@ -5422,9 +5439,7 @@ function abcWordLine(word, dotted){
   return `<svg class="trow" viewBox="0 26 ${W} 208">${rule}${txt}</svg>`;
 }
 function abcOrderStrip(ch){
-  const i = ABC.indexOf(ch);
-  const seq = [-2,-1,0,1,2].map(k=> ABC[(i+k+26)%26]);
-  return `<div class="ostrip">${seq.map(c=> c===ch ? `<b class="cur">${c}</b>` : `<b>${c}</b>`).join('<i>–</i>')}</div>`;
+  return `<div class="ostrip">${ABC.map(c=> c===ch ? `<b class="cur">${c}</b>` : `<b>${c}</b>`).join("")}</div>`;
 }
 function abcSheetHTML(ch){
   const [word, emoji] = ABC_KEY[ch], lo = ch.toLowerCase(), w = word.toLowerCase();
@@ -5444,12 +5459,10 @@ function abcSheetHTML(ch){
       ${abcTraceRow(ch)}
       ${abcTraceRow(lo)}
     </div>
-    <div class="wsrow">
-      <div class="wsbox wsnarrow"><div class="wsl">字母順序 Order</div>${abcOrderStrip(ch)}</div>
-      <div class="wsbox"><div class="wsl">握筆暖身 Warm-up — 描描看</div>
-        ${abcPatternRow("zig")}${abcPatternRow("loop")}
-      </div>
+    <div class="wsbox"><div class="wsl">握筆暖身 Warm-up — 描描看</div>
+      ${abcPatternRow("zig")}${abcPatternRow("hump")}${abcPatternRow("loop")}
     </div>
+    <div class="wsbox wsorderbox"><div class="wsl">字母順序 Alphabet Order（從 A 開始）</div>${abcOrderStrip(ch)}</div>
     <div class="wsfoot">🐱 English Cat Island · 圖示 OpenMoji（CC BY-SA 4.0）· 版面為本站原創</div>
   </section>`;
 }
@@ -5486,8 +5499,10 @@ body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background
 .cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font-size:23pt;text-align:center;color:#333;padding:2px 0}
 .trow{width:100%;height:auto;display:block;margin:3px 0}
 .prow{width:100%;height:auto;display:block;margin:4px 0}
-.ostrip{display:flex;align-items:center;justify-content:center;gap:3px;font:700 20pt system-ui,sans-serif;color:#555;flex-wrap:wrap;padding:6px 0}
-.ostrip i{color:#c9c9c9;font-style:normal} .ostrip .cur{color:#E0533A;text-decoration:underline}
+.ostrip{display:flex;align-items:center;justify-content:center;gap:2px 7px;font:700 13pt system-ui,sans-serif;color:#8a7a5a;flex-wrap:wrap;padding:2px 0}
+.ostrip b{min-width:20px;text-align:center}
+.ostrip .cur{color:#E0533A;border:2px solid #E0533A;border-radius:6px;padding:0 3px}
+.wsorderbox{padding-top:6px;padding-bottom:6px}
 .g{stroke:#D8CBB6;stroke-width:2} .g.b{stroke:#B79B78;stroke-width:2.5} .g.d{stroke-dasharray:7 9}
 @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0;page-break-before:always} .sheet:first-of-type{page-break-before:avoid} .wsbox{border-color:#ccc} }
 @page{margin:1cm}
