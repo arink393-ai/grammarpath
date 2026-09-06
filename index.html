@@ -319,6 +319,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-headinfo{display:flex;flex-direction:column;gap:4px}
 .abc-phon{font:600 13px var(--mono);color:var(--amber);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:8px;padding:2px 10px;align-self:flex-start}
 .abc-phon b{font-weight:700}
+.abc-words{font:500 13px var(--sans);color:var(--body);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.abc-words span{background:var(--good-bg);border:1px solid var(--good-line);color:var(--ink);border-radius:8px;padding:2px 9px;font-weight:600}
 .abc-hint{font:500 13px var(--sans);color:var(--muted);background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:10px;padding:8px 12px;margin:4px 0 10px}
 .abc-slot-ctrls{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:10px}
 .abc-slot-ctrls .btn{padding:7px 12px;font-size:13px}
@@ -5195,7 +5197,7 @@ const LETTER_STROKES = {
   X:["M68 32 L152 185","M152 32 L68 185"],
   Y:["M66 32 L110 110","M154 32 L110 110","M110 110 L110 185"],
   Z:["M62 32 L158 32 L64 185 L158 185"],
-  a:["M148 104 C124 84 80 90 80 133 C80 178 124 190 148 168","M148 90 L148 185"],
+  a:["M148 96 C138 78 122 75 106 75 C82 75 78 106 78 132 C78 176 118 188 148 170","M148 76 L148 185"],
   b:["M74 30 L74 185","M74 75 C150 75 150 185 74 185"],
   c:["M148 95 C110 73 72 92 72 130 C72 168 110 187 148 165"],
   d:["M150 30 L150 185","M150 75 C74 75 74 185 150 185"],
@@ -5228,6 +5230,18 @@ const ABC_SOUND = {
   K:"/k/ k-kite",L:"/l/ l-lion",M:"/m/ m-moon",N:"/n/ n-nest",O:"/ɒ/ o-orange",
   P:"/p/ p-pig",Q:"/kw/ qu-queen",R:"/r/ r-rainbow",S:"/s/ s-sun",T:"/t/ t-tree",
   U:"/ʌ/ u-umbrella",V:"/v/ v-van",W:"/w/ w-whale",X:"/ks/ -fox",Y:"/j/ y-yo-yo",Z:"/z/ z-zebra"
+};
+/* Phonics word sets — words that start with each letter's sound (for teaching). */
+const ABC_PHONICS = {
+  A:["apple","ant","alligator"], B:["ball","bat","bear"], C:["cat","car","cup"],
+  D:["dog","duck","doll"], E:["egg","elephant","elbow"], F:["fish","fan","fox"],
+  G:["goat","girl","gate"], H:["hat","hen","house"], I:["igloo","insect","ink"],
+  J:["jam","jug","jet"], K:["kite","key","king"], L:["lion","leg","lamp"],
+  M:["moon","map","milk"], N:["nest","net","nut"], O:["orange","ox","octopus"],
+  P:["pig","pen","pot"], Q:["queen","quilt","quiz"], R:["rainbow","rat","ring"],
+  S:["sun","sock","snake"], T:["tree","top","ten"], U:["umbrella","up","under"],
+  V:["van","vet","violin"], W:["whale","web","wig"], X:["fox","box","six"],
+  Y:["yo-yo","yak","yellow"], Z:["zebra","zip","zoo"]
 };
 function abcCanvasSVG(char){
   const G = ABC_G, ghost = abcPathData(char);
@@ -5346,6 +5360,7 @@ function renderLetter(ch){
       <div class="abc-headinfo">
         <div class="abc-kwbig">${emoji} <b>${ch}</b> is for <b>${word}</b></div>
         <div class="abc-phon">🔤 發音 <b>${ABC_SOUND[ch]}</b></div>
+        <div class="abc-words">🗣️ Phonics 自然發音：${ABC_PHONICS[ch].map(w=>`<span>${w}</span>`).join("")}</div>
       </div>
     </div>
     <div class="abc-hint">👉 大小寫各自按「下一筆」，一次畫一畫，看清楚每一筆的起點（數字）與方向（箭頭）。</div>
@@ -5504,7 +5519,7 @@ function abcSheetHTML(ch){
   const [word, emoji] = ABC_KEY[ch], lo = ch.toLowerCase(), w = word.toLowerCase();
   return `<section class="sheet abcws">
     <div class="wshdr"><div class="wsttl">Alphabet Letter <b class="andika">${ch} ${lo}</b></div>
-      <div class="wsbrand">🐱 English Cat Island · 發音 ${ABC_SOUND[ch]}</div></div>
+      <div class="wsbrand">🔤 ${ABC_SOUND[ch]} · 🗣️ ${ABC_PHONICS[ch].join(", ")}</div></div>
     <div class="wsrow">
       <div class="wsbox"><div class="wsl">塗色字母 Color the letters</div><div class="colorletters andika">${ch}${lo}</div></div>
       <div class="wsbox"><div class="wsl">塗色圖片・寫單字 Color &amp; Write</div>
