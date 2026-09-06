@@ -289,7 +289,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rd-source-h{font:700 10.5px var(--sans);color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .rd-source b{color:var(--body);font-weight:600}
 /* ---- ABC handwriting ---- */
-@font-face{font-family:'Andika';src:url('fonts/VarelaRound-Regular.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'Andika';src:url('fonts/Baloo2.ttf') format('truetype');font-weight:400 800;font-display:swap}
 .andika{font-family:'Andika','Comic Sans MS',var(--sans)}
 .abc-actions{margin:14px 0 4px}
 .abc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;margin:16px 0}
@@ -5102,7 +5102,7 @@ const ABC_KEY = {
   P:["Pig","🐷"],Q:["Queen","👑"],R:["Rainbow","🌈"],S:["Sun","☀️"],T:["Tree","🌳"],
   U:["Umbrella","☔"],V:["Van","🚐"],W:["Whale","🐳"],X:["Fox","🦊"],Y:["Yo-yo","🪀"],Z:["Zebra","🦓"]
 };
-const ABC_FONT_URL = new URL("fonts/VarelaRound-Regular.ttf", location.href).href;
+const ABC_FONT_URL = new URL("fonts/Baloo2.ttf", location.href).href;
 let abcFont = null, abcFontLoading = null, abcCurrent = "A";
 function abcEnsureFont(){
   if(abcFont) return Promise.resolve(abcFont);
@@ -5323,12 +5323,13 @@ function renderABCGrid(){
   app.innerHTML = `<div class="view">
     <div class="eyebrow">Handwriting · 字母書寫</div>
     <h1 class="display">Learn to Write A–Z<span class="zh-term-lg">字母怎麼寫</span></h1>
-    <p class="lede">點任一個字母，看它<b>一筆一畫怎麼寫</b>（大小寫都有動畫示範），也可以<b>下載列印描寫練習單</b>讓學生用紙筆練習。字型採用單層 a 的圓體 <b>Varela Round</b>，與手寫筆順一致。</p>
+    <p class="lede">點任一個字母，看它<b>一筆一畫怎麼寫</b>（大小寫都有動畫示範），也可以<b>下載列印描寫練習單</b>與<b>浮水印練習</b>讓學生用紙筆練習。字型採用胖圓、單層 a 的 <b>Baloo 2</b>，與手寫筆順一致。</p>
     <div class="abc-actions">
       <button class="btn btn-ghost" onclick="abcPrintAll()">🖨 列印全部 A–Z 練習單</button>
+      <button class="btn btn-ghost" onclick="abcPrintWmAll()">💧 浮水印練習 A–Z</button>
     </div>
     <div class="abc-grid">${cells}</div>
-    <div class="rd-note">✍️ 描寫練習單為本站原創版面（塗色 + 圈認 + 描寫 + 握筆 + 寫單字），非轉載他站素材。字型 Varela Round（OFL）；塗色線稿 © OpenMoji（CC BY-SA 4.0）。</div>
+    <div class="rd-note">✍️ 描寫練習單為本站原創版面（塗色 + 圈認 + 描寫 + 握筆 + 寫單字），非轉載他站素材。字型 Baloo 2（OFL）；塗色線稿 © OpenMoji（CC BY-SA 4.0）。</div>
   </div>`;
 }
 function renderLetter(ch){
@@ -5367,6 +5368,7 @@ function renderLetter(ch){
     </div>
     <div class="abc-ctrls">
       <button class="btn btn-ghost" onclick="abcPrint('${ch}')">🖨 列印 ${ch}${ch.toLowerCase()} 練習單</button>
+      <button class="btn btn-ghost" onclick="abcPrintWm('${ch}')">💧 浮水印練習</button>
       <button class="btn btn-ghost" onclick="abcGo('${prev}')">◀ ${prev}</button>
       <button class="btn btn-ghost" onclick="abcGo('${next}')">${next} ▶</button>
     </div>
@@ -5526,8 +5528,34 @@ function abcSheetHTML(ch){
     <div class="wsfoot">🐱 English Cat Island · 圖示 OpenMoji（CC BY-SA 4.0）· 版面為本站原創</div>
   </section>`;
 }
-function abcOpenSheets(chars, title){
-  const body = chars.map(abcSheetHTML).join("");
+/* a ruled row of light "watermark" letters to write directly on top of */
+function abcWmRow(text, dark){
+  const G = ABC_G, W = 1000, size = 190;
+  const rule = `<line class="g s" x1="0" y1="${G.top}" x2="${W}" y2="${G.top}"/>`
+    + `<line class="g d" x1="0" y1="${G.mid}" x2="${W}" y2="${G.mid}"/>`
+    + `<line class="g b" x1="0" y1="${G.base}" x2="${W}" y2="${G.base}"/>`
+    + `<line class="g d" x1="0" y1="${G.desc}" x2="${W}" y2="${G.desc}"/>`;
+  const txt = text ? `<text x="26" y="${G.base}" font-family="AndikaPrint,'Comic Sans MS',sans-serif" font-size="${size}" letter-spacing="34" fill="${dark?'#5A4232':'#E6E1D8'}">${text}</text>` : "";
+  return `<svg class="trow" viewBox="0 22 ${W} 214">${rule}${txt}</svg>`;
+}
+function abcWatermarkSheet(ch){
+  const [word] = ABC_KEY[ch], lo = ch.toLowerCase(), w = word.toLowerCase();
+  const rep = (s,n)=> Array(n).fill(s).join(" ");
+  return `<section class="sheet abcws">
+    <div class="wshdr"><div class="wsttl">Alphabet Letter <b class="andika">${ch} ${lo}</b></div><div class="wsbrand">🐱 English Cat Island · 浮水印練習 Watermark</div></div>
+    <div class="wsl" style="text-align:left;margin:2px 0 8px">✍️ 直接寫在<b>淺色的字</b>上面 — Write on top of the light letters.</div>
+    ${abcWmRow(rep(ch,5))}
+    ${abcWmRow(rep(ch,5))}
+    ${abcWmRow(rep(lo,5))}
+    ${abcWmRow(rep(lo,5))}
+    <div class="wsl" style="text-align:left;margin:8px 0 4px">關鍵字 Word：${word}</div>
+    ${abcWmRow(w)}
+    <div class="wsfoot">🐱 English Cat Island · 字型 Baloo 2（OFL）· 版面為本站原創</div>
+  </section>`;
+}
+function abcOpenSheets(chars, title, builder){
+  const make = builder || abcSheetHTML;
+  const body = chars.map(make).join("");
   const doc =
 `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${title}</title>
 <style>
@@ -5582,6 +5610,8 @@ body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background
 }
 function abcPrint(ch){ abcOpenSheets([ch.toUpperCase()], "字母練習單 "+ch.toUpperCase()); }
 function abcPrintAll(){ abcOpenSheets(ABC.slice(), "English Cat Island — A–Z 描寫練習單"); }
+function abcPrintWm(ch){ abcOpenSheets([ch.toUpperCase()], "浮水印練習 "+ch.toUpperCase(), abcWatermarkSheet); }
+function abcPrintWmAll(){ abcOpenSheets(ABC.slice(), "English Cat Island — A–Z 浮水印練習", abcWatermarkSheet); }
 
 /* ================= 單元題組閱讀 Unit Readings ================= */
 let UR_ANS = {}, UR_SHOW = false, urCurId = null;
