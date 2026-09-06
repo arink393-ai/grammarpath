@@ -320,6 +320,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-phon{font:600 13px var(--mono);color:var(--amber);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:8px;padding:2px 10px;align-self:flex-start}
 .abc-phon b{font-weight:700}
 .abc-hint{font:500 13px var(--sans);color:var(--muted);background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:10px;padding:8px 12px;margin:4px 0 10px}
+.abc-slot-ctrls{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.abc-slot-ctrls .btn{padding:7px 12px;font-size:13px}
 .abc-ctrls{display:flex;gap:9px;flex-wrap:wrap;margin-top:6px}
 .rd-card-lv{font:500 11px var(--sans);color:var(--faint);margin-top:5px}
 .rd-note{font:400 12.5px/1.7 var(--sans);color:var(--muted);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px}
@@ -5110,6 +5112,16 @@ function abcEnsureFont(){
   });
   return abcFontLoading;
 }
+/* Colouring line-art (OpenMoji black, CC BY-SA 4.0), loaded once and cached so the
+   print window (about:blank) can embed the SVG inline. */
+let ABC_ART = {}, abcArtLoading = null;
+function abcLoadArt(){
+  if(abcArtLoading) return abcArtLoading;
+  abcArtLoading = Promise.all(ABC.map(L=>
+    fetch("art/"+L+".svg").then(r=> r.ok ? r.text() : "").then(t=>{ if(/<svg/i.test(t)) ABC_ART[L] = t; }).catch(()=>{})
+  ));
+  return abcArtLoading;
+}
 /* guideline geometry: cap 30→185, x-height line 75, descender 229 */
 const ABC_G = { W:220, H:252, top:30, mid:75, base:185, desc:229 };
 function abcPathData(char){
@@ -5240,34 +5252,37 @@ function abcAnimOne(canvas, idx){
   requestAnimationFrame(step);
 }
 /* Step controller: one click = one stroke, on both canvases together. */
-let ABCstep = 0, ABCmax = 1;
-function abcCanvases(){ return [...document.querySelectorAll("#abcStage .abc-canvas")]; }
-function abcUpdateBtn(){
-  const b = document.getElementById("abcNextBtn");
-  if(b) b.textContent = ABCstep>=ABCmax ? "↻ 再看一次 Again" : `✏️ 下一筆 Next (${ABCstep}/${ABCmax})`;
+/* Per-slot step controllers: uppercase and lowercase advance independently. */
+function abcSlotCanvas(which){ const s = document.getElementById(which==="up"?"abcUp":"abcLo"); return s && s.querySelector(".abc-canvas"); }
+function abcSlotMax(which){ const c = abcSlotCanvas(which); return c ? c.querySelectorAll(".abc-ink").length : 0; }
+function abcUpdateSlotBtn(which){
+  const c = abcSlotCanvas(which), b = document.getElementById(which==="up"?"abcBtnUp":"abcBtnLo");
+  if(!c || !b) return;
+  const max = abcSlotMax(which), step = +(c.dataset.step||0);
+  b.textContent = step>=max ? "↻ 再看一次" : `✏️ 下一筆 (${step}/${max})`;
 }
-function abcResetStrokes(){
-  ABCstep = 0;
-  abcCanvases().forEach(c=>{
-    c.querySelectorAll(".abc-ink").forEach(p=>{ const L=p.getTotalLength(); p.style.strokeDasharray=L; p.style.strokeDashoffset=L; });
-    c.querySelectorAll(".abc-onum").forEach(n=> n.style.opacity=0);
-    const pen = c.querySelector(".abc-pen"); if(pen) pen.style.opacity=0;
-  });
-  abcUpdateBtn();
+function abcResetSlot(which){
+  const c = abcSlotCanvas(which); if(!c) return;
+  c.querySelectorAll(".abc-ink").forEach(p=>{ const L=p.getTotalLength(); p.style.strokeDasharray=L; p.style.strokeDashoffset=L; });
+  c.querySelectorAll(".abc-onum").forEach(n=> n.style.opacity=0);
+  const pen = c.querySelector(".abc-pen"); if(pen) pen.style.opacity=0;
+  c.dataset.step = "0"; abcUpdateSlotBtn(which);
 }
-function abcNext(){
-  if(ABCstep>=ABCmax){ abcResetStrokes(); return; }   // finished → reset for another look
-  const idx = ABCstep; ABCstep++;
-  abcCanvases().forEach(c=> abcAnimOne(c, idx));
-  abcUpdateBtn();
+function abcStepSlot(which){
+  const c = abcSlotCanvas(which); if(!c) return;
+  const max = abcSlotMax(which); let step = +(c.dataset.step||0);
+  if(step>=max){ abcResetSlot(which); return; }     // finished → reset for another look
+  abcAnimOne(c, step); c.dataset.step = String(step+1); abcUpdateSlotBtn(which);
 }
-function abcPlayAll(){
-  if(ABCstep>=ABCmax) abcResetStrokes();
-  const run = ()=>{ if(ABCstep>=ABCmax) return; abcNext(); setTimeout(run, 1100); };
+function abcPlaySlot(which){
+  abcResetSlot(which);
+  const run = ()=>{ const c = abcSlotCanvas(which); if(!c) return; if(+(c.dataset.step||0) >= abcSlotMax(which)) return; abcStepSlot(which); setTimeout(run, 1100); };
   run();
 }
+function abcPlayAll(){ abcPlaySlot("up"); abcPlaySlot("lo"); }
 function abcGo(ch){ location.hash = "#/abc/" + ch; }
 function renderABCGrid(){
+  abcLoadArt();
   const cells = ABC.map(ch=>{
     const [w,e] = ABC_KEY[ch];
     return `<button class="abc-cell" onclick="abcGo('${ch}')">
@@ -5282,10 +5297,11 @@ function renderABCGrid(){
       <button class="btn btn-ghost" onclick="abcPrintAll()">🖨 列印全部 A–Z 練習單</button>
     </div>
     <div class="abc-grid">${cells}</div>
-    <div class="rd-note">✍️ 描寫練習單為本站原創版面（四線格 + 描寫 + 練習），非轉載他站素材。字型 Andika © SIL International，採 OFL 開源授權。</div>
+    <div class="rd-note">✍️ 描寫練習單為本站原創版面（塗色 + 圈認 + 描寫 + 握筆 + 寫單字），非轉載他站素材。字型 Andika © SIL International（OFL）；塗色線稿 © OpenMoji（CC BY-SA 4.0）。</div>
   </div>`;
 }
 function renderLetter(ch){
+  abcLoadArt();
   ch = (ch||"A").toUpperCase();
   if(!/^[A-Z]$/.test(ch)) ch = "A";
   abcCurrent = ch;
@@ -5300,15 +5316,24 @@ function renderLetter(ch){
         <div class="abc-phon">🔤 發音 <b>${ABC_SOUND[ch]}</b></div>
       </div>
     </div>
+    <div class="abc-hint">👉 大小寫各自按「下一筆」，一次畫一畫，看清楚每一筆的起點（數字）與方向（箭頭）。</div>
     <div class="abc-stage" id="abcStage">
-      <div class="abc-slot"><div class="abc-lab">大寫 Uppercase</div><div id="abcUp" class="abc-hold">載入中…</div></div>
-      <div class="abc-slot"><div class="abc-lab">小寫 Lowercase</div><div id="abcLo" class="abc-hold">載入中…</div></div>
+      <div class="abc-slot"><div class="abc-lab">大寫 Uppercase</div><div id="abcUp" class="abc-hold">載入中…</div>
+        <div class="abc-slot-ctrls">
+          <button class="btn btn-primary" id="abcBtnUp" onclick="abcStepSlot('up')">✏️ 下一筆</button>
+          <button class="btn btn-ghost" onclick="abcResetSlot('up')">↻ 重來</button>
+          <button class="btn btn-ghost" onclick="abcPlaySlot('up')">⏩ 自動</button>
+        </div>
+      </div>
+      <div class="abc-slot"><div class="abc-lab">小寫 Lowercase</div><div id="abcLo" class="abc-hold">載入中…</div>
+        <div class="abc-slot-ctrls">
+          <button class="btn btn-primary" id="abcBtnLo" onclick="abcStepSlot('lo')">✏️ 下一筆</button>
+          <button class="btn btn-ghost" onclick="abcResetSlot('lo')">↻ 重來</button>
+          <button class="btn btn-ghost" onclick="abcPlaySlot('lo')">⏩ 自動</button>
+        </div>
+      </div>
     </div>
-    <div class="abc-hint">👉 按「下一筆」一次畫一畫，看清楚每一筆的起點（數字）與方向（箭頭）。</div>
     <div class="abc-ctrls">
-      <button class="btn btn-primary" id="abcNextBtn" onclick="abcNext()">✏️ 下一筆 Next</button>
-      <button class="btn btn-ghost" onclick="abcResetStrokes()">↻ 重來</button>
-      <button class="btn btn-ghost" onclick="abcPlayAll()">⏩ 自動播放</button>
       <button class="btn btn-ghost" onclick="abcPrint('${ch}')">🖨 列印 ${ch}${ch.toLowerCase()} 練習單</button>
       <button class="btn btn-ghost" onclick="abcGo('${prev}')">◀ ${prev}</button>
       <button class="btn btn-ghost" onclick="abcGo('${next}')">${next} ▶</button>
@@ -5320,9 +5345,8 @@ function renderLetter(ch){
     up.innerHTML = abcCanvasSVG(ch); lo.innerHTML = abcCanvasSVG(ch.toLowerCase());
     up.querySelectorAll(".abc-canvas").forEach(abcBuildMarks);
     lo.querySelectorAll(".abc-canvas").forEach(abcBuildMarks);
-    ABCmax = Math.max((LETTER_STROKES[ch]||[]).length, (LETTER_STROKES[ch.toLowerCase()]||[]).length) || 1;
-    abcResetStrokes();
-    abcNext();                                  // draw the first stroke so it isn't blank
+    abcResetSlot("up"); abcResetSlot("lo");
+    abcStepSlot("up"); abcStepSlot("lo");       // draw the first stroke of each so they aren't blank
   }).catch(()=>{
     const s = document.getElementById("abcStage");
     if(s) s.innerHTML = '<p class="res-nowarn">字型載入失敗，請重新整理頁面再試。</p>';
@@ -5408,9 +5432,10 @@ function abcSheetHTML(ch){
     <div class="wshdr"><div class="wsttl">Alphabet Letter <b class="andika">${ch} ${lo}</b></div>
       <div class="wsbrand">🐱 English Cat Island · 發音 ${ABC_SOUND[ch]}</div></div>
     <div class="wsrow">
-      <div class="wsbox"><div class="wsl">塗色 Color</div><div class="colorletters andika">${ch}${lo}</div></div>
-      <div class="wsbox"><div class="wsl">看圖・寫單字 Look &amp; Write</div>
-        <div class="wspic">${emoji} <span class="wspicw andika">${word}</span></div>
+      <div class="wsbox"><div class="wsl">塗色字母 Color the letters</div><div class="colorletters andika">${ch}${lo}</div></div>
+      <div class="wsbox"><div class="wsl">塗色圖片・寫單字 Color &amp; Write</div>
+        <div class="wspicart">${ABC_ART[ch] || `<div class="wspic">${emoji}</div>`}</div>
+        <div class="wscap andika">${word}</div>
         ${abcWordLine(w, true)}
       </div>
     </div>
@@ -5425,6 +5450,7 @@ function abcSheetHTML(ch){
         ${abcPatternRow("zig")}${abcPatternRow("loop")}
       </div>
     </div>
+    <div class="wsfoot">🐱 English Cat Island · 圖示 OpenMoji（CC BY-SA 4.0）· 版面為本站原創</div>
   </section>`;
 }
 function abcOpenSheets(chars, title){
@@ -5453,6 +5479,10 @@ body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background
 .colorletters{font-size:52pt;line-height:1;text-align:center;color:#fff;-webkit-text-stroke:2.5px #4a4a4a;letter-spacing:16px;padding:2px 0}
 .wspic{font-size:48pt;line-height:1.1;text-align:center}
 .wspicw{font-size:26pt;vertical-align:middle;color:#5A4232}
+.wspicart{text-align:center;padding:2px 0}
+.wspicart svg{width:auto;height:132px;max-width:100%}
+.wscap{text-align:center;font-size:22pt;color:#5A4232;line-height:1;margin:2px 0}
+.wsfoot{text-align:center;font:8.5pt system-ui,sans-serif;color:#aaa;margin-top:4px}
 .cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font-size:23pt;text-align:center;color:#333;padding:2px 0}
 .trow{width:100%;height:auto;display:block;margin:3px 0}
 .prow{width:100%;height:auto;display:block;margin:4px 0}
