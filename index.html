@@ -323,7 +323,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-slot-ctrls{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:10px}
 .abc-slot-ctrls .btn{padding:7px 12px;font-size:13px}
 .abc-altform{font:500 12.5px var(--sans);color:var(--body);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:8px;padding:6px 11px;margin-top:8px;text-align:center;line-height:1.5}
-.abc-altform .andika{font-size:28px;font-weight:700;color:var(--navy);vertical-align:-4px;margin:0 3px}
+.abc-altform b{color:var(--navy)}
+.abc-altglyph{display:inline-block;margin:0 5px}
 .abc-ctrls{display:flex;gap:9px;flex-wrap:wrap;margin-top:6px}
 .rd-card-lv{font:500 11px var(--sans);color:var(--faint);margin-top:5px}
 .rd-note{font:400 12.5px/1.7 var(--sans);color:var(--muted);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px}
@@ -5148,6 +5149,13 @@ function abcRemapD(d, upper){
     return cmd + nums.join(" ");
   });
 }
+/* Render a character in the actual print font (Andika) as a tidy inline SVG. */
+function abcPrintGlyphSVG(char, px){
+  if(!abcFont) return "";
+  const p = abcFont.getPath(char, 0, 80, 100), bb = p.getBoundingBox(), pad = 5;
+  const vb = `${(bb.x1-pad).toFixed(1)} ${(bb.y1-pad).toFixed(1)} ${(bb.x2-bb.x1+pad*2).toFixed(1)} ${(bb.y2-bb.y1+pad*2).toFixed(1)}`;
+  return `<svg viewBox="${vb}" height="${px||30}" style="vertical-align:-6px"><path d="${p.toPathData(2)}" fill="var(--navy)"/></svg>`;
+}
 function abcPathData(char){
   const f = abcFont, G = ABC_G;
   const upe = f.unitsPerEm;
@@ -5187,7 +5195,7 @@ const LETTER_STROKES = {
   X:["M68 32 L152 185","M152 32 L68 185"],
   Y:["M66 32 L110 110","M154 32 L110 110","M110 110 L110 185"],
   Z:["M62 32 L158 32 L64 185 L158 185"],
-  a:["M150 100 C126 72 70 80 70 130 C70 182 130 194 150 150","M150 80 L150 185"],
+  a:["M148 104 C124 84 80 90 80 133 C80 178 124 190 148 168","M148 90 L148 185"],
   b:["M74 30 L74 185","M74 75 C150 75 150 185 74 185"],
   c:["M148 95 C110 73 72 92 72 130 C72 168 110 187 148 165"],
   d:["M150 30 L150 185","M150 75 C74 75 74 185 150 185"],
@@ -5349,7 +5357,7 @@ function renderLetter(ch){
         </div>
       </div>
       <div class="abc-slot"><div class="abc-lab">小寫 Lowercase</div><div id="abcLo" class="abc-hold">載入中…</div>
-        ${ABC_PRINT_ALT.has(ch.toLowerCase()) ? `<div class="abc-altform">✍️ 這裡教的是手寫體。印刷體（書本上）常寫成 <span class="andika">${ch.toLowerCase()}</span> —— 兩種都要認得喔！</div>` : ""}
+        ${ABC_PRINT_ALT.has(ch.toLowerCase()) ? `<div class="abc-altform">✍️ 這裡教的是<b>手寫體</b>。書本上的<b>印刷體</b>常寫成 <span id="abcAltGlyph" class="abc-altglyph"></span> —— 兩種都要認得喔！</div>` : ""}
         <div class="abc-slot-ctrls">
           <button class="btn btn-primary" id="abcBtnLo" onclick="abcStepSlot('lo')">✏️ 下一筆</button>
           <button class="btn btn-ghost" onclick="abcResetSlot('lo')">↻ 重來</button>
@@ -5371,6 +5379,8 @@ function renderLetter(ch){
     lo.querySelectorAll(".abc-canvas").forEach(abcBuildMarks);
     abcResetSlot("up"); abcResetSlot("lo");
     abcStepSlot("up"); abcStepSlot("lo");       // draw the first stroke of each so they aren't blank
+    const altEl = document.getElementById("abcAltGlyph");
+    if(altEl) altEl.innerHTML = abcPrintGlyphSVG(ch.toLowerCase(), 30);   // clean double-story print form
   }).catch(()=>{
     const s = document.getElementById("abcStage");
     if(s) s.innerHTML = '<p class="res-nowarn">字型載入失敗，請重新整理頁面再試。</p>';
