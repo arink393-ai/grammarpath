@@ -322,6 +322,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-hint{font:500 13px var(--sans);color:var(--muted);background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:10px;padding:8px 12px;margin:4px 0 10px}
 .abc-slot-ctrls{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:10px}
 .abc-slot-ctrls .btn{padding:7px 12px;font-size:13px}
+.abc-altform{font:500 12.5px var(--sans);color:var(--body);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:8px;padding:6px 11px;margin-top:8px;text-align:center;line-height:1.5}
+.abc-altform .andika{font-size:28px;font-weight:700;color:var(--navy);vertical-align:-4px;margin:0 3px}
 .abc-ctrls{display:flex;gap:9px;flex-wrap:wrap;margin-top:6px}
 .rd-card-lv{font:500 11px var(--sans);color:var(--faint);margin-top:5px}
 .rd-note{font:400 12.5px/1.7 var(--sans);color:var(--muted);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px}
@@ -5090,6 +5092,8 @@ function renderReading(id, keepScroll){
    Animated letter formation (via opentype.js + Andika, SIL OFL) + printable
    trace worksheets. Original worksheets — not copied from any third party. */
 const ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const ABC_PAT = ["zig","wave","hump","loop"];   // warm-up pattern rotation
+const ABC_PRINT_ALT = new Set(["a"]);            // letters whose printed form differs from the handwriting form
 const ABC_KEY = {
   A:["Apple","🍎"],B:["Bear","🐻"],C:["Cat","🐱"],D:["Dog","🐶"],E:["Egg","🥚"],
   F:["Fish","🐟"],G:["Goat","🐐"],H:["Hat","🎩"],I:["Igloo","🛖"],J:["Juice","🧃"],
@@ -5244,9 +5248,8 @@ function abcBuildMarks(canvas){
     const p0 = p.getPointAtLength(0), p1 = p.getPointAtLength(Math.min(14,L));
     let dx = p1.x-p0.x, dy = p1.y-p0.y; const m = Math.hypot(dx,dy)||1; dx/=m; dy/=m;
     const nx = p0.x - dx*17 - dy*3, ny = p0.y - dy*17 + dx*3;   // badge sits behind the start
-    const arrow = abcArrowMarkup(p.getAttribute("d"), "#E08862");   // curved for C strokes
-    g.insertAdjacentHTML("beforeend",
-      `<g class="abc-onum" data-i="${i}">${arrow}`+
+    g.insertAdjacentHTML("beforeend",                            // animation: number only, no arrow (pen shows direction)
+      `<g class="abc-onum" data-i="${i}">`+
       `<circle class="abc-numbg" cx="${nx}" cy="${ny}" r="11"/>`+
       `<text class="abc-numtx" x="${nx}" y="${ny+4}" text-anchor="middle">${i+1}</text></g>`);
   });
@@ -5346,6 +5349,7 @@ function renderLetter(ch){
         </div>
       </div>
       <div class="abc-slot"><div class="abc-lab">小寫 Lowercase</div><div id="abcLo" class="abc-hold">載入中…</div>
+        ${ABC_PRINT_ALT.has(ch.toLowerCase()) ? `<div class="abc-altform">✍️ 這裡教的是手寫體。印刷體（書本上）常寫成 <span class="andika">${ch.toLowerCase()}</span> —— 兩種都要認得喔！</div>` : ""}
         <div class="abc-slot-ctrls">
           <button class="btn btn-primary" id="abcBtnLo" onclick="abcStepSlot('lo')">✏️ 下一筆</button>
           <button class="btn btn-ghost" onclick="abcResetSlot('lo')">↻ 重來</button>
@@ -5422,6 +5426,8 @@ function abcGlyphMarkup(char, o){
             +  `<circle cx="${nx}" cy="${ny}" r="10" fill="#E0533A"/>`
             +  `<text x="${nx}" y="${ny+4}" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="12" font-weight="700">${i+1}</text>`;
     });
+  } else if(o.dots){                                              // red start dot at each stroke (per trace letter)
+    strokes.forEach(d=>{ const [x,y] = abcStrokeStart(d); marks += `<circle cx="${x}" cy="${y}" r="5" fill="#E0533A"/>`; });
   }
   return paths + marks;
 }
@@ -5436,9 +5442,9 @@ function abcTraceRow(char){
   const [sx, sy] = abcStrokeStart(start);
   let x = cx0, cells = "";
   cells += `<g transform="translate(${x-110},0)">${abcGlyphMarkup(char,{color:'#5A4232'})}</g>`; x += step;           // solid model
-  for(let i=0;i<4;i++){ cells += `<g transform="translate(${x-110},0)">${abcGlyphMarkup(char,{dotted:true,marks:i===0})}</g>`; x += step; }  // dotted, first numbered
+  for(let i=0;i<4;i++){ cells += `<g transform="translate(${x-110},0)">${abcGlyphMarkup(char, i===0?{dotted:true,marks:true}:{dotted:true,dots:true})}</g>`; x += step; }  // 1st numbered, rest with red start dots
   for(let i=0;i<2;i++){ cells += `<circle cx="${x-110+sx}" cy="${sy}" r="6" fill="#E0533A"/>`; x += step; }            // write: start dots only
-  return `<svg class="trow" viewBox="0 28 ${W} 206">${rule}${cells}</svg>`;
+  return `<svg class="trow" viewBox="0 38 ${W} 178">${rule}${cells}</svg>`;
 }
 /* letter-recognition grid: target (both cases) hidden among confusable distractors */
 function abcCircleGrid(ch){
@@ -5466,11 +5472,21 @@ function abcWordLine(word, dotted){
     + `<line class="g d" x1="0" y1="${G.mid}" x2="${W}" y2="${G.mid}"/>`
     + `<line class="g b" x1="0" y1="${G.base}" x2="${W}" y2="${G.base}"/>`
     + `<line class="g d" x1="0" y1="${G.desc}" x2="${W}" y2="${G.desc}"/>`;
-  const txt = `<text x="30" y="${G.base}" font-family="AndikaPrint,'Comic Sans MS',sans-serif" font-size="128" letter-spacing="6" fill="${dotted?'#CFCFCF':'#5A4232'}">${word}</text>`;
-  return `<svg class="trow" viewBox="0 26 ${W} 208">${rule}${txt}</svg>`;
+  const txt = `<text x="30" y="${G.base}" font-family="AndikaPrint,'Comic Sans MS',sans-serif" font-size="98" letter-spacing="6" fill="${dotted?'#CFCFCF':'#5A4232'}">${word}</text>`;
+  return `<svg class="trow" viewBox="0 52 ${W} 142">${rule}${txt}</svg>`;
 }
 function abcOrderStrip(ch){
-  return `<div class="ostrip">${ABC.map(c=> c===ch ? `<b class="cur">${c}</b>` : `<b>${c}</b>`).join("")}</div>`;
+  const i = ABC.indexOf(ch);
+  const start = Math.max(0, Math.min(i-4, 17));         // 9-letter window, current near centre
+  const seq = Array.from({length:9}, (_,k)=> ABC[start+k]);
+  const cell = c => `<b class="${c===ch?'cur':''}">${c}</b>`;
+  const dash = `<i>–</i>`;
+  let rows = "";
+  for(let r=0;r<3;r++){
+    const row = seq.slice(r*3, r*3+3);
+    rows += `<div class="orow">${(r>0?dash:"") + row.map(cell).join(dash) + (r<2?dash:"")}</div>`;
+  }
+  return `<div class="ostrip">${rows}</div>`;
 }
 function abcSheetHTML(ch){
   const [word, emoji] = ABC_KEY[ch], lo = ch.toLowerCase(), w = word.toLowerCase();
@@ -5490,10 +5506,13 @@ function abcSheetHTML(ch){
       ${abcTraceRow(ch)}
       ${abcTraceRow(lo)}
     </div>
-    <div class="wsbox"><div class="wsl">握筆暖身 Warm-up — 描描看</div>
-      ${abcPatternRow("zig")}${abcPatternRow("hump")}${abcPatternRow("loop")}
+    <div class="wsrow">
+      <div class="wsbox wsnarrow"><div class="wsl">字母順序 Order</div>${abcOrderStrip(ch)}</div>
+      <div class="wsbox"><div class="wsl">握筆 Trace — 描描看</div>
+        <div class="pline"><span class="pend andika">${ch}</span>${abcPatternRow(ABC_PAT[ABC.indexOf(ch)%ABC_PAT.length])}<span class="pend andika">${ch}</span></div>
+        <div class="pline"><span class="pend andika">${lo}</span>${abcPatternRow(ABC_PAT[(ABC.indexOf(ch)+2)%ABC_PAT.length])}<span class="pend andika">${lo}</span></div>
+      </div>
     </div>
-    <div class="wsbox wsorderbox"><div class="wsl">字母順序 Alphabet Order（從 A 開始）</div>${abcOrderStrip(ch)}</div>
     <div class="wsfoot">🐱 English Cat Island · 圖示 OpenMoji（CC BY-SA 4.0）· 版面為本站原創</div>
   </section>`;
 }
@@ -5510,30 +5529,34 @@ body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background
 .bar button{font:600 13px system-ui,sans-serif;padding:7px 14px;border-radius:6px;border:none;cursor:pointer;background:#E08862;color:#fff}
 .bar .hint{font-weight:400;opacity:.75}
 .sheet{max-width:900px;margin:16px auto;background:#fff;padding:26px 30px;box-shadow:0 1px 6px rgba(0,0,0,.15)}
-.wshdr{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px solid #7A5B49;padding-bottom:7px;margin-bottom:12px}
-.wsttl{font:800 21pt system-ui,sans-serif;color:#333}
-.wsttl b{color:#7A5B49;font-size:25pt}
+.wshdr{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px solid #7A5B49;padding-bottom:5px;margin-bottom:9px}
+.wsttl{font:800 19pt system-ui,sans-serif;color:#333}
+.wsttl b{color:#7A5B49;font-size:23pt}
 .wsbrand{font:600 9.5pt system-ui,sans-serif;color:#8a7a5a}
 .wsrow{display:flex;gap:12px}
 .wsrow>.wsbox{flex:1}
-.wsbox{border:2px solid #E3D6C2;border-radius:12px;padding:7px 12px;margin-bottom:9px}
+.wsbox{border:2px solid #E3D6C2;border-radius:12px;padding:5px 12px;margin-bottom:5px}
 .wsnarrow{flex:0 0 33%}
 .wsl{font:700 10.5pt system-ui,sans-serif;color:#7A5B49;text-align:center;margin-bottom:3px}
 .wsl b{color:#B4623B}
-.colorletters{font-size:52pt;line-height:1;text-align:center;color:#fff;-webkit-text-stroke:2.5px #4a4a4a;letter-spacing:16px;padding:2px 0}
+.colorletters{font-size:46pt;line-height:1;text-align:center;color:#fff;-webkit-text-stroke:2.5px #4a4a4a;letter-spacing:16px;padding:2px 0}
 .wspic{font-size:48pt;line-height:1.1;text-align:center}
 .wspicw{font-size:26pt;vertical-align:middle;color:#5A4232}
 .wspicart{text-align:center;padding:2px 0}
-.wspicart svg{width:auto;height:132px;max-width:100%}
+.wspicart svg{width:auto;height:98px;max-width:100%}
 .wscap{text-align:center;font-size:22pt;color:#5A4232;line-height:1;margin:2px 0}
 .wsfoot{text-align:center;font:8.5pt system-ui,sans-serif;color:#aaa;margin-top:4px}
-.cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font-size:23pt;text-align:center;color:#333;padding:2px 0}
+.cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;font-size:19pt;text-align:center;color:#333;padding:1px 0}
 .trow{width:100%;height:auto;display:block;margin:3px 0}
 .prow{width:100%;height:auto;display:block;margin:4px 0}
-.ostrip{display:flex;align-items:center;justify-content:center;gap:2px 7px;font:700 13pt system-ui,sans-serif;color:#8a7a5a;flex-wrap:wrap;padding:2px 0}
-.ostrip b{min-width:20px;text-align:center}
-.ostrip .cur{color:#E0533A;border:2px solid #E0533A;border-radius:6px;padding:0 3px}
-.wsorderbox{padding-top:6px;padding-bottom:6px}
+.ostrip{padding:4px 0}
+.orow{display:flex;align-items:center;justify-content:center;gap:6px;font:700 20pt system-ui,sans-serif;color:#666;line-height:1.5}
+.orow i{color:#c9b79e;font-style:normal}
+.orow b{min-width:26px;text-align:center}
+.orow .cur{color:#E0533A}
+.pline{display:flex;align-items:center;gap:12px}
+.pline .prow{flex:1}
+.pend{font-family:'AndikaPrint','Comic Sans MS',sans-serif;font-size:34pt;color:#333;line-height:1}
 .g{stroke:#D8CBB6;stroke-width:2} .g.b{stroke:#B79B78;stroke-width:2.5} .g.d{stroke-dasharray:7 9}
 @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0;page-break-before:always} .sheet:first-of-type{page-break-before:avoid} .wsbox{border-color:#ccc} }
 @page{margin:1cm}
