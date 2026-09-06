@@ -319,8 +319,15 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-headinfo{display:flex;flex-direction:column;gap:4px}
 .abc-phon{font:600 13px var(--mono);color:var(--amber);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:8px;padding:2px 10px;align-self:flex-start}
 .abc-phon b{font-weight:700}
-.abc-words{font:500 13px var(--sans);color:var(--body);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.abc-words span{background:var(--good-bg);border:1px solid var(--good-line);color:var(--ink);border-radius:8px;padding:2px 9px;font-weight:600}
+.abc-phonics{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;margin-top:14px}
+.abc-ph-h{font:700 14px var(--sans);color:var(--navy);margin-bottom:10px}
+.abc-ph-h b{color:var(--amber);font-family:var(--mono)}
+.abc-ph-words{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.abc-ph-word{display:inline-flex;align-items:center;gap:7px;background:var(--good-bg);border:1.5px solid var(--good-line);color:var(--ink);border-radius:12px;padding:7px 13px;font:600 15px var(--sans);cursor:pointer;transition:transform .1s ease,background .1s ease}
+.abc-ph-word:hover{transform:translateY(-1px);background:#EAF3E0}
+.abc-ph-word .e{font-size:20px}
+.abc-ph-sents{display:flex;flex-direction:column;gap:6px}
+.abc-ph-sent{display:flex;align-items:center;gap:9px;font:500 15px var(--sans);color:var(--body)}
 .abc-hint{font:500 13px var(--sans);color:var(--muted);background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:10px;padding:8px 12px;margin:4px 0 10px}
 .abc-slot-ctrls{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:10px}
 .abc-slot-ctrls .btn{padding:7px 12px;font-size:13px}
@@ -5231,17 +5238,60 @@ const ABC_SOUND = {
   P:"/p/ p-pig",Q:"/kw/ qu-queen",R:"/r/ r-rainbow",S:"/s/ s-sun",T:"/t/ t-tree",
   U:"/ʌ/ u-umbrella",V:"/v/ v-van",W:"/w/ w-whale",X:"/ks/ -fox",Y:"/j/ y-yo-yo",Z:"/z/ z-zebra"
 };
-/* Phonics word sets — words that start with each letter's sound (for teaching). */
-const ABC_PHONICS = {
-  A:["apple","ant","alligator"], B:["ball","bat","bear"], C:["cat","car","cup"],
-  D:["dog","duck","doll"], E:["egg","elephant","elbow"], F:["fish","fan","fox"],
-  G:["goat","girl","gate"], H:["hat","hen","house"], I:["igloo","insect","ink"],
-  J:["jam","jug","jet"], K:["kite","key","king"], L:["lion","leg","lamp"],
-  M:["moon","map","milk"], N:["nest","net","nut"], O:["orange","ox","octopus"],
-  P:["pig","pen","pot"], Q:["queen","quilt","quiz"], R:["rainbow","rat","ring"],
-  S:["sun","sock","snake"], T:["tree","top","ten"], U:["umbrella","up","under"],
-  V:["van","vet","violin"], W:["whale","web","wig"], X:["fox","box","six"],
-  Y:["yo-yo","yak","yellow"], Z:["zebra","zip","zoo"]
+/* Phonics sets — initial-sound words (with emoji) + simple example sentences. */
+const ABC_PH = {
+  A:{w:[["apple","🍎"],["ant","🐜"],["alligator","🐊"],["ax","🪓"],["arrow","🏹"]],
+     ex:["An ant is on the apple.","The alligator has a big mouth.","Point the arrow up."]},
+  B:{w:[["ball","⚽"],["bear","🐻"],["bus","🚌"],["banana","🍌"],["bat","🦇"]],
+     ex:["The bear has a ball.","I eat a banana.","The bat is on the bus."]},
+  C:{w:[["cat","🐱"],["car","🚗"],["cup","☕"],["cake","🍰"],["cow","🐄"]],
+     ex:["The cat sits in the car.","Here is a cup of milk.","The cow likes the cake."]},
+  D:{w:[["dog","🐶"],["duck","🦆"],["drum","🥁"],["door","🚪"],["doll","🪆"]],
+     ex:["The dog and the duck play.","I hit the drum.","Open the door."]},
+  E:{w:[["egg","🥚"],["elephant","🐘"],["engine","🚂"],["elbow","💪"],["envelope","✉️"]],
+     ex:["The elephant has an egg.","My elbow hurts.","Send the envelope."]},
+  F:{w:[["fish","🐟"],["fox","🦊"],["frog","🐸"],["flower","🌸"],["fan","🪭"]],
+     ex:["The fish and the frog swim.","A fox smells the flower.","Turn on the fan."]},
+  G:{w:[["goat","🐐"],["girl","👧"],["grapes","🍇"],["gift","🎁"],["goose","🦢"]],
+     ex:["The girl has a gift.","The goat eats grapes.","A goose can honk."]},
+  H:{w:[["hat","🎩"],["hen","🐔"],["house","🏠"],["horse","🐴"],["hand","✋"]],
+     ex:["The hen is in the house.","I wear a hat.","The horse runs fast."]},
+  I:{w:[["igloo","🛖"],["insect","🐛"],["iguana","🦎"],["ink","🖋️"],["island","🏝️"]],
+     ex:["An insect is in the igloo.","The iguana is green.","The ink is black."]},
+  J:{w:[["jam","🍓"],["juice","🧃"],["jet","✈️"],["jug","🫙"],["jelly","🍮"]],
+     ex:["I put jam on bread.","The jet is fast.","Drink the juice."]},
+  K:{w:[["kite","🪁"],["key","🔑"],["king","🤴"],["kangaroo","🦘"],["kitten","🐱"]],
+     ex:["The king flies a kite.","Here is the key.","The kangaroo hops."]},
+  L:{w:[["lion","🦁"],["leg","🦵"],["lamp","💡"],["leaf","🍃"],["lemon","🍋"]],
+     ex:["The lion has four legs.","Turn on the lamp.","The lemon is yellow."]},
+  M:{w:[["moon","🌙"],["map","🗺️"],["milk","🥛"],["mouse","🐭"],["monkey","🐵"]],
+     ex:["The mouse drinks milk.","Look at the moon.","The monkey has a map."]},
+  N:{w:[["nest","🪺"],["net","🥅"],["nut","🥜"],["nose","👃"],["night","🌃"]],
+     ex:["The bird is in the nest.","A nut is in the net.","I have one nose."]},
+  O:{w:[["orange","🍊"],["octopus","🐙"],["ox","🐂"],["olive","🫒"],["otter","🦦"]],
+     ex:["The octopus is in the sea.","I eat an orange.","The ox is strong."]},
+  P:{w:[["pig","🐷"],["pen","🖊️"],["pizza","🍕"],["panda","🐼"],["pot","🍲"]],
+     ex:["The pig eats pizza.","I write with a pen.","The panda is cute."]},
+  Q:{w:[["queen","👑"],["quilt","🛏️"],["quail","🐦"],["quiz","❓"],["question","❔"]],
+     ex:["The queen has a quilt.","Answer the quiz.","Ask a question."]},
+  R:{w:[["rainbow","🌈"],["rabbit","🐰"],["ring","💍"],["rocket","🚀"],["rat","🐀"]],
+     ex:["The rabbit sees a rainbow.","The rocket goes up.","She has a ring."]},
+  S:{w:[["sun","☀️"],["snake","🐍"],["star","⭐"],["sock","🧦"],["sandwich","🥪"]],
+     ex:["The sun is a star.","The snake is long.","I eat a sandwich."]},
+  T:{w:[["tree","🌳"],["tiger","🐯"],["train","🚆"],["ten","🔟"],["top","🔝"]],
+     ex:["The tiger is by the tree.","The train has ten cars.","Climb to the top."]},
+  U:{w:[["umbrella","☔"],["uncle","👨"],["up","⬆️"],["under","🔽"],["umpire","🧑‍⚖️"]],
+     ex:["The umbrella keeps me dry.","Look up, not down.","My uncle is tall."]},
+  V:{w:[["van","🚐"],["violin","🎻"],["volcano","🌋"],["vase","🏺"],["vet","👩‍⚕️"]],
+     ex:["The vet drives a van.","She plays the violin.","The volcano is hot."]},
+  W:{w:[["whale","🐳"],["watch","⌚"],["window","🪟"],["wolf","🐺"],["web","🕸️"]],
+     ex:["The whale is huge.","A spider makes a web.","Look out the window."]},
+  X:{w:[["fox","🦊"],["box","📦"],["six","6️⃣"],["ox","🐂"],["wax","🕯️"]],
+     ex:["The fox is in the box.","I am six years old.","The ox pulls the box."]},
+  Y:{w:[["yo-yo","🪀"],["yak","🐂"],["yellow","🟡"],["yarn","🧶"],["yacht","⛵"]],
+     ex:["The yak is yellow.","Play with the yo-yo.","The yarn is soft."]},
+  Z:{w:[["zebra","🦓"],["zoo","🦁"],["zip","🤐"],["zero","0️⃣"],["zigzag","⚡"]],
+     ex:["The zebra is at the zoo.","Zip up your coat.","Draw a zigzag."]}
 };
 function abcCanvasSVG(char){
   const G = ABC_G, ghost = abcPathData(char);
@@ -5341,6 +5391,7 @@ function renderABCGrid(){
     <div class="abc-actions">
       <button class="btn btn-ghost" onclick="abcPrintAll()">🖨 列印全部 A–Z 練習單</button>
       <button class="btn btn-ghost" onclick="abcPrintWmAll()">💧 浮水印練習 A–Z</button>
+      <button class="btn btn-ghost" onclick="abcPrintPhonicsAll()">🗣️ Phonics 列印表 A–Z</button>
     </div>
     <div class="abc-grid">${cells}</div>
     <div class="rd-note">✍️ 描寫練習單為本站原創版面（塗色 + 圈認 + 描寫 + 握筆 + 寫單字），非轉載他站素材。字型 Baloo 2（OFL）；塗色線稿 © OpenMoji（CC BY-SA 4.0）。</div>
@@ -5360,7 +5411,6 @@ function renderLetter(ch){
       <div class="abc-headinfo">
         <div class="abc-kwbig">${emoji} <b>${ch}</b> is for <b>${word}</b></div>
         <div class="abc-phon">🔤 發音 <b>${ABC_SOUND[ch]}</b></div>
-        <div class="abc-words">🗣️ Phonics 自然發音：${ABC_PHONICS[ch].map(w=>`<span>${w}</span>`).join("")}</div>
       </div>
     </div>
     <div class="abc-hint">👉 大小寫各自按「下一筆」，一次畫一畫，看清楚每一筆的起點（數字）與方向（箭頭）。</div>
@@ -5381,8 +5431,14 @@ function renderLetter(ch){
         </div>
       </div>
     </div>
+    <div class="abc-phonics">
+      <div class="abc-ph-h">🗣️ 自然發音 Phonics — 發音 <b>${ABC_SOUND[ch]}</b>（點單字或句子聽發音 🔊）</div>
+      <div class="abc-ph-words">${ABC_PH[ch].w.map(x=>`<button class="abc-ph-word" onclick="speak('${x[0].replace(/'/g,"")}')"><span class="e">${x[1]}</span>${x[0]}</button>`).join("")}</div>
+      <div class="abc-ph-sents">${ABC_PH[ch].ex.map(s=>`<div class="abc-ph-sent"><button class="res-audio mini" title="朗讀" onclick="speak('${s.replace(/'/g,"")}')">🔊</button><span>${s}</span></div>`).join("")}</div>
+    </div>
     <div class="abc-ctrls">
       <button class="btn btn-ghost" onclick="abcPrint('${ch}')">🖨 列印 ${ch}${ch.toLowerCase()} 練習單</button>
+      <button class="btn btn-ghost" onclick="abcPrintPhonics('${ch}')">🗣️ Phonics 列印表</button>
       <button class="btn btn-ghost" onclick="abcPrintWm('${ch}')">💧 浮水印練習</button>
       <button class="btn btn-ghost" onclick="abcGo('${prev}')">◀ ${prev}</button>
       <button class="btn btn-ghost" onclick="abcGo('${next}')">${next} ▶</button>
@@ -5519,7 +5575,7 @@ function abcSheetHTML(ch){
   const [word, emoji] = ABC_KEY[ch], lo = ch.toLowerCase(), w = word.toLowerCase();
   return `<section class="sheet abcws">
     <div class="wshdr"><div class="wsttl">Alphabet Letter <b class="andika">${ch} ${lo}</b></div>
-      <div class="wsbrand">🔤 ${ABC_SOUND[ch]} · 🗣️ ${ABC_PHONICS[ch].join(", ")}</div></div>
+      <div class="wsbrand">🔤 ${ABC_SOUND[ch]} · 🗣️ ${ABC_PH[ch].w.map(x=>x[0]).join(", ")}</div></div>
     <div class="wsrow">
       <div class="wsbox"><div class="wsl">塗色字母 Color the letters</div><div class="colorletters andika">${ch}${lo}</div></div>
       <div class="wsbox"><div class="wsl">塗色圖片・寫單字 Color &amp; Write</div>
@@ -5610,6 +5666,15 @@ body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background
 .pline{display:flex;align-items:center;gap:12px}
 .pline .prow{flex:1}
 .pend{font-family:'AndikaPrint','Comic Sans MS',sans-serif;font-size:34pt;color:#333;line-height:1}
+.ph-big{font-family:'AndikaPrint','Comic Sans MS',sans-serif;font-size:80pt;line-height:1;text-align:center;color:#7A5B49;margin:6px 0}
+.ph-sound{text-align:center;font:600 15pt system-ui,sans-serif;color:#555;margin-bottom:16px}
+.ph-sound b{color:#B4623B}
+.ph-words{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 26px;margin-bottom:18px}
+.ph-word{text-align:center;width:110px}
+.ph-emoji{font-size:44pt;line-height:1.1}
+.ph-w{font-size:18pt;color:#333}
+.ph-exh{font:700 12pt system-ui,sans-serif;color:#7A5B49;border-top:2px solid #EEE0D0;padding-top:8px;margin-bottom:4px}
+.ph-ex{font:400 15pt system-ui,sans-serif;color:#222;line-height:1.9;margin:0;padding-left:26px}
 .g{stroke:#D8CBB6;stroke-width:2} .g.b{stroke:#B79B78;stroke-width:2.5} .g.d{stroke-dasharray:7 9}
 @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0;page-break-before:always} .sheet:first-of-type{page-break-before:avoid} .wsbox{border-color:#ccc} }
 @page{margin:1cm}
@@ -5627,6 +5692,23 @@ function abcPrint(ch){ abcOpenSheets([ch.toUpperCase()], "字母練習單 "+ch.t
 function abcPrintAll(){ abcOpenSheets(ABC.slice(), "English Cat Island — A–Z 描寫練習單"); }
 function abcPrintWm(ch){ abcOpenSheets([ch.toUpperCase()], "浮水印練習 "+ch.toUpperCase(), abcWatermarkSheet); }
 function abcPrintWmAll(){ abcOpenSheets(ABC.slice(), "English Cat Island — A–Z 浮水印練習", abcWatermarkSheet); }
+/* Phonics reference sheet: big letter + sound + picture words + example sentences */
+function abcPhonicsSheet(ch){
+  const lo = ch.toLowerCase(), P = ABC_PH[ch];
+  const words = P.w.map(x=>`<div class="ph-word"><div class="ph-emoji">${x[1]}</div><div class="ph-w andika">${x[0]}</div></div>`).join("");
+  const sents = P.ex.map(s=>`<li>${s}</li>`).join("");
+  return `<section class="sheet phsheet">
+    <div class="wshdr"><div class="wsttl">Phonics <b class="andika">${ch} ${lo}</b></div><div class="wsbrand">🐱 English Cat Island · 發音 ${ABC_SOUND[ch]}</div></div>
+    <div class="ph-big andika">${ch}${lo}</div>
+    <div class="ph-sound">這個字母的音：<b>${ABC_SOUND[ch]}</b></div>
+    <div class="ph-words">${words}</div>
+    <div class="ph-exh">例句 Example sentences</div>
+    <ol class="ph-ex">${sents}</ol>
+    <div class="wsfoot">🐱 English Cat Island · 字型 Baloo 2（OFL）· 版面為本站原創</div>
+  </section>`;
+}
+function abcPrintPhonics(ch){ abcOpenSheets([ch.toUpperCase()], "Phonics "+ch.toUpperCase(), abcPhonicsSheet); }
+function abcPrintPhonicsAll(){ abcOpenSheets(ABC.slice(), "English Cat Island — A–Z Phonics", abcPhonicsSheet); }
 
 /* ================= 單元題組閱讀 Unit Readings ================= */
 let UR_ANS = {}, UR_SHOW = false, urCurId = null;
