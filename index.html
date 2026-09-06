@@ -326,8 +326,11 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-ph-word{display:inline-flex;align-items:center;gap:7px;background:var(--good-bg);border:1.5px solid var(--good-line);color:var(--ink);border-radius:12px;padding:7px 13px;font:600 15px var(--sans);cursor:pointer;transition:transform .1s ease,background .1s ease}
 .abc-ph-word:hover{transform:translateY(-1px);background:#EAF3E0}
 .abc-ph-word .e{font-size:20px}
-.abc-ph-sents{display:flex;flex-direction:column;gap:6px}
-.abc-ph-sent{display:flex;align-items:center;gap:9px;font:500 15px var(--sans);color:var(--body)}
+.abc-ph-sents{display:flex;flex-direction:column;gap:9px}
+.abc-ph-sent{display:flex;align-items:flex-start;gap:9px}
+.abc-ph-sent .t{display:flex;flex-direction:column;line-height:1.4}
+.abc-ph-sent .en{font:600 15px var(--sans);color:var(--body)}
+.abc-ph-sent .zh{font:400 13px var(--sans);color:var(--muted)}
 .abc-hint{font:500 13px var(--sans);color:var(--muted);background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:10px;padding:8px 12px;margin:4px 0 10px}
 .abc-slot-ctrls{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:10px}
 .abc-slot-ctrls .btn{padding:7px 12px;font-size:13px}
@@ -5241,58 +5244,70 @@ const ABC_SOUND = {
 /* Phonics sets — initial-sound words (with emoji) + simple example sentences. */
 const ABC_PH = {
   A:{w:[["apple","🍎"],["ant","🐜"],["alligator","🐊"],["ax","🪓"],["arrow","🏹"]],
-     ex:["An ant is on the apple.","The alligator has a big mouth.","Point the arrow up."]},
+     ex:[["An ant is on the apple.","一隻螞蟻在蘋果上。"],["The alligator has a big mouth.","短吻鱷有一張大嘴。"],["Point the arrow up.","把箭頭指向上。"]]},
   B:{w:[["ball","⚽"],["bear","🐻"],["bus","🚌"],["banana","🍌"],["bat","🦇"]],
-     ex:["The bear has a ball.","I eat a banana.","The bat is on the bus."]},
+     ex:[["The bear has a ball.","熊有一顆球。"],["I eat a banana.","我吃一根香蕉。"],["The bat is on the bus.","蝙蝠在公車上。"]]},
   C:{w:[["cat","🐱"],["car","🚗"],["cup","☕"],["cake","🍰"],["cow","🐄"]],
-     ex:["The cat sits in the car.","Here is a cup of milk.","The cow likes the cake."]},
+     ex:[["The cat sits in the car.","貓坐在車子裡。"],["Here is a cup of milk.","這是一杯牛奶。"],["The cow likes the cake.","乳牛喜歡蛋糕。"]]},
   D:{w:[["dog","🐶"],["duck","🦆"],["drum","🥁"],["door","🚪"],["doll","🪆"]],
-     ex:["The dog and the duck play.","I hit the drum.","Open the door."]},
+     ex:[["The dog and the duck play.","狗和鴨子在玩。"],["I hit the drum.","我敲鼓。"],["Open the door.","打開門。"]]},
   E:{w:[["egg","🥚"],["elephant","🐘"],["engine","🚂"],["elbow","💪"],["envelope","✉️"]],
-     ex:["The elephant has an egg.","My elbow hurts.","Send the envelope."]},
+     ex:[["The elephant has an egg.","大象有一顆蛋。"],["My elbow hurts.","我的手肘痛。"],["Send the envelope.","把信封寄出去。"]]},
   F:{w:[["fish","🐟"],["fox","🦊"],["frog","🐸"],["flower","🌸"],["fan","🪭"]],
-     ex:["The fish and the frog swim.","A fox smells the flower.","Turn on the fan."]},
+     ex:[["The fish and the frog swim.","魚和青蛙在游泳。"],["A fox smells the flower.","狐狸聞花。"],["Turn on the fan.","打開電扇。"]]},
   G:{w:[["goat","🐐"],["girl","👧"],["grapes","🍇"],["gift","🎁"],["goose","🦢"]],
-     ex:["The girl has a gift.","The goat eats grapes.","A goose can honk."]},
+     ex:[["The girl has a gift.","女孩有一份禮物。"],["The goat eats grapes.","山羊吃葡萄。"],["A goose can honk.","鵝會叫。"]]},
   H:{w:[["hat","🎩"],["hen","🐔"],["house","🏠"],["horse","🐴"],["hand","✋"]],
-     ex:["The hen is in the house.","I wear a hat.","The horse runs fast."]},
+     ex:[["The hen is in the house.","母雞在屋子裡。"],["I wear a hat.","我戴一頂帽子。"],["The horse runs fast.","馬跑得很快。"]]},
   I:{w:[["igloo","🛖"],["insect","🐛"],["iguana","🦎"],["ink","🖋️"],["island","🏝️"]],
-     ex:["An insect is in the igloo.","The iguana is green.","The ink is black."]},
+     ex:[["An insect is in the igloo.","一隻昆蟲在冰屋裡。"],["The iguana is green.","鬣蜥是綠色的。"],["The ink is black.","墨水是黑色的。"]]},
   J:{w:[["jam","🍓"],["juice","🧃"],["jet","✈️"],["jug","🫙"],["jelly","🍮"]],
-     ex:["I put jam on bread.","The jet is fast.","Drink the juice."]},
+     ex:[["I put jam on bread.","我把果醬塗在麵包上。"],["The jet is fast.","噴射機很快。"],["Drink the juice.","喝果汁。"]]},
   K:{w:[["kite","🪁"],["key","🔑"],["king","🤴"],["kangaroo","🦘"],["kitten","🐱"]],
-     ex:["The king flies a kite.","Here is the key.","The kangaroo hops."]},
+     ex:[["The king flies a kite.","國王放風箏。"],["Here is the key.","這是鑰匙。"],["The kangaroo hops.","袋鼠跳來跳去。"]]},
   L:{w:[["lion","🦁"],["leg","🦵"],["lamp","💡"],["leaf","🍃"],["lemon","🍋"]],
-     ex:["The lion has four legs.","Turn on the lamp.","The lemon is yellow."]},
+     ex:[["The lion has four legs.","獅子有四條腿。"],["Turn on the lamp.","打開檯燈。"],["The lemon is yellow.","檸檬是黃色的。"]]},
   M:{w:[["moon","🌙"],["map","🗺️"],["milk","🥛"],["mouse","🐭"],["monkey","🐵"]],
-     ex:["The mouse drinks milk.","Look at the moon.","The monkey has a map."]},
+     ex:[["The mouse drinks milk.","老鼠喝牛奶。"],["Look at the moon.","看月亮。"],["The monkey has a map.","猴子有一張地圖。"]]},
   N:{w:[["nest","🪺"],["net","🥅"],["nut","🥜"],["nose","👃"],["night","🌃"]],
-     ex:["The bird is in the nest.","A nut is in the net.","I have one nose."]},
+     ex:[["The bird is in the nest.","鳥在鳥巢裡。"],["A nut is in the net.","一顆堅果在網子裡。"],["I have one nose.","我有一個鼻子。"]]},
   O:{w:[["orange","🍊"],["octopus","🐙"],["ox","🐂"],["olive","🫒"],["otter","🦦"]],
-     ex:["The octopus is in the sea.","I eat an orange.","The ox is strong."]},
+     ex:[["The octopus is in the sea.","章魚在海裡。"],["I eat an orange.","我吃一顆柳橙。"],["The ox is strong.","公牛很強壯。"]]},
   P:{w:[["pig","🐷"],["pen","🖊️"],["pizza","🍕"],["panda","🐼"],["pot","🍲"]],
-     ex:["The pig eats pizza.","I write with a pen.","The panda is cute."]},
+     ex:[["The pig eats pizza.","豬吃披薩。"],["I write with a pen.","我用筆寫字。"],["The panda is cute.","熊貓很可愛。"]]},
   Q:{w:[["queen","👑"],["quilt","🛏️"],["quail","🐦"],["quiz","❓"],["question","❔"]],
-     ex:["The queen has a quilt.","Answer the quiz.","Ask a question."]},
+     ex:[["The queen has a quilt.","皇后有一條被子。"],["Answer the quiz.","回答小測驗。"],["Ask a question.","問一個問題。"]]},
   R:{w:[["rainbow","🌈"],["rabbit","🐰"],["ring","💍"],["rocket","🚀"],["rat","🐀"]],
-     ex:["The rabbit sees a rainbow.","The rocket goes up.","She has a ring."]},
+     ex:[["The rabbit sees a rainbow.","兔子看到彩虹。"],["The rocket goes up.","火箭往上飛。"],["She has a ring.","她有一枚戒指。"]]},
   S:{w:[["sun","☀️"],["snake","🐍"],["star","⭐"],["sock","🧦"],["sandwich","🥪"]],
-     ex:["The sun is a star.","The snake is long.","I eat a sandwich."]},
+     ex:[["The sun is a star.","太陽是一顆星星。"],["The snake is long.","蛇很長。"],["I eat a sandwich.","我吃一個三明治。"]]},
   T:{w:[["tree","🌳"],["tiger","🐯"],["train","🚆"],["ten","🔟"],["top","🔝"]],
-     ex:["The tiger is by the tree.","The train has ten cars.","Climb to the top."]},
+     ex:[["The tiger is by the tree.","老虎在樹旁邊。"],["The train has ten cars.","火車有十節車廂。"],["Climb to the top.","爬到最上面。"]]},
   U:{w:[["umbrella","☔"],["uncle","👨"],["up","⬆️"],["under","🔽"],["umpire","🧑‍⚖️"]],
-     ex:["The umbrella keeps me dry.","Look up, not down.","My uncle is tall."]},
+     ex:[["The umbrella keeps me dry.","雨傘讓我保持乾爽。"],["Look up, not down.","往上看，不要往下。"],["My uncle is tall.","我的叔叔很高。"]]},
   V:{w:[["van","🚐"],["violin","🎻"],["volcano","🌋"],["vase","🏺"],["vet","👩‍⚕️"]],
-     ex:["The vet drives a van.","She plays the violin.","The volcano is hot."]},
+     ex:[["The vet drives a van.","獸醫開廂型車。"],["She plays the violin.","她拉小提琴。"],["The volcano is hot.","火山很熱。"]]},
   W:{w:[["whale","🐳"],["watch","⌚"],["window","🪟"],["wolf","🐺"],["web","🕸️"]],
-     ex:["The whale is huge.","A spider makes a web.","Look out the window."]},
+     ex:[["The whale is huge.","鯨魚很巨大。"],["A spider makes a web.","蜘蛛結網。"],["Look out the window.","往窗外看。"]]},
   X:{w:[["fox","🦊"],["box","📦"],["six","6️⃣"],["ox","🐂"],["wax","🕯️"]],
-     ex:["The fox is in the box.","I am six years old.","The ox pulls the box."]},
+     ex:[["The fox is in the box.","狐狸在箱子裡。"],["I am six years old.","我六歲。"],["The ox pulls the box.","公牛拉箱子。"]]},
   Y:{w:[["yo-yo","🪀"],["yak","🐂"],["yellow","🟡"],["yarn","🧶"],["yacht","⛵"]],
-     ex:["The yak is yellow.","Play with the yo-yo.","The yarn is soft."]},
+     ex:[["The yak is yellow.","犛牛是黃色的。"],["Play with the yo-yo.","玩溜溜球。"],["The yarn is soft.","毛線很柔軟。"]]},
   Z:{w:[["zebra","🦓"],["zoo","🦁"],["zip","🤐"],["zero","0️⃣"],["zigzag","⚡"]],
-     ex:["The zebra is at the zoo.","Zip up your coat.","Draw a zigzag."]}
+     ex:[["The zebra is at the zoo.","斑馬在動物園。"],["Zip up your coat.","把外套拉鍊拉上。"],["Draw a zigzag.","畫一條鋸齒線。"]]}
 };
+/* Pre-rendered Kokoro voice for phonics words & sentences, keyed by exact text.
+   Generated by tools/gen_phonics.mjs; empty until first run. */
+/*PH_AUDIO_START*/const PH_AUDIO={"apple":"audio/ph/p_3a7bd3e2360a.mp3","ant":"audio/ph/p_67a333356cdc.mp3","alligator":"audio/ph/p_2f00c70d5fa9.mp3","ax":"audio/ph/p_5e85370e555e.mp3","arrow":"audio/ph/p_864ea39fe7e2.mp3","An ant is on the apple.":"audio/ph/p_cb936e217186.mp3","The alligator has a big mouth.":"audio/ph/p_76d2165152d6.mp3","Point the arrow up.":"audio/ph/p_3b1276b9ac3f.mp3","ball":"audio/ph/p_e9de08263f4a.mp3","bear":"audio/ph/p_bc98bb50e809.mp3","bus":"audio/ph/p_04e027e4990a.mp3","banana":"audio/ph/p_b493d48364af.mp3","bat":"audio/ph/p_ca5bcec12f71.mp3","The bear has a ball.":"audio/ph/p_71e700d4f093.mp3","I eat a banana.":"audio/ph/p_75a7fbed5176.mp3","The bat is on the bus.":"audio/ph/p_d6134f273ec3.mp3","cat":"audio/ph/p_77af778b51ab.mp3","car":"audio/ph/p_2b2961a431b2.mp3","cup":"audio/ph/p_c6171781d65f.mp3","cake":"audio/ph/p_32cdb6191962.mp3","cow":"audio/ph/p_beb134754910.mp3","The cat sits in the car.":"audio/ph/p_8fd0b074bec6.mp3","Here is a cup of milk.":"audio/ph/p_c97d32d76fdc.mp3","The cow likes the cake.":"audio/ph/p_7f01a85bdeab.mp3","dog":"audio/ph/p_cd6357efdd96.mp3","duck":"audio/ph/p_2d2370db2447.mp3","drum":"audio/ph/p_2752a2b5446f.mp3","door":"audio/ph/p_2534e2de1dec.mp3","doll":"audio/ph/p_44c3e574dac5.mp3","The dog and the duck play.":"audio/ph/p_62678ae8e140.mp3","I hit the drum.":"audio/ph/p_67410589025e.mp3","Open the door.":"audio/ph/p_a1e83c80f5c3.mp3","egg":"audio/ph/p_34707c3f40df.mp3","elephant":"audio/ph/p_cd08c4c4316d.mp3","engine":"audio/ph/p_ed9f6f250686.mp3","elbow":"audio/ph/p_6e85ebe74583.mp3","envelope":"audio/ph/p_4c503ca67761.mp3","The elephant has an egg.":"audio/ph/p_0100ca078399.mp3","My elbow hurts.":"audio/ph/p_4e484a12c3ee.mp3","Send the envelope.":"audio/ph/p_3037fd396c61.mp3","fish":"audio/ph/p_b474a99a2705.mp3","fox":"audio/ph/p_776cb326ab0c.mp3","frog":"audio/ph/p_74fa5327cc0f.mp3","flower":"audio/ph/p_c06b0cfe0cc5.mp3","fan":"audio/ph/p_e29a7f31cac0.mp3","The fish and the frog swim.":"audio/ph/p_ec691bdceb2b.mp3","A fox smells the flower.":"audio/ph/p_ae6538eef986.mp3","Turn on the fan.":"audio/ph/p_d1f31caa6cfd.mp3","goat":"audio/ph/p_5480f08f3596.mp3","girl":"audio/ph/p_431ba1c69367.mp3","grapes":"audio/ph/p_8286ee4ea8f5.mp3","gift":"audio/ph/p_a1954b15a745.mp3","goose":"audio/ph/p_c2d37dd05757.mp3","The girl has a gift.":"audio/ph/p_1dd738c69088.mp3","The goat eats grapes.":"audio/ph/p_4da8d7bd8e8d.mp3","A goose can honk.":"audio/ph/p_171f5b2b2174.mp3","hat":"audio/ph/p_18e1dd392168.mp3","hen":"audio/ph/p_d44a08de3981.mp3","house":"audio/ph/p_d6e21286621a.mp3","horse":"audio/ph/p_fd62862b6dc2.mp3","hand":"audio/ph/p_1b001706a418.mp3","The hen is in the house.":"audio/ph/p_133a68d82c54.mp3","I wear a hat.":"audio/ph/p_4eb0c9c91309.mp3","The horse runs fast.":"audio/ph/p_6c23691ea3fc.mp3","igloo":"audio/ph/p_01b1539b30a2.mp3","insect":"audio/ph/p_db7304319ed7.mp3","iguana":"audio/ph/p_39e48f935fdc.mp3","ink":"audio/ph/p_b728b7e775f7.mp3","island":"audio/ph/p_28cd2c5c15d1.mp3","An insect is in the igloo.":"audio/ph/p_6b80a9ae18b4.mp3","The iguana is green.":"audio/ph/p_57d79aefa7c8.mp3","The ink is black.":"audio/ph/p_ee5852dfe9f4.mp3","jam":"audio/ph/p_7152e6ec048e.mp3","juice":"audio/ph/p_a5ad89565607.mp3","jet":"audio/ph/p_a64f46febefb.mp3","jug":"audio/ph/p_44b2255326ec.mp3","jelly":"audio/ph/p_22d8ec27fc12.mp3","I put jam on bread.":"audio/ph/p_2c363a264e0a.mp3","The jet is fast.":"audio/ph/p_42b3fadd6b23.mp3","Drink the juice.":"audio/ph/p_b336d6e84f4c.mp3","kite":"audio/ph/p_8e8c7d42b456.mp3","key":"audio/ph/p_2c70e12b7a06.mp3","king":"audio/ph/p_e81dfe69841a.mp3","kangaroo":"audio/ph/p_4a3484b3bf2f.mp3","kitten":"audio/ph/p_58972659401c.mp3","The king flies a kite.":"audio/ph/p_a4d8cfdcc34c.mp3","Here is the key.":"audio/ph/p_99cc2e339d09.mp3","The kangaroo hops.":"audio/ph/p_8b7a322ab959.mp3","lion":"audio/ph/p_fc59487712bb.mp3","leg":"audio/ph/p_c7c8fc91abb8.mp3","lamp":"audio/ph/p_c98e85f24900.mp3","leaf":"audio/ph/p_9f91161f4343.mp3","lemon":"audio/ph/p_f464d7d71c06.mp3","The lion has four legs.":"audio/ph/p_cc3b6347e08b.mp3","Turn on the lamp.":"audio/ph/p_38627d7a6a2b.mp3","The lemon is yellow.":"audio/ph/p_60f7fd983512.mp3","moon":"audio/ph/p_9e78b43ea00e.mp3","map":"audio/ph/p_60be9861750f.mp3","milk":"audio/ph/p_8825e76530f8.mp3","mouse":"audio/ph/p_47c5c28cae25.mp3","monkey":"audio/ph/p_000c285457fc.mp3","The mouse drinks milk.":"audio/ph/p_dcb093061d70.mp3","Look at the moon.":"audio/ph/p_b23634bb8975.mp3","The monkey has a map.":"audio/ph/p_bf279ad5c73d.mp3","nest":"audio/ph/p_75ef2e329bdb.mp3","net":"audio/ph/p_a08a0fcbdeaf.mp3","nut":"audio/ph/p_7dfd8928a4a3.mp3","nose":"audio/ph/p_d77e22123e64.mp3","night":"audio/ph/p_176473d73133.mp3","The bird is in the nest.":"audio/ph/p_9404bd704731.mp3","A nut is in the net.":"audio/ph/p_8edf09a5a228.mp3","I have one nose.":"audio/ph/p_c17dab5706d3.mp3","orange":"audio/ph/p_1b4c9133da73.mp3","octopus":"audio/ph/p_5633c9b8af6d.mp3","ox":"audio/ph/p_1dd14ffc3c30.mp3","olive":"audio/ph/p_fa6598317163.mp3","otter":"audio/ph/p_914cb64a1bfa.mp3","The octopus is in the sea.":"audio/ph/p_276a60e0c2b8.mp3","I eat an orange.":"audio/ph/p_b9ca21643a01.mp3","The ox is strong.":"audio/ph/p_4d602b2e0ce1.mp3","pig":"audio/ph/p_f0b8c9d84dd2.mp3","pen":"audio/ph/p_e21a6b0cb193.mp3","pizza":"audio/ph/p_9ed1515819de.mp3","panda":"audio/ph/p_a7cdf5d0586b.mp3","pot":"audio/ph/p_74a51c3ce9ff.mp3","The pig eats pizza.":"audio/ph/p_6b359e29b11c.mp3","I write with a pen.":"audio/ph/p_89938b60fb95.mp3","The panda is cute.":"audio/ph/p_28f384482769.mp3","queen":"audio/ph/p_a9c3c1f76745.mp3","quilt":"audio/ph/p_b8b2eacffb5d.mp3","quail":"audio/ph/p_2c285f90c6bc.mp3","quiz":"audio/ph/p_9d98ce221dd5.mp3","question":"audio/ph/p_1f5087db919c.mp3","The queen has a quilt.":"audio/ph/p_68404dce8517.mp3","Answer the quiz.":"audio/ph/p_97e52be76a1f.mp3","Ask a question.":"audio/ph/p_6bc3c839564a.mp3","rainbow":"audio/ph/p_8fced00b6ce2.mp3","rabbit":"audio/ph/p_d37d96b42ad4.mp3","ring":"audio/ph/p_16b974583155.mp3","rocket":"audio/ph/p_c58dd0a37600.mp3","rat":"audio/ph/p_9950cec246ec.mp3","The rabbit sees a rainbow.":"audio/ph/p_aca56b3f43e3.mp3","The rocket goes up.":"audio/ph/p_45367fedc2f3.mp3","She has a ring.":"audio/ph/p_1865522c3d7f.mp3","sun":"audio/ph/p_27756f050e14.mp3","snake":"audio/ph/p_538d7d9fe78e.mp3","star":"audio/ph/p_525eca1d5089.mp3","sock":"audio/ph/p_06efe37f5e98.mp3","sandwich":"audio/ph/p_8f5c570f55dd.mp3","The sun is a star.":"audio/ph/p_37a86ab29a9f.mp3","The snake is long.":"audio/ph/p_b3595785b79d.mp3","I eat a sandwich.":"audio/ph/p_4c191221f6e4.mp3","tree":"audio/ph/p_dc9c5edb8b2d.mp3","tiger":"audio/ph/p_f15c16b99f82.mp3","train":"audio/ph/p_116f54c41d04.mp3","ten":"audio/ph/p_e4432baa9081.mp3","top":"audio/ph/p_28720365c5e7.mp3","The tiger is by the tree.":"audio/ph/p_48f26dbb66b3.mp3","The train has ten cars.":"audio/ph/p_3bee11ca1e91.mp3","Climb to the top.":"audio/ph/p_715445bd06e1.mp3","umbrella":"audio/ph/p_2974744982f0.mp3","uncle":"audio/ph/p_3107ea0301a2.mp3","up":"audio/ph/p_75a288c0d689.mp3","under":"audio/ph/p_d767748a6037.mp3","umpire":"audio/ph/p_ee38e188a007.mp3","The umbrella keeps me dry.":"audio/ph/p_38dcb130992d.mp3","Look up, not down.":"audio/ph/p_1b19ab3c519b.mp3","My uncle is tall.":"audio/ph/p_638980296856.mp3","van":"audio/ph/p_970b1897af0a.mp3","violin":"audio/ph/p_00e3e584e242.mp3","volcano":"audio/ph/p_06612c283234.mp3","vase":"audio/ph/p_30e436cb3824.mp3","vet":"audio/ph/p_5f9276129b84.mp3","The vet drives a van.":"audio/ph/p_12998a2f79f8.mp3","She plays the violin.":"audio/ph/p_9485bff74008.mp3","The volcano is hot.":"audio/ph/p_ee6ab794328a.mp3","whale":"audio/ph/p_a5d2ae286d0d.mp3","watch":"audio/ph/p_baed83162394.mp3","window":"audio/ph/p_44ff7b02c80d.mp3","wolf":"audio/ph/p_f76b61b962db.mp3","web":"audio/ph/p_4b5e57f6eb2f.mp3","The whale is huge.":"audio/ph/p_ab506375711c.mp3","A spider makes a web.":"audio/ph/p_0cc87140999d.mp3","Look out the window.":"audio/ph/p_0729122f34d1.mp3","box":"audio/ph/p_26f8567f2569.mp3","six":"audio/ph/p_44778d82365e.mp3","wax":"audio/ph/p_57abfafa3540.mp3","The fox is in the box.":"audio/ph/p_89ba6ff204ce.mp3","I am six years old.":"audio/ph/p_ca25540c6684.mp3","The ox pulls the box.":"audio/ph/p_60b983fe37aa.mp3","yo-yo":"audio/ph/p_8fa67658753e.mp3","yak":"audio/ph/p_e378e72a7585.mp3","yellow":"audio/ph/p_c685a2c9bab2.mp3","yarn":"audio/ph/p_ec4e598bd0f3.mp3","yacht":"audio/ph/p_ed6a077c0b11.mp3","The yak is yellow.":"audio/ph/p_31493c185dd8.mp3","Play with the yo-yo.":"audio/ph/p_076f5e61dd1f.mp3","The yarn is soft.":"audio/ph/p_30f002da57e9.mp3","zebra":"audio/ph/p_676cb75018ed.mp3","zoo":"audio/ph/p_24fe93c9e17c.mp3","zip":"audio/ph/p_4a70fe9aa643.mp3","zero":"audio/ph/p_f9194e73f9e9.mp3","zigzag":"audio/ph/p_c629f93e48d3.mp3","The zebra is at the zoo.":"audio/ph/p_3504c8e424db.mp3","Zip up your coat.":"audio/ph/p_55562393439e.mp3","Draw a zigzag.":"audio/ph/p_c36aa131b640.mp3"};/*PH_AUDIO_END*/
+let phAudioEl = null;
+function phSpeak(text){
+  if(!text) return;
+  tts.stop();
+  if(phAudioEl){ try{ phAudioEl.pause(); }catch(e){} phAudioEl = null; }
+  const src = PH_AUDIO[text];
+  if(src){ const a = new Audio(src); phAudioEl = a; a.play().catch(()=>{ if(phAudioEl===a){ phAudioEl=null; speak(text); } }); return; }
+  speak(text);   // fallback: improved browser voice
+}
 function abcCanvasSVG(char){
   const G = ABC_G, ghost = abcPathData(char);
   const strokes = LETTER_STROKES[char];
@@ -5433,8 +5448,8 @@ function renderLetter(ch){
     </div>
     <div class="abc-phonics">
       <div class="abc-ph-h">🗣️ 自然發音 Phonics — 發音 <b>${ABC_SOUND[ch]}</b>（點單字或句子聽發音 🔊）</div>
-      <div class="abc-ph-words">${ABC_PH[ch].w.map(x=>`<button class="abc-ph-word" onclick="speak('${x[0].replace(/'/g,"")}')"><span class="e">${x[1]}</span>${x[0]}</button>`).join("")}</div>
-      <div class="abc-ph-sents">${ABC_PH[ch].ex.map(s=>`<div class="abc-ph-sent"><button class="res-audio mini" title="朗讀" onclick="speak('${s.replace(/'/g,"")}')">🔊</button><span>${s}</span></div>`).join("")}</div>
+      <div class="abc-ph-words">${ABC_PH[ch].w.map(x=>`<button class="abc-ph-word" onclick="phSpeak(this.dataset.t)" data-t="${x[0].replace(/"/g,"")}"><span class="e">${x[1]}</span>${x[0]}</button>`).join("")}</div>
+      <div class="abc-ph-sents">${ABC_PH[ch].ex.map(s=>`<div class="abc-ph-sent"><button class="res-audio mini" title="朗讀" onclick="phSpeak(this.dataset.t)" data-t="${s[0].replace(/"/g,"")}">🔊</button><div class="t"><span class="en">${s[0]}</span><span class="zh">${s[1]}</span></div></div>`).join("")}</div>
     </div>
     <div class="abc-ctrls">
       <button class="btn btn-ghost" onclick="abcPrint('${ch}')">🖨 列印 ${ch}${ch.toLowerCase()} 練習單</button>
@@ -5674,7 +5689,8 @@ body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background
 .ph-emoji{font-size:44pt;line-height:1.1}
 .ph-w{font-size:18pt;color:#333}
 .ph-exh{font:700 12pt system-ui,sans-serif;color:#7A5B49;border-top:2px solid #EEE0D0;padding-top:8px;margin-bottom:4px}
-.ph-ex{font:400 15pt system-ui,sans-serif;color:#222;line-height:1.9;margin:0;padding-left:26px}
+.ph-ex{font:400 15pt system-ui,sans-serif;color:#222;line-height:1.7;margin:0;padding-left:26px}
+.ph-ex .zh{color:#888;font-size:12pt}
 .g{stroke:#D8CBB6;stroke-width:2} .g.b{stroke:#B79B78;stroke-width:2.5} .g.d{stroke-dasharray:7 9}
 @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0;page-break-before:always} .sheet:first-of-type{page-break-before:avoid} .wsbox{border-color:#ccc} }
 @page{margin:1cm}
@@ -5696,7 +5712,7 @@ function abcPrintWmAll(){ abcOpenSheets(ABC.slice(), "English Cat Island — A�
 function abcPhonicsSheet(ch){
   const lo = ch.toLowerCase(), P = ABC_PH[ch];
   const words = P.w.map(x=>`<div class="ph-word"><div class="ph-emoji">${x[1]}</div><div class="ph-w andika">${x[0]}</div></div>`).join("");
-  const sents = P.ex.map(s=>`<li>${s}</li>`).join("");
+  const sents = P.ex.map(s=>`<li>${s[0]} <span class="zh">${s[1]}</span></li>`).join("");
   return `<section class="sheet phsheet">
     <div class="wshdr"><div class="wsttl">Phonics <b class="andika">${ch} ${lo}</b></div><div class="wsbrand">🐱 English Cat Island · 發音 ${ABC_SOUND[ch]}</div></div>
     <div class="ph-big andika">${ch}${lo}</div>
