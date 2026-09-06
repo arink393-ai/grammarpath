@@ -289,7 +289,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rd-source-h{font:700 10.5px var(--sans);color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .rd-source b{color:var(--body);font-weight:600}
 /* ---- ABC handwriting ---- */
-@font-face{font-family:'Andika';src:url('fonts/Andika-Regular.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'Andika';src:url('fonts/VarelaRound-Regular.ttf') format('truetype');font-display:swap}
 .andika{font-family:'Andika','Comic Sans MS',var(--sans)}
 .abc-actions{margin:14px 0 4px}
 .abc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;margin:16px 0}
@@ -5094,7 +5094,7 @@ function renderReading(id, keepScroll){
    trace worksheets. Original worksheets — not copied from any third party. */
 const ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const ABC_PAT = ["zig","wave","hump","loop"];   // warm-up pattern rotation
-const ABC_PRINT_ALT = new Set(["a"]);            // letters whose printed form differs from the handwriting form
+const ABC_PRINT_ALT = new Set();                 // font is single-story throughout, so no print/handwriting mismatch note needed
 const ABC_KEY = {
   A:["Apple","🍎"],B:["Bear","🐻"],C:["Cat","🐱"],D:["Dog","🐶"],E:["Egg","🥚"],
   F:["Fish","🐟"],G:["Goat","🐐"],H:["Hat","🎩"],I:["Igloo","🛖"],J:["Juice","🧃"],
@@ -5102,7 +5102,7 @@ const ABC_KEY = {
   P:["Pig","🐷"],Q:["Queen","👑"],R:["Rainbow","🌈"],S:["Sun","☀️"],T:["Tree","🌳"],
   U:["Umbrella","☔"],V:["Van","🚐"],W:["Whale","🐳"],X:["Fox","🦊"],Y:["Yo-yo","🪀"],Z:["Zebra","🦓"]
 };
-const ABC_FONT_URL = new URL("fonts/Andika-Regular.ttf", location.href).href;
+const ABC_FONT_URL = new URL("fonts/VarelaRound-Regular.ttf", location.href).href;
 let abcFont = null, abcFontLoading = null, abcCurrent = "A";
 function abcEnsureFont(){
   if(abcFont) return Promise.resolve(abcFont);
@@ -5323,12 +5323,12 @@ function renderABCGrid(){
   app.innerHTML = `<div class="view">
     <div class="eyebrow">Handwriting · 字母書寫</div>
     <h1 class="display">Learn to Write A–Z<span class="zh-term-lg">字母怎麼寫</span></h1>
-    <p class="lede">點任一個字母，看它<b>一筆一畫怎麼寫</b>（大小寫都有動畫示範），也可以<b>下載列印描寫練習單</b>讓學生用紙筆練習。字型採用專為初學讀寫設計的 <b>Andika</b>。</p>
+    <p class="lede">點任一個字母，看它<b>一筆一畫怎麼寫</b>（大小寫都有動畫示範），也可以<b>下載列印描寫練習單</b>讓學生用紙筆練習。字型採用單層 a 的圓體 <b>Varela Round</b>，與手寫筆順一致。</p>
     <div class="abc-actions">
       <button class="btn btn-ghost" onclick="abcPrintAll()">🖨 列印全部 A–Z 練習單</button>
     </div>
     <div class="abc-grid">${cells}</div>
-    <div class="rd-note">✍️ 描寫練習單為本站原創版面（塗色 + 圈認 + 描寫 + 握筆 + 寫單字），非轉載他站素材。字型 Andika © SIL International（OFL）；塗色線稿 © OpenMoji（CC BY-SA 4.0）。</div>
+    <div class="rd-note">✍️ 描寫練習單為本站原創版面（塗色 + 圈認 + 描寫 + 握筆 + 寫單字），非轉載他站素材。字型 Varela Round（OFL）；塗色線稿 © OpenMoji（CC BY-SA 4.0）。</div>
   </div>`;
 }
 function renderLetter(ch){
