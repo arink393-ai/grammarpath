@@ -5127,16 +5127,20 @@ function abcLoadArt(){
 const ABC_G = { W:220, H:252, top:36, mid:108, base:180, desc:226 };
 /* The strokes were authored on an older grid (30/75/185/229). Remap every y in a
    path 'd' onto the new grid so letters stay aligned to the lines. */
-function abcMapY(y){
+function abcMapY(y, upper){
+  // Uppercase spans the full cap zone → map 30..185 linearly to top..base (keeps
+  // round caps like C/O undistorted). Lowercase uses a piecewise map so x-height
+  // features land exactly on the centred dashed midline.
+  if(upper) return ABC_G.top + (y-30)*(ABC_G.base-ABC_G.top)/(185-30);
   const o = [30,75,185,229], n = [ABC_G.top, ABC_G.mid, ABC_G.base, ABC_G.desc];
   if(y <= o[0]) return n[0] + (y-o[0])*(n[1]-n[0])/(o[1]-o[0]);
   for(let i=0;i<o.length-1;i++){ if(y <= o[i+1]) return n[i] + (y-o[i])*(n[i+1]-n[i])/(o[i+1]-o[i]); }
   const k = o.length-1; return n[k] + (y-o[k])*(n[k]-n[k-1])/(o[k]-o[k-1]);
 }
-function abcRemapD(d){
+function abcRemapD(d, upper){
   return d.replace(/([MLC])([^MLC]*)/g, (m, cmd, args)=>{
     const nums = args.trim().split(/[ ,]+/).filter(s=>s!=="").map(Number);
-    for(let i=1;i<nums.length;i+=2) nums[i] = +abcMapY(nums[i]).toFixed(1);
+    for(let i=1;i<nums.length;i+=2) nums[i] = +abcMapY(nums[i], upper).toFixed(1);
     return cmd + nums.join(" ");
   });
 }
@@ -5155,11 +5159,11 @@ function abcPathData(char){
 const LETTER_STROKES = {
   A:["M110 32 L64 185","M110 32 L156 185","M83 132 L137 132"],
   B:["M74 32 L74 185","M74 32 C132 34 132 104 74 106","M74 106 C144 108 144 185 74 185"],
-  C:["M154 66 C120 24 58 40 58 108 C58 176 120 192 154 150"],
+  C:["M148 60 C122 38 108 30 95 30 C64 30 50 74 50 108 C50 142 64 186 95 186 C112 186 130 176 148 156"],
   D:["M74 32 L74 185","M74 32 C148 42 148 175 74 185"],
   E:["M78 32 L78 185","M78 32 L150 32","M78 108 L138 108","M78 185 L150 185"],
   F:["M78 32 L78 185","M78 32 L150 32","M78 108 L134 108"],
-  G:["M154 66 C120 24 58 40 58 108 C58 176 124 194 156 152 L156 118 L122 118"],
+  G:["M148 60 C122 38 108 30 95 30 C64 30 50 74 50 108 C50 142 64 186 95 186 C118 186 140 178 150 152 L150 116 L118 116"],
   H:["M70 32 L70 185","M150 32 L150 185","M70 108 L150 108"],
   I:["M82 32 L138 32","M110 32 L110 185","M82 185 L138 185"],
   J:["M96 32 L150 32","M138 32 L138 150 C138 188 84 192 72 156"],
@@ -5180,9 +5184,9 @@ const LETTER_STROKES = {
   Y:["M66 32 L110 110","M154 32 L110 110","M110 110 L110 185"],
   Z:["M62 32 L158 32 L64 185 L158 185"],
   a:["M150 100 C126 72 70 80 70 130 C70 182 130 194 150 150","M150 80 L150 185"],
-  b:["M74 30 L74 185","M74 100 C150 100 150 185 74 185"],
-  c:["M146 96 C120 70 72 80 72 130 C72 180 120 192 146 166"],
-  d:["M150 30 L150 185","M150 100 C74 100 74 185 150 185"],
+  b:["M74 30 L74 185","M74 75 C150 75 150 185 74 185"],
+  c:["M148 95 C110 73 72 92 72 130 C72 168 110 187 148 165"],
+  d:["M150 30 L150 185","M150 75 C74 75 74 185 150 185"],
   e:["M74 130 L146 130 C148 92 74 84 72 130 C72 180 122 192 150 158"],
   f:["M148 44 C120 24 90 34 90 78 L90 185","M66 96 L128 96"],
   g:["M150 100 C126 72 72 82 72 128 C72 172 128 182 150 152","M150 80 L150 205 C150 232 92 236 76 210"],
@@ -5194,8 +5198,8 @@ const LETTER_STROKES = {
   m:["M72 75 L72 185","M72 104 C84 78 116 78 116 114 L116 185","M116 104 C128 78 162 78 162 114 L162 185"],
   n:["M74 75 L74 185","M74 104 C88 78 150 78 150 114 L150 185"],
   o:["M110 75 C72 75 72 185 110 185 C148 185 148 75 110 75"],
-  p:["M74 75 L74 229","M74 82 C150 82 150 185 74 185"],
-  q:["M150 75 L150 229","M150 82 C74 82 74 185 150 185"],
+  p:["M74 75 L74 229","M74 75 C150 75 150 185 74 185"],
+  q:["M150 75 L150 229","M150 75 C74 75 74 185 150 185"],
   r:["M78 75 L78 185","M78 104 C92 80 128 78 148 90"],
   s:["M144 88 C130 72 82 72 82 106 C82 134 140 132 140 160 C140 190 88 192 76 172"],
   t:["M108 44 L108 168 C108 186 122 188 136 181","M78 78 L140 78"],
@@ -5216,8 +5220,9 @@ const ABC_SOUND = {
 function abcCanvasSVG(char){
   const G = ABC_G, ghost = abcPathData(char);
   const strokes = LETTER_STROKES[char];
+  const up = /[A-Z]/.test(char);
   const inkHTML = (strokes && strokes.length)
-    ? strokes.map(d=>`<path class="abc-ink" d="${abcRemapD(d)}"/>`).join("")
+    ? strokes.map(d=>`<path class="abc-ink" d="${abcRemapD(d, up)}"/>`).join("")
     : `<path class="abc-ink" d="${ghost}"/>`;   // fallback: trace the outline
   return `<svg viewBox="0 0 ${G.W} ${G.H}" class="abc-canvas">
     <line class="gl s" x1="6" y1="${G.top}" x2="${G.W-6}" y2="${G.top}"/>
@@ -5404,7 +5409,7 @@ function abcArrowMarkup(d, color){
 /* one glyph drawn from centreline strokes, in the ABC_G grid; options: dotted / marks / color */
 function abcGlyphMarkup(char, o){
   o = o || {};
-  const strokes = (LETTER_STROKES[char] || []).map(abcRemapD);
+  const strokes = (LETTER_STROKES[char] || []).map(d=>abcRemapD(d, /[A-Z]/.test(char)));
   const dash = o.dotted ? ' stroke-dasharray="1 15"' : '';
   const paths = strokes.map(d=>`<path d="${d}" fill="none" stroke="${o.color||'#CFCFCF'}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"${dash}/>`).join("");
   let marks = "";
@@ -5427,7 +5432,7 @@ function abcTraceRow(char){
     + `<line class="g d" x1="0" y1="${G.mid}" x2="${W}" y2="${G.mid}"/>`
     + `<line class="g b" x1="0" y1="${G.base}" x2="${W}" y2="${G.base}"/>`
     + `<line class="g d" x1="0" y1="${G.desc}" x2="${W}" y2="${G.desc}"/>`;
-  const start = abcRemapD((LETTER_STROKES[char]||["M110 110"])[0]);
+  const start = abcRemapD((LETTER_STROKES[char]||["M110 110"])[0], /[A-Z]/.test(char));
   const [sx, sy] = abcStrokeStart(start);
   let x = cx0, cells = "";
   cells += `<g transform="translate(${x-110},0)">${abcGlyphMarkup(char,{color:'#5A4232'})}</g>`; x += step;           // solid model
