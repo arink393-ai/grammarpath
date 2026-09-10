@@ -36,6 +36,19 @@ function extractObjectLiteral(src, marker){
   }
   throw new Error("object end not found");
 }
+function extractArrayLiteral(src, marker){
+  const m = src.indexOf(marker); if(m < 0) return null;
+  const start = src.indexOf("[", m);
+  let depth = 0, inStr = false, q = "", esc = false;
+  for(let j=start;j<src.length;j++){
+    const c = src[j];
+    if(inStr){ if(esc) esc=false; else if(c==="\\") esc=true; else if(c===q) inStr=false; continue; }
+    if(c==='"'||c==="'"||c==="`"){ inStr=true; q=c; }
+    else if(c==="[") depth++;
+    else if(c==="]"){ depth--; if(depth===0) return src.slice(start, j+1); }
+  }
+  return null;
+}
 function fname(text){ return "p_" + crypto.createHash("sha256").update(text).digest("hex").slice(0,12) + ".mp3"; }
 async function synth(text, speed){
   const res = await fetch(KOKORO + "/v1/audio/speech", {
@@ -61,6 +74,15 @@ async function main(){
   for(const k in ABC_PH){
     for(const [w] of ABC_PH[k].w) texts.set(w, 0.85);      // single words a little slower
     for(const s of ABC_PH[k].ex) texts.set(s[0], 0.95);    // English sentence only (s = [en, zh])
+  }
+  // situational dialogue lines + key phrases (English only)
+  const sitLit = extractArrayLiteral(html, "const SITUATIONS = [");
+  if(sitLit){
+    const SITUATIONS = eval("(" + sitLit + ")");
+    for(const s of SITUATIONS){
+      for(const l of s.lines) texts.set(l[1], 0.95);
+      for(const kp of s.key)  texts.set(kp[0], 0.95);
+    }
   }
   const manifest = {}; let made = 0, skipped = 0;
   for(const [text, speed] of texts){
