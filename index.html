@@ -306,6 +306,11 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-lab{font:700 12px var(--sans);color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
 .abc-hold{min-height:180px;display:grid;place-items:center;color:var(--muted);font-size:13px}
 .abc-canvas{width:100%;height:auto;max-height:280px}
+.abc-writewrap{position:relative;width:100%;margin:2px 0}
+.abc-write{display:block;width:100%;aspect-ratio:220/252;background:#FFFDF9;border:1.5px solid var(--teal-line);border-radius:12px;touch-action:none;cursor:crosshair}
+.abc-demo{position:absolute;inset:0;pointer-events:none}
+.abc-demo .abc-canvas{width:100%;height:100%;max-height:none}
+.abc-demo .gl{display:none}
 .abc-canvas .gl{stroke:#E8DCC8;stroke-width:1.5}
 .abc-canvas .gl.d{stroke-dasharray:5 6}
 .abc-canvas .gl.b{stroke:#C9B79E;stroke-width:2}
@@ -5340,12 +5345,12 @@ function phSpeak(text){
   speak(text);   // fallback: improved browser voice
 }
 function abcCanvasSVG(char){
-  const G = ABC_G, ghost = abcPathData(char);
+  const G = ABC_G;
   const strokes = LETTER_STROKES[char];
   const up = /[A-Z]/.test(char);
   const inkHTML = (strokes && strokes.length)
     ? strokes.map(d=>`<path class="abc-ink" d="${abcRemapD(d, up)}"/>`).join("")
-    : `<path class="abc-ink" d="${ghost}"/>`;   // fallback: trace the outline
+    : `<path class="abc-ink" d="${abcPathData(char)}"/>`;   // fallback: font outline (needs opentype)
   return `<svg viewBox="0 0 ${G.W} ${G.H}" class="abc-canvas">
     <line class="gl s" x1="6" y1="${G.top}" x2="${G.W-6}" y2="${G.top}"/>
     <line class="gl d" x1="6" y1="${G.mid}" x2="${G.W-6}" y2="${G.mid}"/>
@@ -5355,6 +5360,61 @@ function abcCanvasSVG(char){
     <g class="abc-marks"></g>
     <circle class="abc-pen" r="6"/>
   </svg>`;
+}
+/* ---------- touch / stylus / mouse handwriting canvas ---------- */
+function abcDrawBg(canvas){
+  const G = ABC_G, ctx = canvas.getContext("2d"), W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+  const y = v => v/G.H * H, u = H/252;
+  const line = (yy,dash,col,w)=>{ ctx.beginPath(); ctx.setLineDash(dash); ctx.strokeStyle=col; ctx.lineWidth=w; ctx.moveTo(0,yy); ctx.lineTo(W,yy); ctx.stroke(); };
+  line(y(G.top),  [],            "#C9B79E", 1.6*u);
+  line(y(G.mid),  [7*u,8*u],     "#D8CBB6", 1.5*u);
+  line(y(G.base), [],            "#B79B78", 2.3*u);
+  line(y(G.desc), [7*u,8*u],     "#E2D6C2", 1.3*u);
+  ctx.setLineDash([]);
+  if(canvas.dataset.ghost !== "0"){
+    const capPx = y(G.base) - y(G.top);
+    ctx.fillStyle = "#ECE4D6";
+    ctx.font = `${Math.round(capPx/0.72)}px 'Andika','Comic Sans MS',sans-serif`;
+    ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+    ctx.fillText(canvas.dataset.ch, W/2, y(G.base));
+  }
+}
+function abcSetupWrite(canvas){
+  const ctx = canvas.getContext("2d"), dpr = Math.min(3, window.devicePixelRatio||1);
+  let drawing=false, last=null;
+  const penW = ()=> Math.max(6, canvas.height/40);
+  function resize(){ const r=canvas.getBoundingClientRect(); if(!r.width) return; canvas.width=Math.round(r.width*dpr); canvas.height=Math.round(r.height*dpr); abcDrawBg(canvas); }
+  const pos = e => { const r=canvas.getBoundingClientRect(); return [ (e.clientX-r.left)*canvas.width/r.width, (e.clientY-r.top)*canvas.height/r.height ]; };
+  const seg = (a,b)=>{ ctx.setLineDash([]); ctx.strokeStyle="#5A4232"; ctx.lineWidth=penW(); ctx.lineCap="round"; ctx.lineJoin="round"; ctx.beginPath(); ctx.moveTo(a[0],a[1]); ctx.lineTo(b[0],b[1]); ctx.stroke(); };
+  const dot = a =>{ ctx.fillStyle="#5A4232"; ctx.beginPath(); ctx.arc(a[0],a[1],penW()/2,0,7); ctx.fill(); };
+  canvas.addEventListener("pointerdown", e=>{ drawing=true; try{canvas.setPointerCapture(e.pointerId);}catch(_){} last=pos(e); dot(last); e.preventDefault(); });
+  canvas.addEventListener("pointermove", e=>{ if(!drawing) return; const p=pos(e); seg(last,p); last=p; e.preventDefault(); });
+  ["pointerup","pointercancel","pointerleave"].forEach(ev=> canvas.addEventListener(ev, ()=>{ drawing=false; }));
+  resize();
+  if(window.ResizeObserver){ new ResizeObserver(()=>resize()).observe(canvas); }
+}
+const abcWriteCanvas = which => document.querySelector(`#abcStage .abc-write[data-w="${which}"]`);
+function abcClearWrite(which){ const c=abcWriteCanvas(which); if(c) abcDrawBg(c); }
+function abcToggleGhost(which){ const c=abcWriteCanvas(which); if(!c) return; c.dataset.ghost = c.dataset.ghost==="0" ? "1" : "0"; abcDrawBg(c); }
+function abcDemo(which){
+  const c = abcWriteCanvas(which), wrap = document.querySelector(`#abcStage .abc-demo[data-w="${which}"]`);
+  if(!c || !wrap) return;
+  wrap.innerHTML = abcCanvasSVG(c.dataset.ch); wrap.hidden = false;
+  const svg = wrap.querySelector(".abc-canvas"); abcBuildMarks(svg);
+  const inks=[...svg.querySelectorAll(".abc-ink")], nums=[...svg.querySelectorAll(".abc-onum")], pen=svg.querySelector(".abc-pen");
+  inks.forEach(p=>{ const L=p.getTotalLength(); p.style.strokeDasharray=L; p.style.strokeDashoffset=L; });
+  nums.forEach(n=> n.style.opacity=0); if(pen) pen.style.opacity=0;
+  let k=0;
+  const step = ()=>{
+    if(k>=inks.length){ setTimeout(()=>{ wrap.hidden=true; wrap.innerHTML=""; }, 1000); return; }
+    if(nums[k]) nums[k].style.opacity=1;
+    const p=inks[k], L=p.getTotalLength(), dur=Math.min(1500,Math.max(550,L*5));
+    let t0=null;
+    const anim = t=>{ if(t0===null)t0=t; const pr=Math.min(1,(t-t0)/dur); p.style.strokeDashoffset=L*(1-pr); if(pen){ const pt=p.getPointAtLength(L*pr); pen.setAttribute("cx",pt.x); pen.setAttribute("cy",pt.y); pen.style.opacity=pr<1?1:0; } if(pr<1) requestAnimationFrame(anim); else { k++; setTimeout(step,240); } };
+    requestAnimationFrame(anim);
+  };
+  step();
 }
 /* place numbered badges + start arrows from each stroke's start point & tangent */
 function abcBuildMarks(canvas){
@@ -5459,21 +5519,22 @@ function renderLetter(ch){
         <div class="abc-phon">🔤 發音 <b>${ABC_SOUND[ch]}</b></div>
       </div>
     </div>
-    <div class="abc-hint">👉 大小寫各自按「下一筆」，一次畫一畫，看清楚每一筆的起點（數字）與方向（箭頭）。</div>
+    <div class="abc-hint">✍️ 用<b>手指、觸控筆或滑鼠</b>直接在四線格上寫寫看！可以描著<b>淺色的範字</b>；寫錯按「🧹 清除」再來，想看筆順按「▶ 看筆順」。</div>
     <div class="abc-stage" id="abcStage">
-      <div class="abc-slot"><div class="abc-lab">大寫 Uppercase</div><div id="abcUp" class="abc-hold">載入中…</div>
+      <div class="abc-slot"><div class="abc-lab">大寫 Uppercase</div>
+        <div class="abc-writewrap"><canvas class="abc-write" data-w="up" data-ch="${ch}" data-ghost="1"></canvas><div class="abc-demo" data-w="up" hidden></div></div>
         <div class="abc-slot-ctrls">
-          <button class="btn btn-primary" id="abcBtnUp" onclick="abcStepSlot('up')">✏️ 下一筆</button>
-          <button class="btn btn-ghost" onclick="abcResetSlot('up')">↻ 重來</button>
-          <button class="btn btn-ghost" onclick="abcPlaySlot('up')">⏩ 自動</button>
+          <button class="btn btn-primary" onclick="abcClearWrite('up')">🧹 清除</button>
+          <button class="btn btn-ghost" onclick="abcToggleGhost('up')">👀 範字</button>
+          <button class="btn btn-ghost" onclick="abcDemo('up')">▶ 看筆順</button>
         </div>
       </div>
-      <div class="abc-slot"><div class="abc-lab">小寫 Lowercase</div><div id="abcLo" class="abc-hold">載入中…</div>
-        ${ABC_PRINT_ALT.has(ch.toLowerCase()) ? `<div class="abc-altform">✍️ 這裡教的是<b>手寫體</b>。書本上的<b>印刷體</b>常寫成 <span id="abcAltGlyph" class="abc-altglyph"></span> —— 兩種都要認得喔！</div>` : ""}
+      <div class="abc-slot"><div class="abc-lab">小寫 Lowercase</div>
+        <div class="abc-writewrap"><canvas class="abc-write" data-w="lo" data-ch="${ch.toLowerCase()}" data-ghost="1"></canvas><div class="abc-demo" data-w="lo" hidden></div></div>
         <div class="abc-slot-ctrls">
-          <button class="btn btn-primary" id="abcBtnLo" onclick="abcStepSlot('lo')">✏️ 下一筆</button>
-          <button class="btn btn-ghost" onclick="abcResetSlot('lo')">↻ 重來</button>
-          <button class="btn btn-ghost" onclick="abcPlaySlot('lo')">⏩ 自動</button>
+          <button class="btn btn-primary" onclick="abcClearWrite('lo')">🧹 清除</button>
+          <button class="btn btn-ghost" onclick="abcToggleGhost('lo')">👀 範字</button>
+          <button class="btn btn-ghost" onclick="abcDemo('lo')">▶ 看筆順</button>
         </div>
       </div>
     </div>
@@ -5490,19 +5551,9 @@ function renderLetter(ch){
       <button class="btn btn-ghost" onclick="abcGo('${next}')">${next} ▶</button>
     </div>
   </div>`;
-  abcEnsureFont().then(()=>{
-    const up = document.getElementById("abcUp"), lo = document.getElementById("abcLo");
-    if(!up || !lo || abcCurrent!==ch) return;
-    up.innerHTML = abcCanvasSVG(ch); lo.innerHTML = abcCanvasSVG(ch.toLowerCase());
-    up.querySelectorAll(".abc-canvas").forEach(abcBuildMarks);
-    lo.querySelectorAll(".abc-canvas").forEach(abcBuildMarks);
-    abcResetSlot("up"); abcResetSlot("lo");
-    abcStepSlot("up"); abcStepSlot("lo");       // draw the first stroke of each so they aren't blank
-    const altEl = document.getElementById("abcAltGlyph");
-    if(altEl) altEl.innerHTML = abcPrintGlyphSVG(ch.toLowerCase(), 30);   // clean double-story print form
-  }).catch(()=>{
-    const s = document.getElementById("abcStage");
-    if(s) s.innerHTML = '<p class="res-nowarn">字型載入失敗，請重新整理頁面再試。</p>';
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(()=>{
+    if(abcCurrent!==ch) return;
+    document.querySelectorAll("#abcStage .abc-write").forEach(abcSetupWrite);
   });
 }
 /* ---- printable trace worksheet (original layout) ---- */
