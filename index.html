@@ -337,6 +337,35 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-ph-sent .t{display:flex;flex-direction:column;line-height:1.4}
 .abc-ph-sent .en{font:600 15px var(--sans);color:var(--body)}
 .abc-ph-sent .zh{font:400 13px var(--sans);color:var(--muted)}
+/* ---- situational dialogues ---- */
+.sit-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.sit-chip{font:600 14px var(--sans);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:99px;padding:7px 14px;cursor:pointer;transition:transform .1s ease,border-color .1s ease}
+.sit-chip:hover{transform:translateY(-1px);border-color:var(--teal-line)}
+.sit-chip.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.sit-card{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px}
+.sit-h{display:flex;align-items:center;gap:8px;font:500 18px var(--sans);color:var(--body);border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px;flex-wrap:wrap}
+.sit-h b{color:var(--navy)} .sit-h .zh{color:var(--muted);font-size:14px}
+.sit-playall{margin-left:auto;padding:6px 12px;font-size:13px}
+.sit-dia{display:flex;flex-direction:column;gap:12px}
+.sit-line{display:flex;gap:10px;align-items:flex-start;max-width:88%}
+.sit-line.R{flex-direction:row-reverse;margin-left:auto}
+.sit-av{font-size:26px;flex:none;width:40px;height:40px;display:grid;place-items:center;background:var(--bg);border-radius:50%}
+.sit-bub{display:flex;gap:8px;align-items:flex-start;background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:14px;padding:9px 12px}
+.sit-line.R .sit-bub{background:var(--good-bg);border-color:var(--good-line)}
+.sit-t{display:flex;flex-direction:column;line-height:1.4}
+.sit-t .en{font:600 15px var(--sans);color:var(--ink)}
+.sit-t .zh{font:400 13px var(--sans);color:var(--muted)}
+.sit-keyh{font:700 14px var(--sans);color:var(--navy);margin:18px 0 8px;border-top:1px dashed var(--line);padding-top:14px}
+.sit-keys{display:flex;flex-direction:column;gap:7px}
+.sit-key{display:flex;align-items:center;gap:9px;font:400 14px var(--sans);color:var(--body);flex-wrap:wrap}
+.sit-key b{color:var(--ink);font-weight:600}
+.sit-key span{color:var(--muted)}
+/* ---- ABC feature block inside Basic ---- */
+.abc-feature{padding:16px 18px}
+.abc-feature-p{font:400 15px/1.6 var(--sans);color:var(--body);margin:0 0 12px}
+.abc-feature-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:8px;margin-bottom:14px}
+.abc-feature-cell{display:grid;place-items:center;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:8px 0;font-size:22px;font-weight:700;color:var(--navy);text-decoration:none;transition:transform .1s ease,border-color .1s ease}
+.abc-feature-cell:hover{transform:translateY(-2px);border-color:var(--teal-line)}
 .abc-hint{font:500 13px var(--sans);color:var(--muted);background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:10px;padding:8px 12px;margin:4px 0 10px}
 .abc-slot-ctrls{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:10px}
 .abc-slot-ctrls .btn{padding:7px 12px;font-size:13px}
@@ -725,7 +754,6 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
     <button data-nav="#/level/advanced">Advanced</button>
     <button data-nav="#/games">Games</button>
     <button data-nav="#/island">My Island</button>
-    <button data-nav="#/abc">ABC 書寫</button>
     <button data-nav="#/reading">Reading</button>
     <button data-nav="#/resources">Resources</button>
   </nav>
@@ -2239,6 +2267,12 @@ function renderLevel(lvl){
     <p class="lede" style="margin-bottom:10px">${lv.desc}</p>
     <div class="prog-row" style="max-width:340px;margin-bottom:30px"><div class="prog-bar"><div class="prog-fill" style="width:${p.pct}%"></div></div><span class="prog-num">${p.done} of ${p.total} complete</span></div>
     <div class="cat-hero">${catSVG(74, CAT_OF[lvl])}<div class="cat-bubble"><span class="cb-name">${CAT_NAME[lvl]}</span>${CAT_MSG[lvl]}</div></div>
+    ${lvl==="basic" ? `<div class="unit"><div class="unit-h"><span class="u-eyebrow">Start here 從這裡開始</span><h2 class="section" style="margin:0">✍️ ABC 字母書寫 Handwriting</h2></div>
+      <div class="card abc-feature">
+        <p class="abc-feature-p">先學會寫 26 個字母：<b>觸控手寫</b>、看筆順、真人發音、Phonics 例字，還能<b>列印/浮水印練習單</b>。點字母開始 👇</p>
+        <div class="abc-feature-grid">${ABC.map(c=>`<a class="abc-feature-cell andika" href="#/abc/${c}">${c}${c.toLowerCase()}</a>`).join("")}</div>
+        <button class="btn btn-primary" onclick="location.hash='#/abc'">開啟字母書寫區 A–Z →</button>
+      </div></div>` : ""}
     ${units}
   </div>`;
 }
@@ -5377,20 +5411,26 @@ function abcFontMetrics(ctx){
 function abcDrawBg(canvas){
   const ctx = canvas.getContext("2d"), W = canvas.width, H = canvas.height;
   ctx.clearRect(0,0,W,H);
-  const met = abcFontMetrics(ctx);
-  const pad = H*0.075, u = H/252;
-  const fontSize = (H - 2*pad) / (met.capR + met.dR);   // fit cap-top → descender in the box
-  const capTop  = pad;
-  const baseline = capTop + met.capR*fontSize;
-  const xTop    = baseline - met.xR*fontSize;           // x-height (middle dashed line)
-  const descBot = baseline + met.dR*fontSize;           // descender (4th line)
+  const met = abcFontMetrics(ctx), u = H/252;
+  /* Evenly-spaced grid: the dashed midline is centred between the top line and the
+     baseline (x-height zone = half the cap zone). The 4th (descender) line sits at
+     the font's real descender depth so g/j/p/q/y tails reach it. */
+  const descFactor = (met.dR/met.xR)*0.5;       // descender zone as a fraction of the cap zone
+  const pad = H*0.06;
+  const capZone  = (H - 2*pad)/(1 + descFactor);
+  const baseline = pad + capZone;
+  const topY = pad;                              // baseline − capZone
+  const midY = baseline - capZone/2;             // centred midline
+  const descY = baseline + descFactor*capZone;   // descender line
   const line = (yy,dash,col,w)=>{ ctx.beginPath(); ctx.setLineDash(dash); ctx.strokeStyle=col; ctx.lineWidth=w; ctx.moveTo(0,yy); ctx.lineTo(W,yy); ctx.stroke(); };
-  line(capTop,  [],        "#C9B79E", 1.6*u);   // top solid
-  line(xTop,    [7*u,8*u], "#D8CBB6", 1.5*u);   // x-height dashed
-  line(baseline,[],        "#B79B78", 2.3*u);   // baseline solid
-  line(descBot, [7*u,8*u], "#E2D6C2", 1.3*u);   // descender dashed
+  line(topY,     [],        "#C9B79E", 1.6*u);
+  line(midY,     [7*u,8*u], "#D8CBB6", 1.5*u);
+  line(baseline, [],        "#B79B78", 2.3*u);
+  line(descY,    [7*u,8*u], "#E2D6C2", 1.3*u);
   ctx.setLineDash([]);
   if(canvas.dataset.ghost !== "0"){
+    const isUpper = /[A-Z]/.test(canvas.dataset.ch);
+    const fontSize = isUpper ? capZone/met.capR : (capZone/2)/met.xR;   // caps fill top→base; x-height fills mid→base
     ctx.fillStyle = "#ECE4D6";
     ctx.font = `${Math.round(fontSize)}px 'Andika','Comic Sans MS',sans-serif`;
     ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
@@ -6275,11 +6315,97 @@ function phDetail(it){
 }
 function speak(text, rate){ if(tts && tts.ok) tts.speak(text, rate); }
 const RES_TABS = [
-  {id:"phonics",  en:"Phonics",       zh:"基礎發音", icon:"🔤"},
-  {id:"phrasals", en:"Phrasal Verbs", zh:"片語動詞", icon:"🔗"},
-  {id:"idioms",   en:"Idioms",        zh:"慣用語",   icon:"💬"},
-  {id:"speaking", en:"Speaking",      zh:"口說跟讀", icon:"🎤"}
+  {id:"phonics",   en:"Phonics",       zh:"基礎發音", icon:"🔤"},
+  {id:"situations",en:"Situations",    zh:"情境會話", icon:"🗣️"},
+  {id:"phrasals",  en:"Phrasal Verbs", zh:"片語動詞", icon:"🔗"},
+  {id:"idioms",    en:"Idioms",        zh:"慣用語",   icon:"💬"},
+  {id:"speaking",  en:"Speaking",      zh:"口說跟讀", icon:"🎤"}
 ];
+/* Situational dialogues (travel & daily life). English lines play via phSpeak. */
+const SITUATIONS = [
+  {id:"restaurant", emoji:"🍽️", en:"Ordering at a Restaurant", zh:"餐廳點餐",
+   lines:[["👩‍🍳","Hi! A table for two, please.","你好，兩位。"],
+     ["🧑","Sure. Right this way. Here are the menus.","好的，這邊請。這是菜單。"],
+     ["👩‍🍳","Can I have the chicken sandwich, please?","可以給我雞肉三明治嗎？"],
+     ["🧑","Of course. Anything to drink?","當然。要喝點什麼嗎？"],
+     ["👩‍🍳","A glass of water, please.","請給我一杯水。"],
+     ["🧑","Great. I'll bring it right away.","好的，馬上來。"],
+     ["👩‍🍳","Excuse me, can we get the bill?","不好意思，可以結帳嗎？"],
+     ["🧑","Here you go. Have a nice day!","這是帳單。祝您愉快！"]],
+   key:[["A table for two, please.","兩位，謝謝。"],["Can I have…, please?","可以給我…嗎？"],["Can we get the bill?","可以結帳嗎？"]]},
+  {id:"hotel", emoji:"🏨", en:"Hotel Check-in", zh:"飯店入住",
+   lines:[["🧑","Good evening. I have a reservation.","晚安，我有訂房。"],
+     ["🧑‍💼","May I have your name, please?","請問您的大名？"],
+     ["🧑","It's Chen. C-H-E-N.","陳，C-H-E-N。"],
+     ["🧑‍💼","Thank you. A room for two nights, right?","謝謝。住兩晚，對嗎？"],
+     ["🧑","Yes. What time is breakfast?","是的。早餐幾點？"],
+     ["🧑‍💼","From 7 to 10. Here is your key card.","七點到十點。這是您的房卡。"],
+     ["🧑","Thank you. What's the Wi-Fi password?","謝謝。Wi-Fi 密碼是什麼？"],
+     ["🧑‍💼","It's on the card. Enjoy your stay!","在卡片上。祝您住得愉快！"]],
+   key:[["I have a reservation.","我有訂房。"],["What time is breakfast?","早餐幾點？"],["What's the Wi-Fi password?","Wi-Fi 密碼是什麼？"]]},
+  {id:"customs", emoji:"🛂", en:"Going Through Customs", zh:"過海關",
+   lines:[["👮","Passport, please. What's the purpose of your trip?","請出示護照。這趟旅行的目的？"],
+     ["🧑","I'm here on vacation.","我是來度假的。"],
+     ["👮","How long will you stay?","你會待多久？"],
+     ["🧑","About one week.","大約一個星期。"],
+     ["👮","Where will you stay?","你會住在哪裡？"],
+     ["🧑","At the Sunny Hotel downtown.","市中心的晴天飯店。"],
+     ["👮","Do you have anything to declare?","有東西要申報嗎？"],
+     ["🧑","No, nothing to declare.","沒有，沒有要申報的。"],
+     ["👮","Okay. Enjoy your trip!","好的，祝旅途愉快！"]],
+   key:[["I'm here on vacation.","我是來度假的。"],["About one week.","大約一個星期。"],["Nothing to declare.","沒有東西要申報。"]]},
+  {id:"airport", emoji:"✈️", en:"Airport Check-in", zh:"機場報到",
+   lines:[["🧑‍✈️","Good morning. May I see your passport and ticket?","早安，請出示護照和機票。"],
+     ["🧑","Here you are.","給您。"],
+     ["🧑‍✈️","Are you checking any bags?","有行李要托運嗎？"],
+     ["🧑","Yes, one suitcase.","有，一個行李箱。"],
+     ["🧑‍✈️","Please put it on the scale. Window or aisle seat?","請放上磅秤。要靠窗還是走道？"],
+     ["🧑","A window seat, please.","靠窗，謝謝。"],
+     ["🧑‍✈️","Here's your boarding pass. Gate 12, boarding at 9:30.","這是登機證。12 號登機門，9:30 登機。"],
+     ["🧑","Thank you!","謝謝！"]],
+   key:[["I'm checking one bag.","我要托運一件行李。"],["A window seat, please.","靠窗的座位，謝謝。"],["Which gate is it?","是幾號登機門？"]]},
+  {id:"coffee", emoji:"☕", en:"At a Coffee Shop", zh:"咖啡店點餐",
+   lines:[["🧑‍🍳","Hi, what can I get you?","嗨，需要什麼？"],
+     ["🧑","A medium latte, please.","一杯中杯拿鐵，謝謝。"],
+     ["🧑‍🍳","Hot or iced?","熱的還是冰的？"],
+     ["🧑","Iced, please.","冰的，謝謝。"],
+     ["🧑‍🍳","For here or to go?","內用還是外帶？"],
+     ["🧑","To go. How much is it?","外帶。多少錢？"],
+     ["🧑‍🍳","That's four dollars.","四塊錢。"],
+     ["🧑","Here you are. Thank you!","給您。謝謝！"]],
+   key:[["A medium latte, please.","一杯中杯拿鐵。"],["For here or to go?","內用還是外帶？"],["How much is it?","多少錢？"]]},
+  {id:"shopping", emoji:"🛍️", en:"Shopping & Paying", zh:"購物結帳",
+   lines:[["🧑","Excuse me, how much is this T-shirt?","不好意思，這件 T 恤多少錢？"],
+     ["🧑‍💼","It's fifteen dollars.","十五塊錢。"],
+     ["🧑","Do you have it in blue?","有藍色的嗎？"],
+     ["🧑‍💼","Yes, here you go. Would you like to try it on?","有，給您。要試穿嗎？"],
+     ["🧑","Yes, please. Where's the fitting room?","好的。試衣間在哪裡？"],
+     ["🧑‍💼","Over there on the left.","在那邊左手邊。"],
+     ["🧑","I'll take it. Can I pay by card?","我要這件。可以刷卡嗎？"],
+     ["🧑‍💼","Sure. Please tap your card here.","可以。請在這裡感應。"]],
+   key:[["How much is this?","這個多少錢？"],["Do you have it in blue?","有藍色的嗎？"],["Can I pay by card?","可以刷卡嗎？"]]},
+  {id:"directions", emoji:"🧭", en:"Asking for Directions", zh:"問路",
+   lines:[["🧑","Excuse me, how do I get to the station?","不好意思，車站怎麼走？"],
+     ["🧑‍🦱","Go straight and turn left at the light.","直走，在紅綠燈左轉。"],
+     ["🧑","Is it far?","很遠嗎？"],
+     ["🧑‍🦱","No, about five minutes on foot.","不會，走路大約五分鐘。"],
+     ["🧑","Thank you so much!","非常謝謝你！"],
+     ["🧑‍🦱","No problem. Have a good day!","不客氣，祝你順利！"]],
+   key:[["How do I get to…?","…怎麼走？"],["Turn left / right.","左轉／右轉。"],["Is it far?","很遠嗎？"]]},
+  {id:"doctor", emoji:"🏥", en:"At the Doctor", zh:"看醫生",
+   lines:[["🧑‍⚕️","Hi, what seems to be the problem?","你好，哪裡不舒服？"],
+     ["🧑","I have a sore throat and a cough.","我喉嚨痛又咳嗽。"],
+     ["🧑‍⚕️","How long have you felt like this?","這樣多久了？"],
+     ["🧑","For about three days.","大約三天了。"],
+     ["🧑‍⚕️","Do you have a fever?","有發燒嗎？"],
+     ["🧑","A little, last night.","昨晚有一點。"],
+     ["🧑‍⚕️","Take this medicine and rest. Drink lots of water.","吃這個藥、多休息，多喝水。"],
+     ["🧑","Thank you, doctor.","謝謝醫生。"]],
+   key:[["I have a sore throat.","我喉嚨痛。"],["Do you have a fever?","有發燒嗎？"],["Take this medicine.","吃這個藥。"]]}
+];
+let SIT_OPEN = "restaurant";
+function sitOpen(id){ SIT_OPEN = id; renderResources("situations"); }
+function sitPlayAll(){ const s = SITUATIONS.find(x=>x.id===SIT_OPEN); if(s && typeof speak==="function") speak(s.lines.map(l=>l[1]).join("  ")); }
 // small decorative SVG icons per theme (original art)
 function resIcon(kind){
   const w = 'width="34" height="34" viewBox="0 0 40 40"';
@@ -6343,6 +6469,16 @@ function renderResources(tab){
       }).join("");
       return `<div class="res-group"><h2 class="res-group-h">${resIcon(g.icon)} ${g.group}</h2>${rows}</div>`;
     }).join("");
+  } else if(tab==="situations"){
+    intro="真實情境對話：<b>點餐、入住、海關、機場、購物、問路…</b>。點任一情境，🔊 聽英文、跟著念；每句都附中文，看得懂也說得出。";
+    const s = SITUATIONS.find(x=>x.id===SIT_OPEN) || SITUATIONS[0];
+    const chips = SITUATIONS.map(x=>`<button class="sit-chip ${x.id===s.id?"active":""}" onclick="sitOpen('${x.id}')">${x.emoji} ${x.zh}</button>`).join("");
+    const lines = s.lines.map((l,i)=>`<div class="sit-line ${i%2?"R":"L"}"><div class="sit-av">${l[0]}</div><div class="sit-bub"><button class="res-audio mini" title="朗讀" onclick="phSpeak(this.dataset.t)" data-t="${l[1].replace(/"/g,"")}">🔊</button><div class="sit-t"><span class="en">${l[1]}</span><span class="zh">${l[2]}</span></div></div></div>`).join("");
+    const keys = s.key.map(k=>`<div class="sit-key"><button class="res-audio mini" title="朗讀" onclick="phSpeak(this.dataset.t)" data-t="${k[0].replace(/"/g,"")}">🔊</button><b>${k[0]}</b><span>${k[1]}</span></div>`).join("");
+    body = `<div class="sit-chips">${chips}</div>
+      <div class="sit-card"><div class="sit-h">${s.emoji} <b>${s.en}</b><span class="zh">${s.zh}</span><button class="btn btn-ghost sit-playall" onclick="sitPlayAll()">▶ 整段朗讀</button></div>
+      <div class="sit-dia">${lines}</div>
+      <div class="sit-keyh">🔑 關鍵句 Key phrases</div><div class="sit-keys">${keys}</div></div>`;
   } else if(tab==="speaking"){
     intro="口說跟讀 Read-aloud：🔊 聽示範 → 🎤 跟著念 → 語音辨識立即回饋。單字模式可連回口型動畫，句子模式取自 34 課的例句。答對第一次 +2 XP！";
     if(!SPK.item) spkNew(SPK.mode||"word");
