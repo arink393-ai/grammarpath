@@ -351,7 +351,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sit-line{display:flex;gap:10px;align-items:flex-start;max-width:88%}
 .sit-line.R{flex-direction:row-reverse;margin-left:auto}
 .sit-av{font-size:26px;flex:none;width:40px;height:40px;display:grid;place-items:center;background:var(--bg);border-radius:50%}
-.sit-bub{display:flex;gap:8px;align-items:flex-start;background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:14px;padding:9px 12px}
+.sit-bub{display:flex;flex-direction:column;gap:6px;align-items:stretch;background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:14px;padding:9px 12px;min-width:150px}
 .sit-line.R .sit-bub{background:var(--good-bg);border-color:var(--good-line)}
 .sit-t{display:flex;flex-direction:column;line-height:1.4}
 .sit-t .en{font:600 15px var(--sans);color:var(--ink)}
@@ -361,6 +361,43 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sit-key{display:flex;align-items:center;gap:9px;font:400 14px var(--sans);color:var(--body);flex-wrap:wrap}
 .sit-key b{color:var(--ink);font-weight:600}
 .sit-key span{color:var(--muted)}
+/* ---- Cake-style study controls ---- */
+.sit-ctrls{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 16px}
+.sit-seg{display:inline-flex;align-items:center;gap:4px;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px 6px 4px 4px}
+.sit-seg-lb{font:600 12px var(--sans);color:var(--muted);padding:0 6px 0 8px}
+.sit-seg button{font:600 13px var(--sans);color:var(--body);background:transparent;border:none;border-radius:99px;padding:5px 11px;cursor:pointer;transition:background .1s ease,color .1s ease}
+.sit-seg button:hover{background:var(--paper)}
+.sit-seg button.on{background:var(--teal);color:#fff}
+.sit-tools{display:flex;gap:6px;align-items:center;align-self:flex-start}
+.sit-line.R .sit-tools{align-self:flex-end}
+.sit-mic2,.sit-star{border:1px solid var(--teal-line);background:var(--paper);border-radius:50%;width:30px;height:30px;font-size:15px;cursor:pointer;line-height:1;padding:0;transition:transform .1s ease,background .1s ease}
+.sit-mic2:hover:not(:disabled),.sit-star:hover{transform:scale(1.1)}
+.sit-mic2.off{opacity:.4;cursor:not-allowed}
+.sit-mic2.live{background:#C0392B;color:#fff;border-color:#C0392B;animation:micPulse 1.1s ease-in-out infinite}
+.sit-star.on{background:#FBEED0;border-color:#EAC77A}
+.sit-fb{flex-basis:100%;order:9}
+.sit-fb .rd-why{margin-top:8px}
+.sit-heard{display:block;margin-top:5px;font-size:12px;opacity:.8}
+.sit-line.playing .sit-bub{box-shadow:0 0 0 3px var(--teal2);transition:box-shadow .15s ease}
+/* subtitle modes */
+.sit-dia.sub-en .sit-t .zh{display:none}
+.sit-dia.sub-off .sit-t .en,.sit-dia.sub-off .sit-t .zh{visibility:hidden}
+.sit-dia.sub-off .sit-line.revealed .sit-t .en,.sit-dia.sub-off .sit-line.revealed .sit-t .zh{visibility:visible}
+.sit-dia.sub-off .sit-t{cursor:pointer;position:relative;min-width:110px;min-height:20px}
+.sit-dia.sub-off .sit-line:not(.revealed) .sit-t::after{content:"👁 點看字幕";position:absolute;left:0;top:0;visibility:visible;font:600 12px var(--sans);color:var(--muted)}
+/* my sentence bank */
+.sit-saved{margin-top:16px;background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:6px 14px}
+.sit-saved summary{font:700 14px var(--sans);color:var(--navy);cursor:pointer;padding:10px 2px;list-style:none}
+.sit-saved summary::-webkit-details-marker{display:none}
+.sit-sv-n{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;background:var(--teal);color:#fff;border-radius:99px;font-size:12px;margin-left:4px}
+.sit-sv-list{display:flex;flex-direction:column;gap:8px;padding:2px 0 12px}
+.sit-sv-item{display:flex;align-items:flex-start;gap:9px}
+.sit-sv-t{display:flex;flex-direction:column;line-height:1.4;flex:1}
+.sit-sv-t .en{font:600 15px var(--sans);color:var(--ink)}
+.sit-sv-t .zh{font:400 12.5px var(--sans);color:var(--muted)}
+.sit-sv-x{border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:6px}
+.sit-sv-x:hover{background:var(--bg);color:#C0392B}
+.sit-sv-empty{font:400 13px/1.6 var(--sans);color:var(--muted);margin:2px 0 12px}
 /* ---- ABC feature block inside Basic ---- */
 .abc-feature{padding:16px 18px}
 .abc-feature-p{font:400 15px/1.6 var(--sans);color:var(--body);margin:0 0 12px}
@@ -5381,13 +5418,13 @@ function phHi(sentence, letter){
   return safe.replace(/[A-Za-z]+/g, w=> w[0].toLowerCase()===L
     ? `<span class="ph-hl">${w[0]}</span>${w.slice(1)}` : w);
 }
-function phSpeak(text){
+function phSpeak(text, rate){
   if(!text) return;
   tts.stop();
   if(phAudioEl){ try{ phAudioEl.pause(); }catch(e){} phAudioEl = null; }
   const src = PH_AUDIO[text];
-  if(src){ const a = new Audio(src); phAudioEl = a; a.play().catch(()=>{ if(phAudioEl===a){ phAudioEl=null; speak(text); } }); return; }
-  speak(text);   // fallback: improved browser voice
+  if(src){ const a = new Audio(src); a.preservesPitch = true; a.playbackRate = rate||1; phAudioEl = a; a.play().catch(()=>{ if(phAudioEl===a){ phAudioEl=null; speak(text, rate); } }); return; }
+  speak(text, rate);   // fallback: improved browser voice
 }
 function abcCanvasSVG(char){
   const G = ABC_G;
@@ -6533,8 +6570,91 @@ const SITUATIONS = [
    key:[["How's it going?","最近好嗎？"],["Any plans this weekend?","週末有計畫嗎？"],["Let's catch up soon.","改天聚聚。"]]}
 ];
 let SIT_OPEN = "restaurant";
-function sitOpen(id){ SIT_OPEN = id; renderResources("situations"); }
-function sitPlayAll(){ const s = SITUATIONS.find(x=>x.id===SIT_OPEN); if(s && typeof speak==="function") speak(s.lines.map(l=>l[1]).join("  ")); }
+let SIT_SUB = "both";      // subtitle mode: both | en | off  (Cake-style)
+let SIT_SPEED = 1;         // playback speed: 1 | 0.75 | 0.5
+let SIT_SEQ = null;        // cancel handle for play-all
+function sitOpen(id){ SIT_OPEN = id; SIT_SEQ && SIT_SEQ(); renderResources("situations"); }
+function sitSpeak(text){ phSpeak(text, SIT_SPEED); }
+function sitSetSub(mode, btn){
+  SIT_SUB = mode;
+  const dia = document.querySelector(".sit-dia"); if(dia) dia.className = "sit-dia sub-" + mode;
+  if(btn) [...btn.parentNode.querySelectorAll("button")].forEach(b=> b.classList.toggle("on", b===btn));
+}
+function sitSetSpeed(v, btn){
+  SIT_SPEED = v;
+  if(btn) [...btn.parentNode.querySelectorAll("button")].forEach(b=> b.classList.toggle("on", b===btn));
+}
+function sitReveal(el){ const ln = el.closest(".sit-line"); if(ln) ln.classList.toggle("revealed"); }
+/* Play the whole dialogue in sequence, highlighting each line, at the chosen speed. */
+function sitPlayAll(btn){
+  const s = SITUATIONS.find(x=>x.id===SIT_OPEN); if(!s) return;
+  if(SIT_SEQ){ SIT_SEQ(); SIT_SEQ = null; if(btn){ btn.innerHTML="▶ 整段播放"; } return; }  // toggle off
+  tts.stop(); if(phAudioEl){ try{ phAudioEl.pause(); }catch(e){} phAudioEl = null; }
+  let i = 0, cancelled = false;
+  SIT_SEQ = ()=>{ cancelled = true; document.querySelectorAll(".sit-line.playing").forEach(e=>e.classList.remove("playing")); };
+  if(btn) btn.innerHTML = "⏹ 停止";
+  const done = ()=>{ SIT_SEQ = null; if(btn) btn.innerHTML = "▶ 整段播放"; };
+  const next = ()=>{
+    document.querySelectorAll(".sit-line.playing").forEach(e=>e.classList.remove("playing"));
+    if(cancelled) return;
+    if(i >= s.lines.length){ done(); return; }
+    const line = s.lines[i], el = document.querySelector(`.sit-line[data-i="${i}"]`);
+    if(el){ el.classList.add("playing"); el.scrollIntoView({block:"center", behavior:"smooth"}); }
+    const src = PH_AUDIO[line[1]];
+    if(src){ const a = new Audio(src); a.preservesPitch = true; a.playbackRate = SIT_SPEED; phAudioEl = a;
+      a.onended = ()=>{ i++; next(); }; a.onerror = ()=>{ i++; next(); };
+      a.play().catch(()=>{ i++; next(); }); }
+    else { speak(line[1], SIT_SPEED); i++; setTimeout(next, 1900); }
+  };
+  next();
+}
+/* 逐句跟讀 — record the learner, score against the target with the shared recognizer. */
+let SIT_SCORED = {};
+function sitShadow(idx, btn){
+  if(!sr.ok || sr.busy) return;
+  const s = SITUATIONS.find(x=>x.id===SIT_OPEN); if(!s) return;
+  const target = s.lines[idx][1];
+  const fb = document.querySelector(`.sit-fb[data-i="${idx}"]`);
+  btn.classList.add("live"); if(fb) fb.innerHTML = `<div class="rd-why">🎙️ 請對著麥克風念這一句…</div>`;
+  sr.start(alts => {
+    const heard = srNorm(alts[0]||""), hw = heard.split(" ");
+    const tw = srNorm(target).split(" ");
+    const hits = tw.map(w=> hw.includes(w));
+    const rate = Math.round(hits.filter(Boolean).length / tw.length * 100), ok = rate >= 80;
+    const words = tw.map((w,i)=>`<span class="spk-w ${hits[i]?"hit":"miss"}">${w}</span>`).join(" ");
+    btn.classList.remove("live");
+    const key = SIT_OPEN + ":" + idx;
+    if(ok && !SIT_SCORED[key]){ SIT_SCORED[key]=1; try{ store.data.xp += 2; store.save(); paintHeader(); toast("+2 XP 🎤"); }catch(e){} }
+    if(fb) fb.innerHTML = `<div class="rd-why ${ok?"ok":"no"}">${ok?`✓ 很棒！命中率 ${rate}%`:`再試一次 · 命中率 ${rate}%（綠色是念對的字）`}
+      <div class="spk-words">${words}</div><span class="sit-heard">辨識到：「${alts[0]||"(聽不清楚)"}」</span></div>`;
+  }, err => {
+    btn.classList.remove("live");
+    if(fb && err) fb.innerHTML = `<div class="rd-why no">⚠ 沒收到聲音（${err}）。請允許麥克風權限，再按一次 🎤。</div>`;
+    else if(fb) fb.innerHTML = "";
+  });
+}
+/* ⭐ 我的句庫 — save sentences to review, kept in this browser (localStorage). */
+let SIT_SAVED = (function(){ try{ return JSON.parse(localStorage.getItem("gp_sit_saved")||"[]"); }catch(e){ return []; } })();
+function sitSaveWrite(){ try{ localStorage.setItem("gp_sit_saved", JSON.stringify(SIT_SAVED)); }catch(e){} }
+function sitIsSaved(en){ return SIT_SAVED.some(x=>x.en===en); }
+function sitSave(idx, btn){
+  const s = SITUATIONS.find(x=>x.id===SIT_OPEN); if(!s) return;
+  const l = s.lines[idx];
+  if(sitIsSaved(l[1])){ SIT_SAVED = SIT_SAVED.filter(x=>x.en!==l[1]); }
+  else { SIT_SAVED.unshift({en:l[1], zh:l[2], from:s.zh}); }
+  sitSaveWrite();
+  if(btn){ const on = sitIsSaved(l[1]); btn.classList.toggle("on", on); btn.textContent = on?"⭐":"☆"; btn.title = on?"已收藏，點一下移除":"收藏這句"; }
+  sitRenderSaved();
+}
+function sitRemoveSaved(en){ SIT_SAVED = SIT_SAVED.filter(x=>x.en!==en); sitSaveWrite(); renderResources("situations"); }
+function sitSavedHTML(){
+  const n = SIT_SAVED.length;
+  const esc = t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+  const items = n ? SIT_SAVED.map(x=>`<div class="sit-sv-item"><button class="res-audio mini" title="朗讀" onclick="sitSpeak(this.dataset.t)" data-t="${esc(x.en)}">🔊</button><div class="sit-sv-t"><span class="en">${x.en}</span><span class="zh">${x.zh}${x.from?` · <i>${x.from}</i>`:""}</span></div><button class="sit-sv-x" title="移除" onclick="sitRemoveSaved(&quot;${esc(x.en)}&quot;)">✕</button></div>`).join("")
+    : `<p class="sit-sv-empty">還沒有收藏。點對話裡的 ☆ 把不熟的句子存起來，隨時複習。</p>`;
+  return `<details class="sit-saved" id="sitSaved" ${n?"open":""}><summary>⭐ 我的句庫 <span class="sit-sv-n">${n}</span></summary><div class="sit-sv-list">${items}</div></details>`;
+}
+function sitRenderSaved(){ const box = document.getElementById("sitSaved"); if(box) box.outerHTML = sitSavedHTML(); }
 // small decorative SVG icons per theme (original art)
 function resIcon(kind){
   const w = 'width="34" height="34" viewBox="0 0 40 40"';
@@ -6599,15 +6719,33 @@ function renderResources(tab){
       return `<div class="res-group"><h2 class="res-group-h">${resIcon(g.icon)} ${g.group}</h2>${rows}</div>`;
     }).join("");
   } else if(tab==="situations"){
-    intro="真實情境對話：<b>點餐、入住、海關、機場、購物、問路…</b>。點任一情境，🔊 聽英文、跟著念；每句都附中文，看得懂也說得出。";
+    intro="像看短劇一樣學：選情境 → <b>調字幕</b>（中英／只看英文／遮住）與<b>語速</b> → 🔊 聽真人語音 → 🎤 逐句跟讀，語音辨識即時打分 → ☆ 把不熟的句子存進<b>我的句庫</b>複習。都是母語者的自然說法，避免中式直翻。";
     const s = SITUATIONS.find(x=>x.id===SIT_OPEN) || SITUATIONS[0];
+    const esc = t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
     const chips = SITUATIONS.map(x=>`<button class="sit-chip ${x.id===s.id?"active":""}" onclick="sitOpen('${x.id}')">${x.emoji} ${x.zh}</button>`).join("");
-    const lines = s.lines.map((l,i)=>`<div class="sit-line ${i%2?"R":"L"}"><div class="sit-av">${l[0]}</div><div class="sit-bub"><button class="res-audio mini" title="朗讀" onclick="phSpeak(this.dataset.t)" data-t="${l[1].replace(/"/g,"")}">🔊</button><div class="sit-t"><span class="en">${l[1]}</span><span class="zh">${l[2]}</span></div></div></div>`).join("");
-    const keys = s.key.map(k=>`<div class="sit-key"><button class="res-audio mini" title="朗讀" onclick="phSpeak(this.dataset.t)" data-t="${k[0].replace(/"/g,"")}">🔊</button><b>${k[0]}</b><span>${k[1]}</span></div>`).join("");
+    const seg = (lb, opts)=>`<div class="sit-seg"><span class="sit-seg-lb">${lb}</span>${opts}</div>`;
+    const ctrls = `<div class="sit-ctrls">
+      ${seg("字幕", `<button class="${SIT_SUB==="both"?"on":""}" onclick="sitSetSub('both',this)">中英</button><button class="${SIT_SUB==="en"?"on":""}" onclick="sitSetSub('en',this)">EN</button><button class="${SIT_SUB==="off"?"on":""}" onclick="sitSetSub('off',this)">遮住</button>`)}
+      ${seg("語速", `<button class="${SIT_SPEED===1?"on":""}" onclick="sitSetSpeed(1,this)">1×</button><button class="${SIT_SPEED===0.75?"on":""}" onclick="sitSetSpeed(0.75,this)">0.75×</button><button class="${SIT_SPEED===0.5?"on":""}" onclick="sitSetSpeed(0.5,this)">0.5×</button>`)}
+    </div>`;
+    const micOk = sr.ok;
+    const lines = s.lines.map((l,i)=>{
+      const saved = sitIsSaved(l[1]);
+      const tools = `<div class="sit-tools">
+        <button class="res-audio mini" title="朗讀" onclick="sitSpeak(this.dataset.t)" data-t="${esc(l[1])}">🔊</button>
+        <button class="sit-mic2 ${micOk?"":"off"}" title="${micOk?"跟讀評分":"此瀏覽器不支援語音辨識"}" ${micOk?"":"disabled"} onclick="sitShadow(${i},this)">🎤</button>
+        <button class="sit-star ${saved?"on":""}" title="${saved?"已收藏":"收藏這句"}" onclick="sitSave(${i},this)">${saved?"⭐":"☆"}</button>
+      </div>`;
+      return `<div class="sit-line ${i%2?"R":"L"}" data-i="${i}"><div class="sit-av">${l[0]}</div>
+        <div class="sit-bub"><div class="sit-t" onclick="sitReveal(this)"><span class="en">${l[1]}</span><span class="zh">${l[2]}</span></div>${tools}<div class="sit-fb" data-i="${i}"></div></div></div>`;
+    }).join("");
+    const keys = s.key.map(k=>`<div class="sit-key"><button class="res-audio mini" title="朗讀" onclick="sitSpeak(this.dataset.t)" data-t="${esc(k[0])}">🔊</button><b>${k[0]}</b><span>${k[1]}</span></div>`).join("");
     body = `<div class="sit-chips">${chips}</div>
-      <div class="sit-card"><div class="sit-h">${s.emoji} <b>${s.en}</b><span class="zh">${s.zh}</span><button class="btn btn-ghost sit-playall" onclick="sitPlayAll()">▶ 整段朗讀</button></div>
-      <div class="sit-dia">${lines}</div>
-      <div class="sit-keyh">🔑 關鍵句 Key phrases</div><div class="sit-keys">${keys}</div></div>`;
+      <div class="sit-card"><div class="sit-h">${s.emoji} <b>${s.en}</b><span class="zh">${s.zh}</span><button class="btn btn-ghost sit-playall" onclick="sitPlayAll(this)">▶ 整段播放</button></div>
+      ${ctrls}
+      <div class="sit-dia sub-${SIT_SUB}">${lines}</div>
+      <div class="sit-keyh">🔑 關鍵句 Key phrases</div><div class="sit-keys">${keys}</div></div>
+      ${sitSavedHTML()}`;
   } else if(tab==="speaking"){
     intro="口說跟讀 Read-aloud：🔊 聽示範 → 🎤 跟著念 → 語音辨識立即回饋。單字模式可連回口型動畫，句子模式取自 34 課的例句。答對第一次 +2 XP！";
     if(!SPK.item) spkNew(SPK.mode||"word");
