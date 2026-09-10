@@ -398,6 +398,58 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sit-sv-x{border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:6px}
 .sit-sv-x:hover{background:var(--bg);color:#C0392B}
 .sit-sv-empty{font:400 13px/1.6 var(--sans);color:var(--muted);margin:2px 0 12px}
+/* ---- daily check-in banner ---- */
+.sit-daily{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--amber-bg);border:1.5px solid var(--amber-line);border-radius:16px;padding:12px 16px;margin-bottom:16px}
+.sit-daily-l{display:flex;align-items:center;gap:10px}
+.sit-fire{font-size:26px}
+.sit-daily-tx{display:flex;flex-direction:column;line-height:1.25;font:400 13px var(--sans);color:var(--amber)}
+.sit-daily-tx b{font:800 20px var(--sans);color:var(--amber)}
+.sit-daily-tx span{color:var(--muted);font-size:12px}
+.sit-daily-r{display:flex;gap:8px;flex-wrap:wrap}
+.sit-checkin{font:700 13px var(--sans);color:#fff;background:var(--amber);border:none;border-radius:99px;padding:9px 16px;cursor:pointer;transition:transform .1s ease,opacity .1s ease}
+.sit-checkin:hover:not(:disabled){transform:translateY(-1px)}
+.sit-checkin.done{background:var(--good-line);color:var(--good);cursor:default}
+.sit-review-btn{font:700 13px var(--sans);color:var(--navy);background:var(--paper);border:1.5px solid var(--line);border-radius:99px;padding:9px 14px;cursor:pointer}
+.sit-review-btn.due{border-color:var(--amber-line);color:var(--amber);animation:sitPulse 1.6s ease-in-out infinite}
+@keyframes sitPulse{0%,100%{box-shadow:0 0 0 0 rgba(224,168,60,0)}50%{box-shadow:0 0 0 4px rgba(224,168,60,.18)}}
+/* ---- mini-quiz ---- */
+.sit-quizwrap{margin-top:16px}
+.sit-quiz,.sit-quiz-start{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px}
+.sit-quiz-th,.sit-quiz-head{font:800 15px var(--sans);color:var(--navy);display:flex;justify-content:space-between;align-items:center}
+.sit-quiz-head span{font:700 13px var(--sans);color:var(--muted)}
+.sit-quiz-start p{font:400 14px/1.6 var(--sans);color:var(--body);margin:8px 0 14px}
+.sit-quiz-q{font:600 15px var(--sans);color:var(--ink);margin:10px 0}
+.sit-quiz-play{margin-bottom:10px}
+.sit-quiz-opts{display:flex;flex-direction:column;gap:9px;margin-top:6px}
+.sit-quiz-opt{text-align:left;font:600 15px var(--sans);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 15px;cursor:pointer;transition:border-color .1s ease,background .1s ease}
+.sit-quiz-opt:hover:not(:disabled){border-color:var(--teal-line);background:var(--teal-bg)}
+.sit-quiz-opt.correct{background:#EDF4EA;border-color:#8FBF7F;color:#3E6B33}
+.sit-quiz-opt.wrong{background:#FBEDE8;border-color:#E3A992;color:#9A4B33}
+.sit-quiz-opt:disabled{cursor:default}
+.sit-quiz-fb{font:700 14px var(--sans);border-radius:10px;padding:10px 13px;margin:12px 0}
+.sit-quiz-fb.ok{background:#EDF4EA;color:#3E6B33}
+.sit-quiz-fb.no{background:#FBEDE8;color:#9A4B33}
+.sit-quiz-next{margin-top:2px}
+.sit-quiz-done{font:800 17px var(--sans);color:var(--navy);text-align:center;margin:6px 0 14px;line-height:1.5}
+.sit-tok-built{min-height:46px;display:flex;flex-wrap:wrap;gap:7px;background:var(--bg);border:1.5px dashed var(--line);border-radius:12px;padding:10px;margin:4px 0 12px}
+.sit-tok-ph{font:400 13px var(--sans);color:var(--muted);align-self:center}
+.sit-tok-pool{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.sit-tok{font:600 15px var(--sans);color:var(--ink);background:var(--paper);border:1.5px solid var(--teal-line);border-radius:10px;padding:8px 13px;cursor:pointer;transition:transform .08s ease}
+.sit-tok:hover:not(:disabled){transform:translateY(-1px)}
+.sit-tok.pool.used{visibility:hidden}
+.sit-tok:disabled{cursor:default}
+/* ---- review overlay ---- */
+.sit-rv-ov{display:none;position:fixed;inset:0;z-index:200;background:rgba(58,44,34,.5);align-items:center;justify-content:center;padding:20px}
+.sit-rv-card{background:var(--paper);border-radius:20px;padding:22px;width:min(440px,92vw);box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center;position:relative}
+.sit-rv-top{display:flex;justify-content:space-between;align-items:center;font:700 14px var(--sans);color:var(--navy);margin-bottom:12px}
+.sit-rv-x{border:none;background:transparent;color:var(--muted);font-size:18px;cursor:pointer;line-height:1;padding:2px 6px;border-radius:6px}
+.sit-rv-x:hover{background:var(--bg)}
+.sit-rv-play{margin:0 auto 14px;width:auto;border-radius:99px;padding:7px 16px;white-space:nowrap}
+.sit-rv-en{font:700 22px/1.4 var(--sans);color:var(--ink);margin:6px 0}
+.sit-rv-hint{font:400 13px var(--sans);color:var(--muted);margin:10px 0 18px}
+.sit-rv-zh{font:600 16px var(--sans);color:var(--teal);margin:6px 0 18px}
+.sit-rv-acts{display:flex;gap:10px;justify-content:center}
+.sit-rv-done{font:800 20px/1.5 var(--sans);color:var(--navy);margin:14px 0 20px}
 /* ---- ABC feature block inside Basic ---- */
 .abc-feature{padding:16px 18px}
 .abc-feature-p{font:400 15px/1.6 var(--sans);color:var(--body);margin:0 0 12px}
@@ -6573,7 +6625,7 @@ let SIT_OPEN = "restaurant";
 let SIT_SUB = "both";      // subtitle mode: both | en | off  (Cake-style)
 let SIT_SPEED = 1;         // playback speed: 1 | 0.75 | 0.5
 let SIT_SEQ = null;        // cancel handle for play-all
-function sitOpen(id){ SIT_OPEN = id; SIT_SEQ && SIT_SEQ(); renderResources("situations"); }
+function sitOpen(id){ SIT_OPEN = id; SIT_SEQ && SIT_SEQ(); SIT_QUIZ = null; renderResources("situations"); }
 function sitSpeak(text){ phSpeak(text, SIT_SPEED); }
 function sitSetSub(mode, btn){
   SIT_SUB = mode;
@@ -6655,6 +6707,147 @@ function sitSavedHTML(){
   return `<details class="sit-saved" id="sitSaved" ${n?"open":""}><summary>⭐ 我的句庫 <span class="sit-sv-n">${n}</span></summary><div class="sit-sv-list">${items}</div></details>`;
 }
 function sitRenderSaved(){ const box = document.getElementById("sitSaved"); if(box) box.outerHTML = sitSavedHTML(); }
+/* ---------- ② daily check-in + sentence-bank review (Cake-style) ---------- */
+const sitShuffle = a => a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+const sitToday = () => { const d = new Date(); d.setHours(0,0,0,0); return d.getTime(); };
+function addXPQuiet(n){ store.data.xp += n; store.save(); paintHeader(); }
+function sitCheckin(btn){
+  if(store.data.checkin === sitToday()) return;
+  store.data.checkin = sitToday();
+  store.touchStreak();            // advance the daily streak (handles consecutive days)
+  store.addXP(3);                 // +3 XP (saves, paints header, toasts)
+  renderResources("situations");
+}
+function sitDailyHTML(){
+  const checked = store.data.checkin === sitToday();
+  const streak = store.streakCount(), svN = SIT_SAVED.length;
+  const reviewedToday = store.data.lastReview === sitToday();
+  return `<div class="sit-daily">
+    <div class="sit-daily-l"><span class="sit-fire">🔥</span><div class="sit-daily-tx"><b>${streak}</b> 天連續<span>每天打卡不斷線</span></div></div>
+    <div class="sit-daily-r">
+      <button class="sit-checkin ${checked?"done":""}" ${checked?"disabled":""} onclick="sitCheckin(this)">${checked?"✓ 今天已打卡":"今天打卡 +3 XP"}</button>
+      ${svN?`<button class="sit-review-btn ${reviewedToday?"":"due"}" onclick="sitStartReview()">📒 複習句庫 (${svN})${reviewedToday?"":" · 今天還沒複習"}</button>`:""}
+    </div></div>`;
+}
+/* sentence-bank review — flip cards: English → recall → reveal Chinese → 記得/再複習 */
+let SIT_RV = null;
+function sitStartReview(){
+  if(!SIT_SAVED.length){ toast("句庫是空的，先在對話裡點 ☆ 收藏句子"); return; }
+  SIT_RV = { items: sitShuffle(SIT_SAVED.slice()), i:0, remembered:0, flip:false };
+  sitReviewRender();
+}
+function sitReviewRender(){
+  let ov = document.getElementById("sitRvOverlay");
+  if(!ov){ ov = document.createElement("div"); ov.id = "sitRvOverlay"; ov.className = "sit-rv-ov"; document.body.appendChild(ov); }
+  ov.innerHTML = sitReviewBody(); ov.style.display = "flex";
+}
+function sitReviewBody(){
+  const rv = SIT_RV; if(!rv) return "";
+  if(rv.i >= rv.items.length){
+    return `<div class="sit-rv-card"><button class="sit-rv-x" onclick="sitReviewClose()">✕</button>
+      <div class="sit-rv-done">🎉 複習完成！<br><b>記得 ${rv.remembered}/${rv.items.length} 句</b></div>
+      <button class="btn btn-primary" onclick="sitReviewClose()">完成</button></div>`;
+  }
+  const it = rv.items[rv.i];
+  const body = rv.flip
+    ? `<div class="sit-rv-en">${it.en}</div><div class="sit-rv-zh">${it.zh}</div>
+       <div class="sit-rv-acts"><button class="btn btn-ghost" onclick="sitReviewMark(false)">🤔 再複習</button><button class="btn btn-primary" onclick="sitReviewMark(true)">✓ 記得了</button></div>`
+    : `<div class="sit-rv-en">${it.en}</div><p class="sit-rv-hint">先想想中文意思…</p>
+       <button class="btn btn-primary" onclick="sitReviewFlip()">顯示答案</button>`;
+  return `<div class="sit-rv-card">
+    <div class="sit-rv-top"><span>📒 句庫複習 ${rv.i+1}/${rv.items.length}</span><button class="sit-rv-x" onclick="sitReviewClose()">✕</button></div>
+    <button class="res-audio sit-rv-play" onclick="sitSpeak(SIT_RV.items[${rv.i}].en)">🔊 聽發音</button>
+    ${body}</div>`;
+}
+function sitReviewFlip(){ if(SIT_RV){ SIT_RV.flip = true; sitReviewRender(); } }
+function sitReviewMark(ok){
+  if(!SIT_RV) return;
+  if(ok) SIT_RV.remembered++;
+  SIT_RV.i++; SIT_RV.flip = false;
+  if(SIT_RV.i >= SIT_RV.items.length){ store.data.lastReview = sitToday(); addXPQuiet(2); toast("複習完成 +2 XP 📒"); }
+  sitReviewRender();
+}
+function sitReviewClose(){ const ov = document.getElementById("sitRvOverlay"); if(ov) ov.style.display = "none"; SIT_RV = null; renderResources("situations"); }
+/* ---------- ① end-of-dialogue mini-quiz (listen→choose / reorder) ---------- */
+let SIT_QUIZ = null;
+function sitBuildQuiz(){
+  const s = SITUATIONS.find(x=>x.id===SIT_OPEN); if(!s) return [];
+  const pool = [...s.lines.map(l=>({en:l[1], zh:l[2]})), ...s.key.map(k=>({en:k[0], zh:k[1]}))]
+    .filter(p=> p.en && !/[…\/]/.test(p.en));      // skip template phrases (…, slashes)
+  const seen = {}, items = pool.filter(p=> !seen[p.en] && (seen[p.en]=1));
+  const qs = [];
+  // 2× listen-and-choose-Chinese
+  for(const it of sitShuffle(items).slice(0,2)){
+    const distract = sitShuffle(items.filter(x=>x.zh!==it.zh)).slice(0,3).map(x=>x.zh);
+    const options = sitShuffle([it.zh, ...distract]);
+    qs.push({ type:"mc", en:it.en, options, ans:options.indexOf(it.zh), picked:null });
+  }
+  // 2× reorder (short sentences only)
+  const short = items.filter(it=>{ const w = it.en.replace(/[.,!?]/g,"").split(" "); return w.length>=3 && w.length<=7; });
+  for(const it of sitShuffle(short).slice(0,2)){
+    const words = it.en.split(" ");
+    let pooled = sitShuffle(words.slice());
+    if(pooled.join(" ") === words.join(" ") && words.length>1) pooled = sitShuffle(pooled);
+    qs.push({ type:"order", en:it.en, zh:it.zh, pool:pooled, built:[], checked:false, ok:false });
+  }
+  return sitShuffle(qs).filter(Boolean);
+}
+function sitQuizStart(){ SIT_QUIZ = { qs: sitBuildQuiz(), i:0, right:0 }; sitQuizRender(); }
+function sitQuizRender(){ const el = document.getElementById("sitQuiz"); if(el) el.innerHTML = sitQuizBody(); }
+function sitQuizCur(){ return SIT_QUIZ && SIT_QUIZ.qs[SIT_QUIZ.i]; }
+function sitQuizAudio(){ const q = sitQuizCur(); if(q) sitSpeak(q.en); }
+function sitQuizPickMC(i){
+  const q = sitQuizCur(); if(!q || q.picked!==null) return;
+  q.picked = i; q.ok = (i===q.ans);
+  if(q.ok){ SIT_QUIZ.right++; addXPQuiet(2); }
+  sitQuizRender();
+}
+function sitQuizAddTok(idx){ const q = sitQuizCur(); if(!q || q.checked || q.built.includes(idx)) return; q.built.push(idx); sitQuizRender(); }
+function sitQuizDelTok(pos){ const q = sitQuizCur(); if(!q || q.checked) return; q.built.splice(pos,1); sitQuizRender(); }
+function sitQuizCheck(){
+  const q = sitQuizCur(); if(!q || q.checked) return;
+  q.checked = true; q.ok = (q.built.map(i=>q.pool[i]).join(" ") === q.en);
+  if(q.ok){ SIT_QUIZ.right++; addXPQuiet(3); }
+  sitQuizRender();
+}
+function sitQuizNext(){ if(!SIT_QUIZ) return; SIT_QUIZ.i++; sitQuizRender(); }
+function sitQuizBody(){
+  if(!SIT_QUIZ){
+    return `<div class="sit-quiz-start"><div class="sit-quiz-th">📝 情境小測驗</div>
+      <p>用 4 題驗收這個情境：聽發音選中文 ＋ 把打散的單字重組成句子。</p>
+      <button class="btn btn-primary" onclick="sitQuizStart()">開始小測驗 →</button></div>`;
+  }
+  const total = SIT_QUIZ.qs.length, q = sitQuizCur();
+  if(!q){
+    const perfect = SIT_QUIZ.right===total;
+    return `<div class="sit-quiz"><div class="sit-quiz-done">${perfect?"🏆":"🎉"} 小測驗完成！答對 <b>${SIT_QUIZ.right}/${total}</b>
+      ${perfect?"　太厲害了！":""}</div><button class="btn btn-primary" onclick="sitQuizStart()">再測一次 ↻</button></div>`;
+  }
+  const head = `<div class="sit-quiz-head">📝 小測驗 <span>${SIT_QUIZ.i+1} / ${total}</span></div>`;
+  if(q.type==="mc"){
+    const opts = q.options.map((o,i)=>{
+      let cls = "sit-quiz-opt";
+      if(q.picked!==null){ if(i===q.ans) cls+=" correct"; else if(i===q.picked) cls+=" wrong"; }
+      return `<button class="${cls}" ${q.picked!==null?"disabled":""} onclick="sitQuizPickMC(${i})">${o}</button>`;
+    }).join("");
+    const fb = q.picked!==null ? `<div class="sit-quiz-fb ${q.ok?"ok":"no"}">${q.ok?"✓ 答對了！+2 XP":"✗ 正解已標示為綠色"}</div><button class="btn btn-primary sit-quiz-next" onclick="sitQuizNext()">${SIT_QUIZ.i+1<total?"下一題 →":"看結果 →"}</button>` : "";
+    return `<div class="sit-quiz">${head}<p class="sit-quiz-q">🔊 聽發音，選出正確的中文</p>
+      <button class="btn btn-ghost sit-quiz-play" onclick="sitQuizAudio()">▶ 播放發音</button>
+      <div class="sit-quiz-opts">${opts}</div>${fb}</div>`;
+  }
+  // reorder
+  const built = q.built.map((idx,pos)=>`<button class="sit-tok" ${q.checked?"disabled":""} onclick="sitQuizDelTok(${pos})">${q.pool[idx]}</button>`).join("");
+  const pool = q.pool.map((tok,idx)=>`<button class="sit-tok pool ${q.built.includes(idx)?"used":""}" ${q.built.includes(idx)||q.checked?"disabled":""} onclick="sitQuizAddTok(${idx})">${tok}</button>`).join("");
+  let fb = "";
+  if(q.checked){
+    fb = `<div class="sit-quiz-fb ${q.ok?"ok":"no"}">${q.ok?"✓ 完全正確！+3 XP":`✗ 正解：<b>${q.en}</b>`}</div><button class="btn btn-primary sit-quiz-next" onclick="sitQuizNext()">${SIT_QUIZ.i+1<total?"下一題 →":"看結果 →"}</button>`;
+  } else {
+    fb = `<button class="btn btn-primary" ${q.built.length? "":"disabled"} onclick="sitQuizCheck()">檢查答案</button>`;
+  }
+  return `<div class="sit-quiz">${head}<p class="sit-quiz-q">重組句子 — 中文：<b>${q.zh}</b></p>
+    <div class="sit-tok-built">${built||'<span class="sit-tok-ph">點下面的單字排出句子…</span>'}</div>
+    <div class="sit-tok-pool">${pool}</div>${fb}</div>`;
+}
 // small decorative SVG icons per theme (original art)
 function resIcon(kind){
   const w = 'width="34" height="34" viewBox="0 0 40 40"';
@@ -6740,11 +6933,13 @@ function renderResources(tab){
         <div class="sit-bub"><div class="sit-t" onclick="sitReveal(this)"><span class="en">${l[1]}</span><span class="zh">${l[2]}</span></div>${tools}<div class="sit-fb" data-i="${i}"></div></div></div>`;
     }).join("");
     const keys = s.key.map(k=>`<div class="sit-key"><button class="res-audio mini" title="朗讀" onclick="sitSpeak(this.dataset.t)" data-t="${esc(k[0])}">🔊</button><b>${k[0]}</b><span>${k[1]}</span></div>`).join("");
-    body = `<div class="sit-chips">${chips}</div>
+    body = `${sitDailyHTML()}
+      <div class="sit-chips">${chips}</div>
       <div class="sit-card"><div class="sit-h">${s.emoji} <b>${s.en}</b><span class="zh">${s.zh}</span><button class="btn btn-ghost sit-playall" onclick="sitPlayAll(this)">▶ 整段播放</button></div>
       ${ctrls}
       <div class="sit-dia sub-${SIT_SUB}">${lines}</div>
       <div class="sit-keyh">🔑 關鍵句 Key phrases</div><div class="sit-keys">${keys}</div></div>
+      <div class="sit-quizwrap" id="sitQuiz">${sitQuizBody()}</div>
       ${sitSavedHTML()}`;
   } else if(tab==="speaking"){
     intro="口說跟讀 Read-aloud：🔊 聽示範 → 🎤 跟著念 → 語音辨識立即回饋。單字模式可連回口型動畫，句子模式取自 34 課的例句。答對第一次 +2 XP！";
