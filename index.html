@@ -308,9 +308,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-canvas{width:100%;height:auto;max-height:280px}
 .abc-writewrap{position:relative;width:100%;margin:2px 0}
 .abc-write{display:block;width:100%;aspect-ratio:220/252;background:#FFFDF9;border:1.5px solid var(--teal-line);border-radius:12px;touch-action:none;cursor:crosshair}
-.abc-demo{position:absolute;inset:0;pointer-events:none}
+.abc-demo{position:absolute;inset:0;pointer-events:none;background:#FFFDF9;border:1.5px solid var(--teal-line);border-radius:12px}
 .abc-demo .abc-canvas{width:100%;height:100%;max-height:none}
-.abc-demo .gl{display:none}
 .abc-canvas .gl{stroke:#E8DCC8;stroke-width:1.5}
 .abc-canvas .gl.d{stroke-dasharray:5 6}
 .abc-canvas .gl.b{stroke:#C9B79E;stroke-width:2}
@@ -5362,22 +5361,40 @@ function abcCanvasSVG(char){
   </svg>`;
 }
 /* ---------- touch / stylus / mouse handwriting canvas ---------- */
+/* Font metrics (em ratios) measured from the actual display font, so the four
+   lines can sit at the real cap-top / x-height / baseline / descender. */
+let ABC_FMET = null;
+function abcFontMetrics(ctx){
+  if(ABC_FMET) return ABC_FMET;
+  ctx.font = "100px 'Andika','Comic Sans MS',sans-serif";
+  const cap = ctx.measureText("H").actualBoundingBoxAscent;
+  const xh  = ctx.measureText("x").actualBoundingBoxAscent;
+  const dd  = ctx.measureText("g").actualBoundingBoxDescent;
+  const m = { capR:(cap||72)/100, xR:(xh||55)/100, dR:(dd||24)/100 };
+  if(cap) ABC_FMET = m;   // only cache once the real font is measured
+  return m;
+}
 function abcDrawBg(canvas){
-  const G = ABC_G, ctx = canvas.getContext("2d"), W = canvas.width, H = canvas.height;
+  const ctx = canvas.getContext("2d"), W = canvas.width, H = canvas.height;
   ctx.clearRect(0,0,W,H);
-  const y = v => v/G.H * H, u = H/252;
+  const met = abcFontMetrics(ctx);
+  const pad = H*0.075, u = H/252;
+  const fontSize = (H - 2*pad) / (met.capR + met.dR);   // fit cap-top → descender in the box
+  const capTop  = pad;
+  const baseline = capTop + met.capR*fontSize;
+  const xTop    = baseline - met.xR*fontSize;           // x-height (middle dashed line)
+  const descBot = baseline + met.dR*fontSize;           // descender (4th line)
   const line = (yy,dash,col,w)=>{ ctx.beginPath(); ctx.setLineDash(dash); ctx.strokeStyle=col; ctx.lineWidth=w; ctx.moveTo(0,yy); ctx.lineTo(W,yy); ctx.stroke(); };
-  line(y(G.top),  [],            "#C9B79E", 1.6*u);
-  line(y(G.mid),  [7*u,8*u],     "#D8CBB6", 1.5*u);
-  line(y(G.base), [],            "#B79B78", 2.3*u);
-  line(y(G.desc), [7*u,8*u],     "#E2D6C2", 1.3*u);
+  line(capTop,  [],        "#C9B79E", 1.6*u);   // top solid
+  line(xTop,    [7*u,8*u], "#D8CBB6", 1.5*u);   // x-height dashed
+  line(baseline,[],        "#B79B78", 2.3*u);   // baseline solid
+  line(descBot, [7*u,8*u], "#E2D6C2", 1.3*u);   // descender dashed
   ctx.setLineDash([]);
   if(canvas.dataset.ghost !== "0"){
-    const capPx = y(G.base) - y(G.top);
     ctx.fillStyle = "#ECE4D6";
-    ctx.font = `${Math.round(capPx/0.72)}px 'Andika','Comic Sans MS',sans-serif`;
+    ctx.font = `${Math.round(fontSize)}px 'Andika','Comic Sans MS',sans-serif`;
     ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
-    ctx.fillText(canvas.dataset.ch, W/2, y(G.base));
+    ctx.fillText(canvas.dataset.ch, W/2, baseline);
   }
 }
 function abcSetupWrite(canvas){
