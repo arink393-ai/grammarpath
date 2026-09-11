@@ -483,6 +483,10 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sit-vid-cap p{font:400 12.5px/1.6 var(--sans);color:var(--muted);margin:8px 0}
 .sit-cap-out{font:700 13px var(--mono);color:var(--teal)}
 .sit-vid-credit{font:400 11.5px var(--sans);color:var(--muted);margin:12px 0 2px;text-align:right}
+.sit-vid-close{flex:none;font:700 13px var(--sans);color:#fff;background:var(--teal);border:none;border-radius:99px;padding:8px 15px;cursor:pointer;white-space:nowrap}
+.sit-vid-close:hover{background:#D3754E}
+.sit-vid-back{display:block;width:100%;margin-top:14px;font:700 15px var(--sans);color:var(--navy);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px;cursor:pointer}
+.sit-vid-back:hover{border-color:var(--teal-line);background:var(--teal-bg)}
 /* ---- ABC feature block inside Basic ---- */
 .abc-feature{padding:16px 18px}
 .abc-feature-p{font:400 15px/1.6 var(--sans);color:var(--body);margin:0 0 12px}
@@ -6931,7 +6935,7 @@ function sitVideoOpen(){
   if(!ov){ ov = document.createElement("div"); ov.id = "sitVidOverlay"; ov.className = "sit-vid-ov"; document.body.appendChild(ov); }
   const rows = v.lines.map((l,i)=>`<button class="sit-vl" data-i="${i}" onclick="sitVidPlayLine(${i},this)"><span class="sit-vl-av">${l.sp}</span><span class="sit-vl-t"><span class="en">${esc(l.en)}</span><span class="zh">${esc(l.zh)}</span></span><span class="sit-vl-play">▶</span></button>`).join("");
   ov.innerHTML = `<div class="sit-vid-card">
-    <div class="sit-vid-top"><span>🎬 ${v.title}</span><button class="sit-rv-x" onclick="sitVideoClose()">✕</button></div>
+    <div class="sit-vid-top"><span>🎬 ${v.title}</span><button class="sit-vid-close" onclick="sitVideoClose()">✕ 關閉</button></div>
     <div class="sit-vid-frame"><div id="sitYtPlayer"></div></div>
     <div class="sit-vid-sub" id="sitVidSub"><span class="en">▶ 播放全片，或點下面任一句逐句練習</span><span class="zh"></span></div>
     <div class="sit-vid-row">
@@ -6953,9 +6957,16 @@ function sitVideoOpen(){
     </details>
     <p class="sit-vid-note">字幕為本站逐句聽打＋翻譯。影片透過 YouTube 官方播放器嵌入，未下載或轉存。</p>
     <p class="sit-vid-credit">影片來源：${v.credit} · YouTube</p>
+    <button class="sit-vid-back" onclick="sitVideoClose()">← 返回情境</button>
   </div>`;
   ov.style.display = "flex";
-  sitCap = {s:null, e:null}; sitYTLoop = false; sitYTMode = "all"; sitYTLine = -1;
+  ov.onclick = e => { if(e.target === ov) sitVideoClose(); };   // tap the dark area to close
+  if(!window.__sitOverlayEsc){ window.__sitOverlayEsc = true; document.addEventListener("keydown", e=>{
+    if(e.key !== "Escape") return;
+    const vo = document.getElementById("sitVidOverlay"); if(vo && vo.style.display !== "none"){ sitVideoClose(); return; }
+    const ro = document.getElementById("sitRvOverlay"); if(ro && ro.style.display !== "none") sitReviewClose();
+  }); }
+  sitCap = {s:null, e:null}; sitYTLoop = false; sitYTMode = "all"; sitYTTarget = -1; sitYTShown = -1;
   sitLoadYTApi(()=>{
     if(sitYT){ try{ sitYT.destroy(); }catch(e){} sitYT = null; }
     sitYT = new YT.Player("sitYtPlayer", { videoId:v.yt,
