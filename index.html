@@ -450,6 +450,31 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sit-rv-zh{font:600 16px var(--sans);color:var(--teal);margin:6px 0 18px}
 .sit-rv-acts{display:flex;gap:10px;justify-content:center}
 .sit-rv-done{font:800 20px/1.5 var(--sans);color:var(--navy);margin:14px 0 20px}
+/* ---- real-video mode ---- */
+.sit-video-open{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;text-align:left;font:800 16px var(--sans);color:#fff;background:linear-gradient(135deg,#E08862,#D3754E);border:none;border-radius:16px;padding:14px 18px;margin-bottom:16px;cursor:pointer;transition:transform .1s ease,box-shadow .1s ease}
+.sit-video-open:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(211,117,78,.35)}
+.sit-video-open span{font:600 12px var(--sans);opacity:.9}
+.sit-vid-ov{display:none;position:fixed;inset:0;z-index:200;background:rgba(58,44,34,.62);align-items:center;justify-content:center;padding:16px}
+.sit-vid-card{background:var(--paper);border-radius:18px;padding:16px 18px;width:min(680px,96vw);max-height:94vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.sit-vid-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font:800 15px var(--sans);color:var(--navy);margin-bottom:10px}
+.sit-vid-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
+.sit-vid-frame #sitYtPlayer,.sit-vid-frame iframe{position:absolute;inset:0;width:100%;height:100%}
+.sit-vid-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
+.sit-vid-lb{font:700 12px var(--sans);color:var(--muted)}
+.sit-vid-ch{font:700 13px var(--sans);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;text-align:left}
+.sit-vid-ch span{font:600 11px var(--mono);color:var(--muted);margin-left:2px}
+.sit-vid-ch:hover{border-color:var(--teal-line)}
+.sit-vid-ch.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.sit-vid-ch.on span{color:#fff;opacity:.85}
+.sit-vid-mini,.sit-vid-sp{font:700 13px var(--sans);color:var(--navy);background:var(--paper);border:1.5px solid var(--line);border-radius:99px;padding:7px 13px;cursor:pointer}
+.sit-vid-mini:hover,.sit-vid-sp:hover{border-color:var(--teal-line)}
+.sit-vid-sp.on,.sit-vid-loop.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.sit-vid-note{font:400 12.5px/1.6 var(--sans);color:var(--muted);margin:12px 0 4px;background:var(--bg);border-radius:10px;padding:9px 12px}
+.sit-vid-cap{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.sit-vid-cap summary{font:700 13px var(--sans);color:var(--navy);cursor:pointer}
+.sit-vid-cap p{font:400 12.5px/1.6 var(--sans);color:var(--muted);margin:8px 0}
+.sit-cap-out{font:700 13px var(--mono);color:var(--teal)}
+.sit-vid-credit{font:400 11.5px var(--sans);color:var(--muted);margin:12px 0 2px;text-align:right}
 /* ---- ABC feature block inside Basic ---- */
 .abc-feature{padding:16px 18px}
 .abc-feature-p{font:400 15px/1.6 var(--sans);color:var(--body);margin:0 0 12px}
@@ -6848,6 +6873,90 @@ function sitQuizBody(){
     <div class="sit-tok-built">${built||'<span class="sit-tok-ph">點下面的單字排出句子…</span>'}</div>
     <div class="sit-tok-pool">${pool}</div>${fb}</div>`;
 }
+/* ---------- 🎬 real-video mode (embed a public YouTube clip, play by segment) ----------
+   We do NOT download or re-host video — the clip streams from YouTube's official IFrame
+   player (embedding allowed, creator keeps the view). English subtitles are the video's
+   own captions; the Chinese chapter guide is ours. Segment times are a first pass — use
+   the 🎯 capture tool while watching to fine-tune, the same way editors curate clips. */
+const SIT_VIDEO = {
+  restaurant: {
+    yt:"ki2m6Sr3UAU", dur:82,
+    title:"Ordering at a Restaurant – Everyday English Dialogues",
+    credit:"Ellii (formerly ESL Library)",
+    chapters:[
+      {s:0,  e:18, zh:"打招呼、帶位入座"},
+      {s:18, e:42, zh:"點餐、點飲料"},
+      {s:42, e:62, zh:"上菜、用餐中"},
+      {s:62, e:82, zh:"結帳、道別"}
+    ]
+  }
+};
+let sitYT = null, sitYTTimer = null, sitYTLoop = false, sitCap = {s:null, e:null};
+function sitLoadYTApi(cb){
+  if(window.YT && window.YT.Player){ cb(); return; }
+  const prev = window.onYouTubeIframeAPIReady;
+  window.onYouTubeIframeAPIReady = ()=>{ if(prev) try{ prev(); }catch(e){} cb(); };
+  if(!document.getElementById("yt-iframe-api")){ const s=document.createElement("script"); s.id="yt-iframe-api"; s.src="https://www.youtube.com/iframe_api"; document.head.appendChild(s); }
+}
+function sitVideoOpen(){
+  const v = SIT_VIDEO[SIT_OPEN]; if(!v){ toast("這個情境還沒有真實影片"); return; }
+  let ov = document.getElementById("sitVidOverlay");
+  if(!ov){ ov = document.createElement("div"); ov.id = "sitVidOverlay"; ov.className = "sit-vid-ov"; document.body.appendChild(ov); }
+  const chapters = v.chapters.map((c,i)=>`<button class="sit-vid-ch" onclick="sitVidSeg(${i},this)">▶ ${i+1}. ${c.zh} <span>${c.s}–${c.e}s</span></button>`).join("");
+  ov.innerHTML = `<div class="sit-vid-card">
+    <div class="sit-vid-top"><span>🎬 ${v.title}</span><button class="sit-rv-x" onclick="sitVideoClose()">✕</button></div>
+    <div class="sit-vid-frame"><div id="sitYtPlayer"></div></div>
+    <div class="sit-vid-row"><span class="sit-vid-lb">片段</span>${chapters}</div>
+    <div class="sit-vid-row">
+      <button class="sit-vid-mini" onclick="sitVidFull(this)">▶ 從頭看全片</button>
+      <button class="sit-vid-mini sit-vid-loop" onclick="sitVidLoop(this)">🔁 單段循環</button>
+      <span class="sit-vid-lb">語速</span>
+      <button class="sit-vid-sp on" onclick="sitVidSpeed(1,this)">1×</button>
+      <button class="sit-vid-sp" onclick="sitVidSpeed(0.75,this)">0.75×</button>
+      <button class="sit-vid-sp" onclick="sitVidSpeed(0.5,this)">0.5×</button>
+    </div>
+    <p class="sit-vid-note">💬 英文字幕由影片本身提供（右下 CC 可開關）；中文為本站整理的段落導引。影片透過 YouTube 官方播放器嵌入，未下載或轉存。</p>
+    <details class="sit-vid-cap"><summary>🎯 校正片段時間（老師用）</summary>
+      <p>播放到想要的位置，按「設起點 / 設終點」擷取秒數，就能微調或新增片段。</p>
+      <div class="sit-vid-row">
+        <button class="sit-vid-mini" onclick="sitCapSet('s')">設起點</button>
+        <button class="sit-vid-mini" onclick="sitCapSet('e')">設終點</button>
+        <span class="sit-cap-out" id="sitCapOut">起點 — · 終點 —</span>
+      </div>
+    </details>
+    <p class="sit-vid-credit">影片來源：${v.credit} · YouTube</p>
+  </div>`;
+  ov.style.display = "flex";
+  sitCap = {s:null, e:null}; sitYTLoop = false;
+  sitLoadYTApi(()=>{
+    if(sitYT){ try{ sitYT.destroy(); }catch(e){} sitYT = null; }
+    sitYT = new YT.Player("sitYtPlayer", { videoId:v.yt,
+      playerVars:{ cc_load_policy:1, cc_lang_pref:"en", rel:0, modestbranding:1, playsinline:1 },
+      events:{} });
+  });
+}
+function sitVidSeg(i, btn){
+  const v = SIT_VIDEO[SIT_OPEN]; if(!sitYT || !v) return;
+  const c = v.chapters[i];
+  if(btn){ [...btn.parentNode.querySelectorAll(".sit-vid-ch")].forEach(b=>b.classList.toggle("on", b===btn)); }
+  clearInterval(sitYTTimer);
+  sitYT.seekTo(c.s, true); sitYT.playVideo();
+  sitYTTimer = setInterval(()=>{
+    if(!sitYT || !sitYT.getCurrentTime) return;
+    if(sitYT.getCurrentTime() >= c.e - 0.15){
+      if(sitYTLoop){ sitYT.seekTo(c.s, true); }
+      else { sitYT.pauseVideo(); clearInterval(sitYTTimer); }
+    }
+  }, 200);
+}
+function sitVidFull(btn){ if(!sitYT) return; clearInterval(sitYTTimer); if(btn&&btn.parentNode) [...document.querySelectorAll(".sit-vid-ch.on")].forEach(b=>b.classList.remove("on")); sitYT.seekTo(0, true); sitYT.playVideo(); }
+function sitVidLoop(btn){ sitYTLoop = !sitYTLoop; btn.classList.toggle("on", sitYTLoop); }
+function sitVidSpeed(r, btn){ if(sitYT) sitYT.setPlaybackRate(r); [...btn.parentNode.querySelectorAll(".sit-vid-sp")].forEach(b=>b.classList.toggle("on", b===btn)); }
+function sitCapSet(which){
+  if(!sitYT) return; sitCap[which] = +sitYT.getCurrentTime().toFixed(1);
+  const o = document.getElementById("sitCapOut"); if(o) o.textContent = `起點 ${sitCap.s??"—"} · 終點 ${sitCap.e??"—"}` + (sitCap.s!=null&&sitCap.e!=null?`　→ {s:${sitCap.s}, e:${sitCap.e}}`:"");
+}
+function sitVideoClose(){ clearInterval(sitYTTimer); if(sitYT){ try{ sitYT.destroy(); }catch(e){} sitYT = null; } const o=document.getElementById("sitVidOverlay"); if(o) o.style.display="none"; }
 // small decorative SVG icons per theme (original art)
 function resIcon(kind){
   const w = 'width="34" height="34" viewBox="0 0 40 40"';
@@ -6933,8 +7042,10 @@ function renderResources(tab){
         <div class="sit-bub"><div class="sit-t" onclick="sitReveal(this)"><span class="en">${l[1]}</span><span class="zh">${l[2]}</span></div>${tools}<div class="sit-fb" data-i="${i}"></div></div></div>`;
     }).join("");
     const keys = s.key.map(k=>`<div class="sit-key"><button class="res-audio mini" title="朗讀" onclick="sitSpeak(this.dataset.t)" data-t="${esc(k[0])}">🔊</button><b>${k[0]}</b><span>${k[1]}</span></div>`).join("");
+    const videoBtn = SIT_VIDEO[s.id] ? `<button class="sit-video-open" onclick="sitVideoOpen()">🎬 看真實影片：${s.zh}<span>真人示範 · YouTube</span></button>` : "";
     body = `${sitDailyHTML()}
       <div class="sit-chips">${chips}</div>
+      ${videoBtn}
       <div class="sit-card"><div class="sit-h">${s.emoji} <b>${s.en}</b><span class="zh">${s.zh}</span><button class="btn btn-ghost sit-playall" onclick="sitPlayAll(this)">▶ 整段播放</button></div>
       ${ctrls}
       <div class="sit-dia sub-${SIT_SUB}">${lines}</div>
