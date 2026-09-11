@@ -461,11 +461,19 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sit-vid-frame #sitYtPlayer,.sit-vid-frame iframe{position:absolute;inset:0;width:100%;height:100%}
 .sit-vid-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
 .sit-vid-lb{font:700 12px var(--sans);color:var(--muted)}
-.sit-vid-ch{font:700 13px var(--sans);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;text-align:left}
-.sit-vid-ch span{font:600 11px var(--mono);color:var(--muted);margin-left:2px}
-.sit-vid-ch:hover{border-color:var(--teal-line)}
-.sit-vid-ch.on{background:var(--teal);border-color:var(--teal);color:#fff}
-.sit-vid-ch.on span{color:#fff;opacity:.85}
+.sit-vid-sub{margin-top:10px;background:#2E2620;color:#fff;border-radius:12px;padding:12px 16px;text-align:center;min-height:56px;display:flex;flex-direction:column;justify-content:center;gap:3px}
+.sit-vid-sub .en{font:700 17px/1.35 var(--sans)}
+.sit-vid-sub .zh{font:500 13.5px var(--sans);color:#E4C9B4}
+.sit-vl-list{margin-top:12px;display:flex;flex-direction:column;gap:6px;max-height:230px;overflow:auto;border-top:1px dashed var(--line);padding-top:10px}
+.sit-vl{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:var(--bg);border:1.5px solid transparent;border-radius:11px;padding:9px 11px;cursor:pointer;transition:border-color .1s ease,background .1s ease}
+.sit-vl:hover{border-color:var(--teal-line)}
+.sit-vl.on{background:var(--teal-bg);border-color:var(--teal)}
+.sit-vl-av{font-size:20px;flex:none}
+.sit-vl-t{display:flex;flex-direction:column;line-height:1.35;flex:1}
+.sit-vl-t .en{font:600 14.5px var(--sans);color:var(--ink)}
+.sit-vl-t .zh{font:400 12.5px var(--sans);color:var(--muted)}
+.sit-vl-play{color:var(--teal);font-size:13px;flex:none}
+.sit-vl.on .sit-vl-play{color:var(--teal)}
 .sit-vid-mini,.sit-vid-sp{font:700 13px var(--sans);color:var(--navy);background:var(--paper);border:1.5px solid var(--line);border-radius:99px;padding:7px 13px;cursor:pointer}
 .sit-vid-mini:hover,.sit-vid-sp:hover{border-color:var(--teal-line)}
 .sit-vid-sp.on,.sit-vid-loop.on{background:var(--teal);border-color:var(--teal);color:#fff}
@@ -6873,25 +6881,43 @@ function sitQuizBody(){
     <div class="sit-tok-built">${built||'<span class="sit-tok-ph">點下面的單字排出句子…</span>'}</div>
     <div class="sit-tok-pool">${pool}</div>${fb}</div>`;
 }
-/* ---------- 🎬 real-video mode (embed a public YouTube clip, play by segment) ----------
+/* ---------- 🎬 real-video mode (embed a public YouTube clip, play line by line) ----------
    We do NOT download or re-host video — the clip streams from YouTube's official IFrame
-   player (embedding allowed, creator keeps the view). English subtitles are the video's
-   own captions; the Chinese chapter guide is ours. Segment times are a first pass — use
-   the 🎯 capture tool while watching to fine-tune, the same way editors curate clips. */
+   player (embedding allowed, creator keeps the view). Each line is a verified segment
+   {s,e} with our own bilingual subtitle, transcribed frame-by-frame from the clip. A poll
+   loop syncs the subtitle + highlights the current line; single-line play auto-pauses. */
 const SIT_VIDEO = {
   restaurant: {
-    yt:"ki2m6Sr3UAU", dur:82,
+    yt:"ki2m6Sr3UAU",
     title:"Ordering at a Restaurant – Everyday English Dialogues",
     credit:"Ellii (formerly ESL Library)",
-    chapters:[
-      {s:0,  e:18, zh:"打招呼、帶位入座"},
-      {s:18, e:42, zh:"點餐、點飲料"},
-      {s:42, e:62, zh:"上菜、用餐中"},
-      {s:62, e:82, zh:"結帳、道別"}
+    lines:[
+      {s:1.0,  e:4.2,  sp:"🧑‍🍳", en:"Are you ready to order?",                                          zh:"準備好點餐了嗎？"},
+      {s:4.2,  e:6.2,  sp:"🧑",   en:"Could you give me a few more minutes?",                            zh:"可以再給我幾分鐘嗎？"},
+      {s:6.2,  e:8.4,  sp:"🧑‍🍳", en:"Certainly. Take your time.",                                       zh:"當然，慢慢來。"},
+      {s:10.3, e:12.2, sp:"🧑‍🍳", en:"Are you ready to order now?",                                      zh:"現在可以點餐了嗎？"},
+      {s:12.2, e:16.0, sp:"🧑",   en:"Yes. I'd like an eight-ounce steak, please.",                     zh:"好的，我要一份八盎司牛排，謝謝。"},
+      {s:16.0, e:18.0, sp:"🧑‍🍳", en:"Would you like potatoes or rice with your steak?",                zh:"牛排要配馬鈴薯還是飯？"},
+      {s:18.0, e:21.3, sp:"🧑",   en:"What kind of potatoes do you have?",                              zh:"你們的馬鈴薯有哪些做法？"},
+      {s:21.3, e:25.3, sp:"🧑‍🍳", en:"We have baked, mashed, or French fries.",                          zh:"有烤馬鈴薯、薯泥或薯條。"},
+      {s:25.3, e:27.8, sp:"🧑",   en:"I'll have French fries, please.",                                 zh:"我要薯條，謝謝。"},
+      {s:28.5, e:31.0, sp:"🧑‍🍳", en:"And how would you like your steak done?",                          zh:"牛排要幾分熟？"},
+      {s:31.0, e:33.2, sp:"🧑",   en:"Medium-rare, please.",                                            zh:"三分熟，謝謝。"},
+      {s:33.2, e:36.3, sp:"🧑‍🍳", en:"Would you like anything to start?",                               zh:"要先來點前菜嗎？"},
+      {s:36.3, e:38.3, sp:"🧑",   en:"I'll have a salad, please.",                                      zh:"我要一份沙拉，謝謝。"},
+      {s:38.3, e:42.5, sp:"🧑‍🍳", en:"We have Greek, Italian, and Caesar salad, as well as a house salad.", zh:"我們有希臘、義式和凱薩沙拉，還有招牌沙拉。"},
+      {s:42.5, e:47.0, sp:"🧑",   en:"I'll have the house salad with oil and vinegar dressing.",        zh:"我要招牌沙拉，淋油醋醬。"},
+      {s:47.0, e:50.0, sp:"🧑‍🍳", en:"Would you like a beverage?",                                      zh:"要來點飲料嗎？"},
+      {s:50.0, e:52.8, sp:"🧑",   en:"I'll have a large Diet Coke.",                                     zh:"我要一杯大杯健怡可樂。"},
+      {s:52.8, e:55.3, sp:"🧑‍🍳", en:"And would you like anything for dessert?",                        zh:"需要來點甜點嗎？"},
+      {s:55.3, e:57.2, sp:"🧑",   en:"What do you suggest?",                                            zh:"你推薦什麼？"},
+      {s:57.2, e:59.0, sp:"🧑‍🍳", en:"The apple pie is my favorite.",                                   zh:"我最愛蘋果派。"},
+      {s:59.0, e:62.3, sp:"🧑",   en:"Okay. I'll try that.",                                            zh:"好，那我試試看。"},
+      {s:62.3, e:68.0, sp:"🧑‍🍳", en:"I'll put your order in and be right back with some hot rolls and butter.", zh:"我幫您送出點單，馬上回來，還會附上熱麵包和奶油。"}
     ]
   }
 };
-let sitYT = null, sitYTTimer = null, sitYTLoop = false, sitCap = {s:null, e:null};
+let sitYT = null, sitYTPoll = null, sitYTLoop = false, sitYTMode = "all", sitYTTarget = -1, sitYTShown = -1, sitCap = {s:null, e:null};
 function sitLoadYTApi(cb){
   if(window.YT && window.YT.Player){ cb(); return; }
   const prev = window.onYouTubeIframeAPIReady;
@@ -6900,63 +6926,78 @@ function sitLoadYTApi(cb){
 }
 function sitVideoOpen(){
   const v = SIT_VIDEO[SIT_OPEN]; if(!v){ toast("這個情境還沒有真實影片"); return; }
+  const esc = t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
   let ov = document.getElementById("sitVidOverlay");
   if(!ov){ ov = document.createElement("div"); ov.id = "sitVidOverlay"; ov.className = "sit-vid-ov"; document.body.appendChild(ov); }
-  const chapters = v.chapters.map((c,i)=>`<button class="sit-vid-ch" onclick="sitVidSeg(${i},this)">▶ ${i+1}. ${c.zh} <span>${c.s}–${c.e}s</span></button>`).join("");
+  const rows = v.lines.map((l,i)=>`<button class="sit-vl" data-i="${i}" onclick="sitVidPlayLine(${i},this)"><span class="sit-vl-av">${l.sp}</span><span class="sit-vl-t"><span class="en">${esc(l.en)}</span><span class="zh">${esc(l.zh)}</span></span><span class="sit-vl-play">▶</span></button>`).join("");
   ov.innerHTML = `<div class="sit-vid-card">
     <div class="sit-vid-top"><span>🎬 ${v.title}</span><button class="sit-rv-x" onclick="sitVideoClose()">✕</button></div>
     <div class="sit-vid-frame"><div id="sitYtPlayer"></div></div>
-    <div class="sit-vid-row"><span class="sit-vid-lb">片段</span>${chapters}</div>
+    <div class="sit-vid-sub" id="sitVidSub"><span class="en">▶ 播放全片，或點下面任一句逐句練習</span><span class="zh"></span></div>
     <div class="sit-vid-row">
-      <button class="sit-vid-mini" onclick="sitVidFull(this)">▶ 從頭看全片</button>
-      <button class="sit-vid-mini sit-vid-loop" onclick="sitVidLoop(this)">🔁 單段循環</button>
+      <button class="sit-vid-mini" onclick="sitVidPlayAll(this)">▶ 從頭播放全片</button>
+      <button class="sit-vid-mini sit-vid-loop" onclick="sitVidLoop(this)">🔁 單句循環</button>
       <span class="sit-vid-lb">語速</span>
       <button class="sit-vid-sp on" onclick="sitVidSpeed(1,this)">1×</button>
       <button class="sit-vid-sp" onclick="sitVidSpeed(0.75,this)">0.75×</button>
       <button class="sit-vid-sp" onclick="sitVidSpeed(0.5,this)">0.5×</button>
     </div>
-    <p class="sit-vid-note">💬 英文字幕由影片本身提供（右下 CC 可開關）；中文為本站整理的段落導引。影片透過 YouTube 官方播放器嵌入，未下載或轉存。</p>
-    <details class="sit-vid-cap"><summary>🎯 校正片段時間（老師用）</summary>
-      <p>播放到想要的位置，按「設起點 / 設終點」擷取秒數，就能微調或新增片段。</p>
+    <div class="sit-vl-list" id="sitVidLines">${rows}</div>
+    <details class="sit-vid-cap"><summary>🎯 校正/新增片段時間（老師用）</summary>
+      <p>播放到想要的位置，按「設起點 / 設終點」擷取秒數，就能微調或新增逐句片段。</p>
       <div class="sit-vid-row">
         <button class="sit-vid-mini" onclick="sitCapSet('s')">設起點</button>
         <button class="sit-vid-mini" onclick="sitCapSet('e')">設終點</button>
         <span class="sit-cap-out" id="sitCapOut">起點 — · 終點 —</span>
       </div>
     </details>
+    <p class="sit-vid-note">字幕為本站逐句聽打＋翻譯。影片透過 YouTube 官方播放器嵌入，未下載或轉存。</p>
     <p class="sit-vid-credit">影片來源：${v.credit} · YouTube</p>
   </div>`;
   ov.style.display = "flex";
-  sitCap = {s:null, e:null}; sitYTLoop = false;
+  sitCap = {s:null, e:null}; sitYTLoop = false; sitYTMode = "all"; sitYTLine = -1;
   sitLoadYTApi(()=>{
     if(sitYT){ try{ sitYT.destroy(); }catch(e){} sitYT = null; }
     sitYT = new YT.Player("sitYtPlayer", { videoId:v.yt,
-      playerVars:{ cc_load_policy:1, cc_lang_pref:"en", rel:0, modestbranding:1, playsinline:1 },
-      events:{} });
+      playerVars:{ cc_load_policy:0, rel:0, modestbranding:1, playsinline:1 },
+      events:{ onReady:()=>{ clearInterval(sitYTPoll); sitYTPoll = setInterval(sitVidTick, 120); } } });
   });
 }
-function sitVidSeg(i, btn){
-  const v = SIT_VIDEO[SIT_OPEN]; if(!sitYT || !v) return;
-  const c = v.chapters[i];
-  if(btn){ [...btn.parentNode.querySelectorAll(".sit-vid-ch")].forEach(b=>b.classList.toggle("on", b===btn)); }
-  clearInterval(sitYTTimer);
-  sitYT.seekTo(c.s, true); sitYT.playVideo();
-  sitYTTimer = setInterval(()=>{
-    if(!sitYT || !sitYT.getCurrentTime) return;
-    if(sitYT.getCurrentTime() >= c.e - 0.15){
-      if(sitYTLoop){ sitYT.seekTo(c.s, true); }
-      else { sitYT.pauseVideo(); clearInterval(sitYTTimer); }
-    }
-  }, 200);
+/* poll loop: keep the subtitle + highlighted line in sync; auto-pause/loop single lines */
+function sitVidTick(){
+  const v = SIT_VIDEO[SIT_OPEN];
+  if(!sitYT || !sitYT.getCurrentTime || !v) return;
+  const t = sitYT.getCurrentTime();
+  if(sitYTMode === "line"){
+    const l = v.lines[sitYTTarget];
+    if(l && t >= l.e - 0.12){ if(sitYTLoop){ sitYT.seekTo(l.s, true); } else { sitYT.pauseVideo(); } }
+  }
+  let idx = -1;
+  for(let i=0;i<v.lines.length;i++){ if(t >= v.lines[i].s && t < v.lines[i].e){ idx = i; break; } }
+  if(idx !== -1 && idx !== sitYTShown){ sitVidShowLine(idx); sitYTShown = idx; }
 }
-function sitVidFull(btn){ if(!sitYT) return; clearInterval(sitYTTimer); if(btn&&btn.parentNode) [...document.querySelectorAll(".sit-vid-ch.on")].forEach(b=>b.classList.remove("on")); sitYT.seekTo(0, true); sitYT.playVideo(); }
+function sitVidShowLine(i){
+  const v = SIT_VIDEO[SIT_OPEN], l = v.lines[i]; if(!l) return;
+  const sub = document.getElementById("sitVidSub");
+  if(sub){ sub.querySelector(".en").textContent = l.en; sub.querySelector(".zh").textContent = l.zh; }
+  const list = document.getElementById("sitVidLines");
+  if(list){ list.querySelectorAll(".sit-vl").forEach(b=> b.classList.toggle("on", +b.dataset.i===i));
+    const active = list.querySelector(`.sit-vl[data-i="${i}"]`); if(active) active.scrollIntoView({block:"nearest"}); }
+}
+function sitVidPlayLine(i, btn){
+  const v = SIT_VIDEO[SIT_OPEN]; if(!sitYT || !v) return;
+  sitYTMode = "line"; sitYTTarget = i; sitYTShown = i;
+  sitVidShowLine(i);
+  sitYT.seekTo(Math.max(0, v.lines[i].s - 0.3), true); sitYT.playVideo();
+}
+function sitVidPlayAll(btn){ if(!sitYT) return; sitYTMode = "all"; sitYTTarget = -1; sitYTShown = -1; sitYT.seekTo(SIT_VIDEO[SIT_OPEN].lines[0].s, true); sitYT.playVideo(); }
 function sitVidLoop(btn){ sitYTLoop = !sitYTLoop; btn.classList.toggle("on", sitYTLoop); }
 function sitVidSpeed(r, btn){ if(sitYT) sitYT.setPlaybackRate(r); [...btn.parentNode.querySelectorAll(".sit-vid-sp")].forEach(b=>b.classList.toggle("on", b===btn)); }
 function sitCapSet(which){
   if(!sitYT) return; sitCap[which] = +sitYT.getCurrentTime().toFixed(1);
   const o = document.getElementById("sitCapOut"); if(o) o.textContent = `起點 ${sitCap.s??"—"} · 終點 ${sitCap.e??"—"}` + (sitCap.s!=null&&sitCap.e!=null?`　→ {s:${sitCap.s}, e:${sitCap.e}}`:"");
 }
-function sitVideoClose(){ clearInterval(sitYTTimer); if(sitYT){ try{ sitYT.destroy(); }catch(e){} sitYT = null; } const o=document.getElementById("sitVidOverlay"); if(o) o.style.display="none"; }
+function sitVideoClose(){ clearInterval(sitYTPoll); sitYTPoll=null; if(sitYT){ try{ sitYT.destroy(); }catch(e){} sitYT = null; } const o=document.getElementById("sitVidOverlay"); if(o) o.style.display="none"; }
 // small decorative SVG icons per theme (original art)
 function resIcon(kind){
   const w = 'width="34" height="34" viewBox="0 0 40 40"';
