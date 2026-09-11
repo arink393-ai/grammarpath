@@ -487,6 +487,16 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sit-vid-close:hover{background:#D3754E}
 .sit-vid-back{display:block;width:100%;margin-top:14px;font:700 15px var(--sans);color:var(--navy);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px;cursor:pointer}
 .sit-vid-back:hover{border-color:var(--teal-line);background:var(--teal-bg)}
+.clip-card{display:flex;gap:0;background:var(--paper);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px}
+.clip-lvl{flex:none;width:44px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;font:800 13px var(--sans);writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:1px;padding:10px 0}
+.clip-body{flex:1;padding:14px 16px;min-width:0}
+.clip-title{font:800 16px/1.35 var(--sans);color:var(--navy);margin-bottom:4px}
+.clip-sub{font:600 13px var(--sans);color:var(--body);margin-bottom:8px}
+.clip-note{font:400 13px/1.65 var(--sans);color:var(--muted);margin-bottom:12px}
+.clip-note b{color:var(--teal);font-weight:700}
+.clip-open{width:100%;font:800 15px var(--sans);color:#fff;background:linear-gradient(135deg,#E08862,#D3754E);border:none;border-radius:12px;padding:12px;cursor:pointer;transition:transform .1s ease,box-shadow .1s ease}
+.clip-open:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(211,117,78,.32)}
+.clip-src{font:400 11px var(--sans);color:var(--muted);margin-top:8px;text-align:right}
 /* ---- ABC feature block inside Basic ---- */
 .abc-feature{padding:16px 18px}
 .abc-feature-p{font:400 15px/1.6 var(--sans);color:var(--body);margin:0 0 12px}
@@ -6482,6 +6492,7 @@ function speak(text, rate){ if(tts && tts.ok) tts.speak(text, rate); }
 const RES_TABS = [
   {id:"phonics",   en:"Phonics",       zh:"基礎發音", icon:"🔤"},
   {id:"situations",en:"Situations",    zh:"情境會話", icon:"🗣️"},
+  {id:"clips",     en:"Real Clips",    zh:"真實影片", icon:"🎬"},
   {id:"phrasals",  en:"Phrasal Verbs", zh:"片語動詞", icon:"🔗"},
   {id:"idioms",    en:"Idioms",        zh:"慣用語",   icon:"💬"},
   {id:"speaking",  en:"Speaking",      zh:"口說跟讀", icon:"🎤"}
@@ -6919,17 +6930,47 @@ const SIT_VIDEO = {
       {s:59.0, e:62.3, sp:"🧑",   en:"Okay. I'll try that.",                                            zh:"好，那我試試看。"},
       {s:62.3, e:68.0, sp:"🧑‍🍳", en:"I'll put your order in and be right back with some hot rolls and butter.", zh:"我幫您送出點單，馬上回來，還會附上熱麵包和奶油。"}
     ]
+  },
+  clip_spongebob: {
+    yt:"m5uayeTCYJQ",
+    title:'SpongeBob — "I Don\'t Need It… I Need It!"',
+    credit:"SpongeBob SquarePants Official (Nickelodeon)",
+    lines:[
+      {s:58.3, e:59.4,  sp:"🐿️", en:"Drink up!",                                                     zh:"喝吧！"},
+      {s:59.4, e:63.5,  sp:"🧽", en:"I don't need water. Water's for quitters.",                     zh:"我不需要水。水是給懦夫喝的。"},
+      {s:63.5, e:72.0,  sp:"🧽", en:"I don't need it. I don't need it. I don't need it!",            zh:"我不需要、我不需要、我才不需要！"},
+      {s:72.0, e:81.0,  sp:"🐿️", en:"These flowers will live much longer in a vase full of ice-cold water.", zh:"這些花插在一瓶冰水裡會活得更久。"},
+      {s:81.0, e:90.0,  sp:"🐿️", en:"So tell me about yourself. It must be fascinating being a sea critter.", zh:"說說你自己吧，當海洋生物一定很有趣。"},
+      {s:99.0, e:107.0, sp:"🧽", en:"Back! I don't need it. I definitely don't need it.",            zh:"退開！我不需要，我絕對不需要。"},
+      {s:107.0,e:115.5, sp:"🧽", en:"I don't need it… I don't need it…",                             zh:"我不需要…我不需要…"},
+      {s:115.5,e:121.0, sp:"🧽", en:"I… need… IT!",                                                  zh:"我…需要…它！"}
+    ]
+  },
+  clip_office: {
+    yt:"8GxqvnQyaxs",
+    title:"The Office — The Password",
+    credit:"The Office (official)",
+    lines:[
+      {s:26.8, e:32.2, sp:"🧑‍💼", en:"Does anybody know the password? Because otherwise we can't do any work.", zh:"有人知道密碼嗎？不然我們沒辦法工作。"},
+      {s:32.2, e:33.8, sp:"👨‍💼", en:"Uh, try \"password.\"",                                          zh:"呃，試試看「password」。"},
+      {s:33.8, e:34.8, sp:"🧑‍💼", en:"Nope.",                                                         zh:"不對。"},
+      {s:34.8, e:39.5, sp:"👩‍💼", en:"Try 0000000000. — No.",                                         zh:"試試 0000000000。—不是。"},
+      {s:39.5, e:42.8, sp:"👨‍💼", en:"Okay, I'm not doing every number.",                             zh:"好啦，我才不要每個數字都試。"},
+      {s:42.8, e:46.0, sp:"🧑‍💼", en:"Wait, does anyone remember when it was set up?",                zh:"等等，有人記得這是什麼時候設定的嗎？"},
+      {s:46.0, e:50.5, sp:"👩‍💼", en:"Uh, it was, like, eight years ago.",                            zh:"呃，大概八年前吧。"}
+    ]
   }
 };
-let sitYT = null, sitYTPoll = null, sitYTLoop = false, sitYTMode = "all", sitYTTarget = -1, sitYTShown = -1, sitCap = {s:null, e:null};
+let sitYT = null, sitYTPoll = null, sitYTLoop = false, sitYTMode = "all", sitYTTarget = -1, sitYTShown = -1, sitVidKey = null, sitCap = {s:null, e:null};
 function sitLoadYTApi(cb){
   if(window.YT && window.YT.Player){ cb(); return; }
   const prev = window.onYouTubeIframeAPIReady;
   window.onYouTubeIframeAPIReady = ()=>{ if(prev) try{ prev(); }catch(e){} cb(); };
   if(!document.getElementById("yt-iframe-api")){ const s=document.createElement("script"); s.id="yt-iframe-api"; s.src="https://www.youtube.com/iframe_api"; document.head.appendChild(s); }
 }
-function sitVideoOpen(){
-  const v = SIT_VIDEO[SIT_OPEN]; if(!v){ toast("這個情境還沒有真實影片"); return; }
+function sitVideoOpen(key){
+  sitVidKey = key || SIT_OPEN;
+  const v = SIT_VIDEO[sitVidKey]; if(!v){ toast("這個情境還沒有真實影片"); return; }
   const esc = t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
   let ov = document.getElementById("sitVidOverlay");
   if(!ov){ ov = document.createElement("div"); ov.id = "sitVidOverlay"; ov.className = "sit-vid-ov"; document.body.appendChild(ov); }
@@ -6976,7 +7017,7 @@ function sitVideoOpen(){
 }
 /* poll loop: keep the subtitle + highlighted line in sync; auto-pause/loop single lines */
 function sitVidTick(){
-  const v = SIT_VIDEO[SIT_OPEN];
+  const v = SIT_VIDEO[sitVidKey];
   if(!sitYT || !sitYT.getCurrentTime || !v) return;
   const t = sitYT.getCurrentTime();
   if(sitYTMode === "line"){
@@ -6988,7 +7029,7 @@ function sitVidTick(){
   if(idx !== -1 && idx !== sitYTShown){ sitVidShowLine(idx); sitYTShown = idx; }
 }
 function sitVidShowLine(i){
-  const v = SIT_VIDEO[SIT_OPEN], l = v.lines[i]; if(!l) return;
+  const v = SIT_VIDEO[sitVidKey], l = v.lines[i]; if(!l) return;
   const sub = document.getElementById("sitVidSub");
   if(sub){ sub.querySelector(".en").textContent = l.en; sub.querySelector(".zh").textContent = l.zh; }
   const list = document.getElementById("sitVidLines");
@@ -6996,12 +7037,12 @@ function sitVidShowLine(i){
     const active = list.querySelector(`.sit-vl[data-i="${i}"]`); if(active) active.scrollIntoView({block:"nearest"}); }
 }
 function sitVidPlayLine(i, btn){
-  const v = SIT_VIDEO[SIT_OPEN]; if(!sitYT || !v) return;
+  const v = SIT_VIDEO[sitVidKey]; if(!sitYT || !v) return;
   sitYTMode = "line"; sitYTTarget = i; sitYTShown = i;
   sitVidShowLine(i);
   sitYT.seekTo(Math.max(0, v.lines[i].s - 0.3), true); sitYT.playVideo();
 }
-function sitVidPlayAll(btn){ if(!sitYT) return; sitYTMode = "all"; sitYTTarget = -1; sitYTShown = -1; sitYT.seekTo(SIT_VIDEO[SIT_OPEN].lines[0].s, true); sitYT.playVideo(); }
+function sitVidPlayAll(btn){ if(!sitYT) return; sitYTMode = "all"; sitYTTarget = -1; sitYTShown = -1; sitYT.seekTo(SIT_VIDEO[sitVidKey].lines[0].s, true); sitYT.playVideo(); }
 function sitVidLoop(btn){ sitYTLoop = !sitYTLoop; btn.classList.toggle("on", sitYTLoop); }
 function sitVidSpeed(r, btn){ if(sitYT) sitYT.setPlaybackRate(r); [...btn.parentNode.querySelectorAll(".sit-vid-sp")].forEach(b=>b.classList.toggle("on", b===btn)); }
 function sitCapSet(which){
@@ -7104,6 +7145,28 @@ function renderResources(tab){
       <div class="sit-keyh">🔑 關鍵句 Key phrases</div><div class="sit-keys">${keys}</div></div>
       <div class="sit-quizwrap" id="sitQuiz">${sitQuizBody()}</div>
       ${sitSavedHTML()}`;
+  } else if(tab==="clips"){
+    intro="真實影片片段：用母語者的真實語速學道地英文。逐句聽、跟讀、循環、變速。影片透過 YouTube 官方播放器嵌入，未下載或轉存。";
+    const card = (key, lvl, lvlColor, title, sub, note) => {
+      const v = SIT_VIDEO[key];
+      return `<div class="clip-card">
+        <div class="clip-lvl" style="background:${lvlColor}">${lvl}</div>
+        <div class="clip-body">
+          <div class="clip-title">${title}</div>
+          <div class="clip-sub">${sub}</div>
+          <div class="clip-note">${note}</div>
+          <button class="clip-open" onclick="sitVideoOpen('${key}')">🎬 開始看｜逐句跟讀 →</button>
+          <div class="clip-src">影片來源：${v.credit} · YouTube</div>
+        </div></div>`;
+    };
+    body = card("clip_spongebob", "初學 Beginner", "#6FB98F",
+        "🧽 SpongeBob：\"I Don't Need It… I Need It!\"",
+        "重複句型 × 誇張語氣，最好模仿、最有記憶點。",
+        "重點句：<b>I don't need it.</b>（我不需要）→ 誇張大喊 <b>I need it!</b>（我需要！）。適合初學者跟讀語氣與重複句型。")
+      + card("clip_office", "青少年·成人 Teen/Adult", "#E0885E",
+        "🧑‍💼 The Office：The Password",
+        "辦公室日常、真實語速、句子短、乾淨無髒話。",
+        "情境：大家忘了密碼、無法工作。重點句：<b>Does anybody know the password?</b>、<b>I'm not doing every number.</b>、<b>Does anyone remember when it was set up?</b>");
   } else if(tab==="speaking"){
     intro="口說跟讀 Read-aloud：🔊 聽示範 → 🎤 跟著念 → 語音辨識立即回饋。單字模式可連回口型動畫，句子模式取自 34 課的例句。答對第一次 +2 XP！";
     if(!SPK.item) spkNew(SPK.mode||"word");
