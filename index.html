@@ -4229,7 +4229,7 @@ const READINGS = [
 {
  id:"basketball-wwc-2026",
  topic:"USA Win a Fifth Straight Basketball World Cup", zh:"美國女籃世界盃五連霸",
- src:"FIBA · The Washington Post · Eurohoops", date:"2026-09-13", week:"9/21–9/27",
+ src:"FIBA · The Washington Post · Eurohoops", date:"2026-09-13", week:"9/14–9/20",
  tag:"Sport 運動", icon:"trophy",
  proper:["United","States","USA","France","French","Germany","Berlin","World","Cup","FIBA","Breanna","Stewart","Jackie","Young","Dominique","Malonga","Gabby","Williams","Spain","Paris","Sunday","September","American","Americans"],
  levels:{
@@ -5081,7 +5081,10 @@ function isoWeek(d){
   return Math.ceil((((t - y0)/86400000)+1)/7);
 }
 /* +1 偏移：使 2026 第 29 週（7/13–7/19）對到世界盃決賽，之後每週依序輪替 */
-function weekArticle(){ return READINGS[(isoWeek(new Date())+1) % READINGS.length]; }
+/* order key from the week label ("9/14–9/20" → 914); newest = highest */
+function rdOrder(r){ const m=(r.week||"").match(/(\d+)\/(\d+)/); return m ? (+m[1])*100+(+m[2]) : 0; }
+/* the featured "This week" reading is always the most recent one */
+function weekArticle(){ return READINGS.reduce((a,b)=> rdOrder(b)>rdOrder(a)?b:a, READINGS[0]); }
 function rdById(id){ return READINGS.find(r=>r.id===id) || weekArticle(); }
 
 /* ---- 聽力更正遊戲 UI ---- */
@@ -5175,7 +5178,7 @@ function renderReadGame(id, lvl, keepScroll){
 
 function renderReadings(){
   const cur = weekArticle();
-  const cards = READINGS.map(r=>{
+  const cards = [...READINGS].sort((a,b)=> rdOrder(b)-rdOrder(a)).map(r=>{
     const isNow = r.id===cur.id;
     return `<button class="rd-card ${isNow?"now":""}" onclick="location.hash='#/reading/${r.id}'">
       <div class="rd-card-art">${RD_ART[r.icon]||""}</div>
