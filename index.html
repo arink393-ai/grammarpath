@@ -2327,6 +2327,7 @@ $("#hamBtn").addEventListener("click", ()=> $("#mainNav").classList.toggle("open
 function renderHome(){
   const totalDone = Object.keys(store.data.completed).length;
   const next = DATA.lessons.find(l=>!store.data.completed[l.id]);
+  const week = weekArticle();
   const lvCards = DATA.levels.map(lv=>{
     const p = pctDone(lv.id);
     return `<button class="card level-card" onclick="location.hash='#/level/${lv.id}'">
@@ -2375,6 +2376,15 @@ function renderHome(){
           <div style="font-size:13px;color:var(--muted)">60 seconds, streak multipliers. Best: ${store.data.best["timed-all"]||0}</div>
         </div>
         <button class="btn btn-ghost" onclick="location.hash='#/game/timed/all'">Play</button>
+      </div>
+      <div class="card continue-card">
+        <div class="cc-icon">📰</div>
+        <div style="flex:1;min-width:0">
+          <span class="rd-now-tag">本週推薦 This week</span>
+          <div style="font:600 15px var(--sans);color:var(--navy);margin-top:5px">${week.topic}</div>
+          <div style="font-size:13px;color:var(--muted)">${week.zh}｜${week.tag}</div>
+        </div>
+        <button class="btn btn-navy" onclick="location.hash='#/reading/${week.id}'">Read</button>
       </div>
     </div>
   </div>`;
