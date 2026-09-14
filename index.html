@@ -526,6 +526,12 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rd-wc{font:600 11.5px var(--mono);color:var(--muted);white-space:nowrap}
 .rd-p{position:relative;font:400 16px/1.95 var(--sans);color:var(--ink);margin:0 0 13px;padding-left:26px}
 .rd-pn{position:absolute;left:0;top:5px;font:700 10.5px var(--mono);color:#fff;background:#D3BFA8;border-radius:5px;width:17px;height:17px;display:grid;place-items:center}
+/* glossary words highlighted inline in the article */
+.rd-gw{font-weight:700;color:var(--navy);border-bottom:2px dotted var(--teal2);border-radius:2px;cursor:help;position:relative;transition:background .1s ease}
+.rd-gw:hover,.rd-gw:focus,.rd-gw.open{background:#FBE9DC;outline:none}
+.rd-gw::after{content:attr(data-pos) "　" attr(data-zh);position:absolute;left:50%;bottom:calc(100% + 7px);transform:translateX(-50%);background:#2E2620;color:#fff;font:600 13px var(--sans);white-space:nowrap;padding:5px 11px;border-radius:9px;box-shadow:0 4px 14px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:opacity .12s ease;z-index:30}
+.rd-gw::before{content:"";position:absolute;left:50%;bottom:calc(100% + 2px);transform:translateX(-50%);border:5px solid transparent;border-top-color:#2E2620;opacity:0;transition:opacity .12s ease;z-index:30}
+.rd-gw:hover::after,.rd-gw:focus::after,.rd-gw.open::after,.rd-gw:hover::before,.rd-gw:focus::before,.rd-gw.open::before{opacity:1}
 .rd-tools{display:flex;gap:9px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:12px;margin-top:4px}
 .rd-gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px 16px;background:var(--teal-bg);border:1.5px solid var(--teal-line);border-radius:12px;padding:12px 14px;margin-top:12px}
 .rd-gl{font:400 13px var(--sans);color:var(--body)}
@@ -5319,13 +5325,43 @@ function rdPrintLevels(id){ const r = rdById(id); const secs = ["a","b","c"].fil
 function rdPrintAll(){ const secs = []; READINGS.forEach(r=>["a","b","c"].forEach(k=>{ if(r.levels[k]) secs.push({r, lv:r.levels[k]}); })); rdOpenWorksheet(secs, "English Cat Island — 全部時事閱讀"); }
 let rdCurId = null;
 
+/* Bold every glossary word/phrase in the article text and attach a tooltip
+   (part of speech + Chinese meaning), shown on hover and on tap/click. Matches the
+   exact term plus simple inflections (s/es/ed/ing) for single words; phrases verbatim. */
+function rdMarkGloss(text, gloss){
+  if(!gloss || !gloss.length) return text;
+  const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const escA  = s => String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+  const terms = gloss.map(g=>({raw:g[0], pos:g[1], zh:g[2]})).sort((a,b)=>b.raw.length-a.raw.length);
+  const alts = terms.map(t=>{
+    const w = t.raw;
+    if(/[\s-]/.test(w)) return escRe(w);                                   // phrase / hyphenated: verbatim
+    if(/e$/.test(w))   return escRe(w.slice(0,-1)) + "(?:e|es|ed|ing)";    // silent-e: outscore→outscored
+    if(/y$/.test(w))   return escRe(w.slice(0,-1)) + "(?:y|ies|ied|ying)"; // y→ies: dynasty→dynasties
+    return escRe(w) + "(?:s|es|ed|ing)?";                                  // regular: rebound→rebounds
+  });
+  let re; try{ re = new RegExp("\\b(" + alts.join(")\\b|\\b(") + ")\\b", "gi"); }catch(e){ return text; }
+  return text.replace(re, function(){
+    const a = [...arguments], caps = a.slice(1, 1+terms.length);
+    const idx = caps.findIndex(c=>c!=null); if(idx<0) return a[0];
+    const t = terms[idx];
+    return `<span class="rd-gw" tabindex="0" role="button" data-pos="${escA(t.pos)}" data-zh="${escA(t.zh)}">${caps[idx]}</span>`;
+  });
+}
+/* one delegated handler: tap a bolded word to pin its tooltip (mobile); tap elsewhere closes */
+if(!window.__rdGwClick){ window.__rdGwClick = true; document.addEventListener("click", e=>{
+  const w = e.target.closest ? e.target.closest(".rd-gw") : null;
+  document.querySelectorAll(".rd-gw.open").forEach(el=>{ if(el!==w) el.classList.remove("open"); });
+  if(w) w.classList.toggle("open");
+}); }
+
 function renderReading(id, keepScroll){
   const y = keepScroll ? window.scrollY : 0;
   const r = rdById(id); rdCurId = r.id;
   const lv = r.levels[RD_LEVEL];
   const tabs = [["a","A1–A2","初級"],["b","B1–B2","中級"],["c","C1–C2","高級"]]
     .map(t=>`<button class="rd-lv-tab ${RD_LEVEL===t[0]?"active":""}" onclick="rdSetLevel('${t[0]}')">${t[1]}<span>${t[2]}</span></button>`).join("");
-  const paras = lv.text.map((p,i)=>`<p class="rd-p"><span class="rd-pn">${i+1}</span>${p}</p>`).join("");
+  const paras = lv.text.map((p,i)=>`<p class="rd-p"><span class="rd-pn">${i+1}</span>${rdMarkGloss(p, lv.gloss)}</p>`).join("");
   const gloss = lv.gloss.map(g=>`<div class="rd-gl"><b>${g[0]}</b> <i>${g[1]}</i> <span>${g[2]}</span>${tts.ok?` <button class="res-audio mini" onclick="speak('${g[0]}')">🔊</button>`:""}</div>`).join("");
   const LET = "ABCD";
   const qs = lv.q.map((q,qi)=>{
