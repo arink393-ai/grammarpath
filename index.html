@@ -999,6 +999,14 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .th-sources li::before{content:"›";position:absolute;left:0;color:var(--th-warm);font-weight:700}
 .th-sources a{color:var(--th-accent);text-decoration:none;border-bottom:1px solid color-mix(in oklab,var(--th-accent) 35%,transparent)}
 .th-sources a:hover{border-bottom-color:var(--th-accent)}
+.th-extra{background:color-mix(in oklab,var(--th-green) 6%,var(--th-panel));border:1px solid color-mix(in oklab,var(--th-green) 20%,var(--th-line));border-radius:16px;padding:22px 26px}
+.th-extra .th-sh{border-bottom-color:color-mix(in oklab,var(--th-green) 24%,var(--th-line))}
+.th-extra .th-sh-en{color:var(--th-green)}
+.th-sched{list-style:none;display:flex;flex-wrap:wrap;gap:10px 20px;margin:18px 0 0;padding:0}
+.th-sched li{display:flex;flex-direction:column;gap:2px;background:var(--th-panel);border:1px solid var(--th-line2);border-radius:12px;padding:10px 15px;min-width:104px;position:relative}
+.th-sched li:not(:last-child)::after{content:"→";position:absolute;right:-15px;top:50%;transform:translateY(-50%);color:var(--th-green);font-weight:700}
+.th-sched-t{font:600 13px 'IBM Plex Sans',sans-serif;color:var(--th-accent);white-space:nowrap}
+.th-sched-d{font-family:var(--th-han);font-size:12.5px;color:var(--th-soft);white-space:nowrap}
 .th-foot-nav{max-width:64ch;margin:34px auto 60px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 @media(max-width:640px){
   .th-card{flex-direction:column}
@@ -2717,7 +2725,19 @@ const THEORIES = [
       {label:"Wikipedia — Forgetting curve", url:"https://en.wikipedia.org/wiki/Forgetting_curve"},
       {label:"Wikipedia — Spacing effect", url:"https://en.wikipedia.org/wiki/Spacing_effect"},
       {label:"Ebbinghaus, H. (1885). Über das Gedächtnis (Memory: A Contribution to Experimental Psychology). Duncker & Humblot.", url:"https://en.wikipedia.org/wiki/Hermann_Ebbinghaus"}
-    ]
+    ],
+    extra:{
+      sh_en:"Do It Yourself", sh_zh:"間隔複習實作",
+      en:"Turn the curve to your advantage with a simple review schedule (this is “spaced repetition”). The trick: don't just reread — <b>test yourself</b>, covering the answer and trying to recall it first. Each review can be short; the spacing does the real work.",
+      zh:"用一張簡單的複習排程，把曲線變成你的幫手（這就是所謂的「間隔複習 / spaced repetition」）。訣竅是：別只是「重看」，要<b>考自己</b>——先把答案蓋住、努力回想一次。每次複習都可以很短，真正發揮作用的是「間隔」本身。",
+      schedule:[
+        {t:"第 1 次", d:"上課當天 same day"},
+        {t:"第 2 次", d:"隔天 +1 day"},
+        {t:"第 3 次", d:"3 天後 +3 days"},
+        {t:"第 4 次", d:"1 週後 +1 week"},
+        {t:"第 5 次", d:"1 個月後 +1 month"}
+      ]
+    }
   },
   {
     id:"growth-mindset",
@@ -2772,6 +2792,60 @@ const THEORIES = [
       {label:"Attribution Theory (B. Weiner) — InstructionalDesign.org", url:"https://www.instructionaldesign.org/theories/attribution-theory/"},
       {label:"Wikipedia — Bernard Weiner", url:"https://en.wikipedia.org/wiki/Bernard_Weiner"}
     ]
+  },
+  {
+    id:"self-efficacy",
+    en:"Self-Efficacy", zh:"自我效能",
+    who:"Albert Bandura", year:"1977",
+    tag:"Confidence · 動機心理學",
+    takeaway:{en:"“I can do this” is built, not born — mostly from small wins.", zh:"「我做得到」是養出來的，不是天生的——多半來自一次次小小的成功。"},
+    idea:{
+      en:"Self-efficacy is your belief that <i>you</i> can succeed at a specific task — and Bandura found it predicts what people attempt, how hard they try, and whether they bounce back after a setback. Crucially, it isn't fixed. It grows from four sources, strongest first: <b>mastery experiences</b> (actually succeeding — by far the most powerful), <b>seeing people like you succeed</b>, <b>encouragement from someone you trust</b>, and how you <b>read your own nerves</b> (butterflies as excitement, not danger). For a teacher, the takeaway is simple: engineer small, real wins.",
+      zh:"自我效能，是你相信「<i>自己</i>」能完成某件具體任務的信念——班杜拉發現，它能預測一個人願不願意嘗試、有多努力、跌倒之後爬不爬得起來。最重要的是：它不是固定的。它由四個來源長出來，由強到弱依序是：<b>成功經驗</b>（真的把一件事做成——遠遠最有力）、<b>看見和自己相似的人做到</b>、<b>信任的人給的鼓勵</b>，以及你怎麼<b>解讀自己的緊張</b>（把心跳加速當成「我很興奮」，而不是「我不行」）。對老師來說，重點很簡單：替學生設計一次次真實的小成功。"
+    },
+    svg:`<svg viewBox="0 0 900 470" role="img" aria-label="A confident figure on a platform held up by four pillars — mastery, models, encouragement, mood — with a glowing bubble reading I can do this."><defs><linearGradient id="seSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9F0EE"/><stop offset="1" stop-color="#FBF7EF"/></linearGradient><radialGradient id="seGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FBE9B0"/><stop offset="1" stop-color="#FBE9B0" stop-opacity="0"/></radialGradient></defs><rect width="900" height="470" fill="url(#seSky)"/><circle cx="450" cy="150" r="160" fill="url(#seGlow)"/><g transform="translate(450,118)"><rect x="-122" y="-40" width="244" height="74" rx="20" fill="#FFFFFF" stroke="#C6892F" stroke-width="2.5"/><path d="M-14 34 l6 22 l20 -22 Z" fill="#FFFFFF" stroke="#C6892F" stroke-width="2.5"/><text x="0" y="-6" text-anchor="middle" font-family="'Lora',serif" font-weight="700" font-size="24" fill="#2C6E72">我可以做到！</text><text x="0" y="20" text-anchor="middle" font-family="'IBM Plex Sans',sans-serif" font-size="15" fill="#8B7963">I can do this</text></g><g transform="translate(450,250)"><rect x="-18" y="-58" width="36" height="60" rx="16" fill="#2C6E72"/><circle cx="0" cy="-72" r="16" fill="#E9B98C"/><path d="M-16 -44 q-30 -10 -34 -34" stroke="#2C6E72" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M16 -44 q30 -10 34 -34" stroke="#2C6E72" stroke-width="12" fill="none" stroke-linecap="round"/></g><rect x="150" y="250" width="600" height="24" rx="6" fill="#C6892F" stroke="#A9732A" stroke-width="2"/><text x="450" y="243" text-anchor="middle" font-family="'IBM Plex Sans',sans-serif" font-size="13.5" font-weight="600" fill="#8B7963">自我效能 · 「我做得到」的信念</text><g font-family="'IBM Plex Sans',sans-serif"><g transform="translate(225,274)"><rect x="-52" y="0" width="104" height="150" rx="8" fill="#E0A64B" stroke="#A9732A" stroke-width="2"/><text x="0" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#5B3B18">成功經驗</text><text x="0" y="57" text-anchor="middle" font-size="12" fill="#7A5A2E">mastery</text><rect x="-40" y="84" width="80" height="24" rx="12" fill="#FBF7EF"/><text x="0" y="101" text-anchor="middle" font-size="12" font-weight="700" fill="#B07A25">最強 strongest</text></g><g transform="translate(375,274)"><rect x="-52" y="0" width="104" height="132" rx="8" fill="#EAD9B4" stroke="#C9B48A" stroke-width="2"/><text x="0" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#6E5D45">看見楷模</text><text x="0" y="57" text-anchor="middle" font-size="12" fill="#8B7963">seeing models</text></g><g transform="translate(525,274)"><rect x="-52" y="0" width="104" height="116" rx="8" fill="#EAD9B4" stroke="#C9B48A" stroke-width="2"/><text x="0" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#6E5D45">他人鼓勵</text><text x="0" y="57" text-anchor="middle" font-size="12" fill="#8B7963">encouragement</text></g><g transform="translate(675,274)"><rect x="-52" y="0" width="104" height="102" rx="8" fill="#EAD9B4" stroke="#C9B48A" stroke-width="2"/><text x="0" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#6E5D45">情緒解讀</text><text x="0" y="57" text-anchor="middle" font-size="12" fill="#8B7963">your mood</text></g></g></svg>`,
+    story:{
+      en:"In 1977, adults who had been terrified of snakes for <i>decades</i> — some avoided gardens, basements, whole aisles of the zoo — came to Bandura's lab at Stanford. He didn't lecture them. He let them succeed in tiny steps: first watch him hold a snake, then touch it with a gloved hand, then a bare finger — each small success making the next feel possible. Their fear melted away. But that wasn't the surprise. Weeks later, many reported they had grown bolder in <b>completely unrelated</b> parts of their lives. One belief — “I can handle this” — had quietly spread outward.",
+      zh:"1977 年，一群怕蛇怕了<i>幾十年</i>的大人——有人因此不敢進花園、不敢下地下室，連動物園某幾條走道都得繞開——走進了班杜拉在史丹佛的實驗室。他沒有對他們說教，而是讓他們一小步、一小步地成功：先看他握著蛇，再戴手套摸一下，再用一根手指碰碰看——每一次小小的成功，都讓下一步變得沒那麼可怕。他們的恐懼漸漸融化了。但真正令人驚訝的是：幾週後，許多人說自己在<b>完全無關</b>的其他生活領域，也變得更有膽量。一個「我應付得來」的信念，悄悄向外擴散開來。"
+    },
+    apply:[
+      {zh:"先給一定做得到的小任務，讓他嘗到「我做到了」。", en:"Start with a task they can definitely finish — let them taste “I did it.”"},
+      {zh:"用同儕當楷模：「你看某某上次也是這樣一步步練起來的。」", en:"Use peer models: “She got there the same way — one step at a time.”"},
+      {zh:"具體鼓勵，而非空話：「你這幾個音的發音，明顯進步了。」", en:"Encourage specifically, not vaguely: “Your pronunciation on these sounds clearly improved.”"},
+      {zh:"替緊張重新命名：「會緊張，代表你在乎，是身體在幫你。」", en:"Rename the nerves: “Feeling nervous means you care — your body is helping you.”"}
+    ],
+    sources:[
+      {label:"Bandura, A. (1977). Self-efficacy: Toward a unifying theory of behavioral change. Psychological Review, 84(2), 191–215.", url:"https://doi.org/10.1037/0033-295X.84.2.191"},
+      {label:"APA — Self-efficacy: the theory at the heart of human agency", url:"https://www.apa.org/research-practice/conduct-research/self-efficacy-human-agency"},
+      {label:"SimplyPsychology — Self-Efficacy (Bandura)", url:"https://www.simplypsychology.org/self-efficacy.html"}
+    ]
+  },
+  {
+    id:"flow",
+    en:"Flow", zh:"心流",
+    who:"Mihály Csíkszentmihályi", year:"1990",
+    tag:"Engagement · 動機心理學",
+    takeaway:{en:"Match the challenge to the skill, and time disappears.", zh:"讓挑戰剛好對上能力，時間就會消失。"},
+    idea:{
+      en:"Flow is that state of complete absorption where you're so focused you forget the time, the room, even yourself. Csikszentmihalyi found it lives in a narrow band: when a task's <b>challenge</b> roughly <b>matches your skill</b>. Too hard for your skill and you feel <b>anxiety</b>; too easy and you slide into <b>boredom</b>; but right in between runs the <i>flow channel</i>. It also needs <b>clear goals</b> and <b>quick feedback</b>. In a classroom, flow is the target zone — a task just a little above what a student can already do.",
+      zh:"心流，是那種全神貫注、忘了時間、忘了周遭、甚至忘了自己的狀態。契克森米哈伊發現，它只住在一條窄窄的帶子裡：當一件事的<b>挑戰</b>剛好<b>對上你的能力</b>時。對能力來說太難，你會<b>焦慮</b>；太簡單，你會滑進<b>無聊</b>；而正好落在中間的，就是那條「<i>心流通道</i>」。它還需要<b>清楚的目標</b>和<b>即時的回饋</b>。在課堂上，心流就是我們要瞄準的甜蜜點——一個比學生現在會的、只再難「一點點」的任務。"
+    },
+    svg:`<svg viewBox="0 0 900 470" role="img" aria-label="A flow channel diagram: challenge on the vertical axis, skill on the horizontal; too much challenge is anxiety, too little is boredom, and the balanced diagonal band is flow."><rect width="900" height="470" fill="#FBF7EF"/><path d="M90,60 L770,60 L90,330 Z" fill="#E7CBBD"/><path d="M180,400 L850,400 L850,130 Z" fill="#CFD9E2"/><path d="M90,330 L770,60 L850,60 L850,130 L180,400 L90,400 Z" fill="#CFE6C6"/><line x1="90" y1="54" x2="90" y2="408" stroke="#B9A588" stroke-width="2.5"/><line x1="84" y1="400" x2="866" y2="400" stroke="#B9A588" stroke-width="2.5"/><path d="M250,352 L636,130" stroke="#4E8D5B" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round" fill="none"/><path d="M636,130 l-20 2 l8 -19" fill="#4E8D5B"/><g transform="translate(455,232) rotate(-23)"><text x="0" y="0" text-anchor="middle" font-family="'Lora',serif" font-weight="700" font-size="34" fill="#3E7A50" letter-spacing="2">心流 FLOW</text></g><g font-family="'IBM Plex Sans',sans-serif" text-anchor="middle"><text x="252" y="120" font-size="21" font-weight="700" fill="#A6614A">焦慮 Anxiety</text><text x="252" y="146" font-size="14" fill="#9A6A57">（太難了）</text><text x="648" y="336" font-size="21" font-weight="700" fill="#5E7387">無聊 Boredom</text><text x="648" y="362" font-size="14" fill="#6F8194">（太簡單）</text></g><text x="470" y="440" text-anchor="middle" font-family="'IBM Plex Sans',sans-serif" font-size="14.5" fill="#8B7963">技能 Skill →</text><text x="54" y="230" text-anchor="middle" font-family="'IBM Plex Sans',sans-serif" font-size="14.5" fill="#8B7963" transform="rotate(-90 54 230)">挑戰 Challenge →</text></svg>`,
+    story:{
+      en:"Csikszentmihalyi was a boy in Europe during World War II, and he watched grown-ups who had lost everything fall apart — while a rare few kept their purpose, and even their joy. It left him with a question for life: <b>what makes a life worth living?</b> Years later he interviewed artists, chess players, climbers and surgeons who worked for hours, forgetting food and sleep, not for money or fame but for the sheer absorption itself. When he asked them to describe the feeling, many reached for the same word — it was like being carried along by a <b>current</b>. So he named the state <i>“flow.”</i>",
+      zh:"契克森米哈伊小時候，正逢二戰時期的歐洲。他親眼看著許多失去一切的大人就此崩潰——卻有極少數人，仍守住了生活的目標，甚至還保有喜悅。這讓他一生都在追問一個問題：<b>什麼樣的人生，才值得活？</b>多年後，他訪問了畫家、棋手、攀岩者和外科醫生，這些人能一連工作好幾個小時，忘了吃飯睡覺，不為錢也不為名，只為那份全然投入本身。當他請他們形容那種感覺，很多人不約而同用了同一個字——就像被一股<b>水流</b>帶著走。於是，他把這個狀態命名為<i>「心流（flow）」</i>。"
+    },
+    apply:[
+      {zh:"把難度調到「踮腳搆得到」——比現在會的再難一點點。", en:"Set difficulty to “on tiptoe” — just a little above what they can do now."},
+      {zh:"太簡單就加挑戰，太難就拆步驟，隨時微調。", en:"Too easy? add challenge. Too hard? break it into steps. Keep adjusting."},
+      {zh:"給清楚的目標和即時回饋，別讓他猜「這樣對不對」。", en:"Give clear goals and quick feedback — don't leave them guessing."},
+      {zh:"看到他忘了時間、安靜又超專注時，別打斷——那就是心流。", en:"When they lose track of time and go quiet with focus — don't interrupt. That's flow."}
+    ],
+    sources:[
+      {label:"Csikszentmihalyi, M. (1990). Flow: The Psychology of Optimal Experience. Harper & Row.", url:"https://en.wikipedia.org/wiki/Flow_(psychology)"},
+      {label:"Mihaly Csikszentmihalyi, TED — “Flow, the secret to happiness”", url:"https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness"},
+      {label:"PositivePsychology — Mihály Csíkszentmihályi: The Father of Flow", url:"https://positivepsychology.com/mihaly-csikszentmihalyi-father-of-flow/"}
+    ]
   }
 ];
 const theoryById = id => THEORIES.find(t=>t.id===id);
@@ -2805,6 +2879,13 @@ function renderTheory(id){
   const apply = t.apply.map(a=>`
     <li class="th-apply-item"><span class="th-apply-zh">${a.zh}</span><span class="th-apply-en">${a.en}</span></li>`).join("");
   const src = t.sources.map(s=>`<li><a href="${s.url}" target="_blank" rel="noopener">${s.label}</a></li>`).join("");
+  const extraHTML = t.extra ? `
+    <section class="th-sec th-extra">
+      <h2 class="th-sh"><span class="th-sh-en">${t.extra.sh_en}</span><span class="th-sh-zh">${t.extra.sh_zh}</span></h2>
+      <p class="th-en">${t.extra.en}</p>
+      <p class="th-zh">${t.extra.zh}</p>
+      <ol class="th-sched">${t.extra.schedule.map(s=>`<li><span class="th-sched-t">${s.t}</span><span class="th-sched-d">${s.d}</span></li>`).join("")}</ol>
+    </section>` : "";
   const idx = THEORIES.indexOf(t);
   const nextT = THEORIES[idx+1];
   app.innerHTML = `<div class="view theorybook">
@@ -2832,6 +2913,7 @@ function renderTheory(id){
       <h2 class="th-sh"><span class="th-sh-en">In the Classroom</span><span class="th-sh-zh">課堂上這樣鼓勵</span></h2>
       <ul class="th-apply">${apply}</ul>
     </section>
+    ${extraHTML}
     <section class="th-sources">
       <h3>來源 Sources</h3>
       <ul>${src}</ul>
