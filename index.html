@@ -2468,6 +2468,7 @@ function renderHome(){
   const totalDone = Object.keys(store.data.completed).length;
   const next = DATA.lessons.find(l=>!store.data.completed[l.id]);
   const week = weekArticle();
+  const thy = THEORIES[Math.floor(Date.now()/864e5) % THEORIES.length];
   const lvCards = DATA.levels.map(lv=>{
     const p = pctDone(lv.id);
     return `<button class="card level-card" onclick="location.hash='#/level/${lv.id}'">
@@ -2527,6 +2528,15 @@ function renderHome(){
           <div style="font-size:13px;color:var(--muted)">${week.zh}｜${week.tag}</div>
         </div>
         <button class="btn btn-navy" onclick="location.hash='#/reading/${week.id}'">Read</button>
+      </div>
+      <div class="card continue-card">
+        <div class="cc-icon">🧠</div>
+        <div style="flex:1;min-width:0">
+          <span class="rd-now-tag">學習理論 Theory</span>
+          <div style="font:600 15px var(--sans);color:var(--navy);margin-top:5px">${thy.zh}｜${thy.en}</div>
+          <div style="font-size:13px;color:var(--muted)">${thy.takeaway.zh}</div>
+        </div>
+        <button class="btn btn-navy" onclick="location.hash='#/theory/${thy.id}'">看看</button>
       </div>
     </div>
   </div>`;
