@@ -3062,15 +3062,20 @@ function renderTheory(id){
 function unitLocked(u){ return u && u.level==="advanced" && !store.data.unlocked[u.id]; }
 /* Cats that come to the island when you feed (spend 罐罐). Drawn with catSVG (no heavy images). */
 const FED_CATS = [
-  {kind:"orange", en:"Mango",  zh:"芒果"},
-  {kind:"cream",  en:"Latte",  zh:"拿鐵"},
-  {kind:"choco",  en:"Cocoa",  zh:"可可"},
-  {kind:"gray",   en:"Misty",  zh:"灰灰"},
-  {kind:"calico", en:"Patch",  zh:"三花"},
-  {kind:"white",  en:"Marsh",  zh:"棉花糖"},
-  {kind:"cow",    en:"Oreo",   zh:"奶油"},
-  {kind:"black",  en:"Shadow", zh:"小黑"}
+  {kind:"orange", en:"Mango",  zh:"芒果",   lines:["喵～今天也很努力呢！Nice work today! 🐾", "再學一課好不好？One more lesson? 🍊"]},
+  {kind:"cream",  en:"Latte",  zh:"拿鐵",   lines:["呼嚕嚕～坐下來一起讀書吧。Let's study together. ☕", "慢慢念，我陪你。I'll stay right here with you."]},
+  {kind:"choco",  en:"Cocoa",  zh:"可可",   lines:["喵！學完這課我請你喝可可。One more and cocoa's on me! 🍫", "你比昨天更棒了！Better than yesterday!"]},
+  {kind:"gray",   en:"Misty",  zh:"灰灰",   lines:["喵…慢慢來，你做得很好。Take your time — you're doing great.", "忘記是正常的，複習就好。Forgetting is normal — just review. 🌫"]},
+  {kind:"calico", en:"Patch",  zh:"三花",   lines:["喵嗚！今天打卡了沒？Did you check in today? 🥫", "別忘了拿罐罐餵我～ Come back for your cans!"]},
+  {kind:"white",  en:"Marsh",  zh:"棉花糖", lines:["軟軟的抱抱，給你加油！A soft hug for you. 🤍", "喵～你很棒，我相信你。You've got this. I believe in you."]},
+  {kind:"cow",    en:"Oreo",   zh:"奶油",   lines:["喵～複習一下昨天的單字吧？Review yesterday's words? 📖", "一天一點點，就會很厲害。A little each day goes a long way."]},
+  {kind:"black",  en:"Shadow", zh:"小黑",   lines:["喵。我一直都在這裡陪你。I'm always here with you. 🖤", "犯錯沒關係，那是在長大腦。Mistakes grow your brain."]}
 ];
+function catMeow(kind){
+  const c = FED_CATS.find(x=>x.kind===kind) || {zh:"貓咪", lines:["喵～"]};
+  const line = c.lines[Math.floor(Math.random()*c.lines.length)];
+  toast(c.zh + "：" + line);
+}
 function feedUnit(id){
   const u = DATA.units.find(x=>x.id===id); if(!u || store.data.unlocked[id]) return;
   if(store.spendCans(UNLOCK_COST)){
@@ -5725,7 +5730,7 @@ function renderIsland(){
   }).join("");
   const fed = Array.isArray(store.data.fedCats) ? store.data.fedCats : [];
   const fedTiles = fed.map(kind=>{ const c = FED_CATS.find(x=>x.kind===kind) || {en:"Cat", zh:"貓咪"};
-    return `<div class="cat-tile unlocked" title="餵養而來 · ${c.zh}｜${c.en}">${catSVG(52,kind)}<span class="ct-breed">${c.en}</span><span class="ct-n">${c.zh}</span></div>`;
+    return `<button class="cat-tile unlocked" title="點一下和 ${c.zh} 說說話 · tap to chat" onclick="catMeow('${kind}')">${catSVG(52,kind)}<span class="ct-breed">${c.en}</span><span class="ct-n">${c.zh}</span></button>`;
   }).join("");
   const fedSec = `<div class="isl-sec"><div class="isl-sec-h"><span>🍰 餵養來的貓咪 · Fed cats</span><span>${fed.length}</span></div>`
     + (fed.length ? `<div class="cat-grid">${fedTiles}</div>`
