@@ -3169,7 +3169,7 @@ function renderReflect(){
       <div class="rf-print-icon">🖨</div>
       <div class="rf-print-txt">
         <div class="rf-print-t">列印學習歷程表 · My Learning Journey</div>
-        <div class="rf-print-s">課堂用的完整學習歷程表（含小考、自我評量、老師評語，加一頁每週反思）。今天寫的三行日記會自動填進去，其餘欄位可手寫或存成 PDF。</div>
+        <div class="rf-print-s">課堂用的完整空白學習歷程表（含小考、自我評量、老師評語，加一頁每週反思）。直接列印或存成 PDF 給學生手寫。</div>
       </div>
       <button class="btn btn-navy" onclick="printJourney()">列印 / 存 PDF</button>
     </div>
@@ -3220,7 +3220,7 @@ function printJourney(){
    @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
    @page{margin:1.3cm}
   </style></head><body>
-  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">今天的三行日記已自動填入（🌟🔧🎯），其餘欄位可手寫或存成 PDF。</span></div>
+  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">空白的學習歷程表，直接列印或存成 PDF 讓學生手寫。</span></div>
   <div class="sheet">
     <h1>My Learning Journey</h1>
     <div class="dn"><span>Date：<u></u></span><span>Name：<u></u></span></div>
@@ -3248,9 +3248,9 @@ function printJourney(){
         <td colspan="2">Tomorrow's goal</td>
       </tr>
       <tr>
-        <td colspan="2" class="write" style="height:66px">${b(j.best)}</td>
-        <td colspan="2" class="write">${b(j.improve)}</td>
-        <td colspan="2" rowspan="3" class="write">${b(j.goal)}</td>
+        <td colspan="2" class="write" style="height:66px"></td>
+        <td colspan="2" class="write"></td>
+        <td colspan="2" rowspan="3" class="write"></td>
       </tr>
       <tr>
         <td colspan="2" class="ctr">Self-assessment</td>
