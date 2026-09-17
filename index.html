@@ -1041,6 +1041,12 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rf-past-line{font-size:14px;color:var(--body);line-height:1.7}
 .rf-past-line b{margin-right:7px}
 .rf-empty{color:var(--muted);font-size:14px}
+.rf-print{display:flex;align-items:center;gap:14px;padding:16px 20px;margin-top:16px}
+.rf-print-icon{font-size:26px;flex:none}
+.rf-print-txt{flex:1;min-width:0}
+.rf-print-t{font:600 15px var(--sans);color:var(--navy)}
+.rf-print-s{font-size:13px;color:var(--muted);line-height:1.55}
+@media(max-width:640px){ .rf-print{flex-direction:column;text-align:center} }
 
 /* ===== Student login + 罐罐 economy ===== */
 .auth-gate{position:fixed;inset:0;z-index:200;background:linear-gradient(160deg,#FCF5EC,#EFE0C8);display:flex;align-items:flex-start;justify-content:center;padding:6vh 20px 40px;overflow:auto}
@@ -3144,6 +3150,14 @@ function renderReflect(){
         <span class="rf-reward">✍️ 每天第一次寫完 +${REFLECT_REWARD} 🥫</span>
       </div>
     </div>
+    <div class="card rf-print">
+      <div class="rf-print-icon">🖨</div>
+      <div class="rf-print-txt">
+        <div class="rf-print-t">列印學習歷程表 · My Learning Journey</div>
+        <div class="rf-print-s">課堂用的完整學習歷程表（含小考、自我評量、老師評語，加一頁每週反思）。今天寫的三行日記會自動填進去，其餘欄位可手寫或存成 PDF。</div>
+      </div>
+      <button class="btn btn-navy" onclick="printJourney()">列印 / 存 PDF</button>
+    </div>
     <h2 class="section" style="margin-top:28px">過往紀錄 Past entries</h2>
     <div class="rf-pastlist">${pastHTML}</div>
   </div>`;
@@ -3160,6 +3174,86 @@ function saveReflect(){
   if(isNew){ store.addCans(REFLECT_REWARD); toast("日記已儲存！+" + REFLECT_REWARD + " 🥫 今天也很棒 🐾"); }
   else { toast("日記已更新 🐾"); }
   renderReflect();
+}
+/* Printable class worksheet — "My Learning Journey" (daily log + weekly reflection).
+   Auto-fills name, date and today's 3-line diary; other fields are for handwriting. */
+function printJourney(){
+  const u = AUTH.current() || {name:""};
+  const j = (store.data.journal||{})[todayKey()] || {best:"",improve:"",goal:""};
+  const today = todayKey();
+  const b = v => esc(v||"");
+  const doc = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>My Learning Journey</title>
+  <style>
+   *{box-sizing:border-box}
+   body{font-family:"Segoe UI",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;color:#2b241d;margin:0;background:#ECE6DC}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#7A5B49;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
+   .bar button{font:inherit;background:#fff;color:#7A5B49;border:0;border-radius:8px;padding:7px 14px;font-weight:600;cursor:pointer}
+   .bar .hint{opacity:.85;font-size:12px}
+   .sheet{background:#fff;max-width:760px;margin:18px auto;padding:34px 40px;box-shadow:0 8px 24px rgba(0,0,0,.12);page-break-after:always}
+   .sheet:last-child{page-break-after:auto}
+   h1{font-size:23px;margin:0;letter-spacing:.5px;color:#5a4636}
+   .brand{font-size:11px;color:#9A8158;letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
+   .top{display:flex;justify-content:space-between;gap:16px;border-bottom:2px solid #7A5B49;padding-bottom:12px;margin-bottom:16px}
+   .top .who{font-size:13px;text-align:right;line-height:2.1;white-space:nowrap}
+   .fill{display:inline-block;border-bottom:1.4px solid #9a9a9a;min-width:120px;padding:0 6px}
+   .row{margin:11px 0;font-size:14px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline}
+   .lab{font-weight:700;color:#5a4636}
+   .cb{display:inline-flex;align-items:center;gap:6px}
+   .cb::before{content:"";display:inline-block;width:14px;height:14px;border:1.6px solid #666;border-radius:3px;flex:none}
+   .box{border:1.4px solid #c4bcae;border-radius:8px;min-height:64px;padding:9px 12px;font-size:13.5px;white-space:pre-wrap;line-height:1.6}
+   .box.pre{background:#FBF7EF}
+   .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:6px 0 14px}
+   .grid3 .h{font-weight:700;font-size:12.5px;color:#5a4636;margin-bottom:5px}
+   .grid3 .box{min-height:96px}
+   .sec-h{font-weight:700;color:#7A5B49;font-size:13.5px;letter-spacing:.03em;margin:18px 0 7px;border-left:4px solid #C6892F;padding-left:9px;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+   .sub{color:#8a8172;font-weight:400;font-size:11.5px}
+   @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
+   @page{margin:1.5cm}
+  </style></head><body>
+  <div class="bar"><span>🐱 English Cat Island</span><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">今天的三行日記已自動填入，其餘欄位可手寫。</span></div>
+  <div class="sheet">
+    <div class="brand">English Cat Island · 英語貓咪島</div>
+    <div class="top"><h1>My Learning Journey</h1><div class="who">Date：<span class="fill">${today}</span><br>Name：<span class="fill">${b(u.name)}</span></div></div>
+    <div class="row"><span class="lab">Last lesson：</span><span class="cb">Can tell</span><span class="cb">Can't tell</span></div>
+    <div class="row"><span class="lab">Last time's homework：</span><span class="cb">finished</span><span class="cb">unfinished</span></div>
+    <div class="row"><span class="lab">Today's test：</span>（<span class="fill" style="min-width:150px"></span>）&nbsp; Score：<span class="fill" style="min-width:46px"></span> / <span class="fill" style="min-width:46px"></span></div>
+    <div class="row"><span class="lab">School schedule：</span>Lesson <span class="fill" style="min-width:200px"></span></div>
+    <div class="row"><span class="lab">Today's goal：</span><span class="fill" style="flex:1;min-width:240px"></span></div>
+    <div class="row"><span class="lab">Teaching Materials：</span><span class="fill" style="flex:1;min-width:240px"></span></div>
+    <div class="sec-h">What did I learn today? <span class="sub">今天我學到什麼？</span></div>
+    <div class="box" style="min-height:78px"></div>
+    <div class="sec-h">Quiz</div>
+    <div class="box" style="min-height:46px"></div>
+    <div class="sec-h">Self-assessment <span class="sub">自我評量 · 三行日記</span></div>
+    <div class="grid3">
+      <div><div class="h">🌟 The thing I did well</div><div class="box pre">${b(j.best)}</div></div>
+      <div><div class="h">🔧 The thing I need to improve</div><div class="box pre">${b(j.improve)}</div></div>
+      <div><div class="h">🎯 Tomorrow's goal</div><div class="box pre">${b(j.goal)}</div></div>
+    </div>
+    <div class="row"><span class="lab">Self-assessment：</span><span class="cb">Excellent</span><span class="cb">Good</span><span class="cb">Keep going</span></div>
+    <div class="row"><span class="lab">Homework：</span><span class="cb">Excellent</span><span class="cb">Good</span><span class="cb">Keep going</span></div>
+    <div class="sec-h">Teacher's assessment <span class="sub">老師評語</span></div>
+    <div class="row"><span class="cb">Excellent</span><span class="cb">Good</span><span class="cb">Keep going</span></div>
+    <div class="row"><span class="lab">Next time：</span>start from page <span class="fill" style="min-width:64px"></span> &nbsp;·&nbsp; Next time test：<span class="fill" style="min-width:130px"></span></div>
+  </div>
+  <div class="sheet">
+    <div class="brand">English Cat Island · 英語貓咪島</div>
+    <div class="top"><h1>Weekly Reflection</h1><div class="who">Date：<span class="fill">${today}</span><br>Topic：<span class="fill"></span></div></div>
+    <div class="sec-h">What happened this week? <span class="sub">這週發生了什麼？</span></div>
+    <div class="box" style="min-height:82px"></div>
+    <div class="sec-h">When do you do <span class="fill" style="min-width:150px"></span> ?</div>
+    <div class="box" style="min-height:58px"></div>
+    <div class="sec-h">Where do you go on <span class="fill" style="min-width:150px"></span> ?</div>
+    <div class="box" style="min-height:58px"></div>
+    <div class="sec-h">Why do you want to keep learning? <span class="sub">你為什麼想繼續學下去？</span></div>
+    <div class="box" style="min-height:70px"></div>
+    <div class="sec-h">Task</div>
+    <div class="box" style="min-height:70px"></div>
+  </div>
+  <\/body><\/html>`;
+  const w = window.open("", "_blank");
+  if(!w){ toast("請允許彈出視窗才能列印 🖨"); return; }
+  w.document.open(); w.document.write(doc); w.document.close();
 }
 
 /* =====================================================
