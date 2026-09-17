@@ -2293,7 +2293,7 @@ function todayMid(){ const d = new Date(); d.setHours(0,0,0,0); return d.getTime
 const store = {
   data: {},
   defaults(){ return {xp:0, completed:{}, streak:{count:0,last:null}, best:{}, mistakes:{},
-    cans:0, checkin:{last:null}, unlocked:{}}; },
+    cans:0, checkin:{last:null}, unlocked:{}, fedCats:[]}; },
   load(){ this.data = this.defaults(); try{ const raw = localStorage.getItem(STORE_KEY); if(raw) Object.assign(this.data, JSON.parse(raw)); }catch(e){} },
   save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(this.data)); }catch(e){} },
   rebind(email){ STORE_KEY = STORE_BASE + (email ? "__" + email.toLowerCase() : ""); this.load(); },
@@ -3060,11 +3060,27 @@ function renderTheory(id){
    ===================================================== */
 /* Advanced units are "進階" content — locked until fed with 罐罐. Core stays open. */
 function unitLocked(u){ return u && u.level==="advanced" && !store.data.unlocked[u.id]; }
+/* Cats that come to the island when you feed (spend 罐罐). Drawn with catSVG (no heavy images). */
+const FED_CATS = [
+  {kind:"orange", en:"Mango",  zh:"芒果"},
+  {kind:"cream",  en:"Latte",  zh:"拿鐵"},
+  {kind:"choco",  en:"Cocoa",  zh:"可可"},
+  {kind:"gray",   en:"Misty",  zh:"灰灰"},
+  {kind:"calico", en:"Patch",  zh:"三花"},
+  {kind:"white",  en:"Marsh",  zh:"棉花糖"},
+  {kind:"cow",    en:"Oreo",   zh:"奶油"},
+  {kind:"black",  en:"Shadow", zh:"小黑"}
+];
 function feedUnit(id){
   const u = DATA.units.find(x=>x.id===id); if(!u || store.data.unlocked[id]) return;
   if(store.spendCans(UNLOCK_COST)){
-    store.data.unlocked[id] = true; store.save();
-    toast("餵養成功！解鎖「" + u.name + "」🐱🍰"); route();
+    store.data.unlocked[id] = true;
+    if(!Array.isArray(store.data.fedCats)) store.data.fedCats = [];
+    const cat = FED_CATS[store.data.fedCats.length % FED_CATS.length];
+    store.data.fedCats.push(cat.kind);          // a new cat comes to the island
+    store.save();
+    toast("餵養成功！小貓「" + cat.zh + " " + cat.en + "」來到你的貓咪島了 🐱🎉");
+    route();
   } else {
     toast("罐罐不夠囉，先去打卡拿罐罐 🥫");
   }
@@ -5707,12 +5723,20 @@ function renderIsland(){
     }).join("");
     return `<div class="isl-sec"><div class="isl-sec-h"><span>${lv.name} · ${lv.zh}</span><span>${d}/${ls.length}</span></div><div class="cat-grid">${tiles}</div></div>`;
   }).join("");
+  const fed = Array.isArray(store.data.fedCats) ? store.data.fedCats : [];
+  const fedTiles = fed.map(kind=>{ const c = FED_CATS.find(x=>x.kind===kind) || {en:"Cat", zh:"貓咪"};
+    return `<div class="cat-tile unlocked" title="餵養而來 · ${c.zh}｜${c.en}">${catSVG(52,kind)}<span class="ct-breed">${c.en}</span><span class="ct-n">${c.zh}</span></div>`;
+  }).join("");
+  const fedSec = `<div class="isl-sec"><div class="isl-sec-h"><span>🍰 餵養來的貓咪 · Fed cats</span><span>${fed.length}</span></div>`
+    + (fed.length ? `<div class="cat-grid">${fedTiles}</div>`
+        : `<p style="font:400 13px var(--sans);color:var(--muted);margin:2px 0 0">在「進階單元」花罐罐 🥫 餵養貓咪，就會有新貓咪來到島上住下來 🐾</p>`)
+    + `</div>`;
   app.innerHTML = `<div class="view">
     <div class="eyebrow">My cat island · 我的貓島</div>
     <h1 class="display">You've met ${met} of ${total} cats${met===total?" 🎉":""}</h1>
     <p class="lede">每完成一課（練習達 70 分），就會有一隻貓咪願意親近你。${love? `連續學習 ${streak} 天 — 貓咪們正在對你撒嬌！❤` : "連續學習 3 天以上，貓咪們會開始對你撒嬌喔。"}</p>
     <div class="isl-stats"><span class="isl-chip">◆ ${store.data.xp} XP</span><span class="isl-chip">🔥 ${streak}-day streak</span><span class="isl-chip">📒 ${Object.keys(store.data.mistakes||{}).length} to review</span></div>
-    <div class="isl-board">${secs}</div>
+    <div class="isl-board">${fedSec}${secs}</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:8px">
       <button class="btn btn-primary" onclick="location.hash='#/game/review/all'">📒 Review mistakes 錯題複習</button>
       <button class="btn btn-ghost" onclick="location.hash='#/cheatsheet'">📋 Grammar cheatsheet 速查表</button>
