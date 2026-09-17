@@ -3403,6 +3403,19 @@ const LESSON_VIDEO = {
       "用在<b>習慣、事實、時間表、一般為真</b>的事（Water boils at 100°C）。",
       "常見錯誤：❌ Does you…? → ✅ <b>Do you…?</b>"
     ]
+  },
+  "present-continuous": {
+    yt:"w04YVmJR4w4",
+    title:"Learn English Tenses: Present Continuous",
+    teacher:"Rebecca · engVid",
+    mins:43,
+    points:[
+      "用在<b>現在正在發生／暫時</b>的動作（I'm having lunch now），和「習慣、事實」的現在簡單式不同。",
+      "結構：主詞 + <b>am / is / are + 動詞-ing</b>（be 動詞是關鍵，別漏掉！）。",
+      "縮寫：I'm / you're / he's…；否定 <b>isn't / aren't</b> + V-ing。",
+      "拼字：字尾 <b>ie → y + ing</b>（lie→lying、tie→tying）；短母音常重複子音（run→running）。",
+      "疑問：<b>Am / Is / Are</b> + 主詞 + V-ing；簡答 Yes, I am. / No, I'm not."
+    ]
   }
 };
 const VIDEO_QUIZ = {
@@ -3415,6 +3428,16 @@ const VIDEO_QUIZ = {
     {t:"fill", q:"They ___ study at night. (negative, use the contraction)", ans:["don't","do not"], hint:"they + 否定助動詞 + 原形", why:"they → don't study（影片練習）。"},
     {t:"fill", q:"She really ___ her job. (enjoy)", ans:["enjoys"], hint:"she → 動詞加 -s", why:"she → enjoys（影片：You enjoy → She enjoys）。"},
     {t:"mcq", q:"Short answer — “Do they need help?”", opts:["Yes, they need.","Yes, they do.","Yes, they does.","Yes, they are."], a:1, why:"簡答用助動詞：Yes, they do. / No, they don't.（影片示範）。"}
+  ],
+  "present-continuous": [
+    {t:"mcq", q:"In the video, we use the present continuous for…", opts:["permanent facts and habits","actions happening now or around now (temporary)","finished actions in the past","things that are always true"], a:1, why:"現在進行式 = 現在正在發生／暫時的動作（影片：I'm having lunch now）。"},
+    {t:"mcq", q:"Right now, they ___ football.", opts:["play","plays","are playing","playing"], a:2, why:"現在進行式 = am/is/are + V-ing → they are playing。"},
+    {t:"mcq", q:"Listen! The baby ___.", opts:["cry","cries","is crying","crying"], a:2, why:"the baby = it → is + V-ing → is crying。"},
+    {t:"spot", sent:"The game is start now .", wrong:3, fix:"starting", why:"be 動詞後面要用 V-ing：is starting（影片：The game is starting now）。"},
+    {t:"fill", q:"He is ___ on the sofa. (lie)", ans:["lying"], hint:"字尾 ie → y + ing", why:"lie → lying：去掉 ie、改 y 再加 ing（影片示範）。"},
+    {t:"mcq", q:"She ___ working today; she's on holiday.", opts:["isn't","doesn't","don't","not"], a:0, why:"現在進行式否定：is + not + V-ing → isn't working。"},
+    {t:"mcq", q:"“Are you studying?” — (No)", opts:["No, I don't.","No, I'm not.","No, I amn't.","No, I not."], a:1, why:"簡答：Yes, I am. / No, I'm not.（影片示範，am 不縮寫）。"},
+    {t:"order", words:["What","are","you","doing","right","now"], sent:"What are you doing right now", why:"疑問句：疑問詞 + am/is/are + 主詞 + V-ing。"}
   ]
 };
 function lessonVideoHTML(id){
