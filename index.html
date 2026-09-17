@@ -1709,7 +1709,42 @@ q:[
 ]},
 
 {
-id:"present-perfect", zh:"現在完成式", unit:"u3", n:"4.2", title:"Present Perfect Simple", sub:"Connecting the past with now — experiences, changes and results that still matter.",
+id:"past-continuous", zh:"過去進行式", unit:"u3", n:"4.2", title:"Past Continuous", sub:"Was / were + V-ing — an action in progress at a moment in the past.",
+tl:{labels:[[20,"was V-ing"],[64,"now"]], spans:[[8,42]], dots:[26], now:64, cap:"An action already in progress at a moment in the past — often interrupted by a shorter one."},
+form:{p:"subject + was / were + verb-ing  ·  I/he/she/it → was, you/we/they → were", ex:["At 8 p.m. I <b>was working</b>.","They <b>were watching</b> TV.","She <b>wasn't sleeping</b> at midnight."]},
+uses:[
+ {t:"In progress at a past time", d:"An action that was already happening at a specific moment in the past.", ex:[
+   {s:"At nine o'clock, we <b>were having</b> dinner.", n:"was/were + V-ing"},
+   {s:"This time yesterday, I <b>was flying</b> to Tokyo.", n:""},
+   {s:"It <b>was raining</b> when I woke up.", n:""}]},
+ {t:"Interrupted by a shorter action", d:"A longer background action (past continuous) is cut in by a shorter one (past simple) — often with when or while.", ex:[
+   {s:"I <b>was cooking</b> <b>when</b> the phone <b>rang</b>.", n:"long action + when + short action"},
+   {s:"<b>While</b> she <b>was reading</b>, the lights <b>went</b> out.", n:"while + was/were V-ing"},
+   {s:"While I <b>was studying</b>, my brother <b>was playing</b> games.", n:"two long actions together"}]},
+ {t:"Negatives and questions", d:"Add not to was/were for negatives; put was/were before the subject for questions.", ex:[
+   {s:"They <b>weren't listening</b> to me.", n:"were + not + V-ing"},
+   {s:"<b>Were</b> you <b>working</b> late?", n:""},
+   {s:"What <b>was</b> he <b>doing</b> at noon?", n:"Wh- + was/were + subject + V-ing"}]}
+],
+mistakes:[
+ {no:"I was work at 8 p.m.", yes:"I was working at 8 p.m.", why:"Past continuous needs was/were + verb-ing."},
+ {no:"We was watching TV.", yes:"We were watching TV.", why:"We / you / they take were, not was."},
+ {no:"What you were doing?", yes:"What were you doing?", why:"In questions, was/were goes before the subject."}
+],
+tip:"The long action takes was/were + -ing (the background); the short action that interrupts it takes past simple — joined by when or while.",
+q:[
+ {t:"mcq", q:"At nine o'clock last night, I ___ dinner.", opts:["cook","cooked","was cooking","am cooking"], a:2, why:"In progress at a past time → was cooking."},
+ {t:"mcq", q:"We ___ watching TV when you called.", opts:["was","were","are","did"], a:1, why:"We → were + V-ing."},
+ {t:"fill", q:"While she ___ (drive), it started to rain.", ans:["was driving"], hint:"was + V-ing", why:"The background action → was driving."},
+ {t:"fill", q:"They ___ (not / sleep) at midnight.", ans:["weren't sleeping","were not sleeping"], hint:"were + not + V-ing", why:"They → weren't sleeping."},
+ {t:"order", words:["What","were","you","doing","at","noon"], sent:"What were you doing at noon", why:"Wh- + were + subject + V-ing."},
+ {t:"spot", sent:"He was play soccer at 4 p.m .", wrong:2, fix:"playing", why:"After was/were, use the -ing form: was playing."},
+ {t:"spot", sent:"While we were eat , the phone rang .", wrong:3, fix:"eating", why:"were + V-ing → were eating."},
+ {t:"mcq", q:"The phone rang while I ___ a shower.", opts:["take","took","was taking","am taking"], a:2, why:"A short action (rang) interrupts a longer one → was taking."}
+]},
+
+{
+id:"present-perfect", zh:"現在完成式", unit:"u3", n:"4.3", title:"Present Perfect Simple", sub:"Connecting the past with now — experiences, changes and results that still matter.",
 tl:{labels:[[12,"past"],[64,"now"]], spans:[[12,64]], dots:[64], now:64, cap:"An action or experience in an open period that reaches up to now."},
 form:{p:"subject + have / has + past participle", ex:["I <b>have finished</b> the report.","She <b>has visited</b> Kyoto twice.","They <b>haven't arrived</b> yet."]},
 uses:[
@@ -1743,7 +1778,7 @@ q:[
 ]},
 
 {
-id:"past-perfect", zh:"過去完成式", unit:"u3", n:"4.3", title:"Past Perfect", sub:"Had + past participle — the past before the past.",
+id:"past-perfect", zh:"過去完成式", unit:"u3", n:"4.4", title:"Past Perfect", sub:"Had + past participle — the past before the past.",
 tl:{labels:[[8,"earlier past"],[50,"past"],[92,"now"]], dots:[8,50], now:92, cap:"Two past events — the earlier one takes had + past participle."},
 form:{p:"subject + had + past participle", ex:["The train <b>had left</b> when I arrived.","She <b>had never seen</b> snow before that trip.","They<b>'d finished</b> dinner by eight."]},
 uses:[
@@ -3432,6 +3467,19 @@ const LESSON_VIDEO = {
       "否定：<b>didn't</b>（did not）+ <b>原形動詞</b>（I didn't go，不是 didn't went）。",
       "疑問：<b>Did</b> + 主詞 + 原形（Did you go? / Why did you go?）。"
     ]
+  },
+  "past-continuous": {
+    yt:"bTWa5M4UMO8",
+    title:"Learn English Tenses: Past Continuous",
+    teacher:"Rebecca · engVid",
+    mins:32,
+    points:[
+      "描述<b>過去某個時間點正在進行</b>的動作（At 8 p.m. I was working）。",
+      "結構：主詞 + <b>was / were + 動詞-ing</b>（I/he/she/it → was；you/we/they → were）。",
+      "常和過去簡單式搭配：長動作(was V-ing) + <b>when</b> + 短動作(過去式)。",
+      "否定 <b>wasn't / weren't</b> + V-ing；疑問 <b>Was / Were</b> + 主詞 + V-ing（Were they working?）。",
+      "拼字同現在進行式：<b>ie → y + ing</b>（lie→lying）、短母音重複子音。"
+    ]
   }
 };
 const VIDEO_QUIZ = {
@@ -3464,6 +3512,16 @@ const VIDEO_QUIZ = {
     {t:"spot", sent:"Did she went home early ?", wrong:2, fix:"go", why:"did 後面要用原形：Did she go…？（影片：助動詞 did + 原形）。"},
     {t:"fill", q:"They really ___ to win the game. (hope)", ans:["hoped"], hint:"字尾 e → 直接加 d", why:"hope 字尾已有 e，直接加 d → hoped（影片示範）。"},
     {t:"mcq", q:"Last week she ___ a new phone. (buy)", opts:["buyed","bought","buy","buys"], a:1, why:"buy 是不規則動詞：buy → bought（影片示範）。"}
+  ],
+  "past-continuous": [
+    {t:"mcq", q:"The past continuous describes…", opts:["a finished action at a finished time","an action in progress at a moment in the past","a habit you do every day","a plan for the future"], a:1, why:"過去某個時間點「正在進行」的動作（影片：at 8 p.m. you were working）。"},
+    {t:"mcq", q:"At 8 p.m. last night, she ___ a book.", opts:["read","reads","was reading","is reading"], a:2, why:"was/were + V-ing → was reading。"},
+    {t:"mcq", q:"We ___ working when the lights went out.", opts:["was","were","are","did"], a:1, why:"we → were + V-ing。"},
+    {t:"mcq", q:"He ___ sleeping at midnight.", opts:["wasn't","weren't","didn't","isn't"], a:0, why:"he → wasn't + V-ing（過去進行式否定）。"},
+    {t:"mcq", q:"___ they working late yesterday?", opts:["Was","Were","Did","Are"], a:1, why:"they → Were + 主詞 + V-ing（影片：Were they working?）。"},
+    {t:"spot", sent:"Ruby was teach at that time .", wrong:2, fix:"teaching", why:"was 後面要用 V-ing → was teaching（影片：Ruby was teaching）。"},
+    {t:"fill", q:"He was ___ on the sofa. (lie)", ans:["lying"], hint:"字尾 ie → y + ing", why:"lie → lying（影片示範，和現在進行式一樣）。"},
+    {t:"order", words:["What","were","you","doing","at","that","time"], sent:"What were you doing at that time", why:"疑問詞 + was/were + 主詞 + V-ing。"}
   ]
 };
 function lessonVideoHTML(id){
