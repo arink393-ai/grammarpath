@@ -1012,6 +1012,48 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   .th-card{flex-direction:column}
   .th-card-plate{width:100%;flex:none;border-right:0;border-bottom:1px solid var(--th-line)}
 }
+
+/* ===== Student login + 罐罐 economy ===== */
+.auth-gate{position:fixed;inset:0;z-index:200;background:linear-gradient(160deg,#FCF5EC,#EFE0C8);display:flex;align-items:flex-start;justify-content:center;padding:6vh 20px 40px;overflow:auto}
+.auth-gate[hidden],.auth-field[hidden],.acct-menu[hidden]{display:none!important}
+.auth-card{width:100%;max-width:420px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px -30px rgba(90,60,30,.5);padding:30px 28px}
+.auth-brand{display:flex;align-items:center;gap:8px;font:600 16px var(--sans);color:var(--navy)}
+.auth-brand .brand-mark{width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:15px}
+.auth-title{font:600 24px var(--serif);color:var(--navy);margin:16px 0 6px}
+.auth-sub{font-size:14px;color:var(--body);line-height:1.65;margin:0 0 18px}
+.auth-sub b{color:var(--navy)}
+.auth-tabs{display:flex;gap:6px;background:var(--bg);border-radius:12px;padding:4px;margin-bottom:16px}
+.auth-tab{flex:1;padding:9px;border-radius:9px;font:600 14px var(--sans);color:var(--muted)}
+.auth-tab.active{background:var(--paper);color:var(--navy);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.auth-field{display:block;margin-bottom:12px}
+.auth-field span{display:block;font:600 12px var(--sans);color:var(--body);margin-bottom:5px}
+.auth-field input{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;font:400 15px var(--sans);color:var(--ink);background:var(--bg)}
+.auth-field input:focus{outline:none;border-color:var(--teal);background:var(--paper)}
+.auth-err{background:#FBE8E4;color:#B0503A;border:1px solid #F0C9C0;border-radius:9px;padding:9px 12px;font-size:13px;line-height:1.5;margin:0 0 12px}
+.auth-submit{width:100%;justify-content:center;margin-top:4px}
+.auth-note{font-size:11.5px;color:var(--muted);line-height:1.6;margin:16px 0 0}
+.auth-note b{color:var(--body)}
+.can-pill{display:flex;align-items:center;gap:5px;background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:999px;padding:5px 12px;color:var(--amber);font:700 13px var(--sans);white-space:nowrap}
+.checkin-pill{background:var(--navy);color:#fff;border-radius:999px;padding:6px 14px;font:600 13px var(--sans);white-space:nowrap}
+.checkin-pill:hover{background:var(--navy2)}
+.checkin-pill.done{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.acct-btn{width:34px;height:34px;border-radius:999px;background:var(--teal-bg);border:1px solid var(--teal-line);color:var(--teal);font-size:15px;display:grid;place-items:center;flex:none}
+.acct-menu{position:fixed;top:60px;right:18px;z-index:150;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 44px -22px rgba(90,60,30,.5);padding:16px;width:236px}
+.am-name{font:600 15px var(--sans);color:var(--navy)}
+.am-email{font-size:12.5px;color:var(--muted);margin-bottom:11px;word-break:break-all}
+.am-row{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border-radius:9px;padding:8px 12px;font-size:13px;color:var(--body);margin-bottom:12px}
+.am-row b{color:var(--amber);font-size:15px}
+#amLogout{width:100%;justify-content:center}
+.unit-locked{display:flex;align-items:center;gap:14px;padding:16px 18px;background:linear-gradient(135deg,#FBF3E4,#F4E6CE);border:1px dashed var(--amber-line)}
+.ul-icon{font-size:26px;flex:none}
+.ul-txt{flex:1;min-width:0}
+.ul-t{font:600 15px var(--sans);color:var(--navy)}
+.ul-s{font-size:13px;color:var(--muted);line-height:1.5}
+@media(max-width:640px){
+  .xp-pill,.streak-pill{display:none}
+  .can-pill,.checkin-pill{font-size:12px;padding:5px 11px}
+  .unit-locked{flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
@@ -1030,12 +1072,40 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
     <button data-nav="#/theory">Theory</button>
     <button data-nav="#/resources">Resources</button>
   </nav>
-  <div style="display:flex;align-items:center;gap:10px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <button class="checkin-pill" id="checkinPill" title="每日打卡 Daily check-in">🐾 打卡</button>
+    <span class="can-pill" id="canPill" title="罐罐 · cat-food cans">🥫 0</span>
     <span class="xp-pill" id="xpPill" title="Experience points">◆ 0 XP</span>
     <span class="streak-pill" id="streakPill" title="Daily streak">🔥 0-day streak</span>
+    <button class="acct-btn" id="acctBtn" title="帳號 Account" aria-haspopup="true">👤</button>
     <button class="hamburger" id="hamBtn" aria-label="Menu">☰</button>
   </div>
 </header>
+<div class="acct-menu" id="acctMenu" hidden>
+  <div class="am-name" id="amName"></div>
+  <div class="am-email" id="amEmail"></div>
+  <div class="am-row"><span>🥫 罐罐 Cans</span><b id="amCans">0</b></div>
+  <button class="btn btn-ghost" id="amLogout" type="button">登出 Log out</button>
+</div>
+<div class="auth-gate" id="authGate" hidden>
+  <div class="auth-card">
+    <div class="auth-brand"><span class="brand-mark">🐱</span> English Cat Island</div>
+    <h1 class="auth-title">歡迎來到英語貓咪島 🐾</h1>
+    <p class="auth-sub">登入後才能使用島上的資源。每天<b>打卡</b>可以拿到 <b>10 個罐罐 🥫</b>，用來餵養貓咪、解鎖進階單元。</p>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tabLogin" type="button">登入 Log in</button>
+      <button class="auth-tab" id="tabReg" type="button">註冊 Sign up</button>
+    </div>
+    <form id="authForm" autocomplete="off" novalidate>
+      <label class="auth-field" id="fldName" hidden><span>本名 Your name</span><input id="inName" type="text" autocomplete="name" placeholder="王小明"></label>
+      <label class="auth-field"><span>Email</span><input id="inEmail" type="email" autocomplete="email" placeholder="you@example.com"></label>
+      <label class="auth-field"><span>密碼 Password</span><input id="inPass" type="password" autocomplete="current-password" placeholder="••••••"></label>
+      <p class="auth-err" id="authErr" hidden></p>
+      <button class="btn btn-primary auth-submit" id="authSubmit" type="submit">登入 Log in</button>
+    </form>
+    <p class="auth-note">🔒 這是班級學習用的簡易帳號，資料只會存在這台裝置的瀏覽器、不會上傳。<b>請不要使用你在其他網站的真實密碼。</b></p>
+  </div>
+</div>
 <main class="wrap" id="app" aria-live="polite"></main>
 <div class="toast" id="toast" role="status"></div>
 <script>
@@ -2215,16 +2285,22 @@ q:[
 /* =====================================================
    Store — localStorage progress, streaks, XP
    ===================================================== */
-const STORE_KEY = "grammarpath_v1";
+const STORE_BASE = "grammarpath_v1";
+let STORE_KEY = STORE_BASE;              // rebound to a per-student key on login
+const CHECKIN_REWARD = 10;               // 罐罐 per daily check-in
+const UNLOCK_COST = 5;                   // 罐罐 to feed / unlock one advanced unit
+function todayMid(){ const d = new Date(); d.setHours(0,0,0,0); return d.getTime(); }
 const store = {
-  data: {xp:0, completed:{}, streak:{count:0,last:null}, best:{}, mistakes:{}},
-  load(){ try{ const raw = localStorage.getItem(STORE_KEY); if(raw) this.data = Object.assign(this.data, JSON.parse(raw)); }catch(e){} },
+  data: {},
+  defaults(){ return {xp:0, completed:{}, streak:{count:0,last:null}, best:{}, mistakes:{},
+    cans:0, checkin:{last:null}, unlocked:{}}; },
+  load(){ this.data = this.defaults(); try{ const raw = localStorage.getItem(STORE_KEY); if(raw) Object.assign(this.data, JSON.parse(raw)); }catch(e){} },
   save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(this.data)); }catch(e){} },
+  rebind(email){ STORE_KEY = STORE_BASE + (email ? "__" + email.toLowerCase() : ""); this.load(); },
   addXP(n){ this.data.xp += n; this.save(); paintHeader(); toast("+" + n + " XP"); },
   complete(id){ if(!this.data.completed[id]){ this.data.completed[id]=true; this.save(); } },
   touchStreak(){
-    const today = new Date(); today.setHours(0,0,0,0);
-    const t = today.getTime(), s = this.data.streak;
+    const t = todayMid(), s = this.data.streak;
     if(s.last === t) return;
     const oneDay = 86400000;
     s.count = (s.last === t - oneDay) ? s.count + 1 : 1;
@@ -2233,13 +2309,49 @@ const store = {
   },
   streakCount(){
     const s = this.data.streak; if(!s.last) return 0;
-    const today = new Date(); today.setHours(0,0,0,0);
-    const diff = today.getTime() - s.last;
+    const diff = todayMid() - s.last;
     return diff <= 86400000 ? s.count : 0;
   },
-  setBest(key,score){ if(!this.data.best[key] || score > this.data.best[key]){ this.data.best[key]=score; this.save(); return true; } return false; }
+  setBest(key,score){ if(!this.data.best[key] || score > this.data.best[key]){ this.data.best[key]=score; this.save(); return true; } return false; },
+  /* ---- 罐罐 economy ---- */
+  addCans(n){ this.data.cans = (this.data.cans||0) + n; this.save(); paintHeader(); },
+  spendCans(n){ if((this.data.cans||0) < n) return false; this.data.cans -= n; this.save(); paintHeader(); return true; },
+  canCheckIn(){ return this.data.checkin.last !== todayMid(); },
+  checkIn(){ if(!this.canCheckIn()) return false; this.data.checkin.last = todayMid(); this.touchStreak(); this.addCans(CHECKIN_REWARD); return true; }
 };
-store.load();
+store.data = store.defaults();
+
+/* =====================================================
+   Student accounts (in-browser; not a real auth server)
+   ===================================================== */
+async function sha256(str){
+  try{ const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("gci:"+str));
+    return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join(""); }
+  catch(e){ return "plain:"+str; }
+}
+const AUTH = {
+  users(){ try{ return JSON.parse(localStorage.getItem("gp_users")||"{}"); }catch(e){ return {}; } },
+  saveUsers(u){ try{ localStorage.setItem("gp_users", JSON.stringify(u)); }catch(e){} },
+  current(){ try{ const e = localStorage.getItem("gp_session"); if(!e) return null; return this.users()[e.toLowerCase()] || null; }catch(e){ return null; } },
+  async register(name, email, pass){
+    name = (name||"").trim(); email = (email||"").trim().toLowerCase();
+    if(!name) return {err:"請輸入你的本名。 Please enter your name."};
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return {err:"Email 格式不正確。 That doesn't look like an email."};
+    if((pass||"").length < 4) return {err:"密碼至少要 4 個字。 Password needs at least 4 characters."};
+    const users = this.users();
+    if(users[email]) return {err:"這個 Email 已經註冊過了，請直接登入。 This email is already registered — log in instead."};
+    users[email] = {name, email, hash: await sha256(pass), created: Date.now()};
+    this.saveUsers(users); localStorage.setItem("gp_session", email); return {ok:true};
+  },
+  async login(email, pass){
+    email = (email||"").trim().toLowerCase();
+    const u = this.users()[email];
+    if(!u) return {err:"查無此帳號，請先註冊。 No account found — sign up first."};
+    if(u.hash !== await sha256(pass)) return {err:"密碼不正確。 Wrong password."};
+    localStorage.setItem("gp_session", email); return {ok:true};
+  },
+  logout(){ try{ localStorage.removeItem("gp_session"); }catch(e){} }
+};
 
 /* =====================================================
    Helpers
@@ -2416,9 +2528,16 @@ let toastTimer = null;
 function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove("show"), 2200); }
 
 function paintHeader(){
-  $("#xpPill").textContent = "◆ " + store.data.xp + " XP";
+  $("#xpPill").textContent = "◆ " + (store.data.xp||0) + " XP";
   const sc = store.streakCount();
   $("#streakPill").textContent = "🔥 " + sc + "-day streak";
+  const canEl = $("#canPill"); if(canEl) canEl.textContent = "🥫 " + (store.data.cans||0);
+  const ci = $("#checkinPill");
+  if(ci){ const done = !store.canCheckIn(); ci.classList.toggle("done", done);
+    ci.textContent = done ? "✓ 今日已打卡" : "🐾 打卡 +" + CHECKIN_REWARD; }
+  const u = AUTH.current();
+  const nm = $("#amName"), em = $("#amEmail"), ac = $("#amCans");
+  if(u){ if(nm) nm.textContent = u.name; if(em) em.textContent = u.email; if(ac) ac.textContent = store.data.cans||0; }
   const route = location.hash || "#/home";
   document.querySelectorAll(".nav button").forEach(b=>{
     b.classList.toggle("active", route.startsWith(b.dataset.nav));
@@ -2429,6 +2548,7 @@ function paintHeader(){
    Router
    ===================================================== */
 function route(){
+  if(!AUTH.current()){ showAuthGate(); return; }
   tts.stop();
   const h = (location.hash || "#/home").slice(2).split("/");
   window.scrollTo(0,0);
@@ -2938,9 +3058,21 @@ function renderTheory(id){
 /* =====================================================
    Views — Level
    ===================================================== */
+/* Advanced units are "進階" content — locked until fed with 罐罐. Core stays open. */
+function unitLocked(u){ return u && u.level==="advanced" && !store.data.unlocked[u.id]; }
+function feedUnit(id){
+  const u = DATA.units.find(x=>x.id===id); if(!u || store.data.unlocked[id]) return;
+  if(store.spendCans(UNLOCK_COST)){
+    store.data.unlocked[id] = true; store.save();
+    toast("餵養成功！解鎖「" + u.name + "」🐱🍰"); route();
+  } else {
+    toast("罐罐不夠囉，先去打卡拿罐罐 🥫");
+  }
+}
 function renderLevel(lvl){
   const lv = levelById(lvl), p = pctDone(lvl);
   const units = DATA.units.filter(u=>u.level===lvl).map(u=>{
+    const locked = unitLocked(u);
     const rows = DATA.lessons.filter(l=>l.unit===u.id).map(l=>{
       const done = !!store.data.completed[l.id];
       return `<button class="lesson-row" onclick="location.hash='#/lesson/${l.id}'">
@@ -2950,7 +3082,15 @@ function renderLevel(lvl){
     }).join("");
     const ur = (typeof UNIT_READS!=="undefined" && UNIT_READS[u.id])
       ? `<button class="ur-entry" onclick="location.hash='#/unitread/${u.id}'">📖 題組閱讀 Unit Reading ─ ${UNIT_READS[u.id].genre}：${UNIT_READS[u.id].zh}</button>` : "";
-    return `<div class="unit"><div class="unit-h"><span class="u-eyebrow">${u.n}</span><h2 class="section" style="margin:0">${u.name}</h2></div><div class="card">${rows}</div>${ur}</div>`;
+    const body = locked
+      ? `<div class="card unit-locked">
+           <div class="ul-icon">🔒</div>
+           <div class="ul-txt"><div class="ul-t">進階單元 · 餵養解鎖 Advanced — feed to unlock</div>
+             <div class="ul-s">花 ${UNLOCK_COST} 個罐罐 🥫 餵養貓咪，就能打開這個單元的所有課程（解鎖後永久保留）。</div></div>
+           <button class="btn btn-navy" onclick="feedUnit('${u.id}')">🥫 餵養 ${UNLOCK_COST} 解鎖</button>
+         </div>`
+      : `<div class="card">${rows}</div>${ur}`;
+    return `<div class="unit"><div class="unit-h"><span class="u-eyebrow">${u.n}</span><h2 class="section" style="margin:0">${u.name}${locked?" 🔒":""}</h2></div>${body}</div>`;
   }).join("");
   app.innerHTML = `<div class="view">
     <div class="crumb"><a href="#/home">Home</a> › ${lv.name}</div>
@@ -2983,6 +3123,7 @@ function timelineHTML(tl){
 }
 function renderLesson(id){
   const l = lessonById(id), u = unitOf(l), lv = levelById(u.level);
+  if(unitLocked(u)){ toast("先餵養解鎖這個進階單元 🥫"); location.hash = "#/level/" + u.level; return; }
   const siblings = DATA.lessons.filter(x=>x.unit===u.id);
   const sideItems = siblings.map(x=>{
     const done = !!store.data.completed[x.id];
@@ -8599,7 +8740,61 @@ function finishSession(){
   paintHeader();
 }
 
-route();
+/* =====================================================
+   Boot + login gate
+   ===================================================== */
+let AUTH_MODE = "login";
+function setAuthMode(m){
+  AUTH_MODE = m;
+  $("#tabLogin").classList.toggle("active", m==="login");
+  $("#tabReg").classList.toggle("active", m==="register");
+  $("#fldName").hidden = (m==="login");
+  $("#inPass").setAttribute("autocomplete", m==="login" ? "current-password" : "new-password");
+  $("#authSubmit").textContent = (m==="login" ? "登入 Log in" : "註冊並登島 Sign up");
+  $("#authErr").hidden = true;
+}
+function showAuthGate(){
+  $("#topbar").style.display = "none";
+  $("#acctMenu").hidden = true;
+  $("#authGate").hidden = false;
+  app.innerHTML = "";
+  setAuthMode(AUTH_MODE);
+}
+function bootApp(){
+  const u = AUTH.current();
+  if(!u){ showAuthGate(); return; }
+  $("#authGate").hidden = true;
+  $("#topbar").style.display = "";
+  store.rebind(u.email);
+  route();
+}
+$("#tabLogin").addEventListener("click", ()=>setAuthMode("login"));
+$("#tabReg").addEventListener("click", ()=>setAuthMode("register"));
+$("#authForm").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const btn = $("#authSubmit"); btn.disabled = true;
+  const name = $("#inName").value, email = $("#inEmail").value, pass = $("#inPass").value;
+  const r = AUTH_MODE==="login" ? await AUTH.login(email, pass) : await AUTH.register(name, email, pass);
+  btn.disabled = false;
+  if(r.err){ const el = $("#authErr"); el.textContent = r.err; el.hidden = false; return; }
+  const welcome = AUTH_MODE==="login" ? "歡迎回來 🐾" : "註冊成功，歡迎登島 🐾";
+  $("#authForm").reset();
+  bootApp();
+  location.hash = "#/home";
+  toast(welcome);
+});
+/* check-in */
+$("#checkinPill").addEventListener("click", ()=>{
+  if(store.checkIn()) toast("🐾 今日打卡完成 +" + CHECKIN_REWARD + " 🥫");
+  else toast("今天已經打卡過囉，明天再來拿罐罐 🐾");
+});
+/* account menu */
+$("#acctBtn").addEventListener("click", (e)=>{ e.stopPropagation(); const m = $("#acctMenu"); m.hidden = !m.hidden; });
+$("#acctMenu").addEventListener("click", (e)=>e.stopPropagation());
+document.addEventListener("click", ()=>{ const m = $("#acctMenu"); if(m) m.hidden = true; });
+$("#amLogout").addEventListener("click", ()=>{ AUTH.logout(); store.rebind(null); showAuthGate(); });
+
+bootApp();
 </script>
 </body>
 </html>
