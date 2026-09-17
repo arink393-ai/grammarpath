@@ -3419,6 +3419,19 @@ const LESSON_VIDEO = {
       "拼字：字尾 <b>ie → y + ing</b>（lie→lying、tie→tying）；短母音常重複子音（run→running）。",
       "疑問：<b>Am / Is / Are</b> + 主詞 + V-ing；簡答 Yes, I am. / No, I'm not."
     ]
+  },
+  "past-simple": {
+    yt:"dmJrYbDjxQY",
+    title:"Learn English Tenses: Past Simple",
+    teacher:"Rebecca · engVid",
+    mins:40,
+    points:[
+      "用在<b>過去某個結束時間</b>發生、已經結束的動作（yesterday, last week, ago, in 2019）。",
+      "規則動詞：原形 + <b>-ed</b>（work→worked）；字尾已有 e → 直接加 <b>d</b>（hope→hoped）。",
+      "<b>不規則動詞要背</b>：go→went、buy→bought、hurt→hurt（不變）。",
+      "否定：<b>didn't</b>（did not）+ <b>原形動詞</b>（I didn't go，不是 didn't went）。",
+      "疑問：<b>Did</b> + 主詞 + 原形（Did you go? / Why did you go?）。"
+    ]
   }
 };
 const VIDEO_QUIZ = {
@@ -3441,6 +3454,16 @@ const VIDEO_QUIZ = {
     {t:"mcq", q:"She ___ working today; she's on holiday.", opts:["isn't","doesn't","don't","not"], a:0, why:"現在進行式否定：is + not + V-ing → isn't working。"},
     {t:"mcq", q:"“Are you studying?” — (No)", opts:["No, I don't.","No, I'm not.","No, I amn't.","No, I not."], a:1, why:"簡答：Yes, I am. / No, I'm not.（影片示範，am 不縮寫）。"},
     {t:"order", words:["What","are","you","doing","right","now"], sent:"What are you doing right now", why:"疑問句：疑問詞 + am/is/are + 主詞 + V-ing。"}
+  ],
+  "past-simple": [
+    {t:"mcq", q:"In the video, the past simple is used for…", opts:["actions happening now","finished actions at a finished past time (yesterday, last week)","future plans","habits happening these days"], a:1, why:"過去簡單式用在過去某個已結束的時間發生、已完成的動作（yesterday, last week, ago）。"},
+    {t:"mcq", q:"Yesterday I ___ very hard. (work)", opts:["work","worked","working","works"], a:1, why:"規則動詞過去式 = 原形 + -ed → worked（影片：work → worked）。"},
+    {t:"mcq", q:"She ___ to Japan last year. (go)", opts:["goed","went","gone","going"], a:1, why:"go 是不規則動詞：go → went（不是 goed）。"},
+    {t:"mcq", q:"He ___ come to the party.", opts:["didn't came","didn't come","doesn't came","don't come"], a:1, why:"didn't（did not）後面要用原形動詞 → didn't come。"},
+    {t:"mcq", q:"___ you see the movie yesterday?", opts:["Do","Did","Was","Are"], a:1, why:"過去式疑問：Did + 主詞 + 原形動詞。"},
+    {t:"spot", sent:"Did she went home early ?", wrong:2, fix:"go", why:"did 後面要用原形：Did she go…？（影片：助動詞 did + 原形）。"},
+    {t:"fill", q:"They really ___ to win the game. (hope)", ans:["hoped"], hint:"字尾 e → 直接加 d", why:"hope 字尾已有 e，直接加 d → hoped（影片示範）。"},
+    {t:"mcq", q:"Last week she ___ a new phone. (buy)", opts:["buyed","bought","buy","buys"], a:1, why:"buy 是不規則動詞：buy → bought（影片示範）。"}
   ]
 };
 function lessonVideoHTML(id){
