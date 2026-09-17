@@ -1041,6 +1041,19 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rf-past-line{font-size:14px;color:var(--body);line-height:1.7}
 .rf-past-line b{margin-right:7px}
 .rf-empty{color:var(--muted);font-size:14px}
+/* engVid lesson video (watch first) */
+.lv-card{background:linear-gradient(180deg,#FBF3E9,#FCF7EF);border:1px solid var(--amber-line);border-radius:16px;padding:18px 20px 20px;margin:0 0 24px}
+.lv-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.lv-badge{font:700 14px var(--sans);color:var(--amber);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:999px;padding:4px 12px}
+.lv-sub{font:500 12.5px var(--sans);color:var(--muted)}
+.lv-embed{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 8px 22px -12px rgba(90,60,30,.5)}
+.lv-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lv-meta{font:500 12.5px var(--sans);color:var(--muted);margin:11px 0 0}
+.lv-points{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0 14px}
+.lv-points-h{font:600 11.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.lv-points ul{margin:0;padding-left:18px}
+.lv-points li{font:400 13.5px/1.7 var(--sans);color:var(--body)}
+.lv-points li b{color:var(--navy)}
 .rf-print{display:flex;align-items:center;gap:14px;padding:16px 20px;margin-top:16px}
 .rf-print-icon{font-size:26px;flex:none}
 .rf-print-txt{flex:1;min-width:0}
@@ -2607,6 +2620,7 @@ function route(){
   if(h[0]==="level" && levelById(h[1])) renderLevel(h[1]);
   else if(h[0]==="lesson" && lessonById(h[1])) renderLesson(h[1]);
   else if(h[0]==="practice" && lessonById(h[1])) startPractice(h[1]);
+  else if(h[0]==="videoquiz" && h[1]) startVideoQuiz(h[1]);
   else if(h[0]==="games") renderGames();
   else if(h[0]==="game" && h[1]) startGame(h[1], h[2]||"all");
   else if(h[0]==="island") renderIsland();
@@ -3374,6 +3388,55 @@ function timelineHTML(tl){
     <div class="tl"><div class="tl-line"></div>${spans}${dots}${labs}</div>
     <div style="font:400 12.5px var(--sans);color:#CBAD93;margin-top:10px">${tl.cap||""}</div></div>`;
 }
+/* engVid videos shown before a lesson (watch first), + a quiz based on the video.
+   Embedded via YouTube (never re-hosted). Keyed by lesson id — add more entries to grow. */
+const LESSON_VIDEO = {
+  "present-simple": {
+    yt:"Z19NAX_gWxI",
+    title:"Learn English Tenses: Present Simple",
+    teacher:"Rebecca · engVid",
+    mins:36,
+    points:[
+      "肯定句：I / you / we / they + 原形；<b>he / she / it 動詞加 -s</b>（work → works）。",
+      "否定：don't / <b>doesn't</b> + 原形動詞（She doesn't like coffee）。",
+      "疑問：<b>Do / Does</b> + 主詞 + 原形；簡答 Yes, they do. / No, they don't.",
+      "用在<b>習慣、事實、時間表、一般為真</b>的事（Water boils at 100°C）。",
+      "常見錯誤：❌ Does you…? → ✅ <b>Do you…?</b>"
+    ]
+  }
+};
+const VIDEO_QUIZ = {
+  "present-simple": [
+    {t:"mcq", q:"In the video, the present simple is mainly used for…", opts:["actions happening right now","habits, facts and things that are generally true","finished actions in the past","plans for next week"], a:1, why:"Rebecca：現在簡單式用在習慣、事實、以及一般為真的情況。"},
+    {t:"mcq", q:"“She ___ in a hospital.” (work)", opts:["work","works","working","is work"], a:1, why:"he / she / it 要加 -s → she works（影片：he works, she works, it works）。"},
+    {t:"mcq", q:"Negative: “She ___ eat meat.”", opts:["don't","doesn't","isn't","not"], a:1, why:"she → doesn't + 原形動詞。"},
+    {t:"mcq", q:"Question: “___ he play the guitar?”", opts:["Do","Does","Is","Are"], a:1, why:"he → Does…？ 助動詞 + 主詞 + 原形動詞。"},
+    {t:"spot", sent:"Does you talk to him often ?", wrong:0, fix:"Do", why:"you → Do you…？ 影片特別提到「Does you」是錯的。"},
+    {t:"fill", q:"They ___ study at night. (negative, use the contraction)", ans:["don't","do not"], hint:"they + 否定助動詞 + 原形", why:"they → don't study（影片練習）。"},
+    {t:"fill", q:"She really ___ her job. (enjoy)", ans:["enjoys"], hint:"she → 動詞加 -s", why:"she → enjoys（影片：You enjoy → She enjoys）。"},
+    {t:"mcq", q:"Short answer — “Do they need help?”", opts:["Yes, they need.","Yes, they do.","Yes, they does.","Yes, they are."], a:1, why:"簡答用助動詞：Yes, they do. / No, they don't.（影片示範）。"}
+  ]
+};
+function lessonVideoHTML(id){
+  const v = LESSON_VIDEO[id]; if(!v) return "";
+  const pts = (v.points||[]).map(p=>`<li>${p}</li>`).join("");
+  const hasQuiz = VIDEO_QUIZ[id] && VIDEO_QUIZ[id].length;
+  return `<div class="lv-card">
+    <div class="lv-head"><span class="lv-badge">📺 先看影片再學習</span><span class="lv-sub">Watch this first · 看完再往下學文法</span></div>
+    <div class="lv-embed"><iframe src="https://www.youtube-nocookie.com/embed/${v.yt}?rel=0&modestbranding=1" title="${esc(v.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+    <div class="lv-meta">🎬 ${v.title} · ${v.teacher}${v.mins?` · ${v.mins} 分鐘`:""}</div>
+    ${pts?`<div class="lv-points"><div class="lv-points-h">看影片時注意 What to watch for</div><ul>${pts}</ul></div>`:""}
+    ${hasQuiz?`<button class="btn btn-primary" onclick="location.hash='#/videoquiz/${id}'">看完影片，做 ${VIDEO_QUIZ[id].length} 題小練習 →</button>`:""}
+  </div>`;
+}
+function startVideoQuiz(id){
+  const l = lessonById(id), qs = VIDEO_QUIZ[id];
+  if(!l || !qs){ location.hash = "#/lesson/" + id; return; }
+  Object.assign(S, {mode:"practice", videoQuiz:true, lessonId:id,
+    qs:shuffle(qs.map((q,qi)=>Object.assign({ref:"vq:"+id+":"+qi}, q))),
+    i:0, right:0, results:[], listen:false, title:"影片練習 · "+l.title+"｜"+l.zh, timed:false});
+  renderQuestion();
+}
 function renderLesson(id){
   const l = lessonById(id), u = unitOf(l), lv = levelById(u.level);
   if(unitLocked(u)){ toast("先餵養解鎖這個進階單元 🥫"); location.hash = "#/level/" + u.level; return; }
@@ -3408,6 +3471,7 @@ function renderLesson(id){
         <div class="eyebrow">${lv.name} · Lesson ${l.n}</div>
         <h1 class="display" style="font-size:32px">${l.title}<span class="zh-term-lg">${l.zh}</span></h1>
         <p class="lede" style="margin-bottom:24px">${l.sub}</p>
+        ${lessonVideoHTML(l.id)}
         <div class="formbox"><div class="fb-l">Form</div><div class="fb-p">${l.form.p}</div>
           <div class="fb-ex">${l.form.ex.map(e=>`<span>${e}</span>`).join("")}</div></div>
         ${timelineHTML(l.tl)}
@@ -8737,7 +8801,7 @@ function poolFor(level, type){
 const S = {}; // current session
 function startPractice(id){
   const l = lessonById(id);
-  Object.assign(S, {mode:"practice", lessonId:id, qs:shuffle(l.q.map((q,qi)=>Object.assign({ref:id+":"+qi}, q))), i:0, right:0, results:[], listen:false, title:"Practice · "+l.title+"｜"+l.zh, timed:false});
+  Object.assign(S, {mode:"practice", videoQuiz:false, lessonId:id, qs:shuffle(l.q.map((q,qi)=>Object.assign({ref:id+":"+qi}, q))), i:0, right:0, results:[], listen:false, title:"Practice · "+l.title+"｜"+l.zh, timed:false});
   renderQuestion();
 }
 function refQ(ref){
@@ -8864,7 +8928,7 @@ function settle(ok, feedbackHTML, disable){
   if(ok){ S.right++; }
   if(q.ref){
     store.data.mistakes = store.data.mistakes || {};
-    if(!ok) store.data.mistakes[q.ref] = (store.data.mistakes[q.ref]||0)+1;
+    if(!ok && !String(q.ref).startsWith("vq:")) store.data.mistakes[q.ref] = (store.data.mistakes[q.ref]||0)+1;
     else if(store.data.mistakes[q.ref]) delete store.data.mistakes[q.ref];
     store.save();
   }
@@ -8954,7 +9018,7 @@ function finishSession(){
     else headline = pct===100? "Perfect round!" : pct>=70? "Nice work!" : "Keep practicing!";
     sub = `You got <b>${S.right} of ${answered}</b> correct.`;
     if(S.mode==="game" && store.setBest(S.type+"-"+S.level, pct)) bestNote = "🏆 New personal best!";
-    if(S.mode==="practice" && pct>=70){
+    if(S.mode==="practice" && !S.videoQuiz && pct>=70){
       S.newCat = !store.data.completed[S.lessonId];
       store.complete(S.lessonId); sub += " Lesson marked complete ✓";
     }
@@ -8963,17 +9027,19 @@ function finishSession(){
   const R = 56, C = 2*Math.PI*R;
   const back = S.mode==="practice" ? `<button class="btn btn-ghost" onclick="location.hash='#/lesson/${S.lessonId}'">Back to lesson</button>`
                                    : `<button class="btn btn-ghost" onclick="location.hash='#/games'">All games</button>`;
-  const again = S.mode==="practice" ? `<button class="btn btn-primary" onclick="startPractice('${S.lessonId}')">Try again</button>`
+  const again = (S.mode==="practice" && S.videoQuiz) ? `<button class="btn btn-primary" onclick="startVideoQuiz('${S.lessonId}')">Try again</button>`
+             : S.mode==="practice" ? `<button class="btn btn-primary" onclick="startPractice('${S.lessonId}')">Try again</button>`
              : S.mode==="timed" ? `<button class="btn btn-primary" onclick="startGame('timed','${S.level}')">Play again</button>`
                                 : `<button class="btn btn-primary" onclick="startGame('${S.type}','${S.level}')">Play again</button>`;
   const missedN = S.results.filter(r=>r===false).length;
   const missedBtn = (missedN>0 && S.mode!=="timed") ? `<button class="btn btn-navy" onclick="replayMissed()">Practice missed (${missedN}) ↻</button>` : "";
   let nextLesson = "";
-  if(S.mode==="practice" && pct>=70){
+  if(S.mode==="practice" && !S.videoQuiz && pct>=70){
     const idx = DATA.lessons.findIndex(l=>l.id===S.lessonId);
     const nl = DATA.lessons[idx+1];
     if(nl) nextLesson = `<button class="btn btn-navy" onclick="location.hash='#/lesson/${nl.id}'">Next: ${nl.title} →</button>`;
   }
+  if(S.videoQuiz){ nextLesson = `<button class="btn btn-navy" onclick="location.hash='#/practice/${S.lessonId}'">開始文法練習 Lesson practice →</button>`; }
   let unlockCard = "";
   if(S.newCat){
     const gi = DATA.lessons.findIndex(l=>l.id===S.lessonId), b = BREEDS[gi % BREEDS.length];
