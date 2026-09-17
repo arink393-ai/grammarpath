@@ -1013,6 +1013,35 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   .th-card-plate{width:100%;flex:none;border-right:0;border-bottom:1px solid var(--th-line)}
 }
 
+/* ===== 反思筆記 Reflection ===== */
+.reflectbook{--rf-accent:#8A6DA6}
+.rf-card{padding:22px 24px;margin-top:6px}
+.rf-date{font:600 12px var(--sans);color:var(--muted);margin-bottom:16px}
+.rf-block{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.rf-block:last-of-type{border-bottom:0;margin-bottom:10px;padding-bottom:6px}
+.rf-q{display:flex;align-items:center;gap:10px}
+.rf-emoji{font-size:22px;flex:none}
+.rf-qtext b{font:600 16px var(--sans);color:var(--navy);display:block;line-height:1.3}
+.rf-qtext span{font:400 12.5px var(--sans);color:var(--muted)}
+.rf-sub{font-size:13px;color:var(--body);margin:6px 0 8px}
+.rf-hints{margin:0 0 10px}
+.rf-hints summary{cursor:pointer;color:var(--rf-accent);font-weight:600;font-size:13px;list-style:none;display:inline-flex;align-items:center;gap:5px}
+.rf-hints summary::before{content:"💡"}
+.rf-hints[open] summary{margin-bottom:6px}
+.rf-hint-grp{margin-top:8px;background:var(--bg);border-radius:10px;padding:10px 14px}
+.rf-hint-h{font:600 11px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.rf-hints ul{margin:2px 0 0;padding-left:18px;color:var(--body);line-height:1.75;font-size:13px}
+.rf-input{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font:400 15px var(--sans);color:var(--ink);background:var(--bg);resize:vertical;min-height:46px}
+.rf-input:focus{outline:none;border-color:var(--rf-accent);background:var(--paper)}
+.rf-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:6px}
+.rf-reward{font:600 12.5px var(--sans);color:var(--amber)}
+.rf-pastlist{display:flex;flex-direction:column;gap:12px}
+.rf-past{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:13px 16px}
+.rf-past-d{font:600 12px var(--sans);color:var(--rf-accent);margin-bottom:7px}
+.rf-past-line{font-size:14px;color:var(--body);line-height:1.7}
+.rf-past-line b{margin-right:7px}
+.rf-empty{color:var(--muted);font-size:14px}
+
 /* ===== Student login + 罐罐 economy ===== */
 .auth-gate{position:fixed;inset:0;z-index:200;background:linear-gradient(160deg,#FCF5EC,#EFE0C8);display:flex;align-items:flex-start;justify-content:center;padding:6vh 20px 40px;overflow:auto}
 .auth-gate[hidden],.auth-field[hidden],.acct-menu[hidden]{display:none!important}
@@ -1070,6 +1099,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
     <button data-nav="#/reading">Reading</button>
     <button data-nav="#/story">Stories</button>
     <button data-nav="#/theory">Theory</button>
+    <button data-nav="#/reflect">Reflect</button>
     <button data-nav="#/resources">Resources</button>
   </nav>
   <div style="display:flex;align-items:center;gap:8px">
@@ -2289,11 +2319,13 @@ const STORE_BASE = "grammarpath_v1";
 let STORE_KEY = STORE_BASE;              // rebound to a per-student key on login
 const CHECKIN_REWARD = 10;               // 罐罐 per daily check-in
 const UNLOCK_COST = 5;                   // 罐罐 to feed / unlock one advanced unit
+const REFLECT_REWARD = 3;                // 罐罐 for the first reflection each day
 function todayMid(){ const d = new Date(); d.setHours(0,0,0,0); return d.getTime(); }
+function todayKey(){ const d = new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
 const store = {
   data: {},
   defaults(){ return {xp:0, completed:{}, streak:{count:0,last:null}, best:{}, mistakes:{},
-    cans:0, checkin:{last:null}, unlocked:{}, fedCats:[]}; },
+    cans:0, checkin:{last:null}, unlocked:{}, fedCats:[], journal:{}}; },
   load(){ this.data = this.defaults(); try{ const raw = localStorage.getItem(STORE_KEY); if(raw) Object.assign(this.data, JSON.parse(raw)); }catch(e){} },
   save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(this.data)); }catch(e){} },
   rebind(email){ STORE_KEY = STORE_BASE + (email ? "__" + email.toLowerCase() : ""); this.load(); },
@@ -2569,6 +2601,7 @@ function route(){
   else if(h[0]==="story") renderStoryList();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
+  else if(h[0]==="reflect") renderReflect();
   else if(h[0]==="abc" && h[1]) renderLetter(h[1]);
   else if(h[0]==="abc") renderABCGrid();
   else if(h[0]==="unitread" && h[1]) renderUnitRead(h[1]);
@@ -2621,6 +2654,7 @@ function renderHome(){
       <button class="btn btn-ghost" onclick="location.hash='#/reading'">📰 Reading 每週時事閱讀</button>
       <button class="btn btn-ghost" onclick="location.hash='#/story'">📖 Story Time 故事時間</button>
       <button class="btn btn-ghost" onclick="location.hash='#/theory'">🧠 Theory 學習理論</button>
+      <button class="btn btn-ghost" onclick="location.hash='#/reflect'">📓 反思筆記 Reflection</button>
       <button class="btn btn-ghost" onclick="location.hash='#/resources'">🔤 Resources 發音·片語·慣用語</button>
     </div>
     <div class="home-grid">
@@ -3053,6 +3087,79 @@ function renderTheory(id){
       ${nextT?`<button class="btn btn-navy" onclick="location.hash='#/theory/${nextT.id}'">下一個：${nextT.zh} →</button>`:""}
     </div>
   </div>`;
+}
+
+/* =====================================================
+   Views — 反思筆記 Reflection (English-subject 3-line diary)
+   ===================================================== */
+const REFLECT_Q = [
+  {k:"best", emoji:"🌟", en:"What went well today?", zh:"今天做得最好的地方？",
+    sub:"今天上課或學英文時，你覺得自己表現得最棒的是什麼？",
+    hints:["今天我最認真學英文的地方是什麼？","有哪個單字或句型，我努力想辦法學會了？","今天我有勇敢開口說英文、或舉手回答問題嗎？"],
+    egs:["今天我把新單字都念出聲練習了。","我今天英文課有舉手回答一次。","今天的英文對話，我聽懂了大部分。"],
+    ph:"例：我今天英文課有舉手回答一次。"},
+  {k:"improve", emoji:"🔧", en:"What can I improve?", zh:"還要改進的地方？",
+    sub:"今天有沒有哪裡還可以做得更好？下次要怎麼進步？",
+    hints:["今天英文哪裡我還沒做到最好？","有哪個單字或文法我不會？為什麼不會？","今天我有不敢開口、或分心的時候嗎？要怎麼提醒自己？"],
+    egs:["今天有幾個單字拼錯，回家要再多寫幾次。","今天英文不敢念出聲，下次要勇敢念一次。","be 動詞的用法我還會搞混，要再複習。"],
+    ph:"例：今天不敢念英文句子，下次要勇敢念出聲。"},
+  {k:"goal", emoji:"🎯", en:"My goal for tomorrow", zh:"明天的目標？",
+    sub:"明天你想挑戰自己做到什麼？一個小小的進步也可以！",
+    hints:["明天我想挑戰什麼英文小目標？","有哪個英文技能我想進步？（說・聽・讀・寫）","明天我可以做什麼，讓自己的英文更棒？"],
+    egs:["明天英文課我要舉手回答一次。","明天我要背會 5 個新單字。","明天把今天不會的句型再練習一次。"],
+    ph:"例：明天我要背會 5 個新單字。"}
+];
+function renderReflect(){
+  const today = todayKey();
+  const j = store.data.journal || {};
+  const cur = j[today] || {best:"",improve:"",goal:""};
+  const blocks = REFLECT_Q.map((x,i)=>`
+    <section class="rf-block">
+      <div class="rf-q"><span class="rf-emoji">${x.emoji}</span><span class="rf-qtext"><b>${i+1}. ${x.zh}</b><span>${x.en}</span></span></div>
+      <p class="rf-sub">${x.sub}</p>
+      <details class="rf-hints"><summary>需要一點提示？ Need a hint?</summary>
+        <div class="rf-hint-grp"><div class="rf-hint-h">想一想 Ask yourself</div><ul>${x.hints.map(h=>`<li>${h}</li>`).join("")}</ul></div>
+        <div class="rf-hint-grp"><div class="rf-hint-h">範例 Examples</div><ul>${x.egs.map(e=>`<li>${e}</li>`).join("")}</ul></div>
+      </details>
+      <textarea class="rf-input" id="rf_${x.k}" rows="2" placeholder="${x.ph}">${esc(cur[x.k]||"")}</textarea>
+    </section>`).join("");
+  const past = Object.keys(j).filter(d=>d!==today).sort().reverse().slice(0,30);
+  const pastHTML = past.length ? past.map(d=>{ const e = j[d];
+    return `<div class="rf-past"><div class="rf-past-d">📅 ${d}</div>
+      <div class="rf-past-line"><b>🌟</b>${e.best?esc(e.best):"—"}</div>
+      <div class="rf-past-line"><b>🔧</b>${e.improve?esc(e.improve):"—"}</div>
+      <div class="rf-past-line"><b>🎯</b>${e.goal?esc(e.goal):"—"}</div></div>`;
+  }).join("") : `<p class="rf-empty">還沒有過往紀錄。寫下今天的三行日記，就會出現在這裡 🐾</p>`;
+  const savedToday = !!j[today];
+  app.innerHTML = `<div class="view reflectbook">
+    <div class="crumb"><a href="#/home">Home</a> › 反思筆記</div>
+    <div class="eyebrow" style="color:var(--rf-accent)">Reflection · 反思筆記</div>
+    <h1 class="display">每日學習三行日記<span class="zh-term-lg" style="color:var(--rf-accent)">Three-Line Diary</span></h1>
+    <p class="lede">每天下課花兩分鐘，寫下三行英文學習日記。<b>做得好的地方</b>給你自信，<b>要改進的地方</b>找到下一步，<b>明天的目標</b>讓你越來越棒。🧠 呼應成長思維與歸因理論。</p>
+    <div class="card rf-card">
+      <div class="rf-date">📅 今天 ${today}${savedToday?" · 已寫，可再修改":""}</div>
+      ${blocks}
+      <div class="rf-actions">
+        <button class="btn btn-primary" onclick="saveReflect()">💾 儲存今天的日記 Save</button>
+        <span class="rf-reward">✍️ 每天第一次寫完 +${REFLECT_REWARD} 🥫</span>
+      </div>
+    </div>
+    <h2 class="section" style="margin-top:28px">過往紀錄 Past entries</h2>
+    <div class="rf-pastlist">${pastHTML}</div>
+  </div>`;
+}
+function saveReflect(){
+  const today = todayKey();
+  const val = k => { const el = document.getElementById("rf_"+k); return el ? el.value.trim() : ""; };
+  const best = val("best"), improve = val("improve"), goal = val("goal");
+  if(!best && !improve && !goal){ toast("至少寫下一行再儲存喔 🐾"); return; }
+  if(!store.data.journal) store.data.journal = {};
+  const isNew = !store.data.journal[today];
+  store.data.journal[today] = {best, improve, goal, ts:Date.now()};
+  store.save();
+  if(isNew){ store.addCans(REFLECT_REWARD); toast("日記已儲存！+" + REFLECT_REWARD + " 🥫 今天也很棒 🐾"); }
+  else { toast("日記已更新 🐾"); }
+  renderReflect();
 }
 
 /* =====================================================
