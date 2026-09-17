@@ -641,6 +641,9 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .flip-art{width:76px;height:76px;margin-bottom:2px;filter:drop-shadow(0 3px 5px rgba(122,91,73,.16))}
 .flip-art svg{width:100%;height:100%}
 .flip-word{font:700 20px var(--sans);color:var(--navy)}
+.fb-blank{color:#c2410c;font-weight:800;letter-spacing:1px}
+.fb-yg{display:inline-flex;align-items:center;gap:6px;margin:10px 0 2px;padding:8px 12px;border-radius:10px;background:#fee2e2;color:#b91c1c;font:700 13px var(--sans);text-decoration:none}
+.fb-yg:hover{background:#fecaca}
 .flip-zh{font:500 14px var(--sans);color:var(--teal)}
 .flip-hint{font:500 11px var(--sans);color:var(--faint);margin-top:6px}
 .flip-back{transform:rotateY(180deg);display:flex;flex-direction:column;overflow-y:auto;max-height:340px}
@@ -4815,6 +4818,29 @@ const IDIOMS = [
   {idiom:"a blessing in disguise", img:"🎁", zh:"因禍得福", ex:[["Losing that job was a blessing in disguise.","丟了那份工作反而是因禍得福。"],["The delay was a blessing in disguise.","那次延誤反而是好事。"],["It turned out to be a blessing in disguise.","結果反而是塞翁失馬。"]]}]}
 ];
 
+/* 慣用語填空：卡牌正面挖掉關鍵字（看圖聯想），點卡看完整說法＋YouGlish 真人影片 */
+const IDIOM_BLANK = {
+  "a piece of cake":"cake","let the cat out of the bag":"cat","raining cats and dogs":"cats",
+  "the black sheep":"sheep","kill two birds with one stone":"stone","hold your horses":"horses",
+  "break a leg":"leg","pull someone's leg":"leg","give someone a hand":"hand",
+  "keep an eye on":"eye","all ears":"ears","see eye to eye":"eye",
+  "the apple of my eye":"apple","spill the beans":"beans","a hot potato":"potato",
+  "in a nutshell":"nutshell","bread and butter":"bread","take with a grain of salt":"salt",
+  "under the weather":"weather","once in a blue moon":"moon","the tip of the iceberg":"iceberg",
+  "a storm in a teacup":"storm","go with the flow":"flow","break the ice":"ice",
+  "hit the books":"books","call it a day":"day","on the same page":"page",
+  "cost an arm and a leg":"arm","better late than never":"late","a blessing in disguise":"blessing"
+};
+function idiomFrontHTML(idiom){
+  const key = IDIOM_BLANK[idiom];
+  if(!key) return idiom;
+  const re = new RegExp("\\b"+key.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\b","gi");
+  return idiom.replace(re, '<span class="fb-blank">____</span>');
+}
+function youglishURL(phrase){
+  return "https://youglish.com/pronounce/"+encodeURIComponent(phrase)+"/english";
+}
+
 /* 英語貓咪島 · 每週時事閱讀
    文章為依據 BBC / CNN / NPR / NASA 等公開報導之「事實」重新撰寫的分級改寫稿，
    全文為原創英文，未複製任何原報導文字。 */
@@ -8617,17 +8643,22 @@ function renderResources(tab){
     body = DATA_SET.map(g=>{
       const cards = g.items.map(it=>{
         const head = tab==="phrasals" ? it.pv : it.idiom;
+        const isIdiom = tab!=="phrasals";
+        const frontWord = isIdiom ? idiomFrontHTML(head) : head;
+        const frontHint = isIdiom ? "看圖猜一猜，點卡看答案 →" : "點一下看例句 →";
+        const yg = `<a class="fb-yg" href="${youglishURL(head)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🎬 看真人怎麼用 · YouGlish</a>`;
         return `<div class="flip" onclick="this.classList.toggle('flipped')">
           <div class="flip-inner">
             <div class="flip-front">
               <div class="flip-art">${resArt(head)}</div>
-              <div class="flip-word">${head}</div>
+              <div class="flip-word">${frontWord}</div>
               <div class="flip-zh">${it.zh}</div>
-              <div class="flip-hint">點一下看例句 →</div>
+              <div class="flip-hint">${frontHint}</div>
             </div>
             <div class="flip-back">
               <div class="flip-back-head"><span>${head}</span><span class="flip-back-zh">${it.zh}</span></div>
               ${exList(it.ex)}
+              ${yg}
               <div class="flip-hint">← 點一下翻回</div>
             </div>
           </div></div>`;
