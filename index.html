@@ -1057,6 +1057,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .lv-points ul{margin:0;padding-left:18px}
 .lv-points li{font:400 13.5px/1.7 var(--sans);color:var(--body)}
 .lv-points li b{color:var(--navy)}
+.lv-vid + .lv-vid{margin-top:20px;padding-top:20px;border-top:1px dashed var(--amber-line)}
+.lv-vtitle{font:700 14px var(--sans);color:var(--navy);margin-bottom:9px}
 .rf-print{display:flex;align-items:center;gap:14px;padding:16px 20px;margin-top:16px}
 .rf-print-icon{font-size:26px;flex:none}
 .rf-print-txt{flex:1;min-width:0}
@@ -3481,19 +3483,33 @@ const LESSON_VIDEO = {
       "拼字同現在進行式：<b>ie → y + ing</b>（lie→lying）、短母音重複子音。"
     ]
   },
-  "going-to-will": {
-    yt:"tri7u632AaA",
-    title:"Learn English Tenses: Future Simple with “Will”",
-    teacher:"Rebecca · engVid",
-    mins:33,
-    points:[
-      "影片聚焦 <b>will</b>（未來簡單式）；本課也會一起比較 <b>be going to</b>。",
-      "結構：<b>will + 原形動詞</b>——所有主詞都一樣、動詞不變（I will go / She will go）。",
-      "用在<b>說話當下臨時決定</b>、預測、承諾、主動幫忙（I'll help you）。",
-      "縮寫：I'll / you'll…（口語）；否定 <b>won't</b>（= will not）+ 原形。",
-      "疑問：<b>Will</b> + 主詞 + 原形（Will she get the job?）；簡答 Yes, I will. / No, I won't."
-    ]
-  }
+  "going-to-will": [
+    {
+      yt:"tri7u632AaA",
+      title:"Future Simple with “Will”",
+      teacher:"Rebecca · engVid",
+      mins:33,
+      points:[
+        "結構：<b>will + 原形動詞</b>——所有主詞都一樣、動詞不變（I will go / She will go）。",
+        "用在<b>說話當下臨時決定</b>、預測、承諾、主動幫忙（I'll help you）。",
+        "縮寫：I'll / you'll…（口語）；否定 <b>won't</b>（= will not）+ 原形。",
+        "疑問：<b>Will</b> + 主詞 + 原形（Will she get the job?）；簡答 Yes, I will. / No, I won't."
+      ]
+    },
+    {
+      yt:"VZH0le_xkHw",
+      title:"Future with “Going To” & Present Continuous",
+      teacher:"Rebecca · engVid",
+      mins:36,
+      points:[
+        "<b>be going to + 原形</b>：說話前<b>已經計畫好</b>的打算（I'm going to study English every day）。",
+        "口語常縮寫成 <b>gonna</b>（He's gonna call you later）。",
+        "否定加 not（I'm <b>not</b> going to…）；疑問 Are you going to…?",
+        "已<b>安排好</b>的未來，常用<b>現在進行式</b>＋時間詞（What are you doing on Sunday? / playing golf today）。",
+        "小訣竅：臨時決定用 <b>will</b>；已有計畫用 <b>going to</b>。"
+      ]
+    }
+  ]
 };
 const VIDEO_QUIZ = {
   "present-simple": [
@@ -3544,18 +3560,30 @@ const VIDEO_QUIZ = {
     {t:"mcq", q:"___ they come to the party?", opts:["Will","Do","Are","Does"], a:0, why:"疑問：Will + 主詞 + 原形（影片：Will she get the job?）。"},
     {t:"mcq", q:"“Will you help me?” — (yes)", opts:["Yes, I'll.","Yes, I will.","Yes, I do.","Yes, I am."], a:1, why:"肯定簡答不縮寫：Yes, I will.（影片明講，肯定不能縮）。"},
     {t:"spot", sent:"Will she gets the job ?", wrong:2, fix:"get", why:"will 後面要用原形：Will she get…？"},
-    {t:"fill", q:"They ___ at eight tonight. (arrive)", ans:["will arrive","'ll arrive"], hint:"will + 原形", why:"未來 → will arrive（動詞用原形）。"}
+    {t:"fill", q:"They ___ at eight tonight. (arrive)", ans:["will arrive","'ll arrive"], hint:"will + 原形", why:"未來 → will arrive（動詞用原形）。"},
+    {t:"mcq", q:"I've already decided — I ___ study English every day.", opts:["will","am going to","go to","going"], a:1, why:"說話前已計畫好的打算 → be going to（影片：I'm going to study English every day）。"},
+    {t:"mcq", q:"She ___ her aunt on Sunday. (going to · visit)", opts:["is going to visits","is going to visit","going to visit","is going visit"], a:1, why:"be going to + 原形動詞 → is going to visit。"},
+    {t:"mcq", q:"He ___ going to come tonight.", opts:["isn't","doesn't","won't","not"], a:0, why:"be going to 否定：is + not → isn't going to come。"},
+    {t:"mcq", q:"“What ___ you doing on Sunday?” (an arranged plan)", opts:["are","do","will","did"], a:0, why:"已安排好的未來計畫常用現在進行式：What are you doing…?（影片：Is Maria joining us tonight?）。"}
   ]
 };
 function lessonVideoHTML(id){
-  const v = LESSON_VIDEO[id]; if(!v) return "";
-  const pts = (v.points||[]).map(p=>`<li>${p}</li>`).join("");
+  const raw = LESSON_VIDEO[id]; if(!raw) return "";
+  const vids = Array.isArray(raw) ? raw : [raw];
+  const multi = vids.length > 1;
   const hasQuiz = VIDEO_QUIZ[id] && VIDEO_QUIZ[id].length;
+  const blocks = vids.map((v,i)=>{
+    const pts = (v.points||[]).map(p=>`<li>${p}</li>`).join("");
+    return `<div class="lv-vid">
+      ${multi?`<div class="lv-vtitle">${i+1}. ${esc(v.title)}</div>`:""}
+      <div class="lv-embed"><iframe src="https://www.youtube-nocookie.com/embed/${v.yt}?rel=0&modestbranding=1" title="${esc(v.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="lv-meta">🎬 ${v.title} · ${v.teacher}${v.mins?` · ${v.mins} 分鐘`:""}</div>
+      ${pts?`<div class="lv-points"><div class="lv-points-h">看影片時注意 What to watch for</div><ul>${pts}</ul></div>`:""}
+    </div>`;
+  }).join("");
   return `<div class="lv-card">
-    <div class="lv-head"><span class="lv-badge">📺 先看影片再學習</span><span class="lv-sub">Watch this first · 看完再往下學文法</span></div>
-    <div class="lv-embed"><iframe src="https://www.youtube-nocookie.com/embed/${v.yt}?rel=0&modestbranding=1" title="${esc(v.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
-    <div class="lv-meta">🎬 ${v.title} · ${v.teacher}${v.mins?` · ${v.mins} 分鐘`:""}</div>
-    ${pts?`<div class="lv-points"><div class="lv-points-h">看影片時注意 What to watch for</div><ul>${pts}</ul></div>`:""}
+    <div class="lv-head"><span class="lv-badge">📺 先看影片再學習</span><span class="lv-sub">Watch this first · 看完再往下學文法${multi?"（共 "+vids.length+" 支）":""}</span></div>
+    ${blocks}
     ${hasQuiz?`<button class="btn btn-primary" onclick="location.hash='#/videoquiz/${id}'">看完影片，做 ${VIDEO_QUIZ[id].length} 題小練習 →</button>`:""}
   </div>`;
 }
