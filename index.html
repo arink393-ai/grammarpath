@@ -3522,7 +3522,46 @@ const LESSON_VIDEO = {
       "否定 haven't / hasn't + 過去分詞；疑問 <b>Have / Has</b> + 主詞 + 過去分詞。",
       "對比：有<b>明確過去時間</b>（yesterday, last night）要用<b>過去簡單式</b>，不用現在完成式。"
     ]
-  }
+  },
+  "past-perfect": {
+    yt:"XLIea-a-wE0",
+    title:"Learn English Tenses: Past Perfect",
+    teacher:"Rebecca · engVid",
+    mins:49,
+    points:[
+      "表示兩個過去動作中<b>先發生</b>的那一個——「<b>過去的過去</b>」。",
+      "結構：主詞 + <b>had + 過去分詞</b>（所有主詞都一樣：I / he / she / they had gone）。",
+      "另一個（較晚）的動作用<b>過去簡單式</b>：When I arrived, the train <b>had</b> already <b>left</b>.",
+      "常搭配 <b>by the time, when, before, after, already</b>。",
+      "否定 hadn't + 過去分詞；疑問 <b>Had</b> + 主詞 + 過去分詞；簡答 Yes, she had. / No, she hadn't."
+    ]
+  },
+  "future-continuous-perfect": [
+    {
+      yt:"H5UD03yKfVI",
+      title:"Future Continuous",
+      teacher:"Rebecca · engVid",
+      mins:35,
+      points:[
+        "描述<b>未來某個時間點正在進行</b>的動作（This time tomorrow I'll be flying to Tokyo）。",
+        "結構：<b>will be + 動詞-ing</b>（所有主詞都一樣）。",
+        "常搭時間點：at 8 p.m.、this time tomorrow、on Friday。",
+        "否定 won't be + V-ing；疑問 <b>Will</b> + 主詞 + <b>be</b> + V-ing（Will you be working?）。"
+      ]
+    },
+    {
+      yt:"JBmsega_fgE",
+      title:"Future Perfect",
+      teacher:"Rebecca · engVid",
+      mins:32,
+      points:[
+        "描述在<b>未來某個時間點之前，就已經完成</b>的動作（By 2030, I will have graduated）。",
+        "結構：<b>will have + 過去分詞</b>（所有主詞都一樣）。",
+        "常搭 <b>by + 未來時間</b>：by then、by next year、by the time…。",
+        "否定 <b>won't have</b> + 過去分詞（I won't have finished）。"
+      ]
+    }
+  ]
 };
 const VIDEO_QUIZ = {
   "present-simple": [
@@ -3588,6 +3627,28 @@ const VIDEO_QUIZ = {
     {t:"spot", sent:"I have saw that movie .", wrong:2, fix:"seen", why:"have 後面要用過去分詞：see → seen。"},
     {t:"order", words:["Have","you","done","your","homework"], sent:"Have you done your homework", why:"Have/Has + 主詞 + 過去分詞（影片練習）。"},
     {t:"mcq", q:"I ___ that film last night.", opts:["have seen","saw","has seen","seen"], a:1, why:"有明確過去時間(last night) → 用過去簡單式 saw，不用現在完成式（影片對比）。"}
+  ],
+  "past-perfect": [
+    {t:"mcq", q:"The past perfect shows…", opts:["an action happening now","which of two past actions happened first","a future plan","a present habit"], a:1, why:"過去完成式表示兩個過去動作中「先發生」的那個（過去的過去）。"},
+    {t:"mcq", q:"When I arrived, the train ___ already left.", opts:["has","had","have","did"], a:1, why:"先發生的動作用 had + 過去分詞 → had left。"},
+    {t:"mcq", q:"By the time we got there, the film ___.", opts:["started","has started","had started","was starting"], a:2, why:"較早發生 → had started（另一句 got 用過去式）。"},
+    {t:"mcq", q:"She had never ___ sushi before that day. (eat)", opts:["ate","eaten","eat","eating"], a:1, why:"had + 過去分詞 → had eaten。"},
+    {t:"mcq", q:"He couldn't get in because he ___ his keys.", opts:["hadn't brought","didn't brought","hasn't brought","not brought"], a:0, why:"hadn't + 過去分詞 → hadn't brought。"},
+    {t:"spot", sent:"After she had ate , she left .", wrong:3, fix:"eaten", why:"had 後面要用過去分詞：had eaten。"},
+    {t:"order", words:["Had","they","left","before","you","called"], sent:"Had they left before you called", why:"疑問：Had + 主詞 + 過去分詞。"},
+    {t:"mcq", q:"“Had she finished?” — (no)", opts:["No, she didn't.","No, she hadn't.","No, she doesn't.","No, she isn't."], a:1, why:"簡答：Yes, she had. / No, she hadn't.（影片示範）。"}
+  ],
+  "future-continuous-perfect": [
+    {t:"mcq", q:"Future continuous (will be + V-ing) describes…", opts:["an action finished before a future time","an action in progress at a future time","a past habit","a general fact"], a:1, why:"未來某個時間點「正在進行」的動作（影片：tomorrow I will be working 9–5）。"},
+    {t:"mcq", q:"This time tomorrow, I ___ to London.", opts:["will fly","will be flying","will have flown","fly"], a:1, why:"will be + V-ing → will be flying。"},
+    {t:"mcq", q:"At 8 p.m. tonight, we ___ dinner.", opts:["will have","will be having","have","are having"], a:1, why:"進行中 → will be having。"},
+    {t:"spot", sent:"Will you be work tomorrow ?", wrong:3, fix:"working", why:"will be 後面要用 V-ing → will be working。"},
+    {t:"mcq", q:"Don't call at nine — I ___ studying.", opts:["won't be","won't have","am not","don't"], a:0, why:"否定 won't be + V-ing → won't be studying。"},
+    {t:"mcq", q:"Future perfect (will have + p.p.) describes…", opts:["an action in progress now","an action completed before a future time","a past experience","a daily routine"], a:1, why:"在未來某時間點之前「已經完成」的動作（影片：24 hours from now, I will have arrived）。"},
+    {t:"mcq", q:"By 2030, she ___ from university. (graduate)", opts:["will graduate","will be graduating","will have graduated","graduated"], a:2, why:"by 2030 之前完成 → will have graduated。"},
+    {t:"mcq", q:"By next week, they ___ the project. (finish)", opts:["will finish","will have finished","will be finishing","have finished"], a:1, why:"by next week 之前完成 → will have finished。"},
+    {t:"mcq", q:"I ___ the report by then. (not finish)", opts:["won't have finished","won't be finishing","don't finish","not finished"], a:0, why:"否定 won't have + 過去分詞 → won't have finished。"},
+    {t:"mcq", q:"By the time you arrive, I ___ cooking dinner. (finish)", opts:["will finish","will be finishing","will have finished","finish"], a:2, why:"你到之前就已煮完 → will have finished（未來完成）。"}
   ]
 };
 function lessonVideoHTML(id){
