@@ -3509,7 +3509,20 @@ const LESSON_VIDEO = {
         "小訣竅：臨時決定用 <b>will</b>；已有計畫用 <b>going to</b>。"
       ]
     }
-  ]
+  ],
+  "present-perfect": {
+    yt:"vd0yESrQMs0",
+    title:"Learn English Tenses: Present Perfect",
+    teacher:"Rebecca · engVid",
+    mins:57,
+    points:[
+      "把<b>過去和現在連起來</b>：一個經驗或結果，影響延續到現在（still true / till now）。",
+      "結構：主詞 + <b>have / has + 過去分詞</b>（he/she/it → has；He has gone）。",
+      "常見時間詞：<b>ever, never, already, just, yet, for, since</b>。",
+      "否定 haven't / hasn't + 過去分詞；疑問 <b>Have / Has</b> + 主詞 + 過去分詞。",
+      "對比：有<b>明確過去時間</b>（yesterday, last night）要用<b>過去簡單式</b>，不用現在完成式。"
+    ]
+  }
 };
 const VIDEO_QUIZ = {
   "present-simple": [
@@ -3565,6 +3578,16 @@ const VIDEO_QUIZ = {
     {t:"mcq", q:"She ___ her aunt on Sunday. (going to · visit)", opts:["is going to visits","is going to visit","going to visit","is going visit"], a:1, why:"be going to + 原形動詞 → is going to visit。"},
     {t:"mcq", q:"He ___ going to come tonight.", opts:["isn't","doesn't","won't","not"], a:0, why:"be going to 否定：is + not → isn't going to come。"},
     {t:"mcq", q:"“What ___ you doing on Sunday?” (an arranged plan)", opts:["are","do","will","did"], a:0, why:"已安排好的未來計畫常用現在進行式：What are you doing…?（影片：Is Maria joining us tonight?）。"}
+  ],
+  "present-perfect": [
+    {t:"mcq", q:"The present perfect connects…", opts:["two finished past times","the past with now (up to the present)","two future actions","a habit and a fact"], a:1, why:"現在完成式把過去和「現在」連起來（影片：still true / till now）。"},
+    {t:"mcq", q:"She ___ gone home already.", opts:["have","has","is","did"], a:1, why:"she → has + 過去分詞（影片：He/She has gone）。"},
+    {t:"mcq", q:"Have you ever ___ to Italy? (be)", opts:["be","was","been","being"], a:2, why:"be 的過去分詞是 been（影片：Have you ever been to Italy?）。"},
+    {t:"mcq", q:"The pizza ___ arrived yet.", opts:["hasn't","didn't","isn't","haven't"], a:0, why:"it → hasn't + 過去分詞（影片：The pizza hasn't arrived yet）。"},
+    {t:"mcq", q:"She has lived here ___ 2012.", opts:["for","since","from","in"], a:1, why:"since + 起點時間（影片：have lived here since 2012）。"},
+    {t:"spot", sent:"I have saw that movie .", wrong:2, fix:"seen", why:"have 後面要用過去分詞：see → seen。"},
+    {t:"order", words:["Have","you","done","your","homework"], sent:"Have you done your homework", why:"Have/Has + 主詞 + 過去分詞（影片練習）。"},
+    {t:"mcq", q:"I ___ that film last night.", opts:["have seen","saw","has seen","seen"], a:1, why:"有明確過去時間(last night) → 用過去簡單式 saw，不用現在完成式（影片對比）。"}
   ]
 };
 function lessonVideoHTML(id){
