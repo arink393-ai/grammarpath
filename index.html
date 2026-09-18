@@ -1780,7 +1780,39 @@ q:[
 ]},
 
 {
-id:"past-perfect", zh:"過去完成式", unit:"u3", n:"4.4", title:"Past Perfect", sub:"Had + past participle — the past before the past.",
+id:"present-perfect-continuous", zh:"現在完成進行式", unit:"u3", n:"4.4", title:"Present Perfect Continuous", sub:"Have / has been + V-ing — an action that started in the past and is still going on now.",
+tl:{labels:[[12,"past"],[64,"now"]], spans:[[12,64]], dots:[64], now:64, cap:"An action continuing from the past right up to now — the focus is on how long."},
+form:{p:"subject + have / has been + verb-ing", ex:["I <b>have been studying</b> for three hours.","She <b>has been working</b> here since 2019.","It <b>has been raining</b> all day."]},
+uses:[
+ {t:"Still going on now", d:"An action that began in the past and is still continuing — often with for, since or how long.", ex:[
+   {s:"We <b>have been waiting</b> for an hour.", n:"and we're still waiting"},
+   {s:"He <b>has been learning</b> English since he was six.", n:""},
+   {s:"How long <b>have</b> you <b>been living</b> here?", n:""}]},
+ {t:"Recent activity with a result now", d:"A recently finished action whose result you can still see or feel.", ex:[
+   {s:"You look tired — <b>have</b> you <b>been running</b>?", n:""},
+   {s:"My eyes hurt because I <b>have been reading</b> all night.", n:""},
+   {s:"The ground is wet; it <b>has been raining</b>.", n:""}]},
+ {t:"Negatives and questions", d:"Add not to have/has; put have/has before the subject in questions.", ex:[
+   {s:"I <b>haven't been sleeping</b> well lately.", n:""},
+   {s:"<b>Has</b> she <b>been feeling</b> better?", n:""}]}
+],
+mistakes:[
+ {no:"I am studying since 3 o'clock.", yes:"I have been studying since 3 o'clock.", why:"From a past point up to now → present perfect continuous."},
+ {no:"She has been work here for years.", yes:"She has been working here for years.", why:"Need been + verb-ing."},
+ {no:"He has been knowing her for years.", yes:"He has known her for years.", why:"Stative verbs (know) use present perfect, not the continuous."}
+],
+tip:"Focus on the activity and how long → present perfect continuous (have been V-ing); focus on the finished result or the number → present perfect (have + past participle).",
+q:[
+ {t:"mcq", q:"I ___ for two hours, and I'm still waiting.", opts:["wait","have waited","have been waiting","am waiting"], a:2, why:"Started in the past, still going → have been waiting."},
+ {t:"mcq", q:"She ___ here since 2019.", opts:["has been working","worked already","is working","works"], a:0, why:"since 2019 up to now → has been working."},
+ {t:"fill", q:"You look exhausted. Have you ___ (run)?", ans:["been running"], hint:"have + been + V-ing", why:"Recent activity with a present result → have you been running?"},
+ {t:"fill", q:"It ___ (rain) all day — the streets are flooded.", ans:["has been raining"], hint:"has + been + V-ing", why:"It → has been raining."},
+ {t:"spot", sent:"I have been study English for years .", wrong:3, fix:"studying", why:"Need been + verb-ing: have been studying."},
+ {t:"mcq", q:"Which sentence is correct?", opts:["He has been knowing me for years.","I am living here since May.","They have been playing for an hour.","She has been work all day."], a:2, why:"have/has been + V-ing; stative verbs (know) don't take the continuous."}
+]},
+
+{
+id:"past-perfect", zh:"過去完成式", unit:"u3", n:"4.5", title:"Past Perfect", sub:"Had + past participle — the past before the past.",
 tl:{labels:[[8,"earlier past"],[50,"past"],[92,"now"]], dots:[8,50], now:92, cap:"Two past events — the earlier one takes had + past participle."},
 form:{p:"subject + had + past participle", ex:["The train <b>had left</b> when I arrived.","She <b>had never seen</b> snow before that trip.","They<b>'d finished</b> dinner by eight."]},
 uses:[
@@ -1812,6 +1844,36 @@ q:[
  {t:"mcq", q:"Which is correct?", opts:["I had visited Japan last year.","I visited Japan last year.","I had visit Japan last year.","I have visited Japan last year."], a:1, why:"One finished event with a past time → past simple."},
  {t:"fill", q:"By 10 p.m., everyone ___ (go) home.", ans:["had gone"], hint:"by + past time", why:"Finished before that past point → had gone."},
  {t:"spot", sent:"When I called , she already had finish her homework .", wrong:7, fix:"finished", why:"Had + past participle: finished."}
+]},
+
+{
+id:"past-perfect-continuous", zh:"過去完成進行式", unit:"u3", n:"4.6", title:"Past Perfect Continuous", sub:"Had been + V-ing — an action that had been going on for a while before another past moment.",
+tl:{labels:[[8,"earlier past"],[54,"past"],[92,"now"]], spans:[[8,54]], dots:[54], now:92, cap:"A longer action that had been continuing up to a later point in the past."},
+form:{p:"subject + had been + verb-ing", ex:["I <b>had been waiting</b> for an hour when the bus came.","She was tired because she <b>had been working</b> all night.","They <b>had been living</b> there for years before they moved."]},
+uses:[
+ {t:"Duration before a past point", d:"An action that continued for a period up to a moment in the past.", ex:[
+   {s:"We <b>had been driving</b> for hours before we stopped.", n:""},
+   {s:"He <b>had been studying</b> all day, so he was exhausted.", n:"cause of a past state"}]},
+ {t:"Cause of a past result", d:"Explains why something was true at that moment in the past.", ex:[
+   {s:"The ground was wet because it <b>had been raining</b>.", n:""},
+   {s:"Her eyes were red — she <b>had been crying</b>.", n:""}]},
+ {t:"Negatives and questions", d:"Add not to had; put had before the subject in questions.", ex:[
+   {s:"They <b>hadn't been getting</b> along for a while.", n:""},
+   {s:"How long <b>had</b> you <b>been waiting</b>?", n:""}]}
+],
+mistakes:[
+ {no:"I was waiting for an hour when he arrived.", yes:"I had been waiting for an hour when he arrived.", why:"Duration up to a past point → past perfect continuous."},
+ {no:"She had been work all night.", yes:"She had been working all night.", why:"Need been + verb-ing."},
+ {no:"We had been knowing them for years.", yes:"We had known them for years.", why:"Stative verbs (know) use past perfect, not the continuous."}
+],
+tip:"Two pasts: the longer, ongoing one takes had been + V-ing; the later, shorter one takes past simple (when he arrived).",
+q:[
+ {t:"mcq", q:"I ___ for an hour when the bus finally came.", opts:["waited","have been waiting","had been waiting","was waiting"], a:2, why:"Ongoing duration before a past point → had been waiting."},
+ {t:"mcq", q:"She was tired because she ___ all night.", opts:["had been working","has been working","is working","works"], a:0, why:"Reason for a past state → had been working."},
+ {t:"fill", q:"The road was wet because it ___ (rain).", ans:["had been raining"], hint:"had been + V-ing", why:"Cause of a past result → had been raining."},
+ {t:"spot", sent:"They had been live there for years .", wrong:3, fix:"living", why:"Need been + verb-ing: had been living."},
+ {t:"order", words:["How","long","had","you","been","waiting"], sent:"How long had you been waiting", why:"Wh- + had + subject + been + V-ing."},
+ {t:"mcq", q:"Which sentence is correct?", opts:["He had been knowing her for years.","We was driving for hours.","I had been reading before he called.","She had been work all day."], a:2, why:"had been + V-ing; stative verbs don't take the continuous."}
 ]},
 
 {
@@ -1882,7 +1944,34 @@ q:[
 ]},
 
 {
-id:"zero-conditional", zh:"零條件句", unit:"u4", n:"5.3", title:"Zero Conditional", sub:"If + present, present — facts, habits and things that are always true.",
+id:"future-perfect-continuous", zh:"未來完成進行式", unit:"u4", n:"5.3", title:"Future Perfect Continuous", sub:"Will have been + V-ing — how long an action will have been going on by a future time.",
+tl:{labels:[[20,"now"],[80,"future point"]], spans:[[20,80]], dots:[80], now:20, cap:"An action continuing up to a point in the future — the focus is on the duration by then."},
+form:{p:"subject + will have been + verb-ing", ex:["By next month, I <b>will have been working</b> here for ten years.","By 8 p.m., they <b>will have been driving</b> for six hours.","In May, we <b>will have been living</b> here for a decade."]},
+uses:[
+ {t:"Duration up to a future point", d:"Says how long an action will have continued by a certain future time — usually with by and for.", ex:[
+   {s:"By July, she <b>will have been teaching</b> for 20 years.", n:"by + future time, for + length"},
+   {s:"At midnight, I <b>will have been studying</b> for eight hours straight.", n:""}]},
+ {t:"Cause of a future situation", d:"Explains why someone will feel or be a certain way at a future time.", ex:[
+   {s:"He'll be tired because he <b>will have been working</b> all day.", n:""},
+   {s:"They'll be hungry — they <b>will have been travelling</b> since dawn.", n:""}]}
+],
+mistakes:[
+ {no:"By June, I will work here for five years.", yes:"By June, I will have been working here for five years.", why:"How long, up to a future point → future perfect continuous."},
+ {no:"They will have been drive for hours.", yes:"They will have been driving for hours.", why:"Need been + verb-ing."},
+ {no:"By then she will have been knowing him for years.", yes:"By then she will have known him for years.", why:"Stative verbs (know) use future perfect, not the continuous."}
+],
+tip:"Use by + a future time with for + a length of time: By 2030, I will have been living here for ten years.",
+q:[
+ {t:"mcq", q:"By next month, I ___ here for ten years.", opts:["will work","will be working","will have been working","have worked"], a:2, why:"How long, by a future point → will have been working."},
+ {t:"mcq", q:"By 8 p.m., they ___ for six hours.", opts:["will have been driving","will drive","are driving","drove"], a:0, why:"Duration up to a future time → will have been driving."},
+ {t:"fill", q:"At midnight, she ___ (study) for eight hours.", ans:["will have been studying"], hint:"will have been + V-ing", why:"Duration by a future point → will have been studying."},
+ {t:"spot", sent:"By June we will have been live here for a decade .", wrong:6, fix:"living", why:"Need been + verb-ing: will have been living."},
+ {t:"mcq", q:"He'll be exhausted because he ___ all day.", opts:["will have been working","will work","has worked","works"], a:0, why:"Reason for a future state → will have been working."},
+ {t:"mcq", q:"Which time words fit the future perfect continuous?", opts:["ago … yesterday","by … for","last … since","now … already"], a:1, why:"by + a future time, for + a length of time."}
+]},
+
+{
+id:"zero-conditional", zh:"零條件句", unit:"u4", n:"5.4", title:"Zero Conditional", sub:"If + present, present — facts, habits and things that are always true.",
 form:{p:"If + present simple , … present simple", ex:["If you <b>heat</b> ice, it <b>melts</b>.","If I <b>drink</b> coffee at night, I <b>can't sleep</b>.","Plants <b>die</b> if they <b>get</b> no water."]},
 uses:[
  {t:"Scientific and general truths", d:"Whenever the condition happens, the result always follows.", ex:[
@@ -1916,7 +2005,7 @@ q:[
 ]},
 
 {
-id:"first-conditional", zh:"第一條件句", unit:"u4", n:"5.4", title:"First Conditional", sub:"Real future possibilities — if this happens, that will happen.",
+id:"first-conditional", zh:"第一條件句", unit:"u4", n:"5.5", title:"First Conditional", sub:"Real future possibilities — if this happens, that will happen.",
 form:{p:"If + present simple, … will + verb", ex:["<b>If</b> it <b>rains</b>, we<b>'ll stay</b> home.","You<b>'ll miss</b> the bus <b>if</b> you <b>don't hurry</b>.","<b>If</b> she <b>calls</b>, I<b>'ll tell</b> you."]},
 uses:[
  {t:"Real possibilities in the future", d:"Use it when the condition is realistic and quite possible.", ex:[
@@ -3444,7 +3533,8 @@ const LESSON_VIDEO = {
       "常見錯誤：❌ Does you…? → ✅ <b>Do you…?</b>"
     ]
   },
-  "present-continuous": {
+  "present-continuous": [
+    {
     yt:"w04YVmJR4w4",
     title:"Learn English Tenses: Present Continuous",
     teacher:"Rebecca · engVid",
@@ -3456,7 +3546,20 @@ const LESSON_VIDEO = {
       "拼字：字尾 <b>ie → y + ing</b>（lie→lying、tie→tying）；短母音常重複子音（run→running）。",
       "疑問：<b>Am / Is / Are</b> + 主詞 + V-ing；簡答 Yes, I am. / No, I'm not."
     ]
-  },
+    },
+    {
+      yt:"SL3ciyAEcms",
+      title:"Present Simple or Present Continuous?",
+      teacher:"Rebecca · engVid",
+      mins:15,
+      points:[
+        "<b>現在簡單式</b>：習慣、事實、時間表（I <b>work</b> every day）。",
+        "<b>現在進行式</b>：現在正在做、暫時的（I <b>am working</b> now）。",
+        "狀態動詞（like, know, want…）通常用<b>簡單式</b>，不用進行式。",
+        "看時間詞：every day / usually → 簡單式；now / at the moment → 進行式。"
+      ]
+    }
+  ],
   "past-simple": {
     yt:"dmJrYbDjxQY",
     title:"Learn English Tenses: Past Simple",
@@ -3508,9 +3611,22 @@ const LESSON_VIDEO = {
         "已<b>安排好</b>的未來，常用<b>現在進行式</b>＋時間詞（What are you doing on Sunday? / playing golf today）。",
         "小訣竅：臨時決定用 <b>will</b>；已有計畫用 <b>going to</b>。"
       ]
+    },
+    {
+      yt:"VX95vEL-OdU",
+      title:"Future: “will” or “going to”?",
+      teacher:"Rebecca · engVid",
+      mins:16,
+      points:[
+        "<b>臨時決定</b>（說話當下）→ <b>will</b>：OK, I'll help you.",
+        "<b>已有計畫／打算</b> → <b>going to</b>：I'm going to visit my aunt.",
+        "看到<b>眼前證據</b>的預測 → going to：Look at the clouds — it's going to rain.",
+        "承諾、主動幫忙 → will。"
+      ]
     }
   ],
-  "present-perfect": {
+  "present-perfect": [
+    {
     yt:"vd0yESrQMs0",
     title:"Learn English Tenses: Present Perfect",
     teacher:"Rebecca · engVid",
@@ -3522,8 +3638,22 @@ const LESSON_VIDEO = {
       "否定 haven't / hasn't + 過去分詞；疑問 <b>Have / Has</b> + 主詞 + 過去分詞。",
       "對比：有<b>明確過去時間</b>（yesterday, last night）要用<b>過去簡單式</b>，不用現在完成式。"
     ]
-  },
-  "past-perfect": {
+    },
+    {
+      yt:"UmdGwttUfKU",
+      title:"Present Perfect or Past Simple?",
+      teacher:"Rebecca · engVid",
+      mins:16,
+      points:[
+        "<b>明確的過去時間</b>（yesterday, in 2019）→ <b>過去簡單式</b>：I saw it yesterday.",
+        "<b>沒說時間／延續到現在</b> → <b>現在完成式</b>：I have seen it.（經驗、結果）",
+        "for / since / ever / never / just / already / yet → 常配<b>現在完成式</b>。",
+        "問句：Did you…?（過去）vs Have you…?（經驗）。"
+      ]
+    }
+  ],
+  "past-perfect": [
+    {
     yt:"XLIea-a-wE0",
     title:"Learn English Tenses: Past Perfect",
     teacher:"Rebecca · engVid",
@@ -3535,7 +3665,20 @@ const LESSON_VIDEO = {
       "常搭配 <b>by the time, when, before, after, already</b>。",
       "否定 hadn't + 過去分詞；疑問 <b>Had</b> + 主詞 + 過去分詞；簡答 Yes, she had. / No, she hadn't."
     ]
-  },
+    },
+    {
+      yt:"xsSxZ4nwpbk",
+      title:"Past Simple or Past Perfect?",
+      teacher:"Rebecca · engVid",
+      mins:15,
+      points:[
+        "兩個過去動作，<b>先發生</b>的用<b>過去完成式</b>（had + 過去分詞）。",
+        "<b>後發生</b>的用<b>過去簡單式</b>：When I arrived, the train <b>had</b> already <b>left</b>.",
+        "只有一個過去事件時，用<b>過去簡單式</b>就好，不需要過去完成式。",
+        "after / before 已說清楚先後時，兩句也可都用過去簡單式。"
+      ]
+    }
+  ],
   "future-continuous-perfect": [
     {
       yt:"H5UD03yKfVI",
@@ -3561,7 +3704,44 @@ const LESSON_VIDEO = {
         "否定 <b>won't have</b> + 過去分詞（I won't have finished）。"
       ]
     }
-  ]
+  ],
+  "present-perfect-continuous": {
+    yt:"FVmVP9CCRcU",
+    title:"Learn English Tenses: Present Perfect Continuous",
+    teacher:"Rebecca · engVid",
+    mins:38,
+    points:[
+      "動作<b>從過去持續到現在、而且還在進行</b>（started ago and still going）。",
+      "結構：主詞 + <b>have / has been + 動詞-ing</b>。",
+      "常搭 <b>for, since, how long, all day, lately</b>。",
+      "強調<b>持續多久／過程</b>用這個；強調<b>完成結果</b>用現在完成式（have + 過去分詞）。",
+      "狀態動詞（know, like…）通常<b>不用</b>進行式。"
+    ]
+  },
+  "past-perfect-continuous": {
+    yt:"NJ5MtHkcEJE",
+    title:"Learn English Tenses: Past Perfect Continuous",
+    teacher:"Rebecca · engVid",
+    mins:38,
+    points:[
+      "在過去某個時間點<b>之前，已經持續一段時間</b>的動作。",
+      "結構：主詞 + <b>had been + 動詞-ing</b>（所有主詞都一樣）。",
+      "常用來說明<b>過去狀態的原因</b>：She was tired because she <b>had been working</b>.",
+      "否定 hadn't been + V-ing；疑問 <b>Had</b> + 主詞 + been + V-ing。"
+    ]
+  },
+  "future-perfect-continuous": {
+    yt:"3GY1pPj-Yuw",
+    title:"Learn English Tenses: Future Perfect Continuous",
+    teacher:"Rebecca · engVid",
+    mins:32,
+    points:[
+      "到<b>未來某個時間點為止，已經持續多久</b>的動作。",
+      "結構：主詞 + <b>will have been + 動詞-ing</b>。",
+      "常搭 <b>by + 未來時間</b> ＋ <b>for + 時間長度</b>（By next July… for 11 years）。",
+      "否定 won't have been + V-ing；狀態動詞通常不用。"
+    ]
+  }
 };
 const VIDEO_QUIZ = {
   "present-simple": [
@@ -3649,6 +3829,30 @@ const VIDEO_QUIZ = {
     {t:"mcq", q:"By next week, they ___ the project. (finish)", opts:["will finish","will have finished","will be finishing","have finished"], a:1, why:"by next week 之前完成 → will have finished。"},
     {t:"mcq", q:"I ___ the report by then. (not finish)", opts:["won't have finished","won't be finishing","don't finish","not finished"], a:0, why:"否定 won't have + 過去分詞 → won't have finished。"},
     {t:"mcq", q:"By the time you arrive, I ___ cooking dinner. (finish)", opts:["will finish","will be finishing","will have finished","finish"], a:2, why:"你到之前就已煮完 → will have finished（未來完成）。"}
+  ],
+  "present-perfect-continuous": [
+    {t:"mcq", q:"Present perfect continuous (have been + V-ing) is used for…", opts:["a finished action at a past time","an action that started in the past and is still going on","a single completed result","a plan for the future"], a:1, why:"從過去持續到現在、還在進行（影片：started ago and still going）。"},
+    {t:"mcq", q:"She ___ here since 2019.", opts:["has been working","is working","worked","works"], a:0, why:"has been + V-ing（持續到現在）。"},
+    {t:"mcq", q:"How long ___ you been learning English?", opts:["have","has","did","are"], a:0, why:"you → have + been + V-ing。"},
+    {t:"spot", sent:"I have been study for hours .", wrong:3, fix:"studying", why:"需要 been + V-ing → have been studying。"},
+    {t:"mcq", q:"You're out of breath! Have you ___?", opts:["been running","ran","run","running"], a:0, why:"近期活動、現在還看得出結果 → have you been running?"},
+    {t:"mcq", q:"Which sentence is correct?", opts:["He has been knowing me for years.","They have been playing all afternoon.","I am studying since noon.","She has been work here."], a:1, why:"have been + V-ing；狀態動詞(know)不用進行式。"}
+  ],
+  "past-perfect-continuous": [
+    {t:"mcq", q:"Past perfect continuous (had been + V-ing) describes…", opts:["an action still going on now","how long an action had been going on before a past point","a single quick past action","a future duration"], a:1, why:"在過去某個時間點之前，已持續一段時間（影片：had been living/working before I moved）。"},
+    {t:"mcq", q:"I ___ for an hour when the bus came.", opts:["had been waiting","have been waiting","was waiting","waited"], a:0, why:"had been + V-ing。"},
+    {t:"mcq", q:"She was exhausted because she ___ all night.", opts:["had been working","has been working","works","is working"], a:0, why:"過去狀態的原因 → had been working。"},
+    {t:"spot", sent:"They had been live there for years .", wrong:3, fix:"living", why:"had been + V-ing → had been living。"},
+    {t:"mcq", q:"We ___ getting along for a while.", opts:["hadn't been","haven't been","didn't been","weren't"], a:0, why:"hadn't been + V-ing。"},
+    {t:"order", words:["How","long","had","she","been","studying"], sent:"How long had she been studying", why:"Wh- + had + 主詞 + been + V-ing。"}
+  ],
+  "future-perfect-continuous": [
+    {t:"mcq", q:"Future perfect continuous (will have been + V-ing) describes…", opts:["how long an action will have continued by a future time","an action happening right now","a finished past action","a general habit"], a:0, why:"到未來某時間點為止，已持續多久（影片：By next July, I will have been working for 11 years）。"},
+    {t:"mcq", q:"By next month, I ___ here for ten years.", opts:["will have been working","will work","am working","worked"], a:0, why:"will have been + V-ing。"},
+    {t:"mcq", q:"By 8 p.m., they ___ for six hours.", opts:["will have been driving","will drive","drove","drive"], a:0, why:"by + 未來時間、for + 長度 → will have been driving。"},
+    {t:"spot", sent:"By June we will have been live here .", wrong:6, fix:"living", why:"will have been + V-ing → will have been living。"},
+    {t:"mcq", q:"By then, she ___ working here for years. (not)", opts:["won't have been","will not been","doesn't been","isn't"], a:0, why:"否定 won't have been + V-ing。"},
+    {t:"mcq", q:"Which time words fit this tense?", opts:["by … for","ago … yesterday","just … already","now … since"], a:0, why:"by + 未來時間、for + 時間長度。"}
   ]
 };
 function lessonVideoHTML(id){
