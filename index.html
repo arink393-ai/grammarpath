@@ -38,14 +38,8 @@ a{color:var(--teal);text-decoration:none}
 .brand-name{font:600 16px var(--sans)}
 .topbar-left{display:flex;align-items:center;gap:8px;min-width:0}
 .topbar-right{display:flex;align-items:center;gap:8px}
-.nav{position:fixed;top:0;right:0;left:auto;height:100dvh;width:280px;max-width:84vw;transform:translateX(102%);transition:transform .26s cubic-bezier(.4,0,.2,1);z-index:120;background:var(--paper);border-left:1px solid var(--line);box-shadow:-8px 0 40px -12px rgba(60,40,20,.28);display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:14px 12px 24px;overflow-y:auto;overscroll-behavior:contain}
+.nav{position:fixed;top:0;left:0;right:auto;height:100dvh;width:280px;max-width:84vw;transform:translateX(-102%);transition:transform .26s cubic-bezier(.4,0,.2,1);z-index:120;background:var(--paper);border-right:1px solid var(--line);box-shadow:8px 0 40px -12px rgba(60,40,20,.28);display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:14px 12px 24px;overflow-y:auto;overscroll-behavior:contain}
 .nav.open{transform:translateX(0)}
-/* Wide screens: pin the menu open on the right; no hamburger / backdrop needed. */
-@media (min-width:1024px){
-  body{padding-right:280px}
-  .nav{transform:none;box-shadow:none;transition:none}
-  .hamburger,.nav-close,.nav-backdrop{display:none!important}
-}
 .nav-head{display:flex;align-items:center;justify-content:space-between;padding:2px 6px 12px;margin-bottom:4px;border-bottom:1px solid var(--line)}
 .nav-title{font:700 14px var(--sans);color:var(--navy);letter-spacing:.02em}
 .nav-close{width:32px;height:32px;border-radius:9px;font-size:15px;color:var(--muted);display:grid;place-items:center}
@@ -1135,6 +1129,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <body>
 <header class="topbar" id="topbar">
   <div class="topbar-left">
+    <button class="hamburger" id="hamBtn" type="button" aria-label="選單 Menu" aria-expanded="false">☰</button>
     <a href="#/home" class="brand" aria-label="English Cat Island home">
       <span class="brand-mark">🐱</span><span class="brand-name">English Cat Island</span>
     </a>
@@ -1162,7 +1157,6 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
     <span class="xp-pill" id="xpPill" title="Experience points">◆ 0 XP</span>
     <span class="streak-pill" id="streakPill" title="Daily streak">🔥 0-day streak</span>
     <button class="acct-btn" id="acctBtn" title="帳號 Account" aria-haspopup="true">👤</button>
-    <button class="hamburger" id="hamBtn" type="button" aria-label="選單 Menu" aria-expanded="false">☰</button>
   </div>
 </header>
 <div class="nav-backdrop" id="navBackdrop"></div>
