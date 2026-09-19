@@ -6,7 +6,15 @@
 <meta name="color-scheme" content="only light">
 <meta name="supported-color-schemes" content="light">
 <meta name="theme-color" content="#FBF3E8">
-<title>GrammarPath — Learn English grammar, step by step</title>
+<title>English Cat Island — Learn · Practice · Grow</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Cat Island">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -9623,6 +9631,11 @@ document.addEventListener("click", ()=>{ const m = $("#acctMenu"); if(m) m.hidde
 $("#amLogout").addEventListener("click", ()=>{ AUTH.logout(); store.rebind(null); $("#acctMenu").hidden = true; applyAuthUI(); location.hash = "#/home"; route(); toast("已登出 · 歡迎再來 🐾"); });
 
 bootApp();
+
+/* PWA: register the service worker (installable + offline) */
+if("serviceWorker" in navigator){
+  window.addEventListener("load", ()=>{ navigator.serviceWorker.register("sw.js").catch(()=>{}); });
+}
 </script>
 </body>
 </html>
