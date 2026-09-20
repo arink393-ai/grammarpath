@@ -1032,6 +1032,50 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   .th-card-plate{width:100%;flex:none;border-right:0;border-bottom:1px solid var(--th-line)}
 }
 
+/* ===== 哲學思辨 Philosophy (reuses .theorybook tokens) ===== */
+.ph-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;max-width:900px;margin:0 auto}
+.ph-card{display:flex;flex-direction:column;text-align:left;background:var(--th-panel);border:1px solid var(--th-line2);border-radius:16px;overflow:hidden;box-shadow:0 12px 30px -22px rgba(60,40,15,.45);transition:transform .14s ease,box-shadow .14s ease}
+.ph-card:hover{transform:translateY(-3px);box-shadow:0 18px 36px -20px rgba(60,40,15,.5)}
+.ph-card-plate{height:110px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,color-mix(in oklab,var(--th-warm) 12%,#FBF7EF),color-mix(in oklab,var(--th-accent) 12%,#FBF7EF));border-bottom:1px solid var(--th-line)}
+.ph-emoji{font-size:52px;line-height:1;filter:drop-shadow(0 4px 8px rgba(60,40,15,.18))}
+.ph-card-body{padding:16px 20px 18px;display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+.ph-card-tag{font:600 10.5px 'IBM Plex Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--th-warm)}
+.ph-card-title{font:600 21px 'Lora',serif;color:var(--th-ink);line-height:1.15}
+.ph-card-title span{font-family:var(--th-han);color:var(--th-accent);font-weight:500;font-size:15px;margin-left:.5em}
+.ph-card-sub{font-family:var(--th-serif);font-style:italic;color:var(--th-faint);font-size:13.5px}
+.ph-card-hook{font-family:var(--th-han);color:var(--th-soft);font-size:14px;margin:4px 0 4px;line-height:1.7}
+.ph-card-go{margin-top:auto;font:600 13.5px 'IBM Plex Sans',sans-serif;color:var(--th-accent)}
+.ph-hero-emoji{font-size:56px;line-height:1;margin-bottom:6px}
+.ph-hero-sub{margin-top:12px;font-family:var(--th-serif);font-style:italic;color:var(--th-soft);font-size:1rem}
+.ph-hero-sub span{display:block;font-family:var(--th-han);font-style:normal;color:var(--th-faint);font-size:.9rem;margin-top:2px}
+.ph-intro,.ph-sec,.ph-vocab{max-width:64ch;margin:34px auto 0}
+.ph-intro{background:color-mix(in oklab,var(--th-warm) 7%,var(--th-panel));border:1px solid color-mix(in oklab,var(--th-warm) 22%,var(--th-line));border-radius:16px;padding:20px 24px}
+.th-sh-zh i{font-style:normal;font-family:var(--th-han);color:var(--th-accent);font-weight:500;font-size:15px;margin-left:.5em}
+.ph-lead{margin:0 0 16px;padding:12px 16px;background:var(--th-panel);border-left:4px solid var(--th-warm);border-radius:0 10px 10px 0}
+.ph-lead-en{font-family:var(--th-serif);font-style:italic;color:var(--th-soft);font-size:1rem;margin:0 0 .3em;line-height:1.6}
+.ph-lead-zh{font-family:var(--th-han);color:var(--th-zh);font-size:.98rem;margin:0;line-height:1.8}
+.ph-qs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.ph-q{background:var(--th-panel);border:1px solid var(--th-line);border-radius:12px;padding:15px 18px}
+.ph-q-en{display:flex;align-items:flex-start;gap:9px;font-family:var(--th-serif);font-size:1.05rem;color:var(--th-ink);line-height:1.55}
+.ph-q-mark{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--th-accent);color:#fff;font:700 12px 'IBM Plex Sans',sans-serif;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.ph-q-zh{font-family:var(--th-han);color:var(--th-zh);font-size:.98rem;line-height:1.8;margin:7px 0 0;padding-left:31px}
+.ph-say{flex:0 0 auto;margin-left:auto;background:none;border:0;cursor:pointer;font-size:15px;opacity:.55;padding:0 2px;transition:opacity .12s}
+.ph-say:hover{opacity:1}
+.ph-say.mini{font-size:13px;margin-left:6px}
+.ph-help{margin:11px 0 0;padding-left:31px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.ph-help-lbl{font:600 10.5px 'IBM Plex Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--th-green)}
+.ph-chip{font-family:var(--th-serif);font-style:italic;font-size:.9rem;color:var(--th-soft);background:color-mix(in oklab,var(--th-green) 9%,#fff);border:1px solid color-mix(in oklab,var(--th-green) 22%,var(--th-line));border-radius:999px;padding:4px 12px}
+.ph-vocab h3{font:600 12px 'IBM Plex Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--th-warm);margin:0 0 12px}
+.ph-vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:9px}
+.ph-v{display:flex;align-items:baseline;gap:6px;background:var(--th-panel);border:1px solid var(--th-line);border-radius:10px;padding:9px 13px}
+.ph-v b{font:600 15px 'Lora',serif;color:var(--th-ink)}
+.ph-v i{font-family:var(--th-serif);font-size:12px;color:var(--th-warm)}
+.ph-v span{font-family:var(--th-han);font-size:13.5px;color:var(--th-soft)}
+.ph-v .ph-say{margin-left:auto}
+@media(max-width:640px){
+  .ph-q-zh,.ph-help{padding-left:0}
+}
+
 /* ===== 反思筆記 Reflection ===== */
 .reflectbook{--rf-accent:#8A6DA6}
 .rf-card{padding:22px 24px;margin-top:6px}
@@ -1164,6 +1208,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/reading">📰 每週閱讀 Reading</button>
   <button data-nav="#/story">📖 故事時間 Stories</button>
   <button data-nav="#/theory">🧠 學習理論 Theory</button>
+  <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
   <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
   <button data-nav="#/resources">🔤 資源 Resources</button>
 </nav>
@@ -2788,6 +2833,8 @@ function route(){
   else if(h[0]==="story") renderStoryList();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
+  else if(h[0]==="philosophy" && h[1]) renderPhil(h[1]);
+  else if(h[0]==="philosophy") renderPhilList();
   else if(h[0]==="reflect") renderReflect();
   else if(h[0]==="abc" && h[1]) renderLetter(h[1]);
   else if(h[0]==="abc") renderABCGrid();
@@ -3214,6 +3261,281 @@ const THEORIES = [
 ];
 const theoryById = id => THEORIES.find(t=>t.id===id);
 
+/* =====================================================
+   哲學思辨 English Philosophy — discussion lessons
+   (adapted from Monrico Brown's college conversation classes)
+   ===================================================== */
+const PHIL = [
+ {
+  id:"belonging", emoji:"🫂", tag:"Identity · 身分認同",
+  en:"A Sense of Belonging", zh:"歸屬感",
+  sub:"First Year or a Veteran College Student", subZh:"新鮮人，還是老鳥？",
+  hook:"友情、孤獨與「找到自己人」——大學裡最真實的功課。",
+  intro:{
+    en:"Every year is like it's just the first year… for the first few days. Some students confess they were worried about starting college because they didn't know if they could make friends or not.",
+    zh:"每一年，最初幾天都像「大一新生」。有些學生坦白說，他們害怕上大學，因為不知道自己交不交得到朋友。"},
+  sections:[
+   {h:"First-Year Fears", zh:"大一的恐懼",
+    qs:[
+     {en:"Have you ever feared that you wouldn't make friends in college? Why is this such a common issue for students?",
+      zh:"你曾害怕在大學交不到朋友嗎？為什麼這對很多學生來說是共同的煩惱？",
+      help:["At first I was afraid that…","I think it's common because…"]},
+     {en:"Once your first year actually started, what was the reality? What felt the same or different?",
+      zh:"開學之後，真實情況如何？哪些跟你想的一樣、哪些不一樣？",
+      help:["It turned out that…","The biggest difference was…"]}]},
+   {h:"Degrees of Friendship", zh:"友情的深淺",
+    lead:{en:"What makes a friend a friend? Do you have degrees of friendship?", zh:"是什麼讓一個人成為你的朋友？友情有分等級嗎？"},
+    qs:[
+     {en:"Are friendships stronger than romantic relationships? Has a friend ever \"disappeared\" once they started dating someone?",
+      zh:"友情會比愛情更堅固嗎？有沒有朋友一談戀愛就「消失」了？",
+      help:["In my experience, friendship is…","When a friend started dating, they…"]},
+     {en:"Taiwanese friendships often last for decades and stay very close. How is that similar to or different from friendships abroad?",
+      zh:"台灣人的友情常常維持數十年、又很親密。這和你對外國人友情的想像有什麼異同？",
+      help:["I think Taiwanese friendships tend to…","Compared with abroad, …"]}]},
+   {h:"New Subcultures", zh:"新的次文化",
+    lead:{en:"In this day and age, subcultures are far more visible than they were a decade ago.", zh:"比起十幾年前，如今的次文化不再那麼隱形。"},
+    qs:[
+     {en:"What new subcultures have you had to learn about or get used to (LGBTQ+, skaters, foreigners, rich or poor…)?",
+      zh:"你認識或必須適應了哪些以前少見的次文化（LGBTQ+、滑板族、外國人、貧富…）？",
+      help:["One group I've learned more about is…","At first it felt unfamiliar, but…"]},
+     {en:"Do you interact with teachers and professors differently now? How has that changed?",
+      zh:"現在你和老師、教授的互動方式不一樣了嗎？有什麼改變？",
+      help:["With professors now, I usually…","It's different from high school because…"]}]}],
+  vocab:[["belonging","n.","歸屬感"],["veteran","n./adj.","老手；資深的"],["subculture","n.","次文化"],["intimate","adj.","親密的"],["long-lasting","adj.","長久的"]]
+ },
+ {
+  id:"fake-it", emoji:"🎭", tag:"Fear & Success · 恐懼與成功",
+  en:"Fake It 'til You Make It", zh:"假裝成功，直到成真",
+  sub:"When's That…?", subZh:"那一天，什麼時候會來？",
+  hook:"我們是不是其實在害怕「恐懼」本身？談成功、舒適圈與冒險。",
+  intro:{
+    en:"Confronting your fear is hard — but are we then afraid of the fear itself? In Dune, Paul has to face a fear that isn't real; it's a figment of his imagination. \"Fear is the mind-killer.\" So why do some people fear success as much as failure?",
+    zh:"面對恐懼很難——但我們是不是其實在害怕「恐懼」本身？《沙丘》裡，保羅面對的是一個並不真實的恐懼，只是想像的虛影。「恐懼會殺死思考。」那麼，為什麼有些人怕成功，就跟怕失敗一樣？"},
+  sections:[
+   {h:"What Are Your Fears?", zh:"你在怕什麼？",
+    qs:[
+     {en:"Why do we care so much about what others think? What makes their idea of who we are so important?",
+      zh:"我們為什麼這麼在意別人的看法？別人怎麼定義我們，為什麼那麼重要？",
+      help:["I care about others' opinions when…","I think it matters because…"]},
+     {en:"Is your comfort zone really that comfortable? Why stay in it if you have bigger dreams?",
+      zh:"你的舒適圈真的那麼舒適嗎？如果你有更大的夢想，為什麼還待在裡面？",
+      help:["My comfort zone is…","I stay because…, but I wish…"]}]},
+   {h:"Focus on Success, Not Failure", zh:"專注於成功，而非失敗",
+    lead:{en:"I was afraid to graduate: What would I do after? Would I be happy? Most importantly — was I ready?", zh:"我也曾害怕畢業：之後要做什麼？會快樂嗎？最重要的是——我準備好了嗎？"},
+    qs:[
+     {en:"Some of you just started college, others are near the end. What are you concerned about now? How are you preparing?",
+      zh:"有人剛進大學，有人快畢業。你現在擔心什麼？你正在為未來做什麼準備？",
+      help:["Right now I'm worried about…","To prepare, I've started…"]},
+     {en:"What risks are you willing to take for the life you imagine? Do you picture a different future from your parents?",
+      zh:"為了你想像的人生，你願意冒什麼險？你想像的未來，和父母那一輩不一樣嗎？",
+      help:["I'd be willing to risk…","Unlike my parents, I imagine…"]}]},
+   {h:"Not Faking, Just Accepting", zh:"不是假裝，而是接受",
+    lead:{en:"Maybe we aren't faking success — we just don't know what success really looks like. Create the life you want rather than wait for it to appear.", zh:"也許我們不是在假裝成功，而是還不知道成功長什麼樣子。與其等待，不如創造你想要的人生。"},
+    qs:[
+     {en:"Where have you found support from a place you didn't expect? What kind of support do you wish would come?",
+      zh:"你曾在意想不到的地方得到支持嗎？你希望能得到什麼樣的支持？",
+      help:["I found support from…","I wish I had more…"]},
+     {en:"What is your ideal success? How will you make it happen?",
+      zh:"你理想中的成功是什麼？你打算怎麼實現？",
+      help:["To me, success means…","My first step will be…"]}]}],
+  vocab:[["confront","v.","面對；正視"],["comfort zone","n.","舒適圈"],["figment","n.","虛構之物"],["achievement","n.","成就"],["opportunity","n.","機會"]]
+ },
+ {
+  id:"food", emoji:"🍜", tag:"Culture · 文化",
+  en:"Food: Life's Daily Pleasure", zh:"食物：日常的小確幸",
+  sub:"Just a food source, or a daily guilty pleasure?", subZh:"只是燃料，還是每天的小放縱？",
+  hook:"為什麼吃飯是一件社交的事？從一頓飯談文化、人情與品味。",
+  intro:{
+    en:"One of the hardest decisions of my day is what I'll eat — I fall asleep thinking about breakfast and wake up thinking about dinner. But what makes food cultural?",
+    zh:"我每天最難的決定之一，就是要吃什麼——我常帶著對早餐的期待入睡，又想著晚餐醒來。但，是什麼讓食物成為一種文化？"},
+  sections:[
+   {h:"More Than Fuel?", zh:"不只是燃料？",
+    qs:[
+     {en:"What is your favorite food, and why?",
+      zh:"你最愛的食物是什麼？為什麼？",
+      help:["My favorite food is… because…","It reminds me of…"]},
+     {en:"We treat friends to dinner, go on dinner dates, bring food back from trips. How can food repay a \"debt\" or solidify a friendship? What makes eating social?",
+      zh:"我們請朋友吃飯、約會吃飯、旅行帶伴手禮回來。食物如何「還人情」或鞏固友情？吃飯為什麼是一件社交的事？",
+      help:["Sharing food can…","In my family, eating together means…"]}]},
+   {h:"Gourmand or Just Hungry?", zh:"美食家，還是只是肚子餓？",
+    lead:{en:"I relish every bite and I'm critical of flavor and texture. In my opinion, Tainan is a food capital.", zh:"我細細品味每一口，對味道和口感很挑剔。在我看來，台南是一座美食之都。"},
+    qs:[
+     {en:"Is food just energy for you, or does taste matter? Do you want the chef to push the envelope of flavor?",
+      zh:"食物對你只是能量，還是味道也很重要？你希望廚師大膽創新、突破味覺極限嗎？",
+      help:["For me, taste is…","I'd love a chef to…"]},
+     {en:"Describe your favorite dish in detail — and how you feel when you eat it. What is your comfort food?",
+      zh:"仔細描述你最愛的一道菜，以及吃它時的感受。你的療癒食物是什麼？",
+      help:["When I eat it, I feel…","My comfort food is…"]}]},
+   {h:"The Value of a Meal", zh:"一餐的價值",
+    lead:{en:"It's easy to monetize a meal — how much \"should\" it cost? But can there be more to eating than just the CP value?", zh:"把一餐換算成價錢很容易——它「該」值多少？但吃飯能不能不只是「CP值」？"},
+    qs:[
+     {en:"How much would you pay for a meal? What would you expect to be served for that price?",
+      zh:"你願意為一餐花多少錢？那樣的價格，你期待吃到什麼？",
+      help:["I'd pay up to… for…","For that price, I'd expect…"]},
+     {en:"Would you chase a good meal — travel a long way just to eat something great?",
+      zh:"你會為了一頓好料，特地跑很遠嗎？",
+      help:["I would/wouldn't travel because…","The farthest I've gone for food was…"]}]},
+   {h:"Foodways Around the World", zh:"世界各地的飲食",
+    lead:{en:"Are foodways just stereotypes? Americans don't only eat hamburgers and hotdogs.", zh:"飲食習慣只是刻板印象嗎？美國人不是只吃漢堡熱狗。"},
+    qs:[
+     {en:"What do you know about other food cultures? What have you discovered, or would like to discover?",
+      zh:"你對其他飲食文化了解多少？你發現過、或想探索什麼？",
+      help:["I've heard that in… people eat…","I'd like to try…"]},
+     {en:"What do you think is \"appropriate\" to eat compared with another culture (stinky tofu, balut, pig brain)? Would it surprise you if others ate the same?",
+      zh:"和其他文化相比，你覺得什麼「可以吃」（臭豆腐、鴨仔蛋、豬腦）？如果別的文化也吃類似的東西，你會意外嗎？",
+      help:["To me, … is normal but … seems strange.","I'd be surprised if…"]}]}],
+  vocab:[["gourmand","n.","講究吃的美食家"],["relish","v.","細細享受"],["texture","n.","口感"],["push the envelope","phr.","突破極限"],["foodways","n.","飲食文化"]]
+ },
+ {
+  id:"gender-talk", emoji:"💬", tag:"Language · 語言",
+  en:"Gender Miscommunication", zh:"性別溝通的誤會",
+  sub:"Do men and women really speak differently?", subZh:"男女說話真的不一樣嗎？",
+  hook:"表情符號也是一種語言嗎？從男女用語談誤解與符號。",
+  intro:{
+    en:"Popular books (\"Men Are From Mars, Women Are From Venus\", \"You Just Don't Understand\") made us believe men and women speak differently. But it isn't fully true — there are similarities as well as differences, and much of it is learned, or \"nurtured.\"",
+    zh:"暢銷書（《男人來自火星，女人來自金星》《你就是不懂我》）讓我們以為男女說話方式天生不同。但這並不全對——既有差異也有相似，而且很多其實是後天學來、被教出來的。"},
+  sections:[
+   {h:"Research Says…", zh:"研究怎麼說",
+    qs:[
+     {en:"In your opinion, do men and women really use language differently, or is there more similarity?",
+      zh:"你認為男女用語真的不同，還是其實更相似？",
+      help:["I think men and women…","One real difference I notice is…"]},
+     {en:"What words or phrases do men use that women don't, and vice versa — in Taiwan or elsewhere?",
+      zh:"在台灣或其他地方，有哪些詞是男生會用、女生不會用的，反之亦然？",
+      help:["Men here often say…","Women tend to say…"]}]},
+   {h:"Symbolic Language", zh:"符號的語言",
+    lead:{en:"Have you ever sent a \"sentence\" that was just a series of emojis? How did you know it was understood?", zh:"你曾傳過一整句只有表情符號的「句子」嗎？你怎麼知道對方看懂了？"},
+    qs:[
+     {en:"How has your texting changed with the technology? When and why do you use emojis, stickers, or emoticons?",
+      zh:"科技如何改變了你打字的方式？你什麼時候、為什麼用表情符號、貼圖或顏文字？",
+      help:["I use emojis when…","My texting has changed because…"]},
+     {en:"Which emojis are risky, or \"date\" you by showing your age? Which have become unpopular in Taiwan?",
+      zh:"哪些表情符號用起來要小心，或會「洩漏你的年紀」？在台灣哪些已經退流行？",
+      help:["The … emoji makes someone seem…","I stopped using… because…"]}]},
+   {h:"Emoji as Metaphor", zh:"表情符號即隱喻",
+    lead:{en:"The monkey emoji \"is like a facepalm, but it softens the blow — like, I'm sorry, I messed up, but I'm still cute, right?\"", zh:"猴子摀臉的表情就像「facepalm」，卻把尷尬柔化了——像是在說：我搞砸了，但我還是很可愛吧？"},
+    qs:[
+     {en:"Can an emoji convey or even excuse an emotion in a way that words cannot? Can it help more than it hurts?",
+      zh:"表情符號能不能傳達、甚至化解某種情緒，做到文字做不到的事？它幫的忙，會多過惹的麻煩嗎？",
+      help:["An emoji can soften…","But it can also…"]},
+     {en:"Have you ever mistaken the intent of an emoji, a sticker, or a message from someone?",
+      zh:"你曾誤會某個表情、貼圖或訊息的意思嗎？",
+      help:["Once I thought … meant…","It actually meant…"]}]}],
+  vocab:[["nurture","v.","後天養成"],["stereotype","n.","刻板印象"],["symbolic","adj.","象徵的"],["metaphor","n.","隱喻"],["convey","v.","傳達"],["soften the blow","phr.","減緩衝擊"]]
+ },
+ {
+  id:"improve-self", emoji:"🌱", tag:"Meaning · 意義與目的",
+  en:"Improving the Self", zh:"成為更好的自己",
+  sub:"Finding meaning and purpose in everyday life", subZh:"在日常裡找到意義與目的",
+  hook:"你為什麼在這裡？談大學的意義、風險，以及「為工作而活」還是「為生活而工作」。",
+  intro:{
+    en:"Jokingly I say, \"College is where dreams go to die.\" A poll found that more than 40% of Taiwanese students don't think a college education is worth it. So — why are you here?",
+    zh:"我常開玩笑說：「大學是夢想埋葬的地方。」有份民調指出，超過四成台灣學生認為大學不值得念。那麼——你，為什麼在這裡？"},
+  sections:[
+   {h:"Why Are You Here?", zh:"你為什麼在這？",
+    qs:[
+     {en:"Why are you in college? What is it going to do for you, and what will you do while you're here?",
+      zh:"你為什麼念大學？它能給你什麼？在學期間你打算做什麼？",
+      help:["I'm in college to…","While I'm here, I want to…"]},
+     {en:"What is the hardest thing you've had to face by yourself so far? How did you overcome it?",
+      zh:"到目前為止，你獨自面對過最難的事是什麼？你怎麼撐過來的？",
+      help:["The hardest thing was…","I got through it by…"]}]},
+   {h:"Living With Consequences", zh:"為選擇負責",
+    lead:{en:"\"Failure is not an option\" — but it is a learning experience. People call me brave for moving to Taiwan with no family and poor language skills; I just saw it as an adventure.", zh:"「失敗不是選項」——但失敗是一種學習。有人說我隻身搬到台灣、語言又不通，很勇敢；我只覺得那是一場冒險。"},
+    qs:[
+     {en:"What has your experience in college taught you about the \"real\" world?",
+      zh:"大學的經驗，讓你認識了什麼真實世界的樣貌？",
+      help:["College taught me that…","I discovered that…"]},
+     {en:"Is the risk of failure more important than the potential success?",
+      zh:"失敗的風險，比可能的成功更重要嗎？",
+      help:["I think failure matters more/less because…","When I weigh them, …"]}]},
+   {h:"Live to Work, or Work to Live?", zh:"為工作而活，還是為生活而工作？",
+    lead:{en:"People keep saying \"I need to save money\" — but to do what? I'm not against saving. I'm just asking: are you living?", zh:"大家都說「我要存錢」——但存來做什麼？我不是反對存錢，我只是想問：你，有在生活嗎？"},
+    qs:[
+     {en:"What is this generation saving for? Are people saving as much as they think they are?",
+      zh:"這一代人在為什麼而存錢？大家真的存得像自己以為的那麼多嗎？",
+      help:["I'm saving for…","Honestly, I save less/more than I think because…"]},
+     {en:"How do you want to live your life — and can you begin now?",
+      zh:"你想怎麼過你的人生？你能從現在就開始嗎？",
+      help:["I want a life where…","One thing I can start today is…"]}]}],
+  vocab:[["meaning","n.","意義"],["purpose","n.","目的"],["consequence","n.","後果"],["overcome","v.","克服"],["worth it","phr.","值得"]]
+ },
+ {
+  id:"love", emoji:"❤️", tag:"Relationships · 關係",
+  en:"Love", zh:"愛",
+  sub:"The most difficult word to define", subZh:"最難定義的一個字",
+  hook:"愛一個人，和愛上一個人有差別嗎？談定義、約會與背叛。",
+  intro:{
+    en:"Thinking back, I'm not sure I was ever told about love. I think I know what it isn't — but in every relationship, I'm surprised by what IT may be.",
+    zh:"回想起來，我好像從來沒被「教」過什麼是愛。我大概知道愛不是什麼，但在每一段關係裡，我都對「它或許是什麼」感到意外。"},
+  sections:[
+   {h:"Just How Do You Know?", zh:"你怎麼知道？",
+    qs:[
+     {en:"How do you define love? Is there a difference between \"loving someone\" and \"being in love with someone\"?",
+      zh:"你如何定義愛？「愛一個人」和「愛上一個人」有差別嗎？",
+      help:["To me, love is…","'In love' feels more like…"]},
+     {en:"How were you taught about love and relationships? Why does it take so long for the lovers in a Korean drama to kiss?",
+      zh:"你是怎麼學到「愛」與「關係」這件事的？韓劇裡的男女主角，為什麼光是一個吻要拖那麼久？",
+      help:["I learned about love from…","I think the slow burn is because…"]}]},
+   {h:"Dating Best Practices", zh:"戀愛的眉角",
+    lead:{en:"So you met someone. Is s/he the one? What should I say? Will s/he like me back?", zh:"你遇見了一個人。是那個對的人嗎？我該說什麼？對方會喜歡我嗎？"},
+    qs:[
+     {en:"How do people date in Taiwan? Are you \"allowed\" to date — why or why not?",
+      zh:"在台灣大家怎麼談戀愛？你被「允許」交往嗎？為什麼？",
+      help:["In Taiwan, dating usually…","In my family, dating is…"]},
+     {en:"Many dating cues are taken from movies or TV. Is that really your expectation for a relationship?",
+      zh:"很多戀愛的暗示與想像來自電影和電視。那真的是你對感情的期待嗎？",
+      help:["Movies made me expect…","In real life, though, …"]}]},
+   {h:"The Cheat", zh:"背叛",
+    lead:{en:"When is a cheat a cheat? Can you still love someone who cheats on you? If you forgive them, how do you move on?", zh:"到什麼程度才算「劈腿」？你還能愛一個背叛你的人嗎？如果原諒了，又要如何走出來？"},
+    qs:[
+     {en:"Taiwan has decriminalized adultery. Do you think cheating shouldn't be a crime? What does the law have to do with love?",
+      zh:"台灣已將通姦除罪化。你認為劈腿不該算犯罪嗎？法律和愛情又有什麼關係？",
+      help:["I think the law should…","Love and law are… because…"]},
+     {en:"How do you break up with someone? When is it really over? Is staying together \"for the kids\" a good reason?",
+      zh:"你會怎麼和一個人分手？什麼時候才算真的結束？「為了孩子」而在一起，是好理由嗎？",
+      help:["I'd break up by…","It's really over when…"]}]}],
+  vocab:[["define","v.","定義"],["cue","n.","暗示；線索"],["decriminalize","v.","除罪化"],["adultery","n.","通姦"],["forgive","v.","原諒"],["move on","phr.","放下；向前走"]]
+ },
+ {
+  id:"red-pill", emoji:"💊", tag:"Truth · 真相與覺醒",
+  en:"Red Pill, Blue Pill", zh:"紅藥丸，藍藥丸",
+  sub:"Are you woke?", subZh:"你「覺醒」了嗎？",
+  hook:"無知真的是幸福嗎？談覺醒、獨立思考與知道的代價。",
+  intro:{
+    en:"\"Woke\" is slang for people who seem to know what's really going on in the world. They can sound pessimistic or overly cautious — almost like conspiracy theorists — yet they always seem to know what's happening.",
+    zh:"「woke（覺醒）」是個俚語，用來形容那些好像看透世界真相的人。他們聽起來可能悲觀、過度謹慎，幾乎像陰謀論者——卻又總是莫名說中很多事。"},
+  sections:[
+   {h:"Are You Woke?", zh:"你「覺醒」了嗎？",
+    qs:[
+     {en:"What is the most important thing you've learned so far from your education?",
+      zh:"到目前為止，求學過程教會你最重要的一件事是什麼？",
+      help:["The most important thing I learned is…","It changed how I…"]},
+     {en:"Do you have a \"woke\" friend? Do they sound crazy to you, or is what they describe coming true around you?",
+      zh:"你有「覺醒」的朋友嗎？他們聽起來很瘋，還是說的事後來真的在你身邊發生了？",
+      help:["I have a friend who…","At first it sounded crazy, but…"]},
+     {en:"Is ignorance truly bliss? Would you take the red pill and wake up, or the blue pill and stay comfortable?",
+      zh:"無知真的是幸福嗎？你會選紅藥丸醒來，還是藍藥丸繼續安穩？",
+      help:["I'd choose the … pill because…","Ignorance is/isn't bliss because…"]}]},
+   {h:"Dissent in the Party", zh:"異議之聲",
+    lead:{en:"An article suggests one member is quietly going against the group's ideals — politely disagreeing.", zh:"一篇文章描述某位成員，正客氣地反對團體的既定理念。"},
+    qs:[
+     {en:"How could encouraging people to think for themselves ever be a bad thing? Isn't that just promoting democracy?",
+      zh:"鼓勵人們獨立思考，怎麼會是壞事？那不就是在推動民主嗎？",
+      help:["Thinking for yourself is good because…","But it could be risky when…"]},
+     {en:"Are we too happy in our ignorance about what happens around us? Is there a price to be paid for knowing — or for not knowing enough?",
+      zh:"我們是不是太安於對周遭的無知了？「知道」要付出代價，「不夠知道」是不是也要？",
+      help:["The price of knowing is…","The price of not knowing is…"]}]}],
+  vocab:[["woke","adj.","覺醒的；有社會意識的"],["ignorance","n.","無知"],["bliss","n.","極樂；幸福"],["dissent","n.","異議"],["come to fruition","phr.","成真；實現"],["democracy","n.","民主"]]
+ }
+];
+const philById = id => PHIL.find(p=>p.id===id);
+function philSay(pi, si, qi){
+  const p = PHIL[pi]; if(!p) return;
+  const q = si<0 ? {en:p.intro.en} : p.sections[si].qs[qi];
+  if(q) tts.speak(q.en, 0.95);
+}
+
 function renderTheoryList(){
   const cards = THEORIES.map(t=>`
     <button class="th-card" onclick="location.hash='#/theory/${t.id}'">
@@ -3285,6 +3607,81 @@ function renderTheory(id){
     <div class="th-foot-nav">
       <button class="btn btn-ghost" onclick="location.hash='#/theory'">← 所有理論 All theories</button>
       ${nextT?`<button class="btn btn-navy" onclick="location.hash='#/theory/${nextT.id}'">下一個：${nextT.zh} →</button>`:""}
+    </div>
+  </div>`;
+}
+
+/* =====================================================
+   Views — 哲學思辨 English Philosophy
+   ===================================================== */
+function renderPhilList(){
+  const cards = PHIL.map(p=>`
+    <button class="ph-card" onclick="location.hash='#/philosophy/${p.id}'">
+      <div class="ph-card-plate"><span class="ph-emoji">${p.emoji}</span></div>
+      <div class="ph-card-body">
+        <span class="ph-card-tag">${p.tag}</span>
+        <div class="ph-card-title">${p.en}<span>${p.zh}</span></div>
+        <div class="ph-card-sub">${p.sub}</div>
+        <p class="ph-card-hook">${p.hook}</p>
+        <span class="ph-card-go">進入討論 Start →</span>
+      </div>
+    </button>`).join("");
+  app.innerHTML = `<div class="view theorybook philo">
+    <div class="crumb"><a href="#/home">Home</a> › Philosophy</div>
+    <div class="th-hd">
+      <div class="eyebrow" style="color:var(--th-warm)">Philosophy · 哲學思辨</div>
+      <h1 class="display">哲學思辨<span class="zh-term-lg" style="color:var(--th-accent)">English Philosophy</span></h1>
+      <p class="lede">用英語聊聊人生大哉問——歸屬感、恐懼、愛、食物、真相。每堂課附一段開場思考、幾個討論問題（中英對照），還有幫你「開口回答」的句型起手式。適合口說課、分組討論或自我思辨。<br>Big questions, in English. Each lesson has an opening reflection, bilingual discussion questions, and sentence starters to help students speak.</p>
+    </div>
+    <div class="ph-list">${cards}</div>
+  </div>`;
+}
+
+function renderPhil(id){
+  const p = philById(id);
+  if(!p){ location.hash = "#/philosophy"; return; }
+  const pi = PHIL.indexOf(p);
+  const sayBtn = (si,qi)=> tts.ok ? `<button class="ph-say" title="朗讀 Read aloud" onclick="event.stopPropagation();philSay(${pi},${si},${qi})">🔊</button>` : "";
+  const sections = p.sections.map((sec,si)=>{
+    const lead = sec.lead ? `<div class="ph-lead"><p class="ph-lead-en">${sec.lead.en}</p><p class="ph-lead-zh">${sec.lead.zh}</p></div>` : "";
+    const qs = sec.qs.map((q,qi)=>`
+      <li class="ph-q">
+        <div class="ph-q-en"><span class="ph-q-mark">Q</span><span>${q.en}</span>${sayBtn(si,qi)}</div>
+        <div class="ph-q-zh">${q.zh}</div>
+        ${q.help&&q.help.length?`<div class="ph-help"><span class="ph-help-lbl">開口 Try saying</span>${q.help.map(h=>`<span class="ph-chip">${h}</span>`).join("")}</div>`:""}
+      </li>`).join("");
+    return `<section class="ph-sec">
+      <h2 class="th-sh"><span class="th-sh-en">${String(si+1).padStart(2,"0")}</span><span class="th-sh-zh">${sec.h}<i>${sec.zh}</i></span></h2>
+      ${lead}
+      <ul class="ph-qs">${qs}</ul>
+    </section>`;
+  }).join("");
+  const vocab = p.vocab&&p.vocab.length ? `
+    <section class="ph-vocab">
+      <h3>關鍵字 Key words</h3>
+      <div class="ph-vgrid">${p.vocab.map(v=>`<div class="ph-v"><b>${v[0]}</b> <i>${v[1]}</i> <span>${v[2]}</span>${tts.ok?`<button class="ph-say mini" onclick="tts.speak('${v[0].replace(/'/g,"\\'")}',0.9)">🔊</button>`:""}</div>`).join("")}</div>
+    </section>` : "";
+  const idx = pi, nextP = PHIL[idx+1];
+  app.innerHTML = `<div class="view theorybook philo">
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/philosophy">Philosophy</a> › ${p.en}</div>
+    <header class="th-hero">
+      <div class="ph-hero-emoji">${p.emoji}</div>
+      <div class="th-eyebrow">${p.tag}</div>
+      <h1 class="th-h1">${p.en}</h1>
+      <div class="th-h1-zh">${p.zh}</div>
+      <div class="ph-hero-sub">${p.sub}<span>${p.subZh}</span></div>
+      <hr class="th-rule">
+    </header>
+    <section class="ph-intro">
+      <h2 class="th-sh"><span class="th-sh-en">Opening</span><span class="th-sh-zh">開場思考${tts.ok?` <button class="ph-say" onclick="philSay(${pi},-1,0)">🔊</button>`:""}</span></h2>
+      <p class="th-en">${p.intro.en}</p>
+      <p class="th-zh">${p.intro.zh}</p>
+    </section>
+    ${sections}
+    ${vocab}
+    <div class="th-foot-nav">
+      <button class="btn btn-ghost" onclick="location.hash='#/philosophy'">← 所有主題 All topics</button>
+      ${nextP?`<button class="btn btn-navy" onclick="location.hash='#/philosophy/${nextP.id}'">下一堂：${nextP.zh} →</button>`:""}
     </div>
   </div>`;
 }
