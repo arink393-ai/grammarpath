@@ -1,8 +1,10 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v1";
+const CACHE = "eci-v3-picturebooks";
 const SHELL = [
   "./",
   "./index.html",
+  "./daily.js",
+  "./daily.css",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
