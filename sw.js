@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v3-picturebooks";
+const CACHE = "eci-v4-pb-images";
 const SHELL = [
   "./",
   "./index.html",
