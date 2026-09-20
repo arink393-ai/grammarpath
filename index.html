@@ -912,12 +912,18 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   --sb-han:'Noto Serif TC','Songti TC',serif;}
 /* list */
 .sb-hd{text-align:center;margin:4px 0 22px}
+.sb-tabs{display:flex;gap:8px;justify-content:center;margin:16px 0 22px;flex-wrap:wrap}
+.sb-tab{font:600 13.5px var(--sans);padding:8px 18px;border-radius:999px;border:1px solid var(--sb-line2);background:var(--sb-panel);color:var(--sb-soft);cursor:pointer;transition:all .15s ease}
+.sb-tab:hover{border-color:var(--sb-brick);color:var(--sb-ink)}
+.sb-tab.active{background:var(--sb-brick);color:#fff;border-color:var(--sb-brick);box-shadow:0 4px 12px -4px rgba(179,96,58,.45)}
 .sb-list{display:grid;grid-template-columns:1fr;gap:18px;max-width:760px;margin:0 auto}
 .sb-list-card{display:flex;gap:0;text-align:left;background:var(--sb-panel);border:1px solid var(--sb-line2);
   border-radius:16px;overflow:hidden;box-shadow:0 12px 30px -22px rgba(60,40,15,.5);transition:transform .14s ease,box-shadow .14s ease}
 .sb-list-card:hover{transform:translateY(-3px);box-shadow:0 18px 36px -20px rgba(60,40,15,.55)}
 .sb-list-plate{width:230px;flex:0 0 230px;background:#0f1b2a;display:flex;align-items:stretch}
 .sb-list-plate svg{width:100%;height:100%;object-fit:cover;display:block}
+.sb-list-plate img{width:100%;height:100%;object-fit:cover;display:block;background:#FDF9F0}
+.sb-card-pb{background:#FFFDF8}
 .sb-list-body{padding:18px 20px;display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
 .sb-list-tag{font:600 10.5px var(--sb-disp);letter-spacing:.16em;text-transform:uppercase;color:var(--sb-brick)}
 .sb-list-title{font:600 21px var(--sb-disp);color:var(--sb-ink);line-height:1.15}
@@ -933,16 +939,32 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sb-hero-sub{font-family:var(--sb-serif);font-style:italic;color:var(--sb-soft);max-width:34ch;margin:14px auto 0;font-size:1.02rem}
 .sb-source{margin-top:16px;font:600 11px var(--sb-disp);letter-spacing:.2em;text-transform:uppercase;color:var(--sb-faint)}
 .sb-rule{width:60px;height:2px;background:var(--sb-gold);border:0;margin:22px auto 0;opacity:.8}
+.sb-read-tools{display:flex;gap:10px;align-items:center;justify-content:center;margin:18px auto 0;flex-wrap:wrap}
+.sb-read-btn{background:var(--sb-panel);border:1px solid var(--sb-line2);border-radius:999px;padding:7px 16px;font:600 13px var(--sans);color:var(--sb-ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .15s ease}
+.sb-read-btn:hover{background:#fff;border-color:var(--sb-lapis);color:var(--sb-lapis)}
 .sb-intro{max-width:60ch;margin:26px auto 8px;text-align:center}
 .sb-intro .en{font-family:var(--sb-serif);font-size:1.05rem;color:var(--sb-ink);margin:.3em 0}
 .sb-intro .zh{font-family:var(--sb-han);color:var(--sb-zh);font-size:1rem;margin:.3em 0}
 .sb-scene{margin:44px auto;max-width:820px}
-.sb-scene-head{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 16px}
+.sb-scene-head{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 16px;flex-wrap:wrap}
 .sb-num{font:600 13px var(--sb-disp);letter-spacing:.14em;color:var(--sb-brick);border:1px solid var(--sb-line2);border-radius:999px;padding:4px 12px}
 .sb-title{font:600 clamp(1.1rem,3.3vw,1.45rem) var(--sb-disp);color:var(--sb-ink);text-align:center;text-wrap:balance}
 .sb-title .z{font-family:var(--sb-han);color:var(--sb-lapis);font-weight:500;margin-left:.45em;font-size:.85em}
+.sb-scene-audio{display:inline-flex;align-items:center;gap:6px;margin-left:4px}
+.sb-scene-say{background:var(--sb-panel);border:1px solid var(--sb-line2);cursor:pointer;font:600 12px var(--sans);color:var(--sb-lapis);padding:3px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;transition:all .15s ease}
+.sb-scene-say:hover{background:#fff;border-color:var(--sb-brick);color:var(--sb-brick)}
+.sb-scene-say.slow{color:var(--sb-soft)}
 .sb-plate{border:1px solid var(--sb-line2);border-radius:16px;overflow:hidden;background:#0f1b2a;box-shadow:0 16px 38px -26px rgba(60,40,15,.55);margin-bottom:20px}
 .sb-plate svg{display:block;width:100%;height:auto}
+.sb-plate.sb-plate-pb{background:#FFFDF8;display:flex;align-items:center;justify-content:center;padding:22px 14px}
+.sb-plate.sb-plate-pb img{max-width:100%;max-height:500px;height:auto;object-fit:contain;display:block;margin:0 auto;border-radius:8px;box-shadow:0 8px 24px -12px rgba(60,40,15,.25)}
+.sb-vocab{max-width:68ch;margin:40px auto 0;background:var(--sb-panel);border:1px solid var(--sb-line2);border-radius:14px;padding:22px 24px}
+.sb-vocab h3{font:600 1.15rem var(--sb-disp);color:var(--sb-brick);margin:0 0 14px}
+.sb-vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.sb-vocab-item{background:#FFFDF8;border:1px solid var(--sb-line);border-radius:10px;padding:9px 12px;display:flex;flex-direction:column;gap:3px}
+.sb-vocab-w{font:700 14.5px var(--sans);color:var(--sb-lapis);display:flex;align-items:center;justify-content:space-between}
+.sb-vocab-w i{font:italic 400 12px var(--sans);color:var(--sb-soft);margin-left:4px}
+.sb-vocab-zh{font-size:13px;color:var(--sb-zh);line-height:1.4}
 .sb-tale{max-width:62ch;margin:0 auto}
 .sb-tale .en{font-family:var(--sb-serif);font-size:1.08rem;color:var(--sb-ink);margin:0 0 .5em}
 .sb-tale .en b,.sb-tale .zh b{font-weight:700;color:var(--sb-brick)}
@@ -1215,6 +1237,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/island">🐾 我的貓島 My Island</button>
   <button data-nav="#/reading">📰 每週閱讀 Reading</button>
   <button data-nav="#/story">📖 故事時間 Stories</button>
+  <button data-nav="#/story/picture-books">🎨 繪本區 Picture Books</button>
   <button data-nav="#/theory">🧠 學習理論 Theory</button>
   <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
   <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
@@ -2840,6 +2863,7 @@ function route(){
   else if(h[0]==="resources") renderResources(h[1]);
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
+  else if(h[0]==="story" && (h[1]==="picture-books" || h[1]==="picturebook" || h[1]==="picture-book")) renderStoryList("picturebook");
   else if(h[0]==="story" && h[1]) renderStory(h[1]);
   else if(h[0]==="story") renderStoryList();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
@@ -2912,6 +2936,7 @@ function renderHome(){
       <button class="btn btn-ghost" onclick="location.hash='#/worksheets'">🖨 Worksheets 學習單</button>
       <button class="btn btn-ghost" onclick="location.hash='#/reading'">📰 Reading 每週時事閱讀</button>
       <button class="btn btn-ghost" onclick="location.hash='#/story'">📖 Story Time 故事時間</button>
+      <button class="btn btn-ghost" onclick="location.hash='#/story/picture-books'">🎨 繪本區 Picture Books</button>
       <button class="btn btn-ghost" onclick="location.hash='#/theory'">🧠 Theory 學習理論</button>
       <button class="btn btn-ghost" onclick="location.hash='#/reflect'">📓 反思筆記 Reflection</button>
       <button class="btn btn-ghost" onclick="location.hash='#/resources'">🔤 Resources 發音·片語·慣用語</button>
@@ -2960,7 +2985,142 @@ function renderHome(){
    ===================================================== */
 const STORIES = [
   {
+    id:"peter-rabbit",
+    category:"picturebook",
+    title:"The Tale of Peter Rabbit",
+    zh:"彼得兔的故事",
+    author:"Beatrix Potter (1902)",
+    tag:"Classic Picture Book · 經典繪本",
+    source:"Beatrix Potter · Frederick Warne & Co. (1902)",
+    coverImg:"art/peter-rabbit/img-000.png",
+    blurb:"Follow mischievous Peter into Mr. McGregor's vegetable garden in Beatrix Potter's timeless classic.",
+    blurbZh:"調皮的彼得不顧警告溜進了麥先生的菜園！百年來陪伴無數孩子成長的手繪經典繪本。",
+    intro:{
+      en:"Once upon a time in the English countryside, four little bunnies lived under a very big fir-tree. Three were good, but one little rabbit was very naughty...",
+      zh:"很久很久以前在美麗的英國鄉間，四隻小兔子住在一棵大樅樹下。其中三隻很乖，但有一隻小兔子非常淘氣……"
+    },
+    scenes:[
+      {n:"1", title:"Under the Big Fir-Tree", z:"大樅樹下的一家人", img:"art/peter-rabbit/img-004.png",
+        en:"Once upon a time there were four little Rabbits, and their names were— Flopsy, Mopsy, Cotton-tail, and Peter. They lived with their Mother in a sand-bank, underneath the root of a very big fir-tree.",
+        zh:"從前從前，有四隻小兔子，他們的名字叫作——弗洛普西（Flopsy）、莫普西（Mopsy）、棉球尾（Cotton-tail）和彼得（Peter）。他們和媽媽一起住在一棵好大好大的樅樹根下的沙洞裡。"},
+      {n:"2", title:"Mother's Warning", z:"媽媽的告誡", img:"art/peter-rabbit/img-005.png",
+        en:"“Now my dears,” said old Mrs. Rabbit one morning, “you may go into the fields or down the lane, but don't go into Mr. McGregor's garden: your Father had an accident there; he was put in a pie by Mrs. McGregor.”",
+        zh:"「孩子們，」一天早晨，兔媽媽叮嚀道：「你們可以到田野裡玩，也可以沿著鄉間小路走，但千萬不能跑進麥先生的菜園裡：你們的爸爸就是在那裡出了意外；他被麥太太做成了餡餅。」"},
+      {n:"3", title:"“Don't Get into Mischief”", z:"「別調皮搗蛋」", img:"art/peter-rabbit/img-006.png",
+        en:"“Now run along, and don't get into mischief. I am going out.”",
+        zh:"「去跑跑吧，記得不要調皮搗蛋。媽媽要出門一趟。」"},
+      {n:"4", title:"Through the Wood to the Baker's", z:"穿過森林去麵包店", img:"art/peter-rabbit/img-007.png",
+        en:"Then old Mrs. Rabbit took a basket and her umbrella, and went through the wood to the baker's. She bought a loaf of brown bread and five currant buns.",
+        zh:"兔媽媽提起籃子、拿上雨傘，穿過森林到麵包店去。她買了一條黑麵包和五個黑醋栗葡萄乾小圓麵包。"},
+      {n:"5", title:"Gathering Blackberries", z:"採黑莓的乖兔子", img:"art/peter-rabbit/img-008.png",
+        en:"Flopsy, Mopsy, and Cotton-tail, who were good little bunnies, went down the lane to gather blackberries.",
+        zh:"弗洛普西、莫普西和棉球尾是乖巧聽話的小兔子，他們乖乖沿著小路去採野生黑莓。"},
+      {n:"6", title:"Under the Gate!", z:"擠進菜園大門！", img:"art/peter-rabbit/img-009.png",
+        en:"But Peter, who was very naughty, ran straight away to Mr. McGregor's garden, and squeezed under the gate!",
+        zh:"可是非常淘氣的彼得，卻一溜煙直奔麥先生的菜園，從大門底下硬擠了進去！"},
+      {n:"7", title:"Lettuces, Beans, and Radishes", z:"生菜、四季豆與蘿蔔", img:"art/peter-rabbit/img-010.png",
+        en:"First he ate some lettuces and some French beans; and then he ate some radishes;",
+        zh:"一進去，他先吃了些脆嫩的萵苣，又吃了些四季豆；接著他又拔了幾根櫻桃小蘿蔔；"},
+      {n:"8", title:"Looking for Parsley", z:"肚子脹，找歐芹", img:"art/peter-rabbit/img-011.png",
+        en:"And then, feeling rather sick, he went to look for some parsley.",
+        zh:"吃得太撐、肚子開始反胃不舒服了，於是他跑去找些巴西利（歐芹）來消脹氣。"},
+      {n:"9", title:"Round the Cucumber Frame", z:"轉角撞見麥先生！", img:"art/peter-rabbit/img-012.png",
+        en:"But round the end of a cucumber frame, whom should he meet but Mr. McGregor!",
+        zh:"可是剛繞過黃瓜冷床木架的轉角，你猜他撞見了誰？正是麥先生！"},
+      {n:"10", title:"“Stop Thief!”", z:"「抓小偷啊！」", img:"art/peter-rabbit/img-013.png",
+        en:"Mr. McGregor was on his hands and knees planting out young cabbages, but he jumped up and ran after Peter, waving a rake and calling out, “Stop thief!”",
+        zh:"麥先生原本正跪在地上種小甘藍菜苗，一見到彼得立刻猛跳起來死命狂追，手裡高高揮舞著鐵耙大喊：「抓小偷啊！」"},
+      {n:"11", title:"Shoes Lost in the Garden", z:"慌亂中丟了鞋子", img:"art/peter-rabbit/img-014.png",
+        en:"Peter was most dreadfully frightened; he rushed all over the garden, for he had forgotten the way back to the gate. He lost one of his shoes among the cabbages, and the other shoe amongst the potatoes.",
+        zh:"彼得嚇得魂飛魄散；他在菜園裡四處亂竄，因為慌亂中他完全忘了回大門的路。他的一隻鞋子掉在甘藍菜田裡，另一隻鞋子則掉在馬鈴薯堆中。"},
+      {n:"12", title:"Caught in the Net", z:"夾克被網子勾住了", img:"art/peter-rabbit/img-015.png",
+        en:"After losing them, he ran on four legs and went faster, so that I think he might have got away altogether if he had not unfortunately run into a gooseberry net, and got caught by the large buttons on his jacket. It was a blue jacket with brass buttons, quite new.",
+        zh:"丟了鞋子後，他改用四隻腳跑得更快了，我想如果不是他倒楣衝進了防鳥的醋栗防護網裡，本來是可以徹底逃脫的——他的夾克大鈕扣被網子死死卡住了。那是一件剛買沒多久、綴著閃亮銅鈕扣的藍色新夾克。"},
+      {n:"13", title:"The Friendly Sparrows", z:"友善的小麻雀", img:"art/peter-rabbit/img-016.png",
+        en:"Peter gave himself up for lost, and shed big tears; but his sobs were overheard by some friendly sparrows, who flew to him in great excitement, and implored him to exert himself.",
+        zh:"彼得以為自己死定了，傷心地掉下大顆大顆的眼淚；但他的抽泣聲被幾隻友善的小麻雀聽見了，牠們急切地飛到身邊大喊：「振作點！用力掙脫呀！」"},
+      {n:"14", title:"Out Just in Time", z:"金蟬脫殼", img:"art/peter-rabbit/img-017.png",
+        en:"Mr. McGregor came up with a sieve, which he intended to pop upon the top of Peter; but Peter wriggled out just in time, leaving his jacket behind him.",
+        zh:"麥先生拿著一個大篩子衝了過來，打算一把扣在彼得頭上；千鈞一髮之際，彼得猛地一扭身鑽了出來，把藍夾克留在了網上。"},
+      {n:"15", title:"A Can in the Tool-Shed", z:"躲進冰涼的澆水壺", img:"art/peter-rabbit/img-018.png",
+        en:"And rushed into the tool-shed, and jumped into a can. It would have been a beautiful thing to hide in, if it had not had so much water in it.",
+        zh:"他衝進工具棚，縱身跳進一個澆水壺裡。如果不是裡面裝滿了冰冷的水，那原本會是個絕佳的藏身之處。"},
+      {n:"16", title:"“Kertyschoo!”", z:"「哈啾！」", img:"art/peter-rabbit/img-019.png",
+        en:"Mr. McGregor was quite sure that Peter was somewhere in the tool-shed, perhaps hidden underneath a flower-pot. He began to turn them over carefully, looking under each. Presently Peter sneezed—“Kertyschoo!” Mr. McGregor was after him in no time.",
+        zh:"麥先生很肯定彼得就在工具棚裡，也許藏在某個花盆下。他開始小心翼翼地把花盆逐一翻過來。這時，渾身濕透的彼得忍不住打了個大噴嚏——「哈啾！」麥先生一瞬間就撲了過來。"},
+      {n:"17", title:"Out of the Window", z:"跳窗逃脫", img:"art/peter-rabbit/img-020.png",
+        en:"And tried to put his foot upon Peter, who jumped out of a window, upsetting three plants. The window was too small for Mr. McGregor, and he was tired of running after Peter. He went back to his work.",
+        zh:"麥先生抬腳想踩住彼得，彼得敏捷地從窗戶跳了出去，撞翻了三盆盆栽。那扇窗戶對麥先生來說太窄了鑽不過去，而且他也追累了，便轉身回去幹活。"},
+      {n:"18", title:"Lippity—Lippity", z:"一蹦一跳摸索", img:"art/peter-rabbit/img-021.png",
+        en:"Peter sat down to rest; he was out of breath and trembling with fright, and he had not the least idea which way to go. Also he was very damp with sitting in that can. After a time he began to wander about, going lippity—lippity—not very fast, and looking all round.",
+        zh:"彼得坐下來歇息；他氣喘吁吁、嚇得全身發抖，完全不知道該往哪裡走。而且泡在水壺裡那麼久，渾身濕淋淋的。過了一會兒，他開始一蹦一跳（lippity-lippity）地四處摸索，跳得不快，東張西望著。"},
+      {n:"19", title:"The Old Mouse and the Pea", z:"老母鼠與大豌豆", img:"art/peter-rabbit/img-022.png",
+        en:"He found a door in a wall; but it was locked, and there was no room for a fat little rabbit to squeeze underneath. An old mouse was running in and out over the stone doorstep, carrying peas and beans to her family in the wood. Peter asked her the way to the gate, but she had such a large pea in her mouth that she could not answer. She only shook her head at him. Peter began to cry.",
+        zh:"他在圍牆上發現了一扇木門，但門上了鎖，底下縫隙太窄，圓滾滾的小兔子根本擠不過去。一隻老母鼠正踩著石門檻跑進跑出，把豌豆和豆子搬給樹林裡的家人。彼得向她打聽去大門的路，但她嘴裡含著一顆大豌豆沒法說話，只能對他搖搖頭。彼得又忍不住哭了起來。"},
+      {n:"20", title:"The White Cat by the Pond", z:"水塘邊的白貓", img:"art/peter-rabbit/img-023.png",
+        en:"Then he tried to find his way straight across the garden, but he became more and more puzzled. Presently, he came to a pond where Mr. McGregor filled his water-cans. A white cat was staring at some gold-fish, she sat very, very still, but now and then the tip of her tail twitched as if it were alive. Peter thought it best to go away without speaking to her; he had heard about cats from his cousin, little Benjamin Bunny.",
+        zh:"他試著直接穿過菜園，卻越走越迷惘。不久，他走到麥先生裝水的水塘邊。一隻白貓正盯著池塘裡的金魚，她坐得非常非常安靜，但尾巴末端時不時微微抽動。彼得覺得最好別去搭話，悄悄溜走；他曾聽表哥班傑明小兔說過貓咪的可怕。"},
+      {n:"21", title:"Beyond Mr. McGregor—The Gate!", z:"手推車上的驚喜發現", img:"art/peter-rabbit/img-024.png",
+        en:"He went back towards the tool-shed, but suddenly, quite close to him, he heard the noise of a hoe—scr-r-ritch, scratch, scratch, scritch. Peter scuttered underneath the bushes. But presently, as nothing happened, he came out, and climbed upon a wheelbarrow and peeped over. The first thing he saw was Mr. McGregor hoeing onions. His back was turned towards Peter, and beyond him was the gate!",
+        zh:"他朝著工具棚走回去，但突然間，身邊傳來了鋤頭鬆土的聲響——喀嚓、沙、沙、喀嚓。彼得嚇得哧溜一聲鑽進灌木叢下。過了一會兒見沒動靜，他悄悄探出頭，爬上一輛手推車偷看。映入眼簾的，正是麥先生在鋤洋蔥地。麥先生正背對著他，而在麥先生身後不遠處——正是那扇大門！"},
+      {n:"22", title:"Safe at Last in the Wood", z:"安全逃回森林", img:"art/peter-rabbit/img-025.png",
+        en:"Peter got down very quietly off the wheelbarrow; and started running as fast as he could go, along a straight walk behind some black-currant bushes. Mr. McGregor caught sight of him at the corner, but Peter did not care. He slipped underneath the gate, and was safe at last in the wood outside the garden.",
+        zh:"彼得極其輕巧地爬下推車，沿著黑醋栗灌木叢後的直道拼命狂奔。麥先生在轉角處瞥見了他，但彼得根本不管了。他一矮身從大門底下滑了出去，終於平安逃回了花園外的大森林裡。"},
+      {n:"23", title:"The Scare-Crow", z:"小夾克變成了稻草人", img:"art/peter-rabbit/img-026.png",
+        en:"Mr. McGregor hung up the little jacket and the shoes for a scare-crow to frighten the blackbirds. Peter never stopped running or looked behind him till he got home to the big fir-tree.",
+        zh:"麥先生把那件小藍夾克和鞋子撐了起來，做成稻草人去嚇唬偷菜的烏鶇鳥。彼得一路飛奔、頭也不敢回，一口氣跑回了大樅樹下的家。"},
+      {n:"24", title:"Flopped Down on the Soft Sand", z:"疲憊倒下的彼得", img:"art/peter-rabbit/img-027.png",
+        en:"He was so tired that he flopped down upon the nice soft sand on the floor of the rabbit-hole and shut his eyes. His mother was busy cooking; she wondered what he had done with his clothes. It was the second little jacket and pair of shoes that Peter had lost in a fortnight!",
+        zh:"他累壞了，一進兔洞就撲通癱倒在柔軟舒適的沙地上，緊緊閉上眼睛。媽媽正在忙著煮飯；她納悶彼得把衣服弄去哪兒了。這已經是彼得短短兩星期（十四天）內弄丟的第二套夾克和鞋子了！"},
+      {n:"25", title:"A Dose of Camomile Tea", z:"苦苦的甘菊茶", img:"art/peter-rabbit/img-028.png",
+        en:"I am sorry to say that Peter was not very well during the evening. His mother put him to bed, and made some camomile tea; and she gave a dose of it to Peter! ‘One table-spoonful to be taken at bed-time.’",
+        zh:"很遺憾地告訴大家，彼得那天傍晚肚子痛、非常不舒服。媽媽把他抱上床，泡了些洋甘菊茶，還給彼得灌了一劑！「睡前喝一大湯匙。」"},
+      {n:"26", title:"Bread and Milk and Blackberries", z:"甜美的晚點心", img:"art/peter-rabbit/img-029.png",
+        en:"But Flopsy, Mopsy, and Cotton-tail had bread and milk and blackberries for supper. THE END",
+        zh:"而乖乖聽話的弗洛普西、莫普西和棉球尾，晚餐則享用了香甜的麵包、鮮奶和剛採來的新鮮黑莓。全劇終。"}
+    ],
+    vocab:[
+      ["mischief", "n.", "調皮、惡作劇（get into mischief 惹麻煩）"],
+      ["currant bun", "n.", "黑醋栗葡萄乾小圓麵包"],
+      ["blackberry", "n.", "野生黑莓"],
+      ["squeezed", "v.", "擠過、塞入（squeeze under the gate）"],
+      ["radish", "n.", "櫻桃小蘿蔔、小紅蘿蔔"],
+      ["parsley", "n.", "巴西利、歐芹（西餐香草，常用於消脹氣）"],
+      ["cucumber frame", "n.", "黃瓜冷床木架（溫室玻璃木框）"],
+      ["dreadfully", "adv.", "極其、非常（dreadfully frightened）"],
+      ["gooseberry net", "n.", "醋栗防護網（防鳥啄食漿果）"],
+      ["sparrows", "n.", "麻雀（friendly sparrows）"],
+      ["implored", "v.", "懇求、哀求（implored him to exert himself）"],
+      ["exert", "v.", "竭盡全力、奮力掙脫"],
+      ["sieve", "n.", "鐵網篩子、濾網"],
+      ["wriggled", "v.", "蠕動、扭身掙脫（wriggled out）"],
+      ["scuttered", "v.", "哧溜溜地敏捷竄逃"],
+      ["hoe", "n./v.", "鋤頭；除草鬆土"],
+      ["camomile tea", "n.", "洋甘菊茶（歐美舒緩安眠的家常花草茶）"],
+      ["fortnight", "n.", "兩星期、十四天（a fortnight）"]
+    ],
+    aside:{
+      titleEn:"Behind the Story",
+      titleZh:"繪本背後的故事",
+      en:"Beatrix Potter first wrote and drew <i>The Tale of Peter Rabbit</i> in September 1893 as an illustrated letter to Noel Moore, the five-year-old sick son of her former governess: <i>“My dear Noel, I don’t know what to write to you, so I shall tell you a story about four little rabbits…”</i> It went on to sell over 45 million copies worldwide and remains one of the most beloved children's books in history.",
+      zh:"1893 年 9 月，碧雅翠絲·波特（Beatrix Potter）寫了一封附有手繪插圖的信，寄給她前家庭女教師生病的 5 歲兒子諾埃爾（Noel）：<i>「親愛的諾埃爾，我不知道該寫些什麼，所以就說個關於四隻小兔子的故事吧……」</i>這封手繪信後來發展成了《彼得兔的故事》，全球累計銷量已超過 4,500 萬冊，成為世界兒童文學史上最受喜愛的經典繪本之一。"
+    },
+    close:{
+      en:"Curiosity and courage make for wonderful adventures — but listening to wise advice keeps us safe. And no matter how far we wander or how muddy our clothes get, home is where a warm bed and mother's love are always waiting.",
+      zh:"好奇心與勇氣能帶我們展開冒險，但聽取長輩叮嚀能讓我們遠離危險。無論在外面跑了多遠、弄丟了多少次鞋子，家永遠是那個有溫暖被窩和媽媽關愛的地方。"
+    },
+    discuss:[
+      {en:"How did you feel when Peter squeezed into Mr. McGregor's garden even though his mother warned him?", zh:"初階思考：當彼得不顧媽媽的警告、硬擠進麥先生的花園時，你心裡有什麼感受？"},
+      {en:"Have you ever done something even though you were told not to? What happened afterwards?", zh:"初階思考：你有沒有哪次像彼得一樣，做了一件大人交代不能做的事？後來發生了什麼？"},
+      {en:"Peter had to drink a dose of bitter camomile tea in bed, while his sisters had bread, milk, and blackberries. What did Peter learn by the end?", zh:"初階思考：彼得最後只能喝苦苦的甘菊茶，而乖乖聽話的姐妹們卻享用了鮮奶黑莓。你覺得彼得學到了什麼？"},
+      {en:"Can the reader have sympathy for Mr. McGregor? Why or why not? What is the story like from the farmer's point of view?", zh:"進階賞析：讀者能體會農夫麥先生的感受嗎？辛苦栽種的菜苗被吃掉踩壞，站在他的角度來看，彼得是什麼樣的角色？"},
+      {en:"Does the story teach a lesson through harsh preaching, or by showing natural consequences? Which do you prefer in stories?", zh:"進階賞析：波特小姐沒有採用嚴厲的說教，而是透過自然的冒險後果呈現。你覺得這種繪本敘事手法有何魅力？"}
+    ],
+    note:"Original text and illustrations by Beatrix Potter (1902, Frederick Warne & Co.), public domain. Extracted and presented with bilingual annotations, Web Speech read-aloud and vocabulary support for class and home reading."
+  },
+  {
     id:"babel",
+    category:"lore",
     title:"The Tower of Babel",
     zh:"巴別塔的故事",
     source:"Genesis 11 : 1–9",
@@ -3046,6 +3206,7 @@ const STORIES = [
   },
   {
     id:"pentecost",
+    category:"lore",
     title:"The Day of Pentecost",
     zh:"五旬節",
     source:"Acts 2 : 1–11",
@@ -3117,6 +3278,7 @@ const STORIES = [
   },
   {
     id:"rosetta-stone",
+    category:"lore",
     title:"The Rosetta Stone",
     zh:"羅塞塔石碑",
     source:"Ancient Egypt · 196 BC → 1799–1822",
@@ -3176,6 +3338,7 @@ const STORIES = [
   },
   {
     id:"helen-keller",
+    category:"lore",
     title:"The Day Water Had a Name",
     zh:"水的那一刻",
     source:"Helen Keller · The Story of My Life (1903)",
@@ -3239,36 +3402,118 @@ const STORIES = [
 ];
 const storyById = id => STORIES.find(s=>s.id===id);
 
-function renderStoryList(){
-  const cards = STORIES.map(s=>`
-    <button class="sb-list-card" onclick="location.hash='#/story/${s.id}'">
-      <div class="sb-list-plate">${s.scenes[0].svg}</div>
+let sbPlayingAll = false;
+let sbPlayTimer = null;
+
+function sbStop(){
+  sbPlayingAll = false;
+  if(sbPlayTimer) clearTimeout(sbPlayTimer);
+  if(typeof tts !== "undefined" && tts && tts.stop) tts.stop();
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
+}
+
+function sbSpeakScene(storyId, sceneIdx, rate = 0.88){
+  const s = storyById(storyId);
+  if(!s || !s.scenes || !s.scenes[sceneIdx]) return;
+  if(typeof tts !== "undefined" && tts && tts.speak){
+    tts.speak(s.scenes[sceneIdx].en, rate);
+  }
+}
+
+function sbPlayAll(storyId, rate = 0.88){
+  const s = storyById(storyId);
+  if(!s || !s.scenes || !s.scenes.length) return;
+  sbStop();
+  sbPlayingAll = true;
+  let idx = 0;
+  function step(){
+    if(!sbPlayingAll || idx >= s.scenes.length){
+      sbPlayingAll = false;
+      return;
+    }
+    const cur = idx;
+    const sc = s.scenes[cur];
+    const el = document.getElementById("scene-" + (cur+1));
+    if(el) el.scrollIntoView({behavior:"smooth", block:"center"});
+    if(typeof tts !== "undefined" && tts && tts.speak){
+      tts.speak(sc.en, rate);
+    }
+    idx++;
+    if(window.speechSynthesis){
+      const poll = setInterval(()=>{
+        if(!sbPlayingAll){ clearInterval(poll); return; }
+        if(!window.speechSynthesis.speaking){
+          clearInterval(poll);
+          sbPlayTimer = setTimeout(step, 800);
+        }
+      }, 250);
+    } else {
+      sbPlayTimer = setTimeout(step, 6000);
+    }
+  }
+  step();
+}
+
+function renderStoryList(filterCat = "all"){
+  sbStop();
+  const cats = [
+    {id:"all", label:"全部故事 All Stories"},
+    {id:"picturebook", label:"🎨 經典繪本 Picture Books"},
+    {id:"lore", label:"📜 歷史與經典 Lore & History"}
+  ];
+  const activeCat = cats.some(c=>c.id===filterCat) ? filterCat : "all";
+  const list = activeCat==="all" ? STORIES : STORIES.filter(s=> (s.category||"lore") === activeCat);
+  const tabs = `<div class="sb-tabs">
+    ${cats.map(c=>`<button class="sb-tab ${activeCat===c.id?'active':''}" onclick="location.hash='${c.id==='picturebook' ? '#/story/picture-books' : '#/story'}'; renderStoryList('${c.id}')">${c.label}</button>`).join("")}
+  </div>`;
+  const cards = list.map(s=>{
+    const plateContent = s.coverImg
+      ? `<img src="${s.coverImg}" alt="${s.title}" loading="lazy">`
+      : (s.scenes[0].img ? `<img src="${s.scenes[0].img}" alt="${s.title}" loading="lazy">` : s.scenes[0].svg);
+    return `
+    <button class="sb-list-card ${s.category==='picturebook'?'sb-card-pb':''}" onclick="location.hash='#/story/${s.id}'">
+      <div class="sb-list-plate ${s.category==='picturebook'?'sb-plate-cover':''}">${plateContent}</div>
       <div class="sb-list-body">
         <span class="sb-list-tag">${s.tag}</span>
         <div class="sb-list-title">${s.title}<span>${s.zh}</span></div>
         <div class="sb-list-src">${s.source}</div>
         <p class="sb-list-blurb">${s.blurbZh}</p>
-        <span class="sb-list-go">開始讀 Read →</span>
+        <span class="sb-list-go">${s.category==='picturebook' ? '翻開繪本 Read Picture Book →' : '開始讀 Read →'}</span>
       </div>
-    </button>`).join("");
+    </button>`;
+  }).join("");
+
   app.innerHTML = `<div class="view storybook">
-    <div class="crumb"><a href="#/home">Home</a> › Story Time</div>
+    <div class="crumb"><a href="#/home">Home</a> › ${activeCat==='picturebook' ? '<a href="#/story">Story Time</a> › 繪本區 Picture Books' : 'Story Time'}</div>
     <div class="sb-hd">
-      <div class="eyebrow" style="color:var(--sb-brick)">Story Time</div>
-      <h1 class="display">故事時間<span class="zh-term-lg" style="color:var(--sb-lapis)">Story Time</span></h1>
-      <p class="lede">讀故事、學英文。中英雙語、逐段對照，還有原文經典。適合課堂投影或親子共讀。<br>Illustrated bilingual stories — read aloud in class or together at home.</p>
+      <div class="eyebrow" style="color:var(--sb-brick)">Story Time · 故事與繪本</div>
+      <h1 class="display">${activeCat==='picturebook' ? '經典繪本區' : '故事時間'}<span class="zh-term-lg" style="color:var(--sb-lapis)">${activeCat==='picturebook' ? 'Picture Books' : 'Story Time'}</span></h1>
+      <p class="lede">${activeCat==='picturebook' ? '精選經典原版水彩繪本，中英雙語對照、原汁原味大師插畫、隨段語音朗讀與生詞學習。<br>Timeless illustrated picture books — read aloud, bilingual text, vocabulary and classroom discussion.' : '讀故事、學英文。中英雙語、逐段對照，還有原文經典。適合課堂投影或親子共讀。<br>Illustrated bilingual stories — read aloud in class or together at home.'}</p>
+      ${tabs}
     </div>
-    <div class="sb-list">${cards}</div>
+    <div class="sb-list">${cards || '<p style="text-align:center;color:var(--muted);padding:40px 0">尚無內容</p>'}</div>
   </div>`;
 }
 
 function renderStory(id){
+  sbStop();
   const s = storyById(id);
   if(!s){ location.hash = "#/story"; return; }
-  const scenes = s.scenes.map(sc=>`
-    <section class="sb-scene">
-      <div class="sb-scene-head"><span class="sb-num">${sc.n}</span><span class="sb-title">${sc.title}<span class="z">${sc.z}</span></span></div>
-      <div class="sb-plate">${sc.svg}</div>
+  const isPB = s.category === "picturebook";
+  const scenes = s.scenes.map((sc, idx)=>`
+    <section class="sb-scene" id="scene-${idx+1}">
+      <div class="sb-scene-head">
+        <span class="sb-num">${sc.n}</span>
+        <span class="sb-title">${sc.title}<span class="z">${sc.z}</span></span>
+        ${(typeof tts !== "undefined" && tts && tts.ok) ? `
+          <div class="sb-scene-audio">
+            <button class="sb-scene-say" title="朗讀 Read aloud" onclick="event.stopPropagation();sbSpeakScene('${s.id}',${idx},0.88)">🔊 朗讀</button>
+            <button class="sb-scene-say slow" title="慢速朗讀 Slow read" onclick="event.stopPropagation();sbSpeakScene('${s.id}',${idx},0.65)">🐢 慢速</button>
+          </div>` : ""}
+      </div>
+      <div class="sb-plate ${sc.img ? 'sb-plate-pb' : ''}">
+        ${sc.img ? `<img src="${sc.img}" alt="${sc.title}" loading="lazy">` : sc.svg}
+      </div>
       <div class="sb-tale">
         <p class="en">${sc.en}</p>
         <p class="zh">${sc.zh}</p>
@@ -3279,10 +3524,28 @@ function renderStory(id){
         </div>` : ""}
       </div>
     </section>`).join("");
+
+  const vocabHtml = (s.vocab && s.vocab.length) ? `
+    <div class="sb-vocab">
+      <h3>📖 繪本生詞寶典 · Story Vocabulary</h3>
+      <div class="sb-vocab-grid">
+        ${s.vocab.map(v=>`
+          <div class="sb-vocab-item">
+            <div class="sb-vocab-w">
+              <span><b>${v[0]}</b> <i>${v[1]}</i></span>
+              ${(typeof tts !== "undefined" && tts && tts.ok) ? `<button class="sb-scene-say" title="發音" onclick="event.stopPropagation();tts.speak('${v[0].replace(/'/g,"\\'")}',0.88)">🔊</button>` : ""}
+            </div>
+            <div class="sb-vocab-zh">${v[2]}</div>
+          </div>
+        `).join("")}
+      </div>
+    </div>` : "";
+
   const idx = STORIES.indexOf(s);
   const nextS = STORIES[idx+1];
+
   app.innerHTML = `<div class="view storybook">
-    <div class="crumb"><a href="#/home">Home</a> › <a href="#/story">Story Time</a> › ${s.title}</div>
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/story">Story Time</a> › ${isPB ? '<a href="#/story/picture-books">繪本區</a> › ' : ''}${s.title}</div>
     <header class="sb-hero">
       <div class="sb-eyebrow">${s.tag}</div>
       <h1 class="sb-h1">${s.title}</h1>
@@ -3290,21 +3553,30 @@ function renderStory(id){
       <p class="sb-hero-sub">${s.blurb}</p>
       <div class="sb-source">${s.source}</div>
       <hr class="sb-rule">
+      ${(typeof tts !== "undefined" && tts && tts.ok) ? `
+        <div class="sb-read-tools">
+          <button class="sb-read-btn" onclick="sbPlayAll('${s.id}',0.88)">▶ 連續朗讀 Play Story</button>
+          <button class="sb-read-btn" onclick="sbPlayAll('${s.id}',0.65)">🐢 慢速連續 Play Slow</button>
+          <button class="sb-read-btn" onclick="sbStop()">⏹ 停止朗讀 Stop</button>
+        </div>` : ""}
     </header>
     <div class="sb-intro">
       <p class="en">${s.intro.en}</p>
       <p class="zh">${s.intro.zh}</p>
     </div>
     ${scenes}
+    ${vocabHtml}
+    ${s.aside ? `
     <div class="sb-aside">
       <h3>${s.aside.titleEn} · ${s.aside.titleZh}</h3>
       <p class="en">${s.aside.en}</p>
       <p class="zh">${s.aside.zh}</p>
-    </div>
+    </div>` : ""}
+    ${s.close ? `
     <div class="sb-close">
       <p class="en">${s.close.en}</p>
       <p class="zh">${s.close.zh}</p>
-    </div>
+    </div>` : ""}
     ${s.discuss && s.discuss.length ? `<div class="sb-discuss">
       <h3>💬 討論一下 · Let's Talk</h3>
       <ol>${s.discuss.map(q=>`<li><span class="en">${q.en}</span><span class="zh">${q.zh}</span></li>`).join("")}</ol>
@@ -3313,8 +3585,8 @@ function renderStory(id){
       <div class="sb-foot-src">${s.source}</div>
       <p>${s.note}</p>
       <div class="sb-foot-nav">
-        <button class="btn btn-ghost" onclick="location.hash='#/story'">← 所有故事 All stories</button>
-        ${nextS?`<button class="btn btn-navy" onclick="location.hash='#/story/${nextS.id}'">下一個故事：${nextS.title} →</button>`:""}
+        <button class="btn btn-ghost" onclick="location.hash='${isPB ? '#/story/picture-books' : '#/story'}'">← ${isPB ? '返回繪本區 Back to Picture Books' : '所有故事 All stories'}</button>
+        ${nextS?`<button class="btn btn-navy" onclick="location.hash='#/story/${nextS.id}'">下一個：${nextS.title} →</button>`:""}
       </div>
     </div>
   </div>`;
