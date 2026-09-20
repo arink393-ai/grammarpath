@@ -7,6 +7,7 @@
 <meta name="supported-color-schemes" content="light">
 <meta name="theme-color" content="#FBF3E8">
 <title>English Cat Island — Learn · Practice · Grow</title>
+<link rel="stylesheet" href="daily.css">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
@@ -959,6 +960,12 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sb-close{max-width:62ch;margin:40px auto 0;text-align:center;padding-top:28px;border-top:1px solid var(--sb-line)}
 .sb-close .en{font-family:var(--sb-serif);font-style:italic;font-size:1.1rem;color:var(--sb-ink);margin:0}
 .sb-close .zh{font-family:var(--sb-han);color:var(--sb-zh);font-size:1.02rem;margin:.4em 0 0}
+.sb-discuss{max-width:62ch;margin:36px auto 0;background:color-mix(in oklab,var(--sb-lapis) 8%,var(--sb-panel));border:1px solid color-mix(in oklab,var(--sb-lapis) 22%,var(--sb-line));border-radius:14px;padding:20px 24px}
+.sb-discuss h3{font:600 1.05rem var(--sb-disp);color:var(--sb-lapis);margin:0 0 12px}
+.sb-discuss ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:13px}
+.sb-discuss li{color:var(--sb-ink)}
+.sb-discuss .en{display:block;font-family:var(--sb-serif);font-size:1.02rem;line-height:1.5}
+.sb-discuss .zh{display:block;font-family:var(--sb-han);color:var(--sb-zh);font-size:.96rem;margin-top:3px;line-height:1.7}
 .sb-foot{max-width:62ch;margin:44px auto 0;text-align:center;color:var(--sb-faint);font-size:12.5px;line-height:1.7}
 .sb-foot-src{font:600 11px var(--sb-disp);letter-spacing:.14em;text-transform:uppercase;color:var(--sb-brick);margin-bottom:10px}
 .sb-foot-nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px}
@@ -1198,6 +1205,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <nav class="nav" id="mainNav" aria-label="Main">
   <div class="nav-head"><span class="nav-title">選單 Menu</span><button class="nav-close" id="navClose" type="button" aria-label="關閉 Close">✕</button></div>
   <button data-nav="#/home">🏝️ 首頁 Home</button>
+  <button data-nav="#/daily">🗓️ 每日任務 Daily Quests</button>
   <div class="nav-group">課程 Lessons</div>
   <button data-nav="#/level/basic">📗 初級 Basic</button>
   <button data-nav="#/level/intermediate">📘 中級 Intermediate</button>
@@ -1241,6 +1249,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 </div>
 <main class="wrap" id="app" aria-live="polite"></main>
 <div class="toast" id="toast" role="status"></div>
+<script src="daily.js"></script>
 <script>
 /* =====================================================
    GrammarPath — curriculum data
@@ -2820,6 +2829,8 @@ function route(){
   else if(h[0]==="lesson" && lessonById(h[1])) renderLesson(h[1]);
   else if(h[0]==="practice" && lessonById(h[1])) startPractice(h[1]);
   else if(h[0]==="videoquiz" && h[1]) startVideoQuiz(h[1]);
+  else if(h[0]==="daily" && h[1]) startDaily(h[1]);
+  else if(h[0]==="daily") renderDaily();
   else if(h[0]==="games") renderGames();
   else if(h[0]==="game" && h[1]) startGame(h[1], h[2]||"all");
   else if(h[0]==="island") renderIsland();
@@ -2892,6 +2903,7 @@ function renderHome(){
       <div class="card stat"><div class="n">${store.data.xp}</div><div class="l">XP earned</div></div>
       <div class="card stat"><div class="n">${store.streakCount()}</div><div class="l">Day streak</div></div>
     </div>
+    ${dailyHomeCard()}
     <h2 class="section">Choose your level</h2>
     <div class="levels">${lvCards}</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 4px">
@@ -3026,6 +3038,10 @@ const STORIES = [
       en:"Today the world speaks thousands of languages. Learning a new one — even the very first word of English — is a way of building a bridge back, so that we can understand one another again.",
       zh:"今天，世界上有數千種語言。學一種新的語言——哪怕只是第一個英文單字——都是在搭一座橋，讓我們重新聽懂彼此。"
     },
+    discuss:[
+      {en:"If everyone on earth still spoke one single language, what would be good about it — and what might be hard?", zh:"如果全世界到今天都還說同一種語言，會有什麼好處？又可能會有什麼困難？"},
+      {en:"Learning a new language is like building a bridge. Who is one person you would love to talk to if you shared a language?", zh:"學一種新語言，就像搭一座橋。如果你們有共同的語言，你最想和誰說話？"}
+    ],
     note:"Scripture: King James Version (public domain). Chinese scripture based on the Chinese Union Version (和合本, public domain). The simplified retelling and all illustrations were made fresh for class — original work, not reproduced from any book."
   },
   {
@@ -3093,6 +3109,10 @@ const STORIES = [
       en:"Different languages don't have to keep us apart. Every time you learn to understand someone else's words — even one line of English — you are helping to gather people back together.",
       zh:"不同的語言，不一定會把我們隔開。每一次你學會聽懂別人的話——哪怕只是一句英文——你都是在幫忙，把人們重新聚在一起。"
     },
+    discuss:[
+      {en:"At Babel languages split people apart; at Pentecost they were understood and drew people together. Have you ever helped two people understand each other?", zh:"巴別讓語言拆散了人；五旬節卻讓大家重新聽懂彼此。你有沒有幫過兩個人互相聽懂對方？"},
+      {en:"If everyone in the world could suddenly understand you, what good news would you most want to share?", zh:"如果全世界的人突然都聽得懂你，你最想分享什麼好消息？"}
+    ],
     note:"Scripture: King James Version (public domain). Chinese scripture based on the Chinese Union Version (和合本, public domain). The simplified retelling and all illustrations were made fresh for class — original work, not reproduced from any book."
   },
   {
@@ -3148,6 +3168,10 @@ const STORIES = [
       en:"A language you can't read is a door that's locked. Learning it — one sound, one word at a time — is finding the key. Every English word you learn opens a little more of a very big world.",
       zh:"一種你讀不懂的語言，就像一扇上了鎖的門。學會它——一個音、一個字慢慢來——就是在找那把鑰匙。你每學會一個英文單字，就為自己打開了這個大世界的一小塊。"
     },
+    discuss:[
+      {en:"The Greek writing was the “key” that unlocked the hieroglyphs. What is one “key” — a word, a trick, or a person — that helped you understand English?", zh:"希臘文是解開象形文字的「鑰匙」。有沒有哪一個字、哪個方法、或哪個人，是幫你看懂英文的「鑰匙」？"},
+      {en:"Champollion worked for years before it finally clicked. What is something hard you kept practising until you got it?", zh:"商博良努力了好多年，才終於解開謎題。你有沒有什麼很難的事，是一直練、一直練，最後學會的？"}
+    ],
     note:"A simplified, kid-friendly retelling of real history (the Rosetta Stone, found 1799; deciphered by Jean-François Champollion, 1822). All illustrations are original — no photographs or copyrighted images are used, and the hieroglyph shapes are decorative, not exact."
   },
   {
@@ -3206,6 +3230,10 @@ const STORIES = [
       en:"For Helen, one word opened everything. Your words are opening too. Every English word you learn is a little light in your hand — and each new name gives birth to a new thought.",
       zh:"對海倫來說，一個字，就打開了整個世界。你的字，也正在一個個打開。你每學會一個英文單字，就是掌心裡多了一點光——而每一個新的名字，都會孕育出一個新的想法。"
     },
+    discuss:[
+      {en:"For Helen, “water” was the first word that truly made sense. What is one English word that first felt real and clear to you?", zh:"對海倫來說，「water」是第一個「真的懂了」的字。你學過的英文裡，哪一個字讓你第一次覺得「我真的懂了」？"},
+      {en:"Helen said each new name gave birth to a new thought. Can you think of a word that opened up a new idea for you?", zh:"海倫說，每一個新名字都會帶來一個新想法。有沒有哪個單字，替你打開了一個新的想法？"}
+    ],
     note:"A true story, gently retold for class. The quoted lines are Helen Keller's own words from The Story of My Life (1903, public domain). All illustrations are original and do not depict any real photograph."
   }
 ];
@@ -3277,6 +3305,10 @@ function renderStory(id){
       <p class="en">${s.close.en}</p>
       <p class="zh">${s.close.zh}</p>
     </div>
+    ${s.discuss && s.discuss.length ? `<div class="sb-discuss">
+      <h3>💬 討論一下 · Let's Talk</h3>
+      <ol>${s.discuss.map(q=>`<li><span class="en">${q.en}</span><span class="zh">${q.zh}</span></li>`).join("")}</ol>
+    </div>` : ""}
     <div class="sb-foot">
       <div class="sb-foot-src">${s.source}</div>
       <p>${s.note}</p>
