@@ -950,6 +950,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .storybook.en-only .sb-tale .cuv,
 .storybook.en-only .sb-aside .zh,
 .storybook.en-only .sb-close .zh,
+.storybook.en-only .sb-moral .zh,
 .storybook.en-only .sb-discuss .zh{display:none}
 /* Glossary word: bold + dotted underline; hover (desktop) or tap (mobile) shows the translation */
 .sb-gloss{font-weight:700;color:var(--sb-brick);border-bottom:1.6px dotted var(--sb-gold);cursor:help;position:relative;outline:none}
@@ -1005,6 +1006,20 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sb-foot{max-width:62ch;margin:44px auto 0;text-align:center;color:var(--sb-faint);font-size:12.5px;line-height:1.7}
 .sb-foot-src{font:600 11px var(--sb-disp);letter-spacing:.14em;text-transform:uppercase;color:var(--sb-brick);margin-bottom:10px}
 .sb-foot-nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+/* ---- Aesop's Fables ---- */
+.sb-hero-fable .sb-fable-badge{width:96px;height:96px;margin:0 auto 14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:52px;background:radial-gradient(circle at 50% 38%,#FFF7E6,#F4E4C1);border:1px solid var(--sb-line2);box-shadow:0 12px 30px -14px rgba(150,110,40,.5)}
+.sb-scene-fable{max-width:60ch;margin:20px auto}
+.sb-scene-fable .sb-tale{max-width:none;background:var(--sb-panel);border:1px solid var(--sb-line2);border-radius:14px;padding:20px 24px 18px;position:relative}
+.sb-fable-audio{display:flex;gap:6px;justify-content:flex-end;margin-bottom:6px}
+.sb-scene-fable .en{font-size:1.12rem}
+.sb-moral{max-width:60ch;margin:30px auto 0;text-align:center;background:linear-gradient(180deg,color-mix(in oklab,var(--sb-gold) 14%,var(--sb-panel)),var(--sb-panel));border:1px solid color-mix(in oklab,var(--sb-gold) 40%,var(--sb-line));border-radius:16px;padding:22px 26px}
+.sb-moral-label{display:inline-block;font:600 11px var(--sb-disp);letter-spacing:.2em;text-transform:uppercase;color:var(--sb-brick);margin-bottom:10px}
+.sb-moral .en{font-family:var(--sb-serif);font-style:italic;font-size:1.18rem;color:var(--sb-ink);margin:0;text-wrap:balance}
+.sb-moral .zh{font-family:var(--sb-han);font-weight:500;color:var(--sb-zh);font-size:1.05rem;margin:.5em 0 0}
+.sb-plate-fable{background:radial-gradient(circle at 50% 40%,#FFF6E4,#EFDCB8)!important;align-items:center!important;justify-content:center}
+.sb-fable-emoji{font-size:76px;line-height:1}
+.sb-card-fable .sb-list-plate{width:150px;flex:0 0 150px}
+.sb-list-moral{font-family:var(--sb-han);color:var(--sb-brick);font-weight:600;font-size:13px;margin:2px 0 2px;line-height:1.6}
 @media (prefers-reduced-motion:no-preference){.storybook svg [data-tw]{animation:sbtw 4s ease-in-out infinite}@keyframes sbtw{0%,100%{opacity:.35}50%{opacity:1}}}
 @media(max-width:640px){
   .sb-list-card{flex-direction:column}
@@ -1252,6 +1267,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/reading">📰 每週閱讀 Reading</button>
   <button data-nav="#/story">📖 故事時間 Stories</button>
   <button data-nav="#/story/picture-books">🎨 繪本區 Picture Books</button>
+  <button data-nav="#/story/fables">🦊 伊索寓言 Aesop's Fables</button>
   <button data-nav="#/theory">🧠 學習理論 Theory</button>
   <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
   <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
@@ -2878,6 +2894,7 @@ function route(){
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
   else if(h[0]==="story" && (h[1]==="picture-books" || h[1]==="picturebook" || h[1]==="picture-book")) renderStoryList("picturebook");
+  else if(h[0]==="story" && (h[1]==="fables" || h[1]==="fable")) renderStoryList("fable");
   else if(h[0]==="story" && h[1]) renderStory(h[1]);
   else if(h[0]==="story") renderStoryList();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
@@ -3414,6 +3431,635 @@ const STORIES = [
     note:"A true story, gently retold for class. The quoted lines are Helen Keller's own words from The Story of My Life (1903, public domain). All illustrations are original and do not depict any real photograph."
   }
 ];
+
+/* Story Time — Aesop’s Fables (伊索寓言). Public-domain text: The Æsop for Children (Milo Winter, 1919) · read.gov. */
+const FABLES = [
+ {
+  "id": "aesop-frogs-ox",
+  "category": "fable",
+  "emoji": "🐸",
+  "title": "The Frogs & the Ox",
+  "zh": "青蛙與牛",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "An old Frog puffs herself up, trying to be as big as an Ox.",
+  "blurbZh": "一隻老青蛙不服氣，硬要把自己鼓成一頭牛那麼大……",
+  "moral": {
+   "en": "Do not attempt the impossible.",
+   "zh": "不要去嘗試不可能的事（別逞強）。"
+  },
+  "gloss": [
+   [
+    "reedy",
+    "蘆葦叢生的"
+   ],
+   [
+    "crushed",
+    "壓扁、踩扁"
+   ],
+   [
+    "monster",
+    "怪物"
+   ],
+   [
+    "puffing",
+    "鼓起（身體）"
+   ],
+   [
+    "burst",
+    "爆裂、爆開"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "An Ox came down to a reedy pool to drink. As he splashed heavily into the water, he crushed a young Frog into the mud.",
+    "zh": "一頭牛走到長滿蘆葦的水池邊喝水。牠笨重地踏進水裡，把一隻小青蛙踩進了泥巴裡。"
+   },
+   {
+    "en": "The old Frog soon missed the little one and asked his brothers and sisters what had become of him. “A great big monster,” said one of them, “stepped on little brother with one of his huge feet!”",
+    "zh": "老青蛙很快發現小青蛙不見了，便問其他兄弟姊妹牠出了什麼事。「一個好大好大的怪物，」其中一隻說，「用牠的大腳把小弟弟踩扁了！」"
+   },
+   {
+    "en": "“Big, was he!” said the old Frog, puffing herself up. “Was he as big as this?” “Oh, much bigger!” they cried. The Frog puffed up still more. “He could not have been bigger than this,” she said. But the little Frogs all declared that the monster was much, much bigger and the old Frog kept puffing herself out more and more until, all at once, she burst.",
+    "zh": "「很大嗎！」老青蛙一邊把自己鼓大，一邊說，「有這麼大嗎？」「喔，比那大多了！」牠們喊道。老青蛙又把自己鼓得更大。「牠不可能比這還大吧，」牠說。可是小青蛙們都說那怪物大得多、多得多，老青蛙就一直鼓、一直鼓，最後一下子，牠爆開了。"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-belling-cat",
+  "category": "fable",
+  "emoji": "🔔",
+  "title": "Belling the Cat",
+  "zh": "為貓掛鈴鐺",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "The mice have a clever plan to escape the Cat — but who will carry it out?",
+  "blurbZh": "老鼠們想出對付貓的好辦法，但誰去執行呢？",
+  "moral": {
+   "en": "It is one thing to say that something should be done, but quite a different matter to do it.",
+   "zh": "說一件事該做是一回事，真正去做到卻是另一回事。"
+  },
+  "gloss": [
+   [
+    "enemy",
+    "敵人"
+   ],
+   [
+    "claws",
+    "爪子"
+   ],
+   [
+    "dens",
+    "巢穴"
+   ],
+   [
+    "bell",
+    "鈴鐺"
+   ],
+   [
+    "rejoicing",
+    "歡欣鼓舞"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "The Mice once called a meeting to decide on a plan to free themselves of their enemy, the Cat. At least they wished to find some way of knowing when she was coming, so they might have time to run away. Indeed, something had to be done, for they lived in such constant fear of her claws that they hardly dared stir from their dens by night or day.",
+    "zh": "有一次，老鼠們開會，想商量出一個辦法來擺脫牠們的敵人——貓。至少牠們希望能有辦法知道貓什麼時候來，好有時間逃走。實在得想個辦法才行，因為牠們終日活在貓爪的恐懼中，無論白天黑夜都幾乎不敢踏出洞穴。"
+   },
+   {
+    "en": "Many plans were discussed, but none of them was thought good enough. At last a very young Mouse got up and said: “I have a plan that seems very simple, but I know it will be successful. All we have to do is to hang a bell about the Cat’s neck. When we hear the bell ringing we will know immediately that our enemy is coming.”",
+    "zh": "大家討論了許多辦法，卻沒有一個夠好。最後，一隻很年輕的老鼠站起來說：「我有一個看起來很簡單、但我相信一定行得通的辦法。我們只要在貓的脖子上掛一個鈴鐺就好。一聽到鈴聲，我們就馬上知道敵人來了。」"
+   },
+   {
+    "en": "All the Mice were much surprised that they had not thought of such a plan before. But in the midst of the rejoicing over their good fortune, an old Mouse arose and said: “I will say that the plan of the young Mouse is very good. But let me ask one question: Who will bell the Cat?”",
+    "zh": "所有老鼠都很驚訝，怎麼從前沒想到這麼好的辦法。正當大家為這好主意歡欣鼓舞時，一隻老老鼠站了起來說：「我承認這隻小老鼠的辦法很好。但讓我問一個問題：誰去把鈴鐺掛到貓的脖子上呢？」"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-fox-grapes",
+  "category": "fable",
+  "emoji": "🍇",
+  "title": "The Fox & the Grapes",
+  "zh": "狐狸與葡萄",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "A Fox can’t reach the grapes, so he decides they must be sour.",
+  "blurbZh": "搆不到葡萄的狐狸，決定說那葡萄是酸的。",
+  "moral": {
+   "en": "There are many who pretend to despise and belittle that which is beyond their reach.",
+   "zh": "有許多人會假裝看不起自己得不到的東西。"
+  },
+  "gloss": [
+   [
+    "ripe",
+    "成熟的"
+   ],
+   [
+    "vine",
+    "藤蔓"
+   ],
+   [
+    "watered",
+    "流口水"
+   ],
+   [
+    "in vain",
+    "徒勞地"
+   ],
+   [
+    "scornfully",
+    "輕蔑地"
+   ],
+   [
+    "despise",
+    "鄙視"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "A Fox one day spied a beautiful bunch of ripe grapes hanging from a vine trained along the branches of a tree. The grapes seemed ready to burst with juice, and the Fox’s mouth watered as he gazed longingly at them. The bunch hung from a high branch, and the Fox had to jump for it. The first time he jumped he missed it by a long way. So he walked off a short distance and took a running leap at it, only to fall short once more. Again and again he tried, but in vain.",
+    "zh": "有一天，狐狸看見一串又大又熟的葡萄，掛在攀著樹枝生長的藤上。葡萄飽滿得彷彿要爆出汁來，狐狸盯著看，口水都流了出來。那串葡萄掛在高高的枝頭，狐狸得跳起來才搆得到。第一次跳，牠差得遠了。於是牠退開一小段距離，助跑一躍，卻還是搆不著。牠試了一次又一次，全是白費力氣。"
+   },
+   {
+    "en": "Now he sat down and looked at the grapes in disgust. “What a fool I am,” he said. “Here I am wearing myself out to get a bunch of sour grapes that are not worth gaping for.” And off he walked very, very scornfully.",
+    "zh": "這時牠坐了下來，厭惡地看著那串葡萄。「我真是個傻瓜，」牠說，「在這裡把自己累得半死，只為了一串酸葡萄，根本不值得我張著嘴巴盯著看。」說完，牠非常、非常不屑地走開了。"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-lion-mouse",
+  "category": "fable",
+  "emoji": "🦁",
+  "title": "The Lion & the Mouse",
+  "zh": "獅子與老鼠",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "A tiny Mouse the Lion spared returns to save his life.",
+  "blurbZh": "被饒過的小老鼠，後來救了大獅子一命。",
+  "moral": {
+   "en": "A kindness is never wasted.",
+   "zh": "善意永遠不會白費。"
+  },
+  "gloss": [
+   [
+    "timid",
+    "膽小的"
+   ],
+   [
+    "roused",
+    "被驚醒"
+   ],
+   [
+    "spare",
+    "饒恕"
+   ],
+   [
+    "repay",
+    "報答"
+   ],
+   [
+    "prey",
+    "獵物"
+   ],
+   [
+    "gnawed",
+    "啃咬"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "A Lion lay asleep in the forest, his great head resting on his paws. A timid little Mouse came upon him unexpectedly, and in her fright and haste to get away, ran across the Lion’s nose. Roused from his nap, the Lion laid his huge paw angrily on the tiny creature to kill her.",
+    "zh": "一頭獅子在森林裡睡著了，大大的頭枕在腳掌上。一隻膽小的小老鼠不小心闖了過來，驚慌之下急著逃走，竟從獅子的鼻子上跑了過去。獅子被吵醒，生氣地把巨掌壓在這小東西身上，要弄死牠。"
+   },
+   {
+    "en": "“Spare me!” begged the poor Mouse. “Please let me go and some day I will surely repay you.” The Lion was much amused to think that a Mouse could ever help him. But he was generous and finally let the Mouse go.",
+    "zh": "「饒了我吧！」可憐的小老鼠哀求道，「請放我走，總有一天我一定會報答你。」獅子覺得很好笑——一隻小老鼠怎麼可能幫得上牠？不過牠很大方，最後還是放走了小老鼠。"
+   },
+   {
+    "en": "Some days later, while stalking his prey in the forest, the Lion was caught in the toils of a hunter’s net. Unable to free himself, he filled the forest with his angry roaring. The Mouse knew the voice and quickly found the Lion struggling in the net. Running to one of the great ropes that bound him, she gnawed it until it parted, and soon the Lion was free. “You laughed when I said I would repay you,” said the Mouse. “Now you see that even a Mouse can help a Lion.”",
+    "zh": "幾天後，獅子在森林裡追捕獵物時，落入了獵人的網子裡。牠掙脫不開，憤怒的吼聲響徹整座森林。小老鼠聽出了牠的聲音，很快找到在網中掙扎的獅子。牠跑到綁住獅子的一條粗繩旁，一直啃、一直咬，直到繩子斷開，獅子很快就自由了。「當初我說要報答你時，你還笑我，」小老鼠說，「現在你看，連一隻小老鼠也幫得上獅子。」"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-crow-pitcher",
+  "category": "fable",
+  "emoji": "🪶",
+  "title": "The Crow & the Pitcher",
+  "zh": "烏鴉與水罐",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "A thirsty Crow raises the water with pebbles, one by one.",
+  "blurbZh": "口渴的烏鴉，用小石子讓水位升高。",
+  "moral": {
+   "en": "In a pinch a good use of our wits may help us out.",
+   "zh": "危急時，善用智慧就能幫我們脫困。"
+  },
+  "gloss": [
+   [
+    "thirsty",
+    "口渴的"
+   ],
+   [
+    "pitcher",
+    "水罐"
+   ],
+   [
+    "narrow",
+    "狹窄的"
+   ],
+   [
+    "pebbles",
+    "小石子"
+   ],
+   [
+    "wits",
+    "智慧、腦筋"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "In a spell of dry weather, when the Birds could find very little to drink, a thirsty Crow found a pitcher with a little water in it. But the pitcher was high and had a narrow neck, and no matter how he tried, the Crow could not reach the water. The poor thing felt as if he must die of thirst.",
+    "zh": "在一段乾旱的日子裡，鳥兒們幾乎找不到水喝。一隻口渴的烏鴉發現了一個水罐，裡面還有一點水。可是水罐又高、瓶口又窄，不管牠怎麼試，就是搆不到水。可憐的烏鴉覺得自己快要渴死了。"
+   },
+   {
+    "en": "Then an idea came to him. Picking up some small pebbles, he dropped them into the pitcher one by one. With each pebble the water rose a little higher until at last it was near enough so he could drink.",
+    "zh": "這時牠想到一個辦法。牠啣起一些小石子，一顆一顆地投進水罐裡。每投一顆，水就升高一點，直到最後水面夠高，牠終於喝到了水。"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-hare-tortoise",
+  "category": "fable",
+  "emoji": "🐢",
+  "title": "The Hare & the Tortoise",
+  "zh": "龜兔賽跑",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "Slow and steady, the Tortoise beats the boastful Hare.",
+  "blurbZh": "慢吞吞的烏龜，竟然贏了驕傲的兔子。",
+  "moral": {
+   "en": "The race is not always to the swift.",
+   "zh": "跑得快不一定就會贏。"
+  },
+  "gloss": [
+   [
+    "mocking",
+    "嘲笑的"
+   ],
+   [
+    "race",
+    "賽跑"
+   ],
+   [
+    "nap",
+    "小睡"
+   ],
+   [
+    "steadily",
+    "穩定地"
+   ],
+   [
+    "overtake",
+    "超越、追上"
+   ],
+   [
+    "swift",
+    "迅速的"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "A Hare was making fun of the Tortoise one day for being so slow. “Do you ever get anywhere?” he asked with a mocking laugh. “Yes,” replied the Tortoise, “and I get there sooner than you think. I’ll run you a race and prove it.”",
+    "zh": "有一天，兔子取笑烏龜爬得太慢。「你到底到得了任何地方嗎？」牠嘲笑著問。「到得了，」烏龜回答，「而且比你想的還快。我跟你賽跑，證明給你看。」"
+   },
+   {
+    "en": "The Hare was much amused at the idea of running a race with the Tortoise, but for the fun of the thing he agreed. So the Fox, who had consented to act as judge, marked the distance and started the runners off. The Hare was soon far out of sight, and to make the Tortoise feel very deeply how ridiculous it was for him to try a race with a Hare, he lay down beside the course to take a nap until the Tortoise should catch up.",
+    "zh": "兔子覺得跟烏龜賽跑這主意實在好笑，但為了好玩，牠還是答應了。於是由願意當裁判的狐狸量好距離，讓兩位選手起跑。兔子很快就跑得不見蹤影。為了讓烏龜深深體會到跟兔子比賽有多可笑，牠索性躺在跑道旁小睡一下，等烏龜追上來。"
+   },
+   {
+    "en": "The Tortoise meanwhile kept going slowly but steadily, and, after a time, passed the place where the Hare was sleeping. But the Hare slept on very peacefully; and when at last he did wake up, the Tortoise was near the goal. The Hare now ran his swiftest, but he could not overtake the Tortoise in time.",
+    "zh": "這段時間，烏龜依然緩慢卻穩定地前進，過了一會兒，經過了兔子睡覺的地方。兔子卻睡得又香又甜；等牠終於醒來，烏龜已經快到終點了。兔子這才拼命地跑，用上最快的速度，卻已經來不及追上烏龜了。"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-fox-crow",
+  "category": "fable",
+  "emoji": "🧀",
+  "title": "The Fox & the Crow",
+  "zh": "狐狸與烏鴉",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "Flattery makes the Crow open her beak — and drop the cheese.",
+  "blurbZh": "愛聽好話的烏鴉，一開口就把起司弄丟了。",
+  "moral": {
+   "en": "The flatterer lives at the expense of those who will listen to him.",
+   "zh": "諂媚者靠著愛聽好話的人過活。"
+  },
+  "gloss": [
+   [
+    "beak",
+    "鳥喙"
+   ],
+   [
+    "sly",
+    "狡猾的"
+   ],
+   [
+    "admiringly",
+    "讚賞地"
+   ],
+   [
+    "flattering",
+    "奉承的"
+   ],
+   [
+    "suspicion",
+    "懷疑"
+   ],
+   [
+    "flatterer",
+    "諂媚者"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "One bright morning as the Fox was following his sharp nose through the wood in search of a bite to eat, he saw a Crow on the limb of a tree overhead. This was by no means the first Crow the Fox had ever seen. What caught his attention this time and made him stop for a second look, was that the lucky Crow held a bit of cheese in her beak. “No need to search any farther,” thought sly Master Fox. “Here is a dainty bite for my breakfast.”",
+    "zh": "一個晴朗的早晨，狐狸循著靈敏的鼻子在林子裡找東西吃，看見頭頂樹枝上停著一隻烏鴉。這絕不是狐狸第一次看到烏鴉。這回吸引牠、讓牠停下多看一眼的，是這隻幸運的烏鴉嘴裡叼著一小塊起司。「不用再找了，」狡猾的狐狸先生心想，「這正是我早餐的美味一口。」"
+   },
+   {
+    "en": "Up he trotted to the foot of the tree in which the Crow was sitting, and looking up admiringly, he cried, “Good-morning, beautiful creature!” The Crow, her head cocked on one side, watched the Fox suspiciously. But she kept her beak tightly closed on the cheese and did not return his greeting. “What a charming creature she is!” said the Fox. “How her feathers shine! What a beautiful form and what splendid wings! Such a wonderful Bird should have a very lovely voice, since everything else about her is so perfect. Could she sing just one song, I know I should hail her Queen of Birds.”",
+    "zh": "牠一路小跑到烏鴉停著的那棵樹下，抬頭讚賞地喊道：「早安啊，美麗的鳥兒！」烏鴉把頭歪向一邊，滿腹狐疑地盯著狐狸，卻仍緊緊閉著嘴叼住起司，沒有回應牠的問候。「牠真是隻迷人的鳥兒！」狐狸說，「瞧牠的羽毛多亮！多美的身形、多華麗的翅膀！這麼出色的鳥，聲音一定也很動聽，因為牠其他地方都這麼完美。只要牠能唱一首歌，我一定要尊牠為鳥中之后。」"
+   },
+   {
+    "en": "Listening to these flattering words, the Crow forgot all her suspicion, and also her breakfast. She wanted very much to be called Queen of Birds. So she opened her beak wide to utter her loudest caw, and down fell the cheese straight into the Fox’s open mouth. “Thank you,” said Master Fox sweetly, as he walked off. “Though it is cracked, you have a voice sure enough. But where are your wits?”",
+    "zh": "聽著這些奉承話，烏鴉忘了所有的疑心，也忘了自己的早餐。牠好想被稱作「鳥中之后」。於是牠張大嘴，發出最響亮的一聲呱——起司便直直落進了狐狸張開的嘴裡。「謝啦，」狐狸先生甜甜地說，一邊走開，「你的嗓音雖然沙啞，倒也算是有聲音。可是你的腦子呢？」"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-bundle-sticks",
+  "category": "fable",
+  "emoji": "🪵",
+  "title": "The Bundle of Sticks",
+  "zh": "一捆木棍",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "One stick snaps easily; a bundle holds firm.",
+  "blurbZh": "一根根折得斷，綁成一捆卻折不斷。",
+  "moral": {
+   "en": "In unity is strength.",
+   "zh": "團結就是力量。"
+  },
+  "gloss": [
+   [
+    "quarreling",
+    "爭吵"
+   ],
+   [
+    "discord",
+    "不和"
+   ],
+   [
+    "bundle",
+    "一捆"
+   ],
+   [
+    "untied",
+    "解開"
+   ],
+   [
+    "unity",
+    "團結"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "A certain Father had a family of Sons, who were forever quarreling among themselves. No words he could say did the least good, so he cast about in his mind for some very striking example that should make them see that discord would lead them to misfortune. One day when the quarreling had been much more violent than usual and each of the Sons was moping in a surly manner, he asked one of them to bring him a bundle of sticks. Then handing the bundle to each of his Sons in turn he told them to try to break it. But although each one tried his best, none was able to do so.",
+    "zh": "有位父親有好幾個兒子，兄弟間總是吵個不停。他怎麼勸都沒有用，於是他在心裡盤算，想找一個很鮮明的例子，好讓兒子們明白：不和睦只會招來災禍。有一天，兄弟們吵得比平常更兇，個個繃著臉生悶氣。父親要其中一個去拿來一捆木棍，然後把整捆木棍依次交給每個兒子，要他們試著折斷它。可是儘管每個人都使出全力，誰也折不斷。"
+   },
+   {
+    "en": "The Father then untied the bundle and gave the sticks to his Sons to break one by one. This they did very easily. “My Sons,” said the Father, “do you not see how certain it is that if you agree with each other and help each other, it will be impossible for your enemies to injure you? But if you are divided among yourselves, you will be no stronger than a single stick in that bundle.”",
+    "zh": "接著父親解開那捆木棍，把木棍一根一根地分給兒子們去折。這下他們輕輕鬆鬆就折斷了。「我的兒子們，」父親說，「你們難道看不出來嗎？只要你們彼此和睦、互相幫助，敵人就絕不可能傷害你們；可是如果你們自己分裂，你們就跟那捆裡的一根木棍一樣不堪一折。」"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-shepherd-wolf",
+  "category": "fable",
+  "emoji": "🐑",
+  "title": "The Shepherd Boy & the Wolf",
+  "zh": "放羊的孩子（狼來了）",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "A boy cries “Wolf!” for fun — until the day it is true.",
+  "blurbZh": "老喊「狼來了」的孩子，真的遇到狼時……",
+  "moral": {
+   "en": "Liars are not believed even when they speak the truth.",
+   "zh": "說謊的人，就算說了真話也沒人相信。"
+  },
+  "gloss": [
+   [
+    "shepherd",
+    "牧羊人"
+   ],
+   [
+    "pasture",
+    "牧場"
+   ],
+   [
+    "flock",
+    "羊群"
+   ],
+   [
+    "trick",
+    "惡作劇、把戲"
+   ],
+   [
+    "terror",
+    "驚恐"
+   ],
+   [
+    "liars",
+    "說謊的人"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "A Shepherd Boy tended his master’s Sheep near a dark forest not far from the village. Soon he found life in the pasture very dull. All he could do to amuse himself was to talk to his dog or play on his shepherd’s pipe. One day as he sat watching the Sheep and the quiet forest, and thinking what he would do should he see a Wolf, he thought of a plan to amuse himself.",
+    "zh": "一個牧童在離村子不遠、靠近一片幽暗森林的地方替主人放羊。沒多久，他就覺得牧場的日子很無聊。他能用來解悶的，只有跟狗說說話，或吹吹牧笛。有一天，他坐著看羊群和寂靜的森林，想著萬一看到狼該怎麼辦，忽然想到一個自娛的點子。"
+   },
+   {
+    "en": "His Master had told him to call for help should a Wolf attack the flock, and the Villagers would drive it away. So now, though he had not seen anything that even looked like a Wolf, he ran toward the village shouting at the top of his voice, “Wolf! Wolf!” As he expected, the Villagers who heard the cry dropped their work and ran in great excitement to the pasture. But when they got there they found the Boy doubled up with laughter at the trick he had played on them.",
+    "zh": "主人曾交代他，萬一有狼來攻擊羊群，就大聲呼救，村民們會來把狼趕走。於是，儘管他連個像狼的影子都沒看到，他還是朝著村子拚命大喊：「狼來了！狼來了！」正如他所料，聽到喊聲的村民放下手邊的工作，緊張地衝到牧場來。可是趕到時，卻看見那孩子正笑得直不起腰，得意自己捉弄了他們。"
+   },
+   {
+    "en": "A few days later the Shepherd Boy again shouted, “Wolf! Wolf!” Again the Villagers ran to help him, only to be laughed at again. Then one evening as the sun was setting behind the forest and the shadows were creeping out over the pasture, a Wolf really did spring from the underbrush and fall upon the Sheep. In terror the Boy ran toward the village shouting “Wolf! Wolf!” But though the Villagers heard the cry, they did not run to help him as they had before. “He cannot fool us again,” they said. The Wolf killed a great many of the Boy’s sheep and then slipped away into the forest.",
+    "zh": "過了幾天，牧童又大喊：「狼來了！狼來了！」村民又跑來救他，結果又被他嘲笑一頓。後來有一天傍晚，太陽正落到森林後面，影子悄悄爬滿牧場，一隻狼真的從灌木叢中竄了出來，撲向羊群。孩子驚恐萬分，朝村子邊跑邊喊：「狼來了！狼來了！」可是村民雖然聽見了喊聲，卻不再像從前那樣跑來幫他。「他別想再騙我們了，」他們說。那隻狼咬死了孩子好多隻羊，然後溜進森林裡不見了。"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-goose-golden-egg",
+  "category": "fable",
+  "emoji": "🪿",
+  "title": "The Goose & the Golden Egg",
+  "zh": "生金蛋的鵝",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "A farmer kills the Goose to get all the golden eggs at once.",
+  "blurbZh": "想一次拿到所有金蛋的農夫，最後什麼都沒了。",
+  "moral": {
+   "en": "Those who have plenty want more and so lose all they have.",
+   "zh": "貪得無厭的人想要更多，結果連原有的都失去。"
+  },
+  "gloss": [
+   [
+    "possessed",
+    "擁有"
+   ],
+   [
+    "glittering",
+    "閃亮的"
+   ],
+   [
+    "impatient",
+    "不耐煩的"
+   ],
+   [
+    "precious",
+    "珍貴的"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "There was once a Countryman who possessed the most wonderful Goose you can imagine, for every day when he visited the nest, the Goose had laid a beautiful, glittering, golden egg. The Countryman took the eggs to market and soon began to get rich. But it was not long before he grew impatient with the Goose because she gave him only a single golden egg a day. He was not getting rich fast enough.",
+    "zh": "從前有個鄉下人，養了一隻你能想像到最神奇的鵝——因為每天他到窩邊去看時，那隻鵝都生下一顆又美又亮的金蛋。鄉下人把金蛋拿到市場去賣，很快就開始富了起來。可是沒過多久，他就對這隻鵝不耐煩了，因為牠一天只生一顆金蛋。他覺得自己發財發得不夠快。"
+   },
+   {
+    "en": "Then one day, after he had finished counting his money, the idea came to him that he could get all the golden eggs at once by killing the Goose and cutting it open. But when the deed was done, not a single golden egg did he find, and his precious Goose was dead.",
+    "zh": "於是有一天，他數完錢後，忽然起了一個念頭：只要把鵝殺了、剖開來，就能一次拿到所有的金蛋。可是等他真的動了手，卻連一顆金蛋也沒找到，而他那隻珍貴的鵝，也死了。"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-milkmaid-pail",
+  "category": "fable",
+  "emoji": "🥛",
+  "title": "The Milkmaid & Her Pail",
+  "zh": "擠奶女孩與奶桶",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "A milkmaid dreams so big that she spills the milk.",
+  "blurbZh": "頭頂奶桶做著白日夢的女孩，一甩頭全灑光了。",
+  "moral": {
+   "en": "Do not count your chickens before they are hatched.",
+   "zh": "蛋還沒孵出來，別先數小雞（別高興得太早）。"
+  },
+  "gloss": [
+   [
+    "pail",
+    "桶子"
+   ],
+   [
+    "churn",
+    "攪製奶油"
+   ],
+   [
+    "hatching",
+    "孵化"
+   ],
+   [
+    "scornfully",
+    "不屑地"
+   ],
+   [
+    "vanished",
+    "消失"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "A Milkmaid had been out to milk the cows and was returning from the field with the shining milk pail balanced nicely on her head. As she walked along, her pretty head was busy with plans for the days to come. “This good, rich milk,” she mused, “will give me plenty of cream to churn. The butter I make I will take to market, and with the money I get for it I will buy a lot of eggs for hatching. How nice it will be when they are all hatched and the yard is full of fine young chicks. Then when May day comes I will sell them, and with the money I’ll buy a lovely new dress to wear to the fair. All the young men will look at me. They will come and try to make love to me,—but I shall very quickly send them about their business!”",
+    "zh": "一個擠奶女孩擠完牛奶，正從田裡走回家，頭上穩穩頂著閃亮的奶桶。一路走著，她漂亮的腦袋裡忙著盤算往後的日子。「這麼香濃的牛奶，」她想，「能讓我攪出好多奶油。做好的奶油拿到市場去賣，用賣得的錢我要買一大堆蛋來孵。等蛋都孵出來、院子裡滿是活潑的小雞，那該多好。到了五月節，我就把牠們賣掉，用那些錢買一件漂亮的新洋裝去趕集。所有的年輕人都會盯著我看，他們會過來向我獻殷勤——我可要立刻把他們統統打發走！」"
+   },
+   {
+    "en": "As she thought of how she would settle that matter, she tossed her head scornfully, and down fell the pail of milk to the ground. And all the milk flowed out, and with it vanished butter and eggs and chicks and new dress and all the milkmaid’s pride.",
+    "zh": "正當她想著要怎麼打發那些人時，她不屑地把頭一甩——奶桶就從頭上摔到了地上。牛奶全流光了，隨之消失的，還有奶油、蛋、小雞、新洋裝，以及擠奶女孩所有的驕傲。"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ },
+ {
+  "id": "aesop-wind-sun",
+  "category": "fable",
+  "emoji": "🌤️",
+  "title": "The North Wind & the Sun",
+  "zh": "北風與太陽",
+  "tag": "Aesop’s Fables · 伊索寓言",
+  "source": "The Æsop for Children, illustrated by Milo Winter (1919, public domain) · Library of Congress · read.gov",
+  "blurb": "The Wind and the Sun compete to remove a traveler’s cloak.",
+  "blurbZh": "北風與太陽比賽，看誰能讓旅人脫下斗篷。",
+  "moral": {
+   "en": "Gentleness and kind persuasion win where force and bluster fail.",
+   "zh": "溫柔與善意的勸說，能勝過蠻力與虛張聲勢。"
+  },
+  "gloss": [
+   [
+    "quarrel",
+    "爭執"
+   ],
+   [
+    "bluster",
+    "狂吹；虛張聲勢"
+   ],
+   [
+    "cloak",
+    "斗篷"
+   ],
+   [
+    "blast",
+    "強風"
+   ],
+   [
+    "gust",
+    "陣風"
+   ],
+   [
+    "persuasion",
+    "說服"
+   ]
+  ],
+  "scenes": [
+   {
+    "en": "The North Wind and the Sun had a quarrel about which of them was the stronger. While they were disputing with much heat and bluster, a Traveler passed along the road wrapped in a cloak. “Let us agree,” said the Sun, “that he is the stronger who can strip that Traveler of his cloak.” “Very well,” growled the North Wind, and at once sent a cold, howling blast against the Traveler.",
+    "zh": "北風和太陽起了爭執，爭論牠們兩個誰比較強。正當牠們吵得面紅耳赤、氣勢洶洶時，一個裹著斗篷的旅人沿著路走了過來。「我們就這樣說定吧，」太陽說，「誰能讓那個旅人脫下斗篷，誰就比較強。」「好啊，」北風怒吼一聲，立刻朝旅人颳出一陣又冷又嚎的狂風。"
+   },
+   {
+    "en": "With the first gust of wind the ends of the cloak whipped about the Traveler’s body. But he immediately wrapped it closely around him, and the harder the Wind blew, the tighter he held it to him. The North Wind tore angrily at the cloak, but all his efforts were in vain.",
+    "zh": "第一陣狂風吹來，斗篷的下擺在旅人身上啪啪翻飛。可是他立刻把斗篷緊緊裹住身體，風颳得愈猛，他就把斗篷抓得愈緊。北風氣呼呼地猛扯那件斗篷，卻是白費力氣。"
+   },
+   {
+    "en": "Then the Sun began to shine. At first his beams were gentle, and in the pleasant warmth after the bitter cold of the North Wind, the Traveler unfastened his cloak and let it hang loosely from his shoulders. The Sun’s rays grew warmer and warmer. The man took off his cap and mopped his brow. At last he became so heated that he pulled off his cloak, and, to escape the blazing sunshine, threw himself down in the welcome shade of a tree by the roadside.",
+    "zh": "接著，太陽開始發光。起初陽光很柔和，在北風的刺骨寒冷之後，這股舒服的暖意讓旅人解開了斗篷，任它鬆鬆地披在肩上。太陽的光愈來愈暖。旅人脫下帽子，擦了擦額頭的汗。最後他熱得受不了，索性把斗篷脫了下來，為了躲開炙熱的陽光，一頭倒進路旁樹下那片教人歡喜的樹蔭裡。"
+   }
+  ],
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+ }
+];
+STORIES.push.apply(STORIES, FABLES);
 const storyById = id => STORIES.find(s=>s.id===id);
 
 /* Story Time — difficult-word glossary (bold + tap/hover translation).
@@ -3428,6 +4074,7 @@ const STORY_GLOSS = {
 function sbGlossMap(s){
   const m = {};
   (STORY_GLOSS[s.id]||[]).forEach(([w,zh])=>{ m[String(w).toLowerCase()] = zh; });
+  if(Array.isArray(s.gloss)) s.gloss.forEach(([w,zh])=>{ if(w) m[String(w).toLowerCase()] = zh; });
   if(Array.isArray(s.vocab)) s.vocab.forEach(v=>{ if(v && v[0]) m[String(v[0]).toLowerCase()] = v[2] || v[1] || ""; });
   return m;
 }
@@ -3470,7 +4117,7 @@ function sbToggleLang(){
   if(btn) btn.innerHTML = sbLangBtnLabel();
 }
 
-/*SB_AUDIO_START*/const SB_AUDIO={"Once upon a time there were four little Rabbits, and their names were— Flopsy, Mopsy, Cotton-tail, and Peter. They lived with their Mother in a sand-bank, underneath the root of a very big fir-tree.":"audio/story/s_d4148f22f34d.mp3","“Now my dears,” said old Mrs. Rabbit one morning, “you may go into the fields or down the lane, but don't go into Mr. McGregor's garden: your Father had an accident there; he was put in a pie by Mrs. McGregor.”":"audio/story/s_e294acdd8683.mp3","“Now run along, and don't get into mischief. I am going out.”":"audio/story/s_2205e73e870f.mp3","Then old Mrs. Rabbit took a basket and her umbrella, and went through the wood to the baker's. She bought a loaf of brown bread and five currant buns.":"audio/story/s_71c0826d29c8.mp3","Flopsy, Mopsy, and Cotton-tail, who were good little bunnies, went down the lane to gather blackberries.":"audio/story/s_98dc15b1e1b3.mp3","But Peter, who was very naughty, ran straight away to Mr. McGregor's garden, and squeezed under the gate!":"audio/story/s_5ce78bc1cfe8.mp3","First he ate some lettuces and some French beans; and then he ate some radishes;":"audio/story/s_2891687cb450.mp3","And then, feeling rather sick, he went to look for some parsley.":"audio/story/s_242a5002b1b7.mp3","But round the end of a cucumber frame, whom should he meet but Mr. McGregor!":"audio/story/s_b39e4726c369.mp3","Mr. McGregor was on his hands and knees planting out young cabbages, but he jumped up and ran after Peter, waving a rake and calling out, “Stop thief!”":"audio/story/s_82f944271e75.mp3","Peter was most dreadfully frightened; he rushed all over the garden, for he had forgotten the way back to the gate. He lost one of his shoes among the cabbages, and the other shoe amongst the potatoes.":"audio/story/s_bea1e9e320c2.mp3","After losing them, he ran on four legs and went faster, so that I think he might have got away altogether if he had not unfortunately run into a gooseberry net, and got caught by the large buttons on his jacket. It was a blue jacket with brass buttons, quite new.":"audio/story/s_97bed59f439b.mp3","Peter gave himself up for lost, and shed big tears; but his sobs were overheard by some friendly sparrows, who flew to him in great excitement, and implored him to exert himself.":"audio/story/s_154e386a7930.mp3","Mr. McGregor came up with a sieve, which he intended to pop upon the top of Peter; but Peter wriggled out just in time, leaving his jacket behind him.":"audio/story/s_472b378b1889.mp3","And rushed into the tool-shed, and jumped into a can. It would have been a beautiful thing to hide in, if it had not had so much water in it.":"audio/story/s_7bbfab53991a.mp3","Mr. McGregor was quite sure that Peter was somewhere in the tool-shed, perhaps hidden underneath a flower-pot. He began to turn them over carefully, looking under each. Presently Peter sneezed—“Kertyschoo!” Mr. McGregor was after him in no time.":"audio/story/s_995e3a5a556c.mp3","And tried to put his foot upon Peter, who jumped out of a window, upsetting three plants. The window was too small for Mr. McGregor, and he was tired of running after Peter. He went back to his work.":"audio/story/s_76e4eaf0f693.mp3","Peter sat down to rest; he was out of breath and trembling with fright, and he had not the least idea which way to go. Also he was very damp with sitting in that can. After a time he began to wander about, going lippity—lippity—not very fast, and looking all round.":"audio/story/s_8f9c57a2ef7e.mp3","He found a door in a wall; but it was locked, and there was no room for a fat little rabbit to squeeze underneath. An old mouse was running in and out over the stone doorstep, carrying peas and beans to her family in the wood. Peter asked her the way to the gate, but she had such a large pea in her mouth that she could not answer. She only shook her head at him. Peter began to cry.":"audio/story/s_927f14db6fdc.mp3","Then he tried to find his way straight across the garden, but he became more and more puzzled. Presently, he came to a pond where Mr. McGregor filled his water-cans. A white cat was staring at some gold-fish, she sat very, very still, but now and then the tip of her tail twitched as if it were alive. Peter thought it best to go away without speaking to her; he had heard about cats from his cousin, little Benjamin Bunny.":"audio/story/s_65fee7a42181.mp3","He went back towards the tool-shed, but suddenly, quite close to him, he heard the noise of a hoe—scr-r-ritch, scratch, scratch, scritch. Peter scuttered underneath the bushes. But presently, as nothing happened, he came out, and climbed upon a wheelbarrow and peeped over. The first thing he saw was Mr. McGregor hoeing onions. His back was turned towards Peter, and beyond him was the gate!":"audio/story/s_b1ad420051ac.mp3","Peter got down very quietly off the wheelbarrow; and started running as fast as he could go, along a straight walk behind some black-currant bushes. Mr. McGregor caught sight of him at the corner, but Peter did not care. He slipped underneath the gate, and was safe at last in the wood outside the garden.":"audio/story/s_0c0f9ffd491d.mp3","Mr. McGregor hung up the little jacket and the shoes for a scare-crow to frighten the blackbirds. Peter never stopped running or looked behind him till he got home to the big fir-tree.":"audio/story/s_7a1de8896c6d.mp3","He was so tired that he flopped down upon the nice soft sand on the floor of the rabbit-hole and shut his eyes. His mother was busy cooking; she wondered what he had done with his clothes. It was the second little jacket and pair of shoes that Peter had lost in a fortnight!":"audio/story/s_fac3df6a510d.mp3","I am sorry to say that Peter was not very well during the evening. His mother put him to bed, and made some camomile tea; and she gave a dose of it to Peter! ‘One table-spoonful to be taken at bed-time.’":"audio/story/s_847fae9bc9a1.mp3","But Flopsy, Mopsy, and Cotton-tail had bread and milk and blackberries for supper. THE END":"audio/story/s_f1cb53f5c89a.mp3","Long ago, all the people on earth were one big family. They lived together and spoke only one language. Everyone could understand everyone else.":"audio/story/s_248790c9cea2.mp3","As the people travelled toward the east, they came to a wide, flat land called Shinar. “Let us stay here,” they said. And so this plain became their home.":"audio/story/s_dc0b223dc94e.mp3","“Come,” they said to one another, “let us make bricks and bake them hard in the fire.” They used bricks in the place of stone, and sticky tar to hold them together.":"audio/story/s_7a7d23907be7.mp3","Then the people dreamed a great dream. “Let us build a city, and a tower so tall that its very top reaches heaven! Then we will make a great name for ourselves, and we will never be scattered across the earth.”":"audio/story/s_a06399d560e3.mp3","The tower grew higher and higher. Then the Lord came down to look at the city and the tower that the people were building. He saw that they were all one, with one language, and that nothing they planned to do would be too hard for them.":"audio/story/s_c8d52a870aa9.mp3","So the Lord said, “Let us go down and mix up their language, so that they can no longer understand one another.” Suddenly the builders heard strange new words. No one could understand his friend!":"audio/story/s_36a8980c24cc.mp3","The people could no longer work together, so they stopped building the city. They left the great tower unfinished, and spread out over the face of all the earth.":"audio/story/s_61efffab6bd2.mp3","And that is why the city was called <b>Babel</b> — a name that sounds like the word for “confusion.” There the Lord mixed up the one language of the whole world, and from there its people spread across the earth.":"audio/story/s_58be3fdd6f07.mp3","After Jesus had returned to heaven, his followers stayed together, praying and waiting as he had told them to. On the morning of a feast called Pentecost, they were all in one room, of one heart and one mind.":"audio/story/s_b2dc4e8743ad.mp3","Suddenly, without any warning, a sound came from the sky — like a strong, rushing wind. It filled the whole house, roaring around them, though no window had been opened.":"audio/story/s_58e3d19f2355.mp3","Then something they had never seen appeared: little flames, shaped like tongues of fire, came to rest gently on the head of each one of them — glowing, but not burning.":"audio/story/s_2018818d67a1.mp3","They were filled with God's Spirit, and they began to speak — but not in their own language. Each one found himself speaking in a language he had never learned, as the Spirit gave him the words.":"audio/story/s_a1a91fb7f03c.mp3","In Jerusalem that day were people from many faraway countries. A crowd gathered — and every single person was amazed, because each one could hear the friends speaking in his own home language.":"audio/story/s_ebdb9d94bd5e.mp3","Long ago at Babel, one language became many, and the people were scattered apart. Now, with many languages, everyone understood — and the people were drawn together. What Babel had divided, this day began to heal.":"audio/story/s_0fd666f6b8c6.mp3","On walls all over Egypt were rows of tiny pictures — birds, eyes, waves, little figures. Everyone could see them, but the meaning was lost. For fourteen hundred years, this was a language locked with no key.":"audio/story/s_ffa178a67f32.mp3","In 1799, soldiers digging near a town called Rosetta struck something hard in the ground. It was a huge slab of dark stone, and every inch of one side was covered in careful rows of writing.":"audio/story/s_1d24533b6429.mp3","Scholars gathered round and saw something wonderful. The stone held the very same message written three times, in three different scripts — Egyptian hieroglyphs at the top, everyday Egyptian in the middle, and, at the bottom, Greek. And Greek, they could read!":"audio/story/s_e2f3c27ce383.mp3","In France, a young man named Jean-François Champollion had loved languages since he was a boy. He taught himself script after script — Latin, Greek, Hebrew, Arabic, and more — dreaming that one day he would read the hieroglyphs no one else could.":"audio/story/s_ef012ac00046.mp3","Champollion noticed that some names — kings and queens — were drawn inside little ovals. He guessed that these signs might stand for <b>sounds</b>, like letters. Matching “Ptolemy” and “Cleopatra” sign by sign, sound by sound, the hieroglyphs slowly began to speak.":"audio/story/s_f6b109c9e58e.mp3","One day in 1822, it all came together. The story says Champollion ran to his brother, cried out that he had done it, and fainted from the shock of joy. Egypt's lost language could be read again — and three thousand years of stories swung open like a door.":"audio/story/s_c0295c128e64.mp3","Helen could not see the faces of the people she loved, and could not hear their voices. She had thoughts and feelings, but no way to share them. When no one could understand her, she often grew angry and afraid, lost in the silent dark.":"audio/story/s_4ef1d4bbcffd.mp3","Then a teacher named Anne Sullivan came to live with her. Anne would take Helen's hand and, with quick finger movements, spell words into her palm — d-o-l-l, when she gave her a doll. Helen felt the shapes, but did not know they meant anything.":"audio/story/s_51a129c0bf16.mp3","Helen learned to copy the finger-letters back, quick and clever, the way you might copy a game with your hands. But it was only a game to her. She still did not understand the great secret: that every thing in the world has a name.":"audio/story/s_4b0b1774847a.mp3","One warm morning, Anne led Helen out to the well-house, where someone was pumping water. She held Helen's hand under the spout. As the cool water rushed over it, she spelled into the other hand the word <span>w-a-t-e-r</span> — first slowly, then again and again.":"audio/story/s_bba72e1ae37c.mp3","Suddenly, like a flash of light, Helen understood. The cool something rushing over her hand and the word spelled into her palm were the same thing — this was <span>water</span>! In that instant the secret of language opened, and her whole mind woke up.":"audio/story/s_398e7bbb2ec4.mp3","That day Helen learned the names of everything she touched, and the whole world seemed new. Words became her door out of the dark. She would grow up to read, write, go to college, and speak to people everywhere — all beginning with one word poured into her hand.":"audio/story/s_78d2949f06f3.mp3"};/*SB_AUDIO_END*/
+/*SB_AUDIO_START*/const SB_AUDIO={"Once upon a time there were four little Rabbits, and their names were— Flopsy, Mopsy, Cotton-tail, and Peter. They lived with their Mother in a sand-bank, underneath the root of a very big fir-tree.":"audio/story/s_d4148f22f34d.mp3","“Now my dears,” said old Mrs. Rabbit one morning, “you may go into the fields or down the lane, but don't go into Mr. McGregor's garden: your Father had an accident there; he was put in a pie by Mrs. McGregor.”":"audio/story/s_e294acdd8683.mp3","“Now run along, and don't get into mischief. I am going out.”":"audio/story/s_2205e73e870f.mp3","Then old Mrs. Rabbit took a basket and her umbrella, and went through the wood to the baker's. She bought a loaf of brown bread and five currant buns.":"audio/story/s_71c0826d29c8.mp3","Flopsy, Mopsy, and Cotton-tail, who were good little bunnies, went down the lane to gather blackberries.":"audio/story/s_98dc15b1e1b3.mp3","But Peter, who was very naughty, ran straight away to Mr. McGregor's garden, and squeezed under the gate!":"audio/story/s_5ce78bc1cfe8.mp3","First he ate some lettuces and some French beans; and then he ate some radishes;":"audio/story/s_2891687cb450.mp3","And then, feeling rather sick, he went to look for some parsley.":"audio/story/s_242a5002b1b7.mp3","But round the end of a cucumber frame, whom should he meet but Mr. McGregor!":"audio/story/s_b39e4726c369.mp3","Mr. McGregor was on his hands and knees planting out young cabbages, but he jumped up and ran after Peter, waving a rake and calling out, “Stop thief!”":"audio/story/s_82f944271e75.mp3","Peter was most dreadfully frightened; he rushed all over the garden, for he had forgotten the way back to the gate. He lost one of his shoes among the cabbages, and the other shoe amongst the potatoes.":"audio/story/s_bea1e9e320c2.mp3","After losing them, he ran on four legs and went faster, so that I think he might have got away altogether if he had not unfortunately run into a gooseberry net, and got caught by the large buttons on his jacket. It was a blue jacket with brass buttons, quite new.":"audio/story/s_97bed59f439b.mp3","Peter gave himself up for lost, and shed big tears; but his sobs were overheard by some friendly sparrows, who flew to him in great excitement, and implored him to exert himself.":"audio/story/s_154e386a7930.mp3","Mr. McGregor came up with a sieve, which he intended to pop upon the top of Peter; but Peter wriggled out just in time, leaving his jacket behind him.":"audio/story/s_472b378b1889.mp3","And rushed into the tool-shed, and jumped into a can. It would have been a beautiful thing to hide in, if it had not had so much water in it.":"audio/story/s_7bbfab53991a.mp3","Mr. McGregor was quite sure that Peter was somewhere in the tool-shed, perhaps hidden underneath a flower-pot. He began to turn them over carefully, looking under each. Presently Peter sneezed—“Kertyschoo!” Mr. McGregor was after him in no time.":"audio/story/s_995e3a5a556c.mp3","And tried to put his foot upon Peter, who jumped out of a window, upsetting three plants. The window was too small for Mr. McGregor, and he was tired of running after Peter. He went back to his work.":"audio/story/s_76e4eaf0f693.mp3","Peter sat down to rest; he was out of breath and trembling with fright, and he had not the least idea which way to go. Also he was very damp with sitting in that can. After a time he began to wander about, going lippity—lippity—not very fast, and looking all round.":"audio/story/s_8f9c57a2ef7e.mp3","He found a door in a wall; but it was locked, and there was no room for a fat little rabbit to squeeze underneath. An old mouse was running in and out over the stone doorstep, carrying peas and beans to her family in the wood. Peter asked her the way to the gate, but she had such a large pea in her mouth that she could not answer. She only shook her head at him. Peter began to cry.":"audio/story/s_927f14db6fdc.mp3","Then he tried to find his way straight across the garden, but he became more and more puzzled. Presently, he came to a pond where Mr. McGregor filled his water-cans. A white cat was staring at some gold-fish, she sat very, very still, but now and then the tip of her tail twitched as if it were alive. Peter thought it best to go away without speaking to her; he had heard about cats from his cousin, little Benjamin Bunny.":"audio/story/s_65fee7a42181.mp3","He went back towards the tool-shed, but suddenly, quite close to him, he heard the noise of a hoe—scr-r-ritch, scratch, scratch, scritch. Peter scuttered underneath the bushes. But presently, as nothing happened, he came out, and climbed upon a wheelbarrow and peeped over. The first thing he saw was Mr. McGregor hoeing onions. His back was turned towards Peter, and beyond him was the gate!":"audio/story/s_b1ad420051ac.mp3","Peter got down very quietly off the wheelbarrow; and started running as fast as he could go, along a straight walk behind some black-currant bushes. Mr. McGregor caught sight of him at the corner, but Peter did not care. He slipped underneath the gate, and was safe at last in the wood outside the garden.":"audio/story/s_0c0f9ffd491d.mp3","Mr. McGregor hung up the little jacket and the shoes for a scare-crow to frighten the blackbirds. Peter never stopped running or looked behind him till he got home to the big fir-tree.":"audio/story/s_7a1de8896c6d.mp3","He was so tired that he flopped down upon the nice soft sand on the floor of the rabbit-hole and shut his eyes. His mother was busy cooking; she wondered what he had done with his clothes. It was the second little jacket and pair of shoes that Peter had lost in a fortnight!":"audio/story/s_fac3df6a510d.mp3","I am sorry to say that Peter was not very well during the evening. His mother put him to bed, and made some camomile tea; and she gave a dose of it to Peter! ‘One table-spoonful to be taken at bed-time.’":"audio/story/s_847fae9bc9a1.mp3","But Flopsy, Mopsy, and Cotton-tail had bread and milk and blackberries for supper. THE END":"audio/story/s_f1cb53f5c89a.mp3","Long ago, all the people on earth were one big family. They lived together and spoke only one language. Everyone could understand everyone else.":"audio/story/s_248790c9cea2.mp3","As the people travelled toward the east, they came to a wide, flat land called Shinar. “Let us stay here,” they said. And so this plain became their home.":"audio/story/s_dc0b223dc94e.mp3","“Come,” they said to one another, “let us make bricks and bake them hard in the fire.” They used bricks in the place of stone, and sticky tar to hold them together.":"audio/story/s_7a7d23907be7.mp3","Then the people dreamed a great dream. “Let us build a city, and a tower so tall that its very top reaches heaven! Then we will make a great name for ourselves, and we will never be scattered across the earth.”":"audio/story/s_a06399d560e3.mp3","The tower grew higher and higher. Then the Lord came down to look at the city and the tower that the people were building. He saw that they were all one, with one language, and that nothing they planned to do would be too hard for them.":"audio/story/s_c8d52a870aa9.mp3","So the Lord said, “Let us go down and mix up their language, so that they can no longer understand one another.” Suddenly the builders heard strange new words. No one could understand his friend!":"audio/story/s_36a8980c24cc.mp3","The people could no longer work together, so they stopped building the city. They left the great tower unfinished, and spread out over the face of all the earth.":"audio/story/s_61efffab6bd2.mp3","And that is why the city was called <b>Babel</b> — a name that sounds like the word for “confusion.” There the Lord mixed up the one language of the whole world, and from there its people spread across the earth.":"audio/story/s_58be3fdd6f07.mp3","After Jesus had returned to heaven, his followers stayed together, praying and waiting as he had told them to. On the morning of a feast called Pentecost, they were all in one room, of one heart and one mind.":"audio/story/s_b2dc4e8743ad.mp3","Suddenly, without any warning, a sound came from the sky — like a strong, rushing wind. It filled the whole house, roaring around them, though no window had been opened.":"audio/story/s_58e3d19f2355.mp3","Then something they had never seen appeared: little flames, shaped like tongues of fire, came to rest gently on the head of each one of them — glowing, but not burning.":"audio/story/s_2018818d67a1.mp3","They were filled with God's Spirit, and they began to speak — but not in their own language. Each one found himself speaking in a language he had never learned, as the Spirit gave him the words.":"audio/story/s_a1a91fb7f03c.mp3","In Jerusalem that day were people from many faraway countries. A crowd gathered — and every single person was amazed, because each one could hear the friends speaking in his own home language.":"audio/story/s_ebdb9d94bd5e.mp3","Long ago at Babel, one language became many, and the people were scattered apart. Now, with many languages, everyone understood — and the people were drawn together. What Babel had divided, this day began to heal.":"audio/story/s_0fd666f6b8c6.mp3","On walls all over Egypt were rows of tiny pictures — birds, eyes, waves, little figures. Everyone could see them, but the meaning was lost. For fourteen hundred years, this was a language locked with no key.":"audio/story/s_ffa178a67f32.mp3","In 1799, soldiers digging near a town called Rosetta struck something hard in the ground. It was a huge slab of dark stone, and every inch of one side was covered in careful rows of writing.":"audio/story/s_1d24533b6429.mp3","Scholars gathered round and saw something wonderful. The stone held the very same message written three times, in three different scripts — Egyptian hieroglyphs at the top, everyday Egyptian in the middle, and, at the bottom, Greek. And Greek, they could read!":"audio/story/s_e2f3c27ce383.mp3","In France, a young man named Jean-François Champollion had loved languages since he was a boy. He taught himself script after script — Latin, Greek, Hebrew, Arabic, and more — dreaming that one day he would read the hieroglyphs no one else could.":"audio/story/s_ef012ac00046.mp3","Champollion noticed that some names — kings and queens — were drawn inside little ovals. He guessed that these signs might stand for <b>sounds</b>, like letters. Matching “Ptolemy” and “Cleopatra” sign by sign, sound by sound, the hieroglyphs slowly began to speak.":"audio/story/s_f6b109c9e58e.mp3","One day in 1822, it all came together. The story says Champollion ran to his brother, cried out that he had done it, and fainted from the shock of joy. Egypt's lost language could be read again — and three thousand years of stories swung open like a door.":"audio/story/s_c0295c128e64.mp3","Helen could not see the faces of the people she loved, and could not hear their voices. She had thoughts and feelings, but no way to share them. When no one could understand her, she often grew angry and afraid, lost in the silent dark.":"audio/story/s_4ef1d4bbcffd.mp3","Then a teacher named Anne Sullivan came to live with her. Anne would take Helen's hand and, with quick finger movements, spell words into her palm — d-o-l-l, when she gave her a doll. Helen felt the shapes, but did not know they meant anything.":"audio/story/s_51a129c0bf16.mp3","Helen learned to copy the finger-letters back, quick and clever, the way you might copy a game with your hands. But it was only a game to her. She still did not understand the great secret: that every thing in the world has a name.":"audio/story/s_4b0b1774847a.mp3","One warm morning, Anne led Helen out to the well-house, where someone was pumping water. She held Helen's hand under the spout. As the cool water rushed over it, she spelled into the other hand the word <span>w-a-t-e-r</span> — first slowly, then again and again.":"audio/story/s_bba72e1ae37c.mp3","Suddenly, like a flash of light, Helen understood. The cool something rushing over her hand and the word spelled into her palm were the same thing — this was <span>water</span>! In that instant the secret of language opened, and her whole mind woke up.":"audio/story/s_398e7bbb2ec4.mp3","That day Helen learned the names of everything she touched, and the whole world seemed new. Words became her door out of the dark. She would grow up to read, write, go to college, and speak to people everywhere — all beginning with one word poured into her hand.":"audio/story/s_78d2949f06f3.mp3","An Ox came down to a reedy pool to drink. As he splashed heavily into the water, he crushed a young Frog into the mud.":"audio/story/s_40e4e247f2ab.mp3","The old Frog soon missed the little one and asked his brothers and sisters what had become of him. “A great big monster,” said one of them, “stepped on little brother with one of his huge feet!”":"audio/story/s_400e371b61ad.mp3","“Big, was he!” said the old Frog, puffing herself up. “Was he as big as this?” “Oh, much bigger!” they cried. The Frog puffed up still more. “He could not have been bigger than this,” she said. But the little Frogs all declared that the monster was much, much bigger and the old Frog kept puffing herself out more and more until, all at once, she burst.":"audio/story/s_510f0bff2a00.mp3","The Mice once called a meeting to decide on a plan to free themselves of their enemy, the Cat. At least they wished to find some way of knowing when she was coming, so they might have time to run away. Indeed, something had to be done, for they lived in such constant fear of her claws that they hardly dared stir from their dens by night or day.":"audio/story/s_6f9c29a69712.mp3","Many plans were discussed, but none of them was thought good enough. At last a very young Mouse got up and said: “I have a plan that seems very simple, but I know it will be successful. All we have to do is to hang a bell about the Cat’s neck. When we hear the bell ringing we will know immediately that our enemy is coming.”":"audio/story/s_62447efdf00c.mp3","All the Mice were much surprised that they had not thought of such a plan before. But in the midst of the rejoicing over their good fortune, an old Mouse arose and said: “I will say that the plan of the young Mouse is very good. But let me ask one question: Who will bell the Cat?”":"audio/story/s_76d2479d61ba.mp3","A Fox one day spied a beautiful bunch of ripe grapes hanging from a vine trained along the branches of a tree. The grapes seemed ready to burst with juice, and the Fox’s mouth watered as he gazed longingly at them. The bunch hung from a high branch, and the Fox had to jump for it. The first time he jumped he missed it by a long way. So he walked off a short distance and took a running leap at it, only to fall short once more. Again and again he tried, but in vain.":"audio/story/s_79f9572d32b8.mp3","Now he sat down and looked at the grapes in disgust. “What a fool I am,” he said. “Here I am wearing myself out to get a bunch of sour grapes that are not worth gaping for.” And off he walked very, very scornfully.":"audio/story/s_55ec60bd9728.mp3","A Lion lay asleep in the forest, his great head resting on his paws. A timid little Mouse came upon him unexpectedly, and in her fright and haste to get away, ran across the Lion’s nose. Roused from his nap, the Lion laid his huge paw angrily on the tiny creature to kill her.":"audio/story/s_78c338b28369.mp3","“Spare me!” begged the poor Mouse. “Please let me go and some day I will surely repay you.” The Lion was much amused to think that a Mouse could ever help him. But he was generous and finally let the Mouse go.":"audio/story/s_cf4b70800b85.mp3","Some days later, while stalking his prey in the forest, the Lion was caught in the toils of a hunter’s net. Unable to free himself, he filled the forest with his angry roaring. The Mouse knew the voice and quickly found the Lion struggling in the net. Running to one of the great ropes that bound him, she gnawed it until it parted, and soon the Lion was free. “You laughed when I said I would repay you,” said the Mouse. “Now you see that even a Mouse can help a Lion.”":"audio/story/s_0d3116ac0eda.mp3","In a spell of dry weather, when the Birds could find very little to drink, a thirsty Crow found a pitcher with a little water in it. But the pitcher was high and had a narrow neck, and no matter how he tried, the Crow could not reach the water. The poor thing felt as if he must die of thirst.":"audio/story/s_334a9a99c87b.mp3","Then an idea came to him. Picking up some small pebbles, he dropped them into the pitcher one by one. With each pebble the water rose a little higher until at last it was near enough so he could drink.":"audio/story/s_a38ed12a5877.mp3","A Hare was making fun of the Tortoise one day for being so slow. “Do you ever get anywhere?” he asked with a mocking laugh. “Yes,” replied the Tortoise, “and I get there sooner than you think. I’ll run you a race and prove it.”":"audio/story/s_ffeb8778dd80.mp3","The Hare was much amused at the idea of running a race with the Tortoise, but for the fun of the thing he agreed. So the Fox, who had consented to act as judge, marked the distance and started the runners off. The Hare was soon far out of sight, and to make the Tortoise feel very deeply how ridiculous it was for him to try a race with a Hare, he lay down beside the course to take a nap until the Tortoise should catch up.":"audio/story/s_87a9ee578d67.mp3","The Tortoise meanwhile kept going slowly but steadily, and, after a time, passed the place where the Hare was sleeping. But the Hare slept on very peacefully; and when at last he did wake up, the Tortoise was near the goal. The Hare now ran his swiftest, but he could not overtake the Tortoise in time.":"audio/story/s_75ac7fe06398.mp3","One bright morning as the Fox was following his sharp nose through the wood in search of a bite to eat, he saw a Crow on the limb of a tree overhead. This was by no means the first Crow the Fox had ever seen. What caught his attention this time and made him stop for a second look, was that the lucky Crow held a bit of cheese in her beak. “No need to search any farther,” thought sly Master Fox. “Here is a dainty bite for my breakfast.”":"audio/story/s_36a1b5d695bc.mp3","Up he trotted to the foot of the tree in which the Crow was sitting, and looking up admiringly, he cried, “Good-morning, beautiful creature!” The Crow, her head cocked on one side, watched the Fox suspiciously. But she kept her beak tightly closed on the cheese and did not return his greeting. “What a charming creature she is!” said the Fox. “How her feathers shine! What a beautiful form and what splendid wings! Such a wonderful Bird should have a very lovely voice, since everything else about her is so perfect. Could she sing just one song, I know I should hail her Queen of Birds.”":"audio/story/s_2b9d0c05c31d.mp3","Listening to these flattering words, the Crow forgot all her suspicion, and also her breakfast. She wanted very much to be called Queen of Birds. So she opened her beak wide to utter her loudest caw, and down fell the cheese straight into the Fox’s open mouth. “Thank you,” said Master Fox sweetly, as he walked off. “Though it is cracked, you have a voice sure enough. But where are your wits?”":"audio/story/s_368435f22ea0.mp3","A certain Father had a family of Sons, who were forever quarreling among themselves. No words he could say did the least good, so he cast about in his mind for some very striking example that should make them see that discord would lead them to misfortune. One day when the quarreling had been much more violent than usual and each of the Sons was moping in a surly manner, he asked one of them to bring him a bundle of sticks. Then handing the bundle to each of his Sons in turn he told them to try to break it. But although each one tried his best, none was able to do so.":"audio/story/s_4fc4fb8f28f8.mp3","The Father then untied the bundle and gave the sticks to his Sons to break one by one. This they did very easily. “My Sons,” said the Father, “do you not see how certain it is that if you agree with each other and help each other, it will be impossible for your enemies to injure you? But if you are divided among yourselves, you will be no stronger than a single stick in that bundle.”":"audio/story/s_c596ab3089db.mp3","A Shepherd Boy tended his master’s Sheep near a dark forest not far from the village. Soon he found life in the pasture very dull. All he could do to amuse himself was to talk to his dog or play on his shepherd’s pipe. One day as he sat watching the Sheep and the quiet forest, and thinking what he would do should he see a Wolf, he thought of a plan to amuse himself.":"audio/story/s_423c1303b5d1.mp3","His Master had told him to call for help should a Wolf attack the flock, and the Villagers would drive it away. So now, though he had not seen anything that even looked like a Wolf, he ran toward the village shouting at the top of his voice, “Wolf! Wolf!” As he expected, the Villagers who heard the cry dropped their work and ran in great excitement to the pasture. But when they got there they found the Boy doubled up with laughter at the trick he had played on them.":"audio/story/s_8b98f3d1c71e.mp3","A few days later the Shepherd Boy again shouted, “Wolf! Wolf!” Again the Villagers ran to help him, only to be laughed at again. Then one evening as the sun was setting behind the forest and the shadows were creeping out over the pasture, a Wolf really did spring from the underbrush and fall upon the Sheep. In terror the Boy ran toward the village shouting “Wolf! Wolf!” But though the Villagers heard the cry, they did not run to help him as they had before. “He cannot fool us again,” they said. The Wolf killed a great many of the Boy’s sheep and then slipped away into the forest.":"audio/story/s_cf9d843f6bc9.mp3","There was once a Countryman who possessed the most wonderful Goose you can imagine, for every day when he visited the nest, the Goose had laid a beautiful, glittering, golden egg. The Countryman took the eggs to market and soon began to get rich. But it was not long before he grew impatient with the Goose because she gave him only a single golden egg a day. He was not getting rich fast enough.":"audio/story/s_3cb5b534c6ef.mp3","Then one day, after he had finished counting his money, the idea came to him that he could get all the golden eggs at once by killing the Goose and cutting it open. But when the deed was done, not a single golden egg did he find, and his precious Goose was dead.":"audio/story/s_d046aa470d85.mp3","A Milkmaid had been out to milk the cows and was returning from the field with the shining milk pail balanced nicely on her head. As she walked along, her pretty head was busy with plans for the days to come. “This good, rich milk,” she mused, “will give me plenty of cream to churn. The butter I make I will take to market, and with the money I get for it I will buy a lot of eggs for hatching. How nice it will be when they are all hatched and the yard is full of fine young chicks. Then when May day comes I will sell them, and with the money I’ll buy a lovely new dress to wear to the fair. All the young men will look at me. They will come and try to make love to me,—but I shall very quickly send them about their business!”":"audio/story/s_949dedf8a7c6.mp3","As she thought of how she would settle that matter, she tossed her head scornfully, and down fell the pail of milk to the ground. And all the milk flowed out, and with it vanished butter and eggs and chicks and new dress and all the milkmaid’s pride.":"audio/story/s_b487a47ea6c1.mp3","The North Wind and the Sun had a quarrel about which of them was the stronger. While they were disputing with much heat and bluster, a Traveler passed along the road wrapped in a cloak. “Let us agree,” said the Sun, “that he is the stronger who can strip that Traveler of his cloak.” “Very well,” growled the North Wind, and at once sent a cold, howling blast against the Traveler.":"audio/story/s_0709ee22e075.mp3","With the first gust of wind the ends of the cloak whipped about the Traveler’s body. But he immediately wrapped it closely around him, and the harder the Wind blew, the tighter he held it to him. The North Wind tore angrily at the cloak, but all his efforts were in vain.":"audio/story/s_3d444affe527.mp3","Then the Sun began to shine. At first his beams were gentle, and in the pleasant warmth after the bitter cold of the North Wind, the Traveler unfastened his cloak and let it hang loosely from his shoulders. The Sun’s rays grew warmer and warmer. The man took off his cap and mopped his brow. At last he became so heated that he pulled off his cloak, and, to escape the blazing sunshine, threw himself down in the welcome shade of a tree by the roadside.":"audio/story/s_d7852dcfde9f.mp3"};/*SB_AUDIO_END*/
 
 /* Story Time read-aloud — Kokoro (af_heart) pre-rendered MP3s, browser TTS as fallback.
    Sequencing is driven by the audio element's real "ended" event, so a paragraph is
@@ -3565,36 +4212,52 @@ function renderStoryList(filterCat = "all"){
   const cats = [
     {id:"all", label:"全部故事 All Stories"},
     {id:"picturebook", label:"🎨 經典繪本 Picture Books"},
+    {id:"fable", label:"🦊 伊索寓言 Aesop's Fables"},
     {id:"lore", label:"📜 歷史與經典 Lore & History"}
   ];
+  const catHash = {picturebook:"#/story/picture-books", fable:"#/story/fables"};
   const activeCat = cats.some(c=>c.id===filterCat) ? filterCat : "all";
   const list = activeCat==="all" ? STORIES : STORIES.filter(s=> (s.category||"lore") === activeCat);
   const tabs = `<div class="sb-tabs">
-    ${cats.map(c=>`<button class="sb-tab ${activeCat===c.id?'active':''}" onclick="location.hash='${c.id==='picturebook' ? '#/story/picture-books' : '#/story'}'; renderStoryList('${c.id}')">${c.label}</button>`).join("")}
+    ${cats.map(c=>`<button class="sb-tab ${activeCat===c.id?'active':''}" onclick="location.hash='${catHash[c.id] || '#/story'}'; renderStoryList('${c.id}')">${c.label}</button>`).join("")}
   </div>`;
   const cards = list.map(s=>{
-    const plateContent = s.coverImg
-      ? `<img src="${s.coverImg}" alt="${s.title}" loading="lazy">`
-      : (s.scenes[0].img ? `<img src="${s.scenes[0].img}" alt="${s.title}" loading="lazy">` : s.scenes[0].svg);
+    const isFab = s.category==='fable';
+    const plateContent = isFab
+      ? `<span class="sb-fable-emoji">${s.emoji || "🦊"}</span>`
+      : (s.coverImg
+        ? `<img src="${s.coverImg}" alt="${s.title}" loading="lazy">`
+        : (s.scenes[0].img ? `<img src="${s.scenes[0].img}" alt="${s.title}" loading="lazy">` : s.scenes[0].svg));
     return `
-    <button class="sb-list-card ${s.category==='picturebook'?'sb-card-pb':''}" onclick="location.hash='#/story/${s.id}'">
-      <div class="sb-list-plate ${s.category==='picturebook'?'sb-plate-cover':''}">${plateContent}</div>
+    <button class="sb-list-card ${s.category==='picturebook'?'sb-card-pb':''} ${isFab?'sb-card-fable':''}" onclick="location.hash='#/story/${s.id}'">
+      <div class="sb-list-plate ${s.category==='picturebook'?'sb-plate-cover':''} ${isFab?'sb-plate-fable':''}">${plateContent}</div>
       <div class="sb-list-body">
         <span class="sb-list-tag">${s.tag}</span>
         <div class="sb-list-title">${s.title}<span>${s.zh}</span></div>
-        <div class="sb-list-src">${s.source}</div>
+        ${isFab && s.moral ? `<div class="sb-list-moral">寓意：${s.moral.zh}</div>` : `<div class="sb-list-src">${s.source}</div>`}
         <p class="sb-list-blurb">${s.blurbZh}</p>
-        <span class="sb-list-go">${s.category==='picturebook' ? '翻開繪本 Read Picture Book →' : '開始讀 Read →'}</span>
+        <span class="sb-list-go">${s.category==='picturebook' ? '翻開繪本 Read Picture Book →' : (isFab ? '讀寓言 Read Fable →' : '開始讀 Read →')}</span>
       </div>
     </button>`;
   }).join("");
 
+  const hdTitle = activeCat==='picturebook' ? ['經典繪本區','Picture Books']
+    : activeCat==='fable' ? ['伊索寓言','Aesop’s Fables']
+    : ['故事時間','Story Time'];
+  const hdLede = activeCat==='picturebook'
+    ? '精選經典原版水彩繪本，中英雙語對照、原汁原味大師插畫、隨段語音朗讀與生詞學習。<br>Timeless illustrated picture books — read aloud, bilingual text, vocabulary and classroom discussion.'
+    : activeCat==='fable'
+    ? '短小雋永的伊索寓言，每則都有一個寓意。中英雙語、Kokoro 語音朗讀、生詞點讀翻譯。<br>Short, timeless Aesop’s fables — each with a moral. Bilingual, read aloud, tap-to-translate vocabulary.'
+    : '讀故事、學英文。中英雙語、逐段對照，還有原文經典。適合課堂投影或親子共讀。<br>Illustrated bilingual stories — read aloud in class or together at home.';
+  const crumbTail = activeCat==='picturebook' ? '<a href="#/story">Story Time</a> › 繪本區 Picture Books'
+    : activeCat==='fable' ? '<a href="#/story">Story Time</a> › 伊索寓言 Aesop’s Fables'
+    : 'Story Time';
   app.innerHTML = `<div class="view storybook">
-    <div class="crumb"><a href="#/home">Home</a> › ${activeCat==='picturebook' ? '<a href="#/story">Story Time</a> › 繪本區 Picture Books' : 'Story Time'}</div>
+    <div class="crumb"><a href="#/home">Home</a> › ${crumbTail}</div>
     <div class="sb-hd">
       <div class="eyebrow" style="color:var(--sb-brick)">Story Time · 故事與繪本</div>
-      <h1 class="display">${activeCat==='picturebook' ? '經典繪本區' : '故事時間'}<span class="zh-term-lg" style="color:var(--sb-lapis)">${activeCat==='picturebook' ? 'Picture Books' : 'Story Time'}</span></h1>
-      <p class="lede">${activeCat==='picturebook' ? '精選經典原版水彩繪本，中英雙語對照、原汁原味大師插畫、隨段語音朗讀與生詞學習。<br>Timeless illustrated picture books — read aloud, bilingual text, vocabulary and classroom discussion.' : '讀故事、學英文。中英雙語、逐段對照，還有原文經典。適合課堂投影或親子共讀。<br>Illustrated bilingual stories — read aloud in class or together at home.'}</p>
+      <h1 class="display">${hdTitle[0]}<span class="zh-term-lg" style="color:var(--sb-lapis)">${hdTitle[1]}</span></h1>
+      <p class="lede">${hdLede}</p>
       ${tabs}
     </div>
     <div class="sb-list">${cards || '<p style="text-align:center;color:var(--muted);padding:40px 0">尚無內容</p>'}</div>
@@ -3606,8 +4269,19 @@ function renderStory(id){
   const s = storyById(id);
   if(!s){ location.hash = "#/story"; return; }
   const isPB = s.category === "picturebook";
+  const isFable = s.category === "fable";
   const gmap = sbGlossMap(s);
-  const scenes = s.scenes.map((sc, idx)=>`
+  const scenes = s.scenes.map((sc, idx)=> isFable ? `
+    <section class="sb-scene sb-scene-fable" id="scene-${idx+1}">
+      <div class="sb-tale">
+        <div class="sb-fable-audio">
+          <button class="sb-scene-say" title="朗讀 Read aloud" onclick="event.stopPropagation();sbSpeakScene('${s.id}',${idx},0.88)">🔊 朗讀</button>
+          <button class="sb-scene-say slow" title="慢速朗讀 Slow read" onclick="event.stopPropagation();sbSpeakScene('${s.id}',${idx},0.65)">🐢 慢速</button>
+        </div>
+        <p class="en">${sbGlossify(sc.en, gmap)}</p>
+        <p class="zh">${sc.zh}</p>
+      </div>
+    </section>` : `
     <section class="sb-scene" id="scene-${idx+1}">
       <div class="sb-scene-head">
         <span class="sb-num">${sc.n}</span>
@@ -3631,6 +4305,13 @@ function renderStory(id){
       </div>
     </section>`).join("");
 
+  const moralHtml = (s.moral && s.moral.en) ? `
+    <div class="sb-moral">
+      <span class="sb-moral-label">寓意 · The Moral</span>
+      <p class="en">${s.moral.en}</p>
+      <p class="zh">${s.moral.zh}</p>
+    </div>` : "";
+
   const vocabHtml = (s.vocab && s.vocab.length) ? `
     <div class="sb-vocab">
       <h3>📖 繪本生詞寶典 · Story Vocabulary</h3>
@@ -3652,7 +4333,8 @@ function renderStory(id){
 
   app.innerHTML = `<div class="view storybook${sbEnOnly ? ' en-only' : ''}">
     <div class="crumb"><a href="#/home">Home</a> › <a href="#/story">Story Time</a> › ${isPB ? '<a href="#/story/picture-books">繪本區</a> › ' : ''}${s.title}</div>
-    <header class="sb-hero">
+    <header class="sb-hero ${isFable ? 'sb-hero-fable' : ''}">
+      ${isFable ? `<div class="sb-fable-badge">${s.emoji || "🦊"}</div>` : ""}
       <div class="sb-eyebrow">${s.tag}</div>
       <h1 class="sb-h1">${s.title}</h1>
       <div class="sb-h1-zh">${[...s.zh].join(" ")}</div>
@@ -3666,11 +4348,12 @@ function renderStory(id){
         <button class="sb-read-btn" onclick="sbStop()">⏹ 停止朗讀 Stop</button>
       </div>
     </header>
-    <div class="sb-intro">
+    ${s.intro ? `<div class="sb-intro">
       <p class="en">${sbGlossify(s.intro.en, gmap)}</p>
       <p class="zh">${s.intro.zh}</p>
-    </div>
+    </div>` : ""}
     ${scenes}
+    ${moralHtml}
     ${vocabHtml}
     ${s.aside ? `
     <div class="sb-aside">

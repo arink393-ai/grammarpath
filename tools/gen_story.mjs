@@ -56,12 +56,14 @@ async function main(){
 
   const html = fs.readFileSync(HTML, "utf8");
   const STORIES = eval("(" + extractArrayLiteral(html, "const STORIES = [") + ")");
+  const FABLES = eval("(" + (extractArrayLiteral(html, "const FABLES = [") || "[]") + ")");
+  const ALL = STORIES.concat(FABLES);
   fs.mkdirSync(OUTDIR, { recursive: true });
   const hashes = fs.existsSync(HASHES) ? JSON.parse(fs.readFileSync(HASHES,"utf8")) : {};
 
-  // collect unique scene English texts across every story
+  // collect unique scene English texts across every story + fable
   const texts = new Set();
-  for(const s of STORIES){
+  for(const s of ALL){
     if(!Array.isArray(s.scenes)) continue;
     for(const sc of s.scenes){ if(sc && sc.en) texts.add(sc.en.trim()); }
   }
