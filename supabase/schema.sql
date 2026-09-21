@@ -6,9 +6,10 @@
 --  1. Create a free project at https://supabase.com  (Region: pick one near Taiwan, e.g. Singapore)
 --  2. Open the project → SQL Editor → New query
 --  3. Paste this WHOLE file and click "Run"
---  4. Register yourself in the app first, then run (once):
---         update public.profiles set role='teacher' where email = 'YOUR_TEACHER_EMAIL';
---     (replace with the email you register with)
+--  4. Tell the system which email is the teacher (run BEFORE you register):
+--         insert into public.teacher_emails(email) values ('YOUR_TEACHER_EMAIL')
+--           on conflict do nothing;
+--     That email becomes a teacher automatically the moment it registers.
 --  5. Auth → Providers → Email: turn OFF "Confirm email"
 --     so students can log in immediately without checking mail.
 --  6. Send me the Project URL and the anon public key
@@ -63,6 +64,12 @@ create table if not exists public.submissions (
   unique(assignment_id, user_id)
 );
 
+-- Emails listed here become teachers automatically on sign-up.
+create table if not exists public.teacher_emails (
+  email text primary key
+);
+alter table public.teacher_emails enable row level security;  -- no policies: only SECURITY DEFINER functions can read it
+
 -- ---------- Teacher check (SECURITY DEFINER avoids RLS recursion) ----------
 
 create or replace function public.is_teacher()
@@ -81,8 +88,14 @@ language plpgsql security definer
 set search_path = public
 as $$
 begin
-  insert into public.profiles (id, email, name)
-  values (new.id, new.email, coalesce(new.raw_user_meta_data->>'name', new.email))
+  insert into public.profiles (id, email, name, role)
+  values (
+    new.id,
+    new.email,
+    coalesce(new.raw_user_meta_data->>'name', new.email),
+    case when exists(select 1 from public.teacher_emails t where lower(t.email) = lower(new.email))
+         then 'teacher' else 'student' end
+  )
   on conflict (id) do nothing;
   return new;
 end;
