@@ -1020,6 +1020,25 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sb-fable-emoji{font-size:76px;line-height:1}
 .sb-card-fable .sb-list-plate{width:150px;flex:0 0 150px}
 .sb-list-moral{font-family:var(--sb-han);color:var(--sb-brick);font-weight:600;font-size:13px;margin:2px 0 2px;line-height:1.6}
+/* Fable illustrations (original animated SVG art) */
+.sb-fable-art{border:1px solid var(--sb-line2);border-radius:16px;overflow:hidden;max-width:520px;margin:6px auto 4px;box-shadow:0 14px 34px -22px rgba(120,90,40,.55)}
+.sb-fable-art svg{display:block;width:100%;height:auto}
+.sb-plate-fable svg{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes faBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes faSway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@keyframes faPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+@keyframes faDrift{0%{transform:translateX(-14px)}100%{transform:translateX(70px)}}
+@keyframes faTwinkle{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes faSpin{to{transform:rotate(360deg)}}
+@keyframes faRise{0%,100%{transform:translateY(4px)}50%{transform:translateY(-3px)}}
+.fa-bob{animation:faBob 3s ease-in-out infinite}
+.fa-sway,.fa-pulse,.fa-spin{transform-box:fill-box;transform-origin:center}
+.fa-sway{animation:faSway 3.6s ease-in-out infinite}
+.fa-pulse{animation:faPulse 2.4s ease-in-out infinite}
+.fa-drift{animation:faDrift 16s linear infinite}
+.fa-twinkle{animation:faTwinkle 2.2s ease-in-out infinite}
+.fa-spin{animation:faSpin 26s linear infinite}
+.fa-rise{animation:faRise 3.4s ease-in-out infinite}
 @media (prefers-reduced-motion:no-preference){.storybook svg [data-tw]{animation:sbtw 4s ease-in-out infinite}@keyframes sbtw{0%,100%{opacity:.35}50%{opacity:1}}}
 @media(max-width:640px){
   .sb-list-card{flex-direction:column}
@@ -4273,6 +4292,33 @@ const FABLES = [
  }
 ];
 STORIES.push.apply(STORIES, FABLES);
+
+/* Original animated illustrations for each fable (flat SVG, site style — no copied art). */
+const FABLE_ART = {
+"aesop-frogs-ox":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#EAF2E2"/><ellipse cx="200" cy="232" rx="250" ry="42" fill="#CDE0BD"/><ellipse cx="120" cy="205" rx="95" ry="26" fill="#AEC9E4"/><g stroke="#6E9C4E" stroke-width="4" stroke-linecap="round"><path d="M60 200v-34"/><path d="M74 202v-26"/><path d="M186 198v-30"/></g><g><ellipse cx="300" cy="150" rx="66" ry="42" fill="#8B6B4A"/><circle cx="352" cy="128" r="26" fill="#8B6B4A"/><path d="M340 112q-10-18 4-22M366 112q10-18-4-22" fill="none" stroke="#6B4F35" stroke-width="5" stroke-linecap="round"/><circle cx="358" cy="126" r="3" fill="#33261a"/><g stroke="#6B4F35" stroke-width="9" stroke-linecap="round"><path d="M270 188v22"/><path d="M320 188v22"/></g></g><g class="fa-pulse"><ellipse cx="112" cy="180" rx="30" ry="26" fill="#6FB43E"/><circle cx="102" cy="164" r="8" fill="#6FB43E"/><circle cx="122" cy="164" r="8" fill="#6FB43E"/><circle cx="102" cy="162" r="3" fill="#1f3a14"/><circle cx="122" cy="162" r="3" fill="#1f3a14"/><path d="M100 188q12 8 24 0" fill="none" stroke="#3f6b1f" stroke-width="3" stroke-linecap="round"/></g></svg>`,
+
+"aesop-belling-cat":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#F2ECDD"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#E4D8BE"/><g><ellipse cx="200" cy="168" rx="46" ry="52" fill="#9AA0A6"/><circle cx="200" cy="120" r="34" fill="#9AA0A6"/><path d="M172 100l-8-26 26 16zM228 100l8-26-26 16z" fill="#9AA0A6"/><circle cx="190" cy="118" r="3.5" fill="#2b2f33"/><circle cx="210" cy="118" r="3.5" fill="#2b2f33"/><path d="M200 126l-5 6h10z" fill="#E88"/><path d="M176 128h-22M176 134h-20M224 128h22M224 134h20" stroke="#c9cdd2" stroke-width="2"/></g><g class="fa-sway"><line x1="200" y1="150" x2="200" y2="176" stroke="#B8873A" stroke-width="3"/><circle cx="200" cy="184" r="12" fill="#F3B22E" stroke="#C6892F" stroke-width="2"/><circle cx="200" cy="180" r="2.5" fill="#8a5f16"/></g><g fill="#B7A99A"><ellipse cx="70" cy="205" rx="20" ry="14"/><circle cx="55" cy="197" r="7"/><circle cx="330" cy="208" rx="18"/><ellipse cx="330" cy="208" rx="18" ry="13"/><circle cx="346" cy="201" r="6"/></g></svg>`,
+
+"aesop-fox-grapes":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#F1ECDA"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#E0D6BB"/><path d="M40 30q120 20 320 6" fill="none" stroke="#6E7C3A" stroke-width="6"/><g class="fa-sway"><g fill="#7C4DA0"><circle cx="250" cy="70" r="13"/><circle cx="270" cy="66" r="13"/><circle cx="290" cy="70" r="13"/><circle cx="260" cy="86" r="13"/><circle cx="280" cy="86" r="13"/><circle cx="270" cy="102" r="13"/></g><path d="M270 54v-14" stroke="#6E7C3A" stroke-width="3"/></g><g><ellipse cx="120" cy="176" rx="54" ry="34" fill="#E08A3C"/><circle cx="164" cy="150" r="22" fill="#E08A3C"/><path d="M150 134l-6-18 16 10zM178 134l10-16-16 8z" fill="#E08A3C"/><path d="M182 150l16-6-14 14z" fill="#E08A3C"/><circle cx="172" cy="148" r="3" fill="#3a2410"/><path d="M74 178q-24 6-30 24" fill="none" stroke="#E08A3C" stroke-width="12" stroke-linecap="round"/><g stroke="#b96e28" stroke-width="8" stroke-linecap="round"><path d="M104 206v16"/><path d="M140 206v16"/></g></g></svg>`,
+
+"aesop-lion-mouse":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#F3EEDC"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#E3D7BC"/><g><ellipse cx="250" cy="180" rx="88" ry="40" fill="#E0A83C"/><circle cx="180" cy="150" r="40" fill="#F3B22E"/><circle cx="180" cy="150" r="28" fill="#E0A83C"/><g stroke="#c98f26" stroke-width="8" stroke-linecap="round"><path d="M300 200v18"/><path d="M340 196v20"/></g><circle cx="170" cy="148" r="3" fill="#3a2410"/><circle cx="190" cy="148" r="3" fill="#3a2410"/><path d="M180 156v6M174 162h12" stroke="#7a5216" stroke-width="2.5" stroke-linecap="round"/></g><g class="fa-bob"><ellipse cx="96" cy="196" rx="22" ry="15" fill="#B7A99A"/><circle cx="76" cy="186" r="9" fill="#B7A99A"/><circle cx="70" cy="180" r="4" fill="#B7A99A"/><circle cx="82" cy="178" r="4" fill="#B7A99A"/><circle cx="73" cy="185" r="2" fill="#2b2620"/><path d="M118 196q18 4 30-6" fill="none" stroke="#9a8d7d" stroke-width="3" stroke-linecap="round"/></g></svg>`,
+
+"aesop-crow-pitcher":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#EEF1E6"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#DDD5BC"/><g><path d="M250 120h60l-8 96h-44z" fill="#C56B3E"/><path d="M250 120h60v10h-60z" fill="#A9542D"/><clipPath id="pj"><path d="M252 132h56l-7 82h-42z"/></clipPath><g clip-path="url(#pj)"><rect class="fa-rise" x="250" y="176" width="64" height="60" fill="#66A6C9"/><g fill="#8a8f96"><circle cx="270" cy="205" r="6"/><circle cx="288" cy="212" r="6"/><circle cx="300" cy="200" r="5"/><circle cx="278" cy="218" r="5"/></g></g></g><g class="fa-bob"><ellipse cx="120" cy="150" rx="46" ry="30" fill="#33373D"/><circle cx="158" cy="128" r="18" fill="#33373D"/><path d="M174 128l20-4-18 12z" fill="#F3B22E"/><circle cx="160" cy="126" r="3" fill="#dfe3e6"/><path d="M86 152q-22 2-30 16" fill="none" stroke="#33373D" stroke-width="10" stroke-linecap="round"/><g stroke="#22252a" stroke-width="6" stroke-linecap="round"><path d="M110 178v14"/><path d="M132 178v14"/></g></g></svg>`,
+
+"aesop-hare-tortoise":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#EAF2E5"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#CFE0BD"/><path d="M20 210h360" stroke="#b7c79f" stroke-width="3" stroke-dasharray="10 10"/><g><ellipse cx="300" cy="184" rx="40" ry="24" fill="#6E9C5A"/><path d="M268 184a32 20 0 0 1 64 0z" fill="#4f7a3e"/><circle cx="256" cy="182" r="14" fill="#8FB77A"/><circle cx="251" cy="180" r="2.5" fill="#2b3a20"/><g stroke="#5f8a49" stroke-width="7" stroke-linecap="round"><path d="M280 204v10"/><path d="M320 204v10"/></g></g><g><ellipse cx="118" cy="182" rx="34" ry="24" fill="#C9A97E"/><circle cx="90" cy="164" r="17" fill="#C9A97E"/><path d="M84 150c-6-26 2-34 6-2zM98 150c6-26 12-30 8-2z" fill="#C9A97E"/><circle cx="84" cy="164" r="2.6" fill="#3a2c18"/><g stroke="#a98a5f" stroke-width="8" stroke-linecap="round"><path d="M104 200v14"/><path d="M136 200v14"/></g><circle cx="150" cy="176" r="6" fill="#fff"/></g><g class="fa-twinkle" fill="#8a99a8" font-family="serif" font-size="18"><text x="150" y="150">z</text><text x="164" y="138">z</text></g></svg>`,
+
+"aesop-fox-crow":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#F1ECDA"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#E0D6BB"/><path d="M60 60q120 10 300 20" fill="none" stroke="#7a5a34" stroke-width="8"/><g><ellipse cx="150" cy="66" rx="30" ry="20" fill="#33373D"/><circle cx="126" cy="54" r="13" fill="#33373D"/><path d="M114 54l-16-3 15 9z" fill="#F3B22E"/><circle cx="124" cy="52" r="2.6" fill="#dfe3e6"/></g><g class="fa-bob"><rect x="98" y="70" width="24" height="16" rx="3" fill="#F3C64B" stroke="#d9a52f" stroke-width="2"/><circle cx="106" cy="78" r="2" fill="#c78f1f"/><circle cx="115" cy="75" r="1.6" fill="#c78f1f"/></g><g><ellipse cx="250" cy="180" rx="56" ry="34" fill="#E08A3C"/><circle cx="210" cy="150" r="22" fill="#E08A3C"/><path d="M196 134l-6-18 16 10zM224 134l10-16-16 8z" fill="#E08A3C"/><path d="M192 150l-16-6 14 14z" fill="#E08A3C"/><circle cx="202" cy="148" r="3" fill="#3a2410"/><path d="M296 182q24 6 30 24" fill="none" stroke="#E08A3C" stroke-width="12" stroke-linecap="round"/><g stroke="#b96e28" stroke-width="8" stroke-linecap="round"><path d="M232 210v14"/><path d="M268 210v14"/></g></g></svg>`,
+
+"aesop-bundle-sticks":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#F1ECDA"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#E1D7BC"/><g class="fa-bob"><g stroke="#9a6b3a" stroke-width="11" stroke-linecap="round"><path d="M120 150l170-14"/><path d="M118 168l172-6"/><path d="M120 186l170 4"/><path d="M124 204l166 12"/></g><g stroke="#7a5228" stroke-width="2"><path d="M120 150l170-14"/><path d="M118 168l172-6"/></g><rect x="188" y="138" width="26" height="86" rx="8" fill="none" stroke="#B23B2E" stroke-width="7"/></g><g stroke="#c9a06a" stroke-width="6" stroke-linecap="round" opacity=".7"><path d="M60 214l40-2"/><path d="M300 214l44 2"/></g></svg>`,
+
+"aesop-shepherd-wolf":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#EDF1E6"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#CFE0BD"/><g fill="#2f5d3a"><ellipse cx="330" cy="180" rx="50" ry="40"/><ellipse cx="300" cy="196" rx="34" ry="30"/></g><g class="fa-twinkle" fill="#F3C64B"><circle cx="316" cy="184" r="4"/><circle cx="332" cy="184" r="4"/></g><g><rect x="80" y="150" width="14" height="54" rx="6" fill="#5b78a8"/><circle cx="87" cy="138" r="15" fill="#E7C39A"/><path d="M74 132a13 13 0 0 1 26 0z" fill="#8a5a34"/><path d="M100 158l24-14" stroke="#8a6a45" stroke-width="4" stroke-linecap="round"/></g><g class="fa-bob"><ellipse cx="180" cy="196" rx="30" ry="22" fill="#F5F3EC"/><circle cx="154" cy="188" r="12" fill="#E7DFCE"/><circle cx="150" cy="186" r="2.4" fill="#3a3428"/><g stroke="#d9d2c0" stroke-width="6" stroke-linecap="round"><path d="M168 214v8"/><path d="M192 214v8"/></g></g></svg>`,
+
+"aesop-goose-golden-egg":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#EFF1E6"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#DFD7BE"/><ellipse cx="210" cy="200" rx="120" ry="26" fill="#C9B98C"/><g><ellipse cx="180" cy="150" rx="60" ry="42" fill="#F5F3EC"/><path d="M226 120q34-26 40 2-4 20-30 20z" fill="#F5F3EC"/><circle cx="252" cy="120" r="16" fill="#F5F3EC"/><path d="M266 120l16-2-15 9z" fill="#F3B22E"/><circle cx="254" cy="117" r="2.6" fill="#33373D"/><g stroke="#E0902E" stroke-width="7" stroke-linecap="round"><path d="M160 188v14"/><path d="M196 188v14"/></g></g><g class="fa-twinkle"><ellipse cx="120" cy="188" rx="17" ry="22" fill="#F3C64B" stroke="#D9A52F" stroke-width="2.5"/><path d="M112 180l4 4-4 4" stroke="#fff" stroke-width="2" fill="none"/></g></svg>`,
+
+"aesop-milkmaid-pail":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#F1ECDA"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#E1D7BC"/><g><path d="M186 118q-4-20 14-20t14 20z" fill="#6b4a2a"/><circle cx="200" cy="120" r="16" fill="#E7C39A"/><path d="M184 208l6-72q10-8 20 0l6 72z" fill="#4f6d9c"/><path d="M180 150l-16 30M220 150l16 30" stroke="#E7C39A" stroke-width="7" stroke-linecap="round"/></g><g class="fa-sway"><path d="M176 96h48l-6 22h-36z" fill="#cfd6dd"/><path d="M176 96h48v6h-48z" fill="#aeb6bf"/><rect x="180" y="102" width="40" height="14" fill="#EDE9DF"/><path d="M176 92q24-8 48 0" fill="none" stroke="#9aa2ab" stroke-width="3"/></g></svg>`,
+
+"aesop-wind-sun":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#EAF1F4"/><ellipse cx="200" cy="234" rx="250" ry="40" fill="#D8D9BE"/><g class="fa-spin"><g stroke="#F3B22E" stroke-width="6" stroke-linecap="round"><path d="M300 60v-22M300 116v18M272 88h-22M356 88h18M280 68l-14-14M334 68l14-14M280 108l-14 14M334 108l14 14"/></g></g><circle cx="300" cy="88" r="26" fill="#F3C64B"/><g class="fa-drift" fill="none" stroke="#9db8c9" stroke-width="5" stroke-linecap="round" opacity=".8"><path d="M40 70q40-14 70 0t70 0"/><path d="M40 96q30-10 54 0t54 0"/></g><g><circle cx="150" cy="150" r="15" fill="#E7C39A"/><path d="M138 168h24l10 44h-44z" fill="#B23B2E"/><path d="M138 168l-14 26M162 168l14 26" stroke="#B23B2E" stroke-width="9" stroke-linecap="round"/></g></svg>`
+};
 const storyById = id => STORIES.find(s=>s.id===id);
 
 /* Story Time — difficult-word glossary (bold + tap/hover translation).
@@ -4437,7 +4483,7 @@ function renderStoryList(filterCat = "all"){
   const cards = list.map(s=>{
     const isFab = s.category==='fable';
     const plateContent = isFab
-      ? `<span class="sb-fable-emoji">${s.emoji || "🦊"}</span>`
+      ? (FABLE_ART[s.id] || `<span class="sb-fable-emoji">${s.emoji || "🦊"}</span>`)
       : (s.coverImg
         ? `<img src="${s.coverImg}" alt="${s.title}" loading="lazy">`
         : (s.scenes[0].img ? `<img src="${s.scenes[0].img}" alt="${s.title}" loading="lazy">` : s.scenes[0].svg));
@@ -4547,7 +4593,7 @@ function renderStory(id){
   app.innerHTML = `<div class="view storybook${sbEnOnly ? ' en-only' : ''}">
     <div class="crumb"><a href="#/home">Home</a> › <a href="#/story">Story Time</a> › ${isPB ? '<a href="#/story/picture-books">繪本區</a> › ' : ''}${s.title}</div>
     <header class="sb-hero ${isFable ? 'sb-hero-fable' : ''}">
-      ${isFable ? `<div class="sb-fable-badge">${s.emoji || "🦊"}</div>` : ""}
+      ${isFable ? (FABLE_ART[s.id] ? `<div class="sb-fable-art">${FABLE_ART[s.id]}</div>` : `<div class="sb-fable-badge">${s.emoji || "🦊"}</div>`) : ""}
       <div class="sb-eyebrow">${s.tag}</div>
       <h1 class="sb-h1">${s.title}</h1>
       <div class="sb-h1-zh">${[...s.zh].join(" ")}</div>
