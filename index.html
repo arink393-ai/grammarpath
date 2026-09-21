@@ -1234,6 +1234,59 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   .can-pill,.checkin-pill{font-size:12px;padding:5px 11px}
   .unit-locked{flex-direction:column;text-align:center}
 }
+/* ---- Homework + Teacher dashboard ---- */
+.tc-loading{text-align:center;color:var(--muted);padding:50px 0}
+.hw-list{display:flex;flex-direction:column;gap:18px;max-width:720px;margin:0 auto}
+.hw-card{padding:20px 22px}
+.hw-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hw-head h3{margin:0;font-size:1.15rem;color:var(--ink)}
+.hw-pill{font:600 12px var(--sans);padding:4px 11px;border-radius:999px;white-space:nowrap}
+.hw-pill.todo{background:#FBE9E4;color:#B4552F}
+.hw-pill.sent{background:#E7EEF6;color:#2C5C86}
+.hw-pill.done{background:#E4F0E4;color:#3B7A3B}
+.hw-due{font-size:13px;color:var(--muted);margin-top:6px}
+.hw-desc{margin:8px 0 4px;color:var(--ink);line-height:1.6}
+.hw-grade{background:#F4FAF4;border:1px solid #D5E8D5;border-radius:10px;padding:10px 13px;margin:10px 0;font-size:14px}
+.hw-fb{color:var(--muted);margin-top:4px}
+.hw-prev{font-size:12.5px;color:var(--muted);margin:6px 0}
+.hw-form{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.hw-form textarea{width:100%;min-height:70px;border:1px solid var(--line,#E5DCC9);border-radius:10px;padding:10px 12px;font:15px var(--sans);resize:vertical;box-sizing:border-box}
+.hw-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.hw-row input[type=url],.tc-newhw input,.tc-newhw textarea{flex:1;min-width:180px;border:1px solid var(--line,#E5DCC9);border-radius:10px;padding:9px 12px;font:14px var(--sans);box-sizing:border-box}
+.hw-file{display:inline-flex;align-items:center;gap:8px;font:600 13px var(--sans);color:var(--sb-lapis,#2C5C86);cursor:pointer;background:#EEF3F8;border:1px solid #D6E1EC;border-radius:10px;padding:8px 12px}
+.hw-file input{display:none}
+/* teacher */
+.tc-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 0 18px}
+.tc-tab{background:var(--sb-panel,#FBF7EF);border:1px solid var(--line,#E5DCC9);border-radius:999px;padding:8px 16px;font:600 13.5px var(--sans);color:var(--ink);cursor:pointer}
+.tc-tab.active{background:var(--sb-lapis,#2C5C86);border-color:var(--sb-lapis,#2C5C86);color:#fff}
+.tc-body{max-width:900px;margin:0 auto}
+.tc-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tc-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border-radius:12px;overflow:hidden}
+.tc-table th,.tc-table td{padding:10px 12px;text-align:left;border-bottom:1px solid #EEE7D8;vertical-align:top}
+.tc-table th{background:#F6F1E6;font:600 12.5px var(--sans);color:var(--muted);white-space:nowrap}
+.tc-table td.num,.tc-table th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tc-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.tc-newhw{padding:18px 20px;margin-bottom:16px;display:flex;flex-direction:column;gap:10px}
+.tc-newhw h3{margin:0;font-size:1.05rem}
+.tc-newhw textarea{min-height:56px;resize:vertical}
+.tc-inline{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.tc-asgn{padding:16px 18px;margin-bottom:16px}
+.tc-asgn-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.tc-asgn-head h3{margin:0;font-size:1.08rem}
+.tc-count{font:600 12px var(--sans);color:var(--sb-lapis,#2C5C86);margin-left:6px}
+.tc-active{font-size:13px;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+.tc-answer{white-space:pre-wrap;max-width:280px;font-size:13.5px;line-height:1.5}
+.tc-link{background:none;border:none;color:var(--sb-lapis,#2C5C86);cursor:pointer;font:600 13px var(--sans);padding:0;text-decoration:underline}
+.tc-grade,.tc-fb{width:110px;border:1px solid var(--line,#E5DCC9);border-radius:8px;padding:6px 8px;font:13px var(--sans)}
+.tc-fb{width:150px}
+.tc-savebtn{padding:6px 12px;font-size:12.5px}
+.tc-reflect{padding:14px 18px;margin-bottom:12px}
+.tc-reflect h3{margin:0 0 4px;font-size:1.05rem}
+.tc-journal{margin-top:8px;font-size:13.5px;line-height:1.7;background:#FBF7EF;border-radius:10px;padding:10px 13px}
+.tc-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+.tc-stat{text-align:center;padding:20px 12px}
+.tc-stat .n{font:700 2rem var(--sb-disp,serif);color:var(--sb-lapis,#2C5C86)}
+.tc-stat .l{font-size:13px;color:var(--muted);margin-top:4px}
 </style>
 </head>
 <body>
@@ -1271,6 +1324,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/theory">🧠 學習理論 Theory</button>
   <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
   <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
+  <button data-nav="#/homework">📝 作業繳交 Homework</button>
+  <button data-nav="#/teacher" id="navTeacher" hidden>🧑‍🏫 老師後台 Teacher</button>
   <button data-nav="#/resources">🔤 資源 Resources</button>
 </nav>
 <div class="nav-backdrop" id="navBackdrop"></div>
@@ -1302,8 +1357,13 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 </div>
 <main class="wrap" id="app" aria-live="polite"></main>
 <div class="toast" id="toast" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="daily.js"></script>
 <script>
+/* Supabase backend (teacher dashboard + progress sync + homework).
+   The anon key is meant to be public; Row Level Security protects the data. */
+const SUPABASE_URL = "https://ygmtpcrnoqxziiyrnmmq.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnbXRwY3Jub3F4emlpeXJubW1xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk5MzIzMjYsImV4cCI6MjEwNTUwODMyNn0.a_o8Hgbbf2pawUc_eSN0y7lF4MXcpg6iOe-akigjcOM";
 /* =====================================================
    GrammarPath — curriculum data
    Topic map inspired by allthingsgrammar.com's index;
@@ -2675,6 +2735,144 @@ const AUTH = {
 };
 
 /* =====================================================
+   Cloud (Supabase) — real auth, cross-device progress sync,
+   homework hand-in, teacher dashboard. Falls back to the local
+   AUTH above if the library/keys are missing (offline-safe).
+   ===================================================== */
+const SB = (window.supabase && typeof SUPABASE_URL === "string" && SUPABASE_URL && SUPABASE_ANON_KEY)
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { auth:{ persistSession:true, autoRefreshToken:true } })
+  : null;
+
+let SESSION = null;                       // {id,email,name,role} — logged-in user (cloud or local)
+function currentUser(){ return SESSION; }
+function isTeacher(){ return !!(SESSION && SESSION.role === "teacher"); }
+
+const CLOUD = {
+  on: !!SB,
+  user: null,
+  _syncTimer: null,
+
+  async init(){
+    if(!this.on) return null;
+    try{
+      const { data:{ session } } = await SB.auth.getSession();
+      if(session && session.user) await this._setUser(session.user);
+    }catch(e){ console.warn("cloud init", e); }
+    return this.user;
+  },
+  async _setUser(u){
+    let name = (u.user_metadata && u.user_metadata.name) || u.email, role = "student";
+    try{
+      const { data } = await SB.from("profiles").select("name, role").eq("id", u.id).maybeSingle();
+      if(data){ name = data.name || name; role = data.role || "student"; }
+    }catch(e){}
+    this.user = { id:u.id, email:u.email, name, role };
+    return this.user;
+  },
+  _msg(error){
+    const m = (error && error.message) || "";
+    if(/Invalid login/i.test(m)) return "Email 或密碼不正確。 Wrong email or password.";
+    if(/already registered|User already/i.test(m)) return "這個 Email 已經註冊過了，請直接登入。 Already registered — log in.";
+    if(/rate limit|too many/i.test(m)) return "嘗試太頻繁，請稍候再試。 Too many attempts, try again shortly.";
+    if(/6 characters|at least/i.test(m)) return "密碼至少要 6 個字。 Password needs at least 6 characters.";
+    return m || "發生錯誤，請再試一次。 Something went wrong.";
+  },
+  async register(name, email, pass){
+    name=(name||"").trim(); email=(email||"").trim().toLowerCase();
+    if(!name) return {err:"請輸入你的本名。 Please enter your name."};
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return {err:"Email 格式不正確。 That doesn't look like an email."};
+    if((pass||"").length < 6) return {err:"密碼至少要 6 個字。 Password needs at least 6 characters."};
+    const { data, error } = await SB.auth.signUp({ email, password:pass, options:{ data:{ name } } });
+    if(error) return {err:this._msg(error)};
+    if(!data.session){
+      const si = await SB.auth.signInWithPassword({ email, password:pass });
+      if(si.error) return {err:"註冊成功！請到 Email 收確認信後再登入。（老師可在 Supabase 關閉 Email 確認就能直接登入）"};
+    }
+    const gu = await SB.auth.getUser();
+    if(gu.data && gu.data.user) await this._setUser(gu.data.user);
+    return {ok:true};
+  },
+  async login(email, pass){
+    email=(email||"").trim().toLowerCase();
+    const { data, error } = await SB.auth.signInWithPassword({ email, password:pass });
+    if(error) return {err:this._msg(error)};
+    await this._setUser(data.user);
+    return {ok:true};
+  },
+  async logout(){ try{ await SB.auth.signOut(); }catch(e){} this.user=null; },
+
+  /* ---- progress sync (mirror of the local game store) ---- */
+  async pullProgress(){
+    if(!this.on || !this.user) return;
+    try{
+      const { data } = await SB.from("progress").select("data").eq("user_id", this.user.id).maybeSingle();
+      if(data && data.data && typeof data.data === "object" && Object.keys(data.data).length){
+        store.data = Object.assign(store.defaults(), data.data);   // cloud = source of truth across devices
+        store.saveLocal();
+      } else {
+        await this.pushProgress();                                  // first login: seed cloud from local
+      }
+    }catch(e){ console.warn("pullProgress", e); }
+  },
+  scheduleSync(){
+    if(!this.on || !this.user) return;
+    clearTimeout(this._syncTimer);
+    this._syncTimer = setTimeout(()=>this.pushProgress(), 1500);
+  },
+  async pushProgress(){
+    if(!this.on || !this.user) return;
+    const d = store.data;
+    try{
+      await SB.from("progress").upsert({
+        user_id: this.user.id,
+        xp: d.xp||0, cans: d.cans||0,
+        streak: store.streakCount(),
+        completed_count: Object.keys(d.completed||{}).length,
+        data: d,
+        last_active: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      }, { onConflict:"user_id" });
+    }catch(e){ console.warn("pushProgress", e); }
+  },
+
+  /* ---- homework (student) ---- */
+  async listAssignments(){ const { data } = await SB.from("assignments").select("*").order("created_at",{ascending:false}); return data||[]; },
+  async mySubmissions(){ const { data } = await SB.from("submissions").select("*").eq("user_id", this.user.id); return data||[]; },
+  async submitHomework(assignmentId, { text, link, file }){
+    let payload = { assignment_id:assignmentId, user_id:this.user.id, text:text||null, link:link||null, status:"submitted", submitted_at:new Date().toISOString(), graded_at:null };
+    if(file){
+      const ext = (file.name.split(".").pop()||"dat").toLowerCase().replace(/[^a-z0-9]/g,"") || "dat";
+      const path = `${this.user.id}/${assignmentId}_${Date.now()}.${ext}`;
+      const up = await SB.storage.from("homework").upload(path, file, { upsert:true });
+      if(up.error) return {err:"檔案上傳失敗 File upload failed: "+up.error.message};
+      payload.file_url = path;
+    }
+    const { error } = await SB.from("submissions").upsert(payload, { onConflict:"assignment_id,user_id" });
+    if(error) return {err:error.message};
+    return {ok:true};
+  },
+  async fileLink(path){ try{ const { data } = await SB.storage.from("homework").createSignedUrl(path, 3600); return data && data.signedUrl; }catch(e){ return null; } },
+
+  /* ---- teacher dashboard ---- */
+  async allProfiles(){ const { data } = await SB.from("profiles").select("*").order("created_at",{ascending:true}); return data||[]; },
+  async allProgress(){ const { data } = await SB.from("progress").select("*"); return data||[]; },
+  async allSubmissions(){ const { data } = await SB.from("submissions").select("*").order("submitted_at",{ascending:false}); return data||[]; },
+  async createAssignment({ title, description, due_date }){
+    const { error } = await SB.from("assignments").insert({ title, description:description||null, due_date:due_date||null, created_by:this.user.id });
+    return error ? {err:error.message} : {ok:true};
+  },
+  async setAssignmentActive(id, active){ await SB.from("assignments").update({active}).eq("id",id); },
+  async gradeSubmission(id, { grade, feedback }){
+    const { error } = await SB.from("submissions").update({ grade:grade||null, feedback:feedback||null, status:"returned", graded_at:new Date().toISOString() }).eq("id", id);
+    return error ? {err:error.message} : {ok:true};
+  }
+};
+
+/* keep local cache, and mirror every save to the cloud (debounced) */
+store.saveLocal = store.save.bind(store);
+store.save = function(){ store.saveLocal(); if(CLOUD.on && CLOUD.user) CLOUD.scheduleSync(); };
+
+/* =====================================================
    Helpers
    ===================================================== */
 const $ = sel => document.querySelector(sel);
@@ -2856,7 +3054,7 @@ function paintHeader(){
   const ci = $("#checkinPill");
   if(ci){ const done = !store.canCheckIn(); ci.classList.toggle("done", done);
     ci.textContent = done ? "✓ 今日已打卡" : "🐾 打卡 +" + CHECKIN_REWARD; }
-  const u = AUTH.current();
+  const u = currentUser();
   const nm = $("#amName"), em = $("#amEmail"), ac = $("#amCans");
   if(u){ if(nm) nm.textContent = u.name; if(em) em.textContent = u.email; if(ac) ac.textContent = store.data.cans||0; }
   if(typeof applyAuthUI==="function") applyAuthUI();
@@ -2874,7 +3072,7 @@ function paintHeader(){
 function route(){
   const h = (location.hash || "#/home").slice(2).split("/");
   const isHome = (h[0]==="" || h[0]==="home");
-  if(!AUTH.current() && !isHome){ openAuthModal(); if(location.hash!=="#/home"){ location.hash = "#/home"; return; } }
+  if(!currentUser() && !isHome){ openAuthModal(); if(location.hash!=="#/home"){ location.hash = "#/home"; return; } }
   tts.stop();
   window.scrollTo(0,0);
   setNav(false);
@@ -2902,6 +3100,8 @@ function route(){
   else if(h[0]==="philosophy" && h[1]) renderPhil(h[1]);
   else if(h[0]==="philosophy") renderPhilList();
   else if(h[0]==="reflect") renderReflect();
+  else if(h[0]==="homework") renderHomework();
+  else if(h[0]==="teacher") renderTeacher();
   else if(h[0]==="abc" && h[1]) renderLetter(h[1]);
   else if(h[0]==="abc") renderABCGrid();
   else if(h[0]==="unitread" && h[1]) renderUnitRead(h[1]);
@@ -2947,7 +3147,7 @@ function renderHome(){
       <div class="eyebrow" style="text-align:center">Welcome to englishcat island 🐾</div>
       <p class="story-zh"><span class="sl">學英語的過程，就像你乘船來到一座島。</span><span class="sl">島上的島民，是一百多隻貓咪。</span><span class="sl">隨著相處的時間越來越多、越來越長，你漸漸懂了貓咪們想對你表達的喵喵聲——</span><span class="sl">而貓咪們，也從高冷，慢慢變得黏人……</span></p>
       <div class="hero-cta" style="justify-content:center">
-        ${AUTH.current()
+        ${currentUser()
           ? `<button class="btn btn-primary" onclick="location.hash='#/lesson/${next?next.id:'be-verb'}'">${totalDone? "Continue learning":"Start learning"} →</button>
              <button class="btn btn-ghost" onclick="location.hash='#/games'">Play a game</button>`
           : `<button class="btn btn-primary btn-start" onclick="openAuthModal()">🐾 開始學習 Start learning →</button>`}
@@ -5042,7 +5242,7 @@ function saveReflect(){
 /* Printable class worksheet — "My Learning Journey" (daily log + weekly reflection).
    Auto-fills name, date and today's 3-line diary; other fields are for handwriting. */
 function printJourney(){
-  const u = AUTH.current() || {name:""};
+  const u = currentUser() || {name:""};
   const j = (store.data.journal||{})[todayKey()] || {best:"",improve:"",goal:""};
   const today = todayKey();
   const b = v => esc(v||"");
@@ -11248,6 +11448,187 @@ function finishSession(){
 }
 
 /* =====================================================
+   Homework hand-in (students)
+   ===================================================== */
+const fmtDate = s => s ? String(s).slice(0,10) : "";
+function cloudNeeded(what){
+  app.innerHTML = `<div class="view"><div class="crumb"><a href="#/home">Home</a> › ${what}</div>
+    <div class="card" style="max-width:560px;margin:30px auto;text-align:center;padding:26px">
+      <p style="font-size:1.05rem">此功能需要雲端連線。<br><span style="color:var(--muted)">This feature needs the cloud backend, which isn't configured yet.</span></p>
+    </div></div>`;
+}
+async function renderHomework(){
+  if(!CLOUD.on) return cloudNeeded("作業繳交 Homework");
+  if(!currentUser()){ openAuthModal(); return; }
+  app.innerHTML = `<div class="view"><p class="tc-loading">載入作業中… Loading…</p></div>`;
+  let assignments=[], subs=[];
+  try{ [assignments, subs] = await Promise.all([CLOUD.listAssignments(), CLOUD.mySubmissions()]); }
+  catch(e){ app.innerHTML = `<div class="view"><p>載入失敗，請重新整理。 Could not load. ${esc(e.message||"")}</p></div>`; return; }
+  const active = assignments.filter(a=>a.active);
+  const byA = {}; subs.forEach(s=>byA[s.assignment_id]=s);
+  const cards = active.length ? active.map(a=>{
+    const s = byA[a.id];
+    const statusPill = !s ? `<span class="hw-pill todo">未繳 Not submitted</span>`
+      : s.status==="returned" ? `<span class="hw-pill done">已批改 Graded</span>`
+      : `<span class="hw-pill sent">已繳交 Submitted</span>`;
+    const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${esc(s.grade||"—")}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
+    const prev = s ? `<div class="hw-prev">你上次繳交：${s.text?`「${esc(s.text.slice(0,80))}${s.text.length>80?"…":""}」 `:""}${s.file_url?'📎 檔案 ':""}${s.link?'🔗 連結':""}</div>` : "";
+    return `<div class="card hw-card">
+      <div class="hw-head"><h3>${esc(a.title)}</h3>${statusPill}</div>
+      ${a.due_date?`<div class="hw-due">截止 Due：${fmtDate(a.due_date)}</div>`:""}
+      ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}
+      ${graded}${prev}
+      <div class="hw-form">
+        <textarea id="hw-text-${a.id}" placeholder="在這裡打字作答（可留空）Type your answer here…">${s&&s.text?esc(s.text):""}</textarea>
+        <div class="hw-row">
+          <label class="hw-file">📎 上傳檔案 File<input type="file" id="hw-file-${a.id}" accept="image/*,.pdf,.doc,.docx,.txt"></label>
+          <input type="url" id="hw-link-${a.id}" placeholder="🔗 貼上連結 Paste a link (Google Doc…)" value="${s&&s.link?esc(s.link):""}">
+        </div>
+        <button class="btn btn-navy" id="hw-btn-${a.id}" onclick="hwSubmit('${a.id}')">${s?"重新繳交 Re-submit":"繳交 Submit"}</button>
+      </div>
+    </div>`;
+  }).join("") : `<div class="card" style="text-align:center;padding:26px;color:var(--muted)">目前沒有作業，老師出題後會出現在這裡。<br>No homework yet — assignments will appear here.</div>`;
+  app.innerHTML = `<div class="view">
+    <div class="crumb"><a href="#/home">Home</a> › 作業繳交 Homework</div>
+    <div class="sb-hd"><div class="eyebrow" style="color:var(--sb-brick)">Homework · 作業</div>
+      <h1 class="display">作業繳交區<span class="zh-term-lg" style="color:var(--sb-lapis)">Homework</span></h1>
+      <p class="lede">打字作答、上傳照片或檔案、貼上連結都可以。<br>Answer by typing, upload a file, or paste a link.</p></div>
+    <div class="hw-list">${cards}</div>
+  </div>`;
+}
+async function hwSubmit(id){
+  const text = (document.getElementById("hw-text-"+id).value||"").trim();
+  const link = (document.getElementById("hw-link-"+id).value||"").trim();
+  const fileEl = document.getElementById("hw-file-"+id);
+  const file = fileEl && fileEl.files[0];
+  if(!text && !link && !file){ toast("請至少打字作答、上傳檔案或貼連結。"); return; }
+  const btn = document.getElementById("hw-btn-"+id); btn.disabled = true; btn.textContent = "繳交中… Submitting…";
+  const r = await CLOUD.submitHomework(id, { text, link, file });
+  if(r.err){ btn.disabled=false; btn.textContent="繳交 Submit"; toast(r.err); return; }
+  toast("作業已繳交，做得好 🐾");
+  renderHomework();
+}
+
+/* =====================================================
+   Teacher dashboard
+   ===================================================== */
+let TDATA = null, TTAB = "students";
+async function renderTeacher(){
+  if(!CLOUD.on) return cloudNeeded("老師後台 Teacher");
+  if(!currentUser()){ openAuthModal(); return; }
+  if(!isTeacher()){ app.innerHTML = `<div class="view"><div class="card" style="max-width:520px;margin:30px auto;text-align:center;padding:26px">這是老師專用頁面。<br><span style="color:var(--muted)">Teacher-only. Ask the teacher to grant your account the teacher role.</span></div></div>`; return; }
+  app.innerHTML = `<div class="view"><p class="tc-loading">載入班級資料中… Loading class data…</p></div>`;
+  try{
+    const [profiles, progress, assignments, submissions] = await Promise.all([
+      CLOUD.allProfiles(), CLOUD.allProgress(), CLOUD.listAssignments(), CLOUD.allSubmissions()
+    ]);
+    TDATA = { profiles, progress, assignments, submissions };
+  }catch(e){ app.innerHTML = `<div class="view"><p>載入失敗：${esc(e.message||"")}</p></div>`; return; }
+  paintTeacher();
+}
+function tName(id){ const p = TDATA.profiles.find(x=>x.id===id); return p ? (p.name||p.email) : "（未知）"; }
+function paintTeacher(){
+  const students = TDATA.profiles.filter(p=>p.role!=="teacher");
+  const progById = {}; TDATA.progress.forEach(p=>progById[p.user_id]=p);
+  const tabs = [["students","👧 學生進度"],["homework","📝 作業繳交"],["reflect","📓 反思／每日"],["stats","📊 全班統計"]];
+  const tabBar = `<div class="tc-tabs">${tabs.map(([k,l])=>`<button class="tc-tab ${TTAB===k?'active':''}" onclick="TTAB='${k}';paintTeacher()">${l}</button>`).join("")}</div>`;
+  let body = "";
+
+  if(TTAB==="students"){
+    const rows = students.length ? students.map(p=>{
+      const g = progById[p.id] || {};
+      const last = g.last_active ? new Date(g.last_active).toLocaleDateString() : "—";
+      return `<tr><td>${esc(p.name||"")}<div class="tc-sub">${esc(p.email||"")}</div></td>
+        <td class="num">${g.completed_count||0}</td><td class="num">${g.xp||0}</td>
+        <td class="num">${g.streak||0}🔥</td><td class="num">${g.cans||0}🥫</td><td>${last}</td></tr>`;
+    }).join("") : `<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:20px">還沒有學生註冊。No students yet.</td></tr>`;
+    body = `<div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>完成單元</th><th>XP</th><th>連續</th><th>罐罐</th><th>最近登入</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  }
+
+  else if(TTAB==="homework"){
+    const subsByA = {}; TDATA.submissions.forEach(s=>{ (subsByA[s.assignment_id]=subsByA[s.assignment_id]||[]).push(s); });
+    const create = `<div class="card tc-newhw">
+      <h3>➕ 出新作業 New assignment</h3>
+      <input id="na-title" placeholder="作業標題 Title（必填）">
+      <textarea id="na-desc" placeholder="說明 Instructions（可留空）"></textarea>
+      <div class="hw-row"><label class="tc-inline">截止日 Due <input type="date" id="na-due"></label>
+      <button class="btn btn-navy" onclick="tcCreate()">建立 Create</button></div>
+    </div>`;
+    const list = TDATA.assignments.length ? TDATA.assignments.map(a=>{
+      const subs = subsByA[a.id]||[];
+      const rows = subs.length ? subs.map(s=>`<tr>
+        <td>${esc(tName(s.user_id))}</td>
+        <td>${s.text?`<div class="tc-answer">${esc(s.text)}</div>`:""}${s.link?`<a href="${esc(s.link)}" target="_blank" rel="noopener">🔗 連結</a> `:""}${s.file_url?`<button class="tc-link" onclick="tcFile('${esc(s.file_url)}')">📎 開啟檔案</button>`:""}</td>
+        <td>${fmtDate(s.submitted_at)}</td>
+        <td><input class="tc-grade" id="gr-${s.id}" value="${esc(s.grade||"")}" placeholder="分數/評語"></td>
+        <td><input class="tc-fb" id="fb-${s.id}" value="${esc(s.feedback||"")}" placeholder="回饋"></td>
+        <td><button class="btn btn-ghost tc-savebtn" onclick="tcGrade('${s.id}')">${s.status==="returned"?"✓ 已批":"批改"}</button></td>
+      </tr>`).join("") : `<tr><td colspan="6" style="color:var(--muted);padding:12px">還沒有人繳交。No submissions yet.</td></tr>`;
+      return `<div class="card tc-asgn"><div class="tc-asgn-head"><h3>${esc(a.title)} <span class="tc-count">${subs.length}/${students.length} 已繳</span></h3>
+        <label class="tc-active"><input type="checkbox" ${a.active?"checked":""} onchange="tcActive('${a.id}',this.checked)"> 開放中</label></div>
+        ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}${a.due_date?`<div class="hw-due">截止：${fmtDate(a.due_date)}</div>`:""}
+        <div class="tc-tablewrap"><table class="tc-table sub"><thead><tr><th>學生</th><th>作答</th><th>繳交</th><th>分數</th><th>回饋</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+      </div>`;
+    }).join("") : "";
+    body = create + list;
+  }
+
+  else if(TTAB==="reflect"){
+    body = students.length ? students.map(p=>{
+      const g = progById[p.id] || {}; const d = (g.data)||{};
+      const js = d.journal || {}; const days = Object.keys(js).sort().reverse();
+      const latest = days.length ? js[days[0]] : null;
+      const dq = d.dailyQuests || {}; const dqDone = Object.values(dq).filter(x=>x&&x.done).length;
+      return `<div class="card tc-reflect"><h3>${esc(p.name||p.email)}</h3>
+        <div class="tc-sub">每日任務完成 ${dqDone} 天 · 反思日記 ${days.length} 篇</div>
+        ${latest?`<div class="tc-journal"><b>最新日記（${days[0]}）</b>
+          <div>😊 ${esc(latest.best||"—")}</div><div>💪 ${esc(latest.improve||"—")}</div><div>🎯 ${esc(latest.goal||"—")}</div></div>`:`<div class="tc-sub">尚無反思日記。</div>`}
+      </div>`;
+    }).join("") : `<div class="card" style="padding:20px;color:var(--muted)">還沒有學生資料。</div>`;
+  }
+
+  else if(TTAB==="stats"){
+    const n = students.length;
+    const withP = students.map(p=>progById[p.id]).filter(Boolean);
+    const activeN = withP.filter(g=>g.last_active && (Date.now()-new Date(g.last_active).getTime())<7*864e5).length;
+    const avg = arr => arr.length ? Math.round(arr.reduce((a,b)=>a+b,0)/arr.length) : 0;
+    const avgDone = avg(withP.map(g=>g.completed_count||0));
+    const avgXp = avg(withP.map(g=>g.xp||0));
+    const totalSubs = TDATA.submissions.length;
+    body = `<div class="tc-stats">
+      ${[["班級人數 Students",n],["近7天活躍 Active",activeN],["平均完成單元 Avg units",avgDone],["平均 XP",avgXp],["作業數 Assignments",TDATA.assignments.length],["總繳交數 Submissions",totalSubs]]
+        .map(([l,v])=>`<div class="card tc-stat"><div class="n">${v}</div><div class="l">${l}</div></div>`).join("")}
+    </div>`;
+  }
+
+  app.innerHTML = `<div class="view">
+    <div class="crumb"><a href="#/home">Home</a> › 老師後台 Teacher</div>
+    <div class="sb-hd"><div class="eyebrow" style="color:var(--sb-brick)">Teacher Dashboard · 老師後台</div>
+      <h1 class="display">班級後台<span class="zh-term-lg" style="color:var(--sb-lapis)">Class</span></h1>
+      <p class="lede">學生共 ${students.length} 人。點分頁查看進度、作業、反思與統計。</p></div>
+    ${tabBar}<div class="tc-body">${body}</div>
+  </div>`;
+}
+async function tcCreate(){
+  const title=(document.getElementById("na-title").value||"").trim();
+  if(!title){ toast("請填作業標題。"); return; }
+  const description=(document.getElementById("na-desc").value||"").trim();
+  const due_date=document.getElementById("na-due").value||null;
+  const r=await CLOUD.createAssignment({title,description,due_date});
+  if(r.err){ toast("建立失敗："+r.err); return; }
+  toast("作業已建立 🐾"); renderTeacher();
+}
+async function tcActive(id,active){ await CLOUD.setAssignmentActive(id,active); toast(active?"已開放":"已關閉"); }
+async function tcGrade(id){
+  const grade=(document.getElementById("gr-"+id).value||"").trim();
+  const feedback=(document.getElementById("fb-"+id).value||"").trim();
+  const r=await CLOUD.gradeSubmission(id,{grade,feedback});
+  if(r.err){ toast("儲存失敗："+r.err); return; }
+  toast("已送出批改與回饋 🐾"); renderTeacher();
+}
+async function tcFile(path){ const url=await CLOUD.fileLink(path); if(url) window.open(url,"_blank","noopener"); else toast("無法開啟檔案。"); }
+
+/* =====================================================
    Boot + login gate
    ===================================================== */
 let AUTH_MODE = "login";
@@ -11260,15 +11641,20 @@ function setAuthMode(m){
   $("#authSubmit").textContent = (m==="login" ? "登入 Log in" : "註冊並登島 Sign up");
   $("#authErr").hidden = true;
 }
-function applyAuthUI(){ $("#topbar").classList.toggle("auth-out", !AUTH.current()); }
+function applyAuthUI(){ $("#topbar").classList.toggle("auth-out", !currentUser()); }
 function openAuthModal(){ $("#acctMenu").hidden = true; $("#authGate").hidden = false; setAuthMode(AUTH_MODE); }
 function closeAuthModal(){ $("#authGate").hidden = true; }
-function bootApp(){
-  const u = AUTH.current();
-  store.rebind(u ? u.email : null);
+function updateTeacherNav(){ const b = $("#navTeacher"); if(b) b.hidden = !isTeacher(); }
+async function bootApp(){
+  if(CLOUD.on){ await CLOUD.init(); SESSION = CLOUD.user; }
+  else { SESSION = AUTH.current(); }
+  store.rebind(SESSION ? SESSION.email : null);
+  if(CLOUD.on && SESSION) await CLOUD.pullProgress();
   $("#authGate").hidden = true;
   applyAuthUI();
+  updateTeacherNav();
   route();
+  paintHeader();
 }
 $("#tabLogin").addEventListener("click", ()=>setAuthMode("login"));
 $("#tabReg").addEventListener("click", ()=>setAuthMode("register"));
@@ -11276,14 +11662,16 @@ $("#authForm").addEventListener("submit", async (e)=>{
   e.preventDefault();
   const btn = $("#authSubmit"); btn.disabled = true;
   const name = $("#inName").value, email = $("#inEmail").value, pass = $("#inPass").value;
-  const r = AUTH_MODE==="login" ? await AUTH.login(email, pass) : await AUTH.register(name, email, pass);
+  const svc = CLOUD.on ? CLOUD : AUTH;
+  const r = AUTH_MODE==="login" ? await svc.login(email, pass) : await svc.register(name, email, pass);
   btn.disabled = false;
   if(r.err){ const el = $("#authErr"); el.textContent = r.err; el.hidden = false; return; }
   const welcome = AUTH_MODE==="login" ? "歡迎回來 🐾" : "註冊成功，歡迎登島 🐾";
   $("#authForm").reset();
   closeAuthModal();
-  bootApp();
+  await bootApp();
   location.hash = "#/home";
+  route();
   toast(welcome);
 });
 $("#loginBtn").addEventListener("click", ()=>openAuthModal());
@@ -11298,7 +11686,7 @@ $("#checkinPill").addEventListener("click", ()=>{
 $("#acctBtn").addEventListener("click", (e)=>{ e.stopPropagation(); const m = $("#acctMenu"); m.hidden = !m.hidden; });
 $("#acctMenu").addEventListener("click", (e)=>e.stopPropagation());
 document.addEventListener("click", ()=>{ const m = $("#acctMenu"); if(m) m.hidden = true; });
-$("#amLogout").addEventListener("click", ()=>{ AUTH.logout(); store.rebind(null); $("#acctMenu").hidden = true; applyAuthUI(); location.hash = "#/home"; route(); toast("已登出 · 歡迎再來 🐾"); });
+$("#amLogout").addEventListener("click", async ()=>{ if(CLOUD.on) await CLOUD.logout(); else AUTH.logout(); SESSION = null; store.rebind(null); $("#acctMenu").hidden = true; applyAuthUI(); updateTeacherNav(); location.hash = "#/home"; route(); toast("已登出 · 歡迎再來 🐾"); });
 
 bootApp();
 
