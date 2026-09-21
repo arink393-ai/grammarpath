@@ -1440,7 +1440,146 @@ const DATA = {
 /* ================= BASIC ================= */
 
 {
-id:"be-verb", zh:"Be 動詞", unit:"u1", n:"1.1", title:"The Verb Be", sub:"Am, is and are — the most common verb in English, for describing people, places and states.",
+id:"parts-of-speech", zh:"詞性辨別（先備概念）", unit:"u1", n:"1.1", title:"Parts of Speech", sub:"先備概念：先認識英文的八種「字的工作」，之後每一課都會用到。The eight word jobs — the map for everything that follows.",
+form:{p:"Every word has a job: naming, doing, describing or joining.", ex:["<b>Noun</b>: dog, city, kindness","<b>Verb</b>: run, is, think","<b>Adjective</b>: happy, blue, tall","<b>Adverb</b>: quickly, always, here"]},
+uses:[
+ {t:"Naming words: nouns & pronouns", d:"A noun names a person, place, thing or idea. A pronoun stands in for a noun so we don't repeat it.", ex:[
+   {s:"The <b>teacher</b> lives in a small <b>town</b>.", n:"nouns: teacher, town"},
+   {s:"<b>Kindness</b> costs nothing.", n:"an idea is a noun too"},
+   {s:"Ben is tired, so <b>he</b> went to bed.", n:"pronoun he replaces Ben"}]},
+ {t:"Doing & describing words: verbs, adjectives, adverbs", d:"A verb shows an action or a state. An adjective describes a noun. An adverb describes a verb (and often ends in -ly).", ex:[
+   {s:"Birds <b>sing</b> in the morning.", n:"verb = sing (action)"},
+   {s:"A <b>tall</b> tree gives cool shade.", n:"adjective tall describes tree"},
+   {s:"She speaks English <b>clearly</b>.", n:"adverb clearly describes speaks"}]},
+ {t:"Little joining & pointing words: prepositions, conjunctions, interjections", d:"A preposition shows place or time (in, on, under, before). A conjunction joins ideas (and, but, because). An interjection shows sudden feeling (Wow! Oh!).", ex:[
+   {s:"The cat is <b>under</b> the table.", n:"preposition = under (place)"},
+   {s:"I was tired, <b>but</b> I finished the work.", n:"conjunction = but (joins)"},
+   {s:"<b>Wow!</b> That sunset is beautiful.", n:"interjection = Wow (feeling)"}]}
+],
+mistakes:[
+ {no:"She sings beautiful.", yes:"She sings beautifully.", why:"To describe a verb (sings) you need an adverb, not an adjective."},
+ {no:"He is a quick runner and runs quick.", yes:"He is a quick runner and runs quickly.", why:"quick describes the noun runner; quickly describes the verb runs."},
+ {no:"That is a interesting book.", yes:"That is an interesting book.", why:"a/an are articles — a small kind of adjective; use an before a vowel sound."}
+],
+tip:"Ask what job the word does: names it (noun), replaces it (pronoun), does it (verb), describes a noun (adjective) or a verb (adverb), or joins/points (preposition, conjunction, interjection). 這一課學會了，後面每一課都更容易。",
+q:[
+ {t:"mcq", q:"In 'Birds sing every morning', which word is the verb?", opts:["Birds","sing","every","morning"], a:1, why:"sing is the action word → verb."},
+ {t:"mcq", q:"In 'The old house is empty', which word is an adjective?", opts:["house","is","old","The"], a:2, why:"old describes the noun house → adjective."},
+ {t:"mcq", q:"'She sang beautifully.' — 'beautifully' is a(n)…", opts:["adjective","adverb","noun","verb"], a:1, why:"It describes the verb sang → adverb."},
+ {t:"mcq", q:"Which word is a preposition? 'The ball rolled under the car.'", opts:["ball","rolled","under","car"], a:2, why:"under shows position → preposition."},
+ {t:"mcq", q:"How many pronouns are in 'They gave it to us'?", opts:["one","two","three","four"], a:2, why:"They, it, us — three pronouns."},
+ {t:"mcq", q:"'I run daily' and 'I went for a run.' The word 'run' is…", opts:["always a noun","a verb, then a noun","always a verb","an adjective"], a:1, why:"Same word, different jobs: run (verb) and a run (noun)."},
+ {t:"fill", q:"A word that names a person, place, thing or idea is a ___ .", ans:["noun"], hint:"a naming word", why:"Nouns name people, places, things and ideas."},
+ {t:"fill", q:"'and', 'but' and 'because' are joining words called ___ .", ans:["conjunctions","conjunction"], hint:"joining words", why:"They join words or ideas → conjunctions."},
+ {t:"fill", q:"Make the adverb of 'quiet': ___ .", ans:["quietly"], hint:"quiet + ly", why:"quiet → quietly."},
+ {t:"spot", sent:"He drives careful in the rain .", wrong:2, fix:"carefully", why:"An adverb describes the verb drives → carefully."},
+ {t:"spot", sent:"That was a real good movie .", wrong:3, fix:"really", why:"To describe the adjective good, use the adverb really."},
+ {t:"order", words:["The","tired","children","slept","quietly"], sent:"The tired children slept quietly", why:"tired (adjective) describes children; quietly (adverb) describes slept."}
+]},
+
+{
+id:"nouns", zh:"名詞篇", unit:"u1", n:"1.2", title:"Nouns", sub:"Naming words — people, places, things and ideas — plus common vs proper nouns and capital letters.",
+form:{p:"A noun names a person, place, thing or idea.", ex:["<b>Person</b>: girl, doctor, Tom","<b>Place</b>: school, Taiwan, park","<b>Thing</b>: book, dog, phone","<b>Idea</b>: love, time, freedom"]},
+uses:[
+ {t:"Common & proper nouns", d:"A common noun is a general name (city, dog). A proper noun is a specific name and starts with a capital letter (Taipei, Rex).", ex:[
+   {s:"My <b>city</b> is <b>Taipei</b>.", n:"common: city · proper: Taipei"},
+   {s:"Her <b>dog</b> is called <b>Rex</b>.", n:""},
+   {s:"We study <b>English</b> on <b>Monday</b>.", n:"languages and days are proper nouns"}]},
+ {t:"Concrete & abstract nouns", d:"Concrete nouns are things you can see or touch (apple, rain). Abstract nouns are ideas or feelings (hope, danger).", ex:[
+   {s:"The <b>apple</b> is on the table.", n:"concrete — you can touch it"},
+   {s:"She showed great <b>courage</b>.", n:"abstract — an idea"},
+   {s:"<b>Friendship</b> is a treasure.", n:""}]},
+ {t:"Nouns can be one or many", d:"Most nouns add -s to mean more than one. (Full plural rules come in Unit 2.)", ex:[
+   {s:"one <b>cat</b> → two <b>cats</b>", n:""},
+   {s:"a <b>box</b> → some <b>boxes</b>", n:"-es after x, s, ch, sh"}]}
+],
+mistakes:[
+ {no:"i live in taipei.", yes:"I live in Taipei.", why:"I and proper nouns (Taipei) need capital letters."},
+ {no:"My favorite subject is english.", yes:"My favorite subject is English.", why:"Languages are proper nouns — capitalize them."},
+ {no:"She gave me some advices.", yes:"She gave me some advice.", why:"Abstract nouns like advice are usually uncountable — no -s."}
+],
+tip:"If you can put 'a', 'the' or a number in front of it, it's probably a noun. Names of people, places, days and languages get a capital letter.",
+q:[
+ {t:"mcq", q:"Which word is a noun? 'The children played happily.'", opts:["played","happily","children","The"], a:2, why:"children names people → noun."},
+ {t:"mcq", q:"Which one is a proper noun?", opts:["river","country","Japan","mountain"], a:2, why:"Japan is a specific name → proper noun (capital J)."},
+ {t:"mcq", q:"Which word is an abstract noun?", opts:["table","freedom","cat","rain"], a:1, why:"freedom is an idea you can't touch → abstract noun."},
+ {t:"mcq", q:"How many nouns are in 'The dog chased the ball in the park'?", opts:["one","two","three","four"], a:2, why:"dog, ball, park → three nouns."},
+ {t:"fill", q:"The name of a country or a person is a ___ noun.", ans:["proper"], hint:"needs a capital letter", why:"Specific names are proper nouns."},
+ {t:"fill", q:"Add the capital: my friend speaks ___ . (chinese)", ans:["Chinese"], hint:"languages are proper nouns", why:"Languages are capitalized → Chinese."},
+ {t:"spot", sent:"We visited paris last summer .", wrong:2, fix:"Paris", why:"Paris is a proper noun → capital P."},
+ {t:"order", words:["Love","is","a","powerful","feeling"], sent:"Love is a powerful feeling", why:"Love and feeling are nouns; powerful is an adjective."}
+]},
+
+{
+id:"verbs", zh:"動詞篇", unit:"u1", n:"1.3", title:"Verbs", sub:"Doing words and being words — the engine of every sentence.",
+form:{p:"A verb shows an action or a state. Every sentence needs a verb.", ex:["<b>Action</b>: run, eat, write, jump","<b>State / being</b>: be, have, like, know"]},
+uses:[
+ {t:"Action verbs — things we do", d:"Action verbs show a physical or a mental action.", ex:[
+   {s:"Cats <b>chase</b> mice.", n:"physical action"},
+   {s:"I <b>think</b> about you.", n:"mental action"},
+   {s:"She <b>sings</b> every morning.", n:""}]},
+ {t:"State / linking verbs — how things are", d:"Some verbs show a state, not an action: be, have, like, feel, seem. A linking verb joins the subject to a description.", ex:[
+   {s:"He <b>is</b> tall.", n:"be links he → tall"},
+   {s:"They <b>have</b> two cats.", n:"a state, not an action"},
+   {s:"The soup <b>smells</b> good.", n:"linking verb + adjective"}]},
+ {t:"Every sentence needs a verb", d:"Without a verb, a group of words is not a full sentence.", ex:[
+   {s:"The tall boy…", n:"no verb — not a sentence"},
+   {s:"The tall boy <b>ran</b>.", n:"ran = the verb ✓"},
+   {s:"My mom <b>is</b> a nurse.", n:"is = the verb ✓"}]}
+],
+mistakes:[
+ {no:"She to the store every day.", yes:"She goes to the store every day.", why:"The sentence had no verb — add goes."},
+ {no:"I very happy today.", yes:"I am very happy today.", why:"Use the verb be (am) to link I to happy."},
+ {no:"He have a new bike.", yes:"He has a new bike.", why:"With he / she / it, use has, not have."}
+],
+tip:"Ask: what is the subject doing, or how is it being? That word is the verb. No verb → not a full sentence.",
+q:[
+ {t:"mcq", q:"Which word is the verb? 'The baby sleeps all night.'", opts:["baby","sleeps","all","night"], a:1, why:"sleeps is the action → verb."},
+ {t:"mcq", q:"Which group of words has NO verb?", opts:["Birds fly.","A big red kite.","She smiled.","We are here."], a:1, why:"'A big red kite' has no verb → not a sentence."},
+ {t:"mcq", q:"In 'She is a teacher', the verb is…", opts:["She","is","a","teacher"], a:1, why:"is (be) is a linking verb."},
+ {t:"mcq", q:"Which is a state verb (not an action)?", opts:["jump","know","kick","throw"], a:1, why:"know is a state of mind, not a physical action."},
+ {t:"fill", q:"Add the verb: I ___ football on Sundays. (play)", ans:["play"], hint:"the action word", why:"play is the verb."},
+ {t:"fill", q:"He ___ two brothers. (have)", ans:["has"], hint:"he / she / it form of have", why:"With he, have → has."},
+ {t:"spot", sent:"The children plays in the park .", wrong:2, fix:"play", why:"children is plural → play, not plays."},
+ {t:"order", words:["The","hungry","cat","wants","food"], sent:"The hungry cat wants food", why:"wants is the verb; hungry is an adjective; cat and food are nouns."}
+]},
+
+{
+id:"adjectives-adverbs", zh:"形容詞與副詞篇", unit:"u1", n:"1.4", title:"Adjectives & Adverbs", sub:"Describing words: adjectives describe nouns, adverbs describe verbs — and how to keep them apart.",
+form:{p:"An adjective describes a noun. An adverb describes a verb, and often ends in -ly.", ex:["<b>Adjective</b>: a <b>fast</b> car","<b>Adverb</b>: drives <b>fast</b>","happy → <b>happily</b>","good → <b>well</b>"]},
+uses:[
+ {t:"Adjectives describe nouns", d:"An adjective tells us more about a noun — before the noun, or after be.", ex:[
+   {s:"a <b>red</b> apple", n:"before the noun"},
+   {s:"The apple is <b>red</b>.", n:"after be"},
+   {s:"a <b>kind, funny</b> teacher", n:"two adjectives"}]},
+ {t:"Adverbs describe verbs", d:"An adverb tells us HOW an action happens. Many are made by adding -ly to an adjective.", ex:[
+   {s:"She sings <b>beautifully</b>.", n:"how she sings"},
+   {s:"He ran <b>quickly</b>.", n:"quick → quickly"},
+   {s:"Please speak <b>slowly</b>.", n:""}]},
+ {t:"Making adverbs & special cases", d:"Most adjectives + -ly = adverb. But fast and hard don't change, and good becomes well.", ex:[
+   {s:"careful → <b>carefully</b>", n:"add -ly"},
+   {s:"happy → <b>happily</b>", n:"y → i + ly"},
+   {s:"good → <b>well</b>", n:"irregular!"}]}
+],
+mistakes:[
+ {no:"She sings beautiful.", yes:"She sings beautifully.", why:"To describe the verb sings, use the adverb beautifully."},
+ {no:"He speaks English very good.", yes:"He speaks English very well.", why:"The adverb of good is well."},
+ {no:"Drive careful!", yes:"Drive carefully!", why:"Describe the verb drive with the adverb carefully."}
+],
+tip:"Does the word describe a THING (noun) or an ACTION (verb)? Thing → adjective. Action → adverb (often -ly). And remember: good = adjective, well = adverb.",
+q:[
+ {t:"mcq", q:"In 'a quiet room', 'quiet' is a(n)…", opts:["adjective","adverb","noun","verb"], a:0, why:"quiet describes the noun room → adjective."},
+ {t:"mcq", q:"Choose the correct word: 'She dances ___.'", opts:["graceful","gracefully","grace","graceless"], a:1, why:"Describing the verb dances needs the adverb gracefully."},
+ {t:"mcq", q:"What is the adverb of 'good'?", opts:["goodly","gooder","well","best"], a:2, why:"good (adjective) → well (adverb)."},
+ {t:"mcq", q:"Which sentence is correct?", opts:["He is a careful driver.","He drives very careful.","He is a carefully driver.","He drive careful."], a:0, why:"careful (adjective) describes the noun driver."},
+ {t:"fill", q:"quick → ___ (adverb)", ans:["quickly"], hint:"add -ly", why:"quick + ly → quickly."},
+ {t:"fill", q:"happy → ___ (adverb)", ans:["happily"], hint:"y → i + ly", why:"happy → happily."},
+ {t:"spot", sent:"The children are playing quiet .", wrong:4, fix:"quietly", why:"Describe the verb playing with the adverb quietly."},
+ {t:"order", words:["The","old","dog","barked","loudly"], sent:"The old dog barked loudly", why:"old (adjective) describes dog; loudly (adverb) describes barked."}
+]},
+
+{
+id:"be-verb", zh:"Be 動詞", unit:"u1", n:"1.5", title:"The Verb Be", sub:"Am, is and are — the most common verb in English, for describing people, places and states.",
 form:{p:"subject + am / is / are + description", ex:["I <b>am</b> a teacher.","She <b>is</b> tired.","They <b>are</b> at home."]},
 uses:[
  {t:"Describing people and things", d:"Use be to say who or what someone is, or what something is like.", ex:[
@@ -1474,7 +1613,7 @@ q:[
 ]},
 
 {
-id:"pronouns", zh:"人稱代名詞", unit:"u1", n:"1.2", title:"Subject & Object Pronouns", sub:"I, you, he, she — and me, him, her: who does the action, and who receives it.",
+id:"pronouns", zh:"人稱代名詞", unit:"u1", n:"1.6", title:"Subject & Object Pronouns", sub:"I, you, he, she — and me, him, her: who does the action, and who receives it.",
 form:{p:"subject pronoun + verb + object pronoun", ex:["<b>She</b> likes <b>him</b>.","<b>They</b> helped <b>us</b>.","<b>I</b> found <b>it</b>."]},
 uses:[
  {t:"Subject pronouns — before the verb", d:"I, you, he, she, it, we, they do the action.", ex:[
@@ -1508,7 +1647,7 @@ q:[
 ]},
 
 {
-id:"present-simple", zh:"現在簡單式", unit:"u1", n:"1.3", title:"Present Simple", sub:"Habits, routines, facts and things that are generally true.",
+id:"present-simple", zh:"現在簡單式", unit:"u1", n:"1.7", title:"Present Simple", sub:"Habits, routines, facts and things that are generally true.",
 tl:{labels:[[8,"past"],[50,"now"],[92,"future"]], dots:[14,32,50,68,86], now:50, cap:"Repeated actions across time — every day, every week, always."},
 form:{p:"subject + verb(+s)  ·  he / she / it adds -s", ex:["I <b>work</b> at night.","She <b>works</b> at night.","He <b>doesn't work</b> on Sundays."]},
 uses:[
@@ -1543,7 +1682,7 @@ q:[
 ]},
 
 {
-id:"present-continuous", zh:"現在進行式", unit:"u1", n:"1.4", title:"Present Continuous", sub:"Be + V-ing — actions happening right now, or temporarily around now.",
+id:"present-continuous", zh:"現在進行式", unit:"u1", n:"1.8", title:"Present Continuous", sub:"Be + V-ing — actions happening right now, or temporarily around now.",
 tl:{labels:[[8,"past"],[50,"now"],[92,"future"]], dots:[44,50,56], now:50, cap:"An action in progress at this moment — it has started and hasn't finished."},
 form:{p:"subject + am / is / are + V-ing", ex:["I <b>am studying</b> right now.","She <b>is cooking</b> dinner.","They <b>aren't listening</b>."]},
 uses:[
@@ -1578,7 +1717,7 @@ q:[
 ]},
 
 {
-id:"adverbs-frequency", zh:"頻率副詞", unit:"u1", n:"1.5", title:"Adverbs of Frequency", sub:"Always, usually, often, sometimes, rarely, never — saying how often.",
+id:"adverbs-frequency", zh:"頻率副詞", unit:"u1", n:"1.9", title:"Adverbs of Frequency", sub:"Always, usually, often, sometimes, rarely, never — saying how often.",
 form:{p:"subject + adverb + verb   ·   subject + be + adverb", ex:["I <b>always</b> walk to work.","She is <b>never</b> late.","We <b>sometimes</b> eat out."]},
 uses:[
  {t:"The frequency scale", d:"These adverbs sit on a scale from 100% down to 0%.", ex:[
@@ -1608,40 +1747,6 @@ q:[
  {t:"fill", q:"The opposite of always is ___.", ans:["never"], hint:"0% of the time", why:"Never = 0%."},
  {t:"mcq", q:"We ___ eat out — maybe once a month.", opts:["always","never","rarely","usually"], a:2, why:"Once a month is rare, so rarely fits."},
  {t:"spot", sent:"I am late usually on Mondays .", wrong:3, fix:"usually late", why:"After be: am usually late."}
-]},
-
-{
-id:"parts-of-speech", zh:"詞性辨別", unit:"u1", n:"1.6", title:"Parts of Speech", sub:"The eight word jobs — noun, verb, adjective, adverb and the little helpers — and how to tell them apart.",
-form:{p:"Every word has a job: naming, doing, describing or joining.", ex:["<b>Noun</b>: dog, city, kindness","<b>Verb</b>: run, is, think","<b>Adjective</b>: happy, blue, tall","<b>Adverb</b>: quickly, always, here"]},
-uses:[
- {t:"Naming words: nouns & pronouns", d:"A noun names a person, place, thing or idea. A pronoun stands in for a noun so we don't repeat it.", ex:[
-   {s:"The <b>teacher</b> lives in a small <b>town</b>.", n:"nouns: teacher, town"},
-   {s:"<b>Kindness</b> costs nothing.", n:"an idea is a noun too"},
-   {s:"Ben is tired, so <b>he</b> went to bed.", n:"pronoun he replaces Ben"}]},
- {t:"Doing & describing words: verbs, adjectives, adverbs", d:"A verb shows an action or a state. An adjective describes a noun. An adverb describes a verb (and often ends in -ly).", ex:[
-   {s:"Birds <b>sing</b> in the morning.", n:"verb = sing (action)"},
-   {s:"A <b>tall</b> tree gives cool shade.", n:"adjective tall describes tree"},
-   {s:"She speaks English <b>clearly</b>.", n:"adverb clearly describes speaks"}]},
- {t:"Little joining & pointing words: prepositions, conjunctions, interjections", d:"A preposition shows place or time (in, on, under, before). A conjunction joins ideas (and, but, because). An interjection shows sudden feeling (Wow! Oh!).", ex:[
-   {s:"The cat is <b>under</b> the table.", n:"preposition = under (place)"},
-   {s:"I was tired, <b>but</b> I finished the work.", n:"conjunction = but (joins)"},
-   {s:"<b>Wow!</b> That sunset is beautiful.", n:"interjection = Wow (feeling)"}]}
-],
-mistakes:[
- {no:"She sings beautiful.", yes:"She sings beautifully.", why:"To describe a verb (sings) you need an adverb, not an adjective."},
- {no:"He is a quick runner and runs quick.", yes:"He is a quick runner and runs quickly.", why:"quick describes the noun runner; quickly describes the verb runs."},
- {no:"That is a interesting book.", yes:"That is an interesting book.", why:"a/an are articles — a small kind of adjective; use an before a vowel sound."}
-],
-tip:"Ask what job the word does: names it (noun), replaces it (pronoun), does it (verb), describes a noun (adjective) or a verb (adverb), or joins/points (preposition, conjunction, interjection).",
-q:[
- {t:"mcq", q:"In 'Birds sing every morning', which word is the verb?", opts:["Birds","sing","every","morning"], a:1, why:"sing is the action word → verb."},
- {t:"mcq", q:"In 'The old house is empty', which word is an adjective?", opts:["house","is","old","The"], a:2, why:"old describes the noun house → adjective."},
- {t:"mcq", q:"'She sang beautifully.' — 'beautifully' is a(n)…", opts:["adjective","adverb","noun","verb"], a:1, why:"It describes the verb sang → adverb."},
- {t:"mcq", q:"Which word is a preposition? 'The ball rolled under the car.'", opts:["ball","rolled","under","car"], a:2, why:"under shows position → preposition."},
- {t:"fill", q:"A word that names a person, place, thing or idea is a ___ .", ans:["noun"], hint:"a naming word", why:"Nouns name people, places, things and ideas."},
- {t:"fill", q:"'and', 'but' and 'because' are joining words called ___ .", ans:["conjunctions","conjunction"], hint:"joining words", why:"They join words or ideas → conjunctions."},
- {t:"spot", sent:"He drives careful in the rain .", wrong:2, fix:"carefully", why:"An adverb describes the verb drives → carefully."},
- {t:"order", words:["The","tired","children","slept","quietly"], sent:"The tired children slept quietly", why:"tired (adjective) describes children; quietly (adverb) describes slept."}
 ]},
 
 {
