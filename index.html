@@ -1016,6 +1016,20 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sb-moral-label{display:inline-block;font:600 11px var(--sb-disp);letter-spacing:.2em;text-transform:uppercase;color:var(--sb-brick);margin-bottom:10px}
 .sb-moral .en{font-family:var(--sb-serif);font-style:italic;font-size:1.18rem;color:var(--sb-ink);margin:0;text-wrap:balance}
 .sb-moral .zh{font-family:var(--sb-han);font-weight:500;color:var(--sb-zh);font-size:1.05rem;margin:.5em 0 0}
+.sb-quiz{max-width:62ch;margin:34px auto 0;background:var(--sb-panel);border:1px solid var(--sb-line2);border-radius:14px;padding:20px 22px}
+.sb-quiz h3{font:600 1.1rem var(--sb-disp);color:var(--sb-brick);margin:0 0 14px}
+.fq{margin:0 0 18px;padding:0 0 16px;border-bottom:1px solid var(--sb-line)}
+.fq:last-child{border-bottom:0;padding-bottom:0;margin-bottom:0}
+.fq-q{display:flex;gap:9px;font:600 1.02rem var(--sb-serif);color:var(--sb-ink);line-height:1.45;margin-bottom:10px}
+.fq-n{flex:0 0 auto;width:23px;height:23px;border-radius:50%;background:var(--sb-lapis);color:#fff;font:700 12.5px var(--sans);display:inline-flex;align-items:center;justify-content:center}
+.fq-zh{display:block;font-family:var(--sb-han);font-weight:400;font-size:.9em;color:var(--sb-soft);margin-top:2px}
+.fq-opts{display:flex;flex-direction:column;gap:8px}
+.fq-opt{text-align:left;background:#FFFDF8;border:1px solid var(--sb-line2);border-radius:10px;padding:10px 14px;font:15px var(--sans);color:var(--sb-ink);cursor:pointer;transition:all .12s ease}
+.fq-opt:hover:not(:disabled){border-color:var(--sb-lapis);background:#fff}
+.fq-opt:disabled{cursor:default}
+.fq-opt.correct{background:#E4F0E4;border-color:#8BC48B;color:#2E6B2E;font-weight:600}
+.fq-opt.wrong{background:#F7DAD5;border-color:#E0A99F;color:#B23B2E}
+.fq-why{margin-top:10px;font-family:var(--sb-han);font-size:14px;line-height:1.6;color:var(--sb-ink);background:#FBF5E7;border-radius:9px;padding:9px 12px}
 .sb-plate-fable{background:radial-gradient(circle at 50% 40%,#FFF6E4,#EFDCB8)!important;align-items:center!important;justify-content:center}
 .sb-fable-emoji{font-size:76px;line-height:1}
 .sb-card-fable .sb-list-plate{width:150px;flex:0 0 150px}
@@ -3716,7 +3730,52 @@ const FABLES = [
     "zh": "「很大嗎！」老青蛙一邊把自己鼓大，一邊說，「有這麼大嗎？」「喔，比那大多了！」牠們喊道。老青蛙又把自己鼓得更大。「牠不可能比這還大吧，」牠說。可是小青蛙們都說那怪物大得多、多得多，老青蛙就一直鼓、一直鼓，最後一下子，牠爆開了。"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "Why did the old Frog burst?",
+    "zh": "老青蛙為什麼爆開了？",
+    "opts": [
+     "She puffed herself up too big",
+     "She ate too much",
+     "She fell into the pond"
+    ],
+    "a": 0,
+    "why": "她硬要把自己脹得像牛一樣大，最後撐破了。"
+   },
+   {
+    "q": "What does this fable teach us?",
+    "zh": "這則寓言教我們什麼？",
+    "opts": [
+     "Don’t try to be something you are not",
+     "Frogs cannot swim",
+     "Oxen are gentle"
+    ],
+    "a": 0,
+    "why": "別逞強，不要嘗試不可能的事。"
+   },
+   {
+    "q": "The word “burst” means…",
+    "zh": "burst 是什麼意思？",
+    "opts": [
+     "to break open suddenly",
+     "to jump high",
+     "to fall asleep"
+    ],
+    "a": 0,
+    "why": "burst = 爆裂、突然破開。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "Have you ever tried to do something too big for you? What happened?",
+    "zh": "你有沒有勉強做過超出自己能力的事？結果怎樣？"
+   },
+   {
+    "en": "Why is it okay to just be yourself?",
+    "zh": "為什麼做自己就好、不必跟別人比？"
+   }
+  ]
  },
  {
   "id": "aesop-belling-cat",
@@ -3768,7 +3827,52 @@ const FABLES = [
     "zh": "所有老鼠都很驚訝，怎麼從前沒想到這麼好的辦法。正當大家為這好主意歡欣鼓舞時，一隻老老鼠站了起來說：「我承認這隻小老鼠的辦法很好。但讓我問一個問題：誰去把鈴鐺掛到貓的脖子上呢？」"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "What was the young Mouse’s plan?",
+    "zh": "小老鼠的計畫是什麼？",
+    "opts": [
+     "Hang a bell on the cat",
+     "Move to a new house",
+     "Fight the cat"
+    ],
+    "a": 0,
+    "why": "在貓脖子上掛鈴鐺，聽到鈴聲就知道貓來了。"
+   },
+   {
+    "q": "Why did the plan fail?",
+    "zh": "計畫為什麼行不通？",
+    "opts": [
+     "No mouse dared to bell the cat",
+     "The bell was too small",
+     "The cat ran away"
+    ],
+    "a": 0,
+    "why": "沒有一隻老鼠敢去把鈴鐺掛上貓的脖子。"
+   },
+   {
+    "q": "The moral is that…",
+    "zh": "寓意是……",
+    "opts": [
+     "saying is easy, doing is hard",
+     "cats love bells",
+     "meetings are useless"
+    ],
+    "a": 0,
+    "why": "說起來容易，做起來難。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "Have you had a good idea that was hard to carry out? ",
+    "zh": "你有沒有想過很棒、卻很難執行的點子？"
+   },
+   {
+    "en": "Why is doing harder than talking?",
+    "zh": "為什麼『做到』比『說說』難得多？"
+   }
+  ]
  },
  {
   "id": "aesop-fox-grapes",
@@ -3820,7 +3924,52 @@ const FABLES = [
     "zh": "這時牠坐了下來，厭惡地看著那串葡萄。「我真是個傻瓜，」牠說，「在這裡把自己累得半死，只為了一串酸葡萄，根本不值得我張著嘴巴盯著看。」說完，牠非常、非常不屑地走開了。"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "Why couldn’t the Fox get the grapes?",
+    "zh": "狐狸為什麼拿不到葡萄？",
+    "opts": [
+     "They hung too high",
+     "They were rotten",
+     "A dog chased him"
+    ],
+    "a": 0,
+    "why": "葡萄掛得太高，狐狸跳了好幾次都搆不到。"
+   },
+   {
+    "q": "What did the Fox say as he left?",
+    "zh": "狐狸離開時說什麼？",
+    "opts": [
+     "The grapes are sour anyway",
+     "I will come back tomorrow",
+     "I am not hungry"
+    ],
+    "a": 0,
+    "why": "他說那葡萄反正是酸的——其實是搆不到才這樣講。"
+   },
+   {
+    "q": "“in vain” means…",
+    "zh": "in vain 是什麼意思？",
+    "opts": [
+     "without success",
+     "very fast",
+     "with a friend"
+    ],
+    "a": 0,
+    "why": "in vain = 徒勞、白費力氣。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "When you can’t get something, do you ever say you didn’t want it?",
+    "zh": "得不到某樣東西時，你會不會說『反正我也不想要』？"
+   },
+   {
+    "en": "What is a better way to handle disappointment?",
+    "zh": "遇到失望時，有沒有更好的處理方式？"
+   }
+  ]
  },
  {
   "id": "aesop-lion-mouse",
@@ -3876,7 +4025,52 @@ const FABLES = [
     "zh": "幾天後，獅子在森林裡追捕獵物時，落入了獵人的網子裡。牠掙脫不開，憤怒的吼聲響徹整座森林。小老鼠聽出了牠的聲音，很快找到在網中掙扎的獅子。牠跑到綁住獅子的一條粗繩旁，一直啃、一直咬，直到繩子斷開，獅子很快就自由了。「當初我說要報答你時，你還笑我，」小老鼠說，「現在你看，連一隻小老鼠也幫得上獅子。」"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "How did the Mouse save the Lion?",
+    "zh": "老鼠怎麼救了獅子？",
+    "opts": [
+     "She gnawed the net open",
+     "She roared for help",
+     "She brought food"
+    ],
+    "a": 0,
+    "why": "她咬斷了綁住獅子的繩子。"
+   },
+   {
+    "q": "What is the lesson?",
+    "zh": "寓意是什麼？",
+    "opts": [
+     "A kindness is never wasted",
+     "Lions are strong",
+     "Mice are fast"
+    ],
+    "a": 0,
+    "why": "善意永遠不會白費——連小老鼠也能報恩。"
+   },
+   {
+    "q": "“spare me” means…",
+    "zh": "spare me 是什麼意思？",
+    "opts": [
+     "please don’t kill me",
+     "give me food",
+     "follow me"
+    ],
+    "a": 0,
+    "why": "spare = 饒恕；spare me = 饒了我吧。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "Has someone small or young ever helped you?",
+    "zh": "有沒有比你小或比你弱的人幫過你？"
+   },
+   {
+    "en": "Why should we be kind even to those who seem weak?",
+    "zh": "為什麼對看起來弱小的人也要友善？"
+   }
+  ]
  },
  {
   "id": "aesop-crow-pitcher",
@@ -3924,7 +4118,52 @@ const FABLES = [
     "zh": "這時牠想到一個辦法。牠啣起一些小石子，一顆一顆地投進水罐裡。每投一顆，水就升高一點，直到最後水面夠高，牠終於喝到了水。"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "How did the Crow reach the water?",
+    "zh": "烏鴉怎麼喝到水的？",
+    "opts": [
+     "Dropped pebbles to raise the water",
+     "Tipped the pitcher over",
+     "Called other birds"
+    ],
+    "a": 0,
+    "why": "一顆顆丟小石子進去，讓水位升高。"
+   },
+   {
+    "q": "What does the fable praise?",
+    "zh": "這則寓言稱讚什麼？",
+    "opts": [
+     "Using our wits",
+     "Being big",
+     "Being loud"
+    ],
+    "a": 0,
+    "why": "善用智慧、動腦筋想辦法。"
+   },
+   {
+    "q": "“thirsty” means…",
+    "zh": "thirsty 是什麼意思？",
+    "opts": [
+     "needing to drink",
+     "very tired",
+     "afraid"
+    ],
+    "a": 0,
+    "why": "thirsty = 口渴的。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "Tell about a time you solved a problem with a clever idea.",
+    "zh": "說說你用聰明辦法解決問題的一次經驗。"
+   },
+   {
+    "en": "Why is thinking sometimes better than giving up?",
+    "zh": "為什麼動動腦，常比放棄更好？"
+   }
+  ]
  },
  {
   "id": "aesop-hare-tortoise",
@@ -3980,7 +4219,52 @@ const FABLES = [
     "zh": "這段時間，烏龜依然緩慢卻穩定地前進，過了一會兒，經過了兔子睡覺的地方。兔子卻睡得又香又甜；等牠終於醒來，烏龜已經快到終點了。兔子這才拼命地跑，用上最快的速度，卻已經來不及追上烏龜了。"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "Why did the Hare lose the race?",
+    "zh": "兔子為什麼輸了？",
+    "opts": [
+     "He stopped to take a nap",
+     "He ran the wrong way",
+     "He got hurt"
+    ],
+    "a": 0,
+    "why": "他太得意，中途躺下睡覺，醒來已來不及。"
+   },
+   {
+    "q": "What is the moral?",
+    "zh": "寓意是什麼？",
+    "opts": [
+     "Slow and steady wins the race",
+     "Always run fast",
+     "Never race a friend"
+    ],
+    "a": 0,
+    "why": "跑得快不一定贏；穩定持續才會成功。"
+   },
+   {
+    "q": "“steadily” means…",
+    "zh": "steadily 是什麼意思？",
+    "opts": [
+     "in a slow, constant way",
+     "suddenly",
+     "angrily"
+    ],
+    "a": 0,
+    "why": "steadily = 穩定地、持續不斷地。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "Are you more like the Hare or the Tortoise? Why?",
+    "zh": "你比較像兔子還是烏龜？為什麼？"
+   },
+   {
+    "en": "How does steady effort help you learn English?",
+    "zh": "持續穩定的努力，怎麼幫助你學英文？"
+   }
+  ]
  },
  {
   "id": "aesop-fox-crow",
@@ -4036,7 +4320,52 @@ const FABLES = [
     "zh": "聽著這些奉承話，烏鴉忘了所有的疑心，也忘了自己的早餐。牠好想被稱作「鳥中之后」。於是牠張大嘴，發出最響亮的一聲呱——起司便直直落進了狐狸張開的嘴裡。「謝啦，」狐狸先生甜甜地說，一邊走開，「你的嗓音雖然沙啞，倒也算是有聲音。可是你的腦子呢？」"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "How did the Fox get the cheese?",
+    "zh": "狐狸怎麼拿到起司的？",
+    "opts": [
+     "He flattered the Crow until she sang",
+     "He climbed the tree",
+     "He asked politely"
+    ],
+    "a": 0,
+    "why": "他一直說好聽的話，烏鴉一開口唱歌，起司就掉了。"
+   },
+   {
+    "q": "What is the lesson?",
+    "zh": "寓意是什麼？",
+    "opts": [
+     "Don’t trust flatterers",
+     "Crows can’t sing",
+     "Cheese is tasty"
+    ],
+    "a": 0,
+    "why": "別輕信諂媚、愛聽好話的人會被利用。"
+   },
+   {
+    "q": "A “flatterer” is someone who…",
+    "zh": "flatterer 是指……",
+    "opts": [
+     "gives false praise to use you",
+     "tells the truth",
+     "sings well"
+    ],
+    "a": 0,
+    "why": "flatterer = 諂媚者，用假讚美來占你便宜。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "How do you feel when someone praises you a lot?",
+    "zh": "有人一直稱讚你時，你有什麼感覺？"
+   },
+   {
+    "en": "How can we tell real praise from flattery?",
+    "zh": "我們怎麼分辨真心稱讚和諂媚？"
+   }
+  ]
  },
  {
   "id": "aesop-bundle-sticks",
@@ -4084,7 +4413,52 @@ const FABLES = [
     "zh": "接著父親解開那捆木棍，把木棍一根一根地分給兒子們去折。這下他們輕輕鬆鬆就折斷了。「我的兒子們，」父親說，「你們難道看不出來嗎？只要你們彼此和睦、互相幫助，敵人就絕不可能傷害你們；可是如果你們自己分裂，你們就跟那捆裡的一根木棍一樣不堪一折。」"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "What could the sons NOT do?",
+    "zh": "兒子們做不到什麼？",
+    "opts": [
+     "Break the whole bundle",
+     "Break one stick",
+     "Tie the sticks"
+    ],
+    "a": 0,
+    "why": "綁成一捆的木棍怎麼折都折不斷。"
+   },
+   {
+    "q": "What is the moral?",
+    "zh": "寓意是什麼？",
+    "opts": [
+     "In unity there is strength",
+     "Sticks are weak",
+     "Fathers are strict"
+    ],
+    "a": 0,
+    "why": "團結就是力量；一根根就容易被折斷。"
+   },
+   {
+    "q": "“quarreling” means…",
+    "zh": "quarreling 是什麼意思？",
+    "opts": [
+     "arguing",
+     "playing",
+     "sleeping"
+    ],
+    "a": 0,
+    "why": "quarrel = 爭吵。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "When has working together made something easier?",
+    "zh": "什麼時候『合作』讓事情變簡單了？"
+   },
+   {
+    "en": "Why do families and teams grow stronger united?",
+    "zh": "為什麼家人或團隊團結起來會更強？"
+   }
+  ]
  },
  {
   "id": "aesop-shepherd-wolf",
@@ -4140,7 +4514,52 @@ const FABLES = [
     "zh": "過了幾天，牧童又大喊：「狼來了！狼來了！」村民又跑來救他，結果又被他嘲笑一頓。後來有一天傍晚，太陽正落到森林後面，影子悄悄爬滿牧場，一隻狼真的從灌木叢中竄了出來，撲向羊群。孩子驚恐萬分，朝村子邊跑邊喊：「狼來了！狼來了！」可是村民雖然聽見了喊聲，卻不再像從前那樣跑來幫他。「他別想再騙我們了，」他們說。那隻狼咬死了孩子好多隻羊，然後溜進森林裡不見了。"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "Why didn’t the villagers come the last time?",
+    "zh": "最後一次村民為什麼不來了？",
+    "opts": [
+     "He had lied before",
+     "They were asleep",
+     "It was raining"
+    ],
+    "a": 0,
+    "why": "他之前一直騙人喊假的『狼來了』，這次沒人相信。"
+   },
+   {
+    "q": "What is the lesson?",
+    "zh": "寓意是什麼？",
+    "opts": [
+     "Liars aren’t believed, even when true",
+     "Wolves are scary",
+     "Sheep are slow"
+    ],
+    "a": 0,
+    "why": "說謊的人，就算說真話也沒人相信。"
+   },
+   {
+    "q": "A “flock” is a group of…",
+    "zh": "flock 是指一群……",
+    "opts": [
+     "sheep",
+     "wolves",
+     "villagers"
+    ],
+    "a": 0,
+    "why": "flock = 羊群。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "What happens to trust when someone lies often?",
+    "zh": "一個人常說謊，別人的信任會怎樣？"
+   },
+   {
+    "en": "Why is it hard to win trust back?",
+    "zh": "為什麼信任一旦失去，很難再贏回來？"
+   }
+  ]
  },
  {
   "id": "aesop-goose-golden-egg",
@@ -4184,7 +4603,52 @@ const FABLES = [
     "zh": "於是有一天，他數完錢後，忽然起了一個念頭：只要把鵝殺了、剖開來，就能一次拿到所有的金蛋。可是等他真的動了手，卻連一顆金蛋也沒找到，而他那隻珍貴的鵝，也死了。"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "Why did the man kill the Goose?",
+    "zh": "農夫為什麼把鵝殺了？",
+    "opts": [
+     "To get all the eggs at once",
+     "It was sick",
+     "To eat it"
+    ],
+    "a": 0,
+    "why": "他貪心，想一次拿到所有金蛋。"
+   },
+   {
+    "q": "What did he find inside?",
+    "zh": "他在裡面找到什麼？",
+    "opts": [
+     "No golden eggs at all",
+     "Many eggs",
+     "A little goose"
+    ],
+    "a": 0,
+    "why": "一顆金蛋也沒有——貪心讓他什麼都失去了。"
+   },
+   {
+    "q": "What is the moral?",
+    "zh": "寓意是什麼？",
+    "opts": [
+     "Greed loses everything",
+     "Geese are magic",
+     "Save your money"
+    ],
+    "a": 0,
+    "why": "貪得無厭，最後連原有的也失去。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "Have you ever wanted something so fast that you lost it?",
+    "zh": "你有沒有太想快點得到某樣東西，反而失去它？"
+   },
+   {
+    "en": "Why is patience better than greed?",
+    "zh": "為什麼耐心比貪心好？"
+   }
+  ]
  },
  {
   "id": "aesop-milkmaid-pail",
@@ -4232,7 +4696,52 @@ const FABLES = [
     "zh": "正當她想著要怎麼打發那些人時，她不屑地把頭一甩——奶桶就從頭上摔到了地上。牛奶全流光了，隨之消失的，還有奶油、蛋、小雞、新洋裝，以及擠奶女孩所有的驕傲。"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "Why did the milk spill?",
+    "zh": "牛奶為什麼灑了？",
+    "opts": [
+     "She tossed her head while daydreaming",
+     "A cow bumped her",
+     "She tripped on a stone"
+    ],
+    "a": 0,
+    "why": "她想著白日夢、得意地一甩頭，桶子就掉了。"
+   },
+   {
+    "q": "What is the moral?",
+    "zh": "寓意是什麼？",
+    "opts": [
+     "Don’t count your chickens before they hatch",
+     "Milk is precious",
+     "Walk slowly"
+    ],
+    "a": 0,
+    "why": "蛋還沒孵就別數小雞——別高興得太早。"
+   },
+   {
+    "q": "To “churn” milk is to make…",
+    "zh": "churn 牛奶是為了做出……",
+    "opts": [
+     "butter",
+     "cheese",
+     "bread"
+    ],
+    "a": 0,
+    "why": "churn = 攪製（奶油）。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "Do you ever make big plans before something is sure?",
+    "zh": "事情還沒成真，你會不會就先想好一大堆計畫？"
+   },
+   {
+    "en": "Why is it wise not to celebrate too early?",
+    "zh": "為什麼『別高興得太早』是聰明的？"
+   }
+  ]
  },
  {
   "id": "aesop-wind-sun",
@@ -4288,7 +4797,52 @@ const FABLES = [
     "zh": "接著，太陽開始發光。起初陽光很柔和，在北風的刺骨寒冷之後，這股舒服的暖意讓旅人解開了斗篷，任它鬆鬆地披在肩上。太陽的光愈來愈暖。旅人脫下帽子，擦了擦額頭的汗。最後他熱得受不了，索性把斗篷脫了下來，為了躲開炙熱的陽光，一頭倒進路旁樹下那片教人歡喜的樹蔭裡。"
    }
   ],
-  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use."
+  "note": "Public-domain text from The Æsop for Children (Milo Winter, 1919), courtesy of the Library of Congress (read.gov). Bilingual layout and Chinese translation added for classroom use.",
+  "quiz": [
+   {
+    "q": "Who got the traveler’s cloak off?",
+    "zh": "誰讓旅人脫下斗篷？",
+    "opts": [
+     "The Sun, with gentle warmth",
+     "The Wind, by blowing hard",
+     "Nobody"
+    ],
+    "a": 0,
+    "why": "太陽用溫暖的陽光，讓旅人自己脫下斗篷。"
+   },
+   {
+    "q": "What is the moral?",
+    "zh": "寓意是什麼？",
+    "opts": [
+     "Gentleness beats force",
+     "Wind is strongest",
+     "Always wear a cloak"
+    ],
+    "a": 0,
+    "why": "溫柔與善意勝過蠻力與虛張聲勢。"
+   },
+   {
+    "q": "“persuasion” means…",
+    "zh": "persuasion 是什麼意思？",
+    "opts": [
+     "gently convincing someone",
+     "shouting loudly",
+     "running away"
+    ],
+    "a": 0,
+    "why": "persuasion = 說服、勸說。"
+   }
+  ],
+  "discuss": [
+   {
+    "en": "When has kindness worked better than force for you?",
+    "zh": "什麼時候『溫柔』比『強硬』更有用？"
+   },
+   {
+    "en": "How can gentle words change someone’s mind?",
+    "zh": "溫和的話語，怎麼讓別人改變想法？"
+   }
+  ]
  }
 ];
 STORIES.push.apply(STORIES, FABLES);
@@ -4523,6 +5077,22 @@ function renderStoryList(filterCat = "all"){
   </div>`;
 }
 
+function fqPick(id, qi, oi){
+  const s = storyById(id); if(!s || !s.quiz || !s.quiz[qi]) return;
+  const q = s.quiz[qi];
+  const box = document.getElementById(`fq-${id}-${qi}`);
+  if(!box || box.classList.contains("answered")) return;
+  box.classList.add("answered");
+  box.querySelectorAll(".fq-opt").forEach((b,i)=>{ b.disabled=true; if(i===q.a) b.classList.add("correct"); else if(i===oi) b.classList.add("wrong"); });
+  const why = box.querySelector(".fq-why");
+  why.hidden = false;
+  why.innerHTML = (oi===q.a ? "✅ 答對了！ " : "❌ 再想想～ ") + (q.why || "");
+  const boxes = [...document.querySelectorAll('[id^="fq-'+id+'-"]')];
+  if(boxes.length && boxes.every(b=>b.classList.contains("answered"))){
+    store.data.fableQuiz = store.data.fableQuiz || {};
+    if(!store.data.fableQuiz[id]){ store.data.fableQuiz[id] = true; store.save(); store.addCans(2); toast("讀後練習完成 +2 🥫 🐾"); }
+  }
+}
 function renderStory(id){
   sbStop();
   const s = storyById(id);
@@ -4571,6 +5141,17 @@ function renderStory(id){
       <p class="zh">${s.moral.zh}</p>
     </div>` : "";
 
+  const quizHtml = (s.quiz && s.quiz.length) ? `
+    <div class="sb-quiz">
+      <h3>📝 讀後練習 · Quick Check</h3>
+      ${s.quiz.map((q,qi)=>`
+        <div class="fq" id="fq-${s.id}-${qi}">
+          <div class="fq-q"><span class="fq-n">${qi+1}</span><span>${q.q}<span class="fq-zh">${q.zh}</span></span></div>
+          <div class="fq-opts">${q.opts.map((o,oi)=>`<button class="fq-opt" onclick="fqPick('${s.id}',${qi},${oi})">${o}</button>`).join("")}</div>
+          <div class="fq-why" hidden></div>
+        </div>`).join("")}
+    </div>` : "";
+
   const vocabHtml = (s.vocab && s.vocab.length) ? `
     <div class="sb-vocab">
       <h3>📖 繪本生詞寶典 · Story Vocabulary</h3>
@@ -4613,6 +5194,7 @@ function renderStory(id){
     </div>` : ""}
     ${scenes}
     ${moralHtml}
+    ${quizHtml}
     ${vocabHtml}
     ${s.aside ? `
     <div class="sb-aside">
