@@ -1244,6 +1244,18 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .hw-pill.todo{background:#FBE9E4;color:#B4552F}
 .hw-pill.sent{background:#E7EEF6;color:#2C5C86}
 .hw-pill.done{background:#E4F0E4;color:#3B7A3B}
+.hw-pill.due-soon{background:#FCEFD6;color:#9A6B12}
+.hw-pill.due-over{background:#F7DAD5;color:#B23B2E}
+.hw-pills{display:inline-flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.hw-card-over{border-color:#E9B7AE;box-shadow:0 0 0 1px #F0C9C2 inset}
+/* nav badge + home reminder banner */
+.nav-badge{display:inline-flex;align-items:center;justify-content:center;min-width:19px;height:19px;padding:0 5px;margin-left:8px;border-radius:999px;background:#E8A32B;color:#fff;font:700 11.5px var(--sans);vertical-align:middle}
+.nav-badge.overdue{background:#C6402F}
+.hw-banner{display:flex;align-items:center;gap:10px;width:100%;box-sizing:border-box;margin:0 0 14px;padding:12px 16px;border-radius:12px;border:1px solid #F0D9A8;background:#FCF3DE;color:#8A5D12;font:600 14px var(--sans);cursor:pointer;text-align:left}
+.hw-banner:hover{background:#FBEDCB}
+.hw-banner.overdue{border-color:#EEC0B7;background:#FBE7E2;color:#A63A2C}
+.hw-banner .hb-ic{font-size:18px}
+.hw-banner .hb-txt{flex:1}
 .hw-due{font-size:13px;color:var(--muted);margin-top:6px}
 .hw-desc{margin:8px 0 4px;color:var(--ink);line-height:1.6}
 .hw-grade{background:#F4FAF4;border:1px solid #D5E8D5;border-radius:10px;padding:10px 13px;margin:10px 0;font-size:14px}
@@ -1324,7 +1336,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/theory">🧠 學習理論 Theory</button>
   <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
   <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
-  <button data-nav="#/homework">📝 作業繳交 Homework</button>
+  <button data-nav="#/homework" id="navHomework">📝 作業繳交 Homework</button>
   <button data-nav="#/teacher" id="navTeacher" hidden>🧑‍🏫 老師後台 Teacher</button>
   <button data-nav="#/resources">🔤 資源 Resources</button>
 </nav>
@@ -3142,6 +3154,7 @@ function renderHome(){
     </button>`;
   }).join("");
   app.innerHTML = `<div class="view">
+    ${hwBanner()}
     <div class="island-hero" aria-hidden="false">${islandScene()}</div>
     <div class="island-story">
       <div class="eyebrow" style="text-align:center">Welcome to englishcat island 🐾</div>
@@ -11448,9 +11461,60 @@ function finishSession(){
 }
 
 /* =====================================================
-   Homework hand-in (students)
+   Homework hand-in (students) + due-date reminders
    ===================================================== */
 const fmtDate = s => s ? String(s).slice(0,10) : "";
+let HW_PENDING = [];   // active, unsubmitted assignments that are overdue or due soon
+function hwStatus(a, sub){
+  if(sub) return {state:"done"};
+  if(!a.due_date) return {state:"open"};
+  const today = new Date(); today.setHours(0,0,0,0);
+  const due = new Date(a.due_date+"T00:00:00"); due.setHours(0,0,0,0);
+  const days = Math.round((due - today)/864e5);
+  if(days < 0) return {state:"overdue", days};
+  if(days <= 2) return {state:"soon", days};
+  return {state:"upcoming", days};
+}
+function hwStatusLabel(st){
+  if(st.state==="overdue") return `逾期 ${-st.days} 天 Overdue`;
+  if(st.state==="soon") return st.days===0 ? "今天到期 Due today" : `還剩 ${st.days} 天 Due soon`;
+  if(st.state==="upcoming") return `還有 ${st.days} 天 Upcoming`;
+  return "";
+}
+async function refreshHwReminders(){
+  if(!(CLOUD.on && currentUser()) || isTeacher()){ HW_PENDING = []; updateHwBadge(); return; }
+  try{
+    const [as, subs] = await Promise.all([CLOUD.listAssignments(), CLOUD.mySubmissions()]);
+    const subA = {}; subs.forEach(s=>subA[s.assignment_id]=s);
+    HW_PENDING = as.filter(a=>a.active).map(a=>({a, st:hwStatus(a, subA[a.id])}))
+      .filter(x=>x.st.state==="overdue" || x.st.state==="soon");
+  }catch(e){ HW_PENDING = []; }
+  updateHwBadge();
+  if(HW_PENDING.length && !window.__hwNudged){
+    window.__hwNudged = true;
+    const od = HW_PENDING.filter(x=>x.st.state==="overdue").length;
+    toast(`📝 你有 ${HW_PENDING.length} 份作業快到期${od?`（${od} 份已逾期）`:""}，記得繳交！`);
+  }
+}
+function updateHwBadge(){
+  const btn = document.getElementById("navHomework"); if(!btn) return;
+  let b = btn.querySelector(".nav-badge");
+  if(!HW_PENDING.length){ if(b) b.remove(); return; }
+  if(!b){ b = document.createElement("span"); b.className = "nav-badge"; btn.appendChild(b); }
+  b.textContent = HW_PENDING.length;
+  b.classList.toggle("overdue", HW_PENDING.some(x=>x.st.state==="overdue"));
+}
+function hwBanner(){
+  if(!HW_PENDING.length) return "";
+  const od = HW_PENDING.filter(x=>x.st.state==="overdue").length;
+  const soon = HW_PENDING.filter(x=>x.st.state==="soon").length;
+  const parts = [];
+  if(od) parts.push(`${od} 份已逾期`);
+  if(soon) parts.push(`${soon} 份即將到期`);
+  return `<button class="hw-banner ${od?'overdue':''}" onclick="location.hash='#/homework'">
+    <span class="hb-ic">${od?'⏰':'📝'}</span>
+    <span class="hb-txt">作業提醒 Homework due — ${parts.join("、")}，點我去繳交 →</span></button>`;
+}
 function cloudNeeded(what){
   app.innerHTML = `<div class="view"><div class="crumb"><a href="#/home">Home</a> › ${what}</div>
     <div class="card" style="max-width:560px;margin:30px auto;text-align:center;padding:26px">
@@ -11464,17 +11528,26 @@ async function renderHomework(){
   let assignments=[], subs=[];
   try{ [assignments, subs] = await Promise.all([CLOUD.listAssignments(), CLOUD.mySubmissions()]); }
   catch(e){ app.innerHTML = `<div class="view"><p>載入失敗，請重新整理。 Could not load. ${esc(e.message||"")}</p></div>`; return; }
-  const active = assignments.filter(a=>a.active);
   const byA = {}; subs.forEach(s=>byA[s.assignment_id]=s);
+  // refresh the reminder badge from this fresh data
+  HW_PENDING = assignments.filter(a=>a.active).map(a=>({a, st:hwStatus(a, byA[a.id])}))
+    .filter(x=>x.st.state==="overdue" || x.st.state==="soon");
+  updateHwBadge();
+  // sort so the most urgent unsubmitted work comes first
+  const rank = { overdue:0, soon:1, open:2, upcoming:3, done:4 };
+  const active = assignments.filter(a=>a.active)
+    .sort((a,b)=> (rank[hwStatus(a,byA[a.id]).state]??2) - (rank[hwStatus(b,byA[b.id]).state]??2));
   const cards = active.length ? active.map(a=>{
     const s = byA[a.id];
+    const st = hwStatus(a, s);
     const statusPill = !s ? `<span class="hw-pill todo">未繳 Not submitted</span>`
       : s.status==="returned" ? `<span class="hw-pill done">已批改 Graded</span>`
       : `<span class="hw-pill sent">已繳交 Submitted</span>`;
+    const duePill = (!s && (st.state==="overdue"||st.state==="soon")) ? `<span class="hw-pill ${st.state==='overdue'?'due-over':'due-soon'}">${st.state==='overdue'?'⏰ ':''}${hwStatusLabel(st)}</span>` : "";
     const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${esc(s.grade||"—")}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
     const prev = s ? `<div class="hw-prev">你上次繳交：${s.text?`「${esc(s.text.slice(0,80))}${s.text.length>80?"…":""}」 `:""}${s.file_url?'📎 檔案 ':""}${s.link?'🔗 連結':""}</div>` : "";
-    return `<div class="card hw-card">
-      <div class="hw-head"><h3>${esc(a.title)}</h3>${statusPill}</div>
+    return `<div class="card hw-card ${!s&&st.state==='overdue'?'hw-card-over':''}">
+      <div class="hw-head"><h3>${esc(a.title)}</h3><span class="hw-pills">${duePill}${statusPill}</span></div>
       ${a.due_date?`<div class="hw-due">截止 Due：${fmtDate(a.due_date)}</div>`:""}
       ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}
       ${graded}${prev}
@@ -11655,6 +11728,7 @@ async function bootApp(){
   updateTeacherNav();
   route();
   paintHeader();
+  refreshHwReminders();   // due-date badge + login nudge (students)
 }
 $("#tabLogin").addEventListener("click", ()=>setAuthMode("login"));
 $("#tabReg").addEventListener("click", ()=>setAuthMode("register"));
