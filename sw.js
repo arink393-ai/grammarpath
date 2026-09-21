@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v10-fable-worksheet";
+const CACHE = "eci-v11-parts-of-speech";
 const SHELL = [
   "./",
   "./index.html",

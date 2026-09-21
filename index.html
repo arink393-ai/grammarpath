@@ -1611,6 +1611,40 @@ q:[
 ]},
 
 {
+id:"parts-of-speech", zh:"詞性辨別", unit:"u1", n:"1.6", title:"Parts of Speech", sub:"The eight word jobs — noun, verb, adjective, adverb and the little helpers — and how to tell them apart.",
+form:{p:"Every word has a job: naming, doing, describing or joining.", ex:["<b>Noun</b>: dog, city, kindness","<b>Verb</b>: run, is, think","<b>Adjective</b>: happy, blue, tall","<b>Adverb</b>: quickly, always, here"]},
+uses:[
+ {t:"Naming words: nouns & pronouns", d:"A noun names a person, place, thing or idea. A pronoun stands in for a noun so we don't repeat it.", ex:[
+   {s:"The <b>teacher</b> lives in a small <b>town</b>.", n:"nouns: teacher, town"},
+   {s:"<b>Kindness</b> costs nothing.", n:"an idea is a noun too"},
+   {s:"Ben is tired, so <b>he</b> went to bed.", n:"pronoun he replaces Ben"}]},
+ {t:"Doing & describing words: verbs, adjectives, adverbs", d:"A verb shows an action or a state. An adjective describes a noun. An adverb describes a verb (and often ends in -ly).", ex:[
+   {s:"Birds <b>sing</b> in the morning.", n:"verb = sing (action)"},
+   {s:"A <b>tall</b> tree gives cool shade.", n:"adjective tall describes tree"},
+   {s:"She speaks English <b>clearly</b>.", n:"adverb clearly describes speaks"}]},
+ {t:"Little joining & pointing words: prepositions, conjunctions, interjections", d:"A preposition shows place or time (in, on, under, before). A conjunction joins ideas (and, but, because). An interjection shows sudden feeling (Wow! Oh!).", ex:[
+   {s:"The cat is <b>under</b> the table.", n:"preposition = under (place)"},
+   {s:"I was tired, <b>but</b> I finished the work.", n:"conjunction = but (joins)"},
+   {s:"<b>Wow!</b> That sunset is beautiful.", n:"interjection = Wow (feeling)"}]}
+],
+mistakes:[
+ {no:"She sings beautiful.", yes:"She sings beautifully.", why:"To describe a verb (sings) you need an adverb, not an adjective."},
+ {no:"He is a quick runner and runs quick.", yes:"He is a quick runner and runs quickly.", why:"quick describes the noun runner; quickly describes the verb runs."},
+ {no:"That is a interesting book.", yes:"That is an interesting book.", why:"a/an are articles — a small kind of adjective; use an before a vowel sound."}
+],
+tip:"Ask what job the word does: names it (noun), replaces it (pronoun), does it (verb), describes a noun (adjective) or a verb (adverb), or joins/points (preposition, conjunction, interjection).",
+q:[
+ {t:"mcq", q:"In 'Birds sing every morning', which word is the verb?", opts:["Birds","sing","every","morning"], a:1, why:"sing is the action word → verb."},
+ {t:"mcq", q:"In 'The old house is empty', which word is an adjective?", opts:["house","is","old","The"], a:2, why:"old describes the noun house → adjective."},
+ {t:"mcq", q:"'She sang beautifully.' — 'beautifully' is a(n)…", opts:["adjective","adverb","noun","verb"], a:1, why:"It describes the verb sang → adverb."},
+ {t:"mcq", q:"Which word is a preposition? 'The ball rolled under the car.'", opts:["ball","rolled","under","car"], a:2, why:"under shows position → preposition."},
+ {t:"fill", q:"A word that names a person, place, thing or idea is a ___ .", ans:["noun"], hint:"a naming word", why:"Nouns name people, places, things and ideas."},
+ {t:"fill", q:"'and', 'but' and 'because' are joining words called ___ .", ans:["conjunctions","conjunction"], hint:"joining words", why:"They join words or ideas → conjunctions."},
+ {t:"spot", sent:"He drives careful in the rain .", wrong:2, fix:"carefully", why:"An adverb describes the verb drives → carefully."},
+ {t:"order", words:["The","tired","children","slept","quietly"], sent:"The tired children slept quietly", why:"tired (adjective) describes children; quietly (adverb) describes slept."}
+]},
+
+{
 id:"plural-nouns", zh:"單數與複數名詞", unit:"u2", n:"2.1", title:"Singular & Plural Nouns", sub:"Adding -s, -es and -ies — plus the irregulars everyone must memorize.",
 form:{p:"noun + s / es / ies   ·   irregular: man → men", ex:["one book → two <b>books</b>","one box → two <b>boxes</b>","one city → two <b>cities</b>"]},
 uses:[
