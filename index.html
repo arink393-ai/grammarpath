@@ -1778,6 +1778,74 @@ q:[
 ]},
 
 {
+id:"be-past", zh:"Be 動詞過去式 was/were", unit:"u1", n:"1.10", title:"Be Verb: Past", sub:"Was and were — the past of am, is and are, for saying how things were.",
+form:{p:"subject + was / were + description", ex:["I <b>was</b> tired last night.","She <b>was</b> at home.","They <b>were</b> happy."]},
+uses:[
+ {t:"was for I / he / she / it", d:"Use was with singular subjects.", ex:[
+   {s:"I <b>was</b> late for school.", n:"I → was"},
+   {s:"The cat <b>was</b> hungry.", n:"it → was"},
+   {s:"He <b>was</b> a good student.", n:""}]},
+ {t:"were for you / we / they", d:"Use were with plural subjects and with you.", ex:[
+   {s:"We <b>were</b> at the park.", n:"we → were"},
+   {s:"You <b>were</b> right.", n:"you → were (even for one person)"},
+   {s:"The kittens <b>were</b> asleep.", n:""}]},
+ {t:"Negatives and questions", d:"Add not (wasn't / weren't). For questions, put was/were first.", ex:[
+   {s:"It <b>wasn't</b> cold yesterday.", n:"was + not"},
+   {s:"<b>Were</b> you at the café?", n:"were before you"},
+   {s:"<b>Was</b> she happy?", n:""}]}
+],
+mistakes:[
+ {no:"I were tired.", yes:"I was tired.", why:"I always takes was."},
+ {no:"They was late.", yes:"They were late.", why:"They (plural) takes were."},
+ {no:"Was you at home?", yes:"Were you at home?", why:"You always takes were, even in questions."}
+],
+tip:"Singular (I, he, she, it) → was. Plural and you → were. It's simply the past of am / is / are.",
+q:[
+ {t:"mcq", q:"I ___ at the library yesterday.", opts:["was","were","am","is"], a:0, why:"I → was."},
+ {t:"mcq", q:"They ___ very kind to me.", opts:["was","were","are","is"], a:1, why:"They (plural) → were."},
+ {t:"fill", q:"She ___ born in 2010.", ans:["was"], hint:"she → ?", why:"she → was."},
+ {t:"fill", q:"___ you happy with the result?", ans:["Were","were"], hint:"question with you", why:"you → were."},
+ {t:"order", words:["We","were","at","the","beach","on","Sunday"], sent:"We were at the beach on Sunday", why:"we → were + place."},
+ {t:"spot", sent:"The weather were nice last week .", wrong:2, fix:"was", why:"The weather (singular) → was."},
+ {t:"mcq", q:"Which is correct?", opts:["He weren't there.","He wasn't there.","He not was there.","He was'nt there."], a:1, why:"he → wasn't (was not)."},
+ {t:"spot", sent:"My parents was at work .", wrong:2, fix:"were", why:"My parents (plural) → were."}
+]},
+
+{
+id:"have-got", zh:"have / have got 表擁有", unit:"u1", n:"1.11", title:"Have & Have Got", sub:"Two ways to say what you own or what belongs to you.",
+form:{p:"subject + have / has (got) + object", ex:["I <b>have</b> a cat.","She <b>has</b> two brothers.","We <b>have got</b> a big garden."]},
+uses:[
+ {t:"have / has for possession", d:"Use have with I / you / we / they, and has with he / she / it.", ex:[
+   {s:"I <b>have</b> a bike.", n:"I → have"},
+   {s:"He <b>has</b> a new phone.", n:"he → has"},
+   {s:"The café <b>has</b> five cats.", n:"it → has"}]},
+ {t:"have got — same meaning", d:"'have got' means the same as 'have', and is common in speaking. Use has got for he / she / it.", ex:[
+   {s:"I<b>'ve got</b> a headache.", n:"= I have a headache"},
+   {s:"She<b>'s got</b> long hair.", n:"= she has long hair"},
+   {s:"They<b>'ve got</b> two dogs.", n:""}]},
+ {t:"Negatives and questions", d:"With have, use do / does. With have got, put have / has first.", ex:[
+   {s:"I <b>don't have</b> a car. / I <b>haven't got</b> a car.", n:"two ways"},
+   {s:"<b>Do</b> you <b>have</b> a pen? / <b>Have</b> you <b>got</b> a pen?", n:""},
+   {s:"She <b>doesn't have</b> time.", n:""}]}
+],
+mistakes:[
+ {no:"She have a cat.", yes:"She has a cat.", why:"he / she / it → has."},
+ {no:"I have got not a car.", yes:"I haven't got a car.", why:"The negative of 'have got' is 'haven't got'."},
+ {no:"Do you have got a pen?", yes:"Have you got a pen? / Do you have a pen?", why:"Don't mix the two question forms."}
+],
+tip:"he / she / it → HAS. Everyone else → HAVE. 'have got' = 'have', just more casual in speech.",
+q:[
+ {t:"mcq", q:"My sister ___ a beautiful voice.", opts:["have","has","have got","are"], a:1, why:"my sister = she → has."},
+ {t:"mcq", q:"We ___ enough chairs for everyone.", opts:["has","have","has got","is"], a:1, why:"we → have."},
+ {t:"fill", q:"He ___ got three cats. (has / have)", ans:["has"], hint:"he → ?", why:"he → has got."},
+ {t:"fill", q:"I ___ have any money today. (negative helper)", ans:["don't","do not"], hint:"negative of have", why:"I don't have…"},
+ {t:"order", words:["They","have","got","a","new","house"], sent:"They have got a new house", why:"they → have got."},
+ {t:"spot", sent:"Does she has a bike ?", wrong:2, fix:"have", why:"After does, use the base form: Does she have…?"},
+ {t:"mcq", q:"Which is correct?", opts:["Have you got a pen?","Do you have got a pen?","Has you got a pen?","You have got a pen?"], a:0, why:"Have + you + got…?"},
+ {t:"spot", sent:"The house have three rooms .", wrong:2, fix:"has", why:"The house (it) → has."}
+]},
+
+{
 id:"plural-nouns", zh:"單數與複數名詞", unit:"u2", n:"2.1", title:"Singular & Plural Nouns", sub:"Adding -s, -es and -ies — plus the irregulars everyone must memorize.",
 form:{p:"noun + s / es / ies   ·   irregular: man → men", ex:["one book → two <b>books</b>","one box → two <b>boxes</b>","one city → two <b>cities</b>"]},
 uses:[
@@ -1946,6 +2014,74 @@ q:[
 ]},
 
 {
+id:"count-noncount", zh:"可數與不可數名詞", unit:"u2", n:"2.6", title:"Count & Non-count Nouns", sub:"Things you can count one by one — and things you can only measure.",
+form:{p:"count: a cat, two cats · non-count: water, rice (no plural)", ex:["one <b>apple</b>, two <b>apples</b>","some <b>water</b> (not two waters)","much <b>information</b>"]},
+uses:[
+ {t:"Countable nouns", d:"You can count them: use a / an and make them plural.", ex:[
+   {s:"I have <b>a book</b> and two <b>pens</b>.", n:"count → a / plural"},
+   {s:"There are three <b>cats</b>.", n:""},
+   {s:"How many <b>eggs</b> do you need?", n:"How many + count"}]},
+ {t:"Non-count (uncountable) nouns", d:"Liquids, materials and ideas you can't count. No a / an, no plural -s.", ex:[
+   {s:"I drink <b>water</b> every day.", n:"not a water / waters"},
+   {s:"She gave me good <b>advice</b>.", n:"not an advice"},
+   {s:"We don't have much <b>time</b>.", n:"How much + non-count"}]},
+ {t:"Count them with a unit or container", d:"To count a non-count noun, add a unit word: a glass of, a piece of…", ex:[
+   {s:"<b>a glass of</b> water", n:""},
+   {s:"<b>two pieces of</b> paper", n:""},
+   {s:"<b>a bowl of</b> rice", n:""}]}
+],
+mistakes:[
+ {no:"I need some informations.", yes:"I need some information.", why:"Information is non-count — no -s."},
+ {no:"She gave me an advice.", yes:"She gave me some advice / a piece of advice.", why:"Advice is non-count — no a / an."},
+ {no:"How much apples?", yes:"How many apples?", why:"Apples are countable → How many."}
+],
+tip:"Can you say 'two ___s'? Then it's countable (How many?). If not — water, rice, money, advice — it's non-count (How much?).",
+q:[
+ {t:"mcq", q:"Which noun is non-count?", opts:["chair","water","apple","dog"], a:1, why:"Water can't be counted one by one → non-count."},
+ {t:"mcq", q:"How ___ money do you have?", opts:["many","much","some","a"], a:1, why:"Money is non-count → How much."},
+ {t:"mcq", q:"How ___ students are in the class?", opts:["much","many","a lot","some"], a:1, why:"Students are countable → How many."},
+ {t:"fill", q:"Please buy a ___ of milk. (container word)", ans:["carton","bottle","glass"], hint:"a ___ of milk", why:"Milk is non-count; count it with a carton / bottle / glass of…"},
+ {t:"fill", q:"I'd like a piece ___ cake.", ans:["of"], hint:"a piece ___ cake", why:"a piece OF cake."},
+ {t:"spot", sent:"She has many homeworks tonight .", wrong:2, fix:"much homework", why:"Homework is non-count → much homework (no -s)."},
+ {t:"mcq", q:"Which is correct?", opts:["two breads","two loaves of bread","two piece of bread","a breads"], a:1, why:"Bread is non-count; count it as loaves of bread."},
+ {t:"spot", sent:"Can I have an advice ?", wrong:2, fix:"some advice", why:"Advice is non-count — no a / an."}
+]},
+
+{
+id:"possessives", zh:"所有格 my / mine / John's", unit:"u2", n:"2.7", title:"Possessives: my, mine & John's", sub:"Three ways to show that something belongs to someone.",
+form:{p:"my / your… + noun · mine / yours… (alone) · noun + 's", ex:["This is <b>my</b> bag.","This bag is <b>mine</b>.","It is <b>Tom's</b> bag."]},
+uses:[
+ {t:"Possessive adjectives — before a noun", d:"my, your, his, her, its, our, their come before a noun.", ex:[
+   {s:"<b>My</b> cat is black.", n:"my + noun"},
+   {s:"Is this <b>your</b> pen?", n:""},
+   {s:"The dog wagged <b>its</b> tail.", n:"its = of it (no apostrophe)"}]},
+ {t:"Possessive pronouns — standing alone", d:"mine, yours, his, hers, ours, theirs replace 'my + noun'. No noun after them.", ex:[
+   {s:"This seat is <b>mine</b>.", n:"= my seat"},
+   {s:"That book is <b>hers</b>.", n:"= her book"},
+   {s:"<b>Ours</b> is the red car.", n:""}]},
+ {t:"Apostrophe 's — a person owns something", d:"Add 's to a name or person. For a plural noun already ending in -s, add just an apostrophe.", ex:[
+   {s:"<b>Anna's</b> phone is new.", n:"one person → 's"},
+   {s:"the <b>children's</b> toys", n:"irregular plural → 's"},
+   {s:"my <b>parents'</b> house", n:"plural ending in -s → s'"}]}
+],
+mistakes:[
+ {no:"This is me book.", yes:"This is my book.", why:"Before a noun, use my (not me)."},
+ {no:"The cat licked it's paw.", yes:"The cat licked its paw.", why:"its = belonging to it; it's = it is."},
+ {no:"That pen is your.", yes:"That pen is yours.", why:"Standing alone, use yours (not your)."}
+],
+tip:"Before a noun → my / your / his… No noun after → mine / yours / his… A person owns it → add 's. Careful: its (no apostrophe) belongs to it.",
+q:[
+ {t:"mcq", q:"Is this ___ umbrella?", opts:["you","your","yours","you's"], a:1, why:"Before a noun → your."},
+ {t:"mcq", q:"This desk is ___ , not yours.", opts:["my","mine","me","my's"], a:1, why:"Standing alone → mine."},
+ {t:"mcq", q:"The dog hurt ___ leg.", opts:["it's","its","his's","her's"], a:1, why:"its = belonging to it (no apostrophe)."},
+ {t:"fill", q:"This is ___ bag. (it belongs to Tom)", ans:["Tom's"], hint:"add 's", why:"Tom's bag."},
+ {t:"fill", q:"That book isn't mine. It's ___ . (it belongs to her)", ans:["hers"], hint:"stands alone", why:"her book → hers."},
+ {t:"order", words:["These","are","the","children's","books"], sent:"These are the children's books", why:"irregular plural → children's."},
+ {t:"spot", sent:"That car is our .", wrong:3, fix:"ours", why:"Standing alone → ours."},
+ {t:"spot", sent:"Its a beautiful day today .", wrong:0, fix:"It's", why:"It's = it is (with apostrophe)."}
+]},
+
+{
 id:"wh-questions", zh:"疑問詞問句", unit:"u7", n:"3.1", title:"Wh- Questions", sub:"Who, what, when, where, why, how — asking for real information.",
 form:{p:"Wh-word + do / does / did (or be) + subject + verb", ex:["<b>Where</b> do you live?","<b>What</b> is that?","<b>Why</b> did she leave?"]},
 uses:[
@@ -2079,6 +2215,142 @@ q:[
  {t:"mcq", q:"Which is correct?", opts:["I watched it in TV.","I watched it on TV.","I watched it at TV.","I watched it to TV."], a:1, why:"Set phrase: on TV."},
  {t:"fill", q:"He was born ___ May 5th.", ans:["on"], hint:"a full date", why:"Full dates take on."},
  {t:"spot", sent:"She studies at the library on the evening .", wrong:5, fix:"in", why:"Parts of the day take in."}
+]},
+
+{
+id:"yes-no-questions", zh:"Yes/No 問句", unit:"u7", n:"3.5", title:"Yes / No Questions", sub:"Questions answered with 'Yes' or 'No' — and how to build them.",
+form:{p:"Be / Do / Does / Can… + subject + …?", ex:["<b>Are</b> you ready?","<b>Do</b> you like tea?","<b>Can</b> she swim?"]},
+uses:[
+ {t:"With be — move be to the front", d:"Put am / is / are before the subject.", ex:[
+   {s:"<b>Is</b> he at home?", n:"He is → Is he?"},
+   {s:"<b>Are</b> they your friends?", n:""},
+   {s:"<b>Was</b> the film good?", n:"past → was / were"}]},
+ {t:"With other verbs — use do / does", d:"Present simple: use do (I / you / we / they) or does (he / she / it) + the base verb.", ex:[
+   {s:"<b>Do</b> you play the piano?", n:"not 'Do you plays'"},
+   {s:"<b>Does</b> she like cats?", n:"does + base verb like"},
+   {s:"<b>Did</b> they win?", n:"past → did + base verb"}]},
+ {t:"Short answers", d:"Answer with the same helping verb — don't repeat the whole sentence.", ex:[
+   {s:"Do you like it? — <b>Yes, I do.</b> / <b>No, I don't.</b>", n:""},
+   {s:"Is she here? — <b>Yes, she is.</b>", n:""},
+   {s:"Can you swim? — <b>No, I can't.</b>", n:""}]}
+],
+mistakes:[
+ {no:"Do you are happy?", yes:"Are you happy?", why:"With be, don't add do — just move be to the front."},
+ {no:"Does he likes coffee?", yes:"Does he like coffee?", why:"After does, use the base verb (like)."},
+ {no:"You like tea?", yes:"Do you like tea?", why:"Start present-simple questions with Do / Does."}
+],
+tip:"Be verb? → move it to the front. Any other verb? → start with Do / Does / Did + the base verb.",
+q:[
+ {t:"mcq", q:"___ you like coffee?", opts:["Are","Do","Does","Is"], a:1, why:"like is an ordinary verb → Do you like…?"},
+ {t:"mcq", q:"___ she your teacher?", opts:["Do","Does","Is","Has"], a:2, why:"be verb → Is she…?"},
+ {t:"mcq", q:"___ he speak English?", opts:["Do","Does","Is","Are"], a:1, why:"he + ordinary verb → Does he speak…?"},
+ {t:"fill", q:"___ they at the party last night? (be)", ans:["Were","were"], hint:"past be, they", why:"they + past → Were they…?"},
+ {t:"order", words:["Do","you","have","a","pen"], sent:"Do you have a pen", why:"Do + you + base verb."},
+ {t:"spot", sent:"Does your brother plays soccer ?", wrong:3, fix:"play", why:"After does → base verb play."},
+ {t:"mcq", q:"Best short answer to 'Can you swim?'", opts:["Yes, I can.","Yes, I can swim it.","Yes, I do.","Yes, I am."], a:0, why:"Answer with the same helping verb: Yes, I can."},
+ {t:"spot", sent:"Are you have a car ?", wrong:1, fix:"Do", why:"have is an ordinary verb → Do you have a car?"}
+]},
+
+{
+id:"wh-questions-past", zh:"過去式 Wh- 問句", unit:"u7", n:"3.6", title:"Wh- Questions (Past)", sub:"Asking who, what, where, when and why about the past — with did.",
+form:{p:"Wh- + did + subject + base verb …?", ex:["<b>What did</b> you eat?","<b>Where did</b> they go?","<b>Why did</b> she leave?"]},
+uses:[
+ {t:"Wh- + did + base verb", d:"For most past questions, use did + the base verb (not the past form).", ex:[
+   {s:"<b>What did</b> you <b>do</b> yesterday?", n:"did + do (base)"},
+   {s:"<b>Where did</b> he <b>go</b>?", n:"not 'did he went'"},
+   {s:"<b>When did</b> the film <b>start</b>?", n:""}]},
+ {t:"With was / were — no did", d:"If the verb is was / were, don't use did. Put was / were after the Wh- word.", ex:[
+   {s:"<b>Where were</b> you last night?", n:"was / were, no did"},
+   {s:"<b>Why was</b> she late?", n:""},
+   {s:"<b>How was</b> the trip?", n:""}]},
+ {t:"Who as the subject — no did", d:"When Who or What asks about the doer (the subject), use the past verb directly.", ex:[
+   {s:"<b>Who broke</b> the window?", n:"Who = subject → broke (no did)"},
+   {s:"<b>What happened</b>?", n:""},
+   {s:"Who <b>called</b> you?", n:""}]}
+],
+mistakes:[
+ {no:"What you did yesterday?", yes:"What did you do yesterday?", why:"Order: Wh- + did + subject + base verb."},
+ {no:"Where did he went?", yes:"Where did he go?", why:"After did, use the base verb (go), not went."},
+ {no:"Where you were?", yes:"Where were you?", why:"With were, put it before the subject; no did."}
+],
+tip:"Most past questions: Wh- + DID + subject + base verb. But with was / were, skip did. And when Who is the doer, use the past verb directly.",
+q:[
+ {t:"mcq", q:"What ___ you do last weekend?", opts:["do","did","was","were"], a:1, why:"past question → What did you do…?"},
+ {t:"mcq", q:"Where ___ you born?", opts:["did","was","were","do"], a:2, why:"be verb → Where were you born? (you → were)"},
+ {t:"mcq", q:"Which is correct?", opts:["Where did she went?","Where did she go?","Where she went?","Where did she goes?"], a:1, why:"did + base verb go."},
+ {t:"fill", q:"Who ___ the cake? (eat, past — Who = subject)", ans:["ate"], hint:"no did; use the past verb", why:"Who is the subject → ate (no did)."},
+ {t:"order", words:["When","did","the","train","leave"], sent:"When did the train leave", why:"Wh- + did + subject + base verb."},
+ {t:"spot", sent:"Why did the baby cried ?", wrong:4, fix:"cry", why:"After did → base verb cry."},
+ {t:"mcq", q:"___ was the weather yesterday?", opts:["What","Did","Do","How"], a:3, why:"How was the weather? (asking about its condition)"},
+ {t:"spot", sent:"What time did you woke up ?", wrong:4, fix:"wake", why:"After did → base verb wake."}
+]},
+
+{
+id:"tag-questions", zh:"附加問句", unit:"u7", n:"3.7", title:"Tag Questions", sub:"The little checking question at the end: '…, isn't it?'",
+form:{p:"positive sentence + negative tag? · negative sentence + positive tag?", ex:["It's cold, <b>isn't it</b>?","You like cats, <b>don't you</b>?","She isn't here, <b>is she</b>?"]},
+uses:[
+ {t:"Positive sentence → negative tag", d:"If the sentence is positive, the tag is negative. Use the same helping verb.", ex:[
+   {s:"You're tired, <b>aren't you</b>?", n:"are → aren't"},
+   {s:"He can drive, <b>can't he</b>?", n:"can → can't"},
+   {s:"They went home, <b>didn't they</b>?", n:"past → didn't"}]},
+ {t:"Negative sentence → positive tag", d:"If the sentence is negative, the tag is positive.", ex:[
+   {s:"You aren't cold, <b>are you</b>?", n:""},
+   {s:"She doesn't smoke, <b>does she</b>?", n:""},
+   {s:"It won't rain, <b>will it</b>?", n:""}]},
+ {t:"Pick the right helping verb", d:"Use be, or the helper (do / does / did, can, will…), and match the pronoun to the subject.", ex:[
+   {s:"Mary is nice, <b>isn't she</b>?", n:"Mary → she"},
+   {s:"The cats are hungry, <b>aren't they</b>?", n:""},
+   {s:"You like tea, <b>don't you</b>?", n:"no be verb → use do"}]}
+],
+mistakes:[
+ {no:"You are happy, isn't you?", yes:"You are happy, aren't you?", why:"Match the verb: are → aren't; you → you."},
+ {no:"She likes it, doesn't it?", yes:"She likes it, doesn't she?", why:"The subject is she, so the tag pronoun is she."},
+ {no:"It's cold, is it?", yes:"It's cold, isn't it?", why:"Positive sentence → negative tag."}
+],
+tip:"Positive sentence → negative tag, and the reverse. Use the same helping verb, and match the pronoun (Mary → she).",
+q:[
+ {t:"mcq", q:"It's a lovely day, ___?", opts:["is it","isn't it","doesn't it","won't it"], a:1, why:"Positive → negative tag: isn't it."},
+ {t:"mcq", q:"You don't like fish, ___?", opts:["do you","don't you","are you","did you"], a:0, why:"Negative → positive tag: do you."},
+ {t:"mcq", q:"She can swim, ___?", opts:["can she","can't she","does she","isn't she"], a:1, why:"can → can't she."},
+ {t:"fill", q:"They went to Japan, ___ they? (tag)", ans:["didn't"], hint:"past positive → negative tag", why:"went (past) → didn't they."},
+ {t:"order", words:["He","is","tired","isn't","he"], sent:"He is tired isn't he", why:"positive → negative tag; he → he."},
+ {t:"spot", sent:"You are coming , don't you ?", wrong:3, fix:"aren't", why:"are → aren't (match the verb)."},
+ {t:"mcq", q:"The cake looks good, ___?", opts:["isn't it","doesn't it","don't it","aren't it"], a:1, why:"looks (ordinary verb) → doesn't it."},
+ {t:"spot", sent:"Maria isn't here , isn't she ?", wrong:4, fix:"is", why:"Negative sentence → positive tag: is she."}
+]},
+
+{
+id:"time-prepositions", zh:"時間介系詞 at / in / on", unit:"u7", n:"3.8", title:"Time: At, In, On", sub:"Choosing at, in or on for clock times, days and months.",
+form:{p:"at + time · on + day/date · in + month/year/part of day", ex:["<b>at</b> 7 o'clock","<b>on</b> Monday","<b>in</b> July"]},
+uses:[
+ {t:"at — clock times & moments", d:"Use at for exact times and a few fixed phrases.", ex:[
+   {s:"The class starts <b>at</b> 9:00.", n:"exact time"},
+   {s:"<b>at</b> night / <b>at</b> noon / <b>at</b> the weekend", n:"fixed phrases"},
+   {s:"See you <b>at</b> lunchtime.", n:""}]},
+ {t:"on — days & dates", d:"Use on for days of the week and specific dates.", ex:[
+   {s:"We meet <b>on</b> Friday.", n:"day"},
+   {s:"My birthday is <b>on</b> May 5th.", n:"date"},
+   {s:"<b>on</b> Monday morning", n:"a specific morning → on"}]},
+ {t:"in — longer periods", d:"Use in for months, seasons, years and parts of the day.", ex:[
+   {s:"It's cold <b>in</b> winter.", n:"season"},
+   {s:"She was born <b>in</b> 2011.", n:"year"},
+   {s:"<b>in</b> the morning / <b>in</b> the afternoon", n:"part of the day"}]}
+],
+mistakes:[
+ {no:"See you in Monday.", yes:"See you on Monday.", why:"Days of the week take on."},
+ {no:"The party is at July.", yes:"The party is in July.", why:"Months take in."},
+ {no:"I get up at the morning.", yes:"I get up in the morning.", why:"Parts of the day take in (but note: at night)."}
+],
+tip:"at = a point (a clock time). on = a day or date. in = a longer box of time (month, year, season). Watch out: at night.",
+q:[
+ {t:"mcq", q:"The movie starts ___ 8 p.m.", opts:["at","on","in","of"], a:0, why:"Clock time → at."},
+ {t:"mcq", q:"My birthday is ___ October.", opts:["at","on","in","by"], a:2, why:"Month → in."},
+ {t:"mcq", q:"We have a test ___ Monday.", opts:["at","on","in","to"], a:1, why:"Day of the week → on."},
+ {t:"fill", q:"I usually read ___ the evening.", ans:["in"], hint:"part of the day", why:"in the evening."},
+ {t:"fill", q:"The cat sleeps a lot ___ night.", ans:["at"], hint:"fixed phrase", why:"at night (special case)."},
+ {t:"spot", sent:"School finishes in 3:30 .", wrong:2, fix:"at", why:"Clock time → at 3:30."},
+ {t:"mcq", q:"We go skiing ___ winter.", opts:["at","on","in","by"], a:2, why:"Season → in winter."},
+ {t:"spot", sent:"Her wedding is at Saturday .", wrong:2, fix:"on", why:"Day → on Saturday."}
 ]},
 
 /* ================= INTERMEDIATE ================= */
