@@ -1337,6 +1337,27 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .tc-stat{text-align:center;padding:20px 12px}
 .tc-stat .n{font:700 2rem var(--sb-disp,serif);color:var(--sb-lapis,#2C5C86)}
 .tc-stat .l{font-size:13px;color:var(--muted);margin-top:4px}
+/* teaching-prep cards */
+.tp-actions{margin:0 0 16px}
+.tp-card{padding:18px 20px;margin-bottom:16px}
+.tp-head{display:flex;gap:12px;align-items:flex-start}
+.tp-ic{font-size:26px;line-height:1}
+.tp-head h3{margin:0;font-size:1.1rem;color:var(--ink)}
+.tp-en{font-size:12.5px;color:var(--muted)}
+.tp-points{margin:12px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.6;color:var(--ink)}
+.tp-apply{margin-top:12px;background:#F4FAF4;border:1px solid #D5E8D5;border-radius:10px;padding:10px 13px;font-size:13.5px;line-height:1.6;color:#33532f}
+.tp-src{display:inline-block;margin-top:10px;font-size:12.5px;color:var(--sb-lapis,#2C5C86)}
+/* speaking rubric */
+.rb-intro{font-size:13px;color:#4a4030;line-height:1.6;margin:10px 0 14px}
+.rb-table td{font-size:12px;line-height:1.45;vertical-align:top}
+.rb-table th{font-size:12px}
+.rb-crit{white-space:nowrap;background:#F6F1E6}
+.rb-crit span{display:block;font-weight:400;font-size:10.5px;color:var(--muted)}
+.rb-name{min-width:170px}
+.rb-tot{background:#FBF5E7;min-width:52px}
+/* worksheet extension box */
+.fw-ext{margin-top:16px;border:1px dashed #C6892F;background:#FBF5E7;border-radius:10px;padding:12px 15px;font-size:12.5px;color:#5a4a2e}
+.fw-ext ul{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:5px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -3283,6 +3304,7 @@ function route(){
   else if(h[0]==="story" && (h[1]==="picture-books" || h[1]==="picturebook" || h[1]==="picture-book")) renderStoryList("picturebook");
   else if(h[0]==="story" && (h[1]==="fables" || h[1]==="fable")) renderStoryList("fable");
   else if(h[0]==="fableworksheet" && h[1]) renderFableWorksheet(h[1]);
+  else if(h[0]==="rubric") renderRubric();
   else if(h[0]==="story" && h[1]) renderStory(h[1]);
   else if(h[0]==="story") renderStoryList();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
@@ -5278,7 +5300,64 @@ function renderFableWorksheet(id){
       <div class="ws-sec"><div class="ws-sec-h"><span class="ws-let">B</span> Comprehension <span class="ws-sec-zh">解答</span></div>
         <ol class="ws-key-list">${(s.quiz||[]).map(q=>`<li>(${abc[q.a]}) ${strip(q.opts[q.a])} — ${q.why||""}</li>`).join("")}</ol>
       </div>
+      <div class="fw-ext"><b>🧑‍🏫 課堂延伸 Extension ideas（給老師）</b>
+        <ul>
+          <li>走動問答：把 B 部分的題目剪開，貼在教室四周，讓學生起身找答案。Cut out Part B and tape it around the room for a walk-and-read.</li>
+          <li>混合程度：先做完的同學再多寫一題自己的問題，之後問全班。Fast finishers write one extra question to ask the class.</li>
+          <li>真實世界：把討論題當回家作業，訪問家人朋友，下次回報。Turn the discussion into a home interview task.</li>
+          <li>個人化＋口說：把討論題連到學生自己的經驗，開口前先給一分鐘準備，用「口說評分表」即時回饋。Personalise, give 1 minute to prepare, then grade with the Speaking Rubric.</li>
+        </ul>
+      </div>
       <div class="ws-foot">C 討論與寫作為開放式問題，鼓勵學生自由發揮，無標準答案。</div>
+    </div>
+  </div>`;
+  window.scrollTo(0,0);
+}
+function renderRubric(){
+  const crit=[
+    {zh:"內容與組織", en:"Content & Organization", d:{
+      4:"想法清楚、切題，有開頭與結尾。Clear, on-topic, well organised.",
+      3:"大致清楚，偶爾離題。Mostly clear; minor lapses.",
+      2:"想法零散，需要引導。Ideas scattered; needs prompting.",
+      1:"難以聽出主題。Hard to follow the point."}},
+    {zh:"字彙", en:"Vocabulary", d:{
+      4:"用詞豐富、精準。Wide, accurate word choice.",
+      3:"字彙足夠達意。Enough to get meaning across.",
+      2:"字彙有限、常重複。Limited; often repeated.",
+      1:"字彙很少，常卡住。Very few words; frequent gaps."}},
+    {zh:"文法與正確度", en:"Grammar & Accuracy", d:{
+      4:"句型多樣，錯誤極少。Varied structures; few errors.",
+      3:"基本句型正確，錯誤不影響理解。Mostly correct; errors don't block meaning.",
+      2:"常見文法錯誤，偶爾影響理解。Frequent errors; sometimes unclear.",
+      1:"錯誤多，影響理解。Errors often block meaning."}},
+    {zh:"流暢與表達", en:"Fluency & Delivery", d:{
+      4:"流暢自然，發音清楚，有眼神與肢體。Fluent, clear; good eye contact.",
+      3:"大致流暢，偶爾停頓。Generally fluent; some pauses.",
+      2:"停頓較多，發音需加強。Hesitant; pronunciation needs work.",
+      1:"斷斷續續，難以聽懂。Very hesitant; hard to understand."}}
+  ];
+  const bands=[[4,"優 Excellent"],[3,"良 Good"],[2,"可 Fair"],[1,"待加強 Needs work"]];
+  const head=(sub)=>`<div class="ws-head">
+    <div class="ws-brand">${catSVG(46,"black")}<div><div class="ws-site">英語貓咪島 Englishcat Island</div><div class="ws-type">${sub}</div></div></div>
+    <div class="ws-namedate">TEACHER: <span class="ws-wline"></span><br>DATE: <span class="ws-wline"></span></div></div>`;
+  const rubricRows=crit.map(c=>`<tr><th class="rb-crit">${c.zh}<span>${c.en}</span></th>${bands.map(([b])=>`<td>${c.d[b]}</td>`).join("")}</tr>`).join("");
+  const gradeRows=Array.from({length:10}).map((_,i)=>`<tr><td class="rb-name">${i+1}. <span class="ws-line" style="display:inline-block;width:120px"></span></td><td></td><td></td><td></td><td></td><td class="rb-tot"></td></tr>`).join("");
+  app.innerHTML=`<div class="view ws-view">
+    <div class="ws-toolbar no-print">
+      <a href="#/teacher" class="btn btn-ghost">← 回老師後台 Back</a>
+      <button class="btn btn-primary" onclick="window.print()">🖨 列印 / PDF Print</button>
+    </div>
+    <div class="ws-sheet">
+      ${head("SPEAKING RUBRIC 口說評分表")}
+      <p class="rb-intro">口說活動評分標準。給學生評分前，先讓他們熟悉這張表，開口時會更專注於「內容、字彙、文法、表達」。也可讓學生互評練習。<br>Share this rubric with students before speaking tasks so they focus on the four criteria; it also works for peer feedback.</p>
+      <div class="tc-tablewrap"><table class="tc-table rb-table"><thead><tr><th>評分項目 Criteria</th>${bands.map(([b,l])=>`<th>${b} · ${l}</th>`).join("")}</tr></thead><tbody>${rubricRows}</tbody></table></div>
+      <div class="ws-foot">每項 1–4 分，總分 16。英語貓咪島 Englishcat Island 🐾</div>
+    </div>
+    <div class="ws-sheet ws-keypage">
+      ${head("SPEAKING GRADE SHEET 口說成績表")}
+      <p class="rb-intro">記錄每位學生的口說分數，長期追蹤進步。Track each student's speaking scores over time.</p>
+      <div class="tc-tablewrap"><table class="tc-table rb-table"><thead><tr><th>學生 Student</th><th>內容<br>Content</th><th>字彙<br>Vocab</th><th>文法<br>Grammar</th><th>表達<br>Delivery</th><th>總分<br>/16</th></tr></thead><tbody>${gradeRows}</tbody></table></div>
+      <div class="ws-foot">英語貓咪島 Englishcat Island 🐾 — for classroom use</div>
     </div>
   </div>`;
   window.scrollTo(0,0);
@@ -12404,6 +12483,47 @@ async function hwSubmit(id){
 /* =====================================================
    Teacher dashboard
    ===================================================== */
+/* Teaching-prep ideas — original bilingual summaries of pedagogy, adapted from the
+   Cambridge English ELT blog (Robert Dobie, 2017), with links back to the sources. */
+const TEACHING_TIPS = [
+ {icon:"✂️", zh:"剪刀，讓題目動起來", en:"Scissors: turn a static sheet into movement",
+  points:[
+   "把靜態的填字／配對題「剪開」，就能變成走動、配對、分組競賽的活動。",
+   "例：把提示剪下貼在同學背上或教室牆上，讓學生起身走動去讀、去問、去找答案。",
+   "「資訊差 info-gap」：兩人各拿一半訊息，互相描述、找出不同（Spot the Differences）。",
+   "同一份講義，動一動剪刀就能低準備、高參與。"],
+  apply:"可列印的學習單／寓言學習單印出後，把選項或提示剪開就能做「走動問答」「兩人一半」「兩隊競賽」。",
+  url:"https://www.cambridge.org/elt/blog/2017/10/09/5-activities-using-crossword-pair-scissors/", srcLabel:"Crossword & scissors activities"},
+ {icon:"🔁", zh:"延伸活動，而不是一直換新活動", en:"Extend activities, don't just add more",
+  points:[
+   "與其不停換新題目，不如把同一個活動「延伸」成多階段（聽寫 → 討論 → 書寫 → 訪問）。",
+   "呼應記憶曲線：學了→忘了→再學，才是真正的「練習」；延伸讓學生反覆練又不無聊。",
+   "照顧快手學生：先做完的人多寫 1–2 題，等大家完成後再問全班（混合程度不冷場）。",
+   "帶入真實世界 realia：把題目延伸成訪問真人、看新聞網站，語言更真實。"],
+  apply:"搭配「記憶曲線」理論；每個練習後可加一個小延伸任務。已在寓言學習單加入「課堂延伸」建議框。",
+  url:"https://www.cambridge.org/elt/blog/2017/10/10/5-great-reasons-to-extend-activities/", srcLabel:"5 reasons to extend activities"},
+ {icon:"🗣️", zh:"讓口說活動真正發揮效果", en:"Get the most out of speaking activities",
+  points:[
+   "個人化：多問學生自己的生活與意見，比抽象大題目更能讓人開口；課本題目未必適合台灣學生，可自行改寫。",
+   "給準備時間：先讓學生看題、想一下再開口，用到的字彙和文法都會更好。",
+   "用評分量表 rubric：聚焦內容、字彙、文法、表達；能追蹤進步、即時回饋，也能讓學生互評。"],
+  apply:"已新增「可列印口說評分表 Speaking Rubric」（本頁上方按鈕）；故事與寓言的「課後討論」題可先給準備時間再開口。",
+  url:"https://www.cambridge.org/elt/blog/2017/10/12/three-ways-to-get-the-most-out-of-speaking-activities/", srcLabel:"3 ways for speaking activities"},
+ {icon:"📖", zh:"用學生熱愛的故事教文法", en:"Teach grammar through stories they love",
+  points:[
+   "用學生喜歡的故事／電影當文法練習的引擎：用比較級描述角色、用進行式描述畫面、用 should have 寫角色的懊悔。",
+   "選「跟任何一集都能用」的通用文法活動，就不怕沒有特定教材。",
+   "把「讀故事」和「練文法」綁在一起，課堂更有動機。"],
+  apply:"Story Time 的故事與伊索寓言就是現成素材：可讓學生用比較級比較角色、用過去式重述劇情、用討論題延伸口說與寫作。",
+  url:"https://www.cambridge.org/elt/blog/2017/10/16/harry-potter-grammar-practice/", srcLabel:"Grammar through popular stories"},
+ {icon:"🧩", zh:"創意學習單的發想藍圖", en:"A blueprint for creative worksheets",
+  points:[
+   "別把學習單做成「工廠作業」般的機械重複——它也可以好玩、有成就感。",
+   "動詞腦力激盪：列三欄課堂動作動詞（say / write / cut / tape / hide…、remember / test / draw…、spell / sing / tell…），在欄位間「連連看」。",
+   "把連到的動詞組成新奇的活動指令，例如 cut → remember → tell。越亂越好，代表創意在流動。"],
+  apply:"出新題目或活動時的發想法；貓島的學習單刻意走「好玩、有獎勵（罐罐／XP）」路線，而非機械式重複。",
+  url:"https://www.cambridge.org/elt/blog/2017/10/13/making-creative-esl-worksheets/", srcLabel:"Creative ESL worksheets"}
+];
 let TDATA = null, TTAB = "students";
 async function renderTeacher(){
   if(!CLOUD.on) return cloudNeeded("老師後台 Teacher");
@@ -12422,7 +12542,7 @@ function tName(id){ const p = TDATA.profiles.find(x=>x.id===id); return p ? (p.n
 function paintTeacher(){
   const students = TDATA.profiles.filter(p=>p.role!=="teacher");
   const progById = {}; TDATA.progress.forEach(p=>progById[p.user_id]=p);
-  const tabs = [["students","👧 學生進度"],["homework","📝 作業繳交"],["fables","🦊 寓言練習"],["reflect","📓 反思／每日"],["stats","📊 全班統計"]];
+  const tabs = [["students","👧 學生進度"],["homework","📝 作業繳交"],["fables","🦊 寓言練習"],["reflect","📓 反思／每日"],["stats","📊 全班統計"],["prep","📚 備課錦囊"]];
   const tabBar = `<div class="tc-tabs">${tabs.map(([k,l])=>`<button class="tc-tab ${TTAB===k?'active':''}" onclick="TTAB='${k}';paintTeacher()">${l}</button>`).join("")}</div>`;
   let body = "";
 
@@ -12506,6 +12626,17 @@ function paintTeacher(){
       ${[["班級人數 Students",n],["近7天活躍 Active",activeN],["平均完成單元 Avg units",avgDone],["平均 XP",avgXp],["作業數 Assignments",TDATA.assignments.length],["總繳交數 Submissions",totalSubs]]
         .map(([l,v])=>`<div class="card tc-stat"><div class="n">${v}</div><div class="l">${l}</div></div>`).join("")}
     </div>`;
+  }
+
+  else if(TTAB==="prep"){
+    body = `<p class="tc-sub" style="margin:0 0 14px">五個實用的教學點子（改寫自 Cambridge English ELT 部落格，2017），雙語重點＋怎麼用在貓咪島。<br>Five teaching ideas (adapted from the Cambridge English ELT blog, 2017) — bilingual key points and how they apply here.</p>
+      <div class="tp-actions"><button class="btn btn-navy" onclick="location.hash='#/rubric'">🖨 開啟可列印口說評分表 Speaking Rubric →</button></div>
+      ${TEACHING_TIPS.map(t=>`<div class="card tp-card">
+        <div class="tp-head"><span class="tp-ic">${t.icon}</span><div><h3>${t.zh}</h3><span class="tp-en">${t.en}</span></div></div>
+        <ul class="tp-points">${t.points.map(p=>`<li>${p}</li>`).join("")}</ul>
+        <div class="tp-apply"><b>怎麼用在貓咪島 In this app：</b>${t.apply}</div>
+        <a class="tp-src" href="${t.url}" target="_blank" rel="noopener">來源 Source：${t.srcLabel} ↗</a>
+      </div>`).join("")}`;
   }
 
   app.innerHTML = `<div class="view">
