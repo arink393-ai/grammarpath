@@ -346,6 +346,120 @@ const DAILY_WEEKS = [{id:'2026-09-21', title:'貓咪島的日常冒險', days:[
    ['type','You will visit the cats tomorrow, ___ you, since they miss you so much?（will → 附加問句）','won’t','前肯定 will → 後 won’t。'],
    ['type','The kittens weren’t afraid of the vet, ___ they, even though it was their first visit?（否定 were → 肯定）','were','前否定 weren’t → 後 were。'],
    ['type','O didn’t break the vase, ___ he, although it fell right next to him?（否定 did → 肯定）','did','前否定 didn’t → 後 did。']]}}
+]},
+{id:'2026-10-12', title:'貓島語感大師', days:[
+ {date:'2026-10-12',title:'那時就完成了',topic:'未來完成式',level:'B1–B2',icon:'⏰',cat:'orange',scene:'到未來某個時間點「之前」就已經完成的動作：will have + 過去分詞。常搭配 by + 未來時間。',rule:'未來完成式：主詞 + will have + 過去分詞（p.p.）。常搭配 by tonight / by next week。',example:'By tonight, the cats will have eaten dinner.',banks:{
+  easy:[
+   ['pick','By tonight, the cats ___ have eaten.',['will','would','are'],'will','未來完成用 will have。'],
+   ['pick','By next week, Hu will ___ grown bigger.',['has','have','had'],'have','will 後接 have + p.p.。'],
+   ['pick','By noon, Hana will have ___ .',['sleep','slept','sleeping'],'slept','have 後接過去分詞 slept。'],
+   ['pick','By Friday, we ___ have cleaned the house.',['will','would','are'],'will','未來完成用 will have。']],
+  core:[
+   ['fill','By six o’clock, the staff will ___ fed the cats, and the bowls will be empty.（will + ?）','have','will have fed。'],
+   ['fill','Hana will have napped by noon, so she ___ be awake in the afternoon.（will）','will','主句用 will be。'],
+   ['fill','By next month, the kitten will have ___ how to jump.（learn → p.p.）','learned','learn 的過去分詞 learned。'],
+   ['fill','We will have finished by dinner, and then we ___ play with the cats.（will）','will','用 will play。']],
+  challenge:[
+   ['type','By the time you arrive, the cats ___ already eaten, because the staff feed them early.（will have + eat p.p.）','will have eaten','will have + eaten。'],
+   ['type','By next spring, Hu ___ into a strong cat, although it is still tiny now.（will have + grow p.p.）','will have grown','will have + grown。'],
+   ['type','By Sunday, Hana ___ the whole garden, which she explores a little each day.（will have + explore p.p.）','will have explored','will have + explored。'],
+   ['type','By the end of the week, the staff ___ every room, so the shelter will look spotless.（will have + clean p.p.）','will have cleaned','will have + cleaned。']]}},
+ {date:'2026-10-13',title:'一直做到現在',topic:'現在完成進行式',level:'B1–B2',icon:'🔁',cat:'gray',scene:'從過去持續到現在、可能還在進行的動作：have/has been + V-ing。強調「持續多久」。',rule:'現在完成進行式：主詞 + have/has been + V-ing。常搭配 for / since，強調動作持續。',example:'Hana has been sleeping for two hours.',banks:{
+  easy:[
+   ['pick','Hana ___ been sleeping for two hours.',['has','have','had'],'has','Hana 單數，用 has been。'],
+   ['pick','The kittens have ___ playing all day.',['be','been','being'],'been','have been + V-ing。'],
+   ['pick','O has been ___ his fish slowly.',['eat','eaten','eating'],'eating','been 後接 V-ing。'],
+   ['pick','We ___ been waiting for the vet.',['has','have','had'],'have','we 用 have been。']],
+  core:[
+   ['fill','Hana has been napping for hours, and she ___ still not woken up.（have/has）','has','Hana 用 has。'],
+   ['fill','The kittens have been playing since noon, so they ___ getting tired now.（be：are）','are','the kittens 複數，用 are。'],
+   ['fill','O has been ___ at the door, because he wants to go out.（wait → V-ing）','waiting','been + waiting。'],
+   ['fill','It has been ___ all morning, so the cats have stayed inside.（rain → V-ing）','raining','been + raining。']],
+  challenge:[
+   ['type','Hana ___ in the sun for hours, which is why her fur feels so warm now.（have/has been + sleep V-ing）','has been sleeping','has been + sleeping。'],
+   ['type','Because the kittens ___ all afternoon, they are exhausted, although they refuse to nap.（have/has been + play V-ing）','have been playing','have been + playing。'],
+   ['type','O ___ at the window since breakfast, since he is waiting for the birds to appear.（have/has been + look V-ing）','has been looking|has been staring','has been + looking/staring。'],
+   ['type','We ___ for the new kitten for weeks, and it finally arrives tomorrow, which excites everyone.（have/has been + wait V-ing）','have been waiting','have been + waiting。']]}},
+ {date:'2026-10-14',title:'過去的過去',topic:'過去完成式',level:'B1–B2',icon:'⏮️',cat:'black',scene:'「過去的過去」——在另一個過去動作之前就已完成：had + 過去分詞。',rule:'過去完成式：主詞 + had + 過去分詞（p.p.），表示比另一個過去動作更早發生。',example:'When we arrived, the cats had already eaten.',banks:{
+  easy:[
+   ['pick','When we arrived, the cats ___ already eaten.',['have','has','had'],'had','過去完成用 had + p.p.。'],
+   ['pick','Hana had ___ before we woke up.',['leave','left','leaving'],'left','had 後接過去分詞 left。'],
+   ['pick','By the time O came, Hu ___ hidden the toy.',['has','have','had'],'had','過去完成用 had。'],
+   ['pick','The kittens ___ fallen asleep before the storm.',['has','had','have'],'had','過去完成用 had。']],
+  core:[
+   ['fill','By the time the vet arrived, Hu ___ already fallen asleep, so it stayed calm.（had）','had','had already fallen。'],
+   ['fill','Hana had eaten before we came, so she ___ not hungry.（be：was）','was','過去式 was。'],
+   ['fill','The staff had ___ the room before the guests arrived.（clean → p.p.）','cleaned','had + cleaned。'],
+   ['fill','O had hidden the toy, and no one ___ find it.（過去式：could）','could','過去能力 could。']],
+  challenge:[
+   ['type','By the time we got home, Hana ___ the whole garden, which had left her exhausted.（had + explore p.p.）','had explored','had + explored。'],
+   ['type','The kittens were calm because they ___ their dinner before the loud storm began.（had + eat p.p.）','had eaten','had + eaten。'],
+   ['type','O could not find his toy, since Hu ___ it under the bed earlier that day.（had + hide p.p.）','had hidden','had + hidden。'],
+   ['type','When the new family arrived, the staff ___ the shelter, so everything looked perfect.（had + clean p.p.）','had cleaned','had + cleaned。']]}},
+ {date:'2026-10-15',title:'當初如果…',topic:'第三條件句',level:'B2',icon:'🕰️',cat:'calico',scene:'對過去的假設（與過去事實相反）：If + 過去完成式, 主詞 + would have + 過去分詞。',rule:'第三條件句：If + had + p.p.，主句 would have + p.p.。談「當初如果…就會…」（已無法改變）。',example:'If we had left food, the cat would have eaten.',banks:{
+  easy:[
+   ['pick','If we had left food, the cat ___ have eaten.',['will','would','had'],'would','主句用 would have + p.p.。'],
+   ['pick','If Hana ___ seen the bird, she would have chased it.',['has','had','have'],'had','if 子句用 had + p.p.。'],
+   ['pick','O would have won if he ___ run faster.',['has','had','would'],'had','if 子句用 had run。'],
+   ['pick','If it had rained, the cats would ___ stayed inside.',['has','have','had'],'have','would have + p.p.。']],
+  core:[
+   ['fill','If we had known Hu was sick, we ___ have called the vet sooner.（would）','would','主句 would have called。'],
+   ['fill','Hana would have caught the bird if she ___ been faster.（had）','had','if 子句用 had been。'],
+   ['fill','If the door had been open, the cats ___ have run outside.（would）','would','主句 would have run。'],
+   ['fill','O would have eaten more if the bowl ___ been full.（had）','had','if 子句用 had been。']],
+  challenge:[
+   ['type','If the staff ___ Hu that winter, the kitten would not have survived, because it was so cold.（had + find p.p.）','had found','if 子句用 had + found。'],
+   ['type','Hana would have caught the bird if she ___ it earlier, although she is usually very quick.（had + see p.p.）','had seen','if 子句用 had + seen。'],
+   ['type','If we ___ the gate open, the kittens would have escaped, which frightens us to imagine.（had + leave p.p.）','had left','if 子句用 had + left。'],
+   ['type','The cats would have been frightened if the storm ___ during the night, but it passed quietly.（had + come p.p.）','had come|had arrived','if 子句用 had + come/arrived。']]}},
+ {date:'2026-10-16',title:'貓咪動作大集合',topic:'片語動詞',level:'B1',icon:'🧩',cat:'cream',scene:'動詞 + 介副詞 = 片語動詞，意思常和字面不同：look after 照顧、turn on 打開、give up 放棄、run out of 用完。',rule:'片語動詞 = 動詞 + 介系詞/副詞，整體意思一起記。look after 照顧、turn on 打開、give up 放棄。',example:'Please look after the cats. Don’t give up!',banks:{
+  easy:[
+   ['pick','Please look ___ the cats while I’m away.',['after','for','up'],'after','look after = 照顧。'],
+   ['pick','Can you turn ___ the light?',['on','in','of'],'on','turn on = 打開。'],
+   ['pick','Don’t give ___ ! You can do it.',['up','in','on'],'up','give up = 放棄。'],
+   ['pick','She picked ___ the kitten gently.',['up','on','off'],'up','pick up = 抱起/撿起。']],
+  core:[
+   ['fill','I have to leave, so please look ___ Hana until I return.（照顧）','after','look after = 照顧。'],
+   ['fill','It’s dark, so turn ___ the light, and the cats will feel safe.（打開）','on','turn on = 打開。'],
+   ['fill','The training is hard, but the kitten never gives ___ .（放棄）','up','give up = 放棄。'],
+   ['fill','We ran ___ of cat food, so we went to the shop.（run out ___ = 用完）','out','run out of = 用完。']],
+  challenge:[
+   ['type','Although I was busy, I promised to look ___ the kittens, because their owner had gone away.（照顧）','after','look after = 照顧。'],
+   ['type','When the room got dark, the staff turned ___ the lamp, so the cats would not feel scared.（打開）','on','turn on = 打開。'],
+   ['type','Even though the trick was difficult, Hu never gave ___ , which made everyone proud.（放棄）','up','give up = 放棄。'],
+   ['type','Because we had run ___ of treats, we drove to the store, where the cats’ favorite brand was on sale.（用完）','out','run out of = 用完。']]}},
+ {date:'2026-10-17',title:'a、an 還是 the',topic:'冠詞',level:'B1',icon:'🔤',cat:'cow',scene:'第一次提到、單數可數用 a/an（母音「音」開頭用 an）；特指或再次提到用 the。',rule:'a/an：第一次提到的單數可數（母音音用 an）。the：特指或再次提到。honest 的 h 不發音，用 an。',example:'I saw a cat. The cat was black.',banks:{
+  easy:[
+   ['pick','I saw ___ cat in the garden.',['a','an','the'],'a','第一次提到、子音 c，用 a。'],
+   ['pick','She adopted ___ orange kitten.',['a','an','the'],'an','orange 母音音開頭，用 an。'],
+   ['pick','The cat sat on ___ roof. It was our roof.',['a','an','the'],'the','特指我們家的屋頂，用 the。'],
+   ['pick','Hana is ___ friendly cat.',['a','an','the'],'a','第一次提到、子音 f，用 a。']],
+  core:[
+   ['fill','I saw a kitten this morning, and ___ kitten was very playful.（再次提到）','the','再次提到用 the。'],
+   ['fill','She wants to adopt ___ old cat, because older cats are calmer.（母音音 old）','an','old 母音音，用 an。'],
+   ['fill','O is ___ brave cat, but he is afraid of water.（第一次提到，子音 brave）','a','子音 b，用 a。'],
+   ['fill','The vet checked ___ sick kitten, and the kitten got better.（特指那隻）','the','特指，用 the。']],
+  challenge:[
+   ['type','When Hana found ___ mouse in the kitchen, she chased it until it escaped, which annoyed her.（第一次提到，子音 mouse）','a','子音 m，用 a。'],
+   ['type','The staff adopted ___ injured kitten last winter, and it has become the friendliest cat here.（母音音 injured）','an','injured 母音音，用 an。'],
+   ['type','Because O is ___ honest cat, he never steals food, although he loves fish more than anything.（honest 的 h 不發音）','an','honest 以母音音開頭，用 an。'],
+   ['type','We took the sick cat to ___ vet who had saved it before, so we trusted her completely.（特指那位獸醫）','the','特指那位曾救過牠的獸醫，用 the。']]}},
+ {date:'2026-10-18',title:'把想法接起來',topic:'連接詞',level:'B1–B2',icon:'🪡',cat:'gray',scene:'連接兩個想法：because（因為）、so（所以）、although（雖然）、despite + 名詞/動名詞（儘管）。',rule:'because + 句子（原因）；so（結果）；although + 句子（讓步）；despite + 名詞/動名詞。',example:'Although it rained, the cats played. It was cold, so they stayed inside.',banks:{
+  easy:[
+   ['pick','___ it rained, the cats stayed inside.',['Because','So','Although'],'Because','表示原因用 Because。'],
+   ['pick','Hana was tired, ___ she slept.',['because','so','although'],'so','表示結果用 so。'],
+   ['pick','___ he was small, Hu jumped high.',['Because','So','Although'],'Although','讓步（雖然）用 Although。'],
+   ['pick','It was cold, ___ the cats wore tiny sweaters.',['because','so','although'],'so','表示結果用 so。']],
+  core:[
+   ['fill','The kittens were hungry, ___ the staff fed them early.（結果：所以）','so','表示結果用 so。'],
+   ['fill','___ Hana is old, she still plays like a kitten.（讓步：雖然）','Although','讓步用 Although。'],
+   ['fill','O stayed inside ___ it was raining hard.（原因：因為）','because','表示原因用 because。'],
+   ['fill','The cat kept meowing, ___ we opened the door.（結果：所以）','so','表示結果用 so。']],
+  challenge:[
+   ['type','___ the storm was loud, the kittens slept peacefully, which surprised everyone in the shelter.（讓步：雖然）','Although','讓步用 Although。'],
+   ['type','The cats trusted the new vet ___ she was gentle and patient, so they stayed calm during the check-up.（原因：因為）','because','表示原因用 because。'],
+   ['type','Hana wanted to go outside, ___ the staff kept her in, since the roads were busy and dangerous.（結果：所以）','so','表示結果用 so。'],
+   ['type','___ being tiny, Hu climbed the tallest shelf, which no other cat had ever reached.（儘管 + 動名詞）','Despite','despite + 名詞/動名詞（being tiny）。']]}}
 ]}];
 let DQ = null, DQ_WEEK_VIEW = null;
 /* Difficulty picks a whole different bank (type + sentence complexity), not a tweak. */
