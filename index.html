@@ -1457,12 +1457,13 @@ const DATA = {
     {id:"u1", level:"basic", n:"Unit 1", name:"Foundations"},
     {id:"u2", level:"basic", n:"Unit 2", name:"Nouns & articles"},
     {id:"u7", level:"basic", n:"Unit 3", name:"Sentences & questions"},
-    {id:"u3", level:"intermediate", n:"Unit 4", name:"Past & perfect"},
-    {id:"u4", level:"intermediate", n:"Unit 5", name:"Future & conditions"},
-    {id:"u8", level:"intermediate", n:"Unit 6", name:"Compare & connect"},
-    {id:"u5", level:"advanced", n:"Unit 7", name:"Complex structures"},
-    {id:"u6", level:"advanced", n:"Unit 8", name:"Hypothetical meaning"},
-    {id:"u9", level:"advanced", n:"Unit 9", name:"Natural English"}
+    {id:"u10", level:"basic", n:"Unit 4", name:"Everyday modals"},
+    {id:"u3", level:"intermediate", n:"Unit 5", name:"Past & perfect"},
+    {id:"u4", level:"intermediate", n:"Unit 6", name:"Future & conditions"},
+    {id:"u8", level:"intermediate", n:"Unit 7", name:"Compare & connect"},
+    {id:"u5", level:"advanced", n:"Unit 8", name:"Complex structures"},
+    {id:"u6", level:"advanced", n:"Unit 9", name:"Hypothetical meaning"},
+    {id:"u9", level:"advanced", n:"Unit 10", name:"Natural English"}
   ],
   lessons: [
 /* ================= BASIC ================= */
@@ -2353,10 +2354,216 @@ q:[
  {t:"spot", sent:"Her wedding is at Saturday .", wrong:2, fix:"on", why:"Day → on Saturday."}
 ]},
 
+/* ================= BASIC · Everyday modals ================= */
+
+{
+id:"can-could", zh:"能力與請求 can / could", unit:"u10", n:"4.1", title:"Can & Could", sub:"Ability, permission and polite requests — can, can't, could and couldn't.",
+form:{p:"subject + can / could + base verb", ex:["I <b>can</b> swim.","<b>Can</b> you help me?","She <b>couldn't</b> come."]},
+uses:[
+ {t:"Ability — can (now) / could (past)", d:"Use can for present ability, could for past ability. Always + the base verb.", ex:[
+   {s:"I <b>can</b> speak two languages.", n:"present ability"},
+   {s:"She <b>can't</b> drive yet.", n:"can + not = can't"},
+   {s:"He <b>could</b> read at the age of four.", n:"past ability"}]},
+ {t:"Permission — Can I…? / Could I…?", d:"Ask permission with Can I / Could I. Could is a little more polite.", ex:[
+   {s:"<b>Can I</b> open the window?", n:""},
+   {s:"<b>Could I</b> borrow your pen?", n:"more polite"},
+   {s:"You <b>can</b> leave now.", n:"giving permission"}]},
+ {t:"Polite requests — Could you…?", d:"Ask someone to do something with Can you / Could you. Could you is politer.", ex:[
+   {s:"<b>Can you</b> pass the salt?", n:""},
+   {s:"<b>Could you</b> say that again, please?", n:"more polite"},
+   {s:"<b>Could you</b> help me with this?", n:""}]}
+],
+mistakes:[
+ {no:"I can to swim.", yes:"I can swim.", why:"After can, use the base verb — no 'to'."},
+ {no:"She cans dance.", yes:"She can dance.", why:"can never adds -s; it's the same for everyone."},
+ {no:"He could speaks Japanese.", yes:"He could speak Japanese.", why:"After could, use the base verb (speak)."}
+],
+tip:"can / could + base verb (no 'to', no -s). can = now, could = past ability or a politer version. Could you…? is the polite request.",
+q:[
+ {t:"mcq", q:"___ you play the guitar?", opts:["Do","Are","Can","Have"], a:2, why:"ability → Can you play…?"},
+ {t:"mcq", q:"When I was young, I ___ run very fast.", opts:["can","could","cans","am"], a:1, why:"past ability → could."},
+ {t:"mcq", q:"Which is the most polite request?", opts:["Give me a pen.","Can you give me a pen?","Could you give me a pen, please?","You give me a pen."], a:2, why:"Could you… please? is the politest."},
+ {t:"fill", q:"She ___ swim, so she stays near the shore. (negative ability)", ans:["can't","cannot"], hint:"can + not", why:"can't swim."},
+ {t:"order", words:["Can","I","borrow","your","book"], sent:"Can I borrow your book", why:"Can + I + base verb for permission."},
+ {t:"spot", sent:"He can to drive a car .", wrong:2, fix:"drive", why:"After can, use the base verb — no 'to'."},
+ {t:"mcq", q:"'___ I sit here?' (asking permission)", opts:["Do","Could","Am","Have"], a:1, why:"Could I…? asks permission politely."},
+ {t:"spot", sent:"My sister cans speak English well .", wrong:2, fix:"can", why:"can never takes -s."}
+]},
+
+{
+id:"should-ought", zh:"建議 should / ought to", unit:"u10", n:"4.2", title:"Should & Ought To", sub:"Giving advice — what is a good idea to do.",
+form:{p:"subject + should / ought to + base verb", ex:["You <b>should</b> rest.","You <b>shouldn't</b> worry.","We <b>ought to</b> leave now."]},
+uses:[
+ {t:"should — advice & a good idea", d:"Use should + base verb to say what is a good idea. shouldn't for a bad idea.", ex:[
+   {s:"You <b>should</b> drink more water.", n:"good advice"},
+   {s:"You <b>shouldn't</b> eat so much sugar.", n:"should + not"},
+   {s:"He <b>should</b> see a doctor.", n:""}]},
+ {t:"ought to — same as should", d:"ought to means the same as should. Note the 'to' before the verb.", ex:[
+   {s:"You <b>ought to</b> apologize.", n:"= you should apologize"},
+   {s:"We <b>ought to</b> be more careful.", n:""},
+   {s:"They <b>ought to</b> call first.", n:""}]},
+ {t:"Questions — asking for advice", d:"Ask 'Should I…?' to get advice.", ex:[
+   {s:"<b>Should I</b> take an umbrella?", n:""},
+   {s:"What <b>should</b> we do?", n:""},
+   {s:"<b>Should</b> he tell the truth?", n:""}]}
+],
+mistakes:[
+ {no:"You should to sleep more.", yes:"You should sleep more.", why:"should + base verb — no 'to'."},
+ {no:"You ought sleep more.", yes:"You ought to sleep more.", why:"ought needs 'to': ought to sleep."},
+ {no:"She shoulds study.", yes:"She should study.", why:"should never takes -s."}
+],
+tip:"should + base verb (no 'to'). ought TO + base verb (with 'to'). Both give advice. Question: Should I…?",
+q:[
+ {t:"mcq", q:"You look tired. You ___ go to bed.", opts:["should","should to","ought","shoulds"], a:0, why:"advice → should + base verb."},
+ {t:"mcq", q:"Which is correct?", opts:["You ought sleep.","You ought to sleep.","You ought to sleeping.","You oughts to sleep."], a:1, why:"ought TO + base verb."},
+ {t:"mcq", q:"It's raining. We ___ take an umbrella.", opts:["shouldn't","should","don't should","should to"], a:1, why:"good idea → should take."},
+ {t:"fill", q:"You ___ smoke — it's bad for you. (negative advice)", ans:["shouldn't","should not"], hint:"should + not", why:"shouldn't smoke."},
+ {t:"order", words:["Should","I","call","the","doctor"], sent:"Should I call the doctor", why:"Should + I + base verb (asking advice)."},
+ {t:"spot", sent:"You should to eat breakfast .", wrong:2, fix:"eat", why:"should + base verb — no 'to'."},
+ {t:"mcq", q:"'What ___ I do?' (asking for advice)", opts:["should","ought","do","am"], a:0, why:"What should I do? asks for advice."},
+ {t:"spot", sent:"He ought study harder .", wrong:2, fix:"ought to", why:"ought needs 'to' before the verb."}
+]},
+
+{
+id:"must-have-to", zh:"義務 must / have to", unit:"u10", n:"4.3", title:"Must & Have To", sub:"Rules and necessity — and what you don't need to do.",
+form:{p:"subject + must / have to + base verb", ex:["You <b>must</b> wear a helmet.","I <b>have to</b> work today.","She <b>has to</b> study."]},
+uses:[
+ {t:"must — a strong rule or a personal need", d:"Use must + base verb for strong rules and things you feel are necessary.", ex:[
+   {s:"You <b>must</b> stop at a red light.", n:"a rule"},
+   {s:"I <b>must</b> finish this tonight.", n:"I feel it's necessary"},
+   {s:"Visitors <b>must</b> sign in.", n:"a notice / rule"}]},
+ {t:"have to / has to — necessity", d:"have to means the same as must. Use has to for he / she / it; had to in the past.", ex:[
+   {s:"I <b>have to</b> get up early.", n:"necessity"},
+   {s:"She <b>has to</b> wear a uniform.", n:"he / she / it → has to"},
+   {s:"We <b>had to</b> wait an hour.", n:"past → had to"}]},
+ {t:"don't have to = it is NOT necessary", d:"'don't have to' means there is no need — different from mustn't (not allowed).", ex:[
+   {s:"You <b>don't have to</b> come — it's optional.", n:"no need"},
+   {s:"You <b>mustn't</b> touch that — it's dangerous.", n:"not allowed!"},
+   {s:"He <b>doesn't have to</b> pay.", n:"no need"}]}
+],
+mistakes:[
+ {no:"You must to go now.", yes:"You must go now.", why:"must + base verb — no 'to'."},
+ {no:"She have to study.", yes:"She has to study.", why:"he / she / it → has to."},
+ {no:"You don't must worry.", yes:"You don't have to worry.", why:"For 'no need', use don't have to (not don't must)."}
+],
+tip:"must + base verb (no 'to'). have to / has to = necessity. Careful: mustn't = NOT allowed, but don't have to = NO need — very different!",
+q:[
+ {t:"mcq", q:"Students ___ wear a uniform. It's a school rule.", opts:["must","must to","haves to","don't have to"], a:0, why:"a rule → must + base verb."},
+ {t:"mcq", q:"My mother is a nurse, so she ___ work at night sometimes.", opts:["have to","has to","must to","haves to"], a:1, why:"she → has to."},
+ {t:"mcq", q:"Tomorrow is a holiday, so we ___ go to school.", opts:["mustn't","don't have to","must","has to"], a:1, why:"no need → don't have to."},
+ {t:"fill", q:"Yesterday I ___ to wait a long time. (past of have to)", ans:["had"], hint:"past of have to", why:"had to wait."},
+ {t:"order", words:["You","must","not","touch","the","paintings"], sent:"You must not touch the paintings", why:"mustn't = not allowed."},
+ {t:"spot", sent:"He must to leave early .", wrong:2, fix:"leave", why:"must + base verb — no 'to'."},
+ {t:"mcq", q:"Which means 'it is NOT necessary'?", opts:["You mustn't call.","You must call.","You don't have to call.","You have to call."], a:2, why:"don't have to = no need."},
+ {t:"spot", sent:"She have to finish her homework .", wrong:1, fix:"has", why:"she → has to."}
+]},
+
+{
+id:"may-might", zh:"可能與許可 may / might", unit:"u10", n:"4.4", title:"May & Might", sub:"Saying something is possible — and asking politely for permission.",
+form:{p:"subject + may / might + base verb", ex:["It <b>may</b> rain later.","She <b>might</b> be late.","<b>May</b> I come in?"]},
+uses:[
+ {t:"Possibility — maybe yes, maybe no", d:"Use may or might + base verb to say something is possible (you're not sure).", ex:[
+   {s:"It <b>may</b> snow tonight.", n:"perhaps"},
+   {s:"They <b>might</b> win the game.", n:"perhaps"},
+   {s:"I <b>might not</b> go to the party.", n:"maybe not"}]},
+ {t:"may — polite permission", d:"May I…? is a polite (slightly formal) way to ask permission.", ex:[
+   {s:"<b>May I</b> ask a question?", n:"polite permission"},
+   {s:"<b>May I</b> use your phone?", n:""},
+   {s:"You <b>may</b> sit down.", n:"giving permission (formal)"}]},
+ {t:"Same for everyone — no -s, no 'to'", d:"Just may / might + the base verb.", ex:[
+   {s:"He <b>might</b> know the answer.", n:"not 'mights'"},
+   {s:"She <b>may</b> come with us.", n:""},
+   {s:"It <b>might</b> be true.", n:""}]}
+],
+mistakes:[
+ {no:"It might to rain.", yes:"It might rain.", why:"might + base verb — no 'to'."},
+ {no:"He mays be right.", yes:"He may be right.", why:"may never takes -s."},
+ {no:"She might comes later.", yes:"She might come later.", why:"After might, use the base verb (come)."}
+],
+tip:"may / might + base verb = perhaps / possibly. May I…? is polite permission. No -s, no 'to'.",
+q:[
+ {t:"mcq", q:"Take a coat — it ___ get cold later.", opts:["may","may to","mays","is may"], a:0, why:"possibility → may + base verb."},
+ {t:"mcq", q:"'___ I borrow your dictionary?' (polite)", opts:["May","Do","Am","Should"], a:0, why:"May I…? is polite permission."},
+ {t:"mcq", q:"Which is correct?", opts:["She might comes.","She might come.","She mights come.","She might to come."], a:1, why:"might + base verb."},
+ {t:"fill", q:"I'm not sure. I ___ not go. (possibility)", ans:["might","may"], hint:"perhaps not", why:"might not / may not go."},
+ {t:"order", words:["They","might","be","at","home"], sent:"They might be at home", why:"might + base verb be."},
+ {t:"spot", sent:"It may to snow tomorrow .", wrong:2, fix:"snow", why:"may + base verb — no 'to'."},
+ {t:"mcq", q:"'It ___ be true, but I'm not sure.'", opts:["might","must","have to","should"], a:0, why:"not sure → might (possibility)."},
+ {t:"spot", sent:"He mays win the prize .", wrong:1, fix:"may", why:"may never takes -s."}
+]},
+
+{
+id:"would-like", zh:"禮貌表達 would like", unit:"u10", n:"4.5", title:"Would Like", sub:"A polite way to say what you want — and to offer and invite.",
+form:{p:"subject + would like + noun / to + base verb", ex:["I <b>would like</b> a coffee.","She<b>'d like</b> to help.","<b>Would you like</b> some tea?"]},
+uses:[
+ {t:"would like = want (but politer)", d:"Use would like ('d like) instead of want to be polite. + a noun, or + to + verb.", ex:[
+   {s:"I<b>'d like</b> a glass of water.", n:"+ noun"},
+   {s:"I<b>'d like to</b> book a table.", n:"+ to + verb"},
+   {s:"She<b>'d like</b> to learn the guitar.", n:""}]},
+ {t:"Offers & invitations — Would you like…?", d:"Offer with Would you like + noun; invite with Would you like to + verb.", ex:[
+   {s:"<b>Would you like</b> some cake?", n:"offer"},
+   {s:"<b>Would you like to</b> join us?", n:"invitation"},
+   {s:"<b>Would you like</b> anything to drink?", n:""}]},
+ {t:"Short answers", d:"Answer offers with 'Yes, please.' or 'No, thank you.'", ex:[
+   {s:"Would you like tea? — <b>Yes, please.</b>", n:""},
+   {s:"Would you like more? — <b>No, thank you.</b>", n:""},
+   {s:"<b>I'd love to.</b>", n:"a warm 'yes' to an invitation"}]}
+],
+mistakes:[
+ {no:"I would like a coffee?", yes:"I would like a coffee.", why:"'I would like…' is a statement — no question mark."},
+ {no:"I would like go home.", yes:"I would like to go home.", why:"Before a verb, use 'to': would like to go."},
+ {no:"Do you would like some tea?", yes:"Would you like some tea?", why:"Start the question with Would (no 'do')."}
+],
+tip:"would like = a polite 'want'. + a noun, or + TO + verb. Offer with 'Would you like…?' Answer: 'Yes, please.' / 'No, thank you.'",
+q:[
+ {t:"mcq", q:"'___ you like some coffee?' (offer)", opts:["Do","Would","Are","Should"], a:1, why:"Offer → Would you like…?"},
+ {t:"mcq", q:"I'd like ___ a table for two, please.", opts:["book","to book","booking","booked"], a:1, why:"would like TO + base verb."},
+ {t:"mcq", q:"Polite answer to 'Would you like more cake?'", opts:["No, thank you.","No, I don't.","No, I'm not.","No, I won't."], a:0, why:"Offers are answered with 'No, thank you.'"},
+ {t:"fill", q:"She ___ like to visit Japan one day. (short form of would after 'She')", ans:["'d","would"], hint:"would → 'd", why:"She'd like to…"},
+ {t:"order", words:["I","would","like","to","order","now"], sent:"I would like to order now", why:"would like + to + base verb."},
+ {t:"spot", sent:"Would you like drink something ?", wrong:3, fix:"to drink", why:"Before a verb, use 'to': like to drink."},
+ {t:"mcq", q:"Which is the most polite?", opts:["I want a menu.","Give me a menu.","I'd like a menu, please.","Menu!"], a:2, why:"I'd like… please is polite."},
+ {t:"spot", sent:"Do you would like some help ?", wrong:0, fix:"Would", why:"Start with Would — don't add 'do'."}
+]},
+
+{
+id:"should-have", zh:"過去的懊悔 should have", unit:"u10", n:"4.6", title:"Should Have", sub:"Looking back — the right thing to do, but it didn't happen.",
+form:{p:"subject + should have + past participle (V3)", ex:["I <b>should have</b> studied.","You <b>shouldn't have</b> said that.","He <b>should have</b> called."]},
+uses:[
+ {t:"should have + V3 — a past regret", d:"Use should have + the past participle to say the right thing to do in the past — but you didn't.", ex:[
+   {s:"I <b>should have</b> booked a table.", n:"but I didn't → regret"},
+   {s:"You <b>should have</b> told me.", n:"a good idea, but you didn't"},
+   {s:"We <b>should have</b> left earlier.", n:""}]},
+ {t:"shouldn't have — a past mistake", d:"Use shouldn't have + V3 for something you did that was a bad idea.", ex:[
+   {s:"I <b>shouldn't have</b> eaten so much.", n:"but I did → mistake"},
+   {s:"You <b>shouldn't have</b> shouted.", n:""},
+   {s:"He <b>shouldn't have</b> lied.", n:""}]},
+ {t:"In speech — 'should've'", d:"In speaking, should have is often said 'should've'. Never write 'should of'!", ex:[
+   {s:"I <b>should've</b> known.", n:"= should have"},
+   {s:"You <b>should've</b> asked.", n:""},
+   {s:"They <b>should've</b> won.", n:""}]}
+],
+mistakes:[
+ {no:"I should of gone.", yes:"I should have gone.", why:"It's should HAVE, never 'should of' — they just sound alike."},
+ {no:"You should have went.", yes:"You should have gone.", why:"Use the past participle: gone (not went)."},
+ {no:"She should have study.", yes:"She should have studied.", why:"After should have, use the past participle (studied)."}
+],
+tip:"should have + V3 (past participle) = the right thing in the past, but it didn't happen. In speech: 'should've' — never 'should of'.",
+q:[
+ {t:"mcq", q:"I failed the test. I ___ harder.", opts:["should study","should have studied","should studied","should have study"], a:1, why:"past regret → should have + V3 (studied)."},
+ {t:"mcq", q:"You're late! You ___ earlier.", opts:["should have left","should left","should have leave","should of left"], a:0, why:"should have + left (V3)."},
+ {t:"mcq", q:"Which is the correct spelling?", opts:["I should of called.","I should have called.","I should has called.","I should had called."], a:1, why:"should HAVE, never 'should of'."},
+ {t:"fill", q:"I'm so full. I ___ have eaten so much. (negative)", ans:["shouldn't","should not"], hint:"should + not + have", why:"shouldn't have eaten = it was a mistake."},
+ {t:"order", words:["You","should","have","told","me"], sent:"You should have told me", why:"should + have + past participle told."},
+ {t:"spot", sent:"He should have went home .", wrong:3, fix:"gone", why:"the past participle of go is gone."},
+ {t:"mcq", q:"'I should have brought an umbrella' means…", opts:["I brought one.","I didn't bring one, and I regret it.","I will bring one.","I always bring one."], a:1, why:"should have = didn't do it, now regret."},
+ {t:"spot", sent:"You should of studied more .", wrong:2, fix:"have", why:"should HAVE, not 'should of'."}
+]},
+
 /* ================= INTERMEDIATE ================= */
 
 {
-id:"past-simple", zh:"過去簡單式", unit:"u3", n:"4.1", title:"Past Simple", sub:"Finished actions at a finished time — yesterday, last week, in 2019.",
+id:"past-simple", zh:"過去簡單式", unit:"u3", n:"5.1", title:"Past Simple", sub:"Finished actions at a finished time — yesterday, last week, in 2019.",
 tl:{labels:[[26,"finished action"],[62,"now"]], dots:[26], now:62, cap:"One completed action, fully in the past — the moment is closed."},
 form:{p:"subject + verb-ed  ·  irregular: go → went", ex:["I <b>visited</b> Tainan last month.","She <b>went</b> home early.","They <b>didn't see</b> the sign."]},
 uses:[
@@ -2390,7 +2597,7 @@ q:[
 ]},
 
 {
-id:"past-continuous", zh:"過去進行式", unit:"u3", n:"4.2", title:"Past Continuous", sub:"Was / were + V-ing — an action in progress at a moment in the past.",
+id:"past-continuous", zh:"過去進行式", unit:"u3", n:"5.2", title:"Past Continuous", sub:"Was / were + V-ing — an action in progress at a moment in the past.",
 tl:{labels:[[20,"was V-ing"],[64,"now"]], spans:[[8,42]], dots:[26], now:64, cap:"An action already in progress at a moment in the past — often interrupted by a shorter one."},
 form:{p:"subject + was / were + verb-ing  ·  I/he/she/it → was, you/we/they → were", ex:["At 8 p.m. I <b>was working</b>.","They <b>were watching</b> TV.","She <b>wasn't sleeping</b> at midnight."]},
 uses:[
@@ -2425,7 +2632,7 @@ q:[
 ]},
 
 {
-id:"present-perfect", zh:"現在完成式", unit:"u3", n:"4.3", title:"Present Perfect Simple", sub:"Connecting the past with now — experiences, changes and results that still matter.",
+id:"present-perfect", zh:"現在完成式", unit:"u3", n:"5.3", title:"Present Perfect Simple", sub:"Connecting the past with now — experiences, changes and results that still matter.",
 tl:{labels:[[12,"past"],[64,"now"]], spans:[[12,64]], dots:[64], now:64, cap:"An action or experience in an open period that reaches up to now."},
 form:{p:"subject + have / has + past participle", ex:["I <b>have finished</b> the report.","She <b>has visited</b> Kyoto twice.","They <b>haven't arrived</b> yet."]},
 uses:[
@@ -2459,7 +2666,7 @@ q:[
 ]},
 
 {
-id:"present-perfect-continuous", zh:"現在完成進行式", unit:"u3", n:"4.4", title:"Present Perfect Continuous", sub:"Have / has been + V-ing — an action that started in the past and is still going on now.",
+id:"present-perfect-continuous", zh:"現在完成進行式", unit:"u3", n:"5.4", title:"Present Perfect Continuous", sub:"Have / has been + V-ing — an action that started in the past and is still going on now.",
 tl:{labels:[[12,"past"],[64,"now"]], spans:[[12,64]], dots:[64], now:64, cap:"An action continuing from the past right up to now — the focus is on how long."},
 form:{p:"subject + have / has been + verb-ing", ex:["I <b>have been studying</b> for three hours.","She <b>has been working</b> here since 2019.","It <b>has been raining</b> all day."]},
 uses:[
@@ -2491,7 +2698,7 @@ q:[
 ]},
 
 {
-id:"past-perfect", zh:"過去完成式", unit:"u3", n:"4.5", title:"Past Perfect", sub:"Had + past participle — the past before the past.",
+id:"past-perfect", zh:"過去完成式", unit:"u3", n:"5.5", title:"Past Perfect", sub:"Had + past participle — the past before the past.",
 tl:{labels:[[8,"earlier past"],[50,"past"],[92,"now"]], dots:[8,50], now:92, cap:"Two past events — the earlier one takes had + past participle."},
 form:{p:"subject + had + past participle", ex:["The train <b>had left</b> when I arrived.","She <b>had never seen</b> snow before that trip.","They<b>'d finished</b> dinner by eight."]},
 uses:[
@@ -2526,7 +2733,7 @@ q:[
 ]},
 
 {
-id:"past-perfect-continuous", zh:"過去完成進行式", unit:"u3", n:"4.6", title:"Past Perfect Continuous", sub:"Had been + V-ing — an action that had been going on for a while before another past moment.",
+id:"past-perfect-continuous", zh:"過去完成進行式", unit:"u3", n:"5.6", title:"Past Perfect Continuous", sub:"Had been + V-ing — an action that had been going on for a while before another past moment.",
 tl:{labels:[[8,"earlier past"],[54,"past"],[92,"now"]], spans:[[8,54]], dots:[54], now:92, cap:"A longer action that had been continuing up to a later point in the past."},
 form:{p:"subject + had been + verb-ing", ex:["I <b>had been waiting</b> for an hour when the bus came.","She was tired because she <b>had been working</b> all night.","They <b>had been living</b> there for years before they moved."]},
 uses:[
@@ -2556,7 +2763,7 @@ q:[
 ]},
 
 {
-id:"going-to-will", zh:"未來式 be going to / will", unit:"u4", n:"5.1", title:"Future: Going To vs Will", sub:"Two futures with different jobs — plans and evidence vs promises and snap decisions.",
+id:"going-to-will", zh:"未來式 be going to / will", unit:"u4", n:"6.1", title:"Future: Going To vs Will", sub:"Two futures with different jobs — plans and evidence vs promises and snap decisions.",
 tl:{labels:[[30,"now"],[74,"future"]], dots:[74], now:30, cap:"Both point forward — the difference is when you decided."},
 form:{p:"be going to + verb   ·   will + verb", ex:["I<b>'m going to visit</b> my aunt on Sunday.","I<b>'ll help</b> you with those bags.","It<b>'s going to rain</b> — look at the sky."]},
 uses:[
@@ -2589,7 +2796,7 @@ q:[
 ]},
 
 {
-id:"future-continuous-perfect", zh:"未來進行式與未來完成式", unit:"u4", n:"5.2", title:"Future Continuous & Perfect", sub:"Will be doing and will have done — painting a more precise future.",
+id:"future-continuous-perfect", zh:"未來進行式與未來完成式", unit:"u4", n:"6.2", title:"Future Continuous & Perfect", sub:"Will be doing and will have done — painting a more precise future.",
 form:{p:"will be + V-ing   ·   will have + past participle", ex:["This time tomorrow, I <b>will be flying</b>.","By June, she <b>will have graduated</b>.","We<b>'ll be waiting</b> for you."]},
 uses:[
  {t:"Future continuous: in progress at a future time", d:"The action will be happening around that moment.", ex:[
@@ -2623,7 +2830,7 @@ q:[
 ]},
 
 {
-id:"future-perfect-continuous", zh:"未來完成進行式", unit:"u4", n:"5.3", title:"Future Perfect Continuous", sub:"Will have been + V-ing — how long an action will have been going on by a future time.",
+id:"future-perfect-continuous", zh:"未來完成進行式", unit:"u4", n:"6.3", title:"Future Perfect Continuous", sub:"Will have been + V-ing — how long an action will have been going on by a future time.",
 tl:{labels:[[20,"now"],[80,"future point"]], spans:[[20,80]], dots:[80], now:20, cap:"An action continuing up to a point in the future — the focus is on the duration by then."},
 form:{p:"subject + will have been + verb-ing", ex:["By next month, I <b>will have been working</b> here for ten years.","By 8 p.m., they <b>will have been driving</b> for six hours.","In May, we <b>will have been living</b> here for a decade."]},
 uses:[
@@ -2650,7 +2857,7 @@ q:[
 ]},
 
 {
-id:"zero-conditional", zh:"零條件句", unit:"u4", n:"5.4", title:"Zero Conditional", sub:"If + present, present — facts, habits and things that are always true.",
+id:"zero-conditional", zh:"零條件句", unit:"u4", n:"6.4", title:"Zero Conditional", sub:"If + present, present — facts, habits and things that are always true.",
 form:{p:"If + present simple , … present simple", ex:["If you <b>heat</b> ice, it <b>melts</b>.","If I <b>drink</b> coffee at night, I <b>can't sleep</b>.","Plants <b>die</b> if they <b>get</b> no water."]},
 uses:[
  {t:"Scientific and general truths", d:"Whenever the condition happens, the result always follows.", ex:[
@@ -2684,7 +2891,7 @@ q:[
 ]},
 
 {
-id:"first-conditional", zh:"第一條件句", unit:"u4", n:"5.5", title:"First Conditional", sub:"Real future possibilities — if this happens, that will happen.",
+id:"first-conditional", zh:"第一條件句", unit:"u4", n:"6.5", title:"First Conditional", sub:"Real future possibilities — if this happens, that will happen.",
 form:{p:"If + present simple, … will + verb", ex:["<b>If</b> it <b>rains</b>, we<b>'ll stay</b> home.","You<b>'ll miss</b> the bus <b>if</b> you <b>don't hurry</b>.","<b>If</b> she <b>calls</b>, I<b>'ll tell</b> you."]},
 uses:[
  {t:"Real possibilities in the future", d:"Use it when the condition is realistic and quite possible.", ex:[
@@ -2717,7 +2924,7 @@ q:[
 ]},
 
 {
-id:"comparatives-superlatives", zh:"比較級與最高級", unit:"u8", n:"6.1", title:"Comparatives & Superlatives", sub:"Taller, more expensive, the best — comparing two things or picking the extreme.",
+id:"comparatives-superlatives", zh:"比較級與最高級", unit:"u8", n:"7.1", title:"Comparatives & Superlatives", sub:"Taller, more expensive, the best — comparing two things or picking the extreme.",
 form:{p:"adj-er + than   ·   the + adj-est   ·   more / the most + long adj", ex:["Taipei 101 is <b>taller than</b> our building.","It's <b>the tallest</b> building in Taiwan.","This phone is <b>more expensive</b>."]},
 uses:[
  {t:"Comparing two things", d:"Short adjectives add -er; long ones (2+ syllables) take more. Don't forget than.", ex:[
@@ -2751,7 +2958,7 @@ q:[
 ]},
 
 {
-id:"some-any", zh:"數量詞 some / any", unit:"u8", n:"6.2", title:"Quantifiers: Some & Any", sub:"Some for positives and offers, any for negatives and most questions.",
+id:"some-any", zh:"數量詞 some / any", unit:"u8", n:"7.2", title:"Quantifiers: Some & Any", sub:"Some for positives and offers, any for negatives and most questions.",
 form:{p:"some + positive / offers   ·   any + negatives / questions", ex:["We have <b>some</b> rice.","We don't have <b>any</b> eggs.","Do you have <b>any</b> questions?"]},
 uses:[
  {t:"Some: positive sentences", d:"Use some with plural and uncountable nouns when the amount isn't exact.", ex:[
@@ -2783,7 +2990,7 @@ q:[
 ]},
 
 {
-id:"linking-words", zh:"連接詞與過渡語", unit:"u8", n:"6.3", title:"Linking Words", sub:"However, although, therefore — making your ideas flow logically.",
+id:"linking-words", zh:"連接詞與過渡語", unit:"u8", n:"7.3", title:"Linking Words", sub:"However, although, therefore — making your ideas flow logically.",
 form:{p:"Although + clause , clause   ·   Clause . However , clause", ex:["<b>Although</b> it rained, we went out.","It rained. <b>However</b>, we went out.","He trained hard; <b>therefore</b>, he won."]},
 uses:[
  {t:"Contrast: although, even though, however", d:"Although joins two clauses in one sentence; however starts a new one.", ex:[
@@ -2819,7 +3026,7 @@ q:[
 /* ================= ADVANCED ================= */
 
 {
-id:"passive", zh:"被動語態", unit:"u5", n:"7.1", title:"The Passive Voice", sub:"When the action matters more than who did it — rice is grown, the law was passed.",
+id:"passive", zh:"被動語態", unit:"u5", n:"8.1", title:"The Passive Voice", sub:"When the action matters more than who did it — rice is grown, the law was passed.",
 form:{p:"subject + be + past participle (+ by …)", ex:["This temple <b>was built</b> in 1738.","English <b>is spoken</b> here.","The results <b>will be announced</b> soon."]},
 uses:[
  {t:"When the doer is unknown or unimportant", d:"The receiver of the action becomes the subject.", ex:[
@@ -2851,7 +3058,7 @@ q:[
 ]},
 
 {
-id:"relative-clauses", zh:"關係子句", unit:"u5", n:"7.2", title:"Relative Clauses", sub:"Who, which, that, whose, where — folding two sentences into one.",
+id:"relative-clauses", zh:"關係子句", unit:"u5", n:"8.2", title:"Relative Clauses", sub:"Who, which, that, whose, where — folding two sentences into one.",
 form:{p:"noun + who / which / that + clause", ex:["The woman <b>who called</b> is my boss.","The book <b>that you lent me</b> was great.","That's the café <b>where we met</b>."]},
 uses:[
  {t:"Choosing the right pronoun", d:"Who for people, which for things, that for both (informal), whose for possession, where for places.", ex:[
@@ -2883,7 +3090,7 @@ q:[
 ]},
 
 {
-id:"participle-clauses", zh:"分詞構句", unit:"u5", n:"7.3", title:"Participle Clauses", sub:"Feeling tired, she left early — trimming sentences with -ing and -ed.",
+id:"participle-clauses", zh:"分詞構句", unit:"u5", n:"8.3", title:"Participle Clauses", sub:"Feeling tired, she left early — trimming sentences with -ing and -ed.",
 form:{p:"V-ing / p.p. + phrase , + main clause", ex:["<b>Feeling</b> sick, he went home.","<b>Built</b> in 1908, the station is historic.","She sat there, <b>reading</b> quietly."]},
 uses:[
  {t:"-ing for active meaning", d:"The subject of the main clause is doing the -ing action.", ex:[
@@ -2917,7 +3124,7 @@ q:[
 ]},
 
 {
-id:"reported-speech", zh:"間接引述句", unit:"u5", n:"7.4", title:"Reported Speech", sub:"Telling someone what another person said — and shifting the tense back.",
+id:"reported-speech", zh:"間接引述句", unit:"u5", n:"8.4", title:"Reported Speech", sub:"Telling someone what another person said — and shifting the tense back.",
 form:{p:"said (that) + clause, one tense back", ex:["\"I <b>am</b> tired\" → She said she <b>was</b> tired.","\"I <b>will</b> call\" → He said he <b>would</b> call.","\"We <b>have finished</b>\" → They said they <b>had finished</b>."]},
 uses:[
  {t:"The backshift", d:"When the reporting verb is past (said, told), the original tense usually moves one step back.", ex:[
@@ -2950,7 +3157,7 @@ q:[
 ]},
 
 {
-id:"second-conditional", zh:"第二條件句", unit:"u6", n:"8.1", title:"Second Conditional", sub:"Unreal or unlikely present and future — if I had a million dollars…",
+id:"second-conditional", zh:"第二條件句", unit:"u6", n:"9.1", title:"Second Conditional", sub:"Unreal or unlikely present and future — if I had a million dollars…",
 form:{p:"If + past simple, … would + verb", ex:["<b>If</b> I <b>had</b> more time, I<b>'d learn</b> the violin.","<b>If</b> she <b>lived</b> closer, we<b>'d meet</b> more often.","What <b>would</b> you <b>do if</b> you <b>won</b>?"]},
 uses:[
  {t:"Imagined present or future", d:"The past tense here doesn't mean past time — it signals this isn't real.", ex:[
@@ -2982,7 +3189,7 @@ q:[
 ]},
 
 {
-id:"third-conditional", zh:"第三條件句", unit:"u6", n:"8.2", title:"Third Conditional", sub:"Rewriting the past that never happened — regrets, relief and lessons learned.",
+id:"third-conditional", zh:"第三條件句", unit:"u6", n:"9.2", title:"Third Conditional", sub:"Rewriting the past that never happened — regrets, relief and lessons learned.",
 form:{p:"If + past perfect, … would have + participle", ex:["<b>If</b> I <b>had studied</b>, I <b>would have passed</b>.","She <b>wouldn't have missed</b> it <b>if</b> she<b>'d left</b> earlier.","<b>If</b> we<b>'d known</b>, we <b>would have come</b>."]},
 uses:[
  {t:"Imagining a different past", d:"Both halves are 100% unreal — the past can't be changed.", ex:[
@@ -3014,7 +3221,7 @@ q:[
 ]},
 
 {
-id:"noun-clauses", zh:"名詞子句與假設語氣", unit:"u6", n:"8.3", title:"Noun Clauses & the Subjunctive", sub:"That she left, whether it works — clauses that act like nouns, plus the demand-verb pattern.",
+id:"noun-clauses", zh:"名詞子句與假設語氣", unit:"u6", n:"9.3", title:"Noun Clauses & the Subjunctive", sub:"That she left, whether it works — clauses that act like nouns, plus the demand-verb pattern.",
 form:{p:"verb + that / whether / if + clause   ·   suggest that + subject + base verb", ex:["I know <b>that she is right</b>.","I wonder <b>whether it will rain</b>.","They insisted <b>that he be on time</b>."]},
 uses:[
  {t:"That-clauses as objects", d:"A whole clause can be the thing you know, say or believe.", ex:[
@@ -3048,7 +3255,7 @@ q:[
 ]},
 
 {
-id:"gerunds-infinitives", zh:"動名詞與不定詞", unit:"u9", n:"9.1", title:"Gerunds & Infinitives", sub:"Enjoy swimming but decide to swim — which verb takes which form?",
+id:"gerunds-infinitives", zh:"動名詞與不定詞", unit:"u9", n:"10.1", title:"Gerunds & Infinitives", sub:"Enjoy swimming but decide to swim — which verb takes which form?",
 form:{p:"verb + -ing (gerund)   ·   verb + to + base (infinitive)", ex:["I enjoy <b>reading</b>.","She decided <b>to leave</b>.","He stopped <b>smoking</b>."]},
 uses:[
  {t:"Verbs followed by a gerund", d:"Enjoy, finish, avoid, keep, mind, suggest, practice — these take -ing.", ex:[
@@ -3082,7 +3289,7 @@ q:[
 ]},
 
 {
-id:"phrasal-verbs", zh:"片語動詞", unit:"u9", n:"9.2", title:"Phrasal Verbs", sub:"Take off, put up with, run into — small words, big meaning changes.",
+id:"phrasal-verbs", zh:"片語動詞", unit:"u9", n:"10.2", title:"Phrasal Verbs", sub:"Take off, put up with, run into — small words, big meaning changes.",
 form:{p:"verb + particle ( + object )", ex:["The plane <b>took off</b>.","She <b>turned down</b> the offer.","I <b>ran into</b> an old friend."]},
 uses:[
  {t:"Separable: the object can split them", d:"Noun objects can go in the middle or after; pronouns MUST go in the middle.", ex:[
@@ -3116,7 +3323,7 @@ q:[
 ]},
 
 {
-id:"modals-deduction", zh:"情態助動詞推測", unit:"u9", n:"9.3", title:"Modals of Deduction", sub:"Must have, might have, can't have — reading the clues about the past and present.",
+id:"modals-deduction", zh:"情態助動詞推測", unit:"u9", n:"10.3", title:"Modals of Deduction", sub:"Must have, might have, can't have — reading the clues about the past and present.",
 form:{p:"modal + base verb (present)   ·   modal + have + p.p. (past)", ex:["She <b>must be</b> tired.","He <b>might have missed</b> the bus.","You <b>should have called</b> me!"]},
 uses:[
  {t:"Present deduction: must, might, can't", d:"How sure are you about right now?", ex:[
