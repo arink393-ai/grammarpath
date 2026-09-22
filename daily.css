@@ -3,3 +3,30 @@
 .dq-source{font-size:12px;margin:24px 0;color:#857365}.dq-play{max-width:790px}.dq-play h1{font-size:30px;margin-bottom:20px}.dq-lesson{padding:24px;display:flex;align-items:center;gap:20px;background:#f5f1e6}.dq-lesson b{display:block;margin:12px 0;font-weight:600}.dq-lesson p[lang]{color:#526e57}.dq-question{padding:30px;margin-top:22px}.dq-question h2{font-size:23px;color:var(--navy);margin:14px 0 24px;overflow-wrap:anywhere}.dq-options{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.dq-option{border:1px solid #d4c4b1;border-radius:12px;background:#fffdfa;padding:13px 20px;color:#69533f;min-height:48px}.dq-option:hover:not(:disabled){background:#fcf0e8;border-color:var(--teal)}.dq-option:disabled{opacity:.45;cursor:default}.dq-built{min-height:85px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;border:2px dashed #d8ccb7;background:#faf7ef;border-radius:14px;padding:15px;margin:20px 0}.dq-built>span{color:#887663;font-size:13px}.dq-question label{display:block;font-size:13px}.dq-question input{display:block;width:100%;border:1px solid #c9b69f;border-radius:12px;padding:14px;font:inherit;margin:8px 0 18px;background:#fffefa;color:var(--ink)}.dq-feedback{padding:16px;border-radius:12px;margin:20px 0}.dq-correct{background:var(--dq-green-bg);color:#3f6444}.dq-retry{background:#fff1db;color:#805725}.dq-result{text-align:center;padding:42px 24px}.dq-result strong{display:block;margin:18px;color:var(--dq-green)}.dq-result-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}.dq button[hidden]{display:none}.dq button:disabled{cursor:default}.dq-question .btn:disabled{opacity:.45}
 @media(max-width:800px){.dq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dq-hero{padding:28px 24px}.dq-hero h1{font-size:30px}.dq-mascot{min-width:130px}.dq-mascot svg{width:110px}.dq-mascot span{font-size:10px}}
 @media(max-width:540px){.dq-grid{grid-template-columns:1fr}.dq-home{align-items:flex-start;flex-direction:column;padding:20px}.dq-hero{position:relative;display:block;padding:24px 20px}.dq-hero h1{font-size:28px}.dq-mascot{display:none}.dq-heading{align-items:flex-start;flex-direction:column;gap:6px}.dq-day-top{font-size:12px}.dq-day-bottom{font-size:12px}.dq-lesson{padding:18px;gap:10px;align-items:flex-start}.dq-lesson svg{width:45px;height:45px}.dq-question{padding:20px}.dq-question h2{font-size:20px}.dq-option{padding:11px 16px}.dq-play h1{font-size:25px}}
+
+/* ---- honors: titles + badges + week nav (rewards) ---- */
+.dq-honors{padding:22px 26px;margin-top:16px}
+.dq-honors-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.dq-title-now{font:700 25px var(--serif);color:var(--navy);margin:6px 0 3px}
+.dq-title-now span{font:600 13px var(--sans);color:var(--dq-green);margin-left:4px}
+.dq-title-next{font-size:12px;color:#857365}
+.dq-honors-stats{display:flex;gap:22px}
+.dq-honors-stats>div{text-align:center;min-width:52px}
+.dq-honors-stats b{display:block;font:700 22px var(--sans);color:#a35030;line-height:1.2}
+.dq-honors-stats span{font-size:11px;color:#857365}
+.dq-badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:10px;margin-top:18px}
+.dq-badge{border:1px solid var(--line);border-radius:14px;padding:13px 9px;text-align:center;background:#faf7ef;opacity:.5;filter:grayscale(.7)}
+.dq-badge.on{opacity:1;filter:none;background:linear-gradient(150deg,#fffdf8,#f4ead4);border-color:#e3cf9f;box-shadow:0 8px 20px -16px rgba(120,80,20,.5)}
+.dq-badge-ic{font-size:30px;display:block;line-height:1.1}
+.dq-badge b{display:block;font-size:13px;color:var(--navy);margin-top:6px}
+.dq-badge-en{display:block;font-size:10px;color:#9a8a76;letter-spacing:.03em}
+.dq-badge-cond{display:block;font-size:10.5px;color:#857365;margin-top:6px;line-height:1.45}
+.dq-badge.on .dq-badge-cond{color:var(--dq-green);font-weight:600}
+.dq-weeknav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.dq-week-chip{border:1px solid #d4c4b1;border-radius:20px;background:#fffdfa;padding:8px 15px;color:#69533f;font-size:13px;font-weight:600;cursor:pointer}
+.dq-week-chip:hover{border-color:var(--teal);background:#fcf0e8}
+.dq-week-chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.dq-newbadges{margin:22px 0 8px}
+.dq-nb{display:inline-block;margin:6px 5px;padding:9px 16px;border-radius:22px;background:linear-gradient(150deg,#fffdf8,#f3ead7);border:1px solid #e3cf9f;font-weight:700;color:var(--navy)}
+.dq-result-title{margin-top:14px;font-size:14px;color:#69614f}
+.dq-result-title b{color:var(--navy)}

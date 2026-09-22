@@ -3,7 +3,8 @@
      easy      → 選擇題 pick  · 簡單句（單一子句）
      core      → 填空題 fill  · 複合句（and / but / so / or 連接兩個子句）
      challenge → 打字填寫 type · 複合複雜句（含從屬子句與關係子句），完整打出答案
-   Same grammar point each day, escalating difficulty. Add future weeks to DAILY_WEEKS. */
+   Finishing earns XP, honor badges (榮譽貓咪島徽章) and climbing titles (稱號).
+   Add future weeks to DAILY_WEEKS. */
 const DAILY_WEEKS = [{id:'2026-09-21', title:'貓咪島的日常冒險', days:[
  {date:'2026-09-21',title:'玩具找主人',topic:'所有格形容詞',level:'A1',icon:'🧶',cat:'calico',scene:'花娜 Hana（she）帶著毛線球；小歐 O（he）抱著小魚；小琥 Hu（it）守著紙箱。',rule:'my / your / his / her / its / our / their 放在名詞前，表示「誰的」。its 是所有格，it’s 則是 it is。',example:'This is Hana. Her tail is fluffy.',banks:{
   easy:[
@@ -117,8 +118,236 @@ const DAILY_WEEKS = [{id:'2026-09-21', title:'貓咪島的日常冒險', days:[
    ['type','When a new kitten arrives, it ___ by the vet before it is allowed to meet the others.（check → 被動）','is checked','單數主詞：is + 過去分詞 checked。'],
    ['type','Although the room looks messy at night, it ___ every morning, so it always feels fresh.（clean → 被動）','is cleaned','is + 過去分詞 cleaned。'],
    ['type','Since the door is heavy, it ___ automatically, which keeps the cats safe indoors.（lock → 被動）','is locked','is + 過去分詞 locked。']]}}
+]},
+{id:'2026-09-28', title:'島上的時光旅行', days:[
+ {date:'2026-09-28',title:'昨天的貓島',topic:'過去簡單式',level:'A2',icon:'🕰️',cat:'orange',scene:'回顧昨天島上發生的事。規則動詞加 -ed；不規則動詞要背（go→went, eat→ate, see→saw）。',rule:'過去簡單式：規則動詞 + -ed；不規則動詞用特殊形。否定/疑問借助 did。',example:'Yesterday, Hana played all day and then slept.',banks:{
+  easy:[
+   ['pick','Yesterday, Hana ___ with the yarn ball.',['play','plays','played'],'played','過去式，規則動詞加 -ed。'],
+   ['pick','Last night, O ___ his fish.',['eat','ate','eaten'],'ate','eat 的過去式是 ate。'],
+   ['pick','The cats ___ to the garden this morning.',['go','went','gone'],'went','go 的過去式是 went。'],
+   ['pick','Hu ___ a butterfly yesterday.',['see','saw','seen'],'saw','see 的過去式是 saw。']],
+  core:[
+   ['fill','Hana played all morning, and then she ___ on the sofa.（sleep）','slept','sleep 的過去式是 slept。'],
+   ['fill','O was hungry, so he ___ his whole bowl.（eat）','ate','eat 的過去式是 ate。'],
+   ['fill','The kittens saw a bird, but they ___ not catch it.（did）','did','否定過去式用 did not。'],
+   ['fill','We opened the door, and the cats ___ outside.（run）','ran','run 的過去式是 ran。']],
+  challenge:[
+   ['type','When the rain stopped, Hana ___ into the garden, where she chased a fallen leaf.（go）','went','go 的過去式 went。'],
+   ['type','Because O felt sleepy, he ___ under the warm blanket while the others played.（hide）','hid','hide 的過去式 hid。'],
+   ['type','Although the kitten was small, it ___ the tall shelf that no one could reach.（climb）','climbed','規則動詞：climb → climbed。'],
+   ['type','After the staff fed them, the cats ___ their paws, which they always do.（wash）','washed','規則動詞：wash → washed。']]}},
+ {date:'2026-09-29',title:'那一刻正在做什麼',topic:'過去進行式',level:'A2',icon:'⏳',cat:'gray',scene:'描述昨天某個時刻「正在」進行的動作：was（單數）/ were（複數）+ V-ing。',rule:'過去進行式：was / were + V-ing，表示過去某時正在進行。',example:'At noon, the cats were sleeping in the sun.',banks:{
+  easy:[
+   ['pick','At 3 p.m., Hana ___ sleeping.',['was','were','is'],'was','Hana 單數，過去進行用 was。'],
+   ['pick','The kittens ___ playing in the garden.',['was','were','are'],'were','複數主詞用 were。'],
+   ['pick','O ___ eating when I came in.',['was','were','is'],'was','O 單數，用 was。'],
+   ['pick','We ___ watching the cats.',['was','were','is'],'were','we 用 were。']],
+  core:[
+   ['fill','Hana was napping, and O ___ chasing his tail.（過去進行 be 動詞）','was','O 單數，用 was chasing。'],
+   ['fill','The kittens were playing, but Hu ___ sleeping.（過去進行 be 動詞）','was','Hu 單數，用 was。'],
+   ['fill','I was reading, and the cats ___ sitting on my lap.（過去進行 be 動詞）','were','the cats 複數，用 were。'],
+   ['fill','It was raining, so the cats ___ staying inside.（過去進行 be 動詞）','were','the cats 複數，用 were。']],
+  challenge:[
+   ['type','While Hana was ___ in the sun, the other cats were exploring the garden, which was full of leaves.（sleep → V-ing）','sleeping','過去進行：was + sleeping。'],
+   ['type','When the staff arrived, the kittens were ___ near the door, because they wanted food.（wait → V-ing）','waiting','were + waiting。'],
+   ['type','O was ___ his fish quietly while Hu was watching him, which made him nervous.（eat → V-ing）','eating','was + eating。'],
+   ['type','Although it was raining, the cats were ___ out of the window, where they saw the birds.（look → V-ing）','looking','were + looking。']]}},
+ {date:'2026-09-30',title:'到現在為止',topic:'現在完成式',level:'B1',icon:'✅',cat:'calico',scene:'談動作到現在為止的經驗或影響：have / has + 過去分詞。',rule:'現在完成式：主詞 + have / has + 過去分詞（p.p.）。第三人稱單數用 has。',example:'Hana has eaten already.',banks:{
+  easy:[
+   ['pick','Hana ___ eaten her food.',['have','has','had'],'has','Hana 第三人稱單數，用 has。'],
+   ['pick','The cats ___ found a new toy.',['have','has','is'],'have','the cats 複數，用 have。'],
+   ['pick','O ___ never seen snow.',['have','has','was'],'has','O 單數，用 has。'],
+   ['pick','I ___ fed the kittens.',['have','has','is'],'have','I 用 have。']],
+  core:[
+   ['fill','Hana has eaten, and now she ___ fallen asleep.（have/has）','has','Hana 用 has fallen。'],
+   ['fill','The kittens have grown, and they ___ learned to jump.（have/has）','have','they 用 have。'],
+   ['fill','O has finished his fish, but he ___ not moved yet.（have/has）','has','O 用 has not moved。'],
+   ['fill','We have cleaned the room, so the cats ___ come back inside.（have/has）','have','we 用 have。']],
+  challenge:[
+   ['type','Because Hana has ___ her toy, she is happy now, although she looked everywhere this morning.（find → p.p.）','found','find 的過去分詞 found。'],
+   ['type','Since the kittens have ___ so much today, they are tired, which is why they are sleeping.（play → p.p.）','played','規則動詞 played。'],
+   ['type','O has ___ his whole bowl, and he wants more, even though he ate an hour ago.（eat → p.p.）','eaten','eat 的過去分詞 eaten。'],
+   ['type','The staff have ___ the room, so it looks spotless, which the cats enjoy.（clean → p.p.）','cleaned','規則動詞 cleaned。']]}},
+ {date:'2026-10-01',title:'誰比較厲害',topic:'比較級與最高級',level:'A2–B1',icon:'🏆',cat:'cow',scene:'比較島上的貓咪。短形容詞 + -er / the -est；長形容詞用 more / the most。good→better→best。',rule:'比較級：-er / more…；最高級：the -est / the most…。good→better→best。',example:'Hu is smaller than O. Hana is the tallest.',banks:{
+  easy:[
+   ['pick','Hu is ___ than O.',['small','smaller','smallest'],'smaller','比較兩者用比較級 smaller。'],
+   ['pick','Hana is the ___ cat on the island.',['tall','taller','tallest'],'tallest','三者以上用最高級 tallest。'],
+   ['pick','This toy is ___ than that one.',['good','better','best'],'better','good 的比較級是 better。'],
+   ['pick','O runs ___ than Hu.',['fast','faster','fastest'],'faster','比較級 faster。']],
+  core:[
+   ['fill','O is fast, but Hana is ___ than him.（fast → 比較級）','faster','fast → faster。'],
+   ['fill','This bed is soft, and it is the ___ one in the house.（soft → 最高級）','softest','soft → the softest。'],
+   ['fill','Hu is small, yet it is ___ than the new kitten.（big → 比較級）','bigger','big 重複 g 加 -er → bigger。'],
+   ['fill','That was a good meal, but this is the ___ meal ever.（good → 最高級）','best','good → the best。']],
+  challenge:[
+   ['type','Although O looks strong, Hana is ___ than he is, which surprises everyone.（strong → 比較級）','stronger','strong → stronger。'],
+   ['type','Because the grey cat trains daily, it has become the ___ hunter on the island.（good → 最高級）','best','good → the best。'],
+   ['type','While the sofa is comfortable, the sunny windowsill is ___ , so the cats prefer it.（comfortable → 比較級）','more comfortable','長形容詞用 more comfortable。'],
+   ['type','Even though many cats are cute, the little calico is the ___ of them all, which melts our hearts.（cute → 最高級）','cutest','cute → the cutest。']]}},
+ {date:'2026-10-02',title:'數數看有多少',topic:'量詞 some/any/much/many',level:'A2',icon:'🧮',cat:'cream',scene:'可數名詞用 many / a few；不可數用 much / a little。肯定句常用 some，疑問/否定常用 any。',rule:'可數：many / a few；不可數：much / a little。肯定 some；疑問/否定 any。',example:'There is some milk. There are a few toys.',banks:{
+  easy:[
+   ['pick','There are ___ toys on the floor.',['much','many','a little'],'many','toys 可數，用 many。'],
+   ['pick','There isn’t ___ milk left.',['some','any','many'],'any','否定句用 any。'],
+   ['pick','Hana drank ___ water.',['many','a few','some'],'some','肯定句用 some。'],
+   ['pick','How ___ fish did O eat?',['much','many','a little'],'many','fish（幾條）可數，用 many。']],
+  core:[
+   ['fill','There are many cats, but there is only ___ food left.（不可數：一點點）','a little','food 不可數，用 a little。'],
+   ['fill','We have some toys, and there are ___ treats in the box too.（可數：幾個）','a few','treats 可數，用 a few。'],
+   ['fill','There isn’t ___ time, so let’s feed them now.（不可數，否定）','much','time 不可數、否定句，用 much。'],
+   ['fill','How ___ kittens are there in the garden?（可數）','many','kittens 可數，用 many。']],
+  challenge:[
+   ['type','Although there are ___ cats on the island, there isn’t much noise, because they sleep all day.（可數：許多）','many','cats 可數，用 many。'],
+   ['type','Since we only have ___ milk left, we should buy more before the kittens wake up.（不可數：一點點）','a little','milk 不可數，用 a little。'],
+   ['type','There were ___ toys under the sofa, which the cats had hidden over many weeks.（可數：幾個）','a few','toys 可數，用 a few。'],
+   ['type','The vet said there wasn’t ___ we could do, so we simply kept the cat warm and calm.（不可數：很多）','much','不可數、否定，用 much。']]}},
+ {date:'2026-10-03',title:'把句子接起來',topic:'關係代名詞',level:'B1',icon:'🔗',cat:'black',scene:'用 who（人）、which（物）、that（皆可）把兩句連起來，補充說明前面的名詞。',rule:'who 指人；which 指物；that 人物皆可。用來補充說明前面的名詞。',example:'The cat that sleeps here is Hana.',banks:{
+  easy:[
+   ['pick','The girl ___ feeds the cats is kind.',['who','which','where'],'who','指人用 who。'],
+   ['pick','The toy ___ O loves is red.',['who','which','when'],'which','指物用 which。'],
+   ['pick','That is the vet ___ helped Hu.',['which','who','what'],'who','指人用 who。'],
+   ['pick','The box ___ the kitten sleeps in is small.',['who','that','why'],'that','指物可用 that。']],
+  core:[
+   ['fill','Hana is the cat ___ has a fluffy tail, and she loves the sun.（指動物）','that|which','指動物用 that 或 which。'],
+   ['fill','The man ___ works here feeds the cats, and they trust him.（指人）','who','指人用 who。'],
+   ['fill','This is the toy ___ O broke, but he still plays with it.（指物）','that|which','指物用 that 或 which。'],
+   ['fill','The kitten ___ we found is happy now, and it purrs all day.（指動物）','that|which','指動物用 that 或 which。']],
+  challenge:[
+   ['type','The vet ___ examined Hu was very gentle, so the kitten stayed calm, which surprised us.（指人）','who','指人用 who。'],
+   ['type','Because the sofa ___ the cats love is old, we will replace it, although they may dislike the new one.（指物）','that|which','指物用 that 或 which。'],
+   ['type','Hana, ___ is the oldest cat, teaches the kittens how to hunt, which keeps them safe.（指她/動物）','who|that|which','補充說明 Hana，可用 who / which / that。'],
+   ['type','The children ___ visit the island love the cats, and they always bring treats.（指人）','who','指人用 who。']]}},
+ {date:'2026-10-04',title:'如果明天…',topic:'第一條件句',level:'B1',icon:'🌦️',cat:'orange',scene:'談真實、可能發生的未來：If + 現在簡單式, 主詞 + will + 原形動詞。',rule:'第一條件句：If + 現在式，主句用 will + 原形。談未來可能發生的事。',example:'If it rains, the cats will stay inside.',banks:{
+  easy:[
+   ['pick','If it rains, the cats ___ stay inside.',['will','would','are'],'will','主句用 will + 原形。'],
+   ['pick','If you feed Hana, she ___ love you.',['will','would','was'],'will','主句用 will。'],
+   ['pick','If O ___ hungry, he will cry.',['is','will','was'],'is','if 子句用現在式 is。'],
+   ['pick','The kitten will purr if you ___ it.',['pet','will pet','petted'],'pet','if 子句用現在式 pet。']],
+  core:[
+   ['fill','If you open the door, the cats ___ run out, so be careful.（will + 原形）','will','主句用 will run。'],
+   ['fill','Hana will be happy if you ___ with her.（現在式：play）','play','if 子句用現在式 play。'],
+   ['fill','If it ___ sunny tomorrow, we will take the cats outside.（現在式 be）','is','if 子句用現在式 is。'],
+   ['fill','The kittens will sleep if the room ___ quiet.（現在式 be）','is','if 子句用現在式 is。']],
+  challenge:[
+   ['type','If the vet ___ that Hu is sick, we will keep it inside, although it hates staying home.（現在式：say）','says','if 子句主詞 the vet，用 says。'],
+   ['type','The cats will be calm if you ___ gently, because loud noises scare them.（現在式：speak）','speak','if 子句用現在式 speak。'],
+   ['type','If it ___ tonight, the kittens will stay in the warm room, which they actually enjoy.（現在式：rain）','rains','if 子句主詞 it，用 rains。'],
+   ['type','Hana will trust you more if you ___ her every day, so keep visiting her.（現在式：feed）','feed','if 子句用現在式 feed。']]}}
+]},
+{id:'2026-10-05', title:'貓島進階挑戰', days:[
+ {date:'2026-10-05',title:'貓咪能不能',topic:'情態動詞',level:'A2–B1',icon:'🦸',cat:'gray',scene:'can 能力/可以；could 過去能力/委婉；should 建議；must 必須。後面都接原形動詞。',rule:'情態動詞後接原形。can 能力/許可；could 過去能力；should 建議；must 必須。',example:'You should feed the cat. Cats can jump high.',banks:{
+  easy:[
+   ['pick','Cats ___ jump very high.',['can','should','must'],'can','表示能力用 can。'],
+   ['pick','You ___ wash your hands before feeding.',['can','should','could'],'should','給建議用 should。'],
+   ['pick','A kitten ___ not eat chocolate.',['must','can','should'],'must','「一定不可」用 must not。'],
+   ['pick','When I was young, I ___ run fast.',['can','could','should'],'could','過去能力用 could。']],
+  core:[
+   ['fill','Cats can see in the dark, but they ___ not see colors well.（能力：不能）','can','能力用 can（not）。'],
+   ['fill','You should be gentle, and you ___ never pull a cat’s tail.（建議/一定不）','should|must','用 should 或 must（never）。'],
+   ['fill','It is cold outside, so the kittens ___ stay indoors.（應該/必須）','should|must','用 should 或 must。'],
+   ['fill','When O was a kitten, he ___ not jump high, but now he can.（過去能力：不能）','could','過去能力用 could（not）。']],
+  challenge:[
+   ['type','Because chocolate is dangerous, cats ___ never eat it, although some try to steal food.（一定不）','must','強烈禁止用 must（never）。'],
+   ['type','If your cat seems sick, you ___ call the vet, because early care keeps it safe.（建議）','should','給建議用 should。'],
+   ['type','When Hana was young, she ___ barely climb, but now she reaches the highest shelf.（過去能力）','could','過去能力用 could。'],
+   ['type','The kittens ___ not open the heavy box by themselves, so the staff help them, which they appreciate.（能力：不能）','can|could','能力用 can（或 could）。']]}},
+ {date:'2026-10-06',title:'假如我是一隻貓',topic:'第二條件句',level:'B1',icon:'🌙',cat:'calico',scene:'談與現在事實相反的假設：If + 過去式, 主詞 + would + 原形。be 動詞常用 were。',rule:'第二條件句：If + 過去式，主句用 would + 原形。談不真實/假想的情況。',example:'If I were a cat, I would sleep all day.',banks:{
+  easy:[
+   ['pick','If I ___ a cat, I would sleep all day.',['am','was','were'],'were','假設語氣 be 動詞用 were。'],
+   ['pick','If Hana had wings, she ___ fly.',['will','would','can'],'would','主句用 would + 原形。'],
+   ['pick','If O ___ taller, he would reach the shelf.',['is','were','will'],'were','if 子句用過去式 were。'],
+   ['pick','I would adopt ten cats if I ___ rich.',['am','were','will'],'were','假設語氣用 were。']],
+  core:[
+   ['fill','If the cats could talk, they ___ tell us funny stories.（would + 原形）','would','主句用 would tell。'],
+   ['fill','Hana would be happier if she ___ more toys.（have → 過去式）','had','if 子句用過去式 had。'],
+   ['fill','If I ___ you, I would feed the kittens first.（be → 假設）','were','假設語氣用 were。'],
+   ['fill','The kitten would come inside if it ___ cold.（be → 假設）','were','假設語氣用 were。']],
+  challenge:[
+   ['type','If Hu ___ bigger, it would jump onto the shelf, but for now the staff lift it up.（be → 假設）','were','假設語氣用 were。'],
+   ['type','Hana would explore the whole island if she ___ not afraid of the sea, which she has never touched.（be → 假設）','were','假設語氣用 were。'],
+   ['type','If we ___ more space, we would adopt more cats, although caring for them takes time.（have → 過去式）','had','if 子句用過去式 had。'],
+   ['type','The cats would sleep outside if the nights ___ warmer, because they love the open sky.（be → 假設）','were','複數 nights，假設用 were。']]}},
+ {date:'2026-10-07',title:'多久以前 vs 到現在',topic:'現在完成 vs 過去簡單',level:'B1',icon:'📆',cat:'cow',scene:'過去簡單談「明確過去時間」（yesterday, two days ago）；現在完成談「持續到現在/經驗」（for, since, already, yet）。',rule:'過去簡單 + 明確過去時間；現在完成 + for / since / already / yet / ever。',example:'Hana arrived two years ago. She has lived here since then.',banks:{
+  easy:[
+   ['pick','Hana ___ here two years ago.',['arrived','has arrived','arrives'],'arrived','有 ago，用過去簡單。'],
+   ['pick','O ___ his fish already.',['ate','has eaten','eats'],'has eaten','有 already，用現在完成。'],
+   ['pick','The cats ___ to the vet yesterday.',['went','have gone','go'],'went','有 yesterday，用過去簡單。'],
+   ['pick','We ___ lived here since 2024.',['have','did','were'],'have','有 since，用現在完成 have lived。']],
+  core:[
+   ['fill','Hana came to the island last year, and she ___ lived here ever since.（have/has）','has','ever since → 現在完成 has lived。'],
+   ['fill','O ate an hour ___ , so he is not hungry now.（明確過去：以前）','ago','an hour ago，用過去簡單。'],
+   ['fill','The kittens have played all day, but they ___ not slept yet.（have/has）','have','yet → 現在完成 have not slept。'],
+   ['fill','We adopted Hu in spring, and it ___ grown a lot since then.（have/has）','has','since then → 現在完成 has grown。']],
+  challenge:[
+   ['type','Hana ___ on the island for three years, and she still loves it, although many things have changed.（live → 現在完成）','has lived','for three years → has lived。'],
+   ['type','Because O ___ his whole bowl an hour ago, he is not hungry, even though he begs for more.（eat → 過去簡單）','ate','an hour ago → 過去簡單 ate。'],
+   ['type','The kittens have ___ every toy already, so we bought new ones, which they adore.（break → 現在完成）','broken','already → have broken。'],
+   ['type','We ___ Hu two years ago, and it has become the friendliest cat, which everyone loves.（adopt → 過去簡單）','adopted','two years ago → 過去簡單 adopted。']]}},
+ {date:'2026-10-08',title:'那天被照顧的貓',topic:'過去被動語態',level:'B1',icon:'🛟',cat:'black',scene:'描述過去某動作，以「接受動作的對象」為主角：was（單數）/ were（複數）+ 過去分詞。',rule:'過去被動：主詞 + was / were + 過去分詞（p.p.）。',example:'The cats were fed at noon.',banks:{
+  easy:[
+   ['pick','The cats ___ fed at noon.',['was','were','are'],'were','the cats 複數，用 were。'],
+   ['pick','The room ___ cleaned yesterday.',['was','were','is'],'was','the room 單數，用 was。'],
+   ['pick','The toys ___ put away last night.',['was','were','is'],'were','the toys 複數，用 were。'],
+   ['pick','Hu ___ found near the harbor.',['was','were','are'],'was','Hu 單數，用 was。']],
+  core:[
+   ['fill','The cats were fed in the morning, and the bowls ___ washed afterward.（過去被動 be）','were','the bowls 複數，用 were washed。'],
+   ['fill','The room was cleaned yesterday, and new beds ___ added.（過去被動 be）','were','new beds 複數，用 were added。'],
+   ['fill','Hu was found last winter, and it ___ taken to the vet right away.（過去被動 be）','was','it 單數，用 was taken。'],
+   ['fill','The garden was cleaned, so the toys ___ collected too.（過去被動 be）','were','the toys 複數，用 were collected。']],
+  challenge:[
+   ['type','When Hu ___ near the harbor, it was cold and hungry, so the staff cared for it.（find → 過去被動）','was found','單數：was + found。'],
+   ['type','Because the cats ___ by everyone, they were given the best food, which came from the market.（love → 過去被動）','were loved','複數：were + loved。'],
+   ['type','Although the room looked messy, it ___ every evening, so it always felt fresh.（clean → 過去被動）','was cleaned','單數：was + cleaned。'],
+   ['type','The old toys ___ last week, and the cats enjoyed the new ones, which were softer.（replace → 過去被動）','were replaced','複數：were + replaced。']]}},
+ {date:'2026-10-09',title:'貓咪這樣說',topic:'間接引述',level:'B1–B2',icon:'💬',cat:'cream',scene:'把某人說的話轉述出來。動詞時態往後退一步，代名詞也跟著改。',rule:'轉述：say / tell + (that) 子句。時態退一步：is→was、will→would、can→could、V→V-ed。',example:'“I am tired,” Hana said. → Hana said she was tired.',banks:{
+  easy:[
+   ['pick','“I am hungry,” O said. → O said he ___ hungry.',['is','was','be'],'was','is 退一步變 was。'],
+   ['pick','“I will come,” she said. → She said she ___ come.',['will','would','can'],'would','will 退一步變 would。'],
+   ['pick','“I can jump,” Hu said. → Hu said it ___ jump.',['can','could','will'],'could','can 退一步變 could。'],
+   ['pick','“I like fish,” O said. → O said he ___ fish.',['like','liked','likes'],'liked','like 退一步變 liked。']],
+  core:[
+   ['fill','Hana said she ___ tired, and then she fell asleep.（is → 退一步）','was','is → was。'],
+   ['fill','O told us he ___ eat later, but he ate right away.（will → 退一步）','would','will → would。'],
+   ['fill','The vet said the kitten ___ healthy, and everyone smiled.（is → 退一步）','was','is → was。'],
+   ['fill','They said they ___ visit again, and they kept their promise.（will → 退一步）','would','will → would。']],
+  challenge:[
+   ['type','Hana said that she ___ hungry, so we fed her, although she had eaten an hour earlier.（is → 退一步）','was','is → was。'],
+   ['type','The vet told us that Hu ___ recover soon, which made everyone relieved.（will → 退一步）','would','will → would。'],
+   ['type','O said that he ___ open the door himself, but he actually needed help, which he hid.（can → 退一步）','could','can → could。'],
+   ['type','The children said that they ___ the cats very much, so they visited every weekend.（like → 退一步）','liked','like → liked。']]}},
+ {date:'2026-10-10',title:'以前的貓島',topic:'used to',level:'B1',icon:'📻',cat:'orange',scene:'used to + 原形：以前經常/曾經如此，現在已經改變。否定/疑問用 did + use to。',rule:'used to + 原形動詞，表示過去的習慣或狀態，現在不再。否定：didn’t use to。',example:'Hana used to be shy, but now she is friendly.',banks:{
+  easy:[
+   ['pick','Hana used to ___ shy.',['be','is','was'],'be','used to 後接原形 be。'],
+   ['pick','O used to ___ under the bed.',['hides','hid','hide'],'hide','used to 後接原形 hide。'],
+   ['pick','The kittens used to ___ smaller.',['are','be','were'],'be','used to 後接原形 be。'],
+   ['pick','I used to ___ one cat.',['have','had','has'],'have','used to 後接原形 have。']],
+  core:[
+   ['fill','Hana used to be shy, but now she ___ very friendly.（現在式 be）','is','現在的狀態用 is。'],
+   ['fill','O used to ___ afraid of water, but now he plays in it.（原形 be）','be','used to 後接原形 be。'],
+   ['fill','The island used to have few cats, and now it ___ many.（現在式 have）','has','the island 單數，用 has。'],
+   ['fill','We didn’t use to ___ a garden, but now the cats love it.（原形 have）','have','did 後用原形 use to have。']],
+  challenge:[
+   ['type','Hana used to ___ under the sofa whenever guests came, but now she greets everyone, which amazes us.（原形：hide）','hide','used to + 原形 hide。'],
+   ['type','Because the island used to ___ quiet, the older cats still prefer calm corners, although kittens are noisy now.（原形 be）','be','used to + 原形 be。'],
+   ['type','O used to ___ only dry food, but since the staff changed his diet, he has become healthier.（原形：eat）','eat','used to + 原形 eat。'],
+   ['type','We used to ___ just one kitten, yet now we care for seven, which keeps us very busy.（原形：have）','have','used to + 原形 have。']]}},
+ {date:'2026-10-11',title:'對吧，喵？',topic:'附加問句',level:'B1',icon:'❓',cat:'gray',scene:'句尾加一個小問句來確認。前面肯定→後面否定；前面否定→後面肯定，助動詞要一致。',rule:'肯定句 + 否定附加問句（is → isn’t）；否定句 + 肯定附加問句。助動詞/時態一致。',example:'Hana is cute, isn’t she? You like cats, don’t you?',banks:{
+  easy:[
+   ['pick','Hana is cute, ___ she?',['isn’t','is','doesn’t'],'isn’t','前肯定 → 後否定 isn’t。'],
+   ['pick','You like cats, ___ you?',['do','don’t','aren’t'],'don’t','一般動詞肯定 → 後 don’t。'],
+   ['pick','O can jump, ___ he?',['can','can’t','doesn’t'],'can’t','can 肯定 → 後 can’t。'],
+   ['pick','The kittens are sleeping, ___ they?',['are','aren’t','don’t'],'aren’t','前肯定 → 後 aren’t。']],
+  core:[
+   ['fill','Hana is friendly, ___ she?（is → 附加問句）','isn’t','前肯定 → 後 isn’t。'],
+   ['fill','You fed the cats, ___ you?（過去一般動詞 → 附加問句）','didn’t','過去肯定 → 後 didn’t。'],
+   ['fill','O can’t swim, ___ he?（否定 → 肯定）','can','前否定 can’t → 後 can。'],
+   ['fill','The kittens don’t bite, ___ they?（否定 → 肯定）','do','前否定 don’t → 後 do。']],
+  challenge:[
+   ['type','Hana has eaten already, ___ she? Because she looks so sleepy now.（完成式 has → 附加問句）','hasn’t','前肯定 has → 後 hasn’t。'],
+   ['type','You will visit the cats tomorrow, ___ you, since they miss you so much?（will → 附加問句）','won’t','前肯定 will → 後 won’t。'],
+   ['type','The kittens weren’t afraid of the vet, ___ they, even though it was their first visit?（否定 were → 肯定）','were','前否定 weren’t → 後 were。'],
+   ['type','O didn’t break the vase, ___ he, although it fell right next to him?（否定 did → 肯定）','did','前否定 didn’t → 後 did。']]}}
 ]}];
-let DQ = null;
+let DQ = null, DQ_WEEK_VIEW = null;
 /* Difficulty picks a whole different bank (type + sentence complexity), not a tweak. */
 const DQ_TIER_LABEL = {easy:'🌱 簡單 Easy', core:'🐾 一般 Core', challenge:'🔥 挑戰 Challenge'};
 const DQ_TIER_NOTE = {
@@ -126,6 +355,24 @@ const DQ_TIER_NOTE = {
  core:'填空題 · 複合句 —— 用 and / but / so 連接兩個子句，自己填入正確的字。',
  challenge:'打字填寫 · 複合複雜句 —— 句子含從屬子句與關係子句，完整打出答案。'};
 const DQ_TYPE_LABEL = {pick:'選擇題', fill:'填空題', type:'打字填寫', sort:'分類', build:'句子拼拼樂'};
+/* Honor titles (稱號) — climb by total days completed. */
+const DQ_TITLES = [
+ {min:0,zh:'貓島見習生',en:'Rookie'},
+ {min:1,zh:'貓咪學徒',en:'Apprentice'},
+ {min:4,zh:'文法冒險家',en:'Grammar Explorer'},
+ {min:8,zh:'句型旅人',en:'Sentence Voyager'},
+ {min:14,zh:'貓島達人',en:'Island Adept'},
+ {min:21,zh:'貓島大師',en:'Island Master'}];
+/* Honor badges (榮譽貓咪島徽章). */
+const DQ_BADGES = [
+ {id:'first',icon:'🐾',zh:'第一枚貓掌',en:'First Paw',cond:'完成第一天任務',test:s=>s.daysDone>=1},
+ {id:'three',icon:'🎀',zh:'三日貓友',en:'Three-Day Friend',cond:'累積完成 3 天',test:s=>s.daysDone>=3},
+ {id:'week',icon:'📅',zh:'週冠軍',en:'Week Champion',cond:'完成一整週 7 天',test:s=>s.weeksDone>=1},
+ {id:'challenger',icon:'🔥',zh:'挑戰者',en:'Challenger',cond:'以挑戰難度完成 3 天',test:s=>s.challengeDone>=3},
+ {id:'chalWeek',icon:'💎',zh:'挑戰大師',en:'Challenge Master',cond:'以挑戰難度完成一整週',test:s=>s.challengeWeeks>=1},
+ {id:'streak7',icon:'🌙',zh:'七日連續',en:'7-Day Streak',cond:'連續打卡 7 天',test:s=>s.streak>=7},
+ {id:'xp300',icon:'⭐',zh:'貓島之星',en:'Island Star',cond:'累積 300 XP',test:s=>s.xp>=300},
+ {id:'allWeeks',icon:'🏝️',zh:'貓島探險家',en:'Island Explorer',cond:'完成目前所有週任務',test:s=>s.totalWeeks>0&&s.weeksDone>=s.totalWeeks}];
 function dailyTierAuto(){ const xp=(store.data&&store.data.xp)||0; return xp>=250?'challenge':xp>=80?'core':'easy'; }
 function dailyTier(){ const m=(store.data&&store.data.dailyDiff)||'auto'; return m==='auto'?dailyTierAuto():m; }
 function dailySetDiff(m){ store.data.dailyDiff=m; store.save(); renderDaily(); }
@@ -135,15 +382,46 @@ function dailyToday(now = new Date()) {
  return ['year','month','day'].map(k=>p.find(x=>x.type===k).value).join('-');
 }
 function dailyWeek(){ const t=dailyToday(); return DAILY_WEEKS.filter(w=>w.id<=t).at(-1)||DAILY_WEEKS[0]; }
+function dqShownWeek(){ return DAILY_WEEKS.find(w=>w.id===DQ_WEEK_VIEW) || dailyWeek(); }
+function dqSetWeek(id){ DQ_WEEK_VIEW=id; renderDaily(); window.scrollTo(0,0); }
 function dailyRecords(){ return store.data.dailyQuests || {}; }
 function dailyStarted(rec){ return rec && rec.progress && Object.values(rec.progress).some(a=>a&&a.some(Boolean)); }
 function dailyFeatured(){ const w=dailyWeek(),t=dailyToday(); return w.days.find(d=>d.date===t)||w.days.find(d=>!dailyRecords()[d.date]?.done)||w.days[0]; }
 function dailyHomeCard(){ const d=dailyFeatured();return `<section class="dq-home card"><div><div class="eyebrow">DAILY CAT QUEST · 每天 5–10 分鐘</div><h2>每日任務 · ${d.title}</h2><p>${d.topic} · ${d.level}　陪貓咪玩一關，學會一個句型。</p></div><a class="btn btn-primary" href="#/daily">查看每日任務 →</a></section>`; }
+/* ---- rewards: stats, titles, badges ---- */
+function dqChalDone(d){ const r=dailyRecords()[d.date]; const p=r&&r.progress&&r.progress.challenge; const b=d.banks&&d.banks.challenge; return !!(p&&b&&p.length===b.length&&p.every(Boolean)); }
+function dqStats(){
+ const recs=dailyRecords(), allDays=DAILY_WEEKS.flatMap(w=>w.days);
+ const done=d=>!!(recs[d.date]&&recs[d.date].done);
+ return {
+  daysDone: allDays.filter(done).length,
+  challengeDone: allDays.filter(dqChalDone).length,
+  weeksDone: DAILY_WEEKS.filter(w=>w.days.every(done)).length,
+  challengeWeeks: DAILY_WEEKS.filter(w=>w.days.every(dqChalDone)).length,
+  xp: store.data.xp||0,
+  streak: (typeof store.streakCount==='function')?store.streakCount():0,
+  totalWeeks: DAILY_WEEKS.length,
+  totalDays: allDays.length};
+}
+function dqTitle(s){ let t=DQ_TITLES[0]; for(const x of DQ_TITLES) if(s.daysDone>=x.min) t=x; return t; }
+function dqSyncBadges(){
+ const s=dqStats(); store.data.dailyBadges=store.data.dailyBadges||{}; const newly=[];
+ for(const b of DQ_BADGES) if(b.test(s)&&!store.data.dailyBadges[b.id]){ store.data.dailyBadges[b.id]=new Date().toISOString(); newly.push(b); }
+ if(newly.length) store.save();
+ return newly;
+}
+function dqHonorsCard(){
+ dqSyncBadges();
+ const s=dqStats(), title=dqTitle(s), earned=store.data.dailyBadges||{}, next=DQ_TITLES.find(x=>x.min>s.daysDone);
+ const badges=DQ_BADGES.map(b=>{const on=!!earned[b.id];return `<div class="dq-badge ${on?'on':''}"><span class="dq-badge-ic">${b.icon}</span><b>${b.zh}</b><span class="dq-badge-en">${b.en}</span><span class="dq-badge-cond">${on?'✓ 已獲得':esc(b.cond)}</span></div>`;}).join('');
+ return `<section class="dq-honors card"><div class="dq-honors-top"><div><div class="eyebrow">HONORS · 榮譽殿堂</div><div class="dq-title-now">${title.zh} <span>${title.en}</span></div>${next?`<div class="dq-title-next">再完成 ${next.min-s.daysDone} 天任務 → 晉升「${next.zh}」</div>`:`<div class="dq-title-next">已達最高稱號，貓島以你為榮！🏆</div>`}</div><div class="dq-honors-stats"><div><b>${s.daysDone}</b><span>完成天數</span></div><div><b>${s.xp}</b><span>XP</span></div><div><b>${Object.keys(earned).length}/${DQ_BADGES.length}</b><span>徽章</span></div></div></div><div class="dq-badges">${badges}</div></section>`;
+}
 function renderDaily(){
- DQ=null;const w=dailyWeek(),records=dailyRecords(),done=w.days.filter(d=>records[d.date]?.done).length,t=dailyToday();
+ DQ=null;const w=dqShownWeek(),records=dailyRecords(),done=w.days.filter(d=>records[d.date]?.done).length,t=dailyToday(),cur=dailyWeek();
  const diffMode=(store.data.dailyDiff)||'auto',tier=dailyTier(),xp=store.data.xp||0;
+ const weekNav=DAILY_WEEKS.length>1?`<div class="dq-weeknav">${DAILY_WEEKS.map((x,i)=>`<button class="dq-week-chip ${x.id===w.id?'on':''}" onclick="dqSetWeek('${x.id}')">第 ${i+1} 週 · ${esc(x.title)}${x.id===cur.id?' 🐾本週':x.id>cur.id?' 🔒可預習':''}</button>`).join('')}</div>`:'';
  const diffCard=`<section class="dq-diff card"><div class="dq-diff-head"><b>難易度 Difficulty</b><span>三種難度是完全不同的題型與句子，不只是換皮</span></div><div class="dq-diff-btns">${[['auto','⚙️ 自動 Auto'],['easy','🌱 簡單'],['core','🐾 一般'],['challenge','🔥 挑戰']].map(([k,l])=>`<button class="dq-diff-btn ${diffMode===k?'on':''}" onclick="dailySetDiff('${k}')">${l}</button>`).join('')}</div><p class="dq-diff-now">目前難度：<b>${DQ_TIER_LABEL[tier]}</b>${diffMode==='auto'?`（依你目前 ${xp} XP 自動判斷）`:''}<br><span class="dq-diff-desc">${DQ_TIER_NOTE[tier]}</span></p></section>`;
- app.innerHTML=`<div class="view dq"><a href="#/home">← 回到首頁</a><section class="dq-hero"><div><div class="eyebrow">DAILY CAT QUESTS / 01</div><h1 class="display">每天一小步，<br>陪貓咪探索英語島。</h1><p>七天、七個文法任務。從 A1 到 B1，先讀小提示，再依你的難度練習。</p><p class="dq-meta">${w.id.replaceAll('-', ' / ')} — ${w.days.at(-1).date.slice(5).replace('-', ' / ')} · 台灣時間每日中午建議練習</p><a class="btn btn-primary" href="#/daily/${dailyFeatured().date}">開始${t<w.id?'預習':'任務'}：${dailyFeatured().title} →</a></div><div class="dq-mascot">${catSVG(150,'calico')}<span>今天也一起進步，喵！</span></div></section><section class="dq-progress card"><div><b>本週探險足跡</b><span>${done} / 7 天完成</span></div><progress max="7" value="${done}" aria-label="本週任務完成進度"></progress><p>每關全部訂正後收集一枚貓掌，首次完成獲得 20 XP。進度隨本機帳號保存。</p></section>${diffCard}<div class="dq-heading"><h2>一週任務地圖 · ${esc(w.title)}</h2><span>可提前預習，也能隨時複習</span></div><div class="dq-grid">${w.days.map((d,i)=>`<a class="card dq-day ${d.date===t?'dq-today':''}" href="#/daily/${d.date}"><div class="dq-day-top"><span>DAY 0${i+1} · ${Number(d.date.slice(5,7))}/${Number(d.date.slice(8))} 週${'一二三四五六日'[i]}</span><b>${records[d.date]?.done?'🐾 已完成':d.date===t?'今日任務':d.date>t?'可預習':'可補做'}</b></div><span class="dq-icon" aria-hidden="true">${d.icon}</span><h3>${d.title}</h3><p>${d.topic}</p><div class="dq-day-bottom"><span>${d.level} · ${dailyBank(d).length} 題</span><span>${records[d.date]?.done?'再次練習':dailyStarted(records[d.date])?'繼續任務':'開始探索'} →</span></div></a>`).join('')}</div><p class="dq-source">改編自 <a href="https://chatgpt.com/share/6aafc1af-c410-83ee-afb5-e327a2efcb33" target="_blank" rel="noopener">英語貓咪島週企劃</a> 9/21–9/27；互動題目另行編寫。目前收錄此週，之後可新增週課表。</p></div>`;
+ app.innerHTML=`<div class="view dq"><a href="#/home">← 回到首頁</a><section class="dq-hero"><div><div class="eyebrow">DAILY CAT QUESTS</div><h1 class="display">每天一小步，<br>陪貓咪探索英語島。</h1><p>每週七個文法任務，三種難度自由挑。完成任務可獲得 XP、稱號與榮譽貓咪島徽章。</p><p class="dq-meta">${w.days[0].date.replaceAll('-', ' / ')} — ${w.days.at(-1).date.slice(5).replace('-', ' / ')} · 台灣時間每日中午建議練習</p><a class="btn btn-primary" href="#/daily/${dailyFeatured().date}">開始今日任務：${dailyFeatured().title} →</a></div><div class="dq-mascot">${catSVG(150,'calico')}<span>今天也一起進步，喵！</span></div></section>${dqHonorsCard()}<section class="dq-progress card"><div><b>本週探險足跡 · ${esc(w.title)}</b><span>${done} / 7 天完成</span></div><progress max="7" value="${done}" aria-label="本週任務完成進度"></progress><p>每關全部訂正後收集一枚貓掌，首次完成 +20 XP、挑戰難度再 +10、完成整週再 +50。</p></section>${diffCard}<div class="dq-heading"><h2>任務地圖</h2><span>可切換週次，提前預習或隨時複習</span></div>${weekNav}<div class="dq-grid">${w.days.map((d,i)=>`<a class="card dq-day ${d.date===t?'dq-today':''}" href="#/daily/${d.date}"><div class="dq-day-top"><span>DAY 0${i+1} · ${Number(d.date.slice(5,7))}/${Number(d.date.slice(8))} 週${'一二三四五六日'[i]}</span><b>${records[d.date]?.done?'🐾 已完成':d.date===t?'今日任務':d.date>t?'可預習':'可補做'}</b></div><span class="dq-icon" aria-hidden="true">${d.icon}</span><h3>${d.title}</h3><p>${d.topic}</p><div class="dq-day-bottom"><span>${d.level} · ${dailyBank(d).length} 題</span><span>${records[d.date]?.done?'再次練習':dailyStarted(records[d.date])?'繼續任務':'開始探索'} →</span></div></a>`).join('')}</div><p class="dq-source">改編自英語貓咪島週企劃；互動題目與難度分級為原創編寫。目前收錄 ${DAILY_WEEKS.length} 週，之後可持續新增。</p></div>`;
 }
 function startDaily(date){
  const d=DAILY_WEEKS.flatMap(w=>w.days).find(d=>d.date===date);if(!d){renderDaily();return;}
@@ -194,8 +472,20 @@ function dailyFinish(){
  if(!DQ||currentUser()?.email!==DQ.owner||!DQ.questions.every((q,i)=>DQ.answers[i]))return;
  const d=DQ.d,record=store.data.dailyQuests[d.date],first=!record.done;
  record.done=true;record.completedAt=record.completedAt||new Date().toISOString();
- if(first)store.data.xp+=20;
- store.save();store.touchStreak();paintHeader();
+ const parts=[]; let gained=0;
+ if(first){ gained+=20; parts.push('首次完成 +20 XP'); }
+ const chalFirst=DQ.tier==='challenge' && !record.chalBonus;
+ if(DQ.tier==='challenge'){ record.chalBonus=true; if(chalFirst){ gained+=10; parts.push('挑戰難度 +10 XP'); } }
+ store.data.dailyWeekBonus=store.data.dailyWeekBonus||{};
+ const wk=DAILY_WEEKS.find(w=>w.days.some(x=>x.date===d.date));
+ if(wk && wk.days.every(x=>store.data.dailyQuests[x.date]?.done) && !store.data.dailyWeekBonus[wk.id]){ store.data.dailyWeekBonus[wk.id]=true; gained+=50; parts.push('完成整週 +50 XP'); }
+ if(gained>0) store.data.xp=(store.data.xp||0)+gained;
+ store.save();store.touchStreak();
+ const newly=dqSyncBadges();
+ paintHeader();
+ const s=dqStats(),title=dqTitle(s);
  const next=DAILY_WEEKS.flatMap(w=>w.days).find(x=>x.date>d.date);
- app.innerHTML=`<div class="view dq dq-result card">${catSVG(140,d.cat)}<div class="eyebrow">DAILY QUEST COMPLETE</div><h1 class="display">收集到一枚貓掌！🐾</h1><p>你已完成「${d.title}」${DQ_TIER_LABEL[DQ.tier]}的 ${d.questions?DQ.questions.length:''} 題挑戰與訂正。</p><strong>${first?'+20 XP · 首次完成獎勵':'複習完成 · 這關的獎勵已領取'}</strong><div class="dq-result-actions"><a class="btn btn-primary" href="#/daily">回到任務地圖</a>${next?`<a class="btn btn-ghost" href="#/daily/${next.date}">下一天：${next.title} →</a>`:''}<button class="btn btn-ghost" onclick="startDaily('${d.date}')">再練一次</button></div></div>`;
+ const xpLine=parts.length?parts.join('　·　'):'複習完成 · 這關的獎勵已領取';
+ const badgeHTML=newly.length?`<div class="dq-newbadges"><div class="eyebrow">🎉 解鎖新徽章</div>${newly.map(b=>`<span class="dq-nb">${b.icon} ${b.zh}</span>`).join('')}</div>`:'';
+ app.innerHTML=`<div class="view dq dq-result card">${catSVG(140,d.cat)}<div class="eyebrow">DAILY QUEST COMPLETE</div><h1 class="display">收集到一枚貓掌！🐾</h1><p>你以${DQ_TIER_LABEL[DQ.tier]}完成了「${d.title}」的 ${DQ.questions.length} 題挑戰與訂正。</p><strong>${xpLine}</strong>${badgeHTML}<p class="dq-result-title">目前稱號：<b>${title.zh}</b> ${title.en}</p><div class="dq-result-actions"><a class="btn btn-primary" href="#/daily">回到任務地圖</a>${next?`<a class="btn btn-ghost" href="#/daily/${next.date}">下一天：${next.title} →</a>`:''}<button class="btn btn-ghost" onclick="startDaily('${d.date}')">再練一次</button></div></div>`;
 }
