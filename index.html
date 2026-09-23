@@ -1847,6 +1847,40 @@ q:[
 ]},
 
 {
+id:"word-order", zh:"英文語序", unit:"u1", n:"1.12", title:"Word Order", sub:"The basic order of an English sentence — subject, verb, object, and where extras go.",
+form:{p:"Subject + Verb + Object (+ place + time)", ex:["<b>I</b> <b>eat</b> <b>breakfast</b>.","She reads books <b>at home</b> <b>every day</b>.","We saw a film <b>last night</b>."]},
+uses:[
+ {t:"Subject – Verb – Object (SVO)", d:"English usually puts the subject first, then the verb, then the object.", ex:[
+   {s:"<b>The cat</b> <b>caught</b> <b>a mouse</b>.", n:"S + V + O"},
+   {s:"<b>I</b> <b>love</b> <b>you</b>.", n:""},
+   {s:"<b>They</b> <b>play</b> <b>football</b>.", n:""}]},
+ {t:"Adjectives before the noun", d:"In English, the describing word comes BEFORE the noun.", ex:[
+   {s:"a <b>red</b> car", n:"not 'a car red'"},
+   {s:"a <b>small black</b> cat", n:"size before colour"},
+   {s:"a <b>beautiful old</b> house", n:""}]},
+ {t:"Place before time; frequency before the verb", d:"Put place before time. Frequency adverbs (always, often) go before the main verb, but after be.", ex:[
+   {s:"I went <b>to Japan</b> <b>last year</b>.", n:"place, then time"},
+   {s:"She <b>always</b> arrives early.", n:"before the verb"},
+   {s:"He is <b>never</b> late.", n:"after be"}]}
+],
+mistakes:[
+ {no:"I like very much this song.", yes:"I like this song very much.", why:"'very much' goes after the object, at the end."},
+ {no:"She has a car red.", yes:"She has a red car.", why:"Adjectives come before the noun: a red car."},
+ {no:"I go every day to school.", yes:"I go to school every day.", why:"Place (to school) before time (every day)."}
+],
+tip:"Subject → Verb → Object. Adjectives go BEFORE the noun. Place before time. Frequency words go before the main verb, but after be.",
+q:[
+ {t:"mcq", q:"Which is the correct order?", opts:["Eats the dog food.","The dog eats food.","Food the dog eats.","The dog food eats."], a:1, why:"Subject (the dog) + verb (eats) + object (food)."},
+ {t:"mcq", q:"Choose the correct phrase.", opts:["a car blue","a blue car","blue a car","car a blue"], a:1, why:"Adjective before the noun: a blue car."},
+ {t:"order", words:["She","reads","a","book","every","night"], sent:"She reads a book every night", why:"S + V + O + time."},
+ {t:"order", words:["We","went","to","the","park","yesterday"], sent:"We went to the park yesterday", why:"place (to the park) before time (yesterday)."},
+ {t:"spot", sent:"I like very much coffee .", wrong:2, fix:"coffee very much", why:"'very much' goes to the end: I like coffee very much."},
+ {t:"mcq", q:"Where does 'always' go in 'She ___ helps ___ me'?", opts:["before helps","after helps","after me","before she"], a:0, why:"Frequency adverbs go before the main verb: always helps."},
+ {t:"spot", sent:"He has a bag black .", wrong:3, fix:"black bag", why:"Adjective before the noun: a black bag."},
+ {t:"mcq", q:"Correct order: I / study / at the library / in the evening?", opts:["I study in the evening at the library.","I study at the library in the evening.","At the library I in the evening study.","I at the library study in the evening."], a:1, why:"place before time."}
+]},
+
+{
 id:"plural-nouns", zh:"單數與複數名詞", unit:"u2", n:"2.1", title:"Singular & Plural Nouns", sub:"Adding -s, -es and -ies — plus the irregulars everyone must memorize.",
 form:{p:"noun + s / es / ies   ·   irregular: man → men", ex:["one book → two <b>books</b>","one box → two <b>boxes</b>","one city → two <b>cities</b>"]},
 uses:[
@@ -10510,7 +10544,10 @@ function rdOpenWorksheet(sections, docTitle){
 body{font:12pt/1.55 Georgia,'Times New Roman',serif;color:#111;margin:0;background:#eee}
 .bar{position:sticky;top:0;z-index:5;background:#333;color:#fff;padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font:600 13px system-ui,-apple-system,sans-serif}
 .bar button{font:600 13px system-ui,sans-serif;padding:7px 14px;border-radius:6px;border:none;cursor:pointer;background:#E08862;color:#fff}
-.bar button.sec{background:#666}
+.bar button.sec,.bar label.sec{background:#666;font:600 13px system-ui,-apple-system,sans-serif;padding:7px 14px;border-radius:6px;cursor:pointer;color:#fff;border:none;user-select:none;-webkit-user-select:none;display:inline-block}
+#ak-toggle{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+#ak-toggle:checked ~ .bar label.sec{background:#2E8B57}
+#ak-toggle:checked ~ .bar label.sec::before{content:"✓ "}
 .bar .hint{font-weight:400;opacity:.75}
 .sheet{max-width:760px;margin:16px auto;background:#fff;padding:40px 46px;box-shadow:0 1px 6px rgba(0,0,0,.15)}
 .name-row{font:11px system-ui,sans-serif;color:#333;border:1px solid #ccc;border-radius:6px;padding:9px 12px;margin-bottom:18px;display:flex;gap:26px;flex-wrap:wrap}
@@ -10528,7 +10565,7 @@ h2{font:700 13pt system-ui,sans-serif;color:#7A5B49;border-bottom:2px solid #EEE
 ol.disc{padding-left:22px} ol.disc li{margin:6px 0}
 .src-note{font:9.5pt/1.5 system-ui,sans-serif;color:#666;border-top:1px solid #ddd;margin-top:18px;padding-top:9px}
 .answers{display:none;margin-top:22px;border-top:2px dashed #ccc;padding-top:12px}
-body.show-ak .answers{display:block}
+#ak-toggle:checked ~ .sheet .answers{display:block}
 .answers .lbl{font:700 10px system-ui,sans-serif;color:#B4623B;letter-spacing:.08em}
 .ak{font:10.5pt system-ui,sans-serif;margin:5px 0}
 @media print{ .bar{display:none} body{background:#fff}
@@ -10536,11 +10573,12 @@ body.show-ak .answers{display:block}
   .sheet:first-of-type{page-break-before:avoid} }
 @page{margin:1.6cm}
 </style></head><body>
+<input type="checkbox" id="ak-toggle">
 <div class="bar">
   <span>🐱 English Cat Island</span>
   <button onclick="window.print()">🖨 列印 / 存成 PDF</button>
-  <button class="sec" onclick="document.body.classList.toggle('show-ak')">顯示／隱藏解答（教師版）</button>
-  <span class="hint">共 ${sections.length} 頁 · 預設為學生版（無解答）。要印答案就先按「顯示解答」。</span>
+  <label class="sec" for="ak-toggle" role="button" tabindex="0">顯示／隱藏解答（教師版）</label>
+  <span class="hint">共 ${sections.length} 頁 · 預設為學生版（無解答）。要印答案就先勾「顯示解答」（打勾變綠即顯示）。列印可按上方按鈕或 Ctrl / ⌘ + P。</span>
 </div>
 ${body}
 <\/body><\/html>`;
