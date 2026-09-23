@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v19-pronouns-connectors";
+const CACHE = "eci-v20-confusables-more";
 const SHELL = [
   "./",
   "./index.html",

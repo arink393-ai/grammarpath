@@ -1847,7 +1847,75 @@ q:[
 ]},
 
 {
-id:"word-order", zh:"英文語序", unit:"u1", n:"1.12", title:"Word Order", sub:"The basic order of an English sentence — subject, verb, object, and where extras go.",
+id:"their-there", zh:"their / there / they're 辨別", unit:"u1", n:"1.12", title:"Their / There / They're", sub:"Three words that sound the same — but mean very different things.",
+form:{p:"their = of them · there = a place · they're = they are", ex:["<b>their</b> house","over <b>there</b>","<b>they're</b> happy"]},
+uses:[
+ {t:"their = belonging to them", d:"their is a possessive — it comes before a noun.", ex:[
+   {s:"That's <b>their</b> car.", n:"their + noun"},
+   {s:"The students did <b>their</b> homework.", n:""},
+   {s:"I like <b>their</b> new song.", n:""}]},
+ {t:"there = in that place (or 'there is/are')", d:"there points to a place, or starts 'there is / there are'.", ex:[
+   {s:"Put it <b>there</b>, on the shelf.", n:"a place"},
+   {s:"<b>There</b> is a cat on the roof.", n:"there is/are"},
+   {s:"We went <b>there</b> last year.", n:""}]},
+ {t:"they're = they are", d:"they're is short for 'they are'. If you can say 'they are', use they're.", ex:[
+   {s:"<b>They're</b> my best friends.", n:"= they are"},
+   {s:"<b>They're</b> coming tonight.", n:""},
+   {s:"I think <b>they're</b> right.", n:""}]}
+],
+mistakes:[
+ {no:"There going to the park.", yes:"They're going to the park.", why:"= they are going → they're."},
+ {no:"The cats ate they're food.", yes:"The cats ate their food.", why:"belonging to them → their."},
+ {no:"Their is a problem.", yes:"There is a problem.", why:"'there is' → there."}
+],
+tip:"their = of them (their bag). there = a place, or 'there is/are'. they're = they are. Trick: if 'they are' fits, write they're.",
+q:[
+ {t:"mcq", q:"___ my neighbours. (= they are)", opts:["Their","There","They're","Theyre"], a:2, why:"= they are → They're."},
+ {t:"mcq", q:"Is this ___ house? (belonging to them)", opts:["their","there","they're","theirs"], a:0, why:"belonging to them → their."},
+ {t:"mcq", q:"Look! ___ is a rainbow.", opts:["Their","There","They're","Theyre"], a:1, why:"there is → There."},
+ {t:"fill", q:"The children love ___ teacher. (belonging to them)", ans:["their"], hint:"of them", why:"their teacher."},
+ {t:"fill", q:"___ late again! (= they are)", ans:["They're"], hint:"they are", why:"They're late."},
+ {t:"spot", sent:"Their going home now .", wrong:0, fix:"They're", why:"= they are going → They're."},
+ {t:"mcq", q:"Which sentence is correct?", opts:["Their over their.","They're over there.","There over they're.","Their over there."], a:1, why:"They're (they are) + over there (place)."},
+ {t:"spot", sent:"Put your bags over their .", wrong:4, fix:"there", why:"a place → there."}
+]},
+
+{
+id:"capitalization", zh:"大小寫規則", unit:"u1", n:"1.13", title:"Capitalization", sub:"When to use a CAPITAL letter — sentences, names, days and 'I'.",
+form:{p:"Capital: sentence start · names · days/months · languages · I", ex:["<b>M</b>y name is <b>A</b>nna.","<b>M</b>onday, <b>J</b>uly","<b>E</b>nglish","<b>I</b> am here."]},
+uses:[
+ {t:"Start of a sentence, and the word 'I'", d:"Begin every sentence with a capital letter. Always write 'I' as a capital.", ex:[
+   {s:"<b>T</b>he sun is bright.", n:"first word"},
+   {s:"Yesterday <b>I</b> saw a film.", n:"I is always capital"},
+   {s:"<b>W</b>here are you?", n:""}]},
+ {t:"Names of people, places & brands (proper nouns)", d:"Capitalize specific names: people, cities, countries, companies.", ex:[
+   {s:"<b>T</b>om lives in <b>T</b>aipei.", n:"person, city"},
+   {s:"We visited <b>J</b>apan.", n:"country"},
+   {s:"She works at <b>G</b>oogle.", n:"company"}]},
+ {t:"Days, months, languages & seasons", d:"Capitalize days, months and languages/nationalities — but NOT the seasons.", ex:[
+   {s:"on <b>F</b>riday in <b>M</b>arch", n:"day, month"},
+   {s:"He speaks <b>C</b>hinese and <b>E</b>nglish.", n:"languages"},
+   {s:"in spring / summer", n:"seasons stay lowercase"}]}
+],
+mistakes:[
+ {no:"my friend is from france.", yes:"My friend is from France.", why:"Capitalize the sentence start (My) and the country (France)."},
+ {no:"i can speak english.", yes:"I can speak English.", why:"'I' and languages (English) are capitalized."},
+ {no:"See you on monday in Winter.", yes:"See you on Monday in winter.", why:"Days are capital (Monday), but seasons are lowercase (winter)."}
+],
+tip:"CAPITAL for: the first word of a sentence, the word 'I', names of people/places, days, months and languages. Lowercase for seasons.",
+q:[
+ {t:"mcq", q:"Which is correctly capitalized?", opts:["i live in taipei.","I live in Taipei.","i Live In Taipei.","I live in taipei."], a:1, why:"Sentence start, 'I', and the city Taipei are capital."},
+ {t:"mcq", q:"Which word should be capitalized?", opts:["dog","happy","monday","quickly"], a:2, why:"Days of the week are capitalized: Monday."},
+ {t:"mcq", q:"Which is correct?", opts:["I study English.","I study english.","i study English.","I Study English."], a:0, why:"'I' + language English are capital; 'study' is not."},
+ {t:"fill", q:"Add the capital: my birthday is in ___ . (july)", ans:["July"], hint:"months are capital", why:"July (month)."},
+ {t:"spot", sent:"we are going to spain in august .", wrong:0, fix:"We", why:"Start the sentence with a capital: We. (Also Spain, August.)"},
+ {t:"mcq", q:"Which does NOT need a capital?", opts:["France","summer","Chinese","Tuesday"], a:1, why:"Seasons stay lowercase: summer."},
+ {t:"fill", q:"Yesterday ___ met my friend. (the pronoun)", ans:["I"], hint:"always capital", why:"'I' is always a capital letter."},
+ {t:"spot", sent:"her name is maria .", wrong:0, fix:"Her", why:"Capitalize the sentence start: Her. (Also Maria.)"}
+]},
+
+{
+id:"word-order", zh:"英文語序", unit:"u1", n:"1.14", title:"Word Order", sub:"The basic order of an English sentence — subject, verb, object, and where extras go.",
 form:{p:"Subject + Verb + Object (+ place + time)", ex:["<b>I</b> <b>eat</b> <b>breakfast</b>.","She reads books <b>at home</b> <b>every day</b>.","We saw a film <b>last night</b>."]},
 uses:[
  {t:"Subject – Verb – Object (SVO)", d:"English usually puts the subject first, then the verb, then the object.", ex:[
@@ -2491,6 +2559,74 @@ q:[
 ]},
 
 /* ================= BASIC · Everyday modals ================= */
+
+{
+id:"place-movement", zh:"地點與移動介系詞", unit:"u7", n:"3.9", title:"Place & Movement", sub:"Prepositions for where things are (in, on, under) and where they go (to, into, across).",
+form:{p:"place: in / on / under / between · movement: to / into / out of / across", ex:["<b>in</b> the box","<b>on</b> the table","go <b>to</b> school","jump <b>into</b> the pool"]},
+uses:[
+ {t:"Place — where something is", d:"in (inside), on (a surface), under, next to, between, behind, in front of.", ex:[
+   {s:"The cat is <b>under</b> the chair.", n:""},
+   {s:"The lamp is <b>between</b> the two beds.", n:""},
+   {s:"Your shoes are <b>behind</b> the door.", n:""}]},
+ {t:"Movement — where something goes", d:"to (a destination), into / out of, up / down, across, through, along.", ex:[
+   {s:"We walked <b>to</b> the station.", n:"destination"},
+   {s:"She jumped <b>into</b> the water.", n:"in + movement"},
+   {s:"They ran <b>across</b> the road.", n:""}]},
+ {t:"in/on vs into/onto", d:"Use in/on for position; into/onto for movement to that position.", ex:[
+   {s:"The keys are <b>in</b> the bag. (position)", n:""},
+   {s:"Put the keys <b>into</b> the bag. (movement)", n:""},
+   {s:"The cat jumped <b>onto</b> the sofa.", n:"movement onto a surface"}]}
+],
+mistakes:[
+ {no:"He went in the shop.", yes:"He went into the shop.", why:"For movement inside, use into."},
+ {no:"We arrived to London.", yes:"We arrived in London.", why:"arrive IN a city (not 'arrive to')."},
+ {no:"The bird flew threw the window.", yes:"The bird flew through the window.", why:"through (movement), not 'threw' (past of throw)."}
+],
+tip:"Position → in / on / under / between. Movement → to / into / out of / across / through. Note: arrive in a place, not 'arrive to'.",
+q:[
+ {t:"mcq", q:"The ball rolled ___ the table.", opts:["under","into","to","onto"], a:0, why:"position (where it is) → under the table."},
+ {t:"mcq", q:"She dived ___ the pool.", opts:["in","on","into","at"], a:2, why:"movement inside → into the pool."},
+ {t:"mcq", q:"We walked ___ the bridge to the other side.", opts:["across","in","on","under"], a:0, why:"movement to the other side → across."},
+ {t:"fill", q:"The cat is hiding ___ the bed. (position, underneath)", ans:["under"], hint:"underneath", why:"under the bed."},
+ {t:"order", words:["He","put","the","book","on","the","shelf"], sent:"He put the book on the shelf", why:"on = a surface."},
+ {t:"spot", sent:"They went in the cave to explore .", wrong:2, fix:"into", why:"movement inside → into the cave."},
+ {t:"mcq", q:"We ___ in Tokyo at 9 a.m.", opts:["arrived to","arrived at","arrived in","arrived on"], a:2, why:"arrive IN a city → arrived in Tokyo."},
+ {t:"spot", sent:"The dog jumped in the sofa .", wrong:3, fix:"onto", why:"movement onto a surface → onto the sofa."}
+]},
+
+{
+id:"questions-continuous", zh:"現在進行式問句", unit:"u7", n:"3.10", title:"Questions: Present Continuous", sub:"Asking what is happening right now — Are you…? What are you doing?",
+form:{p:"(Wh-) + am / is / are + subject + V-ing?", ex:["<b>Are</b> you <b>working</b>?","<b>What is</b> she <b>doing</b>?","<b>Is</b> it <b>raining</b>?"]},
+uses:[
+ {t:"Yes/No questions — move be to the front", d:"Put am / is / are before the subject; keep the -ing verb.", ex:[
+   {s:"<b>Are</b> you <b>listening</b>?", n:"are + you + V-ing"},
+   {s:"<b>Is</b> he <b>sleeping</b>?", n:""},
+   {s:"<b>Are</b> they <b>coming</b>?", n:""}]},
+ {t:"Wh- questions — Wh + be + subject + V-ing", d:"Start with the question word, then be, then the subject and -ing verb.", ex:[
+   {s:"<b>What are</b> you <b>doing</b>?", n:""},
+   {s:"<b>Why is</b> the baby <b>crying</b>?", n:""},
+   {s:"<b>Where are</b> they <b>going</b>?", n:""}]},
+ {t:"Short answers", d:"Answer with be — don't repeat the -ing verb.", ex:[
+   {s:"Are you studying? — <b>Yes, I am.</b> / <b>No, I'm not.</b>", n:""},
+   {s:"Is she cooking? — <b>Yes, she is.</b>", n:""},
+   {s:"Are they playing? — <b>No, they aren't.</b>", n:""}]}
+],
+mistakes:[
+ {no:"Do you working now?", yes:"Are you working now?", why:"Present continuous questions use be (are), not do."},
+ {no:"What you are doing?", yes:"What are you doing?", why:"Order: Wh- + be + subject + V-ing."},
+ {no:"Is he play football?", yes:"Is he playing football?", why:"Keep the -ing form: playing."}
+],
+tip:"Present continuous question = (Wh-) + am/is/are + subject + verb-ing. Use be, not do. Keep the -ing.",
+q:[
+ {t:"mcq", q:"___ you watching TV?", opts:["Do","Are","Is","Does"], a:1, why:"present continuous → Are you watching?"},
+ {t:"mcq", q:"What ___ she doing?", opts:["do","does","is","are"], a:2, why:"she → What is she doing?"},
+ {t:"mcq", q:"Which is correct?", opts:["What you are reading?","What are you reading?","What do you reading?","What are you read?"], a:1, why:"Wh- + be + subject + V-ing."},
+ {t:"fill", q:"___ they playing outside? (be, they)", ans:["Are"], hint:"they → ?", why:"Are they playing?"},
+ {t:"order", words:["Why","is","the","dog","barking"], sent:"Why is the dog barking", why:"Wh- + be + subject + V-ing."},
+ {t:"spot", sent:"Do you listening to me ?", wrong:0, fix:"Are", why:"present continuous → Are you listening?"},
+ {t:"mcq", q:"Best short answer to 'Is it raining?'", opts:["Yes, it is.","Yes, it does.","Yes, it rain.","Yes, is it."], a:0, why:"Answer with be: Yes, it is."},
+ {t:"spot", sent:"What is he do right now ?", wrong:3, fix:"doing", why:"Keep the -ing form: doing."}
+]},
 
 {
 id:"can-could", zh:"能力與請求 can / could", unit:"u10", n:"4.1", title:"Can & Could", sub:"Ability, permission and polite requests — can, can't, could and couldn't.",
@@ -3502,6 +3638,40 @@ q:[
 ]},
 
 {
+id:"transition-signals", zh:"轉折與銜接訊號詞", unit:"u8", n:"7.8", title:"Transition Signals", sub:"Signpost words that guide the reader — adding, contrasting, giving reasons and examples.",
+form:{p:"add · contrast · reason/result · example · sequence", ex:["<b>In addition</b>,","<b>On the other hand</b>,","<b>As a result</b>,","<b>For example</b>,"]},
+uses:[
+ {t:"Adding & sequencing ideas", d:"Use these to add points or show order.", ex:[
+   {s:"<b>Firstly</b>, … <b>Secondly</b>, … <b>Finally</b>, …", n:"order"},
+   {s:"<b>In addition</b>, it is cheap.", n:"add a point"},
+   {s:"<b>Also</b>, the staff are kind.", n:""}]},
+ {t:"Contrast & result", d:"Use these to show a difference or a consequence.", ex:[
+   {s:"<b>However</b>, it was too small.", n:"contrast"},
+   {s:"<b>On the other hand</b>, it's quiet.", n:"the other side"},
+   {s:"<b>As a result</b>, we were late.", n:"result"}]},
+ {t:"Examples & conclusion", d:"Introduce an example or wrap up.", ex:[
+   {s:"<b>For example</b>, cats and dogs.", n:"give an example"},
+   {s:"<b>Such as</b> apples and pears.", n:""},
+   {s:"<b>In conclusion</b>, I recommend it.", n:"end a piece of writing"}]}
+],
+mistakes:[
+ {no:"For example cats.", yes:"For example, cats.", why:"Put a comma after a transition signal at the start."},
+ {no:"In the other hand, it's small.", yes:"On the other hand, it's small.", why:"The phrase is 'On the other hand'."},
+ {no:"I was tired. Therefore I slept for however I was busy.", yes:"I was tired. Therefore, I slept.", why:"Use one clear signal; Therefore shows the result."}
+],
+tip:"Use signals to guide the reader: add (In addition, Also), contrast (However, On the other hand), result (As a result, Therefore), example (For example, Such as). A comma usually follows.",
+q:[
+ {t:"mcq", q:"It was cheap. ___ , the food was delicious. (add a point)", opts:["However","In addition","As a result","For example"], a:1, why:"adding a point → In addition."},
+ {t:"mcq", q:"It rained all day. ___ , the match was cancelled. (result)", opts:["For example","In addition","As a result","On the other hand"], a:2, why:"result → As a result."},
+ {t:"mcq", q:"I love fruit, ___ mangoes and grapes. (example)", opts:["however","such as","as a result","on the other hand"], a:1, why:"give examples → such as."},
+ {t:"mcq", q:"The city is exciting. ___ , it's expensive. (contrast)", opts:["In addition","However","For example","Firstly"], a:1, why:"contrast → However."},
+ {t:"fill", q:"___ conclusion, I think it's worth visiting. (ending phrase)", ans:["In"], hint:"___ conclusion", why:"In conclusion."},
+ {t:"order", words:["Firstly","we","will","visit","the","museum"], sent:"Firstly we will visit the museum", why:"Firstly + clause (sequence)."},
+ {t:"spot", sent:"In the other hand , it is very quiet .", wrong:1, fix:"On", why:"The phrase is 'On the other hand'."},
+ {t:"mcq", q:"Which signal shows a RESULT?", opts:["For example","However","Therefore","In addition"], a:2, why:"Therefore = as a result (a consequence)."}
+]},
+
+{
 id:"passive", zh:"被動語態", unit:"u5", n:"8.1", title:"The Passive Voice", sub:"When the action matters more than who did it — rice is grown, the law was passed.",
 form:{p:"subject + be + past participle (+ by …)", ex:["This temple <b>was built</b> in 1738.","English <b>is spoken</b> here.","The results <b>will be announced</b> soon."]},
 uses:[
@@ -3898,6 +4068,108 @@ q:[
  {t:"spot", sent:"This bottle is breakible .", wrong:2, fix:"breakable", why:"The suffix is -able → breakable."},
  {t:"mcq", q:"'-ness' turns an adjective into a…", opts:["verb","person","noun","adverb"], a:2, why:"-ness makes an abstract noun (dark → darkness)."},
  {t:"spot", sent:"He shows great kindess .", wrong:2, fix:"kindness", why:"kind + ness → kindness."}
+]},
+
+{
+id:"participle-adjectives", zh:"分詞形容詞 -ed / -ing", unit:"u9", n:"10.6", title:"Participle Adjectives: -ed vs -ing", sub:"bored or boring? The -ed feeling vs the -ing cause.",
+form:{p:"-ed = how someone feels · -ing = what causes the feeling", ex:["I am <b>bored</b>.","The film is <b>boring</b>.","an <b>interested</b> reader, an <b>interesting</b> book"]},
+uses:[
+ {t:"-ed = the feeling (a person)", d:"Use the -ed adjective to describe how someone feels.", ex:[
+   {s:"I'm <b>tired</b>.", n:"how I feel"},
+   {s:"She was <b>excited</b> about the trip.", n:""},
+   {s:"They felt <b>confused</b>.", n:""}]},
+ {t:"-ing = the cause (a thing or person)", d:"Use the -ing adjective for the thing that causes the feeling.", ex:[
+   {s:"The trip was <b>exciting</b>.", n:"the cause"},
+   {s:"This lesson is <b>interesting</b>.", n:""},
+   {s:"The news is <b>shocking</b>.", n:""}]},
+ {t:"Put them together", d:"A person is -ed BY something -ing.", ex:[
+   {s:"I'm <b>bored</b> because the game is <b>boring</b>.", n:""},
+   {s:"She's <b>interested</b> in that <b>interesting</b> topic.", n:""},
+   {s:"He was <b>surprised</b> by the <b>surprising</b> result.", n:""}]}
+],
+mistakes:[
+ {no:"I am boring in class.", yes:"I am bored in class.", why:"To say how YOU feel, use -ed: bored. (I am boring = I make others bored!)"},
+ {no:"The movie was so bored.", yes:"The movie was so boring.", why:"The movie causes the feeling → -ing: boring."},
+ {no:"She is interesting in art.", yes:"She is interested in art.", why:"How she feels → -ed: interested."}
+],
+tip:"-ed = the feeling (I'm bored). -ing = the cause (it's boring). If a person feels it, use -ed; if a thing causes it, use -ing.",
+q:[
+ {t:"mcq", q:"The long trip was very ___ .", opts:["tired","tiring","tire","tires"], a:1, why:"the trip causes the feeling → tiring (-ing)."},
+ {t:"mcq", q:"After the long trip, I was very ___ .", opts:["tiring","tired","tire","tires"], a:1, why:"how I feel → tired (-ed)."},
+ {t:"mcq", q:"Which is correct?", opts:["I am interesting in music.","I am interested in music.","Music is interested.","I am interest in music."], a:1, why:"how I feel → interested."},
+ {t:"fill", q:"This book is really ___ . I can't stop reading! (-ing)", ans:["interesting"], hint:"the cause", why:"the book causes interest → interesting."},
+ {t:"fill", q:"The children were ___ by the magic show. (-ed, feeling)", ans:["amazed"], hint:"how they felt", why:"they felt it → amazed."},
+ {t:"spot", sent:"I was very boring during the meeting .", wrong:3, fix:"bored", why:"How you felt → bored (-ed)."},
+ {t:"mcq", q:"'She is confusing' means…", opts:["she feels confused","she makes others confused","she is tired","she is happy"], a:1, why:"-ing = the cause: she confuses others."},
+ {t:"spot", sent:"The news was so shocked .", wrong:3, fix:"shocking", why:"The news causes the feeling → shocking (-ing)."}
+]},
+
+{
+id:"collocations", zh:"搭配詞 have / take / get", unit:"u9", n:"10.7", title:"Collocations: Have, Take, Get", sub:"Words that naturally go together — have a shower, take a break, get better.",
+form:{p:"learn these as whole phrases", ex:["<b>have</b> breakfast","<b>take</b> a photo","<b>get</b> ready"]},
+uses:[
+ {t:"have — meals, experiences, rest", d:"'have' goes with meals, some activities and experiences.", ex:[
+   {s:"<b>have</b> breakfast / lunch / dinner", n:"meals"},
+   {s:"<b>have</b> a shower / a rest / a good time", n:""},
+   {s:"<b>have</b> a look / a chat", n:""}]},
+ {t:"take — time, actions, transport", d:"'take' goes with these common actions.", ex:[
+   {s:"<b>take</b> a photo / a break / a taxi", n:""},
+   {s:"<b>take</b> an exam / medicine", n:""},
+   {s:"<b>take</b> your time", n:""}]},
+ {t:"get — become, receive, arrive", d:"'get' often means become, receive, or arrive.", ex:[
+   {s:"<b>get</b> ready / better / tired", n:"become"},
+   {s:"<b>get</b> a message / a present", n:"receive"},
+   {s:"<b>get</b> home / to school", n:"arrive"}]}
+],
+mistakes:[
+ {no:"I take breakfast at 7.", yes:"I have breakfast at 7.", why:"Meals go with 'have': have breakfast."},
+ {no:"Let's do a photo.", yes:"Let's take a photo.", why:"The natural pair is take a photo."},
+ {no:"She is getting a shower.", yes:"She is having a shower.", why:"The natural pair is have a shower."}
+],
+tip:"Learn these as fixed pairs: have (meals, a shower, a rest), take (a photo, a break, a taxi, medicine), get (ready, better, home).",
+q:[
+ {t:"mcq", q:"Let's ___ a break — I'm tired.", opts:["do","have","take","make"], a:2, why:"the natural pair is take a break."},
+ {t:"mcq", q:"We usually ___ dinner at seven.", opts:["take","have","get","do"], a:1, why:"meals → have dinner."},
+ {t:"mcq", q:"Hurry up and ___ ready!", opts:["have","take","get","do"], a:2, why:"become → get ready."},
+ {t:"fill", q:"Can you ___ a photo of us? (the natural verb)", ans:["take"], hint:"___ a photo", why:"take a photo."},
+ {t:"fill", q:"I need to ___ a shower before we go. (the natural verb)", ans:["have"], hint:"___ a shower", why:"have a shower."},
+ {t:"spot", sent:"Please make a taxi to the airport .", wrong:1, fix:"take", why:"the natural pair is take a taxi."},
+ {t:"mcq", q:"Which is correct?", opts:["get a present","take a present","do a present","have a present home"], a:0, why:"receive → get a present."},
+ {t:"spot", sent:"I take breakfast at eight every day .", wrong:1, fix:"have", why:"meals → have breakfast."}
+]},
+
+{
+id:"do-go-play", zh:"運動與活動 do / go / play", unit:"u9", n:"10.8", title:"Do, Go & Play (Activities)", sub:"Which verb for which activity — play tennis, go swimming, do yoga.",
+form:{p:"play + ball games · go + -ing activities · do + other exercise", ex:["<b>play</b> tennis","<b>go</b> swimming","<b>do</b> yoga"]},
+uses:[
+ {t:"play + ball games & competitions", d:"Use 'play' for sports with a ball or a game/opponent.", ex:[
+   {s:"<b>play</b> football / basketball / tennis", n:"ball games"},
+   {s:"<b>play</b> chess / cards", n:"games"},
+   {s:"<b>play</b> the piano", n:"also for instruments"}]},
+ {t:"go + -ing activities", d:"Use 'go' + the -ing form for many activities (often outdoors).", ex:[
+   {s:"<b>go</b> swimming / running / shopping", n:"go + V-ing"},
+   {s:"<b>go</b> skiing / fishing / hiking", n:""},
+   {s:"<b>go</b> dancing", n:""}]},
+ {t:"do + exercise & other activities", d:"Use 'do' for exercise without a ball, and some tasks.", ex:[
+   {s:"<b>do</b> yoga / karate / exercise", n:""},
+   {s:"<b>do</b> the homework / the dishes", n:"tasks"},
+   {s:"<b>do</b> your best", n:""}]}
+],
+mistakes:[
+ {no:"I play swimming every day.", yes:"I go swimming every day.", why:"Activities ending in -ing take 'go': go swimming."},
+ {no:"She does tennis on Sundays.", yes:"She plays tennis on Sundays.", why:"Ball games take 'play': play tennis."},
+ {no:"We go yoga after work.", yes:"We do yoga after work.", why:"Exercise without a ball takes 'do': do yoga."}
+],
+tip:"play + ball games & instruments (play tennis, play the piano). go + -ing activities (go swimming). do + exercise/tasks (do yoga, do homework).",
+q:[
+ {t:"mcq", q:"On Saturdays we ___ basketball.", opts:["go","do","play","make"], a:2, why:"ball game → play basketball."},
+ {t:"mcq", q:"In summer I often ___ swimming.", opts:["play","go","do","take"], a:1, why:"-ing activity → go swimming."},
+ {t:"mcq", q:"My mum ___ yoga every morning.", opts:["plays","goes","does","takes"], a:2, why:"exercise (no ball) → do yoga."},
+ {t:"fill", q:"Let's ___ shopping this weekend. (the right verb)", ans:["go"], hint:"___ shopping", why:"go shopping (-ing activity)."},
+ {t:"fill", q:"He can ___ the piano beautifully. (the right verb)", ans:["play"], hint:"___ the piano", why:"play the piano."},
+ {t:"spot", sent:"They play running in the park .", wrong:1, fix:"go", why:"-ing activity → go running."},
+ {t:"mcq", q:"Which is correct?", opts:["do football","go football","play football","make football"], a:2, why:"ball game → play football."},
+ {t:"spot", sent:"I go karate twice a week .", wrong:1, fix:"do", why:"exercise without a ball → do karate."}
 ]}
 ]};
 
