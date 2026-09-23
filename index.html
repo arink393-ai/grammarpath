@@ -2117,6 +2117,108 @@ q:[
 ]},
 
 {
+id:"reflexive-pronouns", zh:"反身代名詞 myself", unit:"u2", n:"2.8", title:"Reflexive Pronouns", sub:"myself, yourself, herself — when the subject and object are the same person.",
+form:{p:"…-self / -selves (the action returns to the subject)", ex:["I hurt <b>myself</b>.","She did it <b>herself</b>.","Look after <b>yourselves</b>!"]},
+uses:[
+ {t:"The subject does the action to itself", d:"Use a reflexive pronoun when the doer and the receiver are the same.", ex:[
+   {s:"I taught <b>myself</b> to swim.", n:"I → myself"},
+   {s:"He cut <b>himself</b> shaving.", n:"he → himself"},
+   {s:"The cat washed <b>itself</b>.", n:"it → itself"}]},
+ {t:"The forms", d:"singular: myself, yourself, himself, herself, itself · plural: ourselves, yourselves, themselves.", ex:[
+   {s:"We enjoyed <b>ourselves</b>.", n:"we → ourselves"},
+   {s:"They blamed <b>themselves</b>.", n:"they → themselves"},
+   {s:"Did you make this <b>yourself</b>?", n:"you (one) → yourself"}]},
+ {t:"'by + -self' = alone / without help", d:"'by myself' means alone or without help.", ex:[
+   {s:"I live <b>by myself</b>.", n:"= alone"},
+   {s:"She fixed it <b>by herself</b>.", n:"= without help"},
+   {s:"Can you do it <b>by yourself</b>?", n:""}]}
+],
+mistakes:[
+ {no:"I enjoyed me at the party.", yes:"I enjoyed myself at the party.", why:"The action returns to I → myself."},
+ {no:"He hurt hisself.", yes:"He hurt himself.", why:"The correct form is himself (never 'hisself')."},
+ {no:"They looked after theirselves.", yes:"They looked after themselves.", why:"The correct form is themselves."}
+],
+tip:"When the subject and object are the same, use …self / …selves. Singular -self, plural -selves. 'by myself' = alone.",
+q:[
+ {t:"mcq", q:"She looked at ___ in the mirror.", opts:["her","herself","hers","she"], a:1, why:"she → herself (the action returns to her)."},
+ {t:"mcq", q:"We really enjoyed ___ on holiday.", opts:["us","ourself","ourselves","we"], a:2, why:"we → ourselves (plural)."},
+ {t:"mcq", q:"Which is correct?", opts:["He hurt hisself.","He hurt himself.","He hurt his self.","He hurt him."], a:1, why:"The form is himself."},
+ {t:"fill", q:"Be careful — don't cut ___ ! (you, one person)", ans:["yourself"], hint:"you → ?", why:"you → yourself."},
+ {t:"order", words:["I","made","this","cake","myself"], sent:"I made this cake myself", why:"I → myself (I did it, no help)."},
+ {t:"spot", sent:"The children dressed theirselves .", wrong:2, fix:"themselves", why:"The form is themselves."},
+ {t:"mcq", q:"'I did it by myself' means…", opts:["with a friend","alone / without help","for myself","to myself"], a:1, why:"by myself = alone / without help."},
+ {t:"spot", sent:"He can take care of hisself .", wrong:5, fix:"himself", why:"The correct form is himself."}
+]},
+
+{
+id:"indefinite-pronouns", zh:"不定代名詞 someone / anything", unit:"u2", n:"2.9", title:"Indefinite Pronouns", sub:"someone, anything, everybody, nowhere — for people, things and places in general.",
+form:{p:"some- / any- / every- / no- + -one / -body / -thing / -where", ex:["<b>Someone</b> is here.","Is there <b>anything</b> to eat?","<b>Everybody</b> is happy."]},
+uses:[
+ {t:"some- in positives; any- in negatives & questions", d:"Use someone/something in positive sentences; anyone/anything in negatives and questions.", ex:[
+   {s:"There's <b>someone</b> at the door.", n:"positive"},
+   {s:"I don't know <b>anybody</b> here.", n:"negative"},
+   {s:"Did you buy <b>anything</b>?", n:"question"}]},
+ {t:"every- = all; no- = none", d:"everyone/everything = all of them; no one/nothing = not any.", ex:[
+   {s:"<b>Everyone</b> loves the cats.", n:"= all people"},
+   {s:"There's <b>nothing</b> in the box.", n:"= not anything"},
+   {s:"<b>Nowhere</b> is open at midnight.", n:"= no place"}]},
+ {t:"They take a singular verb", d:"Everybody, someone, nothing… are singular — use is / was / has.", ex:[
+   {s:"Everybody <b>is</b> ready.", n:"not 'are'"},
+   {s:"Someone <b>has</b> left a bag.", n:""},
+   {s:"Nothing <b>works</b>.", n:""}]}
+],
+mistakes:[
+ {no:"I didn't see nobody.", yes:"I didn't see anybody.", why:"With a negative verb (didn't), use anybody — no double negative."},
+ {no:"Everybody are here.", yes:"Everybody is here.", why:"Everybody is singular → is."},
+ {no:"There isn't nothing here.", yes:"There isn't anything here. / There is nothing here.", why:"Don't use two negatives: either 'isn't anything' or 'is nothing'."}
+],
+tip:"some- (positive), any- (negative/question), every- (all), no- (none). They're singular → use is/has. Avoid double negatives (not… anybody).",
+q:[
+ {t:"mcq", q:"There's ___ at the door. Can you check?", opts:["anyone","someone","no one","everyone"], a:1, why:"positive statement → someone."},
+ {t:"mcq", q:"I looked, but I couldn't find ___ .", opts:["something","anything","everything","nothing"], a:1, why:"negative (couldn't) → anything."},
+ {t:"mcq", q:"___ is welcome to join. (all people)", opts:["Everyone","Anyone","No one","Someone"], a:0, why:"all people → Everyone."},
+ {t:"fill", q:"Everybody ___ excited about the trip. (be)", ans:["is"], hint:"singular verb", why:"Everybody is singular → is."},
+ {t:"fill", q:"Did you go ___ nice at the weekend? (any- + place)", ans:["anywhere"], hint:"question → any-", why:"question → anywhere."},
+ {t:"spot", sent:"I don't know nobody in this town .", wrong:3, fix:"anybody", why:"With don't, use anybody (no double negative)."},
+ {t:"mcq", q:"Which is correct?", opts:["Nothing are wrong.","Nothing is wrong.","Nothing were wrong.","Nothing be wrong."], a:1, why:"Nothing is singular → is."},
+ {t:"spot", sent:"Everyone have a ticket .", wrong:1, fix:"has", why:"Everyone is singular → has."}
+]},
+
+{
+id:"partitives", zh:"量詞 a cup of / a piece of", unit:"u2", n:"2.10", title:"Partitives", sub:"a cup of, a piece of, a loaf of — how to count uncountable things.",
+form:{p:"a / an + unit + of + non-count noun", ex:["a <b>cup of</b> tea","a <b>piece of</b> cake","two <b>bottles of</b> water"]},
+uses:[
+ {t:"Container words", d:"Count liquids and food with a container: cup, glass, bottle, bowl.", ex:[
+   {s:"a <b>glass of</b> milk", n:""},
+   {s:"a <b>bowl of</b> soup", n:""},
+   {s:"two <b>cups of</b> coffee", n:"plural: cups"}]},
+ {t:"Shape & portion words", d:"Count food by its shape or a portion: piece, slice, loaf, bar.", ex:[
+   {s:"a <b>piece of</b> paper / advice", n:"also for ideas"},
+   {s:"a <b>slice of</b> bread", n:""},
+   {s:"a <b>bar of</b> chocolate", n:""}]},
+ {t:"Making them plural", d:"Make the UNIT word plural (not the non-count noun).", ex:[
+   {s:"three <b>pieces of</b> cake", n:"pieces, not cakes"},
+   {s:"two <b>loaves of</b> bread", n:"loaves"},
+   {s:"a few <b>drops of</b> rain", n:""}]}
+],
+mistakes:[
+ {no:"I'd like a tea, please.", yes:"I'd like a cup of tea, please.", why:"Tea is non-count — count it with 'a cup of'."},
+ {no:"two breads", yes:"two loaves of bread / two pieces of bread", why:"Bread is non-count; count it with a unit word."},
+ {no:"a piece of cakes", yes:"a piece of cake", why:"Make the unit plural (pieces), not the non-count noun."}
+],
+tip:"To count a non-count noun, add a unit: a + cup/piece/slice/bottle + of + noun. Make the UNIT plural (two cups of…), not the noun.",
+q:[
+ {t:"mcq", q:"Can I have a ___ of water?", opts:["piece","glass","slice","loaf"], a:1, why:"water → a glass of water."},
+ {t:"mcq", q:"He ate two ___ of pizza.", opts:["slice","slices","pieces of slice","loaves"], a:1, why:"two slices of pizza (unit is plural)."},
+ {t:"mcq", q:"Which is correct?", opts:["a bread","a loaf of bread","a piece of breads","two bread"], a:1, why:"a loaf of bread."},
+ {t:"fill", q:"Would you like a ___ of cake? (a portion)", ans:["piece","slice"], hint:"a ___ of cake", why:"a piece / slice of cake."},
+ {t:"fill", q:"She gave me a good piece ___ advice.", ans:["of"], hint:"a piece ___ advice", why:"a piece OF advice."},
+ {t:"spot", sent:"I drank three cup of tea .", wrong:2, fix:"cups", why:"Make the unit plural: three cups of tea."},
+ {t:"mcq", q:"A ___ of chocolate, please.", opts:["glass","bar","bowl","slice"], a:1, why:"chocolate → a bar of chocolate."},
+ {t:"spot", sent:"He bought two bottle of milk .", wrong:2, fix:"bottles", why:"Make the unit plural: two bottles of milk."}
+]},
+
+{
 id:"wh-questions", zh:"疑問詞問句", unit:"u7", n:"3.1", title:"Wh- Questions", sub:"Who, what, when, where, why, how — asking for real information.",
 form:{p:"Wh-word + do / does / did (or be) + subject + verb", ex:["<b>Where</b> do you live?","<b>What</b> is that?","<b>Why</b> did she leave?"]},
 uses:[
@@ -3262,6 +3364,142 @@ q:[
 ]},
 
 /* ================= ADVANCED ================= */
+
+{
+id:"as-as", zh:"as … as 同級比較", unit:"u8", n:"7.4", title:"As … As Comparisons", sub:"Saying two things are the same — or not the same — in some way.",
+form:{p:"as + adjective/adverb + as", ex:["as tall <b>as</b> me","not <b>as</b> big <b>as</b> yours","as fast <b>as</b> a train"]},
+uses:[
+ {t:"as … as = the same (equal)", d:"Use 'as + adjective + as' to say two things are equal in some quality.", ex:[
+   {s:"Tom is <b>as tall as</b> his brother.", n:"same height"},
+   {s:"This book is <b>as good as</b> that one.", n:""},
+   {s:"She runs <b>as fast as</b> me.", n:"as + adverb + as"}]},
+ {t:"not as … as = less than", d:"'not as … as' means the first thing is less.", ex:[
+   {s:"I'm <b>not as old as</b> you.", n:"= younger than you"},
+   {s:"Today isn't <b>as hot as</b> yesterday.", n:"= cooler"},
+   {s:"The film wasn't <b>as good as</b> the book.", n:""}]},
+ {t:"Common set phrases", d:"Some 'as … as' phrases are fixed expressions.", ex:[
+   {s:"<b>as soon as</b> possible", n:"= ASAP"},
+   {s:"<b>as much as</b> you can", n:""},
+   {s:"<b>as well as</b> = and also", n:""}]}
+],
+mistakes:[
+ {no:"She is as taller as me.", yes:"She is as tall as me.", why:"Use the plain adjective between as … as: as tall as."},
+ {no:"He is not so tall than his dad.", yes:"He is not as tall as his dad.", why:"The pattern is not as … as (not 'than')."},
+ {no:"This is as good than that.", yes:"This is as good as that.", why:"It's as … as, not 'as … than'."}
+],
+tip:"as + plain adjective/adverb + as = equal. not as … as = less than. Don't use the comparative (-er) or 'than' inside as … as.",
+q:[
+ {t:"mcq", q:"My bag is ___ heavy ___ yours.", opts:["as / than","as / as","so / as","more / as"], a:1, why:"equal → as … as."},
+ {t:"mcq", q:"Which means 'today is cooler than yesterday'?", opts:["Today is as hot as yesterday.","Today isn't as hot as yesterday.","Today is hotter than yesterday.","Today is as cool than yesterday."], a:1, why:"not as hot as = less hot = cooler."},
+ {t:"mcq", q:"Which is correct?", opts:["as tall as","as taller as","as tall than","so tall as"], a:0, why:"as + plain adjective + as."},
+ {t:"fill", q:"Please reply as soon ___ possible.", ans:["as"], hint:"as … as", why:"as soon as possible."},
+ {t:"order", words:["She","sings","as","well","as","a","star"], sent:"She sings as well as a star", why:"as + adverb (well) + as."},
+ {t:"spot", sent:"He is as strong than an ox .", wrong:3, fix:"as", why:"as … as (not 'as … than')."},
+ {t:"mcq", q:"'I'm not as fast as you' means…", opts:["I'm faster.","You're faster.","We're the same.","I'm the fastest."], a:1, why:"not as fast as = I'm slower → you're faster."},
+ {t:"spot", sent:"This test is as easier as the last one .", wrong:2, fix:"easy", why:"Use the plain adjective: as easy as."}
+]},
+
+{
+id:"too-enough", zh:"too / enough", unit:"u8", n:"7.5", title:"Too & Enough", sub:"too = more than you want · enough = the right amount.",
+form:{p:"too + adjective · adjective + enough · enough + noun", ex:["<b>too</b> hot","warm <b>enough</b>","<b>enough</b> money"]},
+uses:[
+ {t:"too + adjective = more than needed (a problem)", d:"'too' means excessively — it's a bad thing.", ex:[
+   {s:"This coffee is <b>too hot</b> to drink.", n:"a problem"},
+   {s:"You're driving <b>too fast</b>.", n:""},
+   {s:"It's <b>too</b> expensive for me.", n:""}]},
+ {t:"enough AFTER an adjective/adverb", d:"'enough' means the right amount. It comes after an adjective or adverb.", ex:[
+   {s:"Is the water <b>warm enough</b>?", n:"adjective + enough"},
+   {s:"He didn't run <b>fast enough</b>.", n:"adverb + enough"},
+   {s:"She's old <b>enough</b> to drive.", n:""}]},
+ {t:"enough BEFORE a noun", d:"'enough' comes BEFORE a noun.", ex:[
+   {s:"We have <b>enough time</b>.", n:"enough + noun"},
+   {s:"There aren't <b>enough chairs</b>.", n:""},
+   {s:"Do you have <b>enough money</b>?", n:""}]}
+],
+mistakes:[
+ {no:"It's enough hot to swim.", yes:"It's hot enough to swim.", why:"enough goes AFTER an adjective: hot enough."},
+ {no:"He is too much tall.", yes:"He is too tall.", why:"Use too + adjective (no 'much'): too tall."},
+ {no:"I don't have money enough.", yes:"I don't have enough money.", why:"enough goes BEFORE a noun: enough money."}
+],
+tip:"too + adjective (a problem: too hot). adjective + enough (just right: hot enough). enough + noun (enough money).",
+q:[
+ {t:"mcq", q:"This soup is ___ salty. I can't eat it.", opts:["enough","too","so much","very enough"], a:1, why:"a problem (can't eat) → too salty."},
+ {t:"mcq", q:"Is it warm ___ to go outside?", opts:["too","enough","too much","so"], a:1, why:"adjective + enough → warm enough."},
+ {t:"mcq", q:"We don't have ___ chairs for everyone.", opts:["too","enough","enough of","too much"], a:1, why:"enough + noun → enough chairs."},
+ {t:"fill", q:"She isn't tall ___ to reach the shelf.", ans:["enough"], hint:"adjective + ?", why:"tall enough."},
+ {t:"order", words:["The","box","is","too","heavy","to","lift"], sent:"The box is too heavy to lift", why:"too + adjective (a problem)."},
+ {t:"spot", sent:"He is enough old to vote .", wrong:1, fix:"old enough", why:"enough goes after the adjective: old enough."},
+ {t:"mcq", q:"'It's too small' means it is…", opts:["the right size","bigger than needed","smaller than you want","just right"], a:2, why:"too small = a problem, smaller than you want."},
+ {t:"spot", sent:"Do we have time enough ?", wrong:2, fix:"enough time", why:"enough goes before a noun: enough time."}
+]},
+
+{
+id:"either-or", zh:"either…or / neither…nor", unit:"u8", n:"7.6", title:"Either…or / Neither…nor", sub:"Choosing between two — one or the other, or not either one.",
+form:{p:"either A or B · neither A nor B", ex:["<b>either</b> tea <b>or</b> coffee","<b>neither</b> hot <b>nor</b> cold","<b>either</b> of them"]},
+uses:[
+ {t:"either … or = one of the two", d:"'either A or B' means one of the two choices.", ex:[
+   {s:"You can have <b>either</b> cake <b>or</b> ice cream.", n:"one of them"},
+   {s:"We'll meet <b>either</b> on Monday <b>or</b> on Tuesday.", n:""},
+   {s:"<b>Either</b> you <b>or</b> I will go.", n:""}]},
+ {t:"neither … nor = not one and not the other", d:"'neither A nor B' means NOT A and NOT B. The verb stays positive.", ex:[
+   {s:"<b>Neither</b> Tom <b>nor</b> Sam came.", n:"not Tom, not Sam"},
+   {s:"She likes <b>neither</b> tea <b>nor</b> coffee.", n:"positive verb 'likes'"},
+   {s:"It was <b>neither</b> cheap <b>nor</b> good.", n:""}]},
+ {t:"The verb agrees with the nearer subject", d:"When either/neither joins two subjects, the verb matches the one closest to it.", ex:[
+   {s:"Either the cats or the dog <b>is</b> hungry.", n:"nearest = the dog → is"},
+   {s:"Neither he nor his friends <b>were</b> late.", n:"nearest = friends → were"},
+   {s:"Either you or she <b>has</b> the key.", n:""}]}
+],
+mistakes:[
+ {no:"I don't like neither coffee nor tea.", yes:"I like neither coffee nor tea. / I don't like coffee or tea.", why:"neither is already negative — don't add another negative."},
+ {no:"You can have either cake nor ice cream.", yes:"You can have either cake or ice cream.", why:"either goes with or; neither goes with nor."},
+ {no:"Neither of them are ready.", yes:"Neither of them is ready.", why:"'neither' is treated as singular → is (in careful English)."}
+],
+tip:"either … OR (one of two). neither … NOR (not either one — the verb stays positive). Don't pair either with nor.",
+q:[
+ {t:"mcq", q:"You can pay ___ by cash ___ by card.", opts:["either / nor","neither / or","either / or","both / and"], a:2, why:"either … or (one of two)."},
+ {t:"mcq", q:"___ Anna ___ Ben likes fish — they both hate it.", opts:["Either / or","Neither / nor","Both / and","Either / nor"], a:1, why:"not Anna and not Ben → Neither … nor."},
+ {t:"mcq", q:"Which is correct?", opts:["I don't want neither.","I want neither.","I don't like neither this nor that.","Neither I don't want."], a:1, why:"neither is already negative; keep the verb positive."},
+ {t:"fill", q:"We can go ___ today or tomorrow.", ans:["either"], hint:"pairs with 'or'", why:"either … or."},
+ {t:"order", words:["Neither","he","nor","she","was","there"], sent:"Neither he nor she was there", why:"neither … nor + positive verb."},
+ {t:"spot", sent:"She speaks either French nor German .", wrong:3, fix:"or", why:"either pairs with or."},
+ {t:"mcq", q:"'Neither answer is correct' means…", opts:["Both are correct.","One is correct.","Not one of them is correct.","All are correct."], a:2, why:"neither = not one and not the other."},
+ {t:"spot", sent:"I don't like neither of them .", wrong:2, fix:"either", why:"With don't, use either (no double negative)."}
+]},
+
+{
+id:"although-however", zh:"讓步連接 although / however", unit:"u8", n:"7.7", title:"Although & However", sub:"Showing a contrast — 'but' in a more formal way.",
+form:{p:"Although + clause, clause · Sentence. However, sentence.", ex:["<b>Although</b> it rained, we went out.","It rained. <b>However</b>, we went out.","She's rich, <b>but</b> unhappy."]},
+uses:[
+ {t:"although / even though — joins two clauses", d:"Use although at the start of a clause to show a surprising contrast. It connects two parts in one sentence.", ex:[
+   {s:"<b>Although</b> he was tired, he kept working.", n:"contrast in one sentence"},
+   {s:"We enjoyed it, <b>although</b> it was expensive.", n:"can go in the middle"},
+   {s:"<b>Even though</b> she studied, she failed.", n:"stronger than although"}]},
+ {t:"however — links two sentences", d:"However shows a contrast between two separate sentences. It usually starts a new sentence, with a comma after it.", ex:[
+   {s:"The plan was good. <b>However</b>, it was too expensive.", n:"new sentence + comma"},
+   {s:"I like tea. <b>However</b>, I prefer coffee.", n:""},
+   {s:"It's small; <b>however</b>, it's comfortable.", n:"after a semicolon"}]},
+ {t:"but — the simple everyday joiner", d:"but joins two ideas inside one sentence (less formal).", ex:[
+   {s:"It's cheap <b>but</b> good.", n:""},
+   {s:"I tried, <b>but</b> I couldn't do it.", n:""},
+   {s:"He's quiet <b>but</b> friendly.", n:""}]}
+],
+mistakes:[
+ {no:"Although it was late, but we stayed.", yes:"Although it was late, we stayed.", why:"Don't use although and but together — one is enough."},
+ {no:"I was tired. Although, I finished.", yes:"I was tired. However, I finished.", why:"To start a new contrasting sentence, use However (not Although)."},
+ {no:"However being tired, he worked.", yes:"Although he was tired, he worked.", why:"Although + a full clause (subject + verb)."}
+],
+tip:"Although + clause, clause (one sentence). However + a new sentence, with a comma. Don't pair 'although' with 'but'.",
+q:[
+ {t:"mcq", q:"___ it was raining, we went for a walk.", opts:["However","But","Although","So"], a:2, why:"Although starts a contrast clause."},
+ {t:"mcq", q:"The hotel was cheap. ___ , it was very clean.", opts:["Although","However","But","Because"], a:1, why:"However links two separate sentences."},
+ {t:"mcq", q:"Which sentence is correct?", opts:["Although it was cold, but we swam.","Although it was cold, we swam.","However it was cold, we swam.","It was cold, although we swam however."], a:1, why:"Although + clause, clause — no extra 'but'."},
+ {t:"fill", q:"It looks difficult. ___ , it's actually easy. (contrast, new sentence)", ans:["However"], hint:"starts a new sentence", why:"However, it's actually easy."},
+ {t:"order", words:["Although","she","was","busy","she","helped","me"], sent:"Although she was busy she helped me", why:"Although + clause, clause."},
+ {t:"fill", q:"___ he is young, he is very wise. (contrast, one sentence)", ans:["Although","Even though"], hint:"+ clause, clause", why:"Although + clause."},
+ {t:"mcq", q:"'However' is usually followed by a…", opts:["comma","question mark","full clause with no comma","dash only"], a:0, why:"However, … (a comma comes after it)."},
+ {t:"spot", sent:"However being late , she caught the train .", wrong:0, fix:"Although", why:"Use Although + a clause (she was late), not However + -ing."}
+]},
 
 {
 id:"passive", zh:"被動語態", unit:"u5", n:"8.1", title:"The Passive Voice", sub:"When the action matters more than who did it — rice is grown, the law was passed.",
