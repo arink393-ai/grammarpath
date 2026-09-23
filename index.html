@@ -2763,6 +2763,142 @@ q:[
 ]},
 
 {
+id:"used-to", zh:"過去習慣 used to", unit:"u3", n:"5.7", title:"Used To", sub:"Past habits and states that are no longer true.",
+form:{p:"subject + used to + base verb", ex:["I <b>used to</b> play tennis.","She <b>used to</b> live here.","We <b>didn't use to</b> have a car."]},
+uses:[
+ {t:"used to — a past habit that stopped", d:"Use used to + base verb for something that happened regularly in the past, but not now.", ex:[
+   {s:"I <b>used to</b> ride my bike to school.", n:"but I don't now"},
+   {s:"We <b>used to</b> watch cartoons every Saturday.", n:""},
+   {s:"He <b>used to</b> smoke, but he stopped.", n:""}]},
+ {t:"used to — a past state", d:"Also for a situation that was true before, but changed.", ex:[
+   {s:"There <b>used to</b> be a shop here.", n:"but not now"},
+   {s:"She <b>used to</b> have long hair.", n:""},
+   {s:"They <b>used to</b> be neighbours.", n:""}]},
+ {t:"Negatives & questions — use 'use to'", d:"With didn't and in questions, drop the -d: didn't use to / Did you use to…?", ex:[
+   {s:"I <b>didn't use to</b> like coffee.", n:"no -d after didn't"},
+   {s:"<b>Did</b> you <b>use to</b> play here?", n:""},
+   {s:"He <b>didn't use to</b> be so quiet.", n:""}]}
+],
+mistakes:[
+ {no:"I use to play football.", yes:"I used to play football.", why:"In the positive form it's used to (with -d)."},
+ {no:"I used to played tennis.", yes:"I used to play tennis.", why:"used to + base verb (play), not played."},
+ {no:"Did you used to live here?", yes:"Did you use to live here?", why:"After did, drop the -d: use to."}
+],
+tip:"used to + base verb = a past habit/state that isn't true now. But after didn't / did, drop the -d → 'use to'.",
+q:[
+ {t:"mcq", q:"I ___ live in Taipei, but now I live in Tainan.", opts:["use to","used to","am used to","used"], a:1, why:"past habit/state → used to."},
+ {t:"mcq", q:"___ you use to play the piano?", opts:["Do","Did","Are","Were"], a:1, why:"Question → Did you use to…?"},
+ {t:"mcq", q:"Which is correct?", opts:["I used to played.","I used to play.","I use to play.","I used play."], a:1, why:"used to + base verb (play)."},
+ {t:"fill", q:"She ___ to have a cat. (past habit, positive)", ans:["used"], hint:"positive form", why:"used to have."},
+ {t:"order", words:["We","used","to","live","by","the","sea"], sent:"We used to live by the sea", why:"used to + base verb."},
+ {t:"spot", sent:"He didn't used to like vegetables .", wrong:2, fix:"use", why:"After didn't, drop the -d: didn't use to."},
+ {t:"mcq", q:"'There used to be a cinema here' means…", opts:["There is a cinema now.","There was a cinema before, but not now.","There will be a cinema.","There is never a cinema."], a:1, why:"used to = true before, not now."},
+ {t:"spot", sent:"I use to walk to school every day .", wrong:1, fix:"used", why:"Positive form → used to."}
+]},
+
+{
+id:"past-time-words", zh:"過去時間詞 ago / last / yesterday", unit:"u3", n:"5.8", title:"Past Time Words", sub:"ago, last, yesterday — the time markers that go with the past simple.",
+form:{p:"…time + ago · last … · yesterday · in + past year", ex:["two days <b>ago</b>","<b>last</b> week","<b>yesterday</b> morning"]},
+uses:[
+ {t:"ago — counting back from now", d:"Put ago AFTER a length of time. It means 'before now'.", ex:[
+   {s:"I saw her three days <b>ago</b>.", n:"time + ago"},
+   {s:"The film started ten minutes <b>ago</b>.", n:""},
+   {s:"They moved here a year <b>ago</b>.", n:""}]},
+ {t:"last — the one before this", d:"Use last before night / week / month / year / Monday… No 'the', no preposition.", ex:[
+   {s:"We met <b>last</b> week.", n:"not 'the last week' / 'in last week'"},
+   {s:"<b>Last</b> night I slept early.", n:""},
+   {s:"She called <b>last</b> Monday.", n:""}]},
+ {t:"yesterday, in + year, this morning", d:"Other common past time markers.", ex:[
+   {s:"I finished it <b>yesterday</b>.", n:""},
+   {s:"He was born <b>in</b> 2009.", n:"in + a past year"},
+   {s:"We arrived <b>this morning</b>.", n:""}]}
+],
+mistakes:[
+ {no:"I saw him ago three days.", yes:"I saw him three days ago.", why:"ago comes AFTER the time: three days ago."},
+ {no:"We met in last week.", yes:"We met last week.", why:"No preposition with last: last week."},
+ {no:"She left yesterday night.", yes:"She left last night.", why:"Use 'last night', not 'yesterday night'."}
+],
+tip:"ago goes AFTER the time (two hours ago). last + week/night/year (no 'the', no 'in'). Say 'last night' (not 'yesterday night').",
+q:[
+ {t:"mcq", q:"I moved here two years ___.", opts:["ago","before","last","past"], a:0, why:"time + ago → two years ago."},
+ {t:"mcq", q:"We had a test ___ week.", opts:["ago","the last","last","in last"], a:2, why:"last week (no 'the', no 'in')."},
+ {t:"mcq", q:"Which is correct?", opts:["ago two days","two days ago","two ago days","in two days ago"], a:1, why:"ago comes after the time."},
+ {t:"fill", q:"He called me ___ night. (the night before)", ans:["last"], hint:"last ___", why:"last night."},
+ {t:"order", words:["She","arrived","an","hour","ago"], sent:"She arrived an hour ago", why:"time (an hour) + ago."},
+ {t:"spot", sent:"They got married in last summer .", wrong:3, fix:"last", why:"Drop 'in': last summer."},
+ {t:"mcq", q:"Which sentence needs the past simple?", opts:["I live here now.","I saw a film yesterday.","I will go tomorrow.","I am eating."], a:1, why:"'yesterday' is a past time word → past simple (saw)."},
+ {t:"spot", sent:"We came back yesterday night .", wrong:3, fix:"last", why:"Use 'last night', not 'yesterday night'."}
+]},
+
+{
+id:"stative-verbs", zh:"狀態動詞", unit:"u3", n:"5.9", title:"Stative Verbs", sub:"Verbs of thoughts, feelings and senses — usually NOT used in the -ing form.",
+form:{p:"stative verbs stay simple, not continuous", ex:["I <b>like</b> it. (not 'am liking')","She <b>knows</b> the answer.","This <b>tastes</b> good."]},
+uses:[
+ {t:"What are stative verbs?", d:"They describe a state, not an action: feelings (like, love, hate, want), thoughts (know, think, believe, understand) and belonging (have, own, belong).", ex:[
+   {s:"I <b>love</b> this song.", n:"feeling — not 'am loving'"},
+   {s:"She <b>knows</b> my name.", n:"thought"},
+   {s:"They <b>own</b> a shop.", n:"possession"}]},
+ {t:"Use the simple form, not -ing", d:"With stative verbs, use the present simple even for 'now'.", ex:[
+   {s:"I <b>understand</b> now.", n:"not 'I am understanding'"},
+   {s:"He <b>wants</b> a break.", n:""},
+   {s:"This soup <b>smells</b> nice.", n:"the senses"}]},
+ {t:"Some verbs have two meanings", d:"A few verbs are stative OR active depending on their meaning.", ex:[
+   {s:"I <b>think</b> it's true.", n:"opinion → stative"},
+   {s:"I<b>'m thinking</b> about my trip.", n:"action → continuous OK"},
+   {s:"She <b>has</b> a car. / She<b>'s having</b> lunch.", n:"own vs eat"}]}
+],
+mistakes:[
+ {no:"I am knowing the answer.", yes:"I know the answer.", why:"know is stative — no -ing."},
+ {no:"She is wanting a coffee.", yes:"She wants a coffee.", why:"want is stative — use the simple form."},
+ {no:"I am liking this film.", yes:"I like this film.", why:"like is a feeling (stative) — no -ing."}
+],
+tip:"Feelings, thoughts and senses (like, know, want, believe, taste…) usually don't take -ing. Say 'I understand', not 'I am understanding'.",
+q:[
+ {t:"mcq", q:"I ___ what you mean.", opts:["am understanding","understand","understands","understanding"], a:1, why:"understand is stative → simple form."},
+ {t:"mcq", q:"She ___ three languages.", opts:["is knowing","knows","know","are knowing"], a:1, why:"know is stative → knows."},
+ {t:"mcq", q:"Which sentence is correct?", opts:["I am wanting a drink.","I want a drink.","I wants a drink.","I am want a drink."], a:1, why:"want is stative → want."},
+ {t:"fill", q:"This cake ___ delicious! (taste — a sense, it → ?)", ans:["tastes"], hint:"stative sense verb", why:"tastes (stative)."},
+ {t:"order", words:["I","don't","believe","this","story"], sent:"I don't believe this story", why:"believe is stative → simple form."},
+ {t:"spot", sent:"He is having two sisters .", wrong:1, fix:"has", why:"have = possession here → stative → has (not 'is having')."},
+ {t:"mcq", q:"Which verb can take -ing (as an action)?", opts:["know","believe","think (= consider carefully)","own"], a:2, why:"'think about' as an action can be continuous: I'm thinking about it."},
+ {t:"spot", sent:"I am loving my new bike .", wrong:1, fix:"love", why:"love is a feeling (stative) → love, not 'am loving'."}
+]},
+
+{
+id:"for-since", zh:"現在完成式 for / since", unit:"u3", n:"5.10", title:"Present Perfect: For & Since", sub:"Saying how long — for a length of time, since a starting point.",
+form:{p:"have/has + V3 + for + period / since + point", ex:["I've lived here <b>for</b> five years.","She's been here <b>since</b> Monday.","We've known them <b>for</b> ages."]},
+uses:[
+ {t:"for + a length of time", d:"Use for with a period (how long): for two hours, for a week, for years.", ex:[
+   {s:"I've studied English <b>for</b> three years.", n:"a period"},
+   {s:"He's had that car <b>for</b> a long time.", n:""},
+   {s:"They've been married <b>for</b> ten years.", n:""}]},
+ {t:"since + a point in time", d:"Use since with a starting point (when it began): since 2010, since Monday, since I was a child.", ex:[
+   {s:"I've lived here <b>since</b> 2018.", n:"a start point"},
+   {s:"She's been ill <b>since</b> Tuesday.", n:""},
+   {s:"We've been friends <b>since</b> primary school.", n:""}]},
+ {t:"Ask 'How long…?'", d:"Use How long + present perfect to ask about duration.", ex:[
+   {s:"<b>How long</b> have you lived here?", n:""},
+   {s:"How long has she worked there?", n:""},
+   {s:"— For six months. / Since June.", n:"answer with for or since"}]}
+],
+mistakes:[
+ {no:"I've been here since three days.", yes:"I've been here for three days.", why:"three days is a length → for."},
+ {no:"She's worked here for Monday.", yes:"She's worked here since Monday.", why:"Monday is a starting point → since."},
+ {no:"I live here for five years.", yes:"I've lived here for five years.", why:"For 'how long up to now', use the present perfect (have lived)."}
+],
+tip:"for + how long (a period: for 3 days). since + when it started (a point: since Monday). Use them with the present perfect (have/has + V3).",
+q:[
+ {t:"mcq", q:"I've known her ___ ten years.", opts:["since","for","from","ago"], a:1, why:"ten years is a period → for."},
+ {t:"mcq", q:"He's lived in Japan ___ 2015.", opts:["for","since","from","ago"], a:1, why:"2015 is a start point → since."},
+ {t:"mcq", q:"___ have you studied English?", opts:["How much","How long","How many","How often"], a:1, why:"Duration → How long…?"},
+ {t:"fill", q:"We've been waiting ___ an hour. (a period)", ans:["for"], hint:"a length of time", why:"for an hour."},
+ {t:"fill", q:"She's been sick ___ Monday. (a point)", ans:["since"], hint:"a starting point", why:"since Monday."},
+ {t:"spot", sent:"I've had this phone since two years .", wrong:3, fix:"for", why:"two years is a period → for."},
+ {t:"mcq", q:"'I've worked here since June' means I started…", opts:["for June","in June, and I still work here","last June only","next June"], a:1, why:"since = the start point; I still work here now."},
+ {t:"spot", sent:"They have been friends for they were kids .", wrong:3, fix:"since", why:"'they were kids' is a starting point → since."}
+]},
+
+{
 id:"going-to-will", zh:"未來式 be going to / will", unit:"u4", n:"6.1", title:"Future: Going To vs Will", sub:"Two futures with different jobs — plans and evidence vs promises and snap decisions.",
 tl:{labels:[[30,"now"],[74,"future"]], dots:[74], now:30, cap:"Both point forward — the difference is when you decided."},
 form:{p:"be going to + verb   ·   will + verb", ex:["I<b>'m going to visit</b> my aunt on Sunday.","I<b>'ll help</b> you with those bags.","It<b>'s going to rain</b> — look at the sky."]},
@@ -2921,6 +3057,74 @@ q:[
  {t:"spot", sent:"If he will call , I'll let you know .", wrong:2, fix:"calls", why:"No will inside the if-clause."},
  {t:"mcq", q:"___ you water this plant, it will die.", opts:["If","When","Unless","Because"], a:2, why:"Unless = if you don't water it."},
  {t:"spot", sent:"If you study hard , you pass the exam .", wrong:5, fix:"will pass", why:"The result of a first conditional needs will."}
+]},
+
+{
+id:"future-arrangements", zh:"用現在進行式談未來安排", unit:"u4", n:"6.6", title:"Future: Present Continuous", sub:"Using 'be + -ing' for fixed future plans and arrangements.",
+form:{p:"subject + am / is / are + V-ing + future time", ex:["I<b>'m meeting</b> Sam tomorrow.","She<b>'s flying</b> to Tokyo on Friday.","We<b>'re having</b> dinner at 7."]},
+uses:[
+ {t:"Fixed plans & arrangements", d:"Use the present continuous for future plans you have already arranged (a time, a place, other people).", ex:[
+   {s:"I<b>'m seeing</b> the doctor at 3 p.m.", n:"an appointment"},
+   {s:"They<b>'re getting</b> married in June.", n:"a fixed plan"},
+   {s:"We<b>'re leaving</b> on Sunday.", n:""}]},
+ {t:"Add a future time word", d:"A future time (tomorrow, tonight, on Friday…) makes it clear you mean the future, not now.", ex:[
+   {s:"She<b>'s coming</b> <b>tonight</b>.", n:"future time signal"},
+   {s:"What are you doing <b>this weekend</b>?", n:""},
+   {s:"I<b>'m starting</b> my new job <b>next week</b>.", n:""}]},
+ {t:"Present continuous vs will vs going to", d:"Present continuous for arranged plans; will for decisions/predictions; going to for intentions.", ex:[
+   {s:"I<b>'m meeting</b> Ann at 6. (arranged)", n:"present continuous"},
+   {s:"I<b>'ll help</b> you. (decide now)", n:"will"},
+   {s:"I<b>'m going to</b> study tonight. (intention)", n:"going to"}]}
+],
+mistakes:[
+ {no:"I meet my friend tomorrow.", yes:"I'm meeting my friend tomorrow.", why:"For an arranged plan, use the present continuous."},
+ {no:"She is fly to Tokyo on Friday.", yes:"She is flying to Tokyo on Friday.", why:"be + V-ing: is flying."},
+ {no:"We are go to the concert tonight.", yes:"We are going to the concert tonight.", why:"be + V-ing: are going."}
+],
+tip:"Present continuous (be + -ing) also talks about the FUTURE — for plans you've already arranged, usually with a future time word (tomorrow, on Friday).",
+q:[
+ {t:"mcq", q:"I ___ my grandparents this weekend. (an arranged plan)", opts:["visit","'m visiting","visited","visits"], a:1, why:"arranged future plan → present continuous."},
+ {t:"mcq", q:"What ___ you doing tonight?", opts:["do","are","is","will"], a:1, why:"present continuous → are you doing."},
+ {t:"mcq", q:"Which best fits an already-arranged appointment?", opts:["I see the dentist at 4.","I'm seeing the dentist at 4.","I will see the dentist someday.","I saw the dentist."], a:1, why:"arrangement → present continuous."},
+ {t:"fill", q:"They ___ getting married next month. (be)", ans:["are"], hint:"they + be", why:"they → are getting."},
+ {t:"order", words:["We","are","leaving","on","Sunday"], sent:"We are leaving on Sunday", why:"be + V-ing + future time."},
+ {t:"spot", sent:"She is fly to London tomorrow .", wrong:2, fix:"flying", why:"be + V-ing → is flying."},
+ {t:"mcq", q:"'I'm meeting Sam at 6' means…", opts:["I meet Sam every day.","I have arranged to meet Sam at 6.","I met Sam at 6.","I want to meet Sam."], a:1, why:"present continuous for a fixed arrangement."},
+ {t:"spot", sent:"I am start my new job next week .", wrong:2, fix:"starting", why:"be + V-ing → am starting."}
+]},
+
+{
+id:"tenses-review", zh:"時態總複習", unit:"u4", n:"6.7", title:"Tenses Review", sub:"Choosing the right tense — a mixed review of past, present and future.",
+form:{p:"let the time signal choose the tense", ex:["every day → present simple","now → present continuous","yesterday → past simple","for/since → present perfect"]},
+uses:[
+ {t:"Present: simple vs continuous", d:"Present simple for habits & facts (every day, usually); present continuous for right now.", ex:[
+   {s:"I <b>walk</b> to school every day.", n:"habit → present simple"},
+   {s:"Look! It<b>'s raining</b>.", n:"now → present continuous"},
+   {s:"She <b>works</b> in a bank.", n:"a fact"}]},
+ {t:"Past: simple vs present perfect", d:"Past simple for a finished time (yesterday, in 2019); present perfect for experience or 'up to now' (ever, for, since).", ex:[
+   {s:"I <b>visited</b> Kyoto in 2019.", n:"finished time → past simple"},
+   {s:"I<b>'ve visited</b> Kyoto twice.", n:"experience → present perfect"},
+   {s:"She<b>'s lived</b> here <b>since</b> May.", n:"up to now"}]},
+ {t:"Future: will / going to / present continuous", d:"will for decisions & predictions; going to for intentions; present continuous for arrangements.", ex:[
+   {s:"It<b>'ll</b> be sunny tomorrow.", n:"prediction → will"},
+   {s:"I<b>'m going to</b> save money.", n:"intention → going to"},
+   {s:"We<b>'re flying</b> on Monday.", n:"arrangement → present continuous"}]}
+],
+mistakes:[
+ {no:"I have seen him yesterday.", yes:"I saw him yesterday.", why:"With 'yesterday' (a finished time), use the past simple."},
+ {no:"She works right now.", yes:"She's working right now.", why:"For 'right now', use the present continuous."},
+ {no:"I live here since 2015.", yes:"I've lived here since 2015.", why:"With 'since', use the present perfect."}
+],
+tip:"Let the time word choose the tense: every day → present simple; now → present continuous; yesterday → past simple; for/since → present perfect; tomorrow → will/going to/present continuous.",
+q:[
+ {t:"mcq", q:"Listen! The baby ___ .", opts:["cries","is crying","cried","has cried"], a:1, why:"'Listen!' = now → present continuous."},
+ {t:"mcq", q:"I ___ my homework an hour ago.", opts:["finish","have finished","finished","am finishing"], a:2, why:"'an hour ago' (finished time) → past simple."},
+ {t:"mcq", q:"She ___ in this city since 2016.", opts:["lives","lived","has lived","is living"], a:2, why:"'since' → present perfect."},
+ {t:"mcq", q:"We usually ___ dinner at seven.", opts:["are having","have","had","have had"], a:1, why:"'usually' (habit) → present simple."},
+ {t:"fill", q:"Look at those clouds — it ___ going to rain. (be)", ans:["is"], hint:"it → ?", why:"it is going to rain (prediction with evidence)."},
+ {t:"spot", sent:"I have watched a great film yesterday .", wrong:1, fix:"watched", why:"'yesterday' → past simple: I watched."},
+ {t:"mcq", q:"'I've been to Japan' is which tense?", opts:["past simple","present perfect","future","present continuous"], a:1, why:"have + been = present perfect (experience)."},
+ {t:"spot", sent:"They are knowing the answer .", wrong:1, fix:"know", why:"know is stative → present simple: they know."}
 ]},
 
 {
@@ -3354,6 +3558,74 @@ q:[
  {t:"mcq", q:"\u201cWe needn't have booked\u201d means…", opts:["We didn't book.","We booked, but it wasn't necessary.","We must book now.","Booking was impossible."], a:1, why:"Needn't have = did it, but it wasn't needed."},
  {t:"fill", q:"That ___ be Lisa at the door — she's in Japan!", ans:["can't","cannot"], hint:"surely not", why:"Impossible → can't be."},
  {t:"spot", sent:"You should have wake me up earlier .", wrong:3, fix:"woken", why:"Should have + past participle: woken."}
+]},
+
+{
+id:"prefixes", zh:"字首 un- / re- / im- / in-", unit:"u9", n:"10.4", title:"Prefixes: un-, re-, im-/in-", sub:"Small beginnings that change a word's meaning — 'not' and 'again'.",
+form:{p:"prefix + word → new meaning", ex:["<b>un</b>happy = not happy","<b>re</b>write = write again","<b>im</b>possible = not possible"]},
+uses:[
+ {t:"un- / in- / im- / il- / ir- = 'not'", d:"These make a word negative. Use im- before m/p, il- before l, ir- before r; in- or un- otherwise.", ex:[
+   {s:"<b>un</b>kind, <b>un</b>fair, <b>un</b>able", n:"un + adjective"},
+   {s:"<b>im</b>polite, <b>im</b>patient", n:"im- before m / p"},
+   {s:"<b>in</b>correct, <b>ir</b>regular, <b>il</b>legal", n:"in- / ir- / il-"}]},
+ {t:"re- = 'again' or 'back'", d:"re- means to do something again.", ex:[
+   {s:"<b>re</b>do the homework", n:"do again"},
+   {s:"<b>re</b>read the chapter", n:"read again"},
+   {s:"<b>re</b>turn = come back", n:"back"}]},
+ {t:"Keep the base word's spelling", d:"Just add the prefix — don't drop or double letters (some words keep a double letter).", ex:[
+   {s:"un + necessary = <b>unnecessary</b>", n:"two n's — both stay"},
+   {s:"dis + appear = <b>disappear</b>", n:"one s"},
+   {s:"re + enter = <b>re-enter</b>", n:"sometimes a hyphen for clarity"}]}
+],
+mistakes:[
+ {no:"He is inpolite.", yes:"He is impolite.", why:"Before p (and m), use im-: impolite."},
+ {no:"That's unpossible.", yes:"That's impossible.", why:"The opposite of possible is impossible (im-)."},
+ {no:"That noise is unecessary.", yes:"That noise is unnecessary.", why:"un + necessary keeps both n's: unnecessary."}
+],
+tip:"un- / in- / im- / il- / ir- all mean 'not'. re- means 'again'. Keep the base word's spelling — don't drop letters.",
+q:[
+ {t:"mcq", q:"The opposite of 'happy' is ___.", opts:["dishappy","unhappy","inhappy","imhappy"], a:1, why:"unhappy = not happy."},
+ {t:"mcq", q:"'Please ___ your work' (= write it again).", opts:["unwrite","rewrite","dewrite","miswrite"], a:1, why:"re- = again → rewrite."},
+ {t:"mcq", q:"The opposite of 'possible' is ___.", opts:["unpossible","inpossible","impossible","dispossible"], a:2, why:"im- before p → impossible."},
+ {t:"fill", q:"He was very ___patient while waiting. (not patient)", ans:["im"], hint:"prefix before 'patient'", why:"im- before p → impatient."},
+ {t:"fill", q:"The opposite of 'correct' is ___correct.", ans:["in"], hint:"prefix meaning 'not'", why:"incorrect = not correct."},
+ {t:"spot", sent:"This rule is unregular .", wrong:2, fix:"irregular", why:"Before r, use ir-: irregular."},
+ {t:"mcq", q:"'re-' in 'rebuild' means…", opts:["not","again","before","very"], a:1, why:"re- = again → build again."},
+ {t:"spot", sent:"That homework is unecessary .", wrong:2, fix:"unnecessary", why:"un + necessary keeps both n's."}
+]},
+
+{
+id:"suffixes", zh:"字尾 -er / -able / -ness", unit:"u9", n:"10.5", title:"Suffixes: -er, -able, -ness", sub:"Small endings that turn a word into a person, a describing word or an idea.",
+form:{p:"word + suffix → new word class", ex:["teach + <b>er</b> = teacher (person)","comfort + <b>able</b> = comfortable (adj.)","kind + <b>ness</b> = kindness (noun)"]},
+uses:[
+ {t:"-er = a person or thing that does something", d:"Add -er to a verb to make the doer.", ex:[
+   {s:"teach → <b>teacher</b>", n:"a person who teaches"},
+   {s:"drive → <b>driver</b>", n:""},
+   {s:"win → <b>winner</b>", n:"double the n: winner"}]},
+ {t:"-able = 'can be…' (makes an adjective)", d:"Add -able to a verb to make an adjective meaning 'can be done'.", ex:[
+   {s:"enjoy → <b>enjoyable</b>", n:"can be enjoyed"},
+   {s:"break → <b>breakable</b>", n:"can be broken"},
+   {s:"use → <b>usable</b>", n:"drop the e: usable"}]},
+ {t:"-ness = an idea or quality (makes a noun)", d:"Add -ness to an adjective to make an abstract noun.", ex:[
+   {s:"kind → <b>kindness</b>", n:"the quality of being kind"},
+   {s:"happy → <b>happiness</b>", n:"y → i: happiness"},
+   {s:"dark → <b>darkness</b>", n:""}]}
+],
+mistakes:[
+ {no:"She is a good teach.", yes:"She is a good teacher.", why:"A person who teaches is a teacher (+ -er)."},
+ {no:"I want happyness.", yes:"I want happiness.", why:"happy → happiness (y → i before -ness)."},
+ {no:"This chair is very comfort.", yes:"This chair is very comfortable.", why:"Comfort (noun) → comfortable (adjective)."}
+],
+tip:"-er makes the doer (teach → teacher). -able makes an adjective 'can be…' (enjoy → enjoyable). -ness makes an idea-noun (kind → kindness). Watch spelling: y → i, drop silent e.",
+q:[
+ {t:"mcq", q:"A person who sings is a ___.", opts:["singness","singable","singer","singment"], a:2, why:"sing + -er → singer (the doer)."},
+ {t:"mcq", q:"'happy' + '-ness' = ___.", opts:["happyness","happiness","happieness","happness"], a:1, why:"y → i: happiness."},
+ {t:"mcq", q:"Something you can enjoy is ___.", opts:["enjoyer","enjoyness","enjoyable","enjoyment"], a:2, why:"enjoy + -able → enjoyable ('can be enjoyed')."},
+ {t:"fill", q:"kind + -ness = ___ .", ans:["kindness"], hint:"an idea-noun", why:"kindness = the quality of being kind."},
+ {t:"fill", q:"A person who drives is a ___ .", ans:["driver"], hint:"drive + -er", why:"driver = one who drives."},
+ {t:"spot", sent:"This bottle is breakible .", wrong:2, fix:"breakable", why:"The suffix is -able → breakable."},
+ {t:"mcq", q:"'-ness' turns an adjective into a…", opts:["verb","person","noun","adverb"], a:2, why:"-ness makes an abstract noun (dark → darkness)."},
+ {t:"spot", sent:"He shows great kindess .", wrong:2, fix:"kindness", why:"kind + ness → kindness."}
 ]}
 ]};
 
@@ -9860,7 +10132,9 @@ const RD_ART = {
   rocket:`<svg viewBox="0 0 64 64"><path d="M32 8 q9 10 9 24 l-4 8h-10l-4-8 q0-14 9-24z" fill="#F5EEE4" stroke="#C9A98E" stroke-width="1.5"/><circle cx="32" cy="26" r="4.5" fill="#7FB5B5"/><path d="M23 32 l-6 10 6-2z M41 32 l6 10-6-2z" fill="#E8A87C"/><path d="M29 40 q3 10 3 14 q0-4 3-14z" fill="#EEB868"/></svg>`,
   trophy:`<svg viewBox="0 0 64 64"><path d="M22 14h20v9a10 10 0 0 1-20 0z" fill="#EEB868" stroke="#5A4232" stroke-width="2"/><path d="M22 16h-6a6 6 0 0 0 7 8M42 16h6a6 6 0 0 1-7 8" fill="none" stroke="#C9A98E" stroke-width="2"/><rect x="30" y="33" width="4" height="6" fill="#C9A98E"/><rect x="23" y="42" width="18" height="4" rx="1.5" fill="#5A4232"/><path d="M32 17l1.4 3 3 .3-2.2 2 .6 3-2.8-1.6-2.8 1.6.6-3-2.2-2 3-.3z" fill="#F5EEE4"/></svg>`,
   crown:`<svg viewBox="0 0 64 64"><path d="M15 41l-4-19 11 8 10-14 10 14 11-8-4 19z" fill="#EEB868" stroke="#5A4232" stroke-width="2" stroke-linejoin="round"/><rect x="15" y="41" width="34" height="6" rx="1.5" fill="#5A4232"/><circle cx="32" cy="20" r="2.4" fill="#E8A87C"/><circle cx="13" cy="24" r="1.8" fill="#E8A87C"/><circle cx="51" cy="24" r="1.8" fill="#E8A87C"/></svg>`,
-  heat:`<svg viewBox="0 0 64 64"><circle cx="26" cy="24" r="9" fill="#EEB868"/><g stroke="#E8A87C" stroke-width="2" stroke-linecap="round"><path d="M26 9v4M26 39v-4M11 24h4M41 24h-4M15 13l3 3M37 13l-3 3M15 35l3-3"/></g><rect x="44" y="12" width="8" height="30" rx="4" fill="#F5EEE4" stroke="#C9A98E" stroke-width="1.5"/><rect x="46.5" y="24" width="3" height="20" fill="#D98A6C"/><circle cx="48" cy="48" r="7" fill="#D98A6C" stroke="#C9A98E" stroke-width="1.5"/></svg>`
+  heat:`<svg viewBox="0 0 64 64"><circle cx="26" cy="24" r="9" fill="#EEB868"/><g stroke="#E8A87C" stroke-width="2" stroke-linecap="round"><path d="M26 9v4M26 39v-4M11 24h4M41 24h-4M15 13l3 3M37 13l-3 3M15 35l3-3"/></g><rect x="44" y="12" width="8" height="30" rx="4" fill="#F5EEE4" stroke="#C9A98E" stroke-width="1.5"/><rect x="46.5" y="24" width="3" height="20" fill="#D98A6C"/><circle cx="48" cy="48" r="7" fill="#D98A6C" stroke="#C9A98E" stroke-width="1.5"/></svg>`,
+  moon:`<svg viewBox="0 0 64 64"><circle cx="32" cy="29" r="18" fill="#F3E7C6" stroke="#E0C98A" stroke-width="2"/><circle cx="26" cy="24" r="3.2" fill="#E4D3A0" opacity=".7"/><circle cx="38" cy="33" r="4" fill="#E4D3A0" opacity=".6"/><circle cx="34" cy="21" r="2" fill="#E4D3A0" opacity=".6"/><path d="M12 45 q6-5 12 0 t12 0 t12 0" fill="none" stroke="#B9C9C9" stroke-width="2" opacity=".75"/><circle cx="10" cy="13" r="1.6" fill="#EEB868"/><circle cx="55" cy="17" r="1.4" fill="#EEB868"/><circle cx="51" cy="49" r="1.3" fill="#EEB868"/></svg>`,
+  book:`<svg viewBox="0 0 64 64"><path d="M32 18 q-8-5-18-4 v28 q10-1 18 4 q8-5 18-4 v-28 q-10-1-18 4z" fill="#F5EEE4" stroke="#5A4232" stroke-width="2" stroke-linejoin="round"/><path d="M32 18 v32" stroke="#5A4232" stroke-width="2"/><path d="M18 23 q5-.6 10 1.6 M18 29 q5-.6 10 1.6 M18 35 q5-.6 10 1.6" stroke="#C9A98E" stroke-width="1.5" fill="none"/><path d="M46 23 q-5-.6-10 1.6 M46 29 q-5-.6-10 1.6 M46 35 q-5-.6-10 1.6" stroke="#C9A98E" stroke-width="1.5" fill="none"/></svg>`
 };
 let RD_LEVEL = "a";
 let RD_ANS = {};
