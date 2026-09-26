@@ -3901,6 +3901,40 @@ q:[
 ]},
 
 {
+id:"wish-present", zh:"願望句 I wish", unit:"u6", n:"9.4", title:"Wish: Present", sub:"Wishing the present were different — I wish I had more time.",
+form:{p:"wish + past simple (for now) · wish + could + base verb", ex:["I <b>wish</b> I <b>had</b> a car.","I <b>wish</b> I <b>were</b> taller.","I <b>wish</b> I <b>could</b> fly."]},
+uses:[
+ {t:"wish + past simple = a different present", d:"Use wish + the past simple to wish that a present situation were different. It is NOT true now.", ex:[
+   {s:"I <b>wish</b> I <b>lived</b> by the sea.", n:"but I don't"},
+   {s:"She <b>wishes</b> she <b>knew</b> his name.", n:"but she doesn't"},
+   {s:"We <b>wish</b> we <b>had</b> more money.", n:""}]},
+ {t:"wish + were (for all subjects)", d:"With the verb be, use 'were' for every subject in careful English.", ex:[
+   {s:"I <b>wish</b> I <b>were</b> on holiday.", n:"were (not 'was')"},
+   {s:"He <b>wishes</b> he <b>were</b> taller.", n:""},
+   {s:"I <b>wish</b> it <b>weren't</b> so cold.", n:""}]},
+ {t:"wish + could = an ability we don't have", d:"Use wish + could + base verb to wish for an ability or possibility.", ex:[
+   {s:"I <b>wish</b> I <b>could</b> swim.", n:"but I can't"},
+   {s:"They <b>wish</b> they <b>could</b> come.", n:""},
+   {s:"I <b>wish</b> I <b>could</b> speak French.", n:""}]}
+],
+mistakes:[
+ {no:"I wish I have more time.", yes:"I wish I had more time.", why:"After wish (about now), use the past simple: had."},
+ {no:"I wish I can fly.", yes:"I wish I could fly.", why:"Use 'could' (not 'can') after wish."},
+ {no:"I wish I will be rich.", yes:"I wish I were rich.", why:"For a present wish, use the past (were), not 'will'."}
+],
+tip:"wish + past simple = wanting the present to be different (I wish I had… = but I don't). With be, use 'were'. For ability, use 'wish + could'.",
+q:[
+ {t:"mcq", q:"I wish I ___ a bigger house. (but I don't)", opts:["have","had","will have","having"], a:1, why:"present wish → wish + past simple (had)."},
+ {t:"mcq", q:"She wishes she ___ taller. (be)", opts:["is","was","were","will be"], a:2, why:"After wish, use 'were' with be."},
+ {t:"mcq", q:"I wish I ___ play the guitar. (an ability I don't have)", opts:["can","could","will","am"], a:1, why:"wish + could for ability."},
+ {t:"fill", q:"It's so noisy. I wish it ___ quiet. (be, present wish)", ans:["were","was"], hint:"wish + were", why:"I wish it were quiet."},
+ {t:"fill", q:"I don't know the answer. I wish I ___ . (know, present wish)", ans:["knew"], hint:"past of know", why:"I wish I knew."},
+ {t:"order", words:["I","wish","I","lived","near","you"], sent:"I wish I lived near you", why:"wish + past simple (lived) = but I don't."},
+ {t:"spot", sent:"I wish I can speak Japanese .", wrong:3, fix:"could", why:"Use 'could' after wish, not 'can'."},
+ {t:"mcq", q:"'I wish I had a dog' means…", opts:["I have a dog.","I don't have a dog, but I want one.","I will get a dog.","I had a dog before."], a:1, why:"wish + past = it's not true now; I want it."}
+]},
+
+{
 id:"gerunds-infinitives", zh:"動名詞與不定詞", unit:"u9", n:"10.1", title:"Gerunds & Infinitives", sub:"Enjoy swimming but decide to swim — which verb takes which form?",
 form:{p:"verb + -ing (gerund)   ·   verb + to + base (infinitive)", ex:["I enjoy <b>reading</b>.","She decided <b>to leave</b>.","He stopped <b>smoking</b>."]},
 uses:[
@@ -9385,6 +9419,276 @@ function youglishURL(phrase){
    全文為原創英文，未複製任何原報導文字。 */
 const READINGS = [
 {
+ id:"animal-day-2026",
+ topic:"World Animal Day", zh:"世界動物日",
+ src:"World Animal Day · United Nations · BBC", date:"2026-10-04", week:"9/28–10/4",
+ tag:"Animals 動物", icon:"paw",
+ proper:["World","Animal","Day","October","Saint","Francis","Assisi","Earth"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:114,
+   title:"A Day for Animals",
+   text:[
+    "October 4 is World Animal Day. It is a day to think about animals and how we treat them.",
+    "Animals share our world. Some live in our homes, like cats and dogs. Others live in forests, oceans, and the sky.",
+    "On this day, people learn how to care for animals. They talk about pets, farm animals, and wild animals in danger.",
+    "Many animals need our help. Some lose their homes when forests are cut down. Some need a kind family to adopt them.",
+    "You can help too. Be gentle with pets. Give them food, water, and love. Never leave an animal alone in the cold.",
+    "When we are kind to animals, the whole world becomes a better home for everyone."],
+   gloss:[["treat","v.","對待"],["share","v.","共享；分享"],["care for","phr.","照顧"],["wild","adj.","野生的"],["adopt","v.","領養"],["gentle","adj.","溫柔的"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["Caring about animals and how we treat them","How to train a dog to sit","A trip to a big forest","A new zoo in Taiwan"], a:0,
+     why:"全文在談世界動物日，以及我們該如何善待動物。"},
+    {t:"細節 Detail", q:"When is World Animal Day?",
+     opts:["October 4","January 1","December 25","July 4"], a:0,
+     why:"第一段：October 4 is World Animal Day。"},
+    {t:"細節 Detail", q:"Why do some animals lose their homes?",
+     opts:["They move to the city","Forests are cut down","They do not like their homes","There is too much food"], a:1,
+     why:"第四段：Some lose their homes when forests are cut down。"},
+    {t:"字義 Vocabulary", q:"In the text, “adopt” means ___.",
+     opts:["to sell an animal","to take an animal into your home and care for it","to draw an animal","to feed a wild animal once"], a:1,
+     why:"adopt = 領養，把動物帶回家當自己的家人來照顧。"},
+    {t:"推論 Inference", q:"What does the text say YOU can do to help?",
+     opts:["Cut down forests","Be gentle with pets and give them food, water, and love","Leave pets outside in the cold","Keep away from all animals"], a:1,
+     why:"第五段：Be gentle with pets…Give them food, water, and love。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:206,
+   title:"Sharing the Planet",
+   text:[
+    "Every year on 4 October, people mark World Animal Day, a global event that asks a simple question: how well do we treat the creatures we share the planet with?",
+    "The date honours Saint Francis of Assisi, a man remembered for his love of animals. Today it is used to raise awareness of animal welfare all over the world.",
+    "The concerns are wide. Pets are sometimes abandoned when families no longer want them. Farm animals are often kept in poor conditions. And in the wild, many species are losing their homes as forests are cleared and the climate warms.",
+    "There is also good news. Animal shelters find new homes for millions of pets each year, and laws in many countries now protect animals from cruelty. Some once-endangered species have slowly recovered.",
+    "Small choices matter. Adopting a pet instead of buying one, supporting local shelters, and simply treating animals with respect all make a difference.",
+    "The message of the day is gentle but important: animals cannot speak for themselves, so it is up to people to speak, and act, for them."],
+   gloss:[["mark","v.","紀念"],["welfare","n.","福祉；福利"],["abandon","v.","遺棄"],["species","n.","物種"],["shelter","n.","收容所；庇護所"],["cruelty","n.","殘忍；虐待"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Cats make the best pets.","World Animal Day raises awareness of animal welfare and our duty to treat animals well.","Forests should be cut down.","Zoos are the safest place for animals."], a:1,
+     why:"全文重點：世界動物日喚起大眾對動物福祉的重視，以及人類善待動物的責任。"},
+    {t:"細節 Detail", q:"Whom does the date honour?",
+     opts:["A famous scientist","Saint Francis of Assisi","The president of the UN","A pet shop owner"], a:1,
+     why:"第二段：The date honours Saint Francis of Assisi。"},
+    {t:"細節 Detail", q:"What is described as a threat to wild species?",
+     opts:["Too many animal shelters","Losing their homes as forests are cleared and the climate warms","People adopting pets","Laws against cruelty"], a:1,
+     why:"第三段：many species are losing their homes as forests are cleared and the climate warms。"},
+    {t:"字義 Vocabulary", q:"In paragraph 3, “abandoned” is closest in meaning to ___.",
+     opts:["fed well","left and no longer cared for","adopted","trained"], a:1,
+     why:"abandon = 遺棄；pets are abandoned 指寵物被家庭拋棄、不再照顧。"},
+    {t:"推論 Inference", q:"Why does the writer say it is “up to people to speak…for them”?",
+     opts:["Animals talk too much","Animals cannot speak for themselves, so humans must protect them","People should stay silent","Animals prefer to be alone"], a:1,
+     why:"末段：animals cannot speak for themselves——牠們無法為自己發聲，所以要靠人替牠們說話、行動。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:286,
+   title:"The Creatures We Live Among",
+   text:[
+    "Each 4 October, World Animal Day invites a reckoning of sorts: an annual pause to ask what humans owe the millions of other species with which they share a crowded planet.",
+    "The day traces its spirit to Saint Francis of Assisi, the medieval friar who spoke of animals as brothers and sisters. Yet its modern purpose is less devotional than practical — to focus attention on animal welfare, from the family pet to the vanishing tiger.",
+    "The moral landscape is complicated. Few people wish animals harm, and yet human choices — what we eat, what we buy, how we build — shape the fate of countless creatures we will never see. Habitat loss, driven by farming and a warming climate, remains the greatest threat to wild species.",
+    "Progress, where it exists, tends to be quiet. Stronger animal-protection laws, the steady work of shelters and sanctuaries, and shifting attitudes toward adoption have all improved millions of individual lives, even as the larger picture stays fragile.",
+    "Perhaps that is the day's real lesson: that kindness to animals is not sentimentality but a measure of a society's character, and that a species clever enough to reshape the Earth bears some responsibility for the others living on it."],
+   gloss:[["reckoning","n.","反省檢視；清算"],["devotional","adj.","宗教虔誠的"],["habitat","n.","棲息地"],["sanctuary","n.","（動物）保護區"],["fragile","adj.","脆弱的"],["sentimentality","n.","多愁善感；濫情"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's overall point?",
+     opts:["Animals are more important than people.","Kindness to animals reflects a society's character and humans' responsibility for other species.","Zoos should be closed at once.","Saint Francis disliked animals."], a:1,
+     why:"末段點題：善待動物並非濫情，而是衡量社會品格的標準，也是強大人類對其他物種的責任。"},
+    {t:"字義 Vocabulary", q:"In paragraph 1, “a reckoning of sorts” suggests the day is ___.",
+     opts:["a quick guess","a serious moment of reflection about what we owe animals","a loud celebration","a payment of money"], a:1,
+     why:"reckoning = 認真的反省、清算。作者說這天讓人停下來反思人類對動物的虧欠。"},
+    {t:"推論 Inference", q:"What does “human choices…shape the fate of countless creatures we will never see” imply?",
+     opts:["Only zookeepers affect animals","Everyday choices — food, shopping, building — indirectly affect many animals","Animals choose their own fate","People cannot change anything"], a:1,
+     why:"第三段：我們吃什麼、買什麼、如何建設，都間接決定了許多我們永遠見不到的動物的命運。"},
+    {t:"語氣 Tone", q:"How does the writer regard kindness to animals?",
+     opts:["As childish sentimentality","As a serious measure of a society's character","As a waste of money","As unimportant"], a:1,
+     why:"末段明說 kindness to animals is not sentimentality but a measure of a society's character——嚴肅看待。"},
+    {t:"篇章 Organization", q:"What is the role of paragraph 4 (“Progress…tends to be quiet”)?",
+     opts:["To prove nothing ever improves","To note real but modest progress within a still-fragile picture","To end the essay","To praise zoos"], a:1,
+     why:"第四段承認保護法、收容所、領養觀念帶來真實但有限的進步，整體情勢仍脆弱——平衡地陳述進展。"}]}
+ },
+ discuss:[
+  "Do you have a pet, or would you like one? How should people care for pets responsibly?",
+  "Is it better to adopt an animal from a shelter than to buy one? Why?",
+  "Humans change the Earth the most. What responsibility do we have toward wild animals?"]
+},
+{
+ id:"teachers-day-2026",
+ topic:"World Teachers' Day", zh:"世界教師日",
+ src:"UNESCO · United Nations · Education International", date:"2026-10-05", week:"10/5–10/11",
+ tag:"Education 教育", icon:"apple",
+ proper:["World","Teachers","Day","UNESCO","United","Nations","October","AI"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:112,
+   title:"Thank You, Teachers",
+   text:[
+    "October 5 is World Teachers' Day. It is a day to say thank you to teachers everywhere.",
+    "Teachers help us learn to read, write, count, and think. They also teach us how to be kind and work with others.",
+    "A good teacher does more than give lessons. They listen, they care, and they help students believe in themselves.",
+    "Being a teacher is not easy. They work long hours, plan lessons, and worry about every student.",
+    "In many countries, there are not enough teachers. The world needs millions more so that every child can go to school.",
+    "On this day, we say two small but powerful words to our teachers: thank you."],
+   gloss:[["learn","v.","學習"],["lesson","n.","課程；一堂課"],["care","v.","關心"],["believe in","phr.","相信；對…有信心"],["enough","adj.","足夠的"],["powerful","adj.","有力量的"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["Saying thank you to teachers and why they matter","How to become a doctor","A school holiday in July","A new smartphone"], a:0,
+     why:"全文在感謝老師，並談老師為何重要。"},
+    {t:"細節 Detail", q:"When is World Teachers' Day?",
+     opts:["October 5","September 1","May 5","December 5"], a:0,
+     why:"第一段：October 5 is World Teachers' Day。"},
+    {t:"細節 Detail", q:"What does the text say about the number of teachers?",
+     opts:["There are too many","The world needs millions more","No one wants to teach","Teachers never work hard"], a:1,
+     why:"第五段：The world needs millions more so that every child can go to school。"},
+    {t:"字義 Vocabulary", q:"“Believe in” a student means to ___.",
+     opts:["doubt the student","have confidence in the student","punish the student","copy the student"], a:1,
+     why:"believe in someone = 相信、對某人有信心。"},
+    {t:"推論 Inference", q:"What two “powerful words” does the text end with?",
+     opts:["“Good luck”","“Thank you”","“Sit down”","“Try again”"], a:1,
+     why:"末段：two small but powerful words…thank you。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:205,
+   title:"The People Who Shape Us",
+   text:[
+    "Each year on 5 October, UNESCO leads the world in celebrating World Teachers' Day, a moment to honour the people who quietly shape every other profession.",
+    "Teachers do far more than deliver facts. They spark curiosity, build confidence, and are often the first adults outside the family to believe in a child's future.",
+    "Yet the job is under strain. Many teachers work long unpaid hours, face crowded classrooms, and earn less than others with similar training. In some places, respect for the profession has slowly faded.",
+    "The world also faces a shortage. The United Nations estimates that tens of millions of new teachers are needed so that every child can receive a decent education, especially in poorer regions.",
+    "Technology is changing the classroom too. Useful tools, and even AI, can support teaching, but few believe they can replace the patience, warmth, and judgement of a real teacher.",
+    "The day's message is simple: a society that wants a better future must value, support, and fairly pay the people it trusts to build it."],
+   gloss:[["celebrate","v.","慶祝"],["profession","n.","職業；專業"],["curiosity","n.","好奇心"],["strain","n.","壓力；負擔"],["shortage","n.","短缺"],["replace","v.","取代"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Teaching is an easy, well-paid job.","World Teachers' Day honours teachers, whose work is vital but under growing strain.","AI should run every classroom.","Only rich countries have teachers."], a:1,
+     why:"全文肯定老師的重要，同時指出這份工作面臨的壓力與短缺。"},
+    {t:"細節 Detail", q:"Who leads World Teachers' Day?",
+     opts:["A phone company","UNESCO","A sports team","No one"], a:1,
+     why:"第一段：UNESCO leads the world in celebrating World Teachers' Day。"},
+    {t:"細節 Detail", q:"Which is a problem teachers face, according to the text?",
+     opts:["Too much free time","Long unpaid hours and crowded classrooms","Too few students","No lessons to plan"], a:1,
+     why:"第三段：Many teachers work long unpaid hours, face crowded classrooms…"},
+    {t:"字義 Vocabulary", q:"In paragraph 4, a “shortage” means ___.",
+     opts:["too much of something","not enough of something","a kind of test","a short lesson"], a:1,
+     why:"shortage = 短缺，即數量不足。文中指教師人數不夠。"},
+    {t:"推論 Inference", q:"What is the writer's view of technology and AI in teaching?",
+     opts:["They should replace all teachers","They can help teaching, but cannot replace a real teacher","They are useless","They make teachers lazy"], a:1,
+     why:"第五段：AI can support teaching, but…cannot replace the patience, warmth, and judgement of a real teacher。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:287,
+   title:"In Praise of the Teacher",
+   text:[
+    "On 5 October the world observes World Teachers' Day, an occasion easy to sentimentalise and just as easy to overlook. Behind the greeting cards lies a serious claim: that no profession does more to determine a nation's future, and few are asked to do so much with so little.",
+    "The work resists measurement. A teacher's influence — a question that sparks a career, a word of belief on a hard day — often surfaces years later, in lives the teacher never sees. What can be measured tells a harder story: rising workloads, stagnant pay, and, in many places, a slow erosion of public respect.",
+    "The result is a global shortage. UNESCO warns that the world needs tens of millions more teachers to meet its education goals, a gap widest precisely where schooling is most needed. Recruiting them is one thing; keeping them, when so many leave within a few years, is another.",
+    "Into this arrives technology, promising to lighten the load. Well-designed tools can indeed help, but the enthusiasm for automation can obscure a stubborn truth: learning is relational. A screen can deliver information; it cannot notice the quiet child at the back of the room.",
+    "That, in the end, is what the day defends — not a job title, but a human relationship on which almost everything else depends."],
+   gloss:[["sentimentalise","v.","過度感傷、濫情看待"],["determine","v.","決定"],["stagnant","adj.","停滯的"],["erosion","n.","侵蝕；逐漸流失"],["relational","adj.","建立在關係上的"],["obscure","v.","遮蔽；使模糊"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's overall point?",
+     opts:["Teachers are easily replaced by machines.","Teaching is a demanding human relationship, vital to society and deserving of real support.","World Teachers' Day is only about greeting cards.","Only test scores measure good teaching."], a:1,
+     why:"作者主張教學是攸關社會未來、無可取代的「人與人的關係」，值得真正的支持。"},
+    {t:"字義 Vocabulary", q:"In paragraph 2, “stagnant pay” means pay that ___.",
+     opts:["keeps rising quickly","does not rise","is very high","is paid in cash"], a:1,
+     why:"stagnant = 停滯的；stagnant pay 指薪水多年沒有成長。"},
+    {t:"推論 Inference", q:"What does “learning is relational” mean?",
+     opts:["Learning is only about facts","Learning depends on human relationships, not just information","Learning needs no teacher","Relatives must teach children"], a:1,
+     why:"第四段對比：螢幕能傳遞資訊，卻無法察覺後排安靜的孩子——學習建立在人際關係上。"},
+    {t:"語氣 Tone", q:"How would you describe the writer's attitude toward teachers?",
+     opts:["Dismissive","Admiring and protective, while facing hard realities","Mocking","Indifferent"], a:1,
+     why:"文章讚揚教師、為其處境辯護（薪資、尊重、短缺），是「敬重且維護」的語氣。"},
+    {t:"篇章 Organization", q:"What is the purpose of paragraph 4 (about technology)?",
+     opts:["To argue AI should replace teachers","To admit technology can help, while warning it cannot replace the human bond","To end the essay","To describe a new app"], a:1,
+     why:"第四段承認科技有幫助，但提醒「學習是關係性的」，機器無法取代師生之間的連結。"}]}
+ },
+ discuss:[
+  "Think of a teacher who influenced you. What did they do that mattered?",
+  "Teachers are often underpaid. How should society show that it values them?",
+  "Can technology or AI ever replace a human teacher? What can it not do?"]
+},
+{
+ id:"food-day-2026",
+ topic:"World Food Day", zh:"世界糧食日",
+ src:"FAO · United Nations · Reuters", date:"2026-10-16", week:"10/12–10/18",
+ tag:"Society 社會", icon:"bowl",
+ proper:["World","Food","Day","FAO","United","Nations","October","Earth"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:114,
+   title:"Food for Everyone",
+   text:[
+    "October 16 is World Food Day. It is a day to think about food and the people who do not have enough of it.",
+    "Food gives us energy to live, learn, and play. But not everyone has enough to eat.",
+    "Around the world, hundreds of millions of people go to bed hungry. Many of them are children.",
+    "At the same time, a lot of food is wasted. People and shops throw away food that is still good to eat.",
+    "We can all help. Take only what you will eat. Save your leftovers. Share food with people in need.",
+    "When we grow, share, and respect food, we can build a world where no one is hungry."],
+   gloss:[["energy","n.","能量"],["enough","adj.","足夠的"],["hungry","adj.","飢餓的"],["waste","v.","浪費"],["leftovers","n.","剩菜；吃剩的食物"],["share","v.","分享"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["Food, hunger, and not wasting food","How to cook rice","A famous restaurant","A food festival in Japan"], a:0,
+     why:"全文談食物、飢餓，以及不要浪費食物。"},
+    {t:"細節 Detail", q:"When is World Food Day?",
+     opts:["October 16","October 4","August 1","February 14"], a:0,
+     why:"第一段：October 16 is World Food Day。"},
+    {t:"細節 Detail", q:"What does the text say happens to a lot of food?",
+     opts:["It is sold cheaply","It is wasted or thrown away","It is sent to space","It never goes bad"], a:1,
+     why:"第四段：a lot of food is wasted…throw away food that is still good to eat。"},
+    {t:"字義 Vocabulary", q:"In the text, “leftovers” are ___.",
+     opts:["new food from a shop","food not eaten that you keep for later","empty plates","a kind of drink"], a:1,
+     why:"leftovers = 剩菜、吃剩留著之後吃的食物。"},
+    {t:"推論 Inference", q:"How can YOU help, according to the text?",
+     opts:["Throw away more food","Take only what you will eat and share with others","Buy food you will not eat","Eat as fast as possible"], a:1,
+     why:"第五段：Take only what you will eat. Save your leftovers. Share food with people in need。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:208,
+   title:"Enough for All?",
+   text:[
+    "Every year on 16 October, the United Nations marks World Food Day, led by its Food and Agriculture Organization, or FAO. The date asks an uncomfortable question: why, on a planet that grows plenty, do so many still go hungry?",
+    "The numbers are stark. Hundreds of millions of people do not get enough to eat, and hunger has risen in recent years because of conflict, drought, and high prices.",
+    "Waste makes the problem worse. Studies suggest that roughly a third of all food produced is lost or thrown away — spoiled on farms, damaged in transport, or scraped off plates in wealthy homes.",
+    "The causes are tangled, but solutions exist. Farmers can grow crops that survive a changing climate, shops and families can waste less, and fairer systems can help food reach the people who need it most.",
+    "Food is also about health and culture. A good meal is not only fuel; it brings families together and carries the taste of home.",
+    "The message of World Food Day is both practical and hopeful: there is enough for everyone, if only we grow, share, and value it wisely."],
+   gloss:[["mark","v.","紀念"],["hunger","n.","飢餓"],["conflict","n.","衝突；戰亂"],["spoil","v.","（食物）腐壞"],["tangled","adj.","糾結複雜的"],["fuel","n.","燃料"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["The world does not grow enough food.","The world grows plenty, yet many go hungry — through waste and unfair access — and this can change.","Only farmers can end hunger.","Food should be free everywhere."], a:1,
+     why:"核心弔詭：地球生產足夠糧食，卻仍有許多人挨餓，原因在浪費與分配不公，而這是可以改變的。"},
+    {t:"細節 Detail", q:"Which organization leads World Food Day?",
+     opts:["The FAO, part of the United Nations","A large supermarket","A football club","A phone company"], a:0,
+     why:"第一段：led by its Food and Agriculture Organization, or FAO。"},
+    {t:"細節 Detail", q:"About how much food is lost or wasted?",
+     opts:["None of it","Roughly a third","All of it","Exactly half, every day"], a:1,
+     why:"第三段：roughly a third of all food produced is lost or thrown away。"},
+    {t:"字義 Vocabulary", q:"In paragraph 3, “spoiled” means the food ___.",
+     opts:["was shared","went bad and became unsafe to eat","was cooked well","was sold"], a:1,
+     why:"spoil = （食物）腐壞、變質。"},
+    {t:"推論 Inference", q:"What is the main paradox the text points to?",
+     opts:["People eat too slowly","The world produces enough food, yet many are still hungry","Food tastes worse than before","Farmers grow no crops"], a:1,
+     why:"第一段的核心矛盾：a planet that grows plenty，卻仍有許多人挨餓。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:288,
+   title:"The Paradox of the Full Plate",
+   text:[
+    "Each 16 October the United Nations observes World Food Day, an occasion built around a paradox: humanity grows more than enough food to feed itself, and yet hundreds of millions remain hungry.",
+    "The contradiction deepens on closer look. Even as some go without, roughly a third of all food produced is never eaten — lost to poor storage in poorer countries, and to sheer waste in richer ones. The world, in effect, starves and squanders at the same time.",
+    "Hunger is rarely a simple shortage of food; more often it is a failure of access. War drives families from their fields, drought ruins harvests, and inflation puts the market stall beyond reach. Where food is treated purely as a commodity, those with the least money eat last.",
+    "None of this is beyond human repair. Hardier crops, better storage, shorter supply chains, and policies that treat food as a right rather than a privilege could, together, narrow the gap. So could a cultural shift away from waste in kitchens and supermarkets alike.",
+    "World Food Day, at its best, refuses an easy despair. It insists that hunger in an age of plenty is not a natural disaster but a human choice — and therefore one that humans can unmake."],
+   gloss:[["paradox","n.","弔詭；矛盾之事"],["squander","v.","揮霍；浪費"],["access","n.","取得的管道或機會"],["commodity","n.","商品"],["supply chain","n.","供應鏈"],["privilege","n.","特權；優待"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's overall point?",
+     opts:["Hunger is a natural disaster no one can stop.","Hunger amid plenty is a human choice — caused by waste and unequal access — and so it can be changed.","The world should grow less food.","Only the weather causes hunger."], a:1,
+     why:"末段點題：豐足時代的飢餓不是天災，而是人為選擇，因此人也能終結它。"},
+    {t:"字義 Vocabulary", q:"In paragraph 2, “squander” means to ___.",
+     opts:["save carefully","waste carelessly","cook slowly","buy cheaply"], a:1,
+     why:"squander = 揮霍、浪費。starves and squanders 形成「一邊挨餓、一邊浪費」的對照。"},
+    {t:"推論 Inference", q:"“Hunger…is a failure of access” suggests that the main problem is ___.",
+     opts:["there is simply not enough food in the world","people cannot reach or afford the food that exists","food tastes bad","farmers are lazy"], a:1,
+     why:"第三段：飢餓多半不是總量不足，而是「取得」出了問題——戰爭、乾旱、通膨讓人買不到、拿不到。"},
+    {t:"語氣 Tone", q:"The phrase “refuses an easy despair” shows the writer is ___.",
+     opts:["hopeless","concerned but ultimately hopeful that change is possible","angry at farmers","totally uninterested"], a:1,
+     why:"作者拒絕輕易的絕望，強調飢餓可以被人類「解開」，語氣憂心卻抱持希望。"},
+    {t:"篇章 Organization", q:"What does paragraph 2 (“The contradiction deepens”) mainly do?",
+     opts:["Introduce a new topic","Develop the paradox by showing waste alongside hunger","End the essay","Give cooking tips"], a:1,
+     why:"第二段延伸第一段的弔詭：一邊有人挨餓，一邊卻有三分之一的食物被浪費。"}]}
+ },
+ discuss:[
+  "How much food does your family throw away? How could you waste less?",
+  "Is having enough food a basic right? Whose job is it to make sure everyone can eat?",
+  "Food brings people together. What dish means “home” to you, and why?"]
+},
+{
  id:"water-week-2026",
  topic:"World Water Week", zh:"世界水資源週",
  src:"SIWI · United Nations · Reuters", date:"2026-08-22", week:"8/17–8/23",
@@ -11041,7 +11345,10 @@ const RD_ART = {
   moon:`<svg viewBox="0 0 64 64"><circle cx="32" cy="29" r="18" fill="#F3E7C6" stroke="#E0C98A" stroke-width="2"/><circle cx="26" cy="24" r="3.2" fill="#E4D3A0" opacity=".7"/><circle cx="38" cy="33" r="4" fill="#E4D3A0" opacity=".6"/><circle cx="34" cy="21" r="2" fill="#E4D3A0" opacity=".6"/><path d="M12 45 q6-5 12 0 t12 0 t12 0" fill="none" stroke="#B9C9C9" stroke-width="2" opacity=".75"/><circle cx="10" cy="13" r="1.6" fill="#EEB868"/><circle cx="55" cy="17" r="1.4" fill="#EEB868"/><circle cx="51" cy="49" r="1.3" fill="#EEB868"/></svg>`,
   book:`<svg viewBox="0 0 64 64"><path d="M32 18 q-8-5-18-4 v28 q10-1 18 4 q8-5 18-4 v-28 q-10-1-18 4z" fill="#F5EEE4" stroke="#5A4232" stroke-width="2" stroke-linejoin="round"/><path d="M32 18 v32" stroke="#5A4232" stroke-width="2"/><path d="M18 23 q5-.6 10 1.6 M18 29 q5-.6 10 1.6 M18 35 q5-.6 10 1.6" stroke="#C9A98E" stroke-width="1.5" fill="none"/><path d="M46 23 q-5-.6-10 1.6 M46 29 q-5-.6-10 1.6 M46 35 q-5-.6-10 1.6" stroke="#C9A98E" stroke-width="1.5" fill="none"/></svg>`,
   heart:`<svg viewBox="0 0 64 64"><path d="M32 51 C12 37 12 22 22 19 c5-1.5 8 1 10 5 c2-4 5-6.5 10-5 c10 3 10 18-10 32z" fill="#E8977E" stroke="#B9605A" stroke-width="2" stroke-linejoin="round"/><path d="M25 29 q7 5 14 0" stroke="#FFF3E9" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/><circle cx="46" cy="15" r="1.6" fill="#EEB868"/><circle cx="15" cy="20" r="1.3" fill="#EEB868"/><circle cx="50" cy="31" r="1.3" fill="#EEB868"/></svg>`,
-  water:`<svg viewBox="0 0 64 64"><path d="M32 10 C22 26 18 33 18 40 a14 14 0 0 0 28 0 c0-7-4-14-14-30z" fill="#7FB5B5" stroke="#4F8A8B" stroke-width="2" stroke-linejoin="round"/><path d="M27 38 a6 6 0 0 0 4 7" stroke="#EAF6F5" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".85"/><circle cx="47" cy="16" r="1.5" fill="#B9C9C9"/><circle cx="15" cy="22" r="1.2" fill="#B9C9C9"/></svg>`
+  water:`<svg viewBox="0 0 64 64"><path d="M32 10 C22 26 18 33 18 40 a14 14 0 0 0 28 0 c0-7-4-14-14-30z" fill="#7FB5B5" stroke="#4F8A8B" stroke-width="2" stroke-linejoin="round"/><path d="M27 38 a6 6 0 0 0 4 7" stroke="#EAF6F5" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".85"/><circle cx="47" cy="16" r="1.5" fill="#B9C9C9"/><circle cx="15" cy="22" r="1.2" fill="#B9C9C9"/></svg>`,
+  paw:`<svg viewBox="0 0 64 64"><ellipse cx="32" cy="42" rx="13" ry="10" fill="#E8A87C" stroke="#C9736A" stroke-width="1.5"/><circle cx="17" cy="28" r="5" fill="#E8A87C" stroke="#C9736A" stroke-width="1.5"/><circle cx="26" cy="21" r="5" fill="#E8A87C" stroke="#C9736A" stroke-width="1.5"/><circle cx="38" cy="21" r="5" fill="#E8A87C" stroke="#C9736A" stroke-width="1.5"/><circle cx="47" cy="28" r="5" fill="#E8A87C" stroke="#C9736A" stroke-width="1.5"/></svg>`,
+  apple:`<svg viewBox="0 0 64 64"><path d="M32 22 c-6-5-17-3-17 9 c0 11 9 21 17 21 c8 0 17-10 17-21 c0-12-11-14-17-9z" fill="#D98A6C" stroke="#B4623B" stroke-width="2" stroke-linejoin="round"/><path d="M32 22 c0-6 3-9 8-9" stroke="#7A9A5B" stroke-width="2.5" fill="none" stroke-linecap="round"/><ellipse cx="40" cy="13" rx="4.5" ry="2.6" fill="#7FB5B5" transform="rotate(-28 40 13)"/><path d="M25 30 q4 4 0 9" stroke="#FBE2D4" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/></svg>`,
+  bowl:`<svg viewBox="0 0 64 64"><ellipse cx="32" cy="33" rx="21" ry="5" fill="#F3E7C6" stroke="#E0C98A" stroke-width="1.5"/><path d="M11 33 h42 a21 18 0 0 1-42 0z" fill="#7FB5B5" stroke="#4F8A8B" stroke-width="2" stroke-linejoin="round"/><path d="M25 15 q-3 4 0 9 M32 13 q-3 4 0 9 M39 15 q-3 4 0 9" stroke="#C9B7A2" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/></svg>`
 };
 let RD_LEVEL = "a";
 let RD_ANS = {};
@@ -11057,8 +11364,11 @@ function isoWeek(d){
 /* +1 偏移：使 2026 第 29 週（7/13–7/19）對到世界盃決賽，之後每週依序輪替 */
 /* order key from the week label ("9/14–9/20" → 914); newest = highest */
 function rdOrder(r){ const m=(r.week||"").match(/(\d+)\/(\d+)/); return m ? (+m[1])*100+(+m[2]) : 0; }
-/* the featured "This week" reading is always the most recent one */
-function weekArticle(){ return READINGS.reduce((a,b)=> rdOrder(b)>rdOrder(a)?b:a, READINGS[0]); }
+/* today's order key (Taipei), same M*100+D scale as rdOrder */
+function rdToday(){ const t=(typeof dailyToday==="function")?dailyToday():new Date().toISOString().slice(0,10); const m=t.match(/\d{4}-(\d{2})-(\d{2})/); return m ? (+m[1])*100+(+m[2]) : 9999; }
+/* featured "This week": the most recent reading whose week has already started
+   (never a future-dated preview, even when later weeks are added early) */
+function weekArticle(){ const k=rdToday(); const started=READINGS.filter(r=>rdOrder(r)<=k); const pool=started.length?started:READINGS; return pool.reduce((a,b)=> rdOrder(b)>rdOrder(a)?b:a, pool[0]); }
 function rdById(id){ return READINGS.find(r=>r.id===id) || weekArticle(); }
 
 /* ---- 聽力更正遊戲 UI ---- */
