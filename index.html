@@ -1505,6 +1505,22 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .lab-mode p .z{display:block;font-family:var(--han);font-size:12.5px;color:var(--muted);margin-top:3px}
 .lab-src{font-size:12px;color:var(--muted);font-style:italic;margin:10px 0 0}
 .lab-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:30px 0 10px;padding-top:18px;border-top:1px solid var(--lab-line)}
+.lab-game-sec{background:linear-gradient(180deg,#FBF7EF,#F5EFE2);border:1px solid var(--lab-line);border-radius:16px;padding:16px 18px 20px}
+.rg-wrap{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.rg-q{background:#fff;border:1px solid var(--lab-line);border-radius:12px;padding:13px 15px}
+.rg-prompt{display:flex;gap:9px;align-items:flex-start;font:600 14.5px var(--serif);color:var(--lab-ink);line-height:1.55;margin-bottom:11px}
+.rg-prompt b{color:var(--lab-accent);font-family:var(--mono,monospace)}
+.rg-n{flex:none;width:23px;height:23px;border-radius:50%;background:var(--lab-accent);color:#fff;font:700 12.5px sans-serif;display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
+.rg-opts{display:flex;flex-direction:column;gap:8px}
+.rg-opt{text-align:left;font:500 14px var(--body,sans-serif);color:var(--ink);background:var(--lab-paper);border:1.5px solid var(--lab-line);border-radius:10px;padding:10px 13px;cursor:pointer;transition:.15s}
+.rg-opt:hover:not(:disabled){border-color:var(--lab-accent);background:#fff}
+.rg-opt:disabled{cursor:default}
+.rg-opt.correct{border-color:#4a9e63;background:#e7f4ec;color:#245a37;font-weight:700}
+.rg-opt.wrong{border-color:#c96a5a;background:#faeae6;color:#9a3d2c;text-decoration:line-through}
+.rg-why{margin-top:10px;font-size:13px;line-height:1.65;color:var(--body);background:var(--lab-paper);border-left:3px solid var(--lab-accent);border-radius:0 8px 8px 0;padding:9px 12px}
+.rg-score{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--lab-ink);color:#fff;border-radius:12px;padding:13px 16px;font:600 14px var(--serif)}
+.rg-reset{flex:none;font:600 13px sans-serif;color:var(--lab-ink);background:#fff;border:none;border-radius:20px;padding:7px 15px;cursor:pointer}
+.rg-reset:hover{background:#f0eadd}
 @media(max-width:640px){.lab-cards3,.lab-rules{grid-template-columns:1fr}.lab-table{font-size:12.5px}}
 </style>
 </head>
@@ -7561,6 +7577,10 @@ const LAB = [
      <div class="lab-root"><div class="lab-root-h"><b>-gen / -kin</b><span>family 家族 (k~g)</span></div><ul><li><b>generation</b> 世代　·　<b>genesis</b> 起源</li><li><b>kinship</b> 親屬關係　·　acre / agri- 田地</li></ul></div>
      <div class="lab-root"><div class="lab-root-h"><b>k ~ h shift</b><span>硬／軟顎 → 喉音</span></div><ul><li><b>coarse</b> 粗糙 ~ <b>hoarse</b> 沙啞</li><li><b>horn</b> 角 → <b>unicorn</b> 獨角獸</li></ul></div>
    </div>
+ </section>
+ <section class="lab-sec lab-game-sec"><h3>🎮 Root Family Challenge <span>字根家族大挑戰</span></h3>
+   <p class="lab-p">讀完三個家族了嗎？來測驗看看：辨認字根的語義、判斷單字屬於哪個家族，還有格林法則的關聯。點選你的答案，會立刻看到解析。<span class="z">Choose the best answer for each question — you'll get instant feedback and a short explanation.</span></p>
+   <div id="rootGame" class="rg-wrap"></div>
  </section>`
 },
 {
@@ -7637,6 +7657,53 @@ function renderLabList(){
     <p class="lab-source">改寫自「多模態文本分析講義」（Joe Wang，應用外語系）。圖表為原創重繪；歌詞版權所有，僅摘取教學單字。</p>
   </div>`;
 }
+/* ---- Chapter 06 interactive: Root Family Challenge ---- */
+const ROOT_GAME = [
+  {q:"哪個家族的單字 <b>pedestrian</b>（行人）屬於？", opts:["👄 唇音家族 Lip (foot)","🦷 齒音家族 Tooth","👅 顎音家族 Palate"], a:0, why:"-ped = foot 腳，屬唇音家族（p~f）。pedestrian 就是「用腳走路的人」。"},
+  {q:"哪個家族的單字 <b>triangle</b>（三角形）屬於？", opts:["👄 唇音 Lip","🦷 齒音 Tooth (three)","👅 顎音 Palate"], a:1, why:"tri- = three 三，屬齒音家族（th~t）。"},
+  {q:"哪個家族的單字 <b>contact</b>（接觸）屬於？", opts:["👄 唇音 Lip","🦷 齒音 Tooth","👅 顎音 Palate (touch)"], a:2, why:"-tact = touch 觸，屬顎音家族。"},
+  {q:"字根 <b>-patr</b> 的意思是？", opts:["foot 腳","father 父","touch 觸","three 三"], a:1, why:"-patr = father 父（paternal、patron）。格林法則 p~f：pater → father。"},
+  {q:"字根 <b>-tenu</b> 的意思是？", opts:["ten 十","thin 薄／細","touch 觸","heart 心"], a:1, why:"-tenu = thin 薄／細（tenuous、attenuate）。t~th。"},
+  {q:"字根 <b>-cor / -cord</b> 的意思是？", opts:["family 家族","heart 心","foot 腳","see 看"], a:1, why:"-cor/-cord = heart 心（cordial、concord）。格林法則 k~h：cor → heart。"},
+  {q:"字根 <b>-vid / -vis</b> 的意思是？", opts:["see 看","say 說","walk 走","break 破"], a:0, why:"-vid/-vis = see 看（vision、evident）；再延伸到 wit、wise。"},
+  {q:"哪個單字來自「父 father」這個字根？", opts:["pedal 踏板","patron 贊助者","tangible 可觸的","decade 十年"], a:1, why:"patron（贊助者）帶有 -patr「父」字根。"},
+  {q:"哪個單字來自「十 ten」這個字根？", opts:["decade 十年","triangle 三角形","cordial 熱誠的","podium 講台"], a:0, why:"decade = 十年；-dec = ten（t~d）。"},
+  {q:"哪個單字來自「觸 touch」這個字根？", opts:["generation 世代","tangible 可觸知的","paternal 父親的","tripod 三腳架"], a:1, why:"tangible = 可觸知的；-tang = touch。"},
+  {q:"哪個單字來自「家族 family／birth」這個字根？", opts:["genesis 起源","platform 平台","tenuous 稀薄的","hoarse 沙啞的"], a:0, why:"genesis（起源）帶有 -gen「家族／誕生」字根（k~g）。"},
+  {q:"依格林法則，拉丁文 <b>pater</b> 對應到的英文是？", opts:["water 水","father 父","matter 事情","later 稍後"], a:1, why:"p~f：pater → father（唇音家族，第一法則）。"},
+  {q:"依格林法則，「三」的字根 <b>tri-</b> 對應到的英文是？", opts:["tree 樹","three 三","dry 乾","try 嘗試"], a:1, why:"th~t：tri- → three（齒音家族，第二法則）。"},
+  {q:"哪一組展現了 k~h 的轉換（顎音家族）？", opts:["coarse ~ hoarse 粗糙／沙啞","foot ~ feet","ten ~ dec","sing ~ sang"], a:0, why:"k~h：coarse~hoarse；horn → unicorn；cor → heart 都是這個轉換。"}
+];
+let RFG = { ans:{} };
+function renderRootGame(){
+  const box = document.getElementById("rootGame");
+  if(!box) return;
+  const total = ROOT_GAME.length;
+  const answered = Object.keys(RFG.ans).length;
+  const correct = ROOT_GAME.filter((q,i)=>RFG.ans[i]===q.a).length;
+  const qs = ROOT_GAME.map((q,qi)=>{
+    const picked = RFG.ans[qi];
+    const done = picked!==undefined;
+    const opts = q.opts.map((o,oi)=>{
+      let cls="rg-opt";
+      if(done){ if(oi===q.a) cls+=" correct"; else if(oi===picked) cls+=" wrong"; }
+      return `<button class="${cls}" ${done?"disabled":""} onclick="rfgPick(${qi},${oi})">${o}</button>`;
+    }).join("");
+    const fb = done ? `<div class="rg-why">${picked===q.a?"✅ 答對了！":"💡 正確答案已標示。"} ${q.why}</div>` : "";
+    return `<div class="rg-q"><div class="rg-prompt"><span class="rg-n">${qi+1}</span><span>${q.q}</span></div><div class="rg-opts">${opts}</div>${fb}</div>`;
+  }).join("");
+  let score = "";
+  if(answered){
+    const pct = Math.round(correct/total*100);
+    const tail = answered<total ? `已作答 ${answered} / ${total}　答對 ${correct}`
+      : `全部完成！答對 ${correct} / ${total}（${pct}%）　${correct===total?"完美，字根小博士！🏆":pct>=70?"很棒，繼續保持！🐾":"再回頭看看上面三個家族喔～"}`;
+    score = `<div class="rg-score"><span>${tail}</span><button class="rg-reset" onclick="rfgReset()">再玩一次 ↻</button></div>`;
+  }
+  box.innerHTML = qs + score;
+}
+function rfgPick(qi,oi){ if(RFG.ans[qi]!==undefined) return; RFG.ans[qi]=oi; renderRootGame(); }
+function rfgReset(){ RFG={ans:{}}; renderRootGame(); }
+
 function renderLab(id){
   const c = labById(id);
   if(!c){ location.hash = "#/lab"; return; }
@@ -7656,6 +7723,7 @@ function renderLab(id){
       ${nextC?`<button class="btn btn-navy" onclick="location.hash='#/lab/${nextC.id}'">${nextC.title} →</button>`:`<button class="btn btn-navy" onclick="location.hash='#/lab'">回到目錄 →</button>`}
     </div>
   </div>`;
+  if(c.id==="roots-affixes"){ RFG={ans:{}}; renderRootGame(); }
   window.scrollTo(0,0);
 }
 
