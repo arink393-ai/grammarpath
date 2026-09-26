@@ -1423,6 +1423,89 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 /* worksheet extension box */
 .fw-ext{margin-top:16px;border:1px dashed #C6892F;background:#FBF5E7;border-radius:10px;padding:12px 15px;font-size:12.5px;color:#5a4a2e}
 .fw-ext ul{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:5px;line-height:1.5}
+/* ---- Language Lab 語言探索室 ---- */
+.lab{--lab-accent:#B04A3A;--lab-ink:#3f4d6b;--lab-paper:#FBF7EF;--lab-line:#E6DAC2;max-width:920px;margin:auto}
+.lab-hd{text-align:center;margin:8px 0 22px}
+.lab-hd .lede{max-width:60ch;margin:12px auto 0}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.lab-card{position:relative;text-align:left;background:var(--lab-paper);border:1px solid var(--lab-line);border-radius:16px;padding:20px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;display:flex;flex-direction:column;gap:6px;min-height:150px}
+.lab-card:hover{transform:translateY(-3px);border-color:var(--lab-accent);box-shadow:0 14px 30px -20px rgba(120,60,40,.5)}
+.lab-card-ic{font-size:30px}
+.lab-card-n{position:absolute;top:16px;right:18px;font:700 13px var(--mono,monospace);color:#c9b79a;letter-spacing:.1em}
+.lab-card-title{font:700 1.12rem var(--serif);color:var(--lab-ink);line-height:1.3}
+.lab-card-title span{display:block;font:500 13px var(--sans);color:var(--muted);margin-top:2px}
+.lab-card-blurb{font-size:13.5px;color:var(--body);line-height:1.6;margin:4px 0 6px;flex:1}
+.lab-card-go{font:600 13px var(--sans);color:var(--lab-accent)}
+.lab-source{text-align:center;font-size:12px;color:var(--muted);margin:26px 0 6px;line-height:1.7}
+/* reader */
+.lab-reader{max-width:760px}
+.lab-hero{text-align:center;padding:14px 0 8px;border-bottom:2px solid var(--lab-line);margin-bottom:8px}
+.lab-hero-ic{font-size:46px;display:block}
+.lab-hero-n{font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--lab-accent);margin:8px 0 2px}
+.lab-hero h1{font:700 clamp(1.5rem,5vw,2rem) var(--serif);color:var(--lab-ink);margin:2px 0}
+.lab-hero-zh{font-family:var(--han);color:var(--lab-accent);font-size:1.05rem;letter-spacing:.08em}
+.lab-hero-sub{font-family:var(--serif);font-style:italic;color:var(--muted);max-width:44ch;margin:10px auto 0;line-height:1.5}
+.lab-content{padding:6px 0}
+.lab-sec{margin:26px 0}
+.lab-sec>h3{font:700 1.18rem var(--serif);color:var(--lab-accent);margin:0 0 12px;padding-bottom:6px;border-bottom:1px solid var(--lab-line)}
+.lab-sec>h3 span{font:500 14px var(--sans);color:var(--muted);margin-left:8px}
+.lab-p{font-size:1.02rem;line-height:1.7;color:var(--ink);margin:0 0 14px}
+.lab-p .z{display:block;font-family:var(--han);color:var(--sb-zh,#6b5f4e);font-size:.96rem;line-height:1.85;margin-top:4px}
+.lab-note{font-size:13px;color:#8a6d3a;background:#FCF3DE;border:1px solid #EBD9A9;border-radius:10px;padding:9px 13px;margin:0 0 14px;line-height:1.6}
+.lab-cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lab-card3{text-align:center;background:var(--lab-paper);border:1px solid var(--lab-line);border-radius:12px;padding:14px 10px}
+.lab-card3 .ic{font-size:26px;display:block;margin-bottom:6px}
+.lab-card3 b{display:block;font-size:14px;color:var(--lab-ink)}
+.lab-card3 p{font-size:12px;color:var(--muted);margin:3px 0 0;font-family:var(--han)}
+.lab-vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.lab-vword{background:#fff;border:1px solid var(--lab-line);border-radius:9px;padding:8px 11px;font-size:14px}
+.lab-vword b{color:var(--lab-ink)}.lab-vword i{color:var(--muted);font-size:11.5px;margin:0 5px}
+.lab-vword span{display:block;font-family:var(--han);font-size:12.5px;color:var(--body);margin-top:2px}
+.lab-eg{background:#F6EFDD;border-left:4px solid var(--lab-accent);border-radius:6px;padding:9px 13px;font-size:14px;color:var(--ink);margin:8px 0;line-height:1.6}
+.lab-eg-big{text-align:center;font:600 1.15rem var(--serif);letter-spacing:.02em;padding:16px}
+.lab-ipa{color:var(--lab-accent);font-family:var(--mono,monospace);font-size:.9em;margin-left:8px}
+.lab-plate{margin:14px 0;border:1px solid var(--lab-line);border-radius:14px;overflow:hidden;background:#F3EFE4}
+.lab-plate svg{display:block;width:100%;height:auto}
+.lab-plate figcaption{font-size:12px;color:var(--muted);text-align:center;padding:8px 12px;background:#fff}
+.lab-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0}
+.lab-table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden;min-width:420px}
+.lab-table th{background:var(--lab-ink);color:#fff;font:600 12.5px var(--sans);padding:9px 11px;text-align:left;vertical-align:top}
+.lab-table td{padding:9px 11px;border-bottom:1px solid #EEE6D6;vertical-align:top;line-height:1.5}
+.lab-table tr:nth-child(even) td{background:#FBF7EF}
+.lab-table .lab-lvl{font:700 12px var(--sans);text-align:center;color:#fff}
+.lab-lvl-1{background:#C98A3A}.lab-lvl-2{background:#5B6C8F}.lab-lvl-3{background:#7A9E4E}
+.lab-cap{font-size:12.5px;color:var(--muted);margin:6px 0 0;line-height:1.6}
+.lab-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lab-rule{border:1px solid var(--lab-line);border-radius:12px;padding:14px;background:#fff}
+.lab-rule-1{border-top:4px solid #C98A3A}.lab-rule-2{border-top:4px solid #5B6C8F}.lab-rule-3{border-top:4px solid #7A9E4E}
+.lab-rule-h{display:flex;align-items:center;gap:7px;font:700 14px var(--sans);color:var(--lab-ink)}
+.lab-rule-h .ic{font-size:20px}
+.lab-rule-set{font:700 14px var(--mono,monospace);color:var(--lab-accent);margin:8px 0 4px;letter-spacing:.02em}
+.lab-rule p{font-size:12px;color:var(--muted);font-family:var(--han);margin:0 0 8px}
+.lab-rule-eg{font-size:12.5px;color:var(--ink);background:#F6EFDD;border-radius:7px;padding:7px 9px;line-height:1.5}
+.lab-steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.lab-steps b{color:var(--lab-accent)}
+.lab-roots{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.lab-root{border:1px solid var(--lab-line);border-radius:12px;padding:13px 15px;background:#fff}
+.lab-root-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;border-bottom:1px dashed var(--lab-line);padding-bottom:6px;margin-bottom:7px}
+.lab-root-h b{font:700 15px var(--mono,monospace);color:var(--lab-accent)}
+.lab-root-h span{font-size:12px;color:var(--muted)}
+.lab-root ul{margin:0;padding-left:16px;font-size:13px;line-height:1.7;color:var(--ink)}
+.lab-root b{color:var(--lab-ink)}
+.lab-defs{display:flex;flex-direction:column;gap:10px}
+.lab-def{background:var(--lab-paper);border:1px solid var(--lab-line);border-radius:10px;padding:12px 15px}
+.lab-def b{color:var(--lab-accent);font-size:15px}
+.lab-def p{font-family:var(--han);font-size:13.5px;color:var(--body);line-height:1.7;margin:5px 0 0}
+.lab-modes{display:flex;flex-direction:column;gap:12px;margin:14px 0}
+.lab-mode{border-radius:12px;padding:14px 16px;border:1px solid var(--lab-line);background:#fff;border-left-width:5px}
+.lab-mode-l{border-left-color:#C98A3A}.lab-mode-v{border-left-color:#4E7A9E}.lab-mode-a{border-left-color:#7A9E4E}.lab-mode-g{border-left-color:#B04A6A}.lab-mode-s{border-left-color:#8A6BB0}
+.lab-mode-h{display:flex;align-items:center;gap:8px;font:700 1.02rem var(--serif);color:var(--lab-ink);margin-bottom:5px}
+.lab-mode-h .ic{font-size:20px}
+.lab-mode p{font-size:14px;line-height:1.6;color:var(--ink);margin:0}
+.lab-mode p .z{display:block;font-family:var(--han);font-size:12.5px;color:var(--muted);margin-top:3px}
+.lab-src{font-size:12px;color:var(--muted);font-style:italic;margin:10px 0 0}
+.lab-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:30px 0 10px;padding-top:18px;border-top:1px solid var(--lab-line)}
+@media(max-width:640px){.lab-cards3,.lab-rules{grid-template-columns:1fr}.lab-table{font-size:12.5px}}
 </style>
 </head>
 <body>
@@ -1458,6 +1541,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/story/picture-books">🎨 繪本區 Picture Books</button>
   <button data-nav="#/story/fables">🦊 伊索寓言 Aesop's Fables</button>
   <button data-nav="#/theory">🧠 學習理論 Theory</button>
+  <button data-nav="#/lab">🔬 語言探索室 Language Lab</button>
   <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
   <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
   <button data-nav="#/homework" id="navHomework">📝 作業繳交 Homework</button>
@@ -4702,6 +4786,8 @@ function route(){
   else if(h[0]==="rubric") renderRubric();
   else if(h[0]==="story" && h[1]) renderStory(h[1]);
   else if(h[0]==="story") renderStoryList();
+  else if(h[0]==="lab" && h[1]) renderLab(h[1]);
+  else if(h[0]==="lab") renderLabList();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
   else if(h[0]==="philosophy" && h[1]) renderPhil(h[1]);
@@ -7313,6 +7399,264 @@ function philSay(pi, si, qi){
   const p = PHIL[pi]; if(!p) return;
   const q = si<0 ? {en:p.intro.en} : p.sections[si].qs[qi];
   if(q) tts.speak(q.en, 0.95);
+}
+
+/* =====================================================
+   Language Lab 語言探索室 — reconstructed from the
+   "Multimodal Text Analysis" lecture (Joe Wang), rebuilt
+   for study. Original diagrams; song lyrics summarised.
+   ===================================================== */
+const LAB = [
+{
+ id:"vocab-method", n:"01", icon:"🎵", title:"The Vocabulary Method", zh:"英語詞彙記憶法",
+ blurb:"Learn words through sound, song and a map of ideas — the heart of English is its vocabulary.",
+ body:`
+ <p class="lab-p">Grammar and pronunciation matter, but words carry meaning. As Michael McCarthy put it, no matter how well you master grammar and sounds, without words to express a range of meanings, real communication in a second language simply cannot happen.<span class="z">文法與發音都重要，但真正承載意義的是「單字」。麥卡錫說：無論文法學得多好、發音多標準，若沒有足夠的詞彙來表達各種意義，第二語言的溝通就無法真正發生。</span></p>
+ <section class="lab-sec"><h3>Three keys to remembering words <span>三把記憶鑰匙</span></h3>
+   <div class="lab-cards3">
+     <div class="lab-card3"><span class="ic">🎼</span><b>Sound &amp; Music</b><p>用聲音與歌曲記單字</p></div>
+     <div class="lab-card3"><span class="ic">🗺️</span><b>Concept Maps</b><p>用概念圖串起字群</p></div>
+     <div class="lab-card3"><span class="ic">📜</span><b>History of English</b><p>認識英語的來歷</p></div>
+   </div>
+ </section>
+ <section class="lab-sec"><h3>Learn by singing <span>用唱的記單字</span></h3>
+   <p class="lab-p">A song you love is a ready-made memory hook: the melody carries the words back to you. Instead of drilling a word list, meet the words inside a song, then lift them out to study.<span class="z">你喜歡的歌，就是現成的記憶掛勾——旋律會把單字一起帶回來。與其死背單字表，不如在歌裡遇見它們，再把它們「抽出來」學。</span></p>
+   <p class="lab-note">🎧 課堂用的兩首經典歌（歌詞版權所有，這裡只列出要教的目標單字）：<b>Memory</b>（音樂劇《Cats》）與 <b>Bridge Over Troubled Water</b>。</p>
+   <div class="lab-vocab">
+     <div class="lab-vword"><b>pavement</b><i>n.</i><span>人行道</span></div>
+     <div class="lab-vword"><b>withered</b><i>adj.</i><span>枯萎的</span></div>
+     <div class="lab-vword"><b>moan</b><i>v.</i><span>呻吟、哀鳴</span></div>
+     <div class="lab-vword"><b>mutter</b><i>v.</i><span>低聲咕噥</span></div>
+     <div class="lab-vword"><b>gutter</b><i>v./n.</i><span>（燭火）搖曳；排水溝</span></div>
+     <div class="lab-vword"><b>fatalistic</b><i>adj.</i><span>宿命的</span></div>
+     <div class="lab-vword"><b>weary</b><i>adj.</i><span>疲憊的</span></div>
+     <div class="lab-vword"><b>comfort</b><i>v.</i><span>安慰</span></div>
+   </div>
+ </section>
+ <section class="lab-sec"><h3>Poetry, too <span>詩也可以</span></h3>
+   <p class="lab-p">Two public-domain poems in the lecture make the same point — music and words belong together, and life is more than it seems.<span class="z">講義裡兩首公版詩也說著同一件事：音樂與文字本是一體，而人生不只是表面所見。</span></p>
+   <div class="lab-eg"><b>Thomas Ford (1607)</b> — “If music and sweet poetry agree…” 你愛音樂我愛詩：<b>agree（契合）</b>、<b>needs（必然）</b>。</div>
+   <div class="lab-eg"><b>Longfellow, “A Psalm of Life” (1838)</b> — key words: <b>mournful（哀傷的）</b>、<b>slumber（沉睡）</b>、<b>seem（看似）</b>。</div>
+ </section>`
+},
+{
+ id:"history", n:"02", icon:"🌍", title:"A Concise History of English", zh:"英語簡史",
+ blurb:"From Sanskrit to English — the Indo-European family, the Germanic branch, and the four ages of English.",
+ body:`
+ <section class="lab-sec"><h3>The 19th-century discovery <span>十九世紀的大發現</span></h3>
+   <p class="lab-p">In colonial India, the judge <b>William Jones</b> fell in love with <b>Sanskrit</b> and saw that it shared a common ancestor with Latin, Greek, Persian, Gothic and Celtic. Systematic word-origin study then revealed a whole family of related languages — the birth of comparative-historical linguistics, led largely by German scholars.<span class="z">在英屬印度當法官的<b>威廉・瓊斯</b>愛上了<b>梵語</b>，發現它與拉丁語、希臘語、波斯語、哥德語、凱爾特語有共同祖先。有系統的詞源研究揭開了一整個語言家族——比較／歷史語言學就此誕生，主要由德國學者群引領。</span></p>
+ </section>
+ <section class="lab-sec"><h3>The Indo-European family tree <span>印歐語系家族樹</span></h3>
+   <figure class="lab-plate"><svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="340" fill="#F3EFE4"/><g font-family="'IBM Plex Sans',sans-serif" text-anchor="middle"><rect x="230" y="16" width="140" height="38" rx="10" fill="#5B6C8F"/><text x="300" y="40" fill="#fff" font-weight="700" font-size="15">Indo-European 印歐</text><line x1="300" y1="54" x2="300" y2="72" stroke="#B9A98A" stroke-width="2"/><line x1="170" y1="72" x2="430" y2="72" stroke="#B9A98A" stroke-width="2"/><line x1="170" y1="72" x2="170" y2="88" stroke="#B9A98A" stroke-width="2"/><line x1="430" y1="72" x2="430" y2="88" stroke="#B9A98A" stroke-width="2"/><rect x="108" y="88" width="124" height="34" rx="9" fill="#C98A3A"/><text x="170" y="110" fill="#fff" font-weight="600" font-size="13">Centum 森吞語</text><rect x="368" y="88" width="124" height="34" rx="9" fill="#8A6BB0"/><text x="430" y="110" fill="#fff" font-weight="600" font-size="13">Satem 薩坦語</text><g font-size="12.5" fill="#3d3529"><line x1="170" y1="122" x2="170" y2="140" stroke="#B9A98A" stroke-width="2"/><line x1="70" y1="140" x2="270" y2="140" stroke="#B9A98A" stroke-width="2"/><g><line x1="70" y1="140" x2="70" y2="156" stroke="#B9A98A" stroke-width="2"/><rect x="24" y="156" width="92" height="30" rx="8" fill="#EAD9BE" stroke="#D8C29A"/><text x="70" y="176" font-weight="600">Germanic 日耳曼</text></g><g><line x1="170" y1="140" x2="170" y2="156" stroke="#B9A98A" stroke-width="2"/><rect x="134" y="156" width="72" height="30" rx="8" fill="#EAD9BE" stroke="#D8C29A"/><text x="170" y="176" font-weight="600">Latin 拉丁</text></g><g><line x1="270" y1="140" x2="270" y2="156" stroke="#B9A98A" stroke-width="2"/><rect x="228" y="156" width="84" height="30" rx="8" fill="#EAD9BE" stroke="#D8C29A"/><text x="270" y="176" font-weight="600">Greek 希臘</text></g></g><g font-size="11.5"><line x1="70" y1="186" x2="70" y2="204" stroke="#B9A98A" stroke-width="2"/><line x1="34" y1="204" x2="106" y2="204" stroke="#B9A98A" stroke-width="2"/><line x1="34" y1="204" x2="34" y2="220" stroke="#B9A98A" stroke-width="2"/><line x1="106" y1="204" x2="106" y2="220" stroke="#B9A98A" stroke-width="2"/><rect x="0" y="220" width="68" height="52" rx="8" fill="#DCEBD8" stroke="#B7D3AF"/><text x="34" y="238" font-weight="700" fill="#33532f">West 西</text><text x="34" y="254" fill="#4a5a44">English</text><text x="34" y="268" fill="#4a5a44">Dutch · German</text><rect x="80" y="220" width="72" height="52" rx="8" fill="#DCE6F0" stroke="#AEC6DE"/><text x="116" y="238" font-weight="700" fill="#2c5c86">North 北</text><text x="116" y="254" fill="#3a5062">Danish · Swedish</text><text x="116" y="268" fill="#3a5062">Norwegian · Icelandic</text></g><text x="300" y="312" fill="#8a7a5e" font-size="11" font-style="italic">English sits in the West-Germanic branch of the Centum languages. 英語屬於森吞語中的西日耳曼分支。</text></g></svg></figure>
+ </section>
+ <section class="lab-sec"><h3>The four ages of English <span>英語發展四時期</span></h3>
+   <div class="lab-tablewrap"><table class="lab-table">
+     <thead><tr><th>Period 時期</th><th>Years 年代</th><th>Drivers &amp; events 族群／事件</th><th>Landmarks 重要人事物</th></tr></thead>
+     <tbody>
+       <tr><td><b>Old English</b><br>古英語</td><td>450–1150</td><td>Angles · Saxons · Jutes; Vikings; Celtic &amp; Latin influence</td><td>Beowulf · full inflected endings 語尾變化完整</td></tr>
+       <tr><td><b>Middle English</b><br>中古英語</td><td>1150–1500</td><td>Norman Conquest (1066); heavy French influence</td><td>Chaucer · endings weaken 語尾弱化</td></tr>
+       <tr><td><b>Early Modern English</b><br>早期現代英語</td><td>1500–1800</td><td>Great Vowel Shift · Grimm's Law · Renaissance · trade</td><td>Shakespeare · 元音大轉移 · 文藝復興</td></tr>
+       <tr><td><b>Late Modern English</b><br>晚期現代英語</td><td>1800–</td><td>Industrial Revolution · Colonialism</td><td>global spread of English 英語全球化</td></tr>
+     </tbody>
+   </table></div>
+ </section>`
+},
+{
+ id:"great-vowel-shift", n:"03", icon:"🗣️", title:"The Great Vowel Shift", zh:"元音大轉移",
+ blurb:"Why 'time' isn't 'teem' and 'house' isn't 'hoose' — the long vowels of English rose and moved.",
+ body:`
+ <p class="lab-p">Between Middle and Modern English, the long vowels all shifted upward and forward (and the highest ones broke into diphthongs). This is why English spelling and pronunciation no longer match neatly — the spelling froze while the sounds moved.<span class="z">從中古英語到現代英語，長元音整體向「高、前」移動，最高的元音還裂變成雙元音。這就是為什麼英語的「拼字」和「發音」對不太起來——拼字定住了，聲音卻搬家了。</span></p>
+ <section class="lab-sec"><h3>The shift, word by word <span>逐字看轉移</span></h3>
+   <div class="lab-tablewrap"><table class="lab-table">
+     <thead><tr><th>Word</th><th>Position 位置</th><th>Middle English 中古音</th><th>Modern English 現代音</th></tr></thead>
+     <tbody>
+       <tr><td><b>time</b></td><td>Front · High</td><td>/tiːmə/ /iː/</td><td>[taɪm] /aɪ/</td></tr>
+       <tr><td><b>feet</b></td><td>Front · Mid</td><td>/feːt/ /eː/</td><td>[fiːt] /iː/</td></tr>
+       <tr><td><b>break</b></td><td>Front · Low</td><td>/brɛːkən/ /ɛː/</td><td>[breːk] /eː/</td></tr>
+       <tr><td><b>name</b></td><td>Central · Low</td><td>/namə/ /aː/</td><td>[neːm] /eː/</td></tr>
+       <tr><td><b>house</b></td><td>Back · High</td><td>/huːs/ /uː/</td><td>[haʊs] /aʊ/</td></tr>
+       <tr><td><b>goose</b></td><td>Back · Mid</td><td>/goːs/ /oː/</td><td>[guːs] /uː/</td></tr>
+       <tr><td><b>broke</b></td><td>Back · Low</td><td>/brɔːkən/ /ɔː/</td><td>[broːk] /oː/</td></tr>
+     </tbody>
+   </table></div>
+ </section>
+ <section class="lab-sec"><h3>A living echo <span>活生生的餘響</span></h3>
+   <p class="lab-p">The old vowel patterns still live inside irregular verbs — the vowel changes, the word stays.<span class="z">古老的元音變化，至今仍活在不規則動詞裡——母音變了，字還是同一個。</span></p>
+   <div class="lab-eg lab-eg-big">sing – sang – sung　·　drink – drank – drunk　<span class="lab-ipa">/ɪ/ – /æ/ – /ʌ/</span></div>
+ </section>`
+},
+{
+ id:"grimms-law", n:"04", icon:"🔤", title:"Grimm's Law", zh:"格林法則",
+ blurb:"The same brothers who collected fairy tales found the rule that links English, Latin, Greek and Sanskrit sounds.",
+ body:`
+ <p class="lab-p">Jacob Grimm (1785–1863) — yes, one of the Brothers Grimm of the fairy tales — described how certain stop consonants shifted in the Germanic languages compared with their Indo-European originals. It is also called the <b>Germanic (First) Consonant Shift</b>. Knowing it lets you connect an English word to its Latin or Greek cousin.<span class="z">雅各布・格林（正是《格林童話》的格林兄弟之一）發現：日耳曼語言的某些「塞音」，相對於印歐語原音發生了規律的變化，又稱<b>日耳曼（第一次）子音大推移</b>。懂它，就能把英文字和它的拉丁／希臘表親連起來。</span></p>
+ <section class="lab-sec"><h3>The consonant shift, in four steps <span>子音推移四步驟</span></h3>
+   <figure class="lab-plate"><svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="250" fill="#F3EFE4"/><g font-family="'IBM Plex Sans',sans-serif" text-anchor="middle"><g><rect x="20" y="96" width="120" height="58" rx="12" fill="#8A6BB0"/><text x="80" y="120" fill="#fff" font-size="12" font-weight="600">(I) 濁送氣</text><text x="80" y="140" fill="#fff" font-size="15" font-weight="700">*bʰ *dʰ *gʰ</text></g><g><rect x="170" y="96" width="120" height="58" rx="12" fill="#5B6C8F"/><text x="230" y="120" fill="#fff" font-size="12" font-weight="600">(II) 濁塞音</text><text x="230" y="140" fill="#fff" font-size="16" font-weight="700">b  d  g</text></g><g><rect x="320" y="96" width="120" height="58" rx="12" fill="#C98A3A"/><text x="380" y="120" fill="#fff" font-size="12" font-weight="600">(III) 清塞音</text><text x="380" y="140" fill="#fff" font-size="16" font-weight="700">p  t  k</text></g><g><rect x="470" y="96" width="120" height="58" rx="12" fill="#B04A3A"/><text x="530" y="120" fill="#fff" font-size="12" font-weight="600">(IV) 清擦音</text><text x="530" y="140" fill="#fff" font-size="16" font-weight="700">f  θ  h</text></g><g fill="#6b5f4e" font-size="20"><text x="155" y="130">→</text><text x="305" y="130">→</text><text x="455" y="130">→</text></g><path d="M530 96 C530 40 230 40 230 92" fill="none" stroke="#4E7A4E" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#av)"/><defs><marker id="av" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4E7A4E"/></marker></defs><text x="380" y="34" fill="#4E7A4E" font-size="11.5" font-weight="600">Verner's Law: after an unstressed vowel, f θ h → b d g</text><text x="300" y="186" fill="#3d3529" font-size="12.5">濁送氣塞音 → 濁塞音 → 清塞音 → 清擦音</text><text x="300" y="222" fill="#8a7a5e" font-size="11" font-style="italic">Each stop shifts one step "harder", then Verner's Law loops some back. 每個塞音「硬化」一步，Verner 法則再讓部分回頭。</text></g></svg></figure>
+   <div class="lab-tablewrap"><table class="lab-table">
+     <thead><tr><th>Law 法則</th><th>Sound change 音變</th><th>Description 說明</th></tr></thead>
+     <tbody>
+       <tr><td>Grimm's Law</td><td>*bʰ *dʰ *gʰ → b d g</td><td>Voiced aspirated stops lose their breath 濁送氣→濁塞音</td></tr>
+       <tr><td>Grimm's Law</td><td>b d g → p t k</td><td>Voiced stops become voiceless 濁塞音→清塞音</td></tr>
+       <tr><td>Grimm's Law</td><td>p t k → f θ h</td><td>Voiceless stops become fricatives 清塞音→清擦音</td></tr>
+       <tr><td>Verner's Law (1875)</td><td>f θ h → b d g</td><td>After an unstressed vowel, they shift again 非重音後再變</td></tr>
+     </tbody>
+   </table></div>
+ </section>
+ <section class="lab-sec"><h3>Cousins across four languages <span>四語同源對照</span></h3>
+   <div class="lab-tablewrap"><table class="lab-table">
+     <thead><tr><th>Meaning</th><th>Sanskrit</th><th>Latin</th><th>Greek</th><th>English</th></tr></thead>
+     <tbody>
+       <tr><td>father 父</td><td>pitar</td><td>pater</td><td>patēr</td><td><b>father</b></td></tr>
+       <tr><td>foot 腳</td><td>pad</td><td>ped</td><td>poús</td><td><b>foot</b></td></tr>
+       <tr><td>tooth 牙</td><td>—</td><td>dentis</td><td>—</td><td><b>tooth</b></td></tr>
+       <tr><td>horn 角</td><td>—</td><td>cornu</td><td>—</td><td><b>horn</b></td></tr>
+     </tbody>
+   </table><p class="lab-cap">Notice: Latin <b>p</b> ↔ English <b>f</b> (pater/father); Latin <b>t</b> ↔ English <b>th</b> (dentis/tooth); Latin <b>c/k</b> ↔ English <b>h</b> (cornu/horn).</p></div>
+ </section>`
+},
+{
+ id:"three-rules", n:"05", icon:"👄", title:"Grimm's Law: Lip, Tooth, Palate", zh:"格林三法則：唇齒顎",
+ blurb:"Three places in the mouth, three groups of sounds that swap — the practical key to decoding words.",
+ body:`
+ <p class="lab-p">Sounds made in the <b>same part of the mouth</b> swap easily. Remember three places — <b>lip 唇, tooth 齒, palate 顎</b> — and you can move between related sounds to uncover a word's family.<span class="z">在<b>同一個發音部位</b>產生的音，最容易互換。記住三個地方——<b>唇、齒、顎</b>——你就能在相關的音之間游走，找出一個字的家族。</span></p>
+ <section class="lab-sec"><h3>Three groups <span>三大類</span></h3>
+   <div class="lab-rules">
+     <div class="lab-rule lab-rule-1"><div class="lab-rule-h"><span class="ic">👄</span><b>Rule 1 · Lip 唇</b></div><div class="lab-rule-set">p · b · m · w · f · v</div><p>labial &amp; labio-dental 唇音／唇齒音</p><div class="lab-rule-eg">p ~ b：搬／盤　·　p ~ f：<b>lip → labial</b></div></div>
+     <div class="lab-rule lab-rule-2"><div class="lab-rule-h"><span class="ic">🦷</span><b>Rule 2 · Tooth 齒</b></div><div class="lab-rule-set">t · d · θ(th) · n · l · r · s · z</div><p>dental &amp; alveolar 齒間／齒齦音</p><div class="lab-rule-eg">t ~ th：<b>three → tripod</b>　·　t ~ d：ten → -dec</div></div>
+     <div class="lab-rule lab-rule-3"><div class="lab-rule-h"><span class="ic">👅</span><b>Rule 3 · Palate 顎</b></div><div class="lab-rule-set">k · g · h · tʃ · dʒ · ʃ · ŋ</div><p>palatal &amp; velar 硬顎／軟顎音</p><div class="lab-rule-eg">k ~ g：<b>break → fragment → fragile</b></div></div>
+   </div>
+ </section>
+ <section class="lab-sec"><h3>How to apply it <span>怎麼用</span></h3>
+   <ol class="lab-steps">
+     <li><b>Start from the core meaning.</b> podium → <b>-pod</b> ~ foot（腳踏的平台 → 講台）。先抓「核心語義」再推理。</li>
+     <li><b>Reason from the known to the unknown.</b> teeth（已知）→ dentist（未知）= 修牙齒的人 → 牙醫。從熟字推生字。</li>
+     <li><b>Nearby sounds swap most easily.</b> kid ~ child → <b>kinder</b>garten（小孩玩樂的花園 → 幼稚園）。發音部位越近越好換。</li>
+   </ol>
+ </section>`
+},
+{
+ id:"roots-affixes", n:"06", icon:"🌱", title:"Word Roots & Affixes", zh:"字根與字首字尾",
+ blurb:"A root is a seed of meaning; prefixes and suffixes grow it into a family of words.",
+ body:`
+ <p class="lab-p">A <b>root</b> carries the core meaning; a <b>prefix</b> is added in front and a <b>suffix</b> at the end. Learn one root and Grimm's Law, and a whole family of words opens up.<span class="z"><b>字根</b>承載核心語義，<b>字首</b>加在前、<b>字尾</b>加在後。學會一個字根，再配上格林法則，一整群單字就打開了。</span></p>
+ <section class="lab-sec"><h3>Lip family (Rule 1) <span>唇音家族</span></h3>
+   <div class="lab-roots">
+     <div class="lab-root"><div class="lab-root-h"><b>-ped / -pod</b><span>foot 腳 (p~f, d~t)</span></div><ul><li><b>pedestrian</b> 行人（用腳走路的人）</li><li><b>pedal</b> 踏板　·　<b>tripod</b> 三腳架</li><li><b>podium</b> 講台（腳踏的平台）</li></ul></div>
+     <div class="lab-root"><div class="lab-root-h"><b>-patr</b><span>father 父 (p~f, t~th)</span></div><ul><li><b>paternal</b> 父親的　·　<b>patron</b> 贊助者</li><li><b>patriotic</b> 愛國的　·　<b>patricide</b> 弒父</li></ul></div>
+     <div class="lab-root"><div class="lab-root-h"><b>flat / plat</b><span>flat 平的 (f~p)</span></div><ul><li><b>platform</b> 平台　·　<b>plate</b> 盤子</li><li><b>plateau</b> 高原　·　<b>plain</b> 平原／清楚的</li></ul></div>
+     <div class="lab-root"><div class="lab-root-h"><b>-vid / -vis</b><span>see 看 (v~w, d~t~s)</span></div><ul><li><b>vision · visible</b> 視覺／看得見</li><li><b>evident</b> 明顯的（ex-出 + vid-看）</li><li>→ <b>wit / wise</b> 機智／智慧</li></ul></div>
+   </div>
+ </section>
+ <section class="lab-sec"><h3>Tooth family (Rule 2) <span>齒音家族</span></h3>
+   <div class="lab-roots">
+     <div class="lab-root"><div class="lab-root-h"><b>tri-</b><span>three 三 (th~t)</span></div><ul><li><b>triangle</b> 三角形　·　<b>tricycle</b> 三輪車</li><li><b>tripod</b> 三腳架　·　<b>trivial</b> 瑣碎的</li></ul></div>
+     <div class="lab-root"><div class="lab-root-h"><b>-dec</b><span>ten 十 (t~d)</span></div><ul><li><b>decade</b> 十年　·　<b>decathlon</b> 十項全能</li><li><b>decimal</b> 十進位　·　decameter 十公尺</li></ul></div>
+     <div class="lab-root"><div class="lab-root-h"><b>-tenu</b><span>thin 薄／細 (t~th)</span></div><ul><li><b>tenuous</b> 稀薄的、脆弱的</li><li><b>extenuate</b> 減輕（罪責）　·　<b>attenuate</b> 減弱</li></ul></div>
+   </div>
+ </section>
+ <section class="lab-sec"><h3>Palate family (Rule 3) <span>顎音家族</span></h3>
+   <div class="lab-roots">
+     <div class="lab-root"><div class="lab-root-h"><b>-tact / -tang / -tag</b><span>touch 觸 (k,g,tʃ,dʒ)</span></div><ul><li><b>contact</b> 接觸　·　<b>tangible</b> 可觸知的</li><li><b>tag</b> 標籤　·　<b>contagion</b> 接觸傳染</li></ul></div>
+     <div class="lab-root"><div class="lab-root-h"><b>-cor / -cord</b><span>heart 心 (k~h)</span></div><ul><li><b>cordial</b> 熱誠的　·　<b>concord</b> 協調、和睦</li><li><b>accordance</b> 一致　·　<b>record</b> 記在心上</li></ul></div>
+     <div class="lab-root"><div class="lab-root-h"><b>-gen / -kin</b><span>family 家族 (k~g)</span></div><ul><li><b>generation</b> 世代　·　<b>genesis</b> 起源</li><li><b>kinship</b> 親屬關係　·　acre / agri- 田地</li></ul></div>
+     <div class="lab-root"><div class="lab-root-h"><b>k ~ h shift</b><span>硬／軟顎 → 喉音</span></div><ul><li><b>coarse</b> 粗糙 ~ <b>hoarse</b> 沙啞</li><li><b>horn</b> 角 → <b>unicorn</b> 獨角獸</li></ul></div>
+   </div>
+ </section>`
+},
+{
+ id:"break-family", n:"07", icon:"🧩", title:"Hierarchical Structure: the 'break' family", zh:"階層結構：break 家族",
+ blurb:"One ancient root, *bʰreg- 'to break', branches into a whole tree of English words.",
+ body:`
+ <p class="lab-p">A single Indo-European root, <b>*bʰreg-</b> ('to break'), travelled two ways: through Germanic (giving <b>break, breach</b>) and through Latin <b>frangere / fractus</b> (giving <b>fragment, fracture, fragile…</b>). The consonant at the break — /k/, /tʃ/, /g/, /dʒ/ — shifts by Grimm's Rule 3.<span class="z">一個印歐語字根 <b>*bʰreg-</b>（「打破」），走了兩條路：經由日耳曼語變成 <b>break、breach</b>；經由拉丁語 <b>frangere／fractus</b> 變成 <b>fragment、fracture、fragile…</b>。那個關鍵子音（/k/、/tʃ/、/g/、/dʒ/）依格林第三法則轉換。</span></p>
+ <figure class="lab-plate"><svg viewBox="0 0 620 330" xmlns="http://www.w3.org/2000/svg"><rect width="620" height="330" fill="#F3EFE4"/><g font-family="'IBM Plex Sans',sans-serif" text-anchor="middle"><rect x="235" y="14" width="150" height="40" rx="11" fill="#5B6C8F"/><text x="310" y="33" fill="#fff" font-size="14" font-weight="700">*bʰreg-</text><text x="310" y="48" fill="#e8ecf3" font-size="11">Indo-European · break 打破</text><line x1="310" y1="54" x2="310" y2="70" stroke="#B9A98A" stroke-width="2"/><line x1="160" y1="70" x2="460" y2="70" stroke="#B9A98A" stroke-width="2"/><g><line x1="160" y1="70" x2="160" y2="86" stroke="#B9A98A" stroke-width="2"/><rect x="96" y="86" width="128" height="34" rx="9" fill="#C98A3A"/><text x="160" y="108" fill="#fff" font-size="12.5" font-weight="600">Germanic *brekan</text></g><g><line x1="460" y1="70" x2="460" y2="86" stroke="#B9A98A" stroke-width="2"/><rect x="396" y="86" width="128" height="34" rx="9" fill="#8A6BB0"/><text x="460" y="108" fill="#fff" font-size="12.5" font-weight="600">Latin *frangere</text></g><g font-size="12"><line x1="160" y1="120" x2="160" y2="138" stroke="#B9A98A" stroke-width="2"/><line x1="112" y1="138" x2="208" y2="138" stroke="#B9A98A" stroke-width="2"/><g><line x1="112" y1="138" x2="112" y2="154" stroke="#B9A98A" stroke-width="2"/><rect x="70" y="154" width="84" height="42" rx="8" fill="#DCEBD8" stroke="#B7D3AF"/><text x="112" y="172" fill="#33532f" font-weight="700">break /k/</text><text x="112" y="188" fill="#4a5a44">打破</text></g><g><line x1="208" y1="138" x2="208" y2="154" stroke="#B9A98A" stroke-width="2"/><rect x="166" y="154" width="84" height="42" rx="8" fill="#DCEBD8" stroke="#B7D3AF"/><text x="208" y="172" fill="#33532f" font-weight="700">breach /tʃ/</text><text x="208" y="188" fill="#4a5a44">裂口</text></g></g><g font-size="11.5"><line x1="460" y1="120" x2="460" y2="132" stroke="#B9A98A" stroke-width="2"/><line x1="322" y1="132" x2="600" y2="132" stroke="#B9A98A" stroke-width="2"/><g fill="#5a3f7a"><g><line x1="330" y1="132" x2="330" y2="148" stroke="#B9A98A" stroke-width="2"/><rect x="296" y="148" width="70" height="40" rx="8" fill="#E7DDF2" stroke="#C9B6E0"/><text x="331" y="166" font-weight="700">fragment</text><text x="331" y="180" fill="#6b5a82">/g/ 碎片</text></g><g><line x1="410" y1="132" x2="410" y2="148" stroke="#B9A98A" stroke-width="2"/><rect x="376" y="148" width="70" height="40" rx="8" fill="#E7DDF2" stroke="#C9B6E0"/><text x="411" y="166" font-weight="700">fraction</text><text x="411" y="180" fill="#6b5a82">/k/ 分數</text></g><g><line x1="490" y1="132" x2="490" y2="148" stroke="#B9A98A" stroke-width="2"/><rect x="456" y="148" width="70" height="40" rx="8" fill="#E7DDF2" stroke="#C9B6E0"/><text x="491" y="166" font-weight="700">fracture</text><text x="491" y="180" fill="#6b5a82">/k/ 骨折</text></g><g><line x1="565" y1="132" x2="565" y2="148" stroke="#B9A98A" stroke-width="2"/><rect x="536" y="148" width="72" height="40" rx="8" fill="#E7DDF2" stroke="#C9B6E0"/><text x="572" y="166" font-weight="700">fragile</text><text x="572" y="180" fill="#6b5a82">/dʒ/ 脆弱</text></g></g></g><text x="310" y="238" fill="#3d3529" font-size="12.5">One root → many words. Spot the shared meaning: something broken or in pieces.</text><text x="310" y="260" fill="#8a7a5e" font-size="11.5" font-style="italic">同一字根開枝散葉；共同語義都是「破、碎、片段」。</text></g></svg></figure>`
+},
+{
+ id:"multimodality", n:"08", icon:"🧠", title:"What is Multimodality?", zh:"什麼是多模態",
+ blurb:"Meaning is built from many channels at once — not words alone. First, how language itself is layered.",
+ body:`
+ <section class="lab-sec"><h3>The levels of language <span>語言的層級</span></h3>
+   <p class="lab-p">Language is built up level by level: small units combine into bigger ones, all the way up to whole texts.<span class="z">語言是一層層堆疊起來的：小單位組合成大單位，一路往上直到完整的「篇章」。</span></p>
+   <div class="lab-tablewrap"><table class="lab-table">
+     <thead><tr><th>Units combine to make… 單位往上組合</th><th>Field 領域</th><th>Level 層級</th></tr></thead>
+     <tbody>
+       <tr><td>1. Sounds → <b>morphemes</b> 語素</td><td>Phonology 音韻</td><td rowspan="3" class="lab-lvl lab-lvl-1">Lexical 詞彙</td></tr>
+       <tr><td>2. Morphemes → <b>words</b> 單字</td><td>Morphology 構詞</td></tr>
+       <tr><td>3. Words → <b>phrases</b> 片語</td><td>Lexis 詞彙學</td></tr>
+       <tr><td>4. Phrases → <b>clauses</b> 子句</td><td>Syntax 句法</td><td rowspan="3" class="lab-lvl lab-lvl-2">Syntactical 句法</td></tr>
+       <tr><td>5. Clauses → <b>sentences</b> 句子</td><td>Syntax 句法</td></tr>
+       <tr><td>6. Sentences → <b>texts</b> 篇章</td><td>Syntax 句法</td></tr>
+       <tr><td>7. Texts → <b>discourse</b> 言談</td><td>Discourse 言談分析</td><td class="lab-lvl lab-lvl-3">Contextual 語境</td></tr>
+     </tbody>
+   </table></div>
+ </section>
+ <section class="lab-sec"><h3>So, what is multimodality? <span>那麼，多模態是什麼？</span></h3>
+   <p class="lab-p">A text that uses <b>more than one mode</b> at the same time is <b>multimodal</b>. Advertisements, newspapers, reports and music videos all combine words, images, sound, movement and layout to make meaning — and they don't have to be digital.<span class="z">同時使用<b>一種以上模態</b>的文本，就是<b>多模態</b>。廣告、報紙、報告、MV，都結合了文字、影像、聲音、動作與版面來傳達意義——而且不一定是數位的。</span></p>
+   <div class="lab-defs">
+     <div class="lab-def"><b>Text 文本</b><p>不只是文字：任何模態、以及文字在頁面上的編排、影像、影片與聲音，都算「text」。延伸到網路就成了 <i>webtext</i>。</p></div>
+     <div class="lab-def"><b>Medium 媒介</b><p>你用來把文本送到觀眾面前的方式（複數 media）。不同媒介使用不同的模態組合，作者必須選擇。</p></div>
+     <div class="lab-def"><b>Affordances 可供性</b><p>每種模態與媒介都有各自的長處與短處（affordances）。創作前要先想清楚，再決定用哪些模態。</p></div>
+   </div>
+ </section>`
+},
+{
+ id:"five-modes", n:"09", icon:"🖐️", title:"The Five Modes of Communication", zh:"五種溝通模態",
+ blurb:"Linguistic, Visual, Aural, Gestural, Spatial — the five channels meaning travels through (New London Group, 1996).",
+ body:`
+ <figure class="lab-plate"><svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg"><rect width="560" height="300" fill="#F3EFE4"/><g font-family="'IBM Plex Sans',sans-serif" text-anchor="middle"><circle cx="280" cy="150" r="52" fill="#3f4d6b"/><text x="280" y="146" fill="#fff" font-size="14" font-weight="700">MULTI-</text><text x="280" y="164" fill="#fff" font-size="14" font-weight="700">MODAL</text><g stroke="#C4B594" stroke-width="2"><line x1="280" y1="98" x2="280" y2="62"/><line x1="325" y1="122" x2="452" y2="86"/><line x1="325" y1="178" x2="452" y2="214"/><line x1="235" y1="178" x2="108" y2="214"/><line x1="235" y1="122" x2="108" y2="86"/></g><g font-size="13" font-weight="600"><g><circle cx="280" cy="42" r="30" fill="#C98A3A"/><text x="280" y="40" fill="#fff">Ling-</text><text x="280" y="54" fill="#fff">uistic</text></g><g><circle cx="486" cy="74" r="30" fill="#4E7A9E"/><text x="486" y="72" fill="#fff">Visual</text><text x="486" y="86" fill="#fff" font-size="10">👁️</text></g><g><circle cx="486" cy="226" r="30" fill="#7A9E4E"/><text x="486" y="224" fill="#fff">Aural</text><text x="486" y="238" fill="#fff" font-size="10">🔊</text></g><g><circle cx="74" cy="226" r="30" fill="#B04A6A"/><text x="74" y="224" fill="#fff">Gest-</text><text x="74" y="238" fill="#fff">ural</text></g><g><circle cx="74" cy="74" r="30" fill="#8A6BB0"/><text x="74" y="72" fill="#fff">Spatial</text><text x="74" y="86" fill="#fff" font-size="10">🧭</text></g></g></g></svg></figure>
+ <div class="lab-modes">
+   <div class="lab-mode lab-mode-l"><div class="lab-mode-h"><span class="ic">✍️</span><b>Linguistic 語言</b></div><p>Written or spoken words: word choice, delivery, how words build into sentences and paragraphs, and coherence. The best mode for details and lists — and it can be both read and heard.<span class="z">書寫或口說的文字：用詞、表達、句段組織與連貫。最擅長表達細節與清單，而且能讀也能聽。</span></p></div>
+   <div class="lab-mode lab-mode-v"><div class="lab-mode-h"><span class="ic">👁️</span><b>Visual 視覺</b></div><p>The images and characters people see: colour, layout, style, size and perspective. Used to instruct, persuade, entertain or show feeling — and great for detail.<span class="z">人們看見的影像與圖形：色彩、版面、風格、大小、視角。用來指示、說服、娛樂或表達情感，也很擅長呈現細節。</span></p></div>
+   <div class="lab-mode lab-mode-a"><div class="lab-mode-h"><span class="ic">🔊</span><b>Aural 聽覺</b></div><p>Everything to do with sound: music, sound effects, ambient noise, silence, tone of voice, volume, emphasis and accent. Every sound carries a message — pair it with visuals for more.<span class="z">與「聲音」有關的一切：音樂、音效、環境音、靜默、語氣、音量、重音與口音。每個聲音都傳達訊息，配上視覺效果更強。</span></p></div>
+   <div class="lab-mode lab-mode-g"><div class="lab-mode-h"><span class="ic">🖐️</span><b>Gestural 動作</b></div><p>How movement is read: facial expressions, hand gestures, body language and interaction. Long vital in face-to-face talk and theatre — now huge online with video.<span class="z">動作如何被解讀：表情、手勢、肢體語言與互動。在面對面與劇場一向重要，如今隨影片在網路上更關鍵。</span></p></div>
+   <div class="lab-mode lab-mode-s"><div class="lab-mode-h"><span class="ic">🧭</span><b>Spatial 空間</b></div><p>The physical arrangement and proximity of a text: how a brochure folds, or how a website's navigation bar is laid out and moved through. The designer arranges it; the user decides how to travel it.<span class="z">文本的實體排列與相對位置：手冊怎麼摺，或網站導覽列怎麼排、怎麼瀏覽。設計者安排它，使用者決定怎麼走。</span></p></div>
+ </div>
+ <section class="lab-sec"><h3>Combining modes <span>模態的組合</span></h3>
+   <p class="lab-p">Strong texts combine modes to play to each one's strengths. The linguistic mode gives you time to lay out detailed steps; the visual mode conveys a message or emotion instantly. Choosing well is the designer's craft.<span class="z">好的文本會組合模態，發揮各自的長處：語言模態讓你細細說明步驟，視覺模態能瞬間傳達訊息與情感。懂得取捨，就是設計者的功力。</span></p>
+   <p class="lab-src">Based on the New London Group (1996), “A Pedagogy of Multiliteracies.” 依據 New London Group（1996）。</p>
+ </section>`
+}
+];
+function labById(id){ return LAB.find(x=>x.id===id); }
+function renderLabList(){
+  const cards = LAB.map(c=>`
+    <button class="lab-card" onclick="location.hash='#/lab/${c.id}'">
+      <span class="lab-card-ic">${c.icon}</span>
+      <span class="lab-card-n">${c.n}</span>
+      <div class="lab-card-title">${c.title}<span>${c.zh}</span></div>
+      <p class="lab-card-blurb">${c.blurb}</p>
+      <span class="lab-card-go">開始閱讀 Read →</span>
+    </button>`).join("");
+  app.innerHTML = `<div class="view lab">
+    <div class="crumb"><a href="#/home">Home</a> › Language Lab</div>
+    <div class="lab-hd">
+      <div class="eyebrow" style="color:var(--lab-accent)">Language Lab · 語言探索室</div>
+      <h1 class="display">語言探索室<span class="zh-term-lg" style="color:var(--lab-ink)">Language Lab</span></h1>
+      <p class="lede">英語的來歷、格林法則、字根字首，還有多模態文本分析。<br>The story of English, Grimm's Law, word roots, and how modern texts make meaning across many modes.</p>
+    </div>
+    <div class="lab-grid">${cards}</div>
+    <p class="lab-source">改寫自「多模態文本分析講義」（Joe Wang，應用外語系）。圖表為原創重繪；歌詞版權所有，僅摘取教學單字。</p>
+  </div>`;
+}
+function renderLab(id){
+  const c = labById(id);
+  if(!c){ location.hash = "#/lab"; return; }
+  const idx = LAB.indexOf(c), nextC = LAB[idx+1], prevC = LAB[idx-1];
+  app.innerHTML = `<div class="view lab lab-reader">
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/lab">Language Lab</a> › ${c.title}</div>
+    <header class="lab-hero">
+      <span class="lab-hero-ic">${c.icon}</span>
+      <div class="lab-hero-n">Chapter ${c.n}</div>
+      <h1>${c.title}</h1>
+      <div class="lab-hero-zh">${c.zh}</div>
+      <p class="lab-hero-sub">${c.blurb}</p>
+    </header>
+    <article class="lab-content">${c.body}</article>
+    <div class="lab-foot">
+      ${prevC?`<button class="btn btn-ghost" onclick="location.hash='#/lab/${prevC.id}'">← ${prevC.title}</button>`:`<button class="btn btn-ghost" onclick="location.hash='#/lab'">← 所有章節</button>`}
+      ${nextC?`<button class="btn btn-navy" onclick="location.hash='#/lab/${nextC.id}'">${nextC.title} →</button>`:`<button class="btn btn-navy" onclick="location.hash='#/lab'">回到目錄 →</button>`}
+    </div>
+  </div>`;
+  window.scrollTo(0,0);
 }
 
 function renderTheoryList(){
