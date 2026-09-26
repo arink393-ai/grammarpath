@@ -734,12 +734,6 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .ws-grades{margin-top:18px;border:1.5px solid #2E2620;border-radius:8px;padding:10px 14px}
 .ws-grades b{font:700 12px var(--sans);color:#2E2620}
 .ws-grades-grid{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:6px;font:400 11.5px var(--mono);color:#4A4038}
-@media print{
-  .ws-view{max-width:none}
-  .ws-sheet{border:none;box-shadow:none;border-radius:0;padding:0 6px;margin:0}
-  .ws-keypage{page-break-before:always}
-  .ws-item{page-break-inside:avoid}
-}
 /* ---- Cheatsheet ---- */
 .cs-level{font:600 24px var(--serif);color:var(--navy);margin:30px 0 6px}
 .cs-unit{font:600 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin:18px 0 8px}
@@ -749,13 +743,77 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .cs-zh{color:var(--teal);font-size:12px}
 .cs-form{font:500 12.5px var(--mono);color:var(--navy);width:30%}
 .cs-ex b{color:var(--teal)}
+
 @media print{
-  .topbar,.nav,.nav-backdrop,.no-print,#toast{display:none !important}
-  body{padding-right:0 !important}
-  body{background:#fff}
-  .view{max-width:none;padding:0}
-  .cs-table{font-size:11.5px}
-  .cs-level{margin-top:14px}
+  *, *::before, *::after{
+    animation: none !important;
+    transition: none !important;
+  }
+  html, body{
+    background: #fff !important;
+    color: #000 !important;
+    overflow: visible !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .topbar, .nav, .nav-backdrop, .no-print, #toast, .ws-toolbar, .hamburger, .acct-menu, .auth-gate{
+    display: none !important;
+  }
+  .wrap{
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .view{
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  @page{
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+  .ws-view{ max-width: none !important; }
+  .ws-sheet{
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 4px !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+  .ws-keypage{
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+  .ws-item, .ws-ref, .fw-moral, .ws-extra, .ws-grades, .tc-table tr, .cs-table tr, .rb-table tr{
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .ws-sec-h, .ws-topicrow, .cs-level, .cs-unit, h1, h2, h3, .qh{
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .cs-table{
+    font-size: 11px !important;
+    width: 100% !important;
+  }
+  .cs-table td{
+    padding: 6px 8px !important;
+  }
+  .cs-level{
+    margin-top: 16px !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .tc-tablewrap{ overflow: visible !important; }
+  .tc-table{ border-radius: 0 !important; overflow: visible !important; }
+  .tc-table th{ -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
 /* ---- Listening ---- */
 .listen-row{display:flex;align-items:center;gap:8px;margin:0 0 18px;flex-wrap:wrap}
@@ -1458,12 +1516,13 @@ const DATA = {
     {id:"u2", level:"basic", n:"Unit 2", name:"Nouns & articles"},
     {id:"u7", level:"basic", n:"Unit 3", name:"Sentences & questions"},
     {id:"u10", level:"basic", n:"Unit 4", name:"Everyday modals"},
-    {id:"u3", level:"intermediate", n:"Unit 5", name:"Past & perfect"},
-    {id:"u4", level:"intermediate", n:"Unit 6", name:"Future & conditions"},
-    {id:"u8", level:"intermediate", n:"Unit 7", name:"Compare & connect"},
-    {id:"u5", level:"advanced", n:"Unit 8", name:"Complex structures"},
-    {id:"u6", level:"advanced", n:"Unit 9", name:"Hypothetical meaning"},
-    {id:"u9", level:"advanced", n:"Unit 10", name:"Natural English"}
+    {id:"u11", level:"basic", n:"Unit 5", name:"Everyday English"},
+    {id:"u3", level:"intermediate", n:"Unit 6", name:"Past & perfect"},
+    {id:"u4", level:"intermediate", n:"Unit 7", name:"Future & conditions"},
+    {id:"u8", level:"intermediate", n:"Unit 8", name:"Compare & connect"},
+    {id:"u5", level:"advanced", n:"Unit 9", name:"Complex structures"},
+    {id:"u6", level:"advanced", n:"Unit 10", name:"Hypothetical meaning"},
+    {id:"u9", level:"advanced", n:"Unit 11", name:"Natural English"}
   ],
   lessons: [
 /* ================= BASIC ================= */
@@ -2832,10 +2891,112 @@ q:[
  {t:"spot", sent:"You should of studied more .", wrong:2, fix:"have", why:"should HAVE, not 'should of'."}
 ]},
 
+{
+id:"participle-adjectives", zh:"分詞形容詞 -ed / -ing", unit:"u11", n:"5.1", title:"Participle Adjectives: -ed vs -ing", sub:"bored or boring? The -ed feeling vs the -ing cause.",
+form:{p:"-ed = how someone feels · -ing = what causes the feeling", ex:["I am <b>bored</b>.","The film is <b>boring</b>.","an <b>interested</b> reader, an <b>interesting</b> book"]},
+uses:[
+ {t:"-ed = the feeling (a person)", d:"Use the -ed adjective to describe how someone feels.", ex:[
+   {s:"I'm <b>tired</b>.", n:"how I feel"},
+   {s:"She was <b>excited</b> about the trip.", n:""},
+   {s:"They felt <b>confused</b>.", n:""}]},
+ {t:"-ing = the cause (a thing or person)", d:"Use the -ing adjective for the thing that causes the feeling.", ex:[
+   {s:"The trip was <b>exciting</b>.", n:"the cause"},
+   {s:"This lesson is <b>interesting</b>.", n:""},
+   {s:"The news is <b>shocking</b>.", n:""}]},
+ {t:"Put them together", d:"A person is -ed BY something -ing.", ex:[
+   {s:"I'm <b>bored</b> because the game is <b>boring</b>.", n:""},
+   {s:"She's <b>interested</b> in that <b>interesting</b> topic.", n:""},
+   {s:"He was <b>surprised</b> by the <b>surprising</b> result.", n:""}]}
+],
+mistakes:[
+ {no:"I am boring in class.", yes:"I am bored in class.", why:"To say how YOU feel, use -ed: bored. (I am boring = I make others bored!)"},
+ {no:"The movie was so bored.", yes:"The movie was so boring.", why:"The movie causes the feeling → -ing: boring."},
+ {no:"She is interesting in art.", yes:"She is interested in art.", why:"How she feels → -ed: interested."}
+],
+tip:"-ed = the feeling (I'm bored). -ing = the cause (it's boring). If a person feels it, use -ed; if a thing causes it, use -ing.",
+q:[
+ {t:"mcq", q:"The long trip was very ___ .", opts:["tired","tiring","tire","tires"], a:1, why:"the trip causes the feeling → tiring (-ing)."},
+ {t:"mcq", q:"After the long trip, I was very ___ .", opts:["tiring","tired","tire","tires"], a:1, why:"how I feel → tired (-ed)."},
+ {t:"mcq", q:"Which is correct?", opts:["I am interesting in music.","I am interested in music.","Music is interested.","I am interest in music."], a:1, why:"how I feel → interested."},
+ {t:"fill", q:"This book is really ___ . I can't stop reading! (-ing)", ans:["interesting"], hint:"the cause", why:"the book causes interest → interesting."},
+ {t:"fill", q:"The children were ___ by the magic show. (-ed, feeling)", ans:["amazed"], hint:"how they felt", why:"they felt it → amazed."},
+ {t:"spot", sent:"I was very boring during the meeting .", wrong:3, fix:"bored", why:"How you felt → bored (-ed)."},
+ {t:"mcq", q:"'She is confusing' means…", opts:["she feels confused","she makes others confused","she is tired","she is happy"], a:1, why:"-ing = the cause: she confuses others."},
+ {t:"spot", sent:"The news was so shocked .", wrong:3, fix:"shocking", why:"The news causes the feeling → shocking (-ing)."}
+]},
+
+{
+id:"collocations", zh:"搭配詞 have / take / get", unit:"u11", n:"5.2", title:"Collocations: Have, Take, Get", sub:"Words that naturally go together — have a shower, take a break, get better.",
+form:{p:"learn these as whole phrases", ex:["<b>have</b> breakfast","<b>take</b> a photo","<b>get</b> ready"]},
+uses:[
+ {t:"have — meals, experiences, rest", d:"'have' goes with meals, some activities and experiences.", ex:[
+   {s:"<b>have</b> breakfast / lunch / dinner", n:"meals"},
+   {s:"<b>have</b> a shower / a rest / a good time", n:""},
+   {s:"<b>have</b> a look / a chat", n:""}]},
+ {t:"take — time, actions, transport", d:"'take' goes with these common actions.", ex:[
+   {s:"<b>take</b> a photo / a break / a taxi", n:""},
+   {s:"<b>take</b> an exam / medicine", n:""},
+   {s:"<b>take</b> your time", n:""}]},
+ {t:"get — become, receive, arrive", d:"'get' often means become, receive, or arrive.", ex:[
+   {s:"<b>get</b> ready / better / tired", n:"become"},
+   {s:"<b>get</b> a message / a present", n:"receive"},
+   {s:"<b>get</b> home / to school", n:"arrive"}]}
+],
+mistakes:[
+ {no:"I take breakfast at 7.", yes:"I have breakfast at 7.", why:"Meals go with 'have': have breakfast."},
+ {no:"Let's do a photo.", yes:"Let's take a photo.", why:"The natural pair is take a photo."},
+ {no:"She is getting a shower.", yes:"She is having a shower.", why:"The natural pair is have a shower."}
+],
+tip:"Learn these as fixed pairs: have (meals, a shower, a rest), take (a photo, a break, a taxi, medicine), get (ready, better, home).",
+q:[
+ {t:"mcq", q:"Let's ___ a break — I'm tired.", opts:["do","have","take","make"], a:2, why:"the natural pair is take a break."},
+ {t:"mcq", q:"We usually ___ dinner at seven.", opts:["take","have","get","do"], a:1, why:"meals → have dinner."},
+ {t:"mcq", q:"Hurry up and ___ ready!", opts:["have","take","get","do"], a:2, why:"become → get ready."},
+ {t:"fill", q:"Can you ___ a photo of us? (the natural verb)", ans:["take"], hint:"___ a photo", why:"take a photo."},
+ {t:"fill", q:"I need to ___ a shower before we go. (the natural verb)", ans:["have"], hint:"___ a shower", why:"have a shower."},
+ {t:"spot", sent:"Please make a taxi to the airport .", wrong:1, fix:"take", why:"the natural pair is take a taxi."},
+ {t:"mcq", q:"Which is correct?", opts:["get a present","take a present","do a present","have a present home"], a:0, why:"receive → get a present."},
+ {t:"spot", sent:"I take breakfast at eight every day .", wrong:1, fix:"have", why:"meals → have breakfast."}
+]},
+
+{
+id:"do-go-play", zh:"運動與活動 do / go / play", unit:"u11", n:"5.3", title:"Do, Go & Play (Activities)", sub:"Which verb for which activity — play tennis, go swimming, do yoga.",
+form:{p:"play + ball games · go + -ing activities · do + other exercise", ex:["<b>play</b> tennis","<b>go</b> swimming","<b>do</b> yoga"]},
+uses:[
+ {t:"play + ball games & competitions", d:"Use 'play' for sports with a ball or a game/opponent.", ex:[
+   {s:"<b>play</b> football / basketball / tennis", n:"ball games"},
+   {s:"<b>play</b> chess / cards", n:"games"},
+   {s:"<b>play</b> the piano", n:"also for instruments"}]},
+ {t:"go + -ing activities", d:"Use 'go' + the -ing form for many activities (often outdoors).", ex:[
+   {s:"<b>go</b> swimming / running / shopping", n:"go + V-ing"},
+   {s:"<b>go</b> skiing / fishing / hiking", n:""},
+   {s:"<b>go</b> dancing", n:""}]},
+ {t:"do + exercise & other activities", d:"Use 'do' for exercise without a ball, and some tasks.", ex:[
+   {s:"<b>do</b> yoga / karate / exercise", n:""},
+   {s:"<b>do</b> the homework / the dishes", n:"tasks"},
+   {s:"<b>do</b> your best", n:""}]}
+],
+mistakes:[
+ {no:"I play swimming every day.", yes:"I go swimming every day.", why:"Activities ending in -ing take 'go': go swimming."},
+ {no:"She does tennis on Sundays.", yes:"She plays tennis on Sundays.", why:"Ball games take 'play': play tennis."},
+ {no:"We go yoga after work.", yes:"We do yoga after work.", why:"Exercise without a ball takes 'do': do yoga."}
+],
+tip:"play + ball games & instruments (play tennis, play the piano). go + -ing activities (go swimming). do + exercise/tasks (do yoga, do homework).",
+q:[
+ {t:"mcq", q:"On Saturdays we ___ basketball.", opts:["go","do","play","make"], a:2, why:"ball game → play basketball."},
+ {t:"mcq", q:"In summer I often ___ swimming.", opts:["play","go","do","take"], a:1, why:"-ing activity → go swimming."},
+ {t:"mcq", q:"My mum ___ yoga every morning.", opts:["plays","goes","does","takes"], a:2, why:"exercise (no ball) → do yoga."},
+ {t:"fill", q:"Let's ___ shopping this weekend. (the right verb)", ans:["go"], hint:"___ shopping", why:"go shopping (-ing activity)."},
+ {t:"fill", q:"He can ___ the piano beautifully. (the right verb)", ans:["play"], hint:"___ the piano", why:"play the piano."},
+ {t:"spot", sent:"They play running in the park .", wrong:1, fix:"go", why:"-ing activity → go running."},
+ {t:"mcq", q:"Which is correct?", opts:["do football","go football","play football","make football"], a:2, why:"ball game → play football."},
+ {t:"spot", sent:"I go karate twice a week .", wrong:1, fix:"do", why:"exercise without a ball → do karate."}
+]},
+
 /* ================= INTERMEDIATE ================= */
 
 {
-id:"past-simple", zh:"過去簡單式", unit:"u3", n:"5.1", title:"Past Simple", sub:"Finished actions at a finished time — yesterday, last week, in 2019.",
+id:"past-simple", zh:"過去簡單式", unit:"u3", n:"6.1", title:"Past Simple", sub:"Finished actions at a finished time — yesterday, last week, in 2019.",
 tl:{labels:[[26,"finished action"],[62,"now"]], dots:[26], now:62, cap:"One completed action, fully in the past — the moment is closed."},
 form:{p:"subject + verb-ed  ·  irregular: go → went", ex:["I <b>visited</b> Tainan last month.","She <b>went</b> home early.","They <b>didn't see</b> the sign."]},
 uses:[
@@ -2869,7 +3030,7 @@ q:[
 ]},
 
 {
-id:"past-continuous", zh:"過去進行式", unit:"u3", n:"5.2", title:"Past Continuous", sub:"Was / were + V-ing — an action in progress at a moment in the past.",
+id:"past-continuous", zh:"過去進行式", unit:"u3", n:"6.2", title:"Past Continuous", sub:"Was / were + V-ing — an action in progress at a moment in the past.",
 tl:{labels:[[20,"was V-ing"],[64,"now"]], spans:[[8,42]], dots:[26], now:64, cap:"An action already in progress at a moment in the past — often interrupted by a shorter one."},
 form:{p:"subject + was / were + verb-ing  ·  I/he/she/it → was, you/we/they → were", ex:["At 8 p.m. I <b>was working</b>.","They <b>were watching</b> TV.","She <b>wasn't sleeping</b> at midnight."]},
 uses:[
@@ -2904,7 +3065,7 @@ q:[
 ]},
 
 {
-id:"present-perfect", zh:"現在完成式", unit:"u3", n:"5.3", title:"Present Perfect Simple", sub:"Connecting the past with now — experiences, changes and results that still matter.",
+id:"present-perfect", zh:"現在完成式", unit:"u3", n:"6.3", title:"Present Perfect Simple", sub:"Connecting the past with now — experiences, changes and results that still matter.",
 tl:{labels:[[12,"past"],[64,"now"]], spans:[[12,64]], dots:[64], now:64, cap:"An action or experience in an open period that reaches up to now."},
 form:{p:"subject + have / has + past participle", ex:["I <b>have finished</b> the report.","She <b>has visited</b> Kyoto twice.","They <b>haven't arrived</b> yet."]},
 uses:[
@@ -2938,7 +3099,7 @@ q:[
 ]},
 
 {
-id:"present-perfect-continuous", zh:"現在完成進行式", unit:"u3", n:"5.4", title:"Present Perfect Continuous", sub:"Have / has been + V-ing — an action that started in the past and is still going on now.",
+id:"present-perfect-continuous", zh:"現在完成進行式", unit:"u3", n:"6.4", title:"Present Perfect Continuous", sub:"Have / has been + V-ing — an action that started in the past and is still going on now.",
 tl:{labels:[[12,"past"],[64,"now"]], spans:[[12,64]], dots:[64], now:64, cap:"An action continuing from the past right up to now — the focus is on how long."},
 form:{p:"subject + have / has been + verb-ing", ex:["I <b>have been studying</b> for three hours.","She <b>has been working</b> here since 2019.","It <b>has been raining</b> all day."]},
 uses:[
@@ -2970,7 +3131,7 @@ q:[
 ]},
 
 {
-id:"past-perfect", zh:"過去完成式", unit:"u3", n:"5.5", title:"Past Perfect", sub:"Had + past participle — the past before the past.",
+id:"past-perfect", zh:"過去完成式", unit:"u3", n:"6.5", title:"Past Perfect", sub:"Had + past participle — the past before the past.",
 tl:{labels:[[8,"earlier past"],[50,"past"],[92,"now"]], dots:[8,50], now:92, cap:"Two past events — the earlier one takes had + past participle."},
 form:{p:"subject + had + past participle", ex:["The train <b>had left</b> when I arrived.","She <b>had never seen</b> snow before that trip.","They<b>'d finished</b> dinner by eight."]},
 uses:[
@@ -3005,7 +3166,7 @@ q:[
 ]},
 
 {
-id:"past-perfect-continuous", zh:"過去完成進行式", unit:"u3", n:"5.6", title:"Past Perfect Continuous", sub:"Had been + V-ing — an action that had been going on for a while before another past moment.",
+id:"past-perfect-continuous", zh:"過去完成進行式", unit:"u3", n:"6.6", title:"Past Perfect Continuous", sub:"Had been + V-ing — an action that had been going on for a while before another past moment.",
 tl:{labels:[[8,"earlier past"],[54,"past"],[92,"now"]], spans:[[8,54]], dots:[54], now:92, cap:"A longer action that had been continuing up to a later point in the past."},
 form:{p:"subject + had been + verb-ing", ex:["I <b>had been waiting</b> for an hour when the bus came.","She was tired because she <b>had been working</b> all night.","They <b>had been living</b> there for years before they moved."]},
 uses:[
@@ -3035,7 +3196,7 @@ q:[
 ]},
 
 {
-id:"used-to", zh:"過去習慣 used to", unit:"u3", n:"5.7", title:"Used To", sub:"Past habits and states that are no longer true.",
+id:"used-to", zh:"過去習慣 used to", unit:"u3", n:"6.7", title:"Used To", sub:"Past habits and states that are no longer true.",
 form:{p:"subject + used to + base verb", ex:["I <b>used to</b> play tennis.","She <b>used to</b> live here.","We <b>didn't use to</b> have a car."]},
 uses:[
  {t:"used to — a past habit that stopped", d:"Use used to + base verb for something that happened regularly in the past, but not now.", ex:[
@@ -3069,7 +3230,7 @@ q:[
 ]},
 
 {
-id:"past-time-words", zh:"過去時間詞 ago / last / yesterday", unit:"u3", n:"5.8", title:"Past Time Words", sub:"ago, last, yesterday — the time markers that go with the past simple.",
+id:"past-time-words", zh:"過去時間詞 ago / last / yesterday", unit:"u3", n:"6.8", title:"Past Time Words", sub:"ago, last, yesterday — the time markers that go with the past simple.",
 form:{p:"…time + ago · last … · yesterday · in + past year", ex:["two days <b>ago</b>","<b>last</b> week","<b>yesterday</b> morning"]},
 uses:[
  {t:"ago — counting back from now", d:"Put ago AFTER a length of time. It means 'before now'.", ex:[
@@ -3103,7 +3264,7 @@ q:[
 ]},
 
 {
-id:"stative-verbs", zh:"狀態動詞", unit:"u3", n:"5.9", title:"Stative Verbs", sub:"Verbs of thoughts, feelings and senses — usually NOT used in the -ing form.",
+id:"stative-verbs", zh:"狀態動詞", unit:"u3", n:"6.9", title:"Stative Verbs", sub:"Verbs of thoughts, feelings and senses — usually NOT used in the -ing form.",
 form:{p:"stative verbs stay simple, not continuous", ex:["I <b>like</b> it. (not 'am liking')","She <b>knows</b> the answer.","This <b>tastes</b> good."]},
 uses:[
  {t:"What are stative verbs?", d:"They describe a state, not an action: feelings (like, love, hate, want), thoughts (know, think, believe, understand) and belonging (have, own, belong).", ex:[
@@ -3137,7 +3298,7 @@ q:[
 ]},
 
 {
-id:"for-since", zh:"現在完成式 for / since", unit:"u3", n:"5.10", title:"Present Perfect: For & Since", sub:"Saying how long — for a length of time, since a starting point.",
+id:"for-since", zh:"現在完成式 for / since", unit:"u3", n:"6.10", title:"Present Perfect: For & Since", sub:"Saying how long — for a length of time, since a starting point.",
 form:{p:"have/has + V3 + for + period / since + point", ex:["I've lived here <b>for</b> five years.","She's been here <b>since</b> Monday.","We've known them <b>for</b> ages."]},
 uses:[
  {t:"for + a length of time", d:"Use for with a period (how long): for two hours, for a week, for years.", ex:[
@@ -3171,7 +3332,7 @@ q:[
 ]},
 
 {
-id:"going-to-will", zh:"未來式 be going to / will", unit:"u4", n:"6.1", title:"Future: Going To vs Will", sub:"Two futures with different jobs — plans and evidence vs promises and snap decisions.",
+id:"going-to-will", zh:"未來式 be going to / will", unit:"u4", n:"7.1", title:"Future: Going To vs Will", sub:"Two futures with different jobs — plans and evidence vs promises and snap decisions.",
 tl:{labels:[[30,"now"],[74,"future"]], dots:[74], now:30, cap:"Both point forward — the difference is when you decided."},
 form:{p:"be going to + verb   ·   will + verb", ex:["I<b>'m going to visit</b> my aunt on Sunday.","I<b>'ll help</b> you with those bags.","It<b>'s going to rain</b> — look at the sky."]},
 uses:[
@@ -3204,7 +3365,7 @@ q:[
 ]},
 
 {
-id:"future-continuous-perfect", zh:"未來進行式與未來完成式", unit:"u4", n:"6.2", title:"Future Continuous & Perfect", sub:"Will be doing and will have done — painting a more precise future.",
+id:"future-continuous-perfect", zh:"未來進行式與未來完成式", unit:"u4", n:"7.2", title:"Future Continuous & Perfect", sub:"Will be doing and will have done — painting a more precise future.",
 form:{p:"will be + V-ing   ·   will have + past participle", ex:["This time tomorrow, I <b>will be flying</b>.","By June, she <b>will have graduated</b>.","We<b>'ll be waiting</b> for you."]},
 uses:[
  {t:"Future continuous: in progress at a future time", d:"The action will be happening around that moment.", ex:[
@@ -3238,7 +3399,7 @@ q:[
 ]},
 
 {
-id:"future-perfect-continuous", zh:"未來完成進行式", unit:"u4", n:"6.3", title:"Future Perfect Continuous", sub:"Will have been + V-ing — how long an action will have been going on by a future time.",
+id:"future-perfect-continuous", zh:"未來完成進行式", unit:"u4", n:"7.3", title:"Future Perfect Continuous", sub:"Will have been + V-ing — how long an action will have been going on by a future time.",
 tl:{labels:[[20,"now"],[80,"future point"]], spans:[[20,80]], dots:[80], now:20, cap:"An action continuing up to a point in the future — the focus is on the duration by then."},
 form:{p:"subject + will have been + verb-ing", ex:["By next month, I <b>will have been working</b> here for ten years.","By 8 p.m., they <b>will have been driving</b> for six hours.","In May, we <b>will have been living</b> here for a decade."]},
 uses:[
@@ -3265,7 +3426,7 @@ q:[
 ]},
 
 {
-id:"zero-conditional", zh:"零條件句", unit:"u4", n:"6.4", title:"Zero Conditional", sub:"If + present, present — facts, habits and things that are always true.",
+id:"zero-conditional", zh:"零條件句", unit:"u4", n:"7.4", title:"Zero Conditional", sub:"If + present, present — facts, habits and things that are always true.",
 form:{p:"If + present simple , … present simple", ex:["If you <b>heat</b> ice, it <b>melts</b>.","If I <b>drink</b> coffee at night, I <b>can't sleep</b>.","Plants <b>die</b> if they <b>get</b> no water."]},
 uses:[
  {t:"Scientific and general truths", d:"Whenever the condition happens, the result always follows.", ex:[
@@ -3299,7 +3460,7 @@ q:[
 ]},
 
 {
-id:"first-conditional", zh:"第一條件句", unit:"u4", n:"6.5", title:"First Conditional", sub:"Real future possibilities — if this happens, that will happen.",
+id:"first-conditional", zh:"第一條件句", unit:"u4", n:"7.5", title:"First Conditional", sub:"Real future possibilities — if this happens, that will happen.",
 form:{p:"If + present simple, … will + verb", ex:["<b>If</b> it <b>rains</b>, we<b>'ll stay</b> home.","You<b>'ll miss</b> the bus <b>if</b> you <b>don't hurry</b>.","<b>If</b> she <b>calls</b>, I<b>'ll tell</b> you."]},
 uses:[
  {t:"Real possibilities in the future", d:"Use it when the condition is realistic and quite possible.", ex:[
@@ -3332,7 +3493,7 @@ q:[
 ]},
 
 {
-id:"future-arrangements", zh:"用現在進行式談未來安排", unit:"u4", n:"6.6", title:"Future: Present Continuous", sub:"Using 'be + -ing' for fixed future plans and arrangements.",
+id:"future-arrangements", zh:"用現在進行式談未來安排", unit:"u4", n:"7.6", title:"Future: Present Continuous", sub:"Using 'be + -ing' for fixed future plans and arrangements.",
 form:{p:"subject + am / is / are + V-ing + future time", ex:["I<b>'m meeting</b> Sam tomorrow.","She<b>'s flying</b> to Tokyo on Friday.","We<b>'re having</b> dinner at 7."]},
 uses:[
  {t:"Fixed plans & arrangements", d:"Use the present continuous for future plans you have already arranged (a time, a place, other people).", ex:[
@@ -3366,7 +3527,7 @@ q:[
 ]},
 
 {
-id:"tenses-review", zh:"時態總複習", unit:"u4", n:"6.7", title:"Tenses Review", sub:"Choosing the right tense — a mixed review of past, present and future.",
+id:"tenses-review", zh:"時態總複習", unit:"u4", n:"7.7", title:"Tenses Review", sub:"Choosing the right tense — a mixed review of past, present and future.",
 form:{p:"let the time signal choose the tense", ex:["every day → present simple","now → present continuous","yesterday → past simple","for/since → present perfect"]},
 uses:[
  {t:"Present: simple vs continuous", d:"Present simple for habits & facts (every day, usually); present continuous for right now.", ex:[
@@ -3400,7 +3561,7 @@ q:[
 ]},
 
 {
-id:"comparatives-superlatives", zh:"比較級與最高級", unit:"u8", n:"7.1", title:"Comparatives & Superlatives", sub:"Taller, more expensive, the best — comparing two things or picking the extreme.",
+id:"comparatives-superlatives", zh:"比較級與最高級", unit:"u8", n:"8.1", title:"Comparatives & Superlatives", sub:"Taller, more expensive, the best — comparing two things or picking the extreme.",
 form:{p:"adj-er + than   ·   the + adj-est   ·   more / the most + long adj", ex:["Taipei 101 is <b>taller than</b> our building.","It's <b>the tallest</b> building in Taiwan.","This phone is <b>more expensive</b>."]},
 uses:[
  {t:"Comparing two things", d:"Short adjectives add -er; long ones (2+ syllables) take more. Don't forget than.", ex:[
@@ -3434,7 +3595,7 @@ q:[
 ]},
 
 {
-id:"some-any", zh:"數量詞 some / any", unit:"u8", n:"7.2", title:"Quantifiers: Some & Any", sub:"Some for positives and offers, any for negatives and most questions.",
+id:"some-any", zh:"數量詞 some / any", unit:"u8", n:"8.2", title:"Quantifiers: Some & Any", sub:"Some for positives and offers, any for negatives and most questions.",
 form:{p:"some + positive / offers   ·   any + negatives / questions", ex:["We have <b>some</b> rice.","We don't have <b>any</b> eggs.","Do you have <b>any</b> questions?"]},
 uses:[
  {t:"Some: positive sentences", d:"Use some with plural and uncountable nouns when the amount isn't exact.", ex:[
@@ -3466,7 +3627,7 @@ q:[
 ]},
 
 {
-id:"linking-words", zh:"連接詞與過渡語", unit:"u8", n:"7.3", title:"Linking Words", sub:"However, although, therefore — making your ideas flow logically.",
+id:"linking-words", zh:"連接詞與過渡語", unit:"u8", n:"8.3", title:"Linking Words", sub:"However, although, therefore — making your ideas flow logically.",
 form:{p:"Although + clause , clause   ·   Clause . However , clause", ex:["<b>Although</b> it rained, we went out.","It rained. <b>However</b>, we went out.","He trained hard; <b>therefore</b>, he won."]},
 uses:[
  {t:"Contrast: although, even though, however", d:"Although joins two clauses in one sentence; however starts a new one.", ex:[
@@ -3502,7 +3663,7 @@ q:[
 /* ================= ADVANCED ================= */
 
 {
-id:"as-as", zh:"as … as 同級比較", unit:"u8", n:"7.4", title:"As … As Comparisons", sub:"Saying two things are the same — or not the same — in some way.",
+id:"as-as", zh:"as … as 同級比較", unit:"u8", n:"8.4", title:"As … As Comparisons", sub:"Saying two things are the same — or not the same — in some way.",
 form:{p:"as + adjective/adverb + as", ex:["as tall <b>as</b> me","not <b>as</b> big <b>as</b> yours","as fast <b>as</b> a train"]},
 uses:[
  {t:"as … as = the same (equal)", d:"Use 'as + adjective + as' to say two things are equal in some quality.", ex:[
@@ -3536,7 +3697,7 @@ q:[
 ]},
 
 {
-id:"too-enough", zh:"too / enough", unit:"u8", n:"7.5", title:"Too & Enough", sub:"too = more than you want · enough = the right amount.",
+id:"too-enough", zh:"too / enough", unit:"u8", n:"8.5", title:"Too & Enough", sub:"too = more than you want · enough = the right amount.",
 form:{p:"too + adjective · adjective + enough · enough + noun", ex:["<b>too</b> hot","warm <b>enough</b>","<b>enough</b> money"]},
 uses:[
  {t:"too + adjective = more than needed (a problem)", d:"'too' means excessively — it's a bad thing.", ex:[
@@ -3570,7 +3731,7 @@ q:[
 ]},
 
 {
-id:"either-or", zh:"either…or / neither…nor", unit:"u8", n:"7.6", title:"Either…or / Neither…nor", sub:"Choosing between two — one or the other, or not either one.",
+id:"either-or", zh:"either…or / neither…nor", unit:"u8", n:"8.6", title:"Either…or / Neither…nor", sub:"Choosing between two — one or the other, or not either one.",
 form:{p:"either A or B · neither A nor B", ex:["<b>either</b> tea <b>or</b> coffee","<b>neither</b> hot <b>nor</b> cold","<b>either</b> of them"]},
 uses:[
  {t:"either … or = one of the two", d:"'either A or B' means one of the two choices.", ex:[
@@ -3604,7 +3765,7 @@ q:[
 ]},
 
 {
-id:"although-however", zh:"讓步連接 although / however", unit:"u8", n:"7.7", title:"Although & However", sub:"Showing a contrast — 'but' in a more formal way.",
+id:"although-however", zh:"讓步連接 although / however", unit:"u8", n:"8.7", title:"Although & However", sub:"Showing a contrast — 'but' in a more formal way.",
 form:{p:"Although + clause, clause · Sentence. However, sentence.", ex:["<b>Although</b> it rained, we went out.","It rained. <b>However</b>, we went out.","She's rich, <b>but</b> unhappy."]},
 uses:[
  {t:"although / even though — joins two clauses", d:"Use although at the start of a clause to show a surprising contrast. It connects two parts in one sentence.", ex:[
@@ -3638,7 +3799,7 @@ q:[
 ]},
 
 {
-id:"transition-signals", zh:"轉折與銜接訊號詞", unit:"u8", n:"7.8", title:"Transition Signals", sub:"Signpost words that guide the reader — adding, contrasting, giving reasons and examples.",
+id:"transition-signals", zh:"轉折與銜接訊號詞", unit:"u8", n:"8.8", title:"Transition Signals", sub:"Signpost words that guide the reader — adding, contrasting, giving reasons and examples.",
 form:{p:"add · contrast · reason/result · example · sequence", ex:["<b>In addition</b>,","<b>On the other hand</b>,","<b>As a result</b>,","<b>For example</b>,"]},
 uses:[
  {t:"Adding & sequencing ideas", d:"Use these to add points or show order.", ex:[
@@ -3672,7 +3833,7 @@ q:[
 ]},
 
 {
-id:"passive", zh:"被動語態", unit:"u5", n:"8.1", title:"The Passive Voice", sub:"When the action matters more than who did it — rice is grown, the law was passed.",
+id:"passive", zh:"被動語態", unit:"u5", n:"9.1", title:"The Passive Voice", sub:"When the action matters more than who did it — rice is grown, the law was passed.",
 form:{p:"subject + be + past participle (+ by …)", ex:["This temple <b>was built</b> in 1738.","English <b>is spoken</b> here.","The results <b>will be announced</b> soon."]},
 uses:[
  {t:"When the doer is unknown or unimportant", d:"The receiver of the action becomes the subject.", ex:[
@@ -3704,7 +3865,7 @@ q:[
 ]},
 
 {
-id:"relative-clauses", zh:"關係子句", unit:"u5", n:"8.2", title:"Relative Clauses", sub:"Who, which, that, whose, where — folding two sentences into one.",
+id:"relative-clauses", zh:"關係子句", unit:"u5", n:"9.2", title:"Relative Clauses", sub:"Who, which, that, whose, where — folding two sentences into one.",
 form:{p:"noun + who / which / that + clause", ex:["The woman <b>who called</b> is my boss.","The book <b>that you lent me</b> was great.","That's the café <b>where we met</b>."]},
 uses:[
  {t:"Choosing the right pronoun", d:"Who for people, which for things, that for both (informal), whose for possession, where for places.", ex:[
@@ -3736,7 +3897,7 @@ q:[
 ]},
 
 {
-id:"participle-clauses", zh:"分詞構句", unit:"u5", n:"8.3", title:"Participle Clauses", sub:"Feeling tired, she left early — trimming sentences with -ing and -ed.",
+id:"participle-clauses", zh:"分詞構句", unit:"u5", n:"9.3", title:"Participle Clauses", sub:"Feeling tired, she left early — trimming sentences with -ing and -ed.",
 form:{p:"V-ing / p.p. + phrase , + main clause", ex:["<b>Feeling</b> sick, he went home.","<b>Built</b> in 1908, the station is historic.","She sat there, <b>reading</b> quietly."]},
 uses:[
  {t:"-ing for active meaning", d:"The subject of the main clause is doing the -ing action.", ex:[
@@ -3770,7 +3931,7 @@ q:[
 ]},
 
 {
-id:"reported-speech", zh:"間接引述句", unit:"u5", n:"8.4", title:"Reported Speech", sub:"Telling someone what another person said — and shifting the tense back.",
+id:"reported-speech", zh:"間接引述句", unit:"u5", n:"9.4", title:"Reported Speech", sub:"Telling someone what another person said — and shifting the tense back.",
 form:{p:"said (that) + clause, one tense back", ex:["\"I <b>am</b> tired\" → She said she <b>was</b> tired.","\"I <b>will</b> call\" → He said he <b>would</b> call.","\"We <b>have finished</b>\" → They said they <b>had finished</b>."]},
 uses:[
  {t:"The backshift", d:"When the reporting verb is past (said, told), the original tense usually moves one step back.", ex:[
@@ -3803,7 +3964,7 @@ q:[
 ]},
 
 {
-id:"second-conditional", zh:"第二條件句", unit:"u6", n:"9.1", title:"Second Conditional", sub:"Unreal or unlikely present and future — if I had a million dollars…",
+id:"second-conditional", zh:"第二條件句", unit:"u6", n:"10.1", title:"Second Conditional", sub:"Unreal or unlikely present and future — if I had a million dollars…",
 form:{p:"If + past simple, … would + verb", ex:["<b>If</b> I <b>had</b> more time, I<b>'d learn</b> the violin.","<b>If</b> she <b>lived</b> closer, we<b>'d meet</b> more often.","What <b>would</b> you <b>do if</b> you <b>won</b>?"]},
 uses:[
  {t:"Imagined present or future", d:"The past tense here doesn't mean past time — it signals this isn't real.", ex:[
@@ -3835,7 +3996,7 @@ q:[
 ]},
 
 {
-id:"third-conditional", zh:"第三條件句", unit:"u6", n:"9.2", title:"Third Conditional", sub:"Rewriting the past that never happened — regrets, relief and lessons learned.",
+id:"third-conditional", zh:"第三條件句", unit:"u6", n:"10.2", title:"Third Conditional", sub:"Rewriting the past that never happened — regrets, relief and lessons learned.",
 form:{p:"If + past perfect, … would have + participle", ex:["<b>If</b> I <b>had studied</b>, I <b>would have passed</b>.","She <b>wouldn't have missed</b> it <b>if</b> she<b>'d left</b> earlier.","<b>If</b> we<b>'d known</b>, we <b>would have come</b>."]},
 uses:[
  {t:"Imagining a different past", d:"Both halves are 100% unreal — the past can't be changed.", ex:[
@@ -3867,7 +4028,7 @@ q:[
 ]},
 
 {
-id:"noun-clauses", zh:"名詞子句與假設語氣", unit:"u6", n:"9.3", title:"Noun Clauses & the Subjunctive", sub:"That she left, whether it works — clauses that act like nouns, plus the demand-verb pattern.",
+id:"noun-clauses", zh:"名詞子句與假設語氣", unit:"u6", n:"10.3", title:"Noun Clauses & the Subjunctive", sub:"That she left, whether it works — clauses that act like nouns, plus the demand-verb pattern.",
 form:{p:"verb + that / whether / if + clause   ·   suggest that + subject + base verb", ex:["I know <b>that she is right</b>.","I wonder <b>whether it will rain</b>.","They insisted <b>that he be on time</b>."]},
 uses:[
  {t:"That-clauses as objects", d:"A whole clause can be the thing you know, say or believe.", ex:[
@@ -3901,7 +4062,7 @@ q:[
 ]},
 
 {
-id:"wish-present", zh:"願望句 I wish", unit:"u6", n:"9.4", title:"Wish: Present", sub:"Wishing the present were different — I wish I had more time.",
+id:"wish-present", zh:"願望句 I wish", unit:"u6", n:"10.4", title:"Wish: Present", sub:"Wishing the present were different — I wish I had more time.",
 form:{p:"wish + past simple (for now) · wish + could + base verb", ex:["I <b>wish</b> I <b>had</b> a car.","I <b>wish</b> I <b>were</b> taller.","I <b>wish</b> I <b>could</b> fly."]},
 uses:[
  {t:"wish + past simple = a different present", d:"Use wish + the past simple to wish that a present situation were different. It is NOT true now.", ex:[
@@ -3935,7 +4096,7 @@ q:[
 ]},
 
 {
-id:"gerunds-infinitives", zh:"動名詞與不定詞", unit:"u9", n:"10.1", title:"Gerunds & Infinitives", sub:"Enjoy swimming but decide to swim — which verb takes which form?",
+id:"gerunds-infinitives", zh:"動名詞與不定詞", unit:"u9", n:"11.1", title:"Gerunds & Infinitives", sub:"Enjoy swimming but decide to swim — which verb takes which form?",
 form:{p:"verb + -ing (gerund)   ·   verb + to + base (infinitive)", ex:["I enjoy <b>reading</b>.","She decided <b>to leave</b>.","He stopped <b>smoking</b>."]},
 uses:[
  {t:"Verbs followed by a gerund", d:"Enjoy, finish, avoid, keep, mind, suggest, practice — these take -ing.", ex:[
@@ -3969,7 +4130,7 @@ q:[
 ]},
 
 {
-id:"phrasal-verbs", zh:"片語動詞", unit:"u9", n:"10.2", title:"Phrasal Verbs", sub:"Take off, put up with, run into — small words, big meaning changes.",
+id:"phrasal-verbs", zh:"片語動詞", unit:"u9", n:"11.2", title:"Phrasal Verbs", sub:"Take off, put up with, run into — small words, big meaning changes.",
 form:{p:"verb + particle ( + object )", ex:["The plane <b>took off</b>.","She <b>turned down</b> the offer.","I <b>ran into</b> an old friend."]},
 uses:[
  {t:"Separable: the object can split them", d:"Noun objects can go in the middle or after; pronouns MUST go in the middle.", ex:[
@@ -4003,7 +4164,7 @@ q:[
 ]},
 
 {
-id:"modals-deduction", zh:"情態助動詞推測", unit:"u9", n:"10.3", title:"Modals of Deduction", sub:"Must have, might have, can't have — reading the clues about the past and present.",
+id:"modals-deduction", zh:"情態助動詞推測", unit:"u9", n:"11.3", title:"Modals of Deduction", sub:"Must have, might have, can't have — reading the clues about the past and present.",
 form:{p:"modal + base verb (present)   ·   modal + have + p.p. (past)", ex:["She <b>must be</b> tired.","He <b>might have missed</b> the bus.","You <b>should have called</b> me!"]},
 uses:[
  {t:"Present deduction: must, might, can't", d:"How sure are you about right now?", ex:[
@@ -4037,7 +4198,7 @@ q:[
 ]},
 
 {
-id:"prefixes", zh:"字首 un- / re- / im- / in-", unit:"u9", n:"10.4", title:"Prefixes: un-, re-, im-/in-", sub:"Small beginnings that change a word's meaning — 'not' and 'again'.",
+id:"prefixes", zh:"字首 un- / re- / im- / in-", unit:"u9", n:"11.4", title:"Prefixes: un-, re-, im-/in-", sub:"Small beginnings that change a word's meaning — 'not' and 'again'.",
 form:{p:"prefix + word → new meaning", ex:["<b>un</b>happy = not happy","<b>re</b>write = write again","<b>im</b>possible = not possible"]},
 uses:[
  {t:"un- / in- / im- / il- / ir- = 'not'", d:"These make a word negative. Use im- before m/p, il- before l, ir- before r; in- or un- otherwise.", ex:[
@@ -4071,7 +4232,7 @@ q:[
 ]},
 
 {
-id:"suffixes", zh:"字尾 -er / -able / -ness", unit:"u9", n:"10.5", title:"Suffixes: -er, -able, -ness", sub:"Small endings that turn a word into a person, a describing word or an idea.",
+id:"suffixes", zh:"字尾 -er / -able / -ness", unit:"u9", n:"11.5", title:"Suffixes: -er, -able, -ness", sub:"Small endings that turn a word into a person, a describing word or an idea.",
 form:{p:"word + suffix → new word class", ex:["teach + <b>er</b> = teacher (person)","comfort + <b>able</b> = comfortable (adj.)","kind + <b>ness</b> = kindness (noun)"]},
 uses:[
  {t:"-er = a person or thing that does something", d:"Add -er to a verb to make the doer.", ex:[
@@ -4102,108 +4263,6 @@ q:[
  {t:"spot", sent:"This bottle is breakible .", wrong:2, fix:"breakable", why:"The suffix is -able → breakable."},
  {t:"mcq", q:"'-ness' turns an adjective into a…", opts:["verb","person","noun","adverb"], a:2, why:"-ness makes an abstract noun (dark → darkness)."},
  {t:"spot", sent:"He shows great kindess .", wrong:2, fix:"kindness", why:"kind + ness → kindness."}
-]},
-
-{
-id:"participle-adjectives", zh:"分詞形容詞 -ed / -ing", unit:"u9", n:"10.6", title:"Participle Adjectives: -ed vs -ing", sub:"bored or boring? The -ed feeling vs the -ing cause.",
-form:{p:"-ed = how someone feels · -ing = what causes the feeling", ex:["I am <b>bored</b>.","The film is <b>boring</b>.","an <b>interested</b> reader, an <b>interesting</b> book"]},
-uses:[
- {t:"-ed = the feeling (a person)", d:"Use the -ed adjective to describe how someone feels.", ex:[
-   {s:"I'm <b>tired</b>.", n:"how I feel"},
-   {s:"She was <b>excited</b> about the trip.", n:""},
-   {s:"They felt <b>confused</b>.", n:""}]},
- {t:"-ing = the cause (a thing or person)", d:"Use the -ing adjective for the thing that causes the feeling.", ex:[
-   {s:"The trip was <b>exciting</b>.", n:"the cause"},
-   {s:"This lesson is <b>interesting</b>.", n:""},
-   {s:"The news is <b>shocking</b>.", n:""}]},
- {t:"Put them together", d:"A person is -ed BY something -ing.", ex:[
-   {s:"I'm <b>bored</b> because the game is <b>boring</b>.", n:""},
-   {s:"She's <b>interested</b> in that <b>interesting</b> topic.", n:""},
-   {s:"He was <b>surprised</b> by the <b>surprising</b> result.", n:""}]}
-],
-mistakes:[
- {no:"I am boring in class.", yes:"I am bored in class.", why:"To say how YOU feel, use -ed: bored. (I am boring = I make others bored!)"},
- {no:"The movie was so bored.", yes:"The movie was so boring.", why:"The movie causes the feeling → -ing: boring."},
- {no:"She is interesting in art.", yes:"She is interested in art.", why:"How she feels → -ed: interested."}
-],
-tip:"-ed = the feeling (I'm bored). -ing = the cause (it's boring). If a person feels it, use -ed; if a thing causes it, use -ing.",
-q:[
- {t:"mcq", q:"The long trip was very ___ .", opts:["tired","tiring","tire","tires"], a:1, why:"the trip causes the feeling → tiring (-ing)."},
- {t:"mcq", q:"After the long trip, I was very ___ .", opts:["tiring","tired","tire","tires"], a:1, why:"how I feel → tired (-ed)."},
- {t:"mcq", q:"Which is correct?", opts:["I am interesting in music.","I am interested in music.","Music is interested.","I am interest in music."], a:1, why:"how I feel → interested."},
- {t:"fill", q:"This book is really ___ . I can't stop reading! (-ing)", ans:["interesting"], hint:"the cause", why:"the book causes interest → interesting."},
- {t:"fill", q:"The children were ___ by the magic show. (-ed, feeling)", ans:["amazed"], hint:"how they felt", why:"they felt it → amazed."},
- {t:"spot", sent:"I was very boring during the meeting .", wrong:3, fix:"bored", why:"How you felt → bored (-ed)."},
- {t:"mcq", q:"'She is confusing' means…", opts:["she feels confused","she makes others confused","she is tired","she is happy"], a:1, why:"-ing = the cause: she confuses others."},
- {t:"spot", sent:"The news was so shocked .", wrong:3, fix:"shocking", why:"The news causes the feeling → shocking (-ing)."}
-]},
-
-{
-id:"collocations", zh:"搭配詞 have / take / get", unit:"u9", n:"10.7", title:"Collocations: Have, Take, Get", sub:"Words that naturally go together — have a shower, take a break, get better.",
-form:{p:"learn these as whole phrases", ex:["<b>have</b> breakfast","<b>take</b> a photo","<b>get</b> ready"]},
-uses:[
- {t:"have — meals, experiences, rest", d:"'have' goes with meals, some activities and experiences.", ex:[
-   {s:"<b>have</b> breakfast / lunch / dinner", n:"meals"},
-   {s:"<b>have</b> a shower / a rest / a good time", n:""},
-   {s:"<b>have</b> a look / a chat", n:""}]},
- {t:"take — time, actions, transport", d:"'take' goes with these common actions.", ex:[
-   {s:"<b>take</b> a photo / a break / a taxi", n:""},
-   {s:"<b>take</b> an exam / medicine", n:""},
-   {s:"<b>take</b> your time", n:""}]},
- {t:"get — become, receive, arrive", d:"'get' often means become, receive, or arrive.", ex:[
-   {s:"<b>get</b> ready / better / tired", n:"become"},
-   {s:"<b>get</b> a message / a present", n:"receive"},
-   {s:"<b>get</b> home / to school", n:"arrive"}]}
-],
-mistakes:[
- {no:"I take breakfast at 7.", yes:"I have breakfast at 7.", why:"Meals go with 'have': have breakfast."},
- {no:"Let's do a photo.", yes:"Let's take a photo.", why:"The natural pair is take a photo."},
- {no:"She is getting a shower.", yes:"She is having a shower.", why:"The natural pair is have a shower."}
-],
-tip:"Learn these as fixed pairs: have (meals, a shower, a rest), take (a photo, a break, a taxi, medicine), get (ready, better, home).",
-q:[
- {t:"mcq", q:"Let's ___ a break — I'm tired.", opts:["do","have","take","make"], a:2, why:"the natural pair is take a break."},
- {t:"mcq", q:"We usually ___ dinner at seven.", opts:["take","have","get","do"], a:1, why:"meals → have dinner."},
- {t:"mcq", q:"Hurry up and ___ ready!", opts:["have","take","get","do"], a:2, why:"become → get ready."},
- {t:"fill", q:"Can you ___ a photo of us? (the natural verb)", ans:["take"], hint:"___ a photo", why:"take a photo."},
- {t:"fill", q:"I need to ___ a shower before we go. (the natural verb)", ans:["have"], hint:"___ a shower", why:"have a shower."},
- {t:"spot", sent:"Please make a taxi to the airport .", wrong:1, fix:"take", why:"the natural pair is take a taxi."},
- {t:"mcq", q:"Which is correct?", opts:["get a present","take a present","do a present","have a present home"], a:0, why:"receive → get a present."},
- {t:"spot", sent:"I take breakfast at eight every day .", wrong:1, fix:"have", why:"meals → have breakfast."}
-]},
-
-{
-id:"do-go-play", zh:"運動與活動 do / go / play", unit:"u9", n:"10.8", title:"Do, Go & Play (Activities)", sub:"Which verb for which activity — play tennis, go swimming, do yoga.",
-form:{p:"play + ball games · go + -ing activities · do + other exercise", ex:["<b>play</b> tennis","<b>go</b> swimming","<b>do</b> yoga"]},
-uses:[
- {t:"play + ball games & competitions", d:"Use 'play' for sports with a ball or a game/opponent.", ex:[
-   {s:"<b>play</b> football / basketball / tennis", n:"ball games"},
-   {s:"<b>play</b> chess / cards", n:"games"},
-   {s:"<b>play</b> the piano", n:"also for instruments"}]},
- {t:"go + -ing activities", d:"Use 'go' + the -ing form for many activities (often outdoors).", ex:[
-   {s:"<b>go</b> swimming / running / shopping", n:"go + V-ing"},
-   {s:"<b>go</b> skiing / fishing / hiking", n:""},
-   {s:"<b>go</b> dancing", n:""}]},
- {t:"do + exercise & other activities", d:"Use 'do' for exercise without a ball, and some tasks.", ex:[
-   {s:"<b>do</b> yoga / karate / exercise", n:""},
-   {s:"<b>do</b> the homework / the dishes", n:"tasks"},
-   {s:"<b>do</b> your best", n:""}]}
-],
-mistakes:[
- {no:"I play swimming every day.", yes:"I go swimming every day.", why:"Activities ending in -ing take 'go': go swimming."},
- {no:"She does tennis on Sundays.", yes:"She plays tennis on Sundays.", why:"Ball games take 'play': play tennis."},
- {no:"We go yoga after work.", yes:"We do yoga after work.", why:"Exercise without a ball takes 'do': do yoga."}
-],
-tip:"play + ball games & instruments (play tennis, play the piano). go + -ing activities (go swimming). do + exercise/tasks (do yoga, do homework).",
-q:[
- {t:"mcq", q:"On Saturdays we ___ basketball.", opts:["go","do","play","make"], a:2, why:"ball game → play basketball."},
- {t:"mcq", q:"In summer I often ___ swimming.", opts:["play","go","do","take"], a:1, why:"-ing activity → go swimming."},
- {t:"mcq", q:"My mum ___ yoga every morning.", opts:["plays","goes","does","takes"], a:2, why:"exercise (no ball) → do yoga."},
- {t:"fill", q:"Let's ___ shopping this weekend. (the right verb)", ans:["go"], hint:"___ shopping", why:"go shopping (-ing activity)."},
- {t:"fill", q:"He can ___ the piano beautifully. (the right verb)", ans:["play"], hint:"___ the piano", why:"play the piano."},
- {t:"spot", sent:"They play running in the park .", wrong:1, fix:"go", why:"-ing activity → go running."},
- {t:"mcq", q:"Which is correct?", opts:["do football","go football","play football","make football"], a:2, why:"ball game → play football."},
- {t:"spot", sent:"I go karate twice a week .", wrong:1, fix:"do", why:"exercise without a ball → do karate."}
 ]}
 ]};
 
@@ -7486,6 +7545,106 @@ function saveReflect(){
   else { toast("日記已更新 🐾"); }
   renderReflect();
 }
+/* Fallback in-page print preview when browser blocks popups (Safari/Chrome/iOS) */
+function safeOpenPrintDoc(docHtml, title){
+  let w = null;
+  try {
+    w = window.open("", "_blank");
+  } catch(e){}
+
+  if(w && !w.closed){
+    try {
+      w.document.open();
+      w.document.write(docHtml);
+      w.document.close();
+      return;
+    } catch(e){}
+  }
+
+  showPrintModalFallback(docHtml, title);
+}
+
+function showPrintModalFallback(docHtml, title){
+  closePrintModalFallback();
+  const modal = document.createElement("section");
+  modal.id = "generic-print-preview";
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("aria-label", title || "列印預覽");
+
+  const bodyMatch = docHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  const styleMatch = docHtml.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
+  const innerBody = bodyMatch ? bodyMatch[1] : docHtml;
+  const innerStyle = styleMatch ? styleMatch[1] : "";
+
+  modal.innerHTML = `
+    <style>
+      #generic-print-preview{
+        position:fixed;inset:0;z-index:3000;background:rgba(20,15,10,.75);
+        display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;
+      }
+      #generic-print-preview .gpp-bar{
+        position:sticky;top:0;z-index:20;background:#332920;color:#fff;
+        padding:10px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.35);
+        font:600 13.5px system-ui,-apple-system,sans-serif;
+      }
+      #generic-print-preview .gpp-btn{
+        background:#E08862;color:#fff;border:none;border-radius:6px;padding:7px 16px;
+        font:600 13px system-ui,sans-serif;cursor:pointer;
+      }
+      #generic-print-preview .gpp-btn:hover{background:#cc734e}
+      #generic-print-preview .gpp-close{
+        background:#55493f;color:#fff;border:none;border-radius:6px;padding:7px 14px;
+        font:600 13px system-ui,sans-serif;cursor:pointer;margin-left:auto;
+      }
+      #generic-print-preview .gpp-close:hover{background:#6d5f53}
+      #generic-print-preview .gpp-hint{font-size:12px;opacity:.85;font-weight:400}
+      #generic-print-preview .gpp-wrap{
+        padding:20px;display:flex;flex-direction:column;align-items:center;min-height:100%;
+      }
+      ${innerStyle}
+      @media print{
+        html:has(body.gpp-printing){background:#fff!important}
+        body.gpp-printing{overflow:visible!important;background:#fff!important}
+        body.gpp-printing > :not(#generic-print-preview){display:none!important}
+        #generic-print-preview{position:static!important;inset:auto!important;background:#fff!important;overflow:visible!important}
+        #generic-print-preview .gpp-bar{display:none!important}
+        #generic-print-preview .gpp-wrap{padding:0!important}
+        #generic-print-preview .bar{display:none!important}
+        #generic-print-preview .sheet{box-shadow:none!important;margin:0!important;max-width:none!important;padding:0!important}
+        @page{size:A4;margin:12mm 15mm}
+      }
+    </style>
+    <div class="gpp-bar">
+      <span>🐱 ${esc(title || "列印預覽")}</span>
+      <button type="button" class="gpp-btn" onclick="window.print()">🖨 列印 / 存成 PDF</button>
+      <span class="gpp-hint">已開啟同頁預覽。可直接按列印，或按 Esc / 關閉返回。</span>
+      <button type="button" class="gpp-close" onclick="closePrintModalFallback()">✕ 關閉</button>
+    </div>
+    <div class="gpp-wrap">
+      ${innerBody}
+    </div>
+  `;
+
+  const onKey = e => {
+    if(e.key === "Escape"){ e.preventDefault(); closePrintModalFallback(); }
+  };
+  modal._onKey = onKey;
+  document.addEventListener("keydown", onKey);
+  document.body.appendChild(modal);
+  document.body.classList.add("gpp-printing");
+  document.body.style.overflow = "hidden";
+}
+
+function closePrintModalFallback(){
+  const modal = document.getElementById("generic-print-preview");
+  if(!modal) return;
+  if(modal._onKey) document.removeEventListener("keydown", modal._onKey);
+  modal.remove();
+  document.body.classList.remove("gpp-printing");
+  document.body.style.overflow = "";
+}
+
 /* Printable class worksheet — "My Learning Journey" (daily log + weekly reflection).
    Auto-fills name, date and today's 3-line diary; other fields are for handwriting. */
 function printJourney(){
@@ -7496,12 +7655,12 @@ function printJourney(){
   const doc = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>My Learning Journey</title>
   <style>
    *{box-sizing:border-box}
-   body{font-family:Arial,"Helvetica Neue",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;color:#000;margin:0;background:#e9e9e9}
+   body{font-family:Arial,"Helvetica Neue",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;color:#000;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
    .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#7A5B49;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
    .bar button{font:inherit;background:#fff;color:#7A5B49;border:0;border-radius:8px;padding:7px 14px;font-weight:600;cursor:pointer}
    .bar .hint{opacity:.85;font-size:12px}
-   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:44px 50px;box-shadow:0 8px 24px rgba(0,0,0,.14);page-break-after:always}
-   .sheet:last-child{page-break-after:auto}
+   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:44px 50px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
+   .sheet:last-child{break-after:auto;page-break-after:auto}
    h1{font-size:21px;font-weight:700;margin:0 0 16px}
    .dn{display:flex;justify-content:space-between;font-size:13px;margin:0 0 9px}
    .dn u{font-style:normal;text-decoration:none;border-bottom:1px solid #000;padding:0 10px 1px;min-width:120px;display:inline-block;text-align:center}
@@ -7578,9 +7737,7 @@ function printJourney(){
     </table>
   </div>
   <\/body><\/html>`;
-  const w = window.open("", "_blank");
-  if(!w){ toast("請允許彈出視窗才能列印 🖨"); return; }
-  w.document.open(); w.document.write(doc); w.document.close();
+  safeOpenPrintDoc(doc, "My Learning Journey");
 }
 
 /* =====================================================
@@ -12432,12 +12589,12 @@ function abcOpenSheets(chars, title, builder){
 <style>
 @font-face{font-family:'AndikaPrint';src:url('${ABC_FONT_URL}') format('truetype');font-display:swap}
 *{box-sizing:border-box}
-body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background:#eee}
+body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background:#eee;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .andika{font-family:'AndikaPrint','Comic Sans MS',sans-serif}
 .bar{position:sticky;top:0;z-index:5;background:#333;color:#fff;padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font:600 13px system-ui,sans-serif}
 .bar button{font:600 13px system-ui,sans-serif;padding:7px 14px;border-radius:6px;border:none;cursor:pointer;background:#E08862;color:#fff}
 .bar .hint{font-weight:400;opacity:.75}
-.sheet{max-width:900px;margin:16px auto;background:#fff;padding:26px 30px;box-shadow:0 1px 6px rgba(0,0,0,.15)}
+.sheet{max-width:900px;margin:16px auto;background:#fff;padding:26px 30px;box-shadow:0 1px 6px rgba(0,0,0,.15);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .wshdr{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px solid #7A5B49;padding-bottom:5px;margin-bottom:9px}
 .wsttl{font:800 19pt system-ui,sans-serif;color:#333}
 .wsttl b{color:#7A5B49;font-size:23pt}
@@ -12478,17 +12635,15 @@ body{font:14px system-ui,-apple-system,sans-serif;color:#111;margin:0;background
 .ph-ex{font:400 15pt system-ui,sans-serif;color:#222;line-height:1.7;margin:0;padding-left:26px}
 .ph-ex .zh{color:#888;font-size:12pt}
 .g{stroke:#D8CBB6;stroke-width:2} .g.b{stroke:#B79B78;stroke-width:2.5} .g.d{stroke-dasharray:7 9}
-@media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0;page-break-before:always} .sheet:first-of-type{page-break-before:avoid} .wsbox{border-color:#ccc} }
-@page{margin:1cm}
+@media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0;break-before:page;page-break-before:always} .sheet:first-of-type{break-before:auto;page-break-before:auto} .wsbox{border-color:#ccc} }
+@page{size:A4;margin:1cm}
 </style></head><body>
 <div class="bar"><span>🐱 English Cat Island</span>
   <button onclick="window.print()">🖨 列印 / 存成 PDF</button>
   <span class="hint">共 ${chars.length} 頁 · 塗色→圈圈看→描寫→握筆→寫單字。灰色與虛線為描寫，紅點為起筆。</span>
 </div>${body}
 <\/body><\/html>`;
-  const w = window.open("", "_blank");
-  if(!w){ toast("請允許彈出視窗才能列印 🖨"); return; }
-  w.document.open(); w.document.write(doc); w.document.close();
+  safeOpenPrintDoc(doc, title);
 }
 function abcPrint(ch){ abcOpenSheets([ch.toUpperCase()], "字母練習單 "+ch.toUpperCase()); }
 function abcPrintAll(){ abcOpenSheets(ABC.slice(), "English Cat Island — A–Z 描寫練習單"); }
