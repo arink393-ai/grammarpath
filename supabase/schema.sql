@@ -164,3 +164,5 @@ create policy p_hw_read on storage.objects for select to authenticated
 --  Done. Remember step 4 (make yourself a teacher) and step 5
 --  (turn off email confirmation).
 -- ============================================================
+
+-- 每日單字（vocab/）的進度表另見 supabase/vocab.sql（也可直接執行那個檔）

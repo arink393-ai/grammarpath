@@ -18,6 +18,14 @@
   <a href="#me" data-tab="me"><span class="ic">⚙</span>設定</a>
 </nav>
 <div id="toast" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // 與 English Cat Island 主站同一個 Supabase 專案（anon key 可公開，資料由 RLS 保護）
+  window.VR_SUPABASE = {
+    url: "https://ygmtpcrnoqxziiyrnmmq.supabase.co",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnbXRwY3Jub3F4emlpeXJubW1xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk5MzIzMjYsImV4cCI6MjEwNTUwODMyNn0.a_o8Hgbbf2pawUc_eSN0y7lF4MXcpg6iOe-akigjcOM"
+  };
+</script>
 <script src="books.js"></script>
 <script src="app.js"></script>
 </body>

@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v26-vocab-app";
+const CACHE = "eci-v27-vocab-sync";
 const SHELL = [
   "./",
   "./index.html",
@@ -67,6 +67,9 @@ self.addEventListener("fetch", (e) => {
     );
     return;
   }
+
+  // 即時資料（Supabase 資料庫/登入、字典、發音）一律走網路，不可快取，否則老師後台會看到舊資料
+  if (/(^|\.)supabase\.co$|dictionaryapi\.dev$|dict\.youdao\.com$|googleapis\.com$/.test(url.hostname) && !/fonts\.googleapis\.com$/.test(url.hostname)) return;
 
   // Cross-origin (Google Fonts, cdnjs, YouTube thumbs): cache-first, tolerate opaque.
   e.respondWith(

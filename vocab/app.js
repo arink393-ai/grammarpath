@@ -36,11 +36,19 @@ const customBooks = () => LS.get('vr:books', []);
 const allBooks = () => [...BUILTIN_BOOKS, ...customBooks()];
 const curBook = () => allBooks().find(b => b.id === settings.bookId) || allBooks().find(b => b.id === DEFAULT_SETTINGS.bookId);
 const prog = id => LS.get('vr:p:' + id, {});
-const saveProg = (id, p) => LS.set('vr:p:' + id, p);
+const saveProg = (id, p) => { LS.set('vr:p:' + id, p); markDirty(id); };
 const stars = id => new Set(LS.get('vr:star:' + id, []));
-const saveStars = (id, s) => LS.set('vr:star:' + id, [...s]);
-const stats = () => LS.get('vr:stats', {});
-function bump(field) { const s = stats(), t = today(); s[t] = s[t] || { n: 0, r: 0 }; s[t][field]++; LS.set('vr:stats', s); }
+const saveStars = (id, s) => { LS.set('vr:star:' + id, [...s]); markDirty(id); };
+// 每本書各自記錄每日完成數（vr:bs:<id>），全站統計＝各書加總（再加上舊版的 vr:stats）
+const bstats = id => LS.get('vr:bs:' + id, {});
+function stats() {
+  const out = {};
+  const add = o => Object.entries(o).forEach(([d, x]) => { out[d] = out[d] || { n: 0, r: 0 }; out[d].n += x.n || 0; out[d].r += x.r || 0; });
+  add(LS.get('vr:stats', {}));
+  allBooks().forEach(b => add(bstats(b.id)));
+  return out;
+}
+function bump(id, field) { const s = bstats(id), t = today(); s[t] = s[t] || { n: 0, r: 0 }; s[t][field]++; LS.set('vr:bs:' + id, s); markDirty(id); }
 function streak() {
   const s = stats(), on = x => x && x.n + x.r > 0;
   let t = today(); if (!on(s[t])) t--;
@@ -94,6 +102,92 @@ function stemRe(word) {
 const markEx = (ex, w) => esc(ex).replace(stemRe(w), '<mark>$1</mark>');
 const clozeEx = (ex, w) => esc(ex).replace(stemRe(w), '<u>&nbsp;</u>');
 
+/* ========== 雲端同步（English Cat Island 帳號，老師後台看得到） ========== */
+// 只有在頁面提供 window.VR_SUPABASE（grammarpath/vocab/index.html）時啟用；
+// 與主站同網域，所以共用主站的登入狀態。
+const CLOUD = { sb: null, user: null, timer: null, dirty: new Set(), state: 'off' };
+function markDirty(id) {
+  if (!CLOUD.user) return;
+  CLOUD.dirty.add(id); clearTimeout(CLOUD.timer); CLOUD.timer = setTimeout(cloudPush, 2000);
+}
+function cloudBar() {
+  if (CLOUD.state === 'off') return '';
+  if (CLOUD.state === 'guest') return `<a class="cloudbar warn" href="../#/home">☁️ 還沒登入：登入 English Cat Island 帳號後，進度會同步給老師 →</a>`;
+  if (CLOUD.state === 'error') return `<div class="cloudbar warn">☁️ 同步暫時失敗，進度先存在這台裝置，稍後會自動再試</div>`;
+  const m = CLOUD.user.user_metadata || {};
+  return `<div class="cloudbar">☁️ ${esc(m.name || CLOUD.user.email)} · 進度已同步給老師</div>`;
+}
+function wipeLocal() {
+  const ks = [];
+  for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (/^vr:(p|star|bs):|^vr:(stats|books)$/.test(k)) ks.push(k); }
+  ks.forEach(k => localStorage.removeItem(k));
+}
+async function cloudInit() {
+  const cfg = window.VR_SUPABASE;
+  if (!cfg || !window.supabase) return;
+  CLOUD.state = 'guest';
+  try {
+    CLOUD.sb = window.supabase.createClient(cfg.url, cfg.key, { auth: { persistSession: true, autoRefreshToken: true } });
+    const { data: { session: s } } = await CLOUD.sb.auth.getSession();
+    CLOUD.user = s && s.user || null;
+  } catch (e) { console.warn('cloud init', e); }
+  if (CLOUD.user) {
+    // 共用電腦：換了另一位同學登入，就清掉上一位留在本機的進度
+    const owner = LS.get('vr:owner', null);
+    if (owner && owner !== CLOUD.user.id) wipeLocal();
+    LS.set('vr:owner', CLOUD.user.id);
+    await cloudPull();
+    allBooks().forEach(b => { if (Object.keys(prog(b.id)).length || stars(b.id).size) CLOUD.dirty.add(b.id); });
+    await cloudPush();
+  }
+  if (!session && !(quiz && !quiz.done) && !location.hash.startsWith('#teacher')) route();
+}
+async function cloudPull() {
+  const { data, error } = await CLOUD.sb.from('vocab_progress').select('book_id,words,stars,days,book_data').eq('user_id', CLOUD.user.id);
+  if (error) { CLOUD.state = 'error'; console.warn('cloud pull', error); return; }
+  CLOUD.state = 'synced';
+  for (const row of data || []) {
+    const id = row.book_id;
+    if (row.book_data && !allBooks().some(b => b.id === id)) LS.set('vr:books', [...customBooks(), row.book_data]);
+    const p = prog(id);
+    for (const [w, r] of Object.entries(row.words || {})) if (!p[w] || (r.u || 0) > (p[w].u || 0)) p[w] = r;
+    LS.set('vr:p:' + id, p);
+    LS.set('vr:star:' + id, [...new Set([...stars(id), ...(row.stars || [])])]);
+    const bs = bstats(id);
+    for (const [d, x] of Object.entries(row.days || {})) {
+      const y = bs[d] || { n: 0, r: 0 };
+      bs[d] = { n: Math.max(y.n || 0, x.n || 0), r: Math.max(y.r || 0, x.r || 0) };
+    }
+    LS.set('vr:bs:' + id, bs);
+  }
+}
+async function cloudPush() {
+  if (!CLOUD.user || !CLOUD.dirty.size) return;
+  const ids = [...CLOUD.dirty]; CLOUD.dirty.clear();
+  const now = new Date().toISOString(), cut = today() - 90;
+  const rows = ids.map(id => {
+    const b = allBooks().find(x => x.id === id); if (!b) return null;
+    const days = Object.fromEntries(Object.entries(bstats(id)).filter(([d]) => +d >= cut));
+    return {
+      user_id: CLOUD.user.id, book_id: id, book_title: b.title, total: b.words.length,
+      words: prog(id), stars: [...stars(id)], days,
+      book_data: BUILTIN_BOOKS.some(x => x.id === id) ? null : b,
+      last_active: now, updated_at: now
+    };
+  }).filter(Boolean);
+  if (!rows.length) return;
+  const { error } = await CLOUD.sb.from('vocab_progress').upsert(rows, { onConflict: 'user_id,book_id' });
+  const was = CLOUD.state;
+  if (error) { ids.forEach(i => CLOUD.dirty.add(i)); CLOUD.state = 'error'; console.warn('cloud push', error); }
+  else CLOUD.state = 'synced';
+  if (was !== CLOUD.state && (location.hash === '#home' || !location.hash)) home();
+}
+async function cloudDelete(id) {
+  CLOUD.dirty.delete(id);
+  if (CLOUD.user) { try { await CLOUD.sb.from('vocab_progress').delete().eq('user_id', CLOUD.user.id).eq('book_id', id); } catch {} }
+}
+document.addEventListener('visibilitychange', () => { if (document.hidden) cloudPush(); });
+
 /* ========== 路由 ========== */
 let session = null, quiz = null;
 const routes = { home, study, quiz: quizHome, list, me, teacher };
@@ -127,6 +221,7 @@ function home() {
 
   app.innerHTML = `<div class="fade">
     <a class="backsite" href="../#/lab/vocab-method">‹ English Cat Island</a>
+    ${cloudBar()}
     <p class="sub">${new Date().toLocaleDateString('zh-TW', { month: 'long', day: 'numeric', weekday: 'long' })}</p>
     <h1>${nothing ? '今日任務完成 🎉' : '今天也來背幾個字吧'}</h1>
 
@@ -243,8 +338,9 @@ function complete(it, killed) {
   else if (it.hint) r.s = Math.max(1, r.s);
   else r.s = it.isNew ? 2 : Math.min(r.s + 1, INTERVALS.length - 1);
   r.due = killed ? 1e9 : t + INTERVALS[r.s];
+  r.u = Date.now();
   p[it.w.w] = r; saveProg(b.id, p);
-  bump(it.isNew ? 'n' : 'r');
+  bump(b.id, it.isNew ? 'n' : 'r');
   S.done++;
 }
 function advance() { session.cur = null; session.phase = 'q'; session.spoke = false; study(); }
@@ -351,7 +447,7 @@ function quizRender() {
 function markWrong(w) {
   const Q = quiz, p = prog(Q.book.id), t = today();
   Q.wrong.push(w);
-  if (p[w.w] && p[w.w].s < KILLED) { p[w.w].due = t; p[w.w].s = Math.min(p[w.w].s, 1); saveProg(Q.book.id, p); }
+  if (p[w.w] && p[w.w].s < KILLED) { p[w.w].due = t; p[w.w].s = Math.min(p[w.w].s, 1); p[w.w].u = Date.now(); saveProg(Q.book.id, p); }
 }
 function quizAct(act, el) {
   const Q = quiz; if (!Q) return;
@@ -521,7 +617,7 @@ async function importFromHash(code) {
     book.id = book.id || 'c_' + Date.now().toString(36);
     book.words = book.words.filter(w => w && w.w && w.zh);
     const books = customBooks().filter(b => b.id !== book.id);
-    books.push(book); LS.set('vr:books', books);
+    books.push(book); LS.set('vr:books', books); markDirty(book.id);
     settings.bookId = book.id; saveSettings();
     history.replaceState(null, '', location.pathname + '#home');
     route();
@@ -740,17 +836,17 @@ document.addEventListener('click', e => {
     st.has(w) ? st.delete(w) : st.add(w); saveStars(b.id, st);
     el.classList.toggle('on', st.has(w)); el.textContent = st.has(w) ? '★' : '☆'; return;
   }
-  if (act === 'unkill') { const b = curBook(), p = prog(b.id); delete p[el.dataset.w]; saveProg(b.id, p); toast('已放回未學'); return list(); }
+  if (act === 'unkill') { const b = curBook(), p = prog(b.id); p[el.dataset.w] = { s: 1, due: today(), l: 0, d0: today(), u: Date.now() }; saveProg(b.id, p); toast('已放回學習中，今天會複習'); return list(); }
   if (act === 'pickbook') { settings.bookId = el.dataset.id; saveSettings(); toast('已切換單字書'); return me(); }
   if (act === 'delbook') {
     if (!confirm('移除這本單字書和它的學習進度？')) return;
-    const id = el.dataset.id; LS.set('vr:books', customBooks().filter(b => b.id !== id)); LS.del('vr:p:' + id); LS.del('vr:star:' + id);
+    const id = el.dataset.id; LS.set('vr:books', customBooks().filter(b => b.id !== id)); LS.del('vr:p:' + id); LS.del('vr:star:' + id); LS.del('vr:bs:' + id); cloudDelete(id);
     if (settings.bookId === id) { settings.bookId = DEFAULT_SETTINGS.bookId; saveSettings(); }
     return me();
   }
   if (act === 'backup') return backup();
   if (act === 'restore') return restore();
-  if (act === 'reset') { if (confirm(`確定要清除「${curBook().title}」的所有學習進度嗎？`)) { LS.del('vr:p:' + curBook().id); toast('已重設'); } return; }
+  if (act === 'reset') { const id = curBook().id; if (confirm(`確定要清除「${curBook().title}」的所有學習進度嗎？`)) { LS.del('vr:p:' + id); LS.del('vr:star:' + id); LS.del('vr:bs:' + id); cloudDelete(id); toast('已重設'); } return; }
   if (act.startsWith('t-')) return teacherAct(act);
 });
 
@@ -769,3 +865,4 @@ document.addEventListener('keydown', e => {
 
 if (window.speechSynthesis) speechSynthesis.getVoices();
 route();
+cloudInit();

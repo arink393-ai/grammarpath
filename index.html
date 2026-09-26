@@ -1451,6 +1451,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .lab-sec>h3 span{font:500 14px var(--sans);color:var(--muted);margin-left:8px}
 .lab-p{font-size:1.02rem;line-height:1.7;color:var(--ink);margin:0 0 14px}
 .lab-p .z{display:block;font-family:var(--han);color:var(--sb-zh,#6b5f4e);font-size:.96rem;line-height:1.85;margin-top:4px}
+.tc-vbar{height:4px;border-radius:9px;background:#eee;margin-top:4px;overflow:hidden;min-width:60px}.tc-vbar i{display:block;height:100%;background:#1f7a63}
+.tc-weak{font-size:13px;max-width:220px}.tc-weak sup{color:#B04A3A;font-weight:700;margin-left:1px}
 .lab-cta{display:flex;align-items:center;gap:14px;margin:18px 0 4px;padding:16px 18px;border-radius:14px;background:var(--lab-paper);border:1.5px solid var(--lab-accent);color:var(--lab-ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
 .lab-cta:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(176,74,58,.15)}
 .lab-cta-ic{font-size:30px;flex:none}
@@ -4588,6 +4590,7 @@ const CLOUD = {
   /* ---- teacher dashboard ---- */
   async allProfiles(){ const { data } = await SB.from("profiles").select("*").order("created_at",{ascending:true}); return data||[]; },
   async allProgress(){ const { data } = await SB.from("progress").select("*"); return data||[]; },
+  async allVocab(){ const { data, error } = await SB.from("vocab_progress").select("user_id,book_id,book_title,total,words,days,last_active"); if(error) throw error; return data||[]; },
   async allSubmissions(){ const { data } = await SB.from("submissions").select("*").order("submitted_at",{ascending:false}); return data||[]; },
   async createAssignment({ title, description, due_date }){
     const { error } = await SB.from("assignments").insert({ title, description:description||null, due_date:due_date||null, created_by:this.user.id });
@@ -15433,7 +15436,9 @@ async function renderTeacher(){
     const [profiles, progress, assignments, submissions] = await Promise.all([
       CLOUD.allProfiles(), CLOUD.allProgress(), CLOUD.listAssignments(), CLOUD.allSubmissions()
     ]);
-    TDATA = { profiles, progress, assignments, submissions };
+    let vocab = null, vocabErr = null;
+    try{ vocab = await CLOUD.allVocab(); }catch(e){ vocabErr = e.message || String(e); }   // 表還沒建立時不影響其他分頁
+    TDATA = { profiles, progress, assignments, submissions, vocab, vocabErr };
   }catch(e){ app.innerHTML = `<div class="view"><p>載入失敗：${esc(e.message||"")}</p></div>`; return; }
   paintTeacher();
 }
@@ -15441,7 +15446,7 @@ function tName(id){ const p = TDATA.profiles.find(x=>x.id===id); return p ? (p.n
 function paintTeacher(){
   const students = TDATA.profiles.filter(p=>p.role!=="teacher");
   const progById = {}; TDATA.progress.forEach(p=>progById[p.user_id]=p);
-  const tabs = [["students","👧 學生進度"],["homework","📝 作業繳交"],["fables","🦊 寓言練習"],["reflect","📓 反思／每日"],["stats","📊 全班統計"],["prep","📚 備課錦囊"]];
+  const tabs = [["students","👧 學生進度"],["homework","📝 作業繳交"],["fables","🦊 寓言練習"],["vocab","🧠 背單字"],["reflect","📓 反思／每日"],["stats","📊 全班統計"],["prep","📚 備課錦囊"]];
   const tabBar = `<div class="tc-tabs">${tabs.map(([k,l])=>`<button class="tc-tab ${TTAB===k?'active':''}" onclick="TTAB='${k}';paintTeacher()">${l}</button>`).join("")}</div>`;
   let body = "";
 
@@ -15513,6 +15518,8 @@ function paintTeacher(){
       <div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>做過寓言 Fables done</th><th>答對題數 Correct</th><th>答對率 Accuracy</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
+  else if(TTAB==="vocab"){ body = tcVocabBody(students); }
+
   else if(TTAB==="stats"){
     const n = students.length;
     const withP = students.map(p=>progById[p.id]).filter(Boolean);
@@ -15545,6 +15552,34 @@ function paintTeacher(){
       <p class="lede">學生共 ${students.length} 人。點分頁查看進度、作業、反思與統計。</p></div>
     ${tabBar}<div class="tc-body">${body}</div>
   </div>`;
+}
+/* ---- 每日單字（vocab/）進度 ---- */
+function tcVocabBody(students){
+  if(TDATA.vocabErr) return `<div class="card" style="padding:18px">還讀不到背單字資料：${esc(TDATA.vocabErr)}<br><span class="tc-sub">請到 Supabase → SQL Editor 執行 <code>supabase/vocab.sql</code> 建立資料表。</span></div>`;
+  const d0 = new Date(), T = Math.floor((d0.getTime() - d0.getTimezoneOffset()*60000)/86400000);
+  const byUser = {}; (TDATA.vocab||[]).forEach(r=>(byUser[r.user_id]=byUser[r.user_id]||[]).push(r));
+  const sumDays = (rows, from) => rows.reduce((a,r)=>a+Object.entries(r.days||{}).reduce((b,[d,x])=>b+(+d>=from?(x.n||0)+(x.r||0):0),0),0);
+  const streakOf = rows => { const on = new Set(); rows.forEach(r=>Object.entries(r.days||{}).forEach(([d,x])=>{ if((x.n||0)+(x.r||0)>0) on.add(+d); })); let t=T; if(!on.has(t)) t--; let n=0; while(on.has(t)){ n++; t--; } return n; };
+  const activeWeek = students.filter(p=>byUser[p.id] && sumDays(byUser[p.id], T-6)>0).length;
+  const rows = students.map(p=>{
+    const rs = (byUser[p.id]||[]).slice().sort((a,b)=>String(b.last_active).localeCompare(String(a.last_active)));
+    const name = `<td rowspan="${Math.max(1,rs.length)}">${esc(p.name||"")}<div class="tc-sub">${esc(p.email||"")}</div><div class="tc-sub">連續 ${streakOf(rs)} 天 🔥</div></td>`;
+    if(!rs.length) return `<tr>${name}<td colspan="7" style="color:var(--muted)">還沒開始背單字</td></tr>`;
+    return rs.map((r,i)=>{
+      const w = Object.entries(r.words||{});
+      const learned = w.length, mastered = w.filter(([,x])=>x.s>=5).length;
+      const due = w.filter(([,x])=>x.s<99 && x.due<=T).length;
+      const weak = w.filter(([,x])=>(x.l||0)>0).sort((a,b)=>(b[1].l||0)-(a[1].l||0)).slice(0,4).map(([k,x])=>`${esc(k)}<sup>${x.l}</sup>`).join("、") || "—";
+      const pct = r.total ? Math.round(learned/r.total*100) : 0;
+      return `<tr>${i===0?name:""}<td>${esc(r.book_title||r.book_id)}</td>
+        <td class="num">${learned} / ${r.total||"?"}<div class="tc-vbar"><i style="width:${pct}%"></i></div></td>
+        <td class="num">${mastered}</td><td class="num">${due}</td>
+        <td class="num">${sumDays([r],T)}</td><td class="num">${sumDays([r],T-6)}</td>
+        <td class="tc-weak">${weak}</td></tr>`;
+    }).join("");
+  }).join("") || `<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:20px">還沒有學生資料。</td></tr>`;
+  return `<p class="tc-sub" style="margin:0 0 12px">學生在 <a href="vocab/" target="_blank" rel="noopener">每日單字</a> 登入後的背單字進度。近 7 天有背單字：<b>${activeWeek} / ${students.length}</b> 人。<br>「待複習」＝今天該複習但還沒複習的字；「常忘的字」上標是忘記次數。</p>
+    <div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>單字書</th><th>已學</th><th>熟記</th><th>待複習</th><th>今日</th><th>近7天</th><th>常忘的字</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 async function tcCreate(){
   const title=(document.getElementById("na-title").value||"").trim();

@@ -179,3 +179,5 @@ body.focus { padding-bottom: 16px; }
 @media (prefers-reduced-motion: reduce) { .fade { animation: none; } }
 
 .backsite { display: inline-block; font-size: 13px; color: var(--accent); text-decoration: none; margin-bottom: 6px; font-weight: 600; }
+.cloudbar { display: block; font-size: 13px; padding: 8px 12px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); text-decoration: none; margin-bottom: 10px; font-weight: 600; }
+.cloudbar.warn { background: var(--warn-soft); color: var(--warn); }
