@@ -1451,6 +1451,14 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .lab-sec>h3 span{font:500 14px var(--sans);color:var(--muted);margin-left:8px}
 .lab-p{font-size:1.02rem;line-height:1.7;color:var(--ink);margin:0 0 14px}
 .lab-p .z{display:block;font-family:var(--han);color:var(--sb-zh,#6b5f4e);font-size:.96rem;line-height:1.85;margin-top:4px}
+.lab-cta{display:flex;align-items:center;gap:14px;margin:18px 0 4px;padding:16px 18px;border-radius:14px;background:var(--lab-paper);border:1.5px solid var(--lab-accent);color:var(--lab-ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
+.lab-cta:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(176,74,58,.15)}
+.lab-cta-ic{font-size:30px;flex:none}
+.lab-cta-tx{flex:1;display:flex;flex-direction:column;gap:2px}
+.lab-cta-tx b{color:var(--lab-accent);font-size:16px}
+.lab-cta-tx span{font-size:13px;line-height:1.55}
+.lab-cta-go{flex:none;font-weight:700;color:var(--lab-accent);white-space:nowrap}
+@media(max-width:520px){.lab-cta{flex-wrap:wrap}.lab-cta-go{width:100%;text-align:right}}
 .lab-note{font-size:13px;color:#8a6d3a;background:#FCF3DE;border:1px solid #EBD9A9;border-radius:10px;padding:9px 13px;margin:0 0 14px;line-height:1.6}
 .lab-cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .lab-card3{text-align:center;background:var(--lab-paper);border:1px solid var(--lab-line);border-radius:12px;padding:14px 10px}
@@ -7478,6 +7486,11 @@ const LAB = [
      <div class="lab-vword"><b>weary</b><i>adj.</i><span>疲憊的</span></div>
      <div class="lab-vword"><b>comfort</b><i>v.</i><span>安慰</span></div>
    </div>
+   <a class="lab-cta" href="vocab/?book=lab-songs">
+     <span class="lab-cta-ic">🧠</span>
+     <span class="lab-cta-tx"><b>每日單字：把這些字真的記住</b><span>用例句、真人發音與間隔複習，背下本章歌曲與詩的 16 個目標單字；也有國中會考、學測單字書。</span></span>
+     <span class="lab-cta-go">開始背 →</span>
+   </a>
  </section>
  <section class="lab-sec"><h3>Poetry, too <span>詩也可以</span></h3>
    <p class="lab-p">Two poems in the lecture make the same point — music and words belong together, and life is more than it seems. Both are in the public domain, so here they are in full.<span class="z">講義裡兩首詩也說著同一件事：音樂與文字本是一體，而人生不只是表面所見。兩首都已進入公有領域（作者離世超過百年），所以完整收錄。</span></p>

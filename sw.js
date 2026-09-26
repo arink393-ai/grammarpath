@@ -1,11 +1,15 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v25-songs-poems";
+const CACHE = "eci-v26-vocab-app";
 const SHELL = [
   "./",
   "./index.html",
   "./daily.js",
   "./daily.css",
   "./manifest.webmanifest",
+  "./vocab/",
+  "./vocab/app.js",
+  "./vocab/books.js",
+  "./vocab/style.css",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/maskable-512.png",
@@ -33,10 +37,19 @@ self.addEventListener("fetch", (e) => {
 
   // Page loads: network-first (always fresh when online), fall back to cached shell offline.
   if (req.mode === "navigate") {
+    const scope = new URL(self.registration.scope).pathname;
+    const isShell = url.pathname === scope || url.pathname === scope + "index.html";
     e.respondWith(
       fetch(req)
-        .then((r) => { const cp = r.clone(); caches.open(CACHE).then((c) => c.put("./index.html", cp)); return r; })
-        .catch(() => caches.match("./index.html").then((r) => r || caches.match("./")))
+        .then((r) => {
+          // 只有主站首頁存成 index.html；子頁（例如 vocab/）各自快取，避免蓋掉主站
+          const cp = r.clone();
+          caches.open(CACHE).then((c) => isShell ? c.put("./index.html", cp) : c.put(req, cp));
+          return r;
+        })
+        .catch(() => isShell
+          ? caches.match("./index.html").then((r) => r || caches.match("./"))
+          : caches.match(req).then((r) => r || caches.match("./index.html")))
     );
     return;
   }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f7a63">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>每日單字</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231f7a63'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='white' font-family='Georgia,serif' font-weight='700'>W</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app" aria-live="polite"></main>
+<nav id="tabbar">
+  <a href="#home" data-tab="home"><span class="ic">◉</span>今日</a>
+  <a href="#quiz" data-tab="quiz"><span class="ic">✎</span>測驗</a>
+  <a href="#list" data-tab="list"><span class="ic">☰</span>單字本</a>
+  <a href="#me" data-tab="me"><span class="ic">⚙</span>設定</a>
+</nav>
+<div id="toast" role="status"></div>
+<script src="books.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
