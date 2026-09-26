@@ -1504,6 +1504,25 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .lab-mode p{font-size:14px;line-height:1.6;color:var(--ink);margin:0}
 .lab-mode p .z{display:block;font-family:var(--han);font-size:12.5px;color:var(--muted);margin-top:3px}
 .lab-src{font-size:12px;color:var(--muted);font-style:italic;margin:10px 0 0}
+.lab-subh{font:700 13.5px var(--serif);color:var(--lab-ink);margin:16px 0 8px}
+.lab-videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:12px 0 4px}
+.lab-video{margin:0}
+.lab-video-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;border:1px solid var(--lab-line)}
+.lab-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lab-video figcaption{font-size:12.5px;color:var(--body);margin-top:7px;line-height:1.5}
+.lab-video figcaption b{color:var(--lab-ink)}
+.lab-video figcaption a{display:inline-block;margin-left:6px;color:var(--lab-accent);text-decoration:none;font-size:12px;white-space:nowrap}
+.lab-video figcaption a:hover{text-decoration:underline}
+.lab-poem{margin:16px 0;background:var(--lab-paper);border:1px solid var(--lab-line);border-left:4px solid var(--lab-accent);border-radius:0 12px 12px 0;padding:16px 20px}
+.lab-poem figcaption{font:700 1.08rem var(--serif);color:var(--lab-ink);display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.lab-poem figcaption span{font:500 13px var(--han);color:var(--muted)}
+.lab-poem-meta{font-size:12px;color:var(--muted);margin:4px 0 2px}
+.lab-poem-sub{font:italic 500 13px var(--serif);color:var(--body);margin:6px 0 2px}
+.lab-poem-body{margin:10px 0 4px}
+.lab-poem-body p{font:400 14.5px/1.85 var(--serif);color:var(--ink);margin:0 0 14px}
+.lab-poem-body p:last-child{margin-bottom:0}
+.lab-poem-note{margin-top:12px;padding-top:10px;border-top:1px dashed var(--lab-line);font-size:13px;line-height:1.7;color:var(--body)}
+.lab-poem-note b{color:var(--lab-accent)}
 .lab-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:30px 0 10px;padding-top:18px;border-top:1px solid var(--lab-line)}
 .lab-game-sec{background:linear-gradient(180deg,#FBF7EF,#F5EFE2);border:1px solid var(--lab-line);border-radius:16px;padding:16px 18px 20px}
 .rg-wrap{display:flex;flex-direction:column;gap:14px;margin-top:8px}
@@ -7437,7 +7456,18 @@ const LAB = [
  </section>
  <section class="lab-sec"><h3>Learn by singing <span>用唱的記單字</span></h3>
    <p class="lab-p">A song you love is a ready-made memory hook: the melody carries the words back to you. Instead of drilling a word list, meet the words inside a song, then lift them out to study.<span class="z">你喜歡的歌，就是現成的記憶掛勾——旋律會把單字一起帶回來。與其死背單字表，不如在歌裡遇見它們，再把它們「抽出來」學。</span></p>
-   <p class="lab-note">🎧 課堂用的兩首經典歌（歌詞版權所有，這裡只列出要教的目標單字）：<b>Memory</b>（音樂劇《Cats》）與 <b>Bridge Over Troubled Water</b>。</p>
+   <p class="lab-note">🎧 課堂用的兩首經典歌，直接在下面聆聽。歌詞仍受版權保護，所以這裡不貼歌詞，只列出要教的<b>目標單字</b>——邊聽邊對照，聲音會把單字一起記住。</p>
+   <div class="lab-videos">
+     <figure class="lab-video">
+       <div class="lab-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/mdBVJbzkoqo" title="Memory — Cats the Musical" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+       <figcaption><b>Memory</b>　音樂劇《Cats》（Elaine Paige 演唱）<a href="https://www.youtube.com/watch?v=mdBVJbzkoqo" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a></figcaption>
+     </figure>
+     <figure class="lab-video">
+       <div class="lab-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/4G-YQA_bsOU" title="Bridge Over Troubled Water — Simon &amp; Garfunkel" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+       <figcaption><b>Bridge Over Troubled Water</b>　Simon &amp; Garfunkel<a href="https://www.youtube.com/watch?v=4G-YQA_bsOU" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a></figcaption>
+     </figure>
+   </div>
+   <p class="lab-subh">🎯 目標單字 Target words</p>
    <div class="lab-vocab">
      <div class="lab-vword"><b>pavement</b><i>n.</i><span>人行道</span></div>
      <div class="lab-vword"><b>withered</b><i>adj.</i><span>枯萎的</span></div>
@@ -7450,9 +7480,72 @@ const LAB = [
    </div>
  </section>
  <section class="lab-sec"><h3>Poetry, too <span>詩也可以</span></h3>
-   <p class="lab-p">Two public-domain poems in the lecture make the same point — music and words belong together, and life is more than it seems.<span class="z">講義裡兩首公版詩也說著同一件事：音樂與文字本是一體，而人生不只是表面所見。</span></p>
-   <div class="lab-eg"><b>Thomas Ford (1607)</b> — “If music and sweet poetry agree…” 你愛音樂我愛詩：<b>agree（契合）</b>、<b>needs（必然）</b>。</div>
-   <div class="lab-eg"><b>Longfellow, “A Psalm of Life” (1838)</b> — key words: <b>mournful（哀傷的）</b>、<b>slumber（沉睡）</b>、<b>seem（看似）</b>。</div>
+   <p class="lab-p">Two poems in the lecture make the same point — music and words belong together, and life is more than it seems. Both are in the public domain, so here they are in full.<span class="z">講義裡兩首詩也說著同一件事：音樂與文字本是一體，而人生不只是表面所見。兩首都已進入公有領域（作者離世超過百年），所以完整收錄。</span></p>
+   <figure class="lab-poem">
+     <figcaption>If Music and Sweet Poetry Agree <span>音樂與詩若能相契</span></figcaption>
+     <div class="lab-poem-meta">Richard Barnfield · <i>Poems in Divers Humors</i>, 1598 · 公有領域（作者 1574–1620）</div>
+     <div class="lab-poem-body">
+       <p>If music and sweet poetry agree,<br>
+       As they must needs, the sister and the brother,<br>
+       Then must the love be great 'twixt thee and me,<br>
+       Because thou lov'st the one, and I the other.<br>
+       Dowland to thee is dear, whose heavenly touch<br>
+       Upon the lute doth ravish human sense;<br>
+       Spenser to me, whose deep conceit is such<br>
+       As, passing all conceit, needs no defence.<br>
+       Thou lov'st to hear the sweet melodious sound<br>
+       That Phoebus' lute, the queen of music, makes;<br>
+       And I in deep delight am chiefly drowned<br>
+       Whenas himself to singing he betakes.<br>
+       One god is god of both, as poets feign;<br>
+       One knight loves both, and both in thee remain.</p>
+     </div>
+     <div class="lab-poem-note">🎯 <b>agree</b> 契合／和諧　·　<b>needs</b>（副詞）必然　·　<b>ravish</b> 使陶醉　·　<b>conceit</b> 巧思／構想　·　<b>feign</b> 虛構、想像</div>
+   </figure>
+   <figure class="lab-poem">
+     <figcaption>A Psalm of Life <span>生命頌</span></figcaption>
+     <div class="lab-poem-meta">Henry Wadsworth Longfellow · 1838 · 公有領域（作者 1807–1882）</div>
+     <div class="lab-poem-sub">What the Heart of the Young Man Said to the Psalmist</div>
+     <div class="lab-poem-body">
+       <p>Tell me not, in mournful numbers,<br>
+       Life is but an empty dream!<br>
+       For the soul is dead that slumbers,<br>
+       And things are not what they seem.</p>
+       <p>Life is real! Life is earnest!<br>
+       And the grave is not its goal;<br>
+       Dust thou art, to dust returnest,<br>
+       Was not spoken of the soul.</p>
+       <p>Not enjoyment, and not sorrow,<br>
+       Is our destined end or way;<br>
+       But to act, that each to-morrow<br>
+       Find us farther than to-day.</p>
+       <p>Art is long, and Time is fleeting,<br>
+       And our hearts, though stout and brave,<br>
+       Still, like muffled drums, are beating<br>
+       Funeral marches to the grave.</p>
+       <p>In the world's broad field of battle,<br>
+       In the bivouac of Life,<br>
+       Be not like dumb, driven cattle!<br>
+       Be a hero in the strife!</p>
+       <p>Trust no Future, howe'er pleasant!<br>
+       Let the dead Past bury its dead!<br>
+       Act,—act in the living Present!<br>
+       Heart within, and God o'erhead!</p>
+       <p>Lives of great men all remind us<br>
+       We can make our lives sublime,<br>
+       And, departing, leave behind us<br>
+       Footprints on the sands of time;</p>
+       <p>Footprints, that perhaps another,<br>
+       Sailing o'er life's solemn main,<br>
+       A forlorn and shipwrecked brother,<br>
+       Seeing, shall take heart again.</p>
+       <p>Let us, then, be up and doing,<br>
+       With a heart for any fate;<br>
+       Still achieving, still pursuing,<br>
+       Learn to labour and to wait.</p>
+     </div>
+     <div class="lab-poem-note">🎯 <b>mournful</b> 哀傷的　·　<b>slumber</b> 沉睡　·　<b>seem</b> 看似　·　<b>fleeting</b> 稍縱即逝的　·　<b>bivouac</b> 露營地／人生營帳　·　<b>sublime</b> 崇高的</div>
+   </figure>
  </section>`
 },
 {

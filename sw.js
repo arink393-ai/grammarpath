@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v24-root-game";
+const CACHE = "eci-v25-songs-poems";
 const SHELL = [
   "./",
   "./index.html",
