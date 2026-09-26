@@ -11207,8 +11207,8 @@ function rdSheetHTML(r, lv){
   const paras   = lv.text.map(p=>`<p>${rdEsc(p)}</p>`).join("");
   const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${rdEsc(g[0])}</b> <i>${rdEsc(g[1])}</i> ${rdEsc(g[2])}</span>`).join("");
   const qs = (lv.q||[]).map((q,i)=>{
-    const opts = (q.opts||[]).map((o,oi)=>`<div class="opt">(${RD_LET[oi]}) ${rdPlain(o)}</div>`).join("");
-    return `<div class="q"><div class="qh"><span class="qn">${i+1}.</span> ${rdPlain(q.q)}<span class="qtag">${rdEsc(q.t)}</span></div><div class="opts">${opts}</div></div>`;
+    const opts = (q.opts||[]).map((o,oi)=>`<div class="rd-ws-option">(${RD_LET[oi]}) ${rdPlain(o)}</div>`).join("");
+    return `<div class="q"><div class="qh"><span class="qn">${i+1}.</span> ${rdPlain(q.q)}<span class="qtag">${rdEsc(q.t)}</span></div><div class="rd-ws-options">${opts}</div></div>`;
   }).join("");
   const answers = (lv.q||[]).map((q,i)=>`<div class="ak"><b>${i+1}. (${RD_LET[q.a]})</b> ${rdPlain(q.why)}</div>`).join("");
   const discuss = (r.discuss||[]).map(d=>`<li>${rdEsc(d)}</li>`).join("");
@@ -11225,63 +11225,124 @@ function rdSheetHTML(r, lv){
   <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}</div>
 </section>`;
 }
-/* Build + open a print window from a list of {r, lv} sections (each = one page). */
+/* Same-page preview avoids blocked popup windows and keeps the reading answers intact. */
+let rdPrintPreviewState = null;
+function rdCloseWorksheet(){
+  if(!rdPrintPreviewState) return;
+  const state = rdPrintPreviewState;
+  document.removeEventListener("keydown", state.onKey);
+  document.querySelector("#rd-print-preview")?.remove();
+  document.body.classList.remove("rd-printing");
+  document.body.style.overflow = state.overflow;
+  document.title = state.title;
+  state.siblings.forEach(([el, inert])=>{ el.inert = inert; });
+  rdPrintPreviewState = null;
+  if(state.focus?.isConnected) state.focus.focus({preventScroll:true});
+}
+window.addEventListener("hashchange", rdCloseWorksheet);
 function rdOpenWorksheet(sections, docTitle){
-  if(!sections.length) return;
-  const body = sections.map(s=>rdSheetHTML(s.r, s.lv)).join("");
-  const doc =
-`<!doctype html><html lang="en"><head><meta charset="utf-8">
-<title>${rdPlain(docTitle)}</title>
-<style>
-*{box-sizing:border-box}
-body{font:12pt/1.55 Georgia,'Times New Roman',serif;color:#111;margin:0;background:#eee}
-.bar{position:sticky;top:0;z-index:5;background:#333;color:#fff;padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font:600 13px system-ui,-apple-system,sans-serif}
-.bar button{font:600 13px system-ui,sans-serif;padding:7px 14px;border-radius:6px;border:none;cursor:pointer;background:#E08862;color:#fff}
-.bar button.sec,.bar label.sec{background:#666;font:600 13px system-ui,-apple-system,sans-serif;padding:7px 14px;border-radius:6px;cursor:pointer;color:#fff;border:none;user-select:none;-webkit-user-select:none;display:inline-block}
-#ak-toggle{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
-#ak-toggle:checked ~ .bar label.sec{background:#2E8B57}
-#ak-toggle:checked ~ .bar label.sec::before{content:"✓ "}
-.bar .hint{font-weight:400;opacity:.75}
-.sheet{max-width:760px;margin:16px auto;background:#fff;padding:40px 46px;box-shadow:0 1px 6px rgba(0,0,0,.15)}
-.name-row{font:11px system-ui,sans-serif;color:#333;border:1px solid #ccc;border-radius:6px;padding:9px 12px;margin-bottom:18px;display:flex;gap:26px;flex-wrap:wrap}
-h1{font-size:19pt;margin:0 0 5px;line-height:1.25}
-.meta{font:10.5px system-ui,sans-serif;color:#555;margin-bottom:18px}
-.cefr{display:inline-block;border:1px solid #E08862;color:#B4623B;border-radius:99px;padding:1px 9px;font:700 10px system-ui,sans-serif;margin-right:6px}
-.article p{margin:0 0 10px;text-align:justify}
-h2{font:700 13pt system-ui,sans-serif;color:#7A5B49;border-bottom:2px solid #EEE0D0;padding-bottom:4px;margin:24px 0 12px}
-.gloss{font:10.5pt system-ui,sans-serif;background:#FBF3E8;border:1px solid #F0E2CE;border-radius:8px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px 18px}
-.gloss .g b{color:#111} .gloss .g i{color:#555;font-style:italic}
-.q{margin:0 0 15px;break-inside:avoid;page-break-inside:avoid}
-.qh{font:600 11.5pt system-ui,sans-serif;margin-bottom:5px}
-.qn{font-weight:700} .qtag{font:600 9px system-ui,sans-serif;color:#B4623B;background:#FCF0E8;border-radius:99px;padding:1px 7px;margin-left:8px;vertical-align:middle;white-space:nowrap}
-.opts{padding-left:20px;font:11pt system-ui,sans-serif} .opt{margin:3px 0}
-ol.disc{padding-left:22px} ol.disc li{margin:6px 0}
-.src-note{font:9.5pt/1.5 system-ui,sans-serif;color:#666;border-top:1px solid #ddd;margin-top:18px;padding-top:9px}
-.answers{display:none;margin-top:22px;border-top:2px dashed #ccc;padding-top:12px}
-#ak-toggle:checked ~ .sheet .answers{display:block}
-.answers .lbl{font:700 10px system-ui,sans-serif;color:#B4623B;letter-spacing:.08em}
-.ak{font:10.5pt system-ui,sans-serif;margin:5px 0}
-@media print{ .bar{display:none} body{background:#fff}
-  .sheet{box-shadow:none;margin:0;max-width:none;padding:0;page-break-before:always}
-  .sheet:first-of-type{page-break-before:avoid} }
-@page{margin:1.6cm}
-</style></head><body>
-<input type="checkbox" id="ak-toggle">
+  sections = sections.filter(s=>s.r && s.lv);
+  if(!sections.length){ toast("找不到可列印的閱讀內容"); return; }
+  rdCloseWorksheet();
+  const preview = document.createElement("section");
+  preview.id = "rd-print-preview";
+  preview.setAttribute("role", "dialog");
+  preview.setAttribute("aria-modal", "true");
+  preview.setAttribute("aria-label", "閱讀練習卷列印預覽");
+  preview.innerHTML = `<style>
+#rd-print-preview *{box-sizing:border-box}
+#rd-print-preview{font:12pt/1.55 Georgia,'Times New Roman',serif;color:#111;margin:0;background:#eee}
+#rd-print-preview .bar{position:sticky;top:0;z-index:5;background:#333;color:#fff;padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font:600 13px system-ui,-apple-system,sans-serif}
+#rd-print-preview .bar button{font:600 13px system-ui,sans-serif;padding:7px 14px;border-radius:6px;border:none;cursor:pointer;background:#E08862;color:#fff}
+#rd-print-preview .bar button.sec,#rd-print-preview .bar label.sec,#rd-print-preview .bar select{background:#666;font:600 13px system-ui,-apple-system,sans-serif;padding:7px 14px;border-radius:6px;cursor:pointer;color:#fff;border:none;user-select:none;-webkit-user-select:none;display:inline-block}
+#rd-print-preview #ak-toggle{position:sticky;top:16px;z-index:7;width:18px;height:18px;margin:0;accent-color:#2E8B57}
+#rd-print-preview .bar label.sec:has(input:checked){background:#2E8B57}
+#rd-print-preview .bar label.sec:has(input:checked)::before{content:"✓ "}
+#rd-print-preview .bar .hint{font-weight:400;opacity:.75}
+#rd-print-preview .sheet{max-width:760px;margin:16px auto;background:#fff;padding:40px 46px;box-shadow:0 1px 6px rgba(0,0,0,.15)}
+#rd-print-preview .name-row{font:11px system-ui,sans-serif;color:#333;border:1px solid #ccc;border-radius:6px;padding:9px 12px;margin-bottom:18px;display:flex;gap:26px;flex-wrap:wrap}
+#rd-print-preview h1{font-size:19pt;margin:0 0 5px;line-height:1.25}
+#rd-print-preview .meta{font:9.5pt system-ui,sans-serif;color:#555;margin-bottom:18px}
+#rd-print-preview .cefr{display:inline-block;border:1px solid #B4623B;color:#79401F;border-radius:99px;padding:1px 9px;font:700 9pt system-ui,sans-serif;margin-right:6px}
+#rd-print-preview .article p{margin:0 0 10px;text-align:justify}
+#rd-print-preview h2{font:700 13pt system-ui,sans-serif;color:#7A5B49;border-bottom:2px solid #EEE0D0;padding-bottom:4px;margin:24px 0 12px}
+#rd-print-preview .gloss{font:10.5pt system-ui,sans-serif;background:#FBF3E8;border:1px solid #F0E2CE;border-radius:8px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px 18px}
+#rd-print-preview .gloss .g b{color:#111}
+#rd-print-preview .gloss .g i{color:#555;font-style:italic}
+#rd-print-preview .q{margin:0 0 15px;break-inside:avoid;page-break-inside:avoid}
+#rd-print-preview .qh{font:600 11.5pt system-ui,sans-serif;margin-bottom:5px}
+#rd-print-preview .qn{font-weight:700}
+#rd-print-preview .qtag{font:600 9pt system-ui,sans-serif;color:#79401F;background:#FCF0E8;border-radius:99px;padding:1px 7px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+#rd-print-preview .rd-ws-options{padding-left:20px;font:11pt system-ui,sans-serif}
+#rd-print-preview .rd-ws-option{margin:3px 0}
+#rd-print-preview ol.disc{padding-left:22px}
+#rd-print-preview ol.disc li{margin:6px 0}
+#rd-print-preview .src-note{font:9.5pt/1.5 system-ui,sans-serif;color:#666;border-top:1px solid #ddd;margin-top:18px;padding-top:9px}
+#rd-print-preview .answers{display:none;margin-top:22px;border-top:2px dashed #ccc;padding-top:12px}
+#rd-print-preview.show-answers .sheet .answers{display:block}
+#rd-print-preview .answers .lbl{font:700 10px system-ui,sans-serif;color:#B4623B;letter-spacing:.08em}
+#rd-print-preview .ak{font:10.5pt system-ui,sans-serif;margin:5px 0}
+
+#rd-print-preview{position:fixed;inset:0;z-index:1000;overflow:auto;overscroll-behavior:contain;text-align:left}
+#rd-print-preview .bar{gap:12px}
+#rd-print-preview .bar label.sec{display:flex;align-items:center;gap:8px}
+#rd-print-preview #ak-toggle{position:static}
+#rd-print-preview .sheet{overflow-wrap:anywhere}
+#rd-print-preview h2,#rd-print-preview .qh{break-after:avoid;page-break-after:avoid}
+#rd-print-preview .article p{orphans:3;widows:3}
+#rd-print-preview .ak,#rd-print-preview .disc li{break-inside:avoid;page-break-inside:avoid}
+@media(max-width:600px){#rd-print-preview .sheet{padding:24px 18px;margin:12px 8px}
+#rd-print-preview .name-row{gap:12px}}
+#rd-print-preview .sheet{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+#rd-print-preview .sheet h1{color:#111}
+#rd-print-preview .bar select{border:1px solid #aaa;padding:7px;border-radius:6px}
+#rd-print-preview.ink-saving .sheet,#rd-print-preview.ink-saving .sheet *{color:#111!important;background:#fff!important;border-color:#777!important;box-shadow:none!important}
+@media print{
+ html:has(body.rd-printing){background:#fff!important}
+ body.rd-printing{overflow:visible!important;background:#fff!important}
+ body.rd-printing > :not(#rd-print-preview){display:none!important}
+ #rd-print-preview{position:static!important;overflow:visible!important;height:auto!important;width:auto!important;background:#fff}
+ #rd-print-preview .bar{display:none!important}
+ #rd-print-preview .sheet{box-shadow:none;margin:0;max-width:none;padding:0;break-before:page;page-break-before:always}
+ #rd-print-preview .sheet:first-of-type{break-before:auto;page-break-before:auto}
+ #rd-print-preview .answers{break-before:page;page-break-before:always;border:0;margin:0;padding:0}
+ @page{size:A4;margin:16mm}
+}
+</style>
 <div class="bar">
-  <span>🐱 English Cat Island</span>
-  <button onclick="window.print()">🖨 列印 / 存成 PDF</button>
-  <label class="sec" for="ak-toggle" role="button" tabindex="0">顯示／隱藏解答（教師版）</label>
-  <span class="hint">共 ${sections.length} 頁 · 預設為學生版（無解答）。要印答案就先勾「顯示解答」（打勾變綠即顯示）。列印可按上方按鈕或 Ctrl / ⌘ + P。</span>
+  <span>🐱 閱讀練習卷預覽</span>
+  <button type="button" id="rd-print-submit">🖨 列印 / 存成 PDF</button>
+  <label class="sec"><input type="checkbox" id="ak-toggle">顯示解答（教師版）</label>
+  <label for="rd-print-color">列印色彩</label><select id="rd-print-color"><option value="color">彩色</option><option value="mono">黑白省墨</option></select>
+  <button type="button" class="sec" id="rd-print-close">關閉預覽</button>
+  <span class="hint">共 ${sections.length} 份練習卷，實際頁數依內容長度而定。預設學生版不含解答；教師版解答另起一頁。彩色版保留單字底色與標籤；列印視窗請選「彩色」並開啟「背景圖形」。可按列印按鈕或 Ctrl / ⌘ + P。若內建瀏覽器未開啟列印視窗，請改用 Chrome、Edge 或 Safari 開啟。</span>
 </div>
-${body}
-<\/body><\/html>`;
-  const w = window.open("", "_blank");
-  if(!w){ toast("請允許彈出視窗才能列印 🖨"); return; }
-  w.document.open(); w.document.write(doc); w.document.close();
+${sections.map(s=>rdSheetHTML(s.r, s.lv)).join("")}`;
+  const state = {focus:document.activeElement, title:document.title, overflow:document.body.style.overflow,
+    siblings:[...document.body.children].map(el=>[el, el.inert]), onKey:null};
+  state.onKey = e=>{
+    if(e.key === "Escape"){ e.preventDefault(); rdCloseWorksheet(); return; }
+    if(e.key !== "Tab") return;
+    const controls = [...preview.querySelectorAll("button,input,select")], first = controls[0], last = controls.at(-1);
+    if(e.shiftKey && (document.activeElement === first || !preview.contains(document.activeElement))){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && (document.activeElement === last || !preview.contains(document.activeElement))){ e.preventDefault(); first.focus(); }
+  };
+  rdPrintPreviewState = state;
+  state.siblings.forEach(([el])=>{ el.inert = true; });
+  document.body.append(preview);
+  document.body.classList.add("rd-printing");
+  document.body.style.overflow = "hidden";
+  document.title = docTitle;
+  preview.querySelector("#ak-toggle").onchange = e=>preview.classList.toggle("show-answers", e.target.checked);
+  preview.querySelector("#rd-print-color").onchange = e=>preview.classList.toggle("ink-saving", e.target.value === "mono");
+  preview.querySelector("#rd-print-close").onclick = rdCloseWorksheet;
+  preview.querySelector("#rd-print-submit").onclick = ()=>window.print();
+  document.addEventListener("keydown", state.onKey);
+  preview.querySelector("#rd-print-submit").focus();
 }
 /* One article, current level */
-function rdPrint(id, li){ const r = rdById(id); rdOpenWorksheet([{r, lv:r.levels[li]}], rdPlain(r.levels[li].title)+" — "+r.levels[li].cefr); }
-/* One article, all three levels (A1-A2 / B1-B2 / C1-C2), one page each */
+function rdPrint(id, li){ const r = rdById(id); if(!r?.levels[li]){ toast("找不到可列印的閱讀內容"); return; } rdOpenWorksheet([{r, lv:r.levels[li]}], rdPlain(r.levels[li].title)+" — "+r.levels[li].cefr); }
+/* One article, all three levels; each worksheet starts on a new page. */
 function rdPrintLevels(id){ const r = rdById(id); const secs = ["a","b","c"].filter(k=>r.levels[k]).map(k=>({r, lv:r.levels[k]})); rdOpenWorksheet(secs, r.topic+"（三種難度）"); }
 /* Every reading article, all three levels — a full packet */
 function rdPrintAll(){ const secs = []; READINGS.forEach(r=>["a","b","c"].forEach(k=>{ if(r.levels[k]) secs.push({r, lv:r.levels[k]}); })); rdOpenWorksheet(secs, "English Cat Island — 全部時事閱讀"); }
