@@ -1574,6 +1574,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <div class="nav-head"><span class="nav-title">選單 Menu</span><button class="nav-close" id="navClose" type="button" aria-label="關閉 Close">✕</button></div>
   <button data-nav="#/home">🏝️ 首頁 Home</button>
   <button data-nav="#/daily">🗓️ 每日任務 Daily Quests</button>
+  <button data-nav="#/vocab">📚 背單字 Vocabulary</button>
   <div class="nav-group">課程 Lessons</div>
   <button data-nav="#/level/basic">📗 初級 Basic</button>
   <button data-nav="#/level/intermediate">📘 中級 Intermediate</button>
@@ -4817,6 +4818,7 @@ function route(){
   else if(h[0]==="videoquiz" && h[1]) startVideoQuiz(h[1]);
   else if(h[0]==="daily" && h[1]) startDaily(h[1]);
   else if(h[0]==="daily") renderDaily();
+  else if(h[0]==="vocab"){ location.href = "vocab/"; return; }
   else if(h[0]==="games") renderGames();
   else if(h[0]==="game" && h[1]) startGame(h[1], h[2]||"all");
   else if(h[0]==="island") renderIsland();
@@ -7489,11 +7491,6 @@ const LAB = [
      <div class="lab-vword"><b>weary</b><i>adj.</i><span>疲憊的</span></div>
      <div class="lab-vword"><b>comfort</b><i>v.</i><span>安慰</span></div>
    </div>
-   <a class="lab-cta" href="vocab/?book=lab-songs">
-     <span class="lab-cta-ic">🧠</span>
-     <span class="lab-cta-tx"><b>每日單字：把這些字真的記住</b><span>用例句、真人發音與間隔複習，背下本章歌曲與詩的 16 個目標單字；也有國中會考、學測單字書。</span></span>
-     <span class="lab-cta-go">開始背 →</span>
-   </a>
  </section>
  <section class="lab-sec"><h3>Poetry, too <span>詩也可以</span></h3>
    <p class="lab-p">Two poems in the lecture make the same point — music and words belong together, and life is more than it seems. Both are in the public domain, so here they are in full.<span class="z">講義裡兩首詩也說著同一件事：音樂與文字本是一體，而人生不只是表面所見。兩首都已進入公有領域（作者離世超過百年），所以完整收錄。</span></p>
