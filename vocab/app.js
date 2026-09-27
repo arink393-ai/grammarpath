@@ -93,6 +93,78 @@ function speak(text, slow) {
   audio.play().catch(fallback);
 }
 
+/* ========== 常見搭配詞 ========== */
+// 念出搭配詞時把 sb / sth / V 這類記號換成可以念的字
+const speakable = t => t.replace(/\bsb\b/g, 'somebody').replace(/\bsth\b/g, 'something').replace(/\bV-ing\b/g, 'doing').replace(/\bV\b/g, 'do').replace(/…/g, '');
+function colHTML(w) {
+  if (!w.col || !w.col.length) return '';
+  return `<div class="cols"><div class="colh">常見搭配 Collocations</div>${w.col.map(([en, zh]) =>
+    `<button class="colrow" data-act="sayw" data-w="${esc(speakable(en))}"><b>${esc(en)}</b><span>${esc(zh || '')}</span><i>🔊</i></button>`).join('')}</div>`;
+}
+
+/* ========== 真人發音（YouGlish 官方嵌入元件） ========== */
+// 用 YouGlish 官方 widget 播放 YouTube 上真人說這個字的片段；只播含單字的那一句就停。
+// 字幕英文來自影片，中文為 MyMemory 機器翻譯。
+const ygBtn = w => `<div class="ygbox" data-w="${esc(w)}"><button class="btn block ygopen" data-act="yg">🎬 聽真人怎麼說<span class="small muted">（YouGlish 影片片段）</span></button></div>`;
+let ygReady, YGW = null, ygN = 0;
+const trCache = {};
+function loadYG() {
+  if (window.YG && YG.Widget) return Promise.resolve();
+  if (!ygReady) ygReady = new Promise((ok, no) => {
+    window.onYouglishAPIReady = ok;
+    const t = document.createElement('script'); t.src = 'https://youglish.com/public/emb/widget.js'; t.async = true; t.onerror = no;
+    document.head.appendChild(t);
+    setTimeout(() => no(new Error('timeout')), 12000);
+  });
+  return ygReady;
+}
+async function translateZh(text) {
+  if (trCache[text]) return trCache[text];
+  try {
+    const r = await fetch('https://api.mymemory.translated.net/get?langpair=en|zh-TW&q=' + encodeURIComponent(text));
+    const j = await r.json(); const t = j.responseData && j.responseData.translatedText;
+    if (t && !/MYMEMORY WARNING|INVALID/i.test(t)) return (trCache[text] = t);
+  } catch {}
+  return '';
+}
+async function openYG(box) {
+  const word = box.dataset.w, id = 'ygw' + (++ygN);
+  if (YGW) { try { YGW.widget.close(); } catch {} YGW = null; }
+  box.innerHTML = `<div class="ygframe"><div id="${id}"></div></div>
+    <div class="ygcap"><div class="en muted small">影片載入中…</div><div class="zh"></div></div>
+    <div class="row ygctl"><button class="btn sm grow" data-act="ygreplay">↻ 再聽一次</button><button class="btn sm grow" data-act="ygnext">換一個人說 →</button></div>
+    <p class="ygattr">影片來自 YouTube，由 <a href="https://youglish.com" target="_blank" rel="noopener">YouGlish</a> 提供 · <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube 服務條款</a> · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權政策</a> · 中文為機器翻譯</p>`;
+  const cap = box.querySelector('.ygcap');
+  try { await loadYG(); } catch { cap.innerHTML = '<div class="en muted small">無法載入 YouGlish，請稍後再試（學校網路可能擋了 YouTube）。</div>'; return; }
+  if (!document.getElementById(id)) return;                     // 使用者已經換到下一張卡
+  const me = { armed: true };
+  me.widget = new YG.Widget(id, {
+    width: box.clientWidth, components: 16, autoStart: 1, restrictionMode: 1,   // 16＝語速控制；restrictionMode＝過濾不當內容
+    events: {
+      onFetchDone: e => { if (!e.totalResult) cap.innerHTML = '<div class="en muted small">找不到這個字的影片片段。</div>'; },
+      onVideoChange: () => { me.armed = true; },
+      onCaptionChange: async e => {
+        if (!me.armed) return;
+        let raw = String(e.caption || '');
+        try { raw = decodeURIComponent(raw.replace(/\+/g, ' ')); } catch {}                // YouGlish 傳來的字幕是 URL 編碼
+        raw = raw.replace(/[\u200e\u200f]/g, '').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+        const plain = raw.replace(/\[\[\[|\]\]\]/g, '');
+        cap.innerHTML = `<div class="en">${esc(raw).replace(/\[\[\[(.*?)\]\]\]/g, '<mark>$1</mark>')}</div><div class="zh muted">翻譯中…</div>`;
+        const zh = await translateZh(plain);
+        const z = cap.querySelector('.zh'); if (z) z.textContent = zh || '（翻譯暫時無法取得）';
+      },
+      onCaptionConsumed: () => { if (me.armed) { me.armed = false; try { me.widget.pause(); } catch {} } }   // 念完這一句就停
+    }
+  });
+  YGW = me;
+  me.widget.fetch(word, 'english', settings.accent === 1 ? 'uk' : 'us');
+}
+function ygAct(act) {
+  if (!YGW) return;
+  YGW.armed = true;
+  try { act === 'ygnext' ? YGW.widget.next() : YGW.widget.replay(); } catch {}
+}
+
 /* ========== 例句中標出單字 ========== */
 function stemRe(word) {
   const w = word.toLowerCase().replace(/[^a-z' -]/g, '');
@@ -312,6 +384,8 @@ function study() {
     body = `${wordLine}
       <div class="meaning"><span class="pos">${esc(w.pos || '')}</span>${esc(w.zh)}</div>
       ${exLine}${w.exZh ? `<div class="exzh">${esc(w.exZh)}</div>` : ''}
+      ${colHTML(w)}
+      ${ygBtn(w.w)}
       <div class="spacer"></div>
       <button class="btn primary block" data-act="next">下一個 →</button>
       ${S.phase === 'a-know' ? '<button class="btn ghost block" data-act="wrong" style="margin-top:6px">記錯了，其實不會</button>' : ''}
@@ -324,6 +398,8 @@ function study() {
         <button class="iconbtn ${star ? 'on' : ''}" data-act="star" title="加入生詞本">${star ? '★' : '☆'}</button></div>
       </div>${body}</div>`;
   if (S.phase === 'q' && settings.autoplay && !S.spoke) { S.spoke = true; speak(w.w); }
+  // 看答案時自動念一次例句（只念一遍）
+  if (S.phase.startsWith('a') && w.ex && settings.autoplay && !S.exSpoke) { S.exSpoke = true; speak(w.ex); }
 }
 
 function requeue(it) {
@@ -343,7 +419,7 @@ function complete(it, killed) {
   bump(b.id, it.isNew ? 'n' : 'r');
   S.done++;
 }
-function advance() { session.cur = null; session.phase = 'q'; session.spoke = false; study(); }
+function advance() { session.cur = null; session.phase = 'q'; session.spoke = false; session.exSpoke = false; study(); }
 
 function studyAct(act) {
   const S = session, it = S.cur;
@@ -356,7 +432,7 @@ function studyAct(act) {
     case 'dunno': it.fails++; S.phase = 'a-fail'; return study();
     case 'wrong': it.fails++; S.phase = 'a-fail'; return study();
     case 'next':
-      if (S.phase === 'a-fail') { requeue(it); S.cur = null; S.phase = 'q'; S.spoke = false; return study(); }
+      if (S.phase === 'a-fail') { requeue(it); S.cur = null; S.phase = 'q'; S.spoke = false; S.exSpoke = false; return study(); }
       complete(it); return advance();
     case 'kill': complete(it, true); toast('已標記為「太簡單」，不會再出現'); return advance();
     case 'star': {
@@ -520,7 +596,9 @@ function list() {
       <button class="iconbtn ${st.has(w.w) ? 'on' : ''}" data-act="lstar" data-w="${esc(w.w)}" aria-label="生詞本">${st.has(w.w) ? '★' : '☆'}</button></div>
       <div class="more" hidden>
         <div class="row"><span class="muted">${esc(w.ph || '')}</span><span class="pos">${esc(w.pos || '')}</span><span class="grow"></span><button class="speak" data-act="sayw" data-w="${esc(w.w)}">🔊</button></div>
-        ${w.ex ? `<div data-act="sayw" data-w="${esc(w.ex)}" style="cursor:pointer">${markEx(w.ex, w.w)}</div><div class="exzh">${esc(w.exZh || '')}</div>` : ''}
+        ${w.ex ? `<div data-act="sayw" data-w="${esc(w.ex)}" style="cursor:pointer" title="點一下聽例句">${markEx(w.ex, w.w)} 🔊</div><div class="exzh">${esc(w.exZh || '')}</div>` : ''}
+        ${colHTML(w)}
+        ${ygBtn(w.w)}
         ${p[w.w] && p[w.w].s >= KILLED ? `<button class="linkbtn small" data-act="unkill" data-w="${esc(w.w)}">取消「太簡單」，重新學習</button>` : ''}
       </div></li>`).join('') || '<p class="muted center" style="padding:30px 0">沒有符合的單字</p>'}</ul>
   </div>`;
@@ -646,19 +724,28 @@ function parseRaw(raw) {
       f = m ? [m[1], m[2] || '', m[3]] : [line];
       f = [f[0], f[1] || '', f[2] || ''];
     }
-    const [w, pos = '', zh = '', ex = '', exZh = '', ph = ''] = f;
+    const [w, pos = '', zh = '', ex = '', exZh = '', ph = '', colRaw = ''] = f;
     if (!w || seen.has(w.toLowerCase())) continue;
     seen.add(w.toLowerCase());
-    out.push({ w, pos, zh, ex, exZh, ph });
+    out.push({ w, pos, zh, ex, exZh, ph, col: parseCol(colRaw) });
   }
   return out;
 }
-const toRaw = words => words.map(w => [w.w, w.pos, w.zh, w.ex, w.exZh, w.ph].join(' | ').replace(/( \| )+$/, '')).join('\n');
+// 搭配詞欄位寫法：study abroad 出國留學; travel abroad 出國旅行（英文在前、中文在後，用分號隔開）
+function parseCol(raw) {
+  if (Array.isArray(raw)) return raw;
+  return String(raw || '').split(/[;；]/).map(x => x.trim()).filter(Boolean).map(x => {
+    const m = x.match(/^(.*?)\s*[=:：]?\s*([\u3400-\u9fff（(「].*)$/);   // 從第一個中文字切開
+    return m && m[1] ? [m[1].trim(), m[2].trim()] : [x.replace(/[=:：]\s*$/, ''), ''];
+  });
+}
+const colText = col => (col || []).map(([en, zh]) => zh ? en + ' ' + zh : en).join('; ');
+const toRaw = words => words.map(w => [w.w, w.pos, w.zh, w.ex, w.exZh, w.ph, colText(w.col)].join(' | ').replace(/( \| )+$/, '')).join('\n');
 
 function teacher() {
   const key = LS.get('vr:t:gkey', ''), model = LS.get('vr:t:gmodel', 'gemini-2.5-flash');
   parsed = parseRaw(draft.raw);
-  const missing = parsed.filter(w => !w.zh || !w.ex).length;
+  const missing = parsed.filter(w => !w.zh || !w.ex || !(w.col && w.col.length)).length;
   app.innerHTML = `<div class="fade">
     <a href="#me" class="linkbtn">‹ 設定</a>
     <h1>建立單字書</h1>
@@ -670,15 +757,15 @@ function teacher() {
       <label class="field"><span>單字表（一行一個字）</span>
         <textarea id="t-raw" placeholder="單字 | 詞性 | 中文 | 例句 | 例句中譯&#10;apple | n. | 蘋果 | I eat an apple every day. | 我每天吃一顆蘋果。&#10;borrow | v. | 借入&#10;careful&#10;&#10;也可以直接從 Excel / Google 試算表複製貼上（欄位順序相同）">${esc(draft.raw)}</textarea></label>
       <details><summary>格式說明</summary>
-        <p class="small">欄位用 <code>|</code> 或 Tab 分隔，順序：<b>單字、詞性、中文、例句、例句中譯、音標</b>。只有「單字」和「中文」是必要的；只填單字也行，再按下面的「AI 自動補齊」。以 # 開頭的行會被忽略。</p>
+        <p class="small">欄位用 <code>|</code> 或 Tab 分隔，順序：<b>單字、詞性、中文、例句、例句中譯、音標、搭配詞</b>。搭配詞寫法：<code>study abroad 出國留學; travel abroad 出國旅行</code>。只有「單字」和「中文」是必要的；只填單字也行，再按下面的「AI 自動補齊」。以 # 開頭的行會被忽略。</p>
       </details>
     </div>
 
-    <h2>自動補齊 <span class="small muted">（${parsed.length} 字，${missing} 字缺中文或例句）</span></h2>
+    <h2>自動補齊 <span class="small muted">（${parsed.length} 字，${missing} 字缺中文、例句或搭配詞）</span></h2>
     <div class="card">
       <div class="row wrap">
         <button class="btn sm" data-act="t-ph">查音標（免費）</button>
-        <button class="btn sm primary" data-act="t-ai" ${missing ? '' : 'disabled'}>AI 補中文與例句</button>
+        <button class="btn sm primary" data-act="t-ai" ${missing ? '' : 'disabled'}>AI 補中文、例句與搭配詞</button>
       </div>
       <details style="margin-top:12px" ${key ? '' : 'open'}><summary>AI 設定（Google Gemini 免費金鑰）</summary>
         <label class="field"><span>Gemini API Key（只存在你這台電腦，不會分享給學生）</span><input type="password" id="t-key" value="${esc(key)}" placeholder="AIza…"></label>
@@ -690,8 +777,8 @@ function teacher() {
 
     <h2>預覽</h2>
     <div class="card tablewrap">
-      ${parsed.length ? `<table class="preview"><tr><th>單字</th><th>詞性</th><th>中文</th><th>例句</th></tr>
-        ${parsed.map(w => `<tr><td><b>${esc(w.w)}</b><div class="muted">${esc(w.ph)}</div></td><td>${esc(w.pos)}</td><td class="${w.zh ? '' : 'miss'}">${esc(w.zh)}</td><td class="${w.ex ? '' : 'miss'}">${esc(w.ex)}<div class="muted">${esc(w.exZh)}</div></td></tr>`).join('')}</table>`
+      ${parsed.length ? `<table class="preview"><tr><th>單字</th><th>詞性</th><th>中文</th><th>例句</th><th>搭配詞</th></tr>
+        ${parsed.map(w => `<tr><td><b>${esc(w.w)}</b><div class="muted">${esc(w.ph)}</div></td><td>${esc(w.pos)}</td><td class="${w.zh ? '' : 'miss'}">${esc(w.zh)}</td><td class="${w.ex ? '' : 'miss'}">${esc(w.ex)}<div class="muted">${esc(w.exZh)}</div></td><td class="${w.col && w.col.length ? '' : 'miss'}">${esc(colText(w.col)).replace(/; /g, '<br>')}</td></tr>`).join('')}</table>`
         : '<p class="muted center">貼上單字後會顯示在這裡</p>'}
     </div>
 
@@ -717,7 +804,7 @@ const tStatus = m => { const s = $('#t-status'); if (s) s.textContent = m; };
 
 function teacherBook() {
   parsed = parseRaw(draft.raw);
-  const words = parsed.filter(w => w.w && w.zh).map(w => { const o = { w: w.w, zh: w.zh }; ['ph', 'pos', 'ex', 'exZh'].forEach(k => { if (w[k]) o[k] = w[k]; }); return o; });
+  const words = parsed.filter(w => w.w && w.zh).map(w => { const o = { w: w.w, zh: w.zh }; ['ph', 'pos', 'ex', 'exZh'].forEach(k => { if (w[k]) o[k] = w[k]; }); if (w.col && w.col.length) o.col = w.col; return o; });
   if (!draft.title.trim()) { toast('請先填書名'); $('#t-title').focus(); return null; }
   if (!words.length) { toast('至少需要一個有中文的單字'); return null; }
   if (words.length < parsed.length) toast(`${parsed.length - words.length} 個字沒有中文，已略過`);
@@ -751,7 +838,7 @@ async function teacherAct(act) {
     if (!key) { toast('請先填 Gemini API Key'); $('#t-key').closest('details').open = true; $('#t-key').focus(); return; }
     LS.set('vr:t:gkey', key); LS.set('vr:t:gmodel', model);
     parsed = parseRaw(draft.raw);
-    const todo = parsed.filter(w => !w.zh || !w.ex);
+    const todo = parsed.filter(w => !w.zh || !w.ex || !(w.col && w.col.length));
     for (let i = 0; i < todo.length; i += 30) {
       const batch = todo.slice(i, i + 30);
       tStatus(`AI 產生中… ${i}/${todo.length}`);
@@ -761,9 +848,10 @@ async function teacherAct(act) {
 - zh：繁體中文（台灣用語）常用意思，最多兩個，用「；」分隔
 - ex：一句自然、簡短（15 字以內）、符合學生程度的英文例句，必須包含該單字（可變化時態/詞形）
 - exZh：例句的繁體中文翻譯
+- col：2～3 個最常見、對學生最有用的搭配詞，格式 [["英文搭配","中文意思"]]，可用 sb / sth / V / V-ing 表示受詞或動詞
 - 若輸入已經有某欄位，保留原內容不要改
-只輸出 JSON 陣列，每個元素格式：{"w":"","pos":"","zh":"","ex":"","exZh":""}，順序與輸入相同。
-輸入：${JSON.stringify(batch.map(({ w, pos, zh, ex, exZh }) => ({ w, pos, zh, ex, exZh })))}`;
+只輸出 JSON 陣列，每個元素格式：{"w":"","pos":"","zh":"","ex":"","exZh":"","col":[["",""]]}，順序與輸入相同。
+輸入：${JSON.stringify(batch.map(({ w, pos, zh, ex, exZh, col }) => ({ w, pos, zh, ex, exZh, col })))}`;
       try {
         const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
           method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
@@ -775,6 +863,7 @@ async function teacherAct(act) {
         for (const a of arr) {
           const w = batch.find(x => x.w.toLowerCase() === String(a.w || '').toLowerCase()); if (!w) continue;
           ['pos', 'zh', 'ex', 'exZh'].forEach(k => { if (!w[k] && a[k]) w[k] = String(a[k]).trim(); });
+          if (!(w.col && w.col.length) && Array.isArray(a.col)) w.col = a.col.filter(c => Array.isArray(c) && c[0]).map(c => [String(c[0]).trim(), String(c[1] || '').trim()]);
         }
       } catch (e) { tStatus('AI 發生錯誤：' + e.message); draft.raw = toRaw(parsed); saveDraft(); return; }
     }
@@ -824,6 +913,9 @@ document.addEventListener('click', e => {
     return go('study');
   }
   if (act === 'home') return go('home');
+  if (act === 'yg') return openYG(el.closest('.ygbox'));
+  if (act === 'ygreplay' || act === 'ygnext') return ygAct(act);
+  if (act === 'sayw' && session && location.hash === '#study') { e.stopPropagation(); return speak(el.dataset.w); }
   if (session && location.hash === '#study') { e.preventDefault(); return studyAct(act); }
   if (act === 'quiz') return startQuiz(el.dataset.mode, $('#onlystar')?.checked);
   if (['qsay', 'qquit', 'pick', 'check', 'qnext'].includes(act)) return quizAct(act, el);

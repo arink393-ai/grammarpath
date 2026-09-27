@@ -181,3 +181,25 @@ body.focus { padding-bottom: 16px; }
 .backsite { display: inline-block; font-size: 13px; color: var(--accent); text-decoration: none; margin-bottom: 6px; font-weight: 600; }
 .cloudbar { display: block; font-size: 13px; padding: 8px 12px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); text-decoration: none; margin-bottom: 10px; font-weight: 600; }
 .cloudbar.warn { background: var(--warn-soft); color: var(--warn); }
+
+/* 常見搭配詞 */
+.cols { margin-top: 16px; border-top: 1px dashed var(--line); padding-top: 12px; }
+.colh { font-size: 12px; color: var(--muted); font-weight: 700; letter-spacing: .5px; margin-bottom: 6px; }
+.colrow { display: flex; width: 100%; align-items: baseline; gap: 10px; background: none; border: none; padding: 6px 2px; text-align: left; border-radius: 8px; }
+.colrow:active { background: var(--accent-soft); }
+.colrow b { font-family: Georgia, serif; color: var(--accent); font-size: 16px; }
+.colrow span { color: var(--muted); font-size: 14px; flex: 1; }
+.colrow i { font-style: normal; font-size: 12px; opacity: .5; }
+
+/* YouGlish 真人片段 */
+.ygbox { margin-top: 14px; }
+.ygopen { display: flex; flex-direction: column; align-items: center; gap: 0; min-height: 52px; }
+.ygframe { border-radius: 12px; overflow: hidden; background: #000; }
+.ygcap { background: var(--bg); border-radius: 10px; padding: 10px 12px; margin-top: 8px; min-height: 58px; }
+.ygcap .en { font-size: 16px; line-height: 1.5; }
+.ygcap .en mark { background: none; color: var(--accent); font-weight: 700; border-bottom: 2px solid var(--accent); }
+.ygcap .zh { font-size: 14px; margin-top: 2px; }
+.ygctl { margin-top: 8px; }
+.ygattr { font-size: 11px; color: var(--muted); margin: 6px 0 0; line-height: 1.5; }
+.ygattr a { color: var(--muted); }
+.wlist mark { background: none; color: var(--accent); font-weight: 700; border-bottom: 2px solid var(--accent); }
