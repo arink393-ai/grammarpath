@@ -8176,6 +8176,37 @@ const WORD_ORIGINS = [
      rows:[["<b>unbelievable</b>","un + believe + able","不 + 相信 + 能 → 難以置信的"],["<b>international</b>","inter + nation + al","之間 + 國家 + 的 → 國際的"],["<b>biodegradable</b>","bio + de + grade + able","生命 + 向下 + 分解 + 能 → 可生物分解的"]]},
    {t:"call", zhTitle:"和文法課的關係 · Links", zh:"這一章是概念總覽；想做互動練習，可以到文法課 11.4 Prefixes 和 11.5 Suffixes，各有 8 題與可列印學習單。", en:"For interactive drills, see grammar lessons 11.4 Prefixes and 11.5 Suffixes."},
    {t:"link", href:"#/lesson/prefixes", label:"去做練習：文法課 Prefixes / Suffixes"}
+  ]},
+ {id:"spelling", icon:"✍️", en:"Common Spelling Rules", zh:"常見拼寫規則", tag:"Spelling · 拼字",
+  hook:"stopping 還是 stoping？babies 還是 babys？幾條規則，少犯一半的拼字錯。",
+  blocks:[
+   {t:"p", en:"English spelling looks wild, but a handful of rules cover most of the tricky cases. Learn these, and you'll spell -ing, -ed, plurals and -ies words right almost every time.",
+       zh:"英文拼字看起來很任性，但其實少數幾條規則就涵蓋了大部分容易出錯的地方。學會這些，你在拼 -ing、-ed、複數和 -ies 的字時，幾乎每次都能拼對。"},
+   {t:"h", en:"1 · Drop the silent e", zh:"規則一：去掉不發音的 e"},
+   {t:"p", en:"When a word ends in a silent -e, drop it before a suffix that starts with a vowel (-ing, -ed, -er, -able). Keep it before a consonant suffix (-ment, -ful, -ly).",
+       zh:"當一個字以不發音的 -e 結尾：遇到「以母音開頭」的字尾（-ing、-ed、-er、-able）就去掉 e；遇到「以子音開頭」的字尾（-ment、-ful、-ly）就保留 e。"},
+   {t:"table", head:["字 Word","+ 母音字尾（去 e）","+ 子音字尾（留 e）"],
+     rows:[["make / hope","mak<b>ing</b>, hop<b>ing</b>","hope<b>ful</b>"],["use","us<b>able</b>","use<b>ful</b>"],["move","mov<b>ing</b>","move<b>ment</b>"],["nice","nic<b>er</b>","nice<b>ly</b>"]]},
+   {t:"h", en:"2 · Double the final consonant", zh:"規則二：雙寫字尾子音（1-1-1 規則）"},
+   {t:"p", en:"Double the final consonant before -ing / -ed / -er when the word ends in ONE vowel + ONE consonant AND the last syllable is stressed. Don't double w, x, or y.",
+       zh:"當一個字結尾是「一個母音 + 一個子音」、而且重音落在最後一個音節時，加 -ing／-ed／-er 前要雙寫那個子音。w、x、y 不雙寫。"},
+   {t:"table", head:["雙寫 Double it","不雙寫 Keep single（原因）"],
+     rows:[["stop → <b>stopping</b>","rain → <b>raining</b>（兩個母音 ai）"],["big → <b>bigger</b>","open → <b>opening</b>（重音不在最後）"],["run → <b>running</b>","fix → <b>fixing</b>（x 不雙寫）"],["begin → <b>beginning</b>","visit → <b>visiting</b>（重音在前）"]]},
+   {t:"h", en:"3 · Change y to i", zh:"規則三：y 變 i"},
+   {t:"p", en:"When a word ends in a consonant + y, change y to i before most suffixes — but keep the y before -ing. A vowel + y does not change.",
+       zh:"當一個字以「子音 + y」結尾，加大部分字尾前要把 y 改成 i；但加 -ing 時保留 y。若是「母音 + y」則不變。"},
+   {t:"table", head:["字 Word","y → i","保留 y"],
+     rows:[["happy","happ<b>i</b>er, happ<b>i</b>ly","—"],["study","stud<b>i</b>ed","study<b>ing</b>（-ing 留 y）"],["baby","bab<b>i</b>es","—"],["play（母音+y）","—","play<b>ed</b>, play<b>ing</b>（不變）"]]},
+   {t:"h", en:"4 · Plurals & third-person -s", zh:"規則四：複數與第三人稱 -s"},
+   {t:"table", head:["結尾 Ending","規則 Rule","例子 Example"],
+     rows:[["s, x, z, ch, sh","加 -es","box → box<b>es</b>, watch → watch<b>es</b>"],["子音 + y","y → ies","baby → bab<b>ies</b>, city → cit<b>ies</b>"],["母音 + y","加 -s","boy → boy<b>s</b>, key → key<b>s</b>"],["-f / -fe（部分）","→ -ves","leaf → lea<b>ves</b>, knife → kni<b>ves</b>"],["子音 + o（部分）","加 -es","potato → potato<b>es</b>, tomato → tomato<b>es</b>"]]},
+   {t:"h", en:"5 · i before e, except after c", zh:"規則五：i 在 e 前，c 後例外"},
+   {t:"p", en:"A famous rhyme: 'i before e, except after c' — when the sound is a long 'ee'. So bel-ie-ve, but rec-ei-ve. Watch out for a few rebels.",
+       zh:"一句有名的口訣：「i 在 e 前，但在 c 之後相反」——當發長音 /iː/ 時。所以 bel<b>ie</b>ve（i 在前），但 rec<b>ei</b>ve（c 後用 ei）。不過也有幾個叛徒。"},
+   {t:"table", head:["i 在 e 前 (ie)","c 後用 ei","叛徒 Exceptions"],
+     rows:[["bel<b>ie</b>ve, fr<b>ie</b>nd, p<b>ie</b>ce","rec<b>ei</b>ve, c<b>ei</b>ling, dec<b>ei</b>ve","w<b>ei</b>rd, s<b>ei</b>ze, th<b>ei</b>r, h<b>ei</b>ght"]]},
+   {t:"call", zhTitle:"課堂速記 · Quick check", zh:"教學生加字尾前先問三個問題：① 字尾是母音開頭嗎？（去 e）② 是「短母音 + 單子音、重音在最後」嗎？（雙寫）③ 是「子音 + y」嗎？（y 變 i，但 -ing 除外）。三題答完，大部分拼字就對了。", en:"Three questions cover most cases: vowel suffix? (drop e) · short vowel + single consonant, stressed? (double) · consonant + y? (y→i, except -ing)."},
+   {t:"link", href:"#/lesson/plural-nouns", label:"去做練習：文法課 Singular & Plural Nouns"}
   ]}
 ];
 const etymById = id => WORD_ORIGINS.find(x=>x.id===id);
