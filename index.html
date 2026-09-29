@@ -7,7 +7,7 @@
 <meta name="supported-color-schemes" content="light">
 <meta name="theme-color" content="#FBF3E8">
 <title>English Cat Island — Learn · Practice · Grow</title>
-<link rel="stylesheet" href="daily.css?v=14">
+<link rel="stylesheet" href="daily.css?v=15">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
@@ -1643,7 +1643,9 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <main class="wrap" id="app" aria-live="polite"></main>
 <div class="toast" id="toast" role="status"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="daily.js?v=15"></script>
+<script src="daily.js?v=16"></script>
+<script src="vocab/books.js?v=2"></script>
+<script src="vocab-quest.js?v=2"></script>
 <script>
 /* Supabase backend (teacher dashboard + progress sync + homework).
    The anon key is meant to be public; Row Level Security protects the data. */
@@ -4837,7 +4839,8 @@ function route(){
   else if(h[0]==="videoquiz" && h[1]) startVideoQuiz(h[1]);
   else if(h[0]==="daily" && h[1]) startDaily(h[1]);
   else if(h[0]==="daily") renderDaily();
-  else if(h[0]==="vocab"){ location.href = "vocab/"; return; }
+  else if(h[0]==="vocab" && h[1]) startVocabQuest(h[1]);
+  else if(h[0]==="vocab") renderVocabHub();
   else if(h[0]==="games") renderGames();
   else if(h[0]==="game" && h[1]) startGame(h[1], h[2]||"all");
   else if(h[0]==="island") renderIsland();
@@ -15623,8 +15626,10 @@ function tcVocabBody(students){
   const activeWeek = students.filter(p=>byUser[p.id] && sumDays(byUser[p.id], T-6)>0).length;
   const rows = students.map(p=>{
     const rs = (byUser[p.id]||[]).slice().sort((a,b)=>String(b.last_active).localeCompare(String(a.last_active)));
-    const name = `<td rowspan="${Math.max(1,rs.length)}">${esc(p.name||"")}<div class="tc-sub">${esc(p.email||"")}</div><div class="tc-sub">連續 ${streakOf(rs)} 天 🔥</div></td>`;
-    if(!rs.length) return `<tr>${name}<td colspan="7" style="color:var(--muted)">還沒開始背單字</td></tr>`;
+    const pg = (TDATA.progress||[]).find(x=>x.user_id===p.id), vq = (pg && pg.data && pg.data.vocabQuests) || {};
+    const vqDone = Object.values(vq).filter(x=>x && x.done).length;
+    const name = `<td rowspan="${Math.max(1,rs.length)}">${esc(p.name||"")}<div class="tc-sub">${esc(p.email||"")}</div><div class="tc-sub">連續 ${streakOf(rs)} 天 🔥 · 每日背單字任務 ${vqDone} 天</div></td>`;
+    if(!rs.length) return `<tr>${name}<td colspan="7" style="color:var(--muted)">${vqDone?'只做過每日背單字任務，還沒打開每日單字 App':'還沒開始背單字'}</td></tr>`;
     return rs.map((r,i)=>{
       const w = Object.entries(r.words||{});
       const learned = w.length, mastered = w.filter(([,x])=>x.s>=5).length;

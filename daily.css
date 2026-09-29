@@ -30,3 +30,62 @@
 .dq-nb{display:inline-block;margin:6px 5px;padding:9px 16px;border-radius:22px;background:linear-gradient(150deg,#fffdf8,#f3ead7);border:1px solid #e3cf9f;font-weight:700;color:var(--navy)}
 .dq-result-title{margin-top:14px;font-size:14px;color:#69614f}
 .dq-result-title b{color:var(--navy)}
+
+/* ---- 每日背單字 Daily Vocab Quest ---- */
+.vq-card{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;margin-top:16px;background:linear-gradient(110deg,#fffdf8,#eef3ea);border:1px solid #d9e3d2}
+.vq-card h2{font:700 21px var(--serif);color:var(--navy);margin:6px 0 4px}
+.vq-card p{margin:0 0 10px;font-size:14px}
+.vq-chips{display:flex;flex-wrap:wrap;gap:6px}
+.vq-chips span{font:600 13px Georgia,serif;background:#fff;border:1px solid #d4dfcc;color:#3f5a45;border-radius:14px;padding:3px 11px}
+.vq-card-go{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none}
+.vq-done{color:var(--dq-green);font-weight:700;font-size:14px}
+.vq-applink{font-size:13px;color:#857365}
+.vq-days{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+.vq-day{display:flex;flex-direction:column;gap:3px;padding:14px;text-decoration:none;color:var(--ink);border:1px solid var(--line)}
+.vq-day:hover{border-color:var(--teal)}
+.vq-day.today{border:2px solid var(--dq-green);background:#f5f9f1}
+.vq-day.done{background:#f3f6ef}
+.vq-day-date{font-size:12px;color:#857365}
+.vq-day b{font:700 17px var(--serif);color:var(--navy)}
+.vq-day-t{font-size:13px;font-weight:600}
+.vq-day-w{font:12px Georgia,serif;color:#6b6457;line-height:1.5}
+.vq-day-st{margin-top:auto;padding-top:6px;font-size:12px;font-weight:700;color:#a35030}
+.vq-day.done .vq-day-st{color:var(--dq-green)}
+.vq-app{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 24px}
+.vq-app p{margin:4px 0 0;font-size:14px}
+.vq-steps{display:flex;gap:8px;margin:-6px 0 14px}
+.vq-steps span{font-size:13px;padding:4px 12px;border-radius:14px;background:#f1ece2;color:#857365;font-weight:600}
+.vq-steps span.on{background:var(--dq-green);color:#fff}
+.vq-steps span.ok{background:var(--dq-green-bg);color:var(--dq-green)}
+.vq-word{padding:28px 26px;margin-top:14px}
+.vq-w-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.vq-w{font:700 44px Georgia,serif;color:var(--navy);line-height:1.1}
+.vq-ph{color:#857365;margin-top:4px}
+.vq-speak{border:none;background:var(--dq-green-bg);color:var(--dq-green);width:46px;height:46px;border-radius:50%;font-size:19px;cursor:pointer;flex:none}
+.vq-mean{font-size:22px;font-weight:700;margin-top:16px}
+.vq-mean i{font:italic 500 17px Georgia,serif;color:#857365;margin-right:4px}
+.vq-ex{font-size:19px;line-height:1.6;margin-top:18px;cursor:pointer}
+.vq-ex span{font-size:14px;opacity:.55}
+.vq mark{background:none;color:var(--dq-green);font-weight:700;border-bottom:2px solid var(--dq-green)}
+.vq-exzh{color:#6b6457;font-size:15px;margin-top:2px}
+.vq-cols{margin-top:18px;padding-top:12px;border-top:1px dashed var(--line)}
+.vq-colh{font-size:12px;color:#857365;font-weight:700;margin-bottom:4px}
+.vq-col{display:flex;gap:10px;align-items:baseline;width:100%;background:none;border:none;text-align:left;padding:6px 2px;cursor:pointer;border-radius:8px}
+.vq-col:hover{background:#f5f1e6}
+.vq-col b{font:700 16px Georgia,serif;color:var(--dq-green)}
+.vq-col span{font-size:14px;color:#6b6457}
+.vq-nav{display:flex;justify-content:space-between;gap:12px;margin-top:16px}
+.vq-q{font:500 24px/1.6 var(--sans)}
+.vq-blank{display:inline-block;min-width:70px;border-bottom:2px solid #a35030;color:transparent;margin:0 4px}
+.dq-option.vq-right{background:var(--dq-green-bg);border-color:var(--dq-green);color:var(--dq-green);font-weight:700}
+.dq-option.vq-wrong{background:#f9e3e0;border-color:#c2453b;color:#c2453b;opacity:.8}
+.vq-full{display:block;margin-top:10px;font-size:17px;color:var(--ink)}
+.vq-fullzh{display:block;font-size:14px;color:#6b6457}
+.vq-sum{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px 0 6px}
+.vq-sumw{display:flex;flex-direction:column;align-items:center;border:1px solid #d4dfcc;background:#f5f9f1;border-radius:12px;padding:8px 14px;cursor:pointer}
+.vq-sumw b{font:700 17px Georgia,serif;color:var(--navy)}
+.vq-sumw span{font-size:12px;color:#6b6457}
+.vq-sumw.miss{background:#fbeeec;border-color:#e8b9b3}
+.vq-note{font-size:13px;color:#6b6457;margin:6px 0}
+@media(max-width:800px){.vq-days{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.vq-card,.vq-app{flex-direction:column;align-items:flex-start}.vq-card-go{align-items:flex-start}.vq-w{font-size:36px}.vq-q{font-size:20px}.vq-nav .btn{flex:1}}

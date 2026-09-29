@@ -1,10 +1,11 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v29-sonnet";
+const CACHE = "eci-v29-vocab-quest";
 const SHELL = [
   "./",
   "./index.html",
   "./daily.js",
   "./daily.css",
+  "./vocab-quest.js",
   "./manifest.webmanifest",
   "./vocab/",
   "./vocab/app.js",
