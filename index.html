@@ -540,6 +540,9 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .abc-ctrls{display:flex;gap:9px;flex-wrap:wrap;margin-top:6px}
 .rd-card-lv{font:500 11px var(--sans);color:var(--faint);margin-top:5px}
 .rd-note{font:400 12.5px/1.7 var(--sans);color:var(--muted);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px}
+.rd-sources{font:400 12.5px/1.7 var(--sans);color:var(--muted);background:var(--amber-bg);border:1.5px solid var(--amber-line);border-radius:12px;padding:10px 14px;margin:0 0 18px}
+.rd-sources b{color:var(--amber)}
+.rd-sources .rd-src-list{color:var(--ink);font-weight:600}
 .rd-hero{display:flex;gap:14px;align-items:flex-start;margin:6px 0 4px}
 .rd-hero svg{width:60px;height:60px;flex-shrink:0}
 .rd-lv-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 12px}
@@ -12534,7 +12537,8 @@ function renderReadings(){
   app.innerHTML = `<div class="view">
     <div class="eyebrow">News reading · 每週時事閱讀</div>
     <h1 class="display">Read the World<span class="zh-term-lg">讀懂世界</span></h1>
-    <p class="lede">取材自 BBC、CNN 等國際媒體的重大時事，改寫成 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度。同一則新聞、三個版本，全班可以讀同一個主題再一起討論。文章每週自動更換，也可以直接點下面任何一篇。</p>
+    <p class="lede">取材自國際主流媒體的重大時事，改寫成 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度。同一則新聞、三個版本，全班可以讀同一個主題再一起討論。文章每週自動更換，也可以直接點下面任何一篇。</p>
+    <p class="rd-sources">📰 <b>資料來源 Sources</b>　本專欄選文改寫自 <span class="rd-src-list">Science、Nature、The New York Times、TIME、The Economist、The Washington Post、Taiwan News、Taipei Times、VOA、NBC</span> 等國際媒體之公開報導，並依主題保留原始出處（如 UN、UNESCO、FAO、NASA）。皆為依事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</p>
     <div class="rd-actions"><button class="btn btn-ghost" onclick="rdPrintAll()">🖨 批次列印全部文章（三種難度）</button></div>
     <div class="rd-grid">${cards}</div>
     <div class="rd-note">📖 題型參考國中會考與大考：主旨大意、細節理解、字義推敲、推論、語氣與篇章結構。<br>
