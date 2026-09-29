@@ -89,3 +89,10 @@
 .vq-note{font-size:13px;color:#6b6457;margin:6px 0}
 @media(max-width:800px){.vq-days{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:540px){.vq-card,.vq-app{flex-direction:column;align-items:flex-start}.vq-card-go{align-items:flex-start}.vq-w{font-size:36px}.vq-q{font-size:20px}.vq-nav .btn{flex:1}}
+.vq-tracks{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 0}
+.vq-tracks>b{font-size:14px;color:var(--navy);margin-right:4px}
+.vq-track{display:flex;flex-direction:column;align-items:flex-start;text-align:left;border:1px solid #d4c4b1;background:#fffdfa;border-radius:14px;padding:9px 16px;cursor:pointer;color:#69533f}
+.vq-track span{font-weight:700;font-size:14px}
+.vq-track small{font-size:11.5px;color:#857365}
+.vq-track.on{background:var(--dq-green);border-color:var(--dq-green);color:#fff}
+.vq-track.on small{color:#e7efe3}

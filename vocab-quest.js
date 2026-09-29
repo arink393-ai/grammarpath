@@ -5,7 +5,22 @@
    完成後把這 5 個字排進「每日單字」App 的複習（localStorage vr:p:<book>）。
    新增單元：在 VQ_UNITS 加一組 5 個字，並在 VQ_GRAMMAR 為每個字寫一題。 */
 
-const VQ_START = '2026-09-30';   // 第 1 單元的日期，之後每天換下一單元（循環）
+const VQ_START = '2026-09-30';   // 各路線第 1 單元的日期，之後每天換下一單元（循環）
+/* 路線：學生在「背單字總覽」選一條；各路線依日期各自輪替。core 為最早上線的路線，紀錄沿用舊的日期 key。 */
+const VQ_TRACKS = {
+ g7:{title:'七年級基礎', desc:'學校、家人、生活、興趣、食物、購物、天氣、動物'},
+ core:{title:'會考＋學測', desc:'國中會考核心字 → 學測進階字'}
+};
+const VQ_UNITS_G7 = [
+ {book:'jh7', title:'新學校', words:['classmate','subject','homework','library','early']},
+ {book:'jh7', title:'我的家人', words:['family','cousin','cook','together','weekend']},
+ {book:'jh7', title:'一天的生活', words:['usually','breakfast','clean','bus','tired']},
+ {book:'jh7', title:'我的興趣', words:['hobby','basketball','sing','draw','favorite']},
+ {book:'jh7', title:'好吃的食物', words:['hungry','delicious','vegetable','noodles','drink']},
+ {book:'jh7', title:'去買東西', words:['price','cheap','expensive','sell','wallet']},
+ {book:'jh7', title:'天氣與季節', words:['season','rainy','windy','warm','jacket']},
+ {book:'jh7', title:'動物與地方', words:['animal','zoo','near','feed','cute']}
+];
 const VQ_UNITS = [
  {book:'jh-core', title:'出國與日常', words:['abroad','borrow','careful','decide','enough']},
  {book:'jh-core', title:'有名的旅程', words:['famous','guess','habit','important','journey']},
@@ -23,6 +38,48 @@ const VQ_UNITS = [
 
 /* 每個字一題：[句子（___ 為空格）, 選項, 答案, 解析, 整句中譯]。答案一定不是目標字本身。 */
 const VQ_GRAMMAR = {
+ /* 七年級 */
+ classmate:['Amy and I ___ classmates.',['are','is','am'],'are','主詞 Amy and I 是兩個人（複數），be 動詞用 are。','艾咪和我是同學。'],
+ subject:['What ___ your favorite subject?',['is','are','do'],'is','your favorite subject 是單數，be 動詞用 is。','你最喜歡的科目是什麼？'],
+ homework:['Tom ___ his homework after dinner every day.',['does','do','doing'],'does','Tom 是第三人稱單數，現在簡單式的 do 要改成 does。','湯姆每天晚餐後寫功課。'],
+ library:['There ___ many books in the library.',['are','is','am'],'are','There be 看後面的名詞：many books 是複數，用 are。','圖書館裡有很多書。'],
+ early:['I get up early ___ Monday.',['on','in','at'],'on','星期幾前面的介系詞用 on。','我星期一很早起床。'],
+ family:['There ___ four people in my family.',['are','is','be'],'are','four people 是複數，There are。','我家有四個人。'],
+ cousin:['My cousin ___ in Tainan.',['lives','live','living'],'lives','My cousin 是第三人稱單數，動詞加 s：lives。','我的表哥住在台南。'],
+ cook:['My dad cooks dinner ___ Sundays.',['on','at','in'],'on','星期幾（Sundays）前面用 on。','我爸爸星期天煮晚餐。'],
+ together:['My family and I ___ dinner together every night.',['eat','eats','eating'],'eat','主詞 My family and I 是複數，動詞用原形 eat。','我和家人每天晚上一起吃晚餐。'],
+ weekend:['What ___ you do on weekends?',['do','does','are'],'do','主詞是 you，一般動詞的疑問句用助動詞 do。','你週末都做什麼？'],
+ usually:['She usually ___ the bus to school.',['takes','take','taking'],'takes','She 是第三人稱單數，現在簡單式動詞加 s：takes。','她通常搭公車上學。'],
+ breakfast:['I have breakfast ___ seven o’clock.',['at','on','in'],'at','幾點鐘前面用 at。','我七點吃早餐。'],
+ clean:['Look! The students ___ cleaning the classroom now.',['are','is','do'],'are','現在進行式 be + V-ing，主詞 The students 是複數，用 are。','你看！學生們正在打掃教室。'],
+ bus:['I go to school ___ bus.',['by','on','with'],'by','搭乘交通工具（中間不加冠詞）用 by：by bus、by car。','我搭公車上學。'],
+ tired:['___ you tired after P.E. class?',['Are','Do','Is'],'Are','tired 是形容詞，問句用 be 動詞；主詞 you 配 Are。','你上完體育課會累嗎？'],
+ hobby:['What ___ his hobbies?',['are','is','does'],'are','hobbies 是複數，be 動詞用 are。','他的嗜好是什麼？'],
+ basketball:['He can ___ basketball very well.',['play','plays','playing'],'play','助動詞 can 後面接原形動詞 play。','他籃球打得很好。'],
+ sing:['Listen! Mia ___ singing in her room.',['is','are','does'],'is','現在進行式 be + V-ing；Mia 是單數，用 is。','你聽！米亞正在她房間裡唱歌。'],
+ draw:['Can you draw a cat ___ me?',['for','of','at'],'for','「為某人」做某事用 for。','你可以幫我畫一隻貓嗎？'],
+ favorite:['What is ___ favorite color?',['your','you','yours'],'your','名詞 favorite color 前面用所有格形容詞 your。','你最喜歡的顏色是什麼？'],
+ hungry:['I’m hungry. Let’s ___ lunch.',['eat','eats','eating'],'eat','Let’s 後面接原形動詞。','我餓了，我們吃午餐吧。'],
+ delicious:['The beef noodles ___ delicious.',['are','is','am'],'are','noodles 是複數名詞，be 動詞用 are。','這牛肉麵很好吃。'],
+ vegetable:['How ___ vegetables do you eat every day?',['many','much','any'],'many','vegetables 是可數複數名詞，問數量用 How many。','你每天吃多少蔬菜？'],
+ noodles:['I want ___ bowl of noodles.',['a','an','many'],'a','bowl 以子音開頭，用 a；a bowl of = 一碗。','我想要一碗麵。'],
+ drink:['Would you like ___ to drink?',['something','some','a'],'something','「一些東西」用 something；something to drink = 可以喝的東西。','你想喝點什麼嗎？'],
+ price:['What’s the price ___ this T-shirt?',['of','in','at'],'of','the price of + 物品 = 某物的價格。','這件 T 恤的價格是多少？'],
+ cheap:['___ pens are cheap.',['These','This','That'],'These','pens 是複數，用 These（這些）。','這些筆很便宜。'],
+ expensive:['How ___ are the shoes? They look expensive.',['much','many','old'],'much','問價錢用 How much。','這雙鞋多少錢？看起來很貴。'],
+ sell:['Does the shop sell stickers? — Yes, it ___.',['does','is','do'],'does','用 Does 問，就用 does 回答；the shop 用 it 代替。','這家店有賣貼紙嗎？——有。'],
+ wallet:['Is this ___ wallet, Ben?',['your','you','yours'],'your','名詞 wallet 前面用所有格形容詞 your；yours 後面不能再接名詞。','班，這是你的錢包嗎？'],
+ season:['There ___ four seasons in a year.',['are','is','have'],'are','「有」某物用 There be；four seasons 是複數，用 are。','一年有四個季節。'],
+ rainy:['It’s rainy today, ___ take an umbrella.',['so','but','because'],'so','前面是原因、後面是結果，用 so（所以）。','今天下雨，所以帶把傘吧。'],
+ windy:['___ is very windy in Hsinchu.',['It','This','He'],'It','描述天氣時，主詞用 It。','新竹風很大。'],
+ warm:['It’s warm ___ spring.',['in','on','at'],'in','季節前面用 in：in spring、in summer。','春天很溫暖。'],
+ jacket:['Put ___ your jacket. It’s cold outside.',['on','in','at'],'on','put on = 穿上（衣物）。','穿上你的外套，外面很冷。'],
+ animal:['Pandas ___ my favorite animals.',['are','is','am'],'are','Pandas 是複數，be 動詞用 are。','熊貓是我最喜歡的動物。'],
+ zoo:['We can ___ koalas at the zoo.',['see','sees','seeing'],'see','助動詞 can 後面接原形動詞 see。','我們在動物園可以看到無尾熊。'],
+ near:['Is there a park near your home? — Yes, there ___.',['is','are','has'],'is','用 Is there 問，就用 there is 回答。','你家附近有公園嗎？——有。'],
+ feed:['Don’t feed the monkeys. They can ___ sick.',['get','gets','getting'],'get','助動詞 can 後面接原形動詞 get。','不要餵猴子，牠們可能會生病。'],
+ cute:['Look ___ the cute puppy!',['at','to','on'],'at','look at = 看著…。','你看這隻可愛的小狗！'],
+ /* 會考＋學測 */
  abroad:['My sister ___ abroad since 2023.',['has studied','studies','studied'],'has studied','since + 時間點，表示從過去持續到現在，用現在完成式 has studied。','我姊姊從 2023 年起就在國外讀書。'],
  borrow:['Can I borrow ___ pen? Mine is broken.',['your','you','yours'],'your','名詞 pen 前面用所有格形容詞 your；yours 後面不能再接名詞。','我可以借你的筆嗎？我的壞了。'],
  careful:['Be careful ___ you cross the street.',['when','what','which'],'when','when 引導時間子句「當你過馬路時」。','過馬路時要小心。'],
@@ -88,11 +145,16 @@ const VQ_GRAMMAR = {
 let VQ = null;
 function vqDateAdd(date, n){ const d=new Date(date+'T00:00:00Z'); d.setUTCDate(d.getUTCDate()+n); return d.toISOString().slice(0,10); }
 function vqDiff(a, b){ return Math.round((new Date(a+'T00:00:00Z') - new Date(b+'T00:00:00Z'))/86400000); }
-function vqUnitIndex(date){ const n=VQ_UNITS.length; return ((vqDiff(date, VQ_START) % n) + n) % n; }
+// 目前路線：學生選過就用選的；沒選過但做過舊路線（core）的沿用 core，否則預設七年級
+function vqTrack(){ const t=store.data.vqTrack; if(VQ_TRACKS[t]) return t; return Object.keys(store.data.vocabQuests||{}).some(k=>!k.includes(':'))?'core':'g7'; }
+function vqSetTrack(t){ if(!VQ_TRACKS[t]) return; store.data.vqTrack=t; store.save(); renderVocabHub(); }
+const vqUnits = track => track==='g7' ? VQ_UNITS_G7 : VQ_UNITS;
+const vqKey = (date, track) => track==='core' ? date : track+':'+date;   // core 沿用舊的日期 key
+function vqUnitIndex(date, track){ const n=vqUnits(track).length; return ((vqDiff(date, VQ_START) % n) + n) % n; }
 function vqWord(book, w){ const b=(typeof BUILTIN_BOOKS!=='undefined'?BUILTIN_BOOKS:[]).find(x=>x.id===book); return b && b.words.find(x=>x.w===w); }
-function vqDay(date){ const i=vqUnitIndex(date), u=VQ_UNITS[i]; return {date, n:i+1, ...u, items:u.words.map(w=>vqWord(u.book,w)).filter(Boolean)}; }
+function vqDay(date, track=vqTrack()){ const i=vqUnitIndex(date,track), u=vqUnits(track)[i]; return {date, track, key:vqKey(date,track), n:i+1, ...u, items:u.words.map(w=>vqWord(u.book,w)).filter(Boolean)}; }
 function vqRecords(){ return store.data.vocabQuests || {}; }
-function vqStatus(date){ const r=vqRecords()[date]; return r&&r.done?'done':r&&(r.learned||r.quiz)?'started':'new'; }
+function vqStatus(date, track=vqTrack()){ const r=vqRecords()[vqKey(date,track)]; return r&&r.done?'done':r&&(r.learned||r.quiz)?'started':'new'; }
 
 /* ---- 發音：有道真人發音，失敗改用瀏覽器語音；可排隊（先念單字再念例句） ---- */
 let vqAudio=null, vqQueue=[];
@@ -113,7 +175,7 @@ const vqMark=(sentence,w)=>{ const root=w.length>4?w.replace(/(e|y|le)$/,''):w; 
 /* ---- 每日任務頁上的卡片 ---- */
 function vqDailyCard(){
  const t=dailyToday(), d=vqDay(t), st=vqStatus(t);
- return `<section class="vq-card card"><div class="vq-card-main"><div class="eyebrow">DAILY WORDS · 每日背單字</div><h2>Unit ${d.n}：${esc(d.title)}</h2><p>先背 5 個單字，再用這些字做文法挑戰。</p><div class="vq-chips">${d.items.map(w=>`<span>${esc(w.w)}</span>`).join('')}</div></div><div class="vq-card-go">${st==='done'?'<span class="vq-done">✓ 今天完成了</span>':''}<a class="btn btn-primary" href="#/vocab/${t}">${st==='done'?'再練一次':st==='started'?'繼續任務 →':'開始背單字 →'}</a><a class="vq-applink" href="#/vocab">背單字總覽</a></div></section>`;
+ return `<section class="vq-card card"><div class="vq-card-main"><div class="eyebrow">DAILY WORDS · 每日背單字 · ${esc(VQ_TRACKS[d.track].title)}</div><h2>Unit ${d.n}：${esc(d.title)}</h2><p>先背 5 個單字，再用這些字做文法挑戰。</p><div class="vq-chips">${d.items.map(w=>`<span>${esc(w.w)}</span>`).join('')}</div></div><div class="vq-card-go">${st==='done'?'<span class="vq-done">✓ 今天完成了</span>':''}<a class="btn btn-primary" href="#/vocab/${t}">${st==='done'?'再練一次':st==='started'?'繼續任務 →':'開始背單字 →'}</a><a class="vq-applink" href="#/vocab">背單字總覽</a></div></section>`;
 }
 
 /* ---- #/vocab 背單字總覽 ---- */
@@ -124,7 +186,8 @@ function renderVocabHub(){
  const doneN=Object.values(recs).filter(r=>r&&r.done).length;
  app.innerHTML=`<div class="view dq vq">
   <div class="crumb"><a href="#/home">Home</a> › 背單字 Vocabulary</div>
-  <section class="dq-hero"><div><div class="eyebrow">DAILY WORDS</div><h1 class="display">每天 5 個字，<br>背完馬上用出來。</h1><p>先認識單字（發音、中文、例句、搭配詞），再做含有這些字的文法題。完成後，這些字會自動排進「每日單字」的複習。</p><p class="dq-meta">已完成 ${doneN} 天 · 今天是 Unit ${d.n}</p><a class="btn btn-primary" href="#/vocab/${t}">今日任務：${esc(d.title)} →</a></div><div class="dq-mascot">${catSVG(150,'orange')}<span>一天五個字，喵！</span></div></section>
+  <section class="dq-hero"><div><div class="eyebrow">DAILY WORDS</div><h1 class="display">每天 5 個字，<br>背完馬上用出來。</h1><p>先認識單字（發音、中文、例句、搭配詞），再做含有這些字的文法題。完成後，這些字會自動排進「每日單字」的複習。</p><p class="dq-meta">已完成 ${doneN} 天 · ${esc(VQ_TRACKS[d.track].title)} · 今天是 Unit ${d.n}</p><a class="btn btn-primary" href="#/vocab/${t}">今日任務：${esc(d.title)} →</a></div><div class="dq-mascot">${catSVG(150,'orange')}<span>一天五個字，喵！</span></div></section>
+  <section class="vq-tracks"><b>選擇路線</b>${Object.entries(VQ_TRACKS).map(([k,x])=>`<button class="vq-track ${k===d.track?'on':''}" onclick="vqSetTrack('${k}')"><span>${esc(x.title)}</span><small>${esc(x.desc)}</small></button>`).join('')}</section>
   <section class="vq-days">${days.map(x=>{const st=vqStatus(x.date),isT=x.date===t,fut=x.date>t;return `<a class="vq-day card ${st} ${isT?'today':''}" href="#/vocab/${x.date}"><span class="vq-day-date">${isT?'今天':fut?'明天・預習':x.date.slice(5).replace('-','/')}</span><b>Unit ${x.n}</b><span class="vq-day-t">${esc(x.title)}</span><span class="vq-day-w">${x.items.map(w=>esc(w.w)).join(' · ')}</span><span class="vq-day-st">${st==='done'?'✓ 完成':st==='started'?'進行中':isT?'今日任務':fut?'可預習':'可補做'}</span></a>`;}).join('')}</section>
   <section class="vq-app card"><div><b>📱 每日單字 App</b><p>間隔複習、三種小測驗、生詞本、真人發音影片，還有國中會考、學測單字書。</p></div><a class="btn btn-navy" href="vocab/">開啟每日單字 →</a></section>
  </div>`;
@@ -133,7 +196,7 @@ function renderVocabHub(){
 /* ---- #/vocab/<date> 任務 ---- */
 function startVocabQuest(date){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)){ renderVocabHub(); return; }
- const d=vqDay(date), rec=vqRecords()[date]||{};
+ const d=vqDay(date), rec=vqRecords()[d.key]||{};
  const quiz=(rec.quiz&&!rec.done)?rec.quiz.slice():[];
  VQ={d, step:'learn', i:0, quiz, tries:0, owner:currentUser()?.email};
  if(rec.learned>=d.items.length && !rec.done){ VQ.step='quiz'; VQ.i=quiz.findIndex(x=>!x); if(VQ.i<0) VQ.i=quiz.length; }
@@ -141,13 +204,13 @@ function startVocabQuest(date){
 }
 function vqSave(patch){
  store.data.vocabQuests=store.data.vocabQuests||{};
- store.data.vocabQuests[VQ.d.date]={...(store.data.vocabQuests[VQ.d.date]||{}), ...patch};
+ store.data.vocabQuests[VQ.d.key]={...(store.data.vocabQuests[VQ.d.key]||{}), ...patch};
  store.save();
 }
 function vqRender(){
  if(!VQ) return;
  const {d}=VQ;
- const head=`<a href="#/vocab">← 背單字總覽</a><div class="dq-heading"><span>${d.date} · Unit ${d.n}</span><span>${VQ.step==='learn'?`背單字 ${VQ.i+1} / ${d.items.length}`:`文法挑戰 ${Math.min(VQ.i+1,d.items.length)} / ${d.items.length}`}</span></div><h1 class="display">📚 ${esc(d.title)}</h1><div class="vq-steps"><span class="${VQ.step==='learn'?'on':'ok'}">① 背單字</span><span class="${VQ.step==='quiz'?'on':''}">② 文法挑戰</span></div>`;
+ const head=`<a href="#/vocab">← 背單字總覽</a><div class="dq-heading"><span>${d.date} · ${esc(VQ_TRACKS[d.track].title)} · Unit ${d.n}</span><span>${VQ.step==='learn'?`背單字 ${VQ.i+1} / ${d.items.length}`:`文法挑戰 ${Math.min(VQ.i+1,d.items.length)} / ${d.items.length}`}</span></div><h1 class="display">📚 ${esc(d.title)}</h1><div class="vq-steps"><span class="${VQ.step==='learn'?'on':'ok'}">① 背單字</span><span class="${VQ.step==='quiz'?'on':''}">② 文法挑戰</span></div>`;
  if(VQ.step==='learn'){
   const w=d.items[VQ.i];
   app.innerHTML=`<div class="view dq dq-play vq">${head}<progress max="${d.items.length*2}" value="${VQ.i}"></progress>
@@ -181,7 +244,7 @@ function vqGo(step){
  if(VQ.step==='learn'){
   VQ.i+=step;
   if(VQ.i<0) VQ.i=0;
-  const learned=Math.max((vqRecords()[VQ.d.date]||{}).learned||0, Math.min(VQ.i,n));
+  const learned=Math.max((vqRecords()[VQ.d.key]||{}).learned||0, Math.min(VQ.i,n));
   if(VQ.i>=n){ vqSave({learned:n}); VQ.step='quiz'; VQ.i=VQ.quiz.findIndex(x=>!x); if(VQ.i<0) VQ.i=VQ.quiz.length>=n?n:VQ.quiz.length; }
   else vqSave({learned});
  } else VQ.i++;
@@ -232,7 +295,7 @@ function vqToApp(d){
 }
 function vqFinish(){
  if(!VQ||currentUser()?.email!==VQ.owner) return;
- const d=VQ.d, rec=vqRecords()[d.date]||{}, first=!rec.done, n=d.items.length;
+ const d=VQ.d, rec=vqRecords()[d.key]||{}, first=!rec.done, n=d.items.length;
  const firstTry=VQ.quiz.filter(x=>x==='first').length;
  let gained=0; const parts=[];
  if(first){ gained+=15; parts.push('完成每日背單字 +15 XP'); if(firstTry===n){ gained+=5; parts.push('全部一次答對 +5 XP'); } }
