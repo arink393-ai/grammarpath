@@ -1669,8 +1669,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <div class="toast" id="toast" role="status"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="daily.js?v=16"></script>
-<script src="vocab/books.js?v=3"></script>
-<script src="vocab-quest.js?v=3"></script>
+<script src="vocab/books.js?v=4"></script>
+<script src="vocab-quest.js?v=4"></script>
 <script>
 /* Supabase backend (teacher dashboard + progress sync + homework).
    The anon key is meant to be public; Row Level Security protects the data. */
@@ -8207,6 +8207,25 @@ const WORD_ORIGINS = [
      rows:[["bel<b>ie</b>ve, fr<b>ie</b>nd, p<b>ie</b>ce","rec<b>ei</b>ve, c<b>ei</b>ling, dec<b>ei</b>ve","w<b>ei</b>rd, s<b>ei</b>ze, th<b>ei</b>r, h<b>ei</b>ght"]]},
    {t:"call", zhTitle:"課堂速記 · Quick check", zh:"教學生加字尾前先問三個問題：① 字尾是母音開頭嗎？（去 e）② 是「短母音 + 單子音、重音在最後」嗎？（雙寫）③ 是「子音 + y」嗎？（y 變 i，但 -ing 除外）。三題答完，大部分拼字就對了。", en:"Three questions cover most cases: vowel suffix? (drop e) · short vowel + single consonant, stressed? (double) · consonant + y? (y→i, except -ing)."},
    {t:"link", href:"#/lesson/plural-nouns", label:"去做練習：文法課 Singular & Plural Nouns"}
+  ]},
+ {id:"loanwords", icon:"🌍", en:"Loanwords", zh:"外來語", tag:"Borrowing · 借詞",
+  hook:"你早就會很多英文了——因為它們是從別的語言借來的，有些甚至來自中文與台語！",
+  blocks:[
+   {t:"p", en:"English is the world's greatest word-borrower. Over half of its vocabulary was taken from other languages. Some loanwords are obvious (sushi, pizza), but many are hidden in plain sight — coffee came from Arabic, tea from Chinese. Here's the good news for you: you already 'know' hundreds of English words, because they were borrowed from languages you recognise.",
+       zh:"英語是全世界最愛「借字」的語言，超過一半的詞彙是從別的語言借來的。有些外來語一看就知道（sushi、pizza），但很多其實藏在眼前——coffee 來自阿拉伯文，tea 來自中文。好消息是：你其實早就「會」好幾百個英文字，因為它們就是從你認得的語言借來的。"},
+   {t:"h", en:"Everyday loanwords by language", zh:"各語言的日常外來語"},
+   {t:"table", head:["來源 From","英文單字 English words"],
+     rows:[["法文 French","<b>café</b>, <b>ballet</b>, <b>genre</b>, <b>restaurant</b>, <b>bouquet</b>, <b>cliché</b>"],["義大利文 Italian","<b>pizza</b>, <b>spaghetti</b>, <b>piano</b>, <b>opera</b>, <b>studio</b>, <b>umbrella</b>"],["西班牙文 Spanish","<b>taco</b>, <b>tornado</b>, <b>patio</b>, <b>plaza</b>, <b>mosquito</b>, <b>guitar</b>"],["德文 German","<b>kindergarten</b>, <b>hamburger</b>, <b>pretzel</b>, <b>rucksack</b>, <b>kitsch</b>"],["日文 Japanese","<b>sushi</b>, <b>karaoke</b>, <b>tsunami</b>, <b>emoji</b>, <b>karate</b>, <b>manga</b>"],["阿拉伯文 Arabic","<b>coffee</b>, <b>sugar</b>, <b>algebra</b>, <b>cotton</b>, <b>safari</b>, <b>sofa</b>"],["印度語 Hindi","<b>shampoo</b>, <b>pyjamas</b>, <b>jungle</b>, <b>bungalow</b>, <b>yoga</b>, <b>curry</b>"],["荷蘭文 Dutch","<b>cookie</b>, <b>boss</b>, <b>yacht</b>, <b>sketch</b>, <b>cruise</b>"]]},
+   {t:"h", en:"Hidden gems from Chinese", zh:"藏在英文裡的中文與台語"},
+   {t:"p", en:"Here's a treat for learners in Taiwan: several everyday English words came from Chinese — and a few travelled specifically through Hokkien (Taiwanese)! The word tea spread around the world from the Hokkien word 'tê' (茶); ketchup came from the Hokkien 'kê-tsiap', a kind of fish sauce.",
+       zh:"給台灣學習者的小驚喜：好幾個日常英文字其實來自中文——而且有幾個是透過「台語（閩南語）」進入英文的！tea（茶）走遍世界，源頭是台語的「tê（茶）」；ketchup（番茄醬）則來自台語的「kê-tsiap（鮭汁，一種魚露）」。"},
+   {t:"table", head:["英文 English","來源 Origin"],
+     rows:[["<b>tea</b> 茶","台語 tê（茶）"],["<b>ketchup</b> 番茄醬","台語 kê-tsiap（鮭汁）"],["<b>typhoon</b> 颱風","颱風 / 大風"],["<b>tofu</b> 豆腐","豆腐"],["<b>kung fu</b> 功夫","功夫"],["<b>dim sum</b> 點心","粵語 點心"],["<b>feng shui</b> 風水","風水"],["<b>lychee</b> 荔枝","荔枝"]]},
+   {t:"h", en:"How to spot a loanword", zh:"怎麼看出一個外來語"},
+   {t:"p", en:"Loanwords often keep an 'un-English' look: unusual letter combos (-eau in bureau, gn- in gnocchi), silent letters (ballet, genre), or a spelling that matches the sound in another language (karaoke, jalapeño). When a word looks foreign, it usually is — and its spelling and meaning often stay close to the original.",
+       zh:"外來語常常保留「不像英文」的長相：奇怪的字母組合（bureau 的 -eau、gnocchi 的 gn-）、不發音的字母（ballet、genre），或拼法貼近原語言發音（karaoke、jalapeño）。一個字看起來「外國」，通常就真的是——而且拼法和意思常常和原文很接近。"},
+   {t:"call", zhTitle:"課堂活動 · World map of words", zh:"發一張世界地圖，讓學生把學過的外來語貼到來源國（pizza→義大利、sushi→日本、tea→台灣）。學生會發現：學英文，其實一路上都在跟全世界的語言打招呼。", en:"Give students a world map and pin loanwords to their home countries — learning English means greeting the whole world."},
+   {t:"link", href:"#/etymology", label:"回字源學堂目錄 Back to all chapters"}
   ]}
 ];
 const etymById = id => WORD_ORIGINS.find(x=>x.id===id);

@@ -9,6 +9,7 @@ const VQ_START = '2026-09-30';   // 各路線第 1 單元的日期，之後每�
 /* 路線：學生在「背單字總覽」選一條；各路線依日期各自輪替。core 為最早上線的路線，紀錄沿用舊的日期 key。 */
 const VQ_TRACKS = {
  g7:{title:'七年級基礎', desc:'學校、家人、生活、興趣、食物、購物、天氣、動物'},
+ g8:{title:'八年級', desc:'旅行、健康、節慶、科技、環境、職業、比賽、友情'},
  core:{title:'會考＋學測', desc:'國中會考核心字 → 學測進階字'}
 };
 const VQ_UNITS_G7 = [
@@ -20,6 +21,16 @@ const VQ_UNITS_G7 = [
  {book:'jh7', title:'去買東西', words:['price','cheap','expensive','sell','wallet']},
  {book:'jh7', title:'天氣與季節', words:['season','rainy','windy','warm','jacket']},
  {book:'jh7', title:'動物與地方', words:['animal','zoo','near','feed','cute']}
+];
+const VQ_UNITS_G8 = [
+ {book:'jh8', title:'出發去旅行', words:['trip','ticket','airport','visit','plan']},
+ {book:'jh8', title:'健康生活', words:['healthy','fever','rest','dentist','stomach']},
+ {book:'jh8', title:'節慶時光', words:['festival','celebrate','gift','decorate','lantern']},
+ {book:'jh8', title:'科技與網路', words:['computer','internet','online','download','smartphone']},
+ {book:'jh8', title:'愛護地球', words:['environment','trash','recycle','save','pollution']},
+ {book:'jh8', title:'夢想與職業', words:['dream','future','become','engineer','nurse']},
+ {book:'jh8', title:'比賽加油', words:['contest','team','win','lose','cheer']},
+ {book:'jh8', title:'友情與心情', words:['friendship','angry','worried','share','excited']}
 ];
 const VQ_UNITS = [
  {book:'jh-core', title:'出國與日常', words:['abroad','borrow','careful','decide','enough']},
@@ -79,6 +90,47 @@ const VQ_GRAMMAR = {
  near:['Is there a park near your home? — Yes, there ___.',['is','are','has'],'is','用 Is there 問，就用 there is 回答。','你家附近有公園嗎？——有。'],
  feed:['Don’t feed the monkeys. They can ___ sick.',['get','gets','getting'],'get','助動詞 can 後面接原形動詞 get。','不要餵猴子，牠們可能會生病。'],
  cute:['Look ___ the cute puppy!',['at','to','on'],'at','look at = 看著…。','你看這隻可愛的小狗！'],
+ /* 八年級 */
+ trip:['We ___ a trip to Kenting last summer.',['took','take','have taken'],'took','last summer 是過去的時間，用過去式 took。','我們去年夏天去墾丁旅行。'],
+ ticket:['How ___ are the tickets for the concert?',['much','many','long'],'much','問價錢用 How much。','演唱會的票多少錢？'],
+ airport:['When I arrived at the airport, my parents ___ for me.',['were waiting','wait','are waiting'],'were waiting','過去某個時間點「正在」做的事，用過去進行式 was/were + V-ing。','我到機場的時候，爸媽正在等我。'],
+ visit:['We ___ going to visit Tainan next week.',['are','will','have'],'are','be going to + 原形動詞表示計畫好的未來；主詞 We 用 are。','我們下週要去台南玩。'],
+ plan:['We plan ___ to Japan next year.',['to go','going','go'],'to go','plan 後面接不定詞 to + 原形動詞。','我們計畫明年去日本。'],
+ healthy:['Eating fruit every day ___ you healthy.',['keeps','keep','keeping'],'keeps','動名詞 Eating… 當主詞視為單數，動詞加 s：keeps。','每天吃水果讓你保持健康。'],
+ fever:['She had a fever yesterday, ___ she didn’t go to school.',['so','but','because'],'so','前面是原因、後面是結果，用 so（所以）。','她昨天發燒，所以沒去上學。'],
+ rest:['You look tired. You ___ take a rest.',['should','must not','don’t'],'should','給建議用 should + 原形動詞（你應該…）。','你看起來很累，應該休息一下。'],
+ dentist:['How often ___ you go to the dentist?',['do','are','does'],'do','How often 問頻率；主詞 you 的一般動詞疑問句用 do。','你多久看一次牙醫？'],
+ stomach:['I ate ___ much ice cream, and now my stomach hurts.',['too','so','very'],'too','too much = 太多（超過適當的量，帶有負面結果）。','我吃了太多冰淇淋，現在胃好痛。'],
+ festival:['What ___ you do during the Lantern Festival last year?',['did','do','were'],'did','last year 是過去，一般動詞的過去式疑問句用 did。','去年元宵節你做了什麼？'],
+ celebrate:['We celebrated Grandma’s birthday ___ a big cake.',['with','by','for'],'with','用某樣東西（一個大蛋糕）來慶祝，用 with。','我們用一個大蛋糕幫奶奶慶生。'],
+ gift:['My aunt gave ___ a gift for my birthday.',['me','I','my'],'me','give sb sth：give 後面的人用受格 me。','我阿姨送我一份生日禮物。'],
+ decorate:['We decorated the classroom ___ balloons.',['with','by','of'],'with','decorate A with B = 用 B 來裝飾 A。','我們用氣球佈置教室。'],
+ lantern:['Look at the lanterns! They are ___ beautiful.',['so','such','much'],'so','so + 形容詞 = 好…、這麼…；such 後面要接名詞。','看那些燈籠！好漂亮。'],
+ computer:['I use the computer ___ my homework.',['to do','doing','do'],'to do','不定詞 to + V 可以表示「目的」（為了做…）。','我用電腦來寫功課。'],
+ internet:['You can find a lot of information ___ the Internet.',['on','in','at'],'on','「在網路上」用 on the Internet。','你可以在網路上找到很多資訊。'],
+ online:['Have you ___ bought anything online?',['ever','yet','already'],'ever','現在完成式問「曾經」的經驗用 Have you ever + p.p.?','你曾經在網路上買過東西嗎？'],
+ download:['Don’t download apps ___ you ask your parents.',['before','because','so'],'before','before + 子句 = 在…之前。','在問過爸媽之前，不要下載 app。'],
+ smartphone:['Whose smartphone is this? — It’s ___.',['mine','my','me'],'mine','後面沒有名詞，用所有格代名詞 mine（= my smartphone）。','這是誰的手機？——是我的。'],
+ environment:['Everyone should ___ the environment.',['protect','protects','protecting'],'protect','助動詞 should 後面接原形動詞。','每個人都應該保護環境。'],
+ trash:['Please pick ___ the trash on the beach.',['up','on','off'],'up','pick up = 撿起來。','請把沙灘上的垃圾撿起來。'],
+ recycle:['Plastic bottles can ___ recycled.',['be','is','are'],'be','被動語態 be + p.p.；助動詞 can 後面用原形 be。','塑膠瓶可以回收。'],
+ save:['Turn off the lights to save energy ___ you leave the room.',['when','what','who'],'when','when 引導時間子句「當你離開房間時」。','離開房間時，要關燈節省能源。'],
+ pollution:['Air pollution is ___ serious problem in many cities.',['a','an','much'],'a','serious 以子音開頭，可數單數名詞 problem 前用 a。','空氣污染在很多城市是個嚴重的問題。'],
+ dream:['My dream ___ to travel around the world.',['is','are','be'],'is','主詞 My dream 是單數，be 動詞用 is。','我的夢想是環遊世界。'],
+ future:['What do you want ___ in the future?',['to be','be','being'],'to be','want 後面接不定詞 to + 原形動詞。','你將來想做什麼？'],
+ become:['He wants to become a teacher ___ the future.',['in','on','at'],'in','in the future = 在未來。','他將來想成為老師。'],
+ engineer:['My uncle is ___ engineer.',['an','a','two'],'an','engineer 以母音音開頭，冠詞用 an。','我叔叔是工程師。'],
+ nurse:['The nurse is kind. Everyone likes ___.',['her','she','hers'],'her','likes 後面接受詞，用受格 her。','那位護理師很親切，大家都喜歡她。'],
+ contest:['Our class ___ first place in the singing contest last week.',['won','wins','has won'],'won','last week 是過去的時間，用過去式 won。','我們班上週在歌唱比賽得到第一名。'],
+ team:['Our team is ___ than their team.',['stronger','strong','strongest'],'stronger','後面有 than，用比較級 stronger。','我們隊比他們隊強。'],
+ win:['I hope our team ___ win the game tomorrow.',['will','is','did'],'will','tomorrow 是未來，用 will + 原形動詞。','我希望我們隊明天會贏得比賽。'],
+ lose:['Don’t be sad ___ you lose the game.',['if','so','but'],'if','if 引導條件子句「如果你輸了」。','如果你輸了比賽，不要難過。'],
+ cheer:['The fans cheered ___ their team loudly.',['for','to','at'],'for','cheer for sb = 為某人加油。','球迷大聲地為他們的隊伍加油。'],
+ friendship:['Friendship is one of ___ important things in life.',['the most','more','most'],'the most','one of the + 最高級 + 複數名詞 = 最…的其中之一。','友誼是人生中最重要的事情之一。'],
+ angry:['Don’t be angry ___ me. It was an accident.',['with','to','for'],'with','be angry with sb = 生某人的氣。','別生我的氣，那是意外。'],
+ worried:['Mom was worried ___ me when I came home late.',['about','of','in'],'about','be worried about = 擔心…。','我很晚回家時，媽媽很擔心我。'],
+ share:['Can you share your notes ___ me?',['with','to','for'],'with','share sth with sb = 和某人分享某物。','你可以跟我分享你的筆記嗎？'],
+ excited:['I’m excited ___ the school trip.',['about','of','on'],'about','be excited about = 對…感到興奮。','我對校外教學感到很興奮。'],
  /* 會考＋學測 */
  abroad:['My sister ___ abroad since 2023.',['has studied','studies','studied'],'has studied','since + 時間點，表示從過去持續到現在，用現在完成式 has studied。','我姊姊從 2023 年起就在國外讀書。'],
  borrow:['Can I borrow ___ pen? Mine is broken.',['your','you','yours'],'your','名詞 pen 前面用所有格形容詞 your；yours 後面不能再接名詞。','我可以借你的筆嗎？我的壞了。'],
@@ -148,7 +200,7 @@ function vqDiff(a, b){ return Math.round((new Date(a+'T00:00:00Z') - new Date(b+
 // 目前路線：學生選過就用選的；沒選過但做過舊路線（core）的沿用 core，否則預設七年級
 function vqTrack(){ const t=store.data.vqTrack; if(VQ_TRACKS[t]) return t; return Object.keys(store.data.vocabQuests||{}).some(k=>!k.includes(':'))?'core':'g7'; }
 function vqSetTrack(t){ if(!VQ_TRACKS[t]) return; store.data.vqTrack=t; store.save(); renderVocabHub(); }
-const vqUnits = track => track==='g7' ? VQ_UNITS_G7 : VQ_UNITS;
+const vqUnits = track => ({g7:VQ_UNITS_G7, g8:VQ_UNITS_G8})[track] || VQ_UNITS;
 const vqKey = (date, track) => track==='core' ? date : track+':'+date;   // core 沿用舊的日期 key
 function vqUnitIndex(date, track){ const n=vqUnits(track).length; return ((vqDiff(date, VQ_START) % n) + n) % n; }
 function vqWord(book, w){ const b=(typeof BUILTIN_BOOKS!=='undefined'?BUILTIN_BOOKS:[]).find(x=>x.id===book); return b && b.words.find(x=>x.w===w); }
