@@ -8,20 +8,10 @@
 const VQ_START = '2026-09-30';   // 各路線第 1 單元的日期，之後每天換下一單元（循環）
 /* 路線：學生在「背單字總覽」選一條；各路線依日期各自輪替。core 為最早上線的路線，紀錄沿用舊的日期 key。 */
 const VQ_TRACKS = {
- g7:{title:'七年級基礎', desc:'學校、家人、生活、興趣、食物、購物、天氣、動物'},
+ g7:{title:'七年級', desc:'教育部基本字・較基礎的 539 字', book:'jh7'},
  g8:{title:'八年級', desc:'旅行、健康、節慶、科技、環境、職業、比賽、友情'},
  core:{title:'會考＋學測', desc:'國中會考核心字 → 學測進階字'}
 };
-const VQ_UNITS_G7 = [
- {book:'jh7', title:'新學校', words:['classmate','subject','homework','library','early']},
- {book:'jh7', title:'我的家人', words:['family','cousin','cook','together','weekend']},
- {book:'jh7', title:'一天的生活', words:['usually','breakfast','clean','bus','tired']},
- {book:'jh7', title:'我的興趣', words:['hobby','basketball','sing','draw','favorite']},
- {book:'jh7', title:'好吃的食物', words:['hungry','delicious','vegetable','noodles','drink']},
- {book:'jh7', title:'去買東西', words:['price','cheap','expensive','sell','wallet']},
- {book:'jh7', title:'天氣與季節', words:['season','rainy','windy','warm','jacket']},
- {book:'jh7', title:'動物與地方', words:['animal','zoo','near','feed','cute']}
-];
 const VQ_UNITS_G8 = [
  {book:'jh8', title:'出發去旅行', words:['trip','ticket','airport','visit','plan']},
  {book:'jh8', title:'健康生活', words:['healthy','fever','rest','dentist','stomach']},
@@ -200,10 +190,39 @@ function vqDiff(a, b){ return Math.round((new Date(a+'T00:00:00Z') - new Date(b+
 // 目前路線：學生選過就用選的；沒選過但做過舊路線（core）的沿用 core，否則預設七年級
 function vqTrack(){ const t=store.data.vqTrack; if(VQ_TRACKS[t]) return t; return Object.keys(store.data.vocabQuests||{}).some(k=>!k.includes(':'))?'core':'g7'; }
 function vqSetTrack(t){ if(!VQ_TRACKS[t]) return; store.data.vqTrack=t; store.save(); renderVocabHub(); }
-const vqUnits = track => ({g7:VQ_UNITS_G7, g8:VQ_UNITS_G8})[track] || VQ_UNITS;
+/* 字庫路線（有 book 的路線）：單字資料在 vocab/data/<book>.js，選到才載入；每 5 個字一個單元，文法題存在每個字的 q。 */
+const VQ_DATA_V = 1;
+const VQ_LOADING = {};
+const vqBook = id => (typeof BUILTIN_BOOKS!=='undefined'?BUILTIN_BOOKS:[]).find(x=>x.id===id);
+function vqReady(track){ const b=VQ_TRACKS[track]&&VQ_TRACKS[track].book; return !b || !!vqBook(b); }
+function vqLoad(track){
+ const b=VQ_TRACKS[track]&&VQ_TRACKS[track].book;
+ if(!b || vqBook(b)) return Promise.resolve();
+ if(!VQ_LOADING[b]) VQ_LOADING[b]=new Promise((ok,no)=>{ const el=document.createElement('script'); el.src='vocab/data/'+b+'.js?v='+VQ_DATA_V; el.onload=ok; el.onerror=()=>{ delete VQ_LOADING[b]; no(new Error('load')); }; document.head.appendChild(el); });
+ return VQ_LOADING[b];
+}
+// 還沒載入就先顯示「載入中」，載完再呼叫 then；已載入回傳 true
+function vqEnsure(track, then){
+ if(vqReady(track)) return true;
+ app.innerHTML='<div class="view dq vq"><p class="tc-loading">載入單字中… Loading words…</p></div>';
+ vqLoad(track).then(then, ()=>{ app.innerHTML='<div class="view dq vq"><div class="card" style="padding:22px">單字載入失敗，請檢查網路後重新整理。<br><a href="#/vocab">回背單字總覽</a></div></div>'; });
+ return false;
+}
+const VQ_UNIT_CACHE = {};
+function vqUnits(track){
+ const t=VQ_TRACKS[track];
+ if(t && t.book){
+  if(VQ_UNIT_CACHE[track]) return VQ_UNIT_CACHE[track];
+  const b=vqBook(t.book); if(!b) return [];
+  const u=[]; for(let i=0;i<b.words.length;i+=5) u.push({book:t.book, title:'', words:b.words.slice(i,i+5).map(x=>x.w)});
+  return (VQ_UNIT_CACHE[track]=u);
+ }
+ return ({g8:VQ_UNITS_G8})[track] || VQ_UNITS;
+}
+const vqQ = w => (w && w.q) || VQ_GRAMMAR[w.w];   // 字庫的題目優先，其次是手寫的 VQ_GRAMMAR
 const vqKey = (date, track) => track==='core' ? date : track+':'+date;   // core 沿用舊的日期 key
 function vqUnitIndex(date, track){ const n=vqUnits(track).length; return ((vqDiff(date, VQ_START) % n) + n) % n; }
-function vqWord(book, w){ const b=(typeof BUILTIN_BOOKS!=='undefined'?BUILTIN_BOOKS:[]).find(x=>x.id===book); return b && b.words.find(x=>x.w===w); }
+function vqWord(book, w){ const b=vqBook(book); return b && b.words.find(x=>x.w===w); }
 function vqDay(date, track=vqTrack()){ const i=vqUnitIndex(date,track), u=vqUnits(track)[i]; return {date, track, key:vqKey(date,track), n:i+1, ...u, items:u.words.map(w=>vqWord(u.book,w)).filter(Boolean)}; }
 function vqRecords(){ return store.data.vocabQuests || {}; }
 function vqStatus(date, track=vqTrack()){ const r=vqRecords()[vqKey(date,track)]; return r&&r.done?'done':r&&(r.learned||r.quiz)?'started':'new'; }
@@ -226,19 +245,25 @@ const vqMark=(sentence,w)=>{ const root=w.length>4?w.replace(/(e|y|le)$/,''):w; 
 
 /* ---- 每日任務頁上的卡片 ---- */
 function vqDailyCard(){
+ const tr=vqTrack();
+ if(!vqReady(tr)){
+  vqLoad(tr).then(()=>{ const el=document.querySelector('.vq-card'); if(el) el.outerHTML=vqDailyCard(); }).catch(()=>{});
+  return `<section class="vq-card card"><div class="vq-card-main"><div class="eyebrow">DAILY WORDS · 每日背單字 · ${esc(VQ_TRACKS[tr].title)}</div><h2>今日單字載入中…</h2></div><div class="vq-card-go"><a class="btn btn-primary" href="#/vocab/${dailyToday()}">開始背單字 →</a></div></section>`;
+ }
  const t=dailyToday(), d=vqDay(t), st=vqStatus(t);
- return `<section class="vq-card card"><div class="vq-card-main"><div class="eyebrow">DAILY WORDS · 每日背單字 · ${esc(VQ_TRACKS[d.track].title)}</div><h2>Unit ${d.n}：${esc(d.title)}</h2><p>先背 5 個單字，再用這些字做文法挑戰。</p><div class="vq-chips">${d.items.map(w=>`<span>${esc(w.w)}</span>`).join('')}</div></div><div class="vq-card-go">${st==='done'?'<span class="vq-done">✓ 今天完成了</span>':''}<a class="btn btn-primary" href="#/vocab/${t}">${st==='done'?'再練一次':st==='started'?'繼續任務 →':'開始背單字 →'}</a><a class="vq-applink" href="#/vocab">背單字總覽</a></div></section>`;
+ return `<section class="vq-card card"><div class="vq-card-main"><div class="eyebrow">DAILY WORDS · 每日背單字 · ${esc(VQ_TRACKS[d.track].title)}</div><h2>Unit ${d.n}${d.title?'：'+esc(d.title):''}</h2><p>先背 5 個單字，再用這些字做文法挑戰。</p><div class="vq-chips">${d.items.map(w=>`<span>${esc(w.w)}</span>`).join('')}</div></div><div class="vq-card-go">${st==='done'?'<span class="vq-done">✓ 今天完成了</span>':''}<a class="btn btn-primary" href="#/vocab/${t}">${st==='done'?'再練一次':st==='started'?'繼續任務 →':'開始背單字 →'}</a><a class="vq-applink" href="#/vocab">背單字總覽</a></div></section>`;
 }
 
 /* ---- #/vocab 背單字總覽 ---- */
 function renderVocabHub(){
  VQ=null;
+ if(!vqEnsure(vqTrack(), renderVocabHub)) return;
  const t=dailyToday(), d=vqDay(t), recs=vqRecords();
  const days=[]; for(let i=-6;i<=1;i++){ const x=vqDateAdd(t,i); if(x>=VQ_START) days.push(vqDay(x)); }   // 開始日之前沒有任務
  const doneN=Object.values(recs).filter(r=>r&&r.done).length;
  app.innerHTML=`<div class="view dq vq">
   <div class="crumb"><a href="#/home">Home</a> › 背單字 Vocabulary</div>
-  <section class="dq-hero"><div><div class="eyebrow">DAILY WORDS</div><h1 class="display">每天 5 個字，<br>背完馬上用出來。</h1><p>先認識單字（發音、中文、例句、搭配詞），再做含有這些字的文法題。完成後，這些字會自動排進「每日單字」的複習。</p><p class="dq-meta">已完成 ${doneN} 天 · ${esc(VQ_TRACKS[d.track].title)} · 今天是 Unit ${d.n}</p><a class="btn btn-primary" href="#/vocab/${t}">今日任務：${esc(d.title)} →</a></div><div class="dq-mascot">${catSVG(150,'orange')}<span>一天五個字，喵！</span></div></section>
+  <section class="dq-hero"><div><div class="eyebrow">DAILY WORDS</div><h1 class="display">每天 5 個字，<br>背完馬上用出來。</h1><p>先認識單字（發音、中文、例句、搭配詞），再做含有這些字的文法題。完成後，這些字會自動排進「每日單字」的複習。</p><p class="dq-meta">已完成 ${doneN} 天 · ${esc(VQ_TRACKS[d.track].title)} · 今天是 Unit ${d.n}</p><a class="btn btn-primary" href="#/vocab/${t}">今日任務：Unit ${d.n}${d.title?' '+esc(d.title):''} →</a></div><div class="dq-mascot">${catSVG(150,'orange')}<span>一天五個字，喵！</span></div></section>
   <section class="vq-tracks"><b>選擇路線</b>${Object.entries(VQ_TRACKS).map(([k,x])=>`<button class="vq-track ${k===d.track?'on':''}" onclick="vqSetTrack('${k}')"><span>${esc(x.title)}</span><small>${esc(x.desc)}</small></button>`).join('')}</section>
   <section class="vq-days">${days.map(x=>{const st=vqStatus(x.date),isT=x.date===t,fut=x.date>t;return `<a class="vq-day card ${st} ${isT?'today':''}" href="#/vocab/${x.date}"><span class="vq-day-date">${isT?'今天':fut?'明天・預習':x.date.slice(5).replace('-','/')}</span><b>Unit ${x.n}</b><span class="vq-day-t">${esc(x.title)}</span><span class="vq-day-w">${x.items.map(w=>esc(w.w)).join(' · ')}</span><span class="vq-day-st">${st==='done'?'✓ 完成':st==='started'?'進行中':isT?'今日任務':fut?'可預習':'可補做'}</span></a>`;}).join('')}</section>
   <section class="vq-app card"><div><b>📱 每日單字 App</b><p>間隔複習、三種小測驗、生詞本、真人發音影片，還有國中會考、學測單字書。</p></div><a class="btn btn-navy" href="vocab/">開啟每日單字 →</a></section>
@@ -248,6 +273,7 @@ function renderVocabHub(){
 /* ---- #/vocab/<date> 任務 ---- */
 function startVocabQuest(date){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)){ renderVocabHub(); return; }
+ if(!vqEnsure(vqTrack(), ()=>startVocabQuest(date))) return;
  const d=vqDay(date), rec=vqRecords()[d.key]||{};
  const quiz=(rec.quiz&&!rec.done)?rec.quiz.slice():[];
  VQ={d, step:'learn', i:0, quiz, tries:0, owner:currentUser()?.email};
@@ -262,7 +288,7 @@ function vqSave(patch){
 function vqRender(){
  if(!VQ) return;
  const {d}=VQ;
- const head=`<a href="#/vocab">← 背單字總覽</a><div class="dq-heading"><span>${d.date} · ${esc(VQ_TRACKS[d.track].title)} · Unit ${d.n}</span><span>${VQ.step==='learn'?`背單字 ${VQ.i+1} / ${d.items.length}`:`文法挑戰 ${Math.min(VQ.i+1,d.items.length)} / ${d.items.length}`}</span></div><h1 class="display">📚 ${esc(d.title)}</h1><div class="vq-steps"><span class="${VQ.step==='learn'?'on':'ok'}">① 背單字</span><span class="${VQ.step==='quiz'?'on':''}">② 文法挑戰</span></div>`;
+ const head=`<a href="#/vocab">← 背單字總覽</a><div class="dq-heading"><span>${d.date} · ${esc(VQ_TRACKS[d.track].title)} · Unit ${d.n}</span><span>${VQ.step==='learn'?`背單字 ${VQ.i+1} / ${d.items.length}`:`文法挑戰 ${Math.min(VQ.i+1,d.items.length)} / ${d.items.length}`}</span></div><h1 class="display">📚 Unit ${d.n}${d.title?'：'+esc(d.title):''}</h1><div class="vq-steps"><span class="${VQ.step==='learn'?'on':'ok'}">① 背單字</span><span class="${VQ.step==='quiz'?'on':''}">② 文法挑戰</span></div>`;
  if(VQ.step==='learn'){
   const w=d.items[VQ.i];
   app.innerHTML=`<div class="view dq dq-play vq">${head}<progress max="${d.items.length*2}" value="${VQ.i}"></progress>
@@ -278,7 +304,7 @@ function vqRender(){
   return;
  }
  if(VQ.i>=d.items.length){ vqFinish(); return; }
- const w=d.items[VQ.i], q=VQ_GRAMMAR[w.w];
+ const w=d.items[VQ.i], q=vqQ(w);
  if(!q){ VQ.quiz[VQ.i]='first'; VQ.i++; vqRender(); return; }
  VQ.tries=0;
  const sent=vqMark(q[0],w.w).replace('___','<span class="vq-blank">＿＿＿</span>');
@@ -304,7 +330,7 @@ function vqGo(step){
 }
 function vqPick(btn){
  if(!VQ||currentUser()?.email!==VQ.owner) return;
- const w=VQ.d.items[VQ.i], q=VQ_GRAMMAR[w.w], fb=document.getElementById('vq-fb');
+ const w=VQ.d.items[VQ.i], q=vqQ(w), fb=document.getElementById('vq-fb');
  if(document.getElementById('vq-next').hidden===false) return;
  const ok=norm(btn.dataset.a)===norm(q[2]);
  if(!ok){
