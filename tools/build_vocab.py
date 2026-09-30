@@ -52,7 +52,7 @@ def build(book):
             if not has_form(ex, w): errs.append(f'{where} {w}：例句沒有出現該字')
             if not has_form(qs, w): errs.append(f'{where} {w}：文法題沒有出現該字')
             if not all([zh, ex, exzh, why, qzh]): errs.append(f'{where} {w}：有空白欄位')
-            if re.search(r'請見|請看解析|替換|注意：本題|注意：此題', why): errs.append(f'{where} {w}：解析含未完成的註記')
+            if re.search(r'請見|請看解析|替換|改為下方|改用下方|下方版本|下方題目|此題改寫|注意：本題|注意：此題', why): errs.append(f'{where} {w}：解析含未完成的註記')
             cols = []
             for x in [x.strip() for x in re.split(r';', col) if x.strip()]:   # 只用半形分號分隔，中文意思裡可以有「；」
                 if '=' not in x: errs.append(f'{where} {w}：搭配詞「{x}」缺 =中文'); continue
