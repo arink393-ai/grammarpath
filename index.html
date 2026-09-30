@@ -893,6 +893,55 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .chip{padding:7px 15px;border-radius:999px;border:1.5px solid var(--line);font:500 13px var(--sans);color:var(--body);background:var(--paper)}
 .chip.active{border-color:var(--teal);background:var(--teal-bg);color:var(--teal);font-weight:600}
 
+/* ---------- crossword 填字 ---------- */
+.xw-wrap{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:start;margin-top:10px}
+.xw-grid{display:inline-flex;flex-direction:column;gap:4px;background:var(--navy);padding:4px;border-radius:8px;width:max-content}
+.xw-row{display:flex;gap:4px}
+.xw-cell{position:relative;width:52px;height:52px;background:#fff;border-radius:4px}
+.xw-block{background:var(--navy);border-radius:0}
+.xw-num{position:absolute;top:1px;left:3px;font:600 10px var(--sans);color:var(--muted);pointer-events:none;z-index:1}
+.xw-in{width:100%;height:100%;border:none;background:transparent;text-align:center;font:600 24px var(--serif);color:var(--navy);text-transform:uppercase;border-radius:4px;padding:0}
+.xw-in:focus{outline:none;background:var(--teal-bg);box-shadow:inset 0 0 0 2px var(--teal2)}
+.xw-in.ok{background:var(--good-bg);color:var(--good)}
+.xw-in.bad{background:var(--bad-bg);color:var(--bad)}
+.xw-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.xw-msg{margin-top:12px;font:500 14px var(--sans);color:var(--body);line-height:1.55}
+.xw-msg.good{color:var(--good);font-weight:600}
+.xw-clues{display:flex;flex-direction:column;gap:20px}
+.xw-cl-group h3{font:600 14px var(--sans);color:var(--teal);margin:0 0 9px;text-transform:uppercase;letter-spacing:.06em}
+.xw-cl-group ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.xw-cl-group li{font:400 14px/1.5 var(--sans);color:var(--ink)}
+.xw-cl-group li b{color:var(--navy)}
+.xw-zh{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
+@media(max-width:720px){.xw-wrap{grid-template-columns:1fr}.xw-cell{width:46px;height:46px}.xw-in{font-size:21px}}
+
+/* ---------- word guess (Wordle-style) 猜字 ---------- */
+.wd-view{max-width:520px;margin:0 auto}
+.wd-board{display:flex;flex-direction:column;gap:6px;align-items:center;margin:12px 0}
+.wd-brow{display:flex;gap:6px}
+.wd-tile{width:56px;height:56px;display:grid;place-items:center;font:700 26px var(--sans);text-transform:uppercase;border:2px solid var(--line);border-radius:6px;color:var(--navy);background:#fff}
+.wd-tile.typed{border-color:var(--muted)}
+.wd-tile.filled{color:#fff;border:none}
+.wd-tile.correct{background:#6aaa64}
+.wd-tile.present{background:#c9b458}
+.wd-tile.absent{background:#787c7e}
+.wd-msg{text-align:center;min-height:24px;margin:8px 0;font:500 15px var(--sans);color:var(--body)}
+.wd-msg.good{color:var(--good);font-weight:700}
+.wd-msg.bad{color:var(--bad);font-weight:700}
+.wd-keys{display:flex;flex-direction:column;gap:6px;align-items:center;margin-top:10px}
+.wd-krow{display:flex;gap:5px;justify-content:center}
+.wd-key{min-width:30px;height:50px;padding:0 9px;border:none;border-radius:5px;background:#d3d6da;color:var(--navy);font:700 13px var(--sans);cursor:pointer;text-transform:uppercase}
+.wd-key:hover{filter:brightness(.96)}
+.wd-wide{min-width:58px;font-size:12px}
+.wd-key.correct{background:#6aaa64;color:#fff}
+.wd-key.present{background:#c9b458;color:#fff}
+.wd-key.absent{background:#787c7e;color:#fff}
+.wd-lg{padding:0 5px;border-radius:3px}
+.wd-lg.wd-correct{color:#fff;background:#6aaa64}
+.wd-lg.wd-present{color:#fff;background:#c9b458}
+.wd-foot{text-align:center;margin-top:18px}
+@media(max-width:480px){.wd-tile{width:48px;height:48px;font-size:22px}.wd-key{min-width:26px;height:46px;padding:0 6px}.wd-wide{min-width:50px}}
+
 /* ---------- quiz / play surface ---------- */
 .play{max-width:680px;margin:0 auto}
 .play-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
@@ -4923,6 +4972,8 @@ function route(){
   else if(h[0]==="unitread" && h[1]) renderUnitRead(h[1]);
   else if(h[0]==="readgame" && h[1]) renderReadGame(h[1], h[2]||RD_LEVEL||"a");
   else if(h[0]==="listenexam") startListenExam();
+  else if(h[0]==="crossword") renderCrossword();
+  else if(h[0]==="wordle") renderWordle();
   else renderHome();
   paintHeader();
 }
@@ -15605,12 +15656,12 @@ function renderCheatsheet(){
    Views — Games hub
    ===================================================== */
 const GAME_TYPES = [
-  {id:"mcq",   icon:"🔤", bg:"#F3E9E0", name:"Multiple choice",   d:"Pick the correct form to complete each sentence."},
-  {id:"fill",  icon:"✏️", bg:"var(--teal-bg)", name:"Fill in the blank", d:"Type the missing word — spelling counts."},
-  {id:"order", icon:"🧩", bg:"#F0EBDD", name:"Sentence builder",  d:"Tap the words in order to rebuild the sentence."},
-  {id:"spot",  icon:"🔍", bg:"var(--amber-bg)", name:"Error spotting",  d:"One word is wrong — find it and see the fix."},
-  {id:"listen",icon:"🎧", bg:"#EDF2E4", name:"Listening 聽力測驗", d:"Listen first — then build or spell what you hear."},
-  {id:"timed", icon:"⏱️", bg:"var(--bad-bg)", name:"Timed challenge",  d:"60 seconds, mixed questions, streak multipliers."}
+  {id:"mcq",   icon:"🔤", bg:"#F3E9E0", name:"Multiple choice 選擇題",   d:"Pick the correct form to complete each sentence. 選出正確的形式完成句子。"},
+  {id:"fill",  icon:"✏️", bg:"var(--teal-bg)", name:"Fill in the blank 填空題", d:"Type the missing word — spelling counts. 拼出缺少的單字，拼寫要正確。"},
+  {id:"order", icon:"🧩", bg:"#F0EBDD", name:"Sentence builder 句子重組",  d:"Tap the words in order to rebuild the sentence. 依序點選單字，重組出正確句子。"},
+  {id:"spot",  icon:"🔍", bg:"var(--amber-bg)", name:"Error spotting 找錯誤",  d:"One word is wrong — find it and see the fix. 句中有一個字錯了，找出來看訂正。"},
+  {id:"listen",icon:"🎧", bg:"#EDF2E4", name:"Listening 聽力測驗", d:"Listen first, then build or spell what you hear. 先聽，再拼出或重組你聽到的句子。"},
+  {id:"timed", icon:"⏱️", bg:"var(--bad-bg)", name:"Timed challenge 限時挑戰",  d:"60 seconds, mixed questions, streak multipliers. 60 秒混合題型，連對有加成。"}
 ];
 let gameLevel = "all";
 function renderGames(){
@@ -15623,22 +15674,235 @@ function renderGames(){
       <h3>${g.name}</h3><p>${g.d}</p>
       <span class="gc-best">${best?("Best: "+best):"Not played yet"}</span></button>`;
   }).join("");
+  const crosswordCard = `<button class="card game-card" onclick="location.hash='#/crossword'">
+      <div class="gc-icon" style="background:#EAE4F2">🔡</div>
+      <h3>Crossword 填字遊戲</h3><p>Fill the grid from the clues — words cross and share letters. 依提示把格子填滿，直橫交錯、共用字母。</p>
+      <span class="gc-best">${store.data.best["crossword"]?("Best: "+store.data.best["crossword"]):"Not played yet"}</span></button>`;
+  const wordleCard = `<button class="card game-card" onclick="location.hash='#/wordle'">
+      <div class="gc-icon" style="background:#E4F0E0">🟩</div>
+      <h3>Word guess 猜字遊戲</h3><p>Guess the 5-letter word in 6 tries; green = right spot, yellow = wrong spot. 六次內猜出 5 個字母的單字。</p>
+      <span class="gc-best">${store.data.best["wordle"]?("Best: "+store.data.best["wordle"]):"Not played yet"}</span></button>`;
   const lxCard = `<button class="card game-card" onclick="location.hash='#/listenexam'">
       <div class="gc-icon" style="background:#E4F1EE">🎧</div>
-      <h3>會考聽力模擬 Listening Exam</h3><p>三大題型：辨識句意（看圖選答）、基本問答、言談理解。每回 9 題，兩位說話者的對話用不同音高播放。</p>
+      <h3>Listening Exam 會考聽力模擬</h3><p>Three exam question types, 9 per round, two voices at different pitch. 三大題型：辨識句意、基本問答、言談理解，每回 9 題。</p>
       <span class="gc-best">${store.data.best["listenexam"]?("Best: "+store.data.best["listenexam"]):"Not played yet"}</span></button>`;
   const mc = Object.keys(store.data.mistakes||{}).length;
   const reviewCard = `<button class="card game-card" onclick="location.hash='#/game/review/all'">
       <div class="gc-icon" style="background:#F4E7EE">📒</div>
-      <h3>Review mistakes 錯題複習</h3><p>Questions you missed come back until you beat them — answer right to clear them.</p>
+      <h3>Review mistakes 錯題複習</h3><p>Questions you missed come back until you beat them. 答錯的題目會一直回來，直到你答對為止。</p>
       <span class="gc-best">${mc? mc+" question"+(mc>1?"s":"")+" waiting":"Notebook empty — nice! 🐾"}</span></button>`;
   app.innerHTML = `<div class="view">
-    <div class="eyebrow">Practice games</div>
+    <div class="eyebrow">Practice games · 練習遊戲</div>
     <h1 class="display">Play your way to fluency</h1>
-    <p class="lede">Every game pulls questions from the lessons — pick a level, pick a game, and earn XP for each correct answer.</p>
+    <p class="lede">Pick a game and play — earn XP as you go. The level chips below filter the lesson-based games.<br>選一個遊戲開始玩，邊玩邊賺 XP；下方等級標籤會篩選以課程題庫為主的遊戲。</p>
     <div class="picker">${chips}</div>
-    <div class="games-grid">${cards}${lxCard}${reviewCard}</div>
+    <div class="games-grid">${crosswordCard}${wordleCard}${cards}${lxCard}${reviewCard}</div>
   </div>`;
+}
+
+/* =====================================================
+   Crossword 填字遊戲 (hand-built mini, NYT-style)
+   ===================================================== */
+const XWORD = {
+  rows:["BREAD","E#A#E","APRIL","C#T#T","H#H#A"],
+  across:[
+    {num:1, r:0, c:0, clue:"Food baked from flour — you eat it every day.", zh:"用麵粉烤成、天天吃的主食。"},
+    {num:4, r:2, c:0, clue:"The fourth month — “___ showers bring May flowers.”", zh:"一年的第四個月。"}
+  ],
+  down:[
+    {num:1, r:0, c:0, clue:"Sandy shore by the sea — perfect in summer.", zh:"海邊的沙灘。"},
+    {num:2, r:0, c:2, clue:"The planet we all live on.", zh:"我們居住的行星。"},
+    {num:3, r:0, c:4, clue:"Triangle-shaped land where a river meets the sea (also a Greek letter).", zh:"河流入海口的三角洲（也是希臘字母 Δ）。"}
+  ]
+};
+let XW = { done:false };
+function xwNumbers(){
+  const g = XWORD.rows.map(r=>r.split("")), R=g.length, C=g[0].length, num={};
+  let n=0;
+  for(let r=0;r<R;r++)for(let c=0;c<C;c++){
+    if(g[r][c]==="#") continue;
+    const startA = (c===0||g[r][c-1]==="#") && (c+1<C&&g[r][c+1]!=="#");
+    const startD = (r===0||g[r-1][c]==="#") && (r+1<R&&g[r+1][c]!=="#");
+    if(startA||startD){ n++; num[r+"_"+c]=n; }
+  }
+  return num;
+}
+function renderCrossword(){
+  XW = { done:false };
+  const g = XWORD.rows.map(r=>r.split("")), num = xwNumbers();
+  const grid = g.map((row,r)=>`<div class="xw-row">`+row.map((ch,c)=>{
+    if(ch==="#") return `<div class="xw-cell xw-block"></div>`;
+    const badge = num[r+"_"+c] ? `<span class="xw-num">${num[r+"_"+c]}</span>` : "";
+    return `<div class="xw-cell">${badge}<input class="xw-in" maxlength="1" data-sol="${ch}" inputmode="latin" autocapitalize="characters" oninput="xwInput(this)" onkeydown="xwKey(event,this)"></div>`;
+  }).join("")+`</div>`).join("");
+  const clueList = (arr)=>arr.map(e=>`<li><b>${e.num}.</b> ${e.clue}<span class="xw-zh">${e.zh}</span></li>`).join("");
+  app.innerHTML = `<div class="view xw-view">
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/games">Games</a> › Crossword</div>
+    <div class="eyebrow">Crossword · 填字遊戲</div>
+    <h1 class="display">Mini Crossword</h1>
+    <p class="lede">Read a clue, then type letters into the grid. Cells that cross share a letter, so one answer helps another.<br>看提示，把字母打進格子裡。交叉的格子共用同一個字母，一個答案能幫你解出另一個。</p>
+    <div class="xw-wrap">
+      <div class="xw-gridwrap"><div id="xwGrid" class="xw-grid">${grid}</div>
+        <div class="xw-btns">
+          <button class="btn btn-primary" onclick="xwCheck()">檢查 Check</button>
+          <button class="btn btn-ghost" onclick="xwReveal()">顯示答案 Reveal</button>
+          <button class="btn btn-ghost" onclick="xwClear()">清除 Clear</button>
+        </div>
+        <div id="xwMsg" class="xw-msg"></div>
+      </div>
+      <div class="xw-clues">
+        <div class="xw-cl-group"><h3>Across 橫</h3><ul>${clueList(XWORD.across)}</ul></div>
+        <div class="xw-cl-group"><h3>Down 直</h3><ul>${clueList(XWORD.down)}</ul></div>
+      </div>
+    </div>
+  </div>`;
+  window.scrollTo(0,0);
+}
+function xwInput(el){
+  el.value = (el.value||"").toUpperCase().replace(/[^A-Z]/g,"").slice(0,1);
+  el.classList.remove("ok","bad");
+  if(el.value){ const ins=[...document.querySelectorAll("#xwGrid .xw-in")]; const i=ins.indexOf(el); if(i>-1&&ins[i+1]) ins[i+1].focus(); }
+}
+function xwKey(e,el){
+  if(e.key==="Backspace" && !el.value){ const ins=[...document.querySelectorAll("#xwGrid .xw-in")]; const i=ins.indexOf(el); if(i>0){ ins[i-1].focus(); e.preventDefault(); } }
+}
+function xwCheck(){
+  const ins=[...document.querySelectorAll("#xwGrid .xw-in")]; let filled=0, right=0;
+  ins.forEach(el=>{
+    el.classList.remove("ok","bad");
+    if(!el.value){ return; }
+    filled++;
+    if(el.value===el.dataset.sol){ el.classList.add("ok"); right++; } else { el.classList.add("bad"); }
+  });
+  const msg=document.getElementById("xwMsg");
+  if(right===ins.length){
+    msg.textContent = "🎉 全對！你完成了整張填字遊戲。Perfect — every square is correct!";
+    msg.className = "xw-msg good";
+    if(!XW.done){ XW.done=true; store.data.best["crossword"]="Solved ✓"; store.save(); store.addXP(5); }
+  } else if(filled<ins.length){
+    msg.textContent = `已填 ${filled}/${ins.length} 格，其中 ${right} 格正確。綠色正確、紅色要再想想。`;
+    msg.className = "xw-msg";
+  } else {
+    msg.textContent = `全部填好了！${right}/${ins.length} 正確。紅色的格子再修改看看。`;
+    msg.className = "xw-msg";
+  }
+}
+function xwReveal(){
+  document.querySelectorAll("#xwGrid .xw-in").forEach(el=>{ el.value=el.dataset.sol; el.classList.remove("bad"); el.classList.add("ok"); });
+  const msg=document.getElementById("xwMsg"); msg.textContent="答案已顯示。對照一下每個提示是怎麼解出來的吧。Answers revealed."; msg.className="xw-msg";
+}
+function xwClear(){
+  document.querySelectorAll("#xwGrid .xw-in").forEach(el=>{ el.value=""; el.classList.remove("ok","bad"); });
+  const msg=document.getElementById("xwMsg"); msg.textContent=""; msg.className="xw-msg";
+}
+
+/* =====================================================
+   Word guess 猜字遊戲 (Wordle-style, 5 letters)
+   ===================================================== */
+const WORDLE_WORDS = [
+  ["APPLE","蘋果"],["BEACH","海灘"],["BREAD","麵包"],["CHAIR","椅子"],["CLOUD","雲"],
+  ["DANCE","跳舞"],["DREAM","夢想"],["EARTH","地球"],["EAGLE","老鷹"],["FRUIT","水果"],
+  ["GLASS","玻璃杯"],["GRAPE","葡萄"],["GREEN","綠色"],["HAPPY","快樂的"],["HEART","心"],
+  ["HOUSE","房子"],["JUICE","果汁"],["LIGHT","光"],["LEMON","檸檬"],["MONEY","錢"],
+  ["MOUSE","老鼠"],["MUSIC","音樂"],["NIGHT","夜晚"],["OCEAN","海洋"],["PARTY","派對"],
+  ["PEACE","和平"],["PHONE","電話"],["PLANT","植物"],["PIZZA","披薩"],["QUEEN","皇后"],
+  ["QUIET","安靜的"],["RIVER","河流"],["ROBOT","機器人"],["SALAD","沙拉"],["SHEEP","綿羊"],
+  ["SHIRT","襯衫"],["SMILE","微笑"],["SNAKE","蛇"],["SPOON","湯匙"],["STONE","石頭"],
+  ["STORM","暴風雨"],["SUGAR","糖"],["SUNNY","晴朗的"],["SWEET","甜的"],["TABLE","桌子"],
+  ["TIGER","老虎"],["TOAST","吐司"],["TOOTH","牙齒"],["TRAIN","火車"],["WATER","水"],
+  ["WHITE","白色"],["WORLD","世界"],["YOUNG","年輕的"],["ZEBRA","斑馬"],["BRING","帶來"],
+  ["CATCH","抓住"],["CLEAN","乾淨的"],["CLIMB","攀爬"],["CLOSE","關閉"],["DRINK","喝"],
+  ["DRIVE","開車"],["ENJOY","享受"],["EVERY","每一個"],["FIRST","第一"],["FLOOR","地板"],
+  ["FRESH","新鮮的"],["FUNNY","有趣的"],["GIANT","巨人"],["GRASS","草"],["GROUP","群組"],
+  ["GUIDE","引導"],["HELLO","哈囉"],["HOBBY","嗜好"],["HOTEL","旅館"],["HURRY","匆忙"],
+  ["LEARN","學習"],["LUCKY","幸運的"],["MAGIC","魔法"],["MONTH","月份"],["MOVIE","電影"],
+  ["OFFER","提供"],["PAINT","畫；油漆"],["PAPER","紙"],["PLACE","地方"],["PLANE","飛機"],
+  ["PLATE","盤子"],["POINT","點"],["PRICE","價格"],["PROUD","驕傲的"],["RADIO","收音機"],
+  ["SPORT","運動"],["START","開始"],["STORY","故事"],["STUDY","讀書"],["TEACH","教"],
+  ["THANK","感謝"],["THINK","思考"],["THREE","三"],["TIRED","疲倦的"],["UNCLE","叔叔"],
+  ["VOICE","聲音"],["WATCH","手錶；看"],["WHEEL","輪子"],["WOMAN","女人"],["WRITE","寫"]
+];
+const WD_KEYROWS = ["QWERTYUIOP","ASDFGHJKL","ZXCVBNM"];
+let WD = null, WD_LISTENER=false;
+function renderWordle(){
+  const pick = WORDLE_WORDS[Math.floor(Math.random()*WORDLE_WORDS.length)];
+  WD = { answer:pick[0], zh:pick[1], rows:6, cols:5, guesses:[], cur:"", done:false, key:{} };
+  if(!WD_LISTENER){ document.addEventListener("keydown", wdPhysical); WD_LISTENER=true; }
+  app.innerHTML = `<div class="view wd-view">
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/games">Games</a> › Word guess</div>
+    <div class="eyebrow">Word guess · 猜字遊戲</div>
+    <h1 class="display">Guess the 5-letter word</h1>
+    <p class="lede">You have 6 tries. After each guess: <b class="wd-lg wd-correct">green</b> = right letter, right spot; <b class="wd-lg wd-present">yellow</b> = right letter, wrong spot; grey = not in the word.<br>六次機會。<b>綠</b>＝字母對、位置也對；<b>黃</b>＝有這個字母但位置不對；灰＝不在字裡。</p>
+    <div id="wdBoard" class="wd-board"></div>
+    <div id="wdMsg" class="wd-msg"></div>
+    <div id="wdKeys" class="wd-keys"></div>
+    <div class="wd-foot"><button class="btn btn-ghost" onclick="renderWordle()">換一個字 New word ↻</button></div>
+  </div>`;
+  updateWordle();
+  window.scrollTo(0,0);
+}
+function wdStatus(guess){
+  const res=Array(5).fill("absent"), a=WD.answer.split("");
+  for(let i=0;i<5;i++){ if(guess[i]===a[i]){ res[i]="correct"; a[i]=null; } }
+  for(let i=0;i<5;i++){ if(res[i]==="correct") continue; const j=a.indexOf(guess[i]); if(j>-1){ res[i]="present"; a[j]=null; } }
+  return res;
+}
+function updateWordle(){
+  const board=document.getElementById("wdBoard"); if(!board) return;
+  let rowsHtml="";
+  for(let r=0;r<WD.rows;r++){
+    let cells="";
+    if(r<WD.guesses.length){
+      const g=WD.guesses[r], st=wdStatus(g);
+      for(let c=0;c<5;c++) cells+=`<div class="wd-tile ${st[c]} filled">${g[c]}</div>`;
+    } else if(r===WD.guesses.length && !WD.done){
+      for(let c=0;c<5;c++){ const ch=WD.cur[c]||""; cells+=`<div class="wd-tile ${ch?"typed":""}">${ch}</div>`; }
+    } else {
+      for(let c=0;c<5;c++) cells+=`<div class="wd-tile"></div>`;
+    }
+    rowsHtml+=`<div class="wd-brow">${cells}</div>`;
+  }
+  board.innerHTML=rowsHtml;
+  const keys=document.getElementById("wdKeys");
+  keys.innerHTML = WD_KEYROWS.map((row,ri)=>{
+    let ks="";
+    if(ri===2) ks+=`<button class="wd-key wd-wide" onclick="wdEnter()">Enter</button>`;
+    ks+=row.split("").map(k=>`<button class="wd-key ${WD.key[k]||""}" onclick="wdTap('${k}')">${k}</button>`).join("");
+    if(ri===2) ks+=`<button class="wd-key wd-wide" onclick="wdBack()">⌫</button>`;
+    return `<div class="wd-krow">${ks}</div>`;
+  }).join("");
+}
+function wdTap(k){ if(WD.done) return; if(WD.cur.length<5){ WD.cur+=k; updateWordle(); } }
+function wdBack(){ if(WD.done) return; WD.cur=WD.cur.slice(0,-1); updateWordle(); }
+function wdEnter(){
+  if(WD.done) return;
+  if(WD.cur.length<5){ wdMsg("要先湊滿 5 個字母喔。Type 5 letters first."); return; }
+  const guess=WD.cur; WD.guesses.push(guess);
+  const st=wdStatus(guess);
+  for(let i=0;i<5;i++){ const k=guess[i], rank={correct:3,present:2,absent:1}; if(rank[st[i]]>(rank[WD.key[k]]||0)) WD.key[k]=st[i]; }
+  WD.cur="";
+  if(guess===WD.answer){
+    WD.done=true; updateWordle();
+    const tries=WD.guesses.length;
+    wdMsg(`🎉 答對了！<b>${WD.answer}</b> = ${WD.zh}　（第 ${tries} 次猜中）`, "good");
+    const xp = Math.max(2, 8-tries);
+    store.data.best["wordle"] = "Solved in "+tries; store.save(); store.addXP(xp);
+    return;
+  }
+  if(WD.guesses.length>=WD.rows){
+    WD.done=true; updateWordle();
+    wdMsg(`答案是 <b>${WD.answer}</b> = ${WD.zh}。再試一個新字吧！The word was ${WD.answer}.`, "bad");
+    return;
+  }
+  updateWordle();
+}
+function wdMsg(html, cls){ const m=document.getElementById("wdMsg"); if(!m) return; m.innerHTML=html; m.className="wd-msg"+(cls?" "+cls:""); }
+function wdPhysical(e){
+  if(!document.getElementById("wdBoard")) return;
+  if(e.metaKey||e.ctrlKey||e.altKey) return;
+  if(e.key==="Enter"){ wdEnter(); }
+  else if(e.key==="Backspace"){ wdBack(); e.preventDefault(); }
+  else if(/^[a-zA-Z]$/.test(e.key)){ wdTap(e.key.toUpperCase()); }
 }
 
 /* =====================================================
