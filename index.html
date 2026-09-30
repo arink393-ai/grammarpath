@@ -8474,6 +8474,35 @@ const WORD_ORIGINS = [
        zh:"外來語常常保留「不像英文」的長相：奇怪的字母組合（bureau 的 -eau、gnocchi 的 gn-）、不發音的字母（ballet、genre），或拼法貼近原語言發音（karaoke、jalapeño）。一個字看起來「外國」，通常就真的是——而且拼法和意思常常和原文很接近。"},
    {t:"call", zhTitle:"課堂活動 · World map of words", zh:"發一張世界地圖，讓學生把學過的外來語貼到來源國（pizza→義大利、sushi→日本、tea→台灣）。學生會發現：學英文，其實一路上都在跟全世界的語言打招呼。", en:"Give students a world map and pin loanwords to their home countries — learning English means greeting the whole world."},
    {t:"link", href:"#/etymology", label:"回字源學堂目錄 Back to all chapters"}
+  ]},
+ {id:"suffix-sounds", icon:"🔊", en:"Suffix Sounds", zh:"常見字尾發音規則", tag:"Pronunciation · 發音",
+  hook:"同樣的字尾，發音卻會變——-ed 有三種唸法，-s 也有三種。學會規則，開口就自然了。",
+  blocks:[
+   {t:"p", en:"A suffix looks the same on paper, but its sound can change depending on the letter — really, the sound — just before it. Learners often over-pronounce every -ed as a full 'id', or move stress to the wrong syllable. A few rules fix most of it, and your speaking starts to sound natural.",
+       zh:"字尾在紙上長得一樣，唸出來卻會變——關鍵在它前面那個「音」。學生常把每個 -ed 都唸成完整的「id」，或把重音放錯位置。下面幾條規則就能解決大部分問題，開口說話也會更自然。"},
+   {t:"h", en:"The -ed ending: three sounds", zh:"-ed 的三種發音"},
+   {t:"p", en:"The sound of -ed depends on the LAST sound of the base verb — the sound, not the spelling. There are only three possibilities:",
+       zh:"-ed 怎麼唸，取決於原形動詞「最後一個音」（是音，不是字母）。只有三種可能："},
+   {t:"table", head:["發音 Sound","什麼時候 When","例子 Examples"],
+     rows:[["<b>/t/</b>","無聲子音後 (p, k, f, s, sh, ch)","<b>walked</b>, <b>kissed</b>, <b>watched</b>, <b>hoped</b>"],["<b>/d/</b>","有聲子音或母音後","<b>played</b>, <b>loved</b>, <b>called</b>, <b>cleaned</b>"],["<b>/ɪd/</b> (多一音節)","結尾是 t 或 d 的音","<b>wanted</b>, <b>needed</b>, <b>started</b>, <b>added</b>"]]},
+   {t:"call", zhTitle:"重點 · 只有第三種多一音節", zh:"只有在 t／d 後面，-ed 才會多唸一個音節。wanted 是兩音節，但 walked 還是一音節（不是「walk-ed」）。這是台灣學生最常唸錯的地方。", en:"Only after /t/ or /d/ does -ed add a syllable: wanted = 2 syllables, but walked stays 1 (not 'walk-ed')."},
+   {t:"h", en:"The -s / -es ending: three sounds", zh:"-s／-es 的三種發音"},
+   {t:"p", en:"Plural nouns and third-person verbs follow the very same logic — three sounds, chosen by the sound before the ending.",
+       zh:"名詞複數和動詞第三人稱單數，用的是一模一樣的邏輯——三種發音，由前面那個音決定。"},
+   {t:"table", head:["發音 Sound","什麼時候 When","例子 Examples"],
+     rows:[["<b>/s/</b>","無聲子音後","<b>cats</b>, <b>books</b>, <b>maps</b>, <b>laughs</b>"],["<b>/z/</b>","有聲子音或母音後","<b>dogs</b>, <b>plays</b>, <b>trees</b>, <b>needs</b>"],["<b>/ɪz/</b> (多一音節)","嘶音後 (s, z, sh, ch, ge, x)","<b>buses</b>, <b>watches</b>, <b>wishes</b>, <b>boxes</b>"]]},
+   {t:"h", en:"Suffixes that move the stress", zh:"會移動重音的字尾"},
+   {t:"p", en:"Some suffixes pull the main stress onto the syllable right before them, even when the spelling barely changes. This is why PHOto-graph becomes photo-GRAPH-ic. Say the stressed part (in capitals) a little louder and longer:",
+       zh:"有些字尾會把主重音「拉」到它前面那一個音節，就算拼字幾乎沒變。這就是為什麼 PHOtograph 會變成 photoGRAPHic。把大寫的重音音節唸得稍微重一點、長一點："},
+   {t:"table", head:["字尾 Suffix","規則 Rule","例子 Examples (重音大寫)"],
+     rows:[["<b>-ic</b>","重音落在前一音節","histor→hisTORic, energ→enerGETic, draMAtic"],["<b>-tion / -sion</b>","重音落在前一音節","eduCAtion, deCIsion, teleVIsion"],["<b>-ity</b>","重音落在前一音節","aBIlity, actIVity, curiOSity"],["<b>-ial / -ian</b>","重音落在前一音節","essenTIAL, muSIcian, hisTORian"]]},
+   {t:"h", en:"Quiet endings (the schwa)", zh:"輕聲字尾（弱化為 /ə/）"},
+   {t:"p", en:"Many endings are unstressed and shrink to a soft 'uh' — the schwa /ə/, the most common sound in English. That is why teacher, actor and dollar all end the same way, even with different spellings.",
+       zh:"很多字尾不重讀，會縮成一個輕輕的「呃」——也就是 schwa /ə/，英語裡最常見的音。所以 teacher、actor、dollar 儘管拼法不同，結尾聽起來都一樣。"},
+   {t:"table", head:["字尾 Ending","發音 Sound","例子 Examples"],
+     rows:[["-er / -or / -ar","/ər/","teacher, actor, dollar, sugar"],["-ous","/əs/","famous, nervous, dangerous"],["-ture","/tʃər/","nature, picture, future, culture"],["-age","/ɪdʒ/","village, message, package"]]},
+   {t:"call", zhTitle:"課堂活動 · Sort the sounds", zh:"給學生一疊過去式動詞卡（walked、played、wanted…），請他們照 /t/、/d/、/ɪd/ 分成三堆並唸出來；-s 也可以照 /s/、/z/、/ɪz/ 玩一次。錄下來回放，讓學生自己聽出差別，比老師講十次還有效。", en:"Hand out past-tense cards and have students sort them into /t/, /d/, /ɪd/ piles and say each aloud — record and replay so they hear the difference themselves."},
+   {t:"link", href:"#/etymology", label:"回字源學堂目錄 Back to all chapters"}
   ]}
 ];
 const etymById = id => WORD_ORIGINS.find(x=>x.id===id);
