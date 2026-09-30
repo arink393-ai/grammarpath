@@ -1576,6 +1576,32 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sl-zh{font-family:var(--han);font-size:13px;color:var(--lab-ink);margin-top:2px}
 .sl-note{margin-top:8px;font-size:12.5px;line-height:1.7;color:var(--body);background:#fff;border-left:3px solid var(--lab-accent);border-radius:0 7px 7px 0;padding:8px 11px}
 @media(max-width:640px){.lab-zone-s{display:none}}
+/* Mindset in Action (Theory zone) */
+.ms-zone{margin:44px 0 10px;padding-top:22px;border-top:2px solid var(--th-line)}
+.ms-zone-hd{margin-bottom:18px}
+.ms-zone-h{font:800 1.5rem var(--serif,serif);color:var(--th-ink);margin:4px 0 8px}
+.ms-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.ms-case{background:var(--th-panel);border:1px solid var(--th-line);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column}
+.ms-tag{align-self:flex-start;font:700 11.5px sans-serif;color:#fff;background:var(--th-accent);padding:4px 11px;border-radius:20px;margin-bottom:9px}
+.ms-title{font:800 1.15rem var(--serif,serif);color:var(--th-ink);margin:0;line-height:1.25}
+.ms-title span{display:block;font:500 13px var(--han);color:var(--th-soft);margin-top:2px}
+.ms-who{font-size:12px;color:var(--th-faint);margin:5px 0 8px}
+.ms-intro{font-size:13.5px;line-height:1.75;color:var(--th-zh);margin:0 0 12px}
+.ms-intro .z{display:block;font-size:12.5px;color:var(--th-soft);margin-top:5px;font-style:italic}
+.ms-case .lab-video-frame{border-color:var(--th-line2)}
+.ms-cap{margin-top:12px;background:#fff;border:1px solid var(--th-line);border-radius:12px;padding:12px 14px}
+.ms-cap-h{display:flex;align-items:center;justify-content:space-between;gap:10px;font:700 13px var(--serif,serif);color:var(--th-ink);margin-bottom:10px}
+.ms-cap-h a{font:600 12px sans-serif;color:var(--th-accent);text-decoration:none;white-space:nowrap}
+.ms-cap-h a:hover{text-decoration:underline}
+.ms-seg{display:inline-flex;border:1.5px solid var(--th-accent);border-radius:22px;overflow:hidden;margin-bottom:10px}
+.ms-seg button{font:600 12.5px sans-serif;color:var(--th-accent);background:#fff;border:none;padding:6px 15px;cursor:pointer;transition:.15s}
+.ms-seg button+button{border-left:1.5px solid var(--th-accent)}
+.ms-seg button.on{background:var(--th-accent);color:#fff}
+.ms-subs{display:flex;flex-direction:column;gap:9px;margin-top:2px}
+.ms-sub{border-left:3px solid var(--th-line2);padding:3px 0 3px 11px}
+.ms-en{display:block;font:500 13.5px/1.55 var(--serif,serif);color:var(--th-ink)}
+.ms-zh{display:block;font-family:var(--han);font-size:12.5px;color:var(--th-soft);margin-top:2px}
+@media(max-width:640px){.ms-list{grid-template-columns:1fr}}
 .lab-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:30px 0 10px;padding-top:18px;border-top:1px solid var(--lab-line)}
 .lab-game-sec{background:linear-gradient(180deg,#FBF7EF,#F5EFE2);border:1px solid var(--lab-line);border-radius:16px;padding:16px 18px 20px}
 .rg-wrap{display:flex;flex-direction:column;gap:14px;margin-top:8px}
@@ -5141,6 +5167,143 @@ const STORIES = [
     note:"Original text and illustrations by Beatrix Potter (1902, Frederick Warne & Co.), public domain. Extracted and presented with bilingual annotations, Web Speech read-aloud and vocabulary support for class and home reading."
   },
   {
+    id:"little-prince",
+    category:"picturebook",
+    title:"The Little Prince",
+    zh:"小王子",
+    author:"Antoine de Saint-Exupéry (1943)",
+    tag:"Classic Picture Book · 經典哲理繪本",
+    source:"Antoine de Saint-Exupéry · Translated by Katherine Woods (1943, Public Domain)",
+    coverImg:"art/little-prince/cover.png",
+    blurb:"“It is only with the heart that one can see rightly; what is essential is invisible to the eye.” A stranded pilot meets a boy from Asteroid B-612.",
+    blurbZh:"「真正重要的人事物，用肉眼是看不見的，必須用心才能看清。」在撒哈拉沙漠意外迫降的飛行員，遇見了來自 B-612 星球的金髮小王子……",
+    intro:{
+      en:"Deep in the vast Sahara Desert, a thousand miles from any human habitation, an aviator crashes and meets a mysterious golden-haired boy who asks for a sheep and reveals the secrets of love and life.",
+      zh:"在遠離人煙千里之外的浩瀚撒哈拉沙漠中，一位機械故障迫降的飛行員，遇見了一位來自遙遠小行星的金髮小男孩。這是一段關於愛、責任與成長的永恆追尋。"
+    },
+    scenes:[
+      {n:"1", title:"Drawing Number One", z:"第一號畫作：巨蟒與帽子", img:"art/little-prince/scene-01.png",
+        en:"Once when I was six years old, I saw a magnificent picture in a book called True Stories from Nature, about the primeval forest. It was a picture of a boa constrictor in the act of swallowing an animal. I pondered deeply, then made my first colored drawing. I showed my masterpiece to the grown-ups and asked them whether the drawing frightened them. But they answered: “Why should anyone be frightened by a hat?” My drawing was not a picture of a hat; it was a boa constrictor digesting an elephant. Grown-ups always need to have things explained.",
+        zh:"在我六歲的時候，曾在一本名叫《真實的故事》的書裡看過一幅精彩的插圖。那是一條大蟒蛇正在吞食獵物。我深深思索後，用彩色鉛筆畫出了我的第一號作品。我拿給大人看，問他們害不害怕。但大人們回答：「一頂帽子有什麼好怕的？」我的畫才不是帽子，而是一條正在消化大象的大蟒蛇。大人總是需要別人跟他們解釋一切。"},
+      {n:"2", title:"“Draw Me a Sheep!”", z:"沙漠迫降：「請幫我畫一隻羊！」", img:"art/little-prince/scene-02.png",
+        en:"Six years ago, I had an accident with my airplane in the Desert of Sahara. Something was broken in my engine, and I set myself to attempt the difficult repairs all alone, a thousand miles from any human habitation. At sunrise, I was awakened by an odd little voice. It said: “If you please—draw me a sheep!” I jumped to my feet, completely thunderstruck. And I saw a most extraordinary small person, who stood there examining me with great seriousness. He seemed neither lost, nor dying of thirst or fear in the desert.",
+        zh:"六年前，我的飛機在撒哈拉沙漠發生了意外。引擎壞了，在遠離人煙千里之外的荒漠裡，我只能獨自嘗試艱難的修理。清晨太陽升起時，一個奇特的小聲音把我喚醒，他說：「請你……幫我畫一隻羊！」我猛然跳了起來，目瞪口呆。眼前站著一個極不尋常的小人兒，正用無比嚴肅的神情端詳著我。他既不像迷了路，也不像在沙漠中渴得快要死去或害怕的樣子。"},
+      {n:"3", title:"The Sheep in the Box", z:"盒子裡的綿羊", img:"art/little-prince/scene-03.png",
+        en:"I drew a sheep, but he rejected it: “No, this sheep is already very sickly.” I drew another: “This is not a sheep, it has horns—it is a ram!” I drew a third: “This one is too old; I want a sheep that will live a long time.” By this time my patience was exhausted, for I was in a hurry to start taking my engine apart. So I tossed off a box with three holes and said: “This is only his box. The sheep you asked for is inside.” A light broke over his face: “That is exactly the way I wanted it! Look, he has gone to sleep...”",
+        zh:"我畫了一隻羊，但他搖搖頭：「不行，這隻羊病得很重。」我又畫了一隻，他說：「這不是羊，他有角——這是公羊！」我又畫了第三隻：「這隻太老了，我要一隻能活很久的羊。」這時我失去了耐性，急著拆卸發動機，便隨手畫了一個有三個小孔的箱子，說：「這只是個盒子，你要的羊就在裡面。」小人兒的臉龐頓時亮了起來：「這正是我想要的！你看，他睡著了……」"},
+      {n:"4", title:"A Visitor from the Sky", z:"來自天空的旅人", img:"art/little-prince/scene-04.png",
+        en:"It took me a long time to learn where he came from. When he first saw my airplane, he cried: “What! You dropped down from the sky? Which is your planet?” At that moment I caught a gleam of light in the impenetrable mystery of his presence. “Do you come from another planet?” I demanded abruptly. But he only tossed his head gently: “It is true that on that you can't have come from very far away...” And he sank into a reverie, taking the sheep from his pocket to contemplate his treasure.",
+        zh:"我花了很長的時間才明白他來自哪裡。當他第一次看見我的飛機時，驚呼道：「什麼！你也是從天上掉下來的？哪一顆是你的星球？」那一刻，我在他神秘的來歷中捕捉到了一絲光芒。「難道你來自別的星球？」我急切地問。他只是輕輕搖頭：「確實，坐那種東西，你不可能從很遠的地方來……」接著他陷入沉思，從口袋拿出那張羊的畫紙，凝視著他的寶藏。"},
+      {n:"5", title:"Asteroid B-612 and Figures", z:"B-612 小行星與大人的數字", img:"art/little-prince/scene-05.png",
+        en:"I had learned that the planet the little prince came from was scarcely larger than a house: Asteroid B-612. If I tell you these figures, it is on account of the grown-ups and their ways. When you tell them about a new friend, they never ask: “What does his voice sound like? What games does he love best?” Instead, they demand: “How old is he? How much money does his father make?” Only from these figures do they think they have learned anything about him. Children should always show great forbearance toward grown-up people.",
+        zh:"我知道了小王子居住的星球幾乎只比一棟房子大一點點：B-612 小行星。我之所以向大家提起這個編號，都是因為大人們的怪癖。當你向大人介紹一位新朋友時，他們從不問：「他的聲音聽起來怎麼樣？他最喜歡什麼遊戲？」相反地，他們總是追問：「他幾歲？他爸爸賺多少錢？」他們以為只有透過這些數字，才能了解一個人。孩子們對大人總得懷抱寬大的包容心。"},
+      {n:"6", title:"Watch Out for the Baobabs!", z:"當心猴麵包樹！", img:"art/little-prince/scene-06.png",
+        en:"On the third day, I heard about the catastrophe of the baobabs. On the little prince's planet, the soil was infested with seeds of the baobab. A baobab is something you will never be able to get rid of if you attend to it too late; it bores clear through the planet with its roots and splits it in pieces. “It is a question of discipline,” the little prince said. “When you finish your morning toilet, you must attend to the toilet of your planet with the greatest care. Children, watch out for the baobabs!”",
+        zh:"到了第三天，我得知了猴麵包樹的可怕災難。在小王子的星球上，泥土裡布滿了猴麵包樹的種子。這種樹如果你處理得太慢，就永遠除不掉了；它的樹根會鑽透整個星球，甚至將小星球撐得四分五裂。「這完全是自律的問題，」小王子說：「當你早上梳洗完畢，就必須極為細心地打理你的星球。孩子們，一定要當心猴麵包樹！」"},
+      {n:"7", title:"The Split Planet", z:"被巨樹撕裂的星球", img:"art/little-prince/scene-07.png",
+        en:"“Sometimes,” the little prince added, “there is no harm in putting off a piece of work until another day. But when it is a matter of baobabs, that always means a catastrophe. I knew a planet that was inhabited by a lazy man. He neglected three little bushes...” And so I worked tirelessly on this drawing, driven by the inspiring force of urgent necessity, so that everyone could see the danger of letting small evils grow into monstrous giants.",
+        zh:"「有時候，」小王子補充道：「把工作推遲到明天並無大礙。但如果是拔除猴麵包樹，那絕對會是一場浩劫。我曾知道一顆住著懶漢的星球，他疏忽了三棵小灌木……」正因如此，在一種刻不容緩的急迫感驅使下，我全力畫下了這幅浩大的巨樹撕裂星球圖，提醒大家絕不能任由微小的惡習長成吞噬一切的龐然巨怪。"},
+      {n:"8", title:"The Forty-Four Sunsets", z:"四十四次日落", img:"art/little-prince/scene-08.png",
+        en:"“I am very fond of sunsets,” the little prince told me. “Come, let us go look at a sunset now.” “We must wait,” I said. “Wait for what?” “Wait until it is time.” On his tiny planet, all he needed to do was move his chair a few steps to watch twilight falling whenever he wished. “One day,” he whispered, “I saw the sunset forty-four times! You know—one loves the sunset, when one is so sad...” But when I asked if he had been so sad that day, he made no reply.",
+        zh:"「我好喜歡看日落，」小王子告訴我：「走，我們現在去看日落吧。」「我們得等等，」我說。「等什麼？」「等日落的時間到來。」在他那小小的星球上，只要把椅子挪動幾步，他隨時都能看見暮色降臨。「有一天，」他輕聲說：「我看了四十四次日落！你知道嗎……當一個人感到極度憂傷時，總是特別喜歡看日落……」但當我問他那天是否真的很難過時，他卻沒有回答。"},
+      {n:"9", title:"The Secret Land of Tears", z:"神祕的眼淚之國", img:"art/little-prince/scene-09.png",
+        en:"On the fifth day, he asked if sheep eat flowers with thorns. Upset over a jammed bolt in my engine, I snapped: “Thorns are of no use at all! Flowers have thorns just for spite!” The little prince was white with rage: “If someone loves a flower, of which just one single blossom grows in all the millions of stars, it is enough to make him happy just to look at the stars! But if the sheep eats the flower, in one moment all his stars will be darkened!” He broke into sobs. I dropped my tools and took him in my arms. It is such a secret place, the land of tears.",
+        zh:"第五天，他問我羊會不會吃帶刺的花。正為卡死螺栓焦頭爛額的我脫口而出：「刺一點用都沒有，那純粹是花兒的惡意！」小王子氣得臉色發白：「如果在千千萬萬顆星星之中，只有一朵獨一無二的花，那麼只要仰望星空，人就能感到無比幸福！但要是羊把那朵花吃掉了，所有的星星都會在一瞬間熄滅！」說著他泣不成聲。我扔下工具，將他緊緊抱在懷中。眼淚的國度，是多麼神祕難測啊。"},
+      {n:"10", title:"The Birth of the Rose", z:"玫瑰花兒的誕生", img:"art/little-prince/scene-10.png",
+        en:"On the little prince's planet, flowers had always been simple and faded in a single day. But from a seed blown from nowhere, a new sprout appeared. The bud prepared her beauty slowly, adjusting her petals one by one so she would not emerge all rumpled. Then one morning, exactly at sunrise, she showed herself: “Ah! I am scarcely awake. I beg your pardon... My petals are still all disarranged...” The little prince could not restrain his admiration: “Oh! How beautiful you are!”",
+        zh:"在小王子的星球上，以往的花兒都很樸素，一天之內就會凋謝。但不知從何處吹來了一顆種子，萌發出獨特的新芽。這個花苞精心打扮，慢條斯理地一片片調整花瓣，不願像野罌粟那樣帶著皺褶面世。終於在一個清晨日出時，她盛開了：「啊！我才剛睡醒呢，真是不好意思……我的花瓣還亂糟糟的……」小王子忍不住發出由衷的讚嘆：「天啊！妳是多麼的美麗啊！」"},
+      {n:"11", title:"Tending a Proud Heart", z:"照料嬌縱的花兒", img:"art/little-prince/scene-11.png",
+        en:"The flower soon tormented him with her vanity. “Let the tigers come with their claws!” she boasted, showing her four tiny thorns. “I am not afraid of tigers, but I have a horror of drafts. Would you have a screen for me? And at night, put me under a glass globe.” The little prince fetched fresh water and sheltered her from the wind, yet her pride troubled him deeply: “I was too young to know how to love her. I ought to have judged by deeds, not words. She perfumed my planet, but I did not understand.”",
+        zh:"這朵花很快就用她的虛榮折磨起他來。「讓老虎帶著爪子來吧！」她炫耀著那四根小刺說道：「我可不怕老虎，但我最怕過堂風了。你能給我一個屏風嗎？晚上還要用玻璃罩把我罩起來。」小王子打來清水、為她擋風，但她的嬌傲讓他深感困惑：「那時我太年輕了，還不懂得如何愛她。我應該看她為我做了什麼，而不是聽她說了什麼。她為我的星球帶來了芬芳，我卻沒能體會她柔弱偽裝下的深情。」"},
+      {n:"12", title:"Farewell to the Asteroid", z:"告別與啟程", img:"art/little-prince/scene-12.png",
+        en:"For his departure, he took advantage of a migration of wild birds. He carefully cleaned out his active volcanoes and pulled up the last baobab shoots. When he watered the flower for the last time and lifted the glass globe, he was close to tears. “Goodbye,” he said. The flower answered softly: “I have been silly. I ask your forgiveness. Try to be happy... Let the glass globe be; the night air will do me good. I must endure two or three caterpillars if I wish to know the butterflies. Now go!” She did not want him to see her cry.",
+        zh:"小王子藉著一群候鳥遷徙的機會踏上了旅途。出發前，他仔細疏通了兩座活火山，拔掉了最後的猴麵包樹幼芽。當他最後一次給花澆水、準備蓋上玻璃罩時，他忍不住紅了眼眶。「再見了，」他說。花兒輕柔地回答：「我以前太傻了，請你原諒我。一定要快樂起來……別蓋玻璃罩了，夜風對我有好處。要想認識蝴蝶，我就必須忍受兩三隻毛毛蟲。快走吧！」她是那樣驕傲，不願讓他看見自己的眼淚。"},
+      {n:"13", title:"The King: A Reasonable Monarch", z:"國王的星球：合理的命令", img:"art/little-prince/scene-13.png",
+        en:"On the first asteroid lived a King, draped in royal purple and ermine. To him, all men were subjects. “I order you to yawn!” the king commanded. When the little prince asked him to order a sunset, the king replied wisely: “Accepted authority rests first of all on reason. If you ordered a general to turn into a sea bird and he did not obey, it would be my fault, not his. You shall have your sunset tonight at twenty minutes to eight, when conditions are favorable!” The little prince thought: “Grown-ups are very strange.”",
+        zh:"在拜訪的第一顆小行星上住著一位身穿紫袍與白鼬皮大衣的國王。在國王眼裡，所有人都是他的臣民。「我命令你打哈欠！」國王發號施令。當小王子懇求國王命令太陽下山時，國王充滿智慧地回答：「權威首先建立在合理之上。如果我命令將軍變成一隻海鳥而他辦不到，那不是將軍的錯，而是我的錯。今晚七點四十分條件成熟時，你自然會看到日落！」小王子心想：「大人真是太奇怪了。」"},
+      {n:"14", title:"The Conceited Man", z:"愛慕虛榮的人：只要掌聲", img:"art/little-prince/scene-14.png",
+        en:"The second planet was inhabited by a conceited man wearing a queer hat. “Ah! An admirer!” he cried. “Clap your hands together!” The little prince clapped, and the man tipped his hat modestly in salute. But after five minutes, the little prince asked: “What must one do to make the hat come down?” The conceited man heard nothing, for conceited people hear only praise. “Do you admire me as the handsomest, richest, and most intelligent man on this planet?” “But you are the only one here!” Still, the man begged for adoration.",
+        zh:"第二顆星球上住著一個戴著滑稽帽子的愛虛榮者。「啊！一個崇拜者來了！」他喊道：「快拍手！」小王子拍了拍手，那人便謙遜地舉帽致意。但五分鐘後，小王子問：「要怎麼做帽子才會放下來呢？」愛虛榮的人卻充耳不聞，因為這種人除了讚美以外什麼都聽不進去。「你崇拜我嗎？我是這顆星球上最帥、最富有、最聰明的人！」「可這顆星球上只有你一個人呀！」小王子搖搖頭離去。"},
+      {n:"15", title:"The Tippler's Vicious Circle", z:"酒鬼的沉淪：忘卻羞愧", img:"art/little-prince/scene-15.png",
+        en:"On the third planet lived a tippler surrounded by bottles. “What are you doing there?” asked the little prince. “I am drinking,” replied the tippler with deep gloom. “Why are you drinking?” “So that I may forget.” “Forget what?” inquired the little prince, feeling sorry for him. “Forget that I am ashamed!” “Ashamed of what?” “Ashamed of drinking!” With that, the tippler shut himself in silence. The little prince went away deeply puzzled: “Grown-ups are certainly very, very odd.”",
+        zh:"第三顆星球上住著一個被空瓶與滿瓶包圍的酒鬼。「你在這裡做什麼？」小王子問。「我在喝酒，」酒鬼愁眉苦臉地答道。「你為什麼喝酒？」「為了忘記。」「忘記什麼？」小王子心生同情。「忘記我的羞愧！」「你在羞愧什麼呢？」「羞愧我一直在喝酒！」說完酒鬼陷入了沉默。小王子困惑地離開了：「大人真的、真的是太奇怪了。」"},
+      {n:"16", title:"The Businessman Counting Stars", z:"算計星星的商人", img:"art/little-prince/scene-16.png",
+        en:"The fourth planet belonged to a businessman so busy adding figures he did not even look up. “Five hundred and one million glittering objects!” he said. “You mean stars?” asked the little prince. “Yes! I own them!” “And what do you do with them?” “I count them and put the number in the bank. It makes me rich!” The little prince replied: “I own a flower that I water every day, and volcanoes that I clean out. It is of some use to them that I own them. But you are of no use to the stars.”",
+        zh:"第四顆星球屬於一個商人，他忙著計算數字連頭都沒抬。「五億零一百萬個發亮的東西！」「你是說星星嗎？」小王子問。「對！我擁有它們！」「你擁有星星做什麼？」「我把它們數一數，把數字存進銀行，這讓我變得富有！」小王子平靜地說：「我擁有一朵每天澆水的花，擁有每週清掃的火山。我擁有它們，對它們是有益處的。但你對星星卻一點用處也沒有。」商人啞口無言。"},
+      {n:"17", title:"The Faithful Lamplighter", z:"點燈人：忠於職守的微光", img:"art/little-prince/scene-17.png",
+        en:"The fifth planet was tiny, with room only for a street lamp and a lamplighter. Every minute, the planet turned completely, and the man had to light the lamp and put it out without a single second of rest. “Those are the orders,” he sighed. Yet the little prince respected him: “He would be scorned by the king and the businessman, but he is the only one who does not seem ridiculous to me—because he is thinking of something else besides himself. When he lights his lamp, it is as if he brought one more star to life.”",
+        zh:"第五顆小星球只容得下一盞路燈和一個點燈人。行星每分鐘自轉一圈，點燈人必須毫不停歇地一會兒點亮、一會兒熄滅。「這就是命令，」他嘆氣道。但小王子卻由衷敬佩他：「國王與商人或許會嘲笑他，但在我看來，他是唯一不荒謬的人——因為他所關心的不是他自己。當他點亮路燈時，彷彿就讓天空中多綻放了一顆星星或一朵花。」"},
+      {n:"18", title:"The Geographer: Flowers are Ephemeral", z:"地理學家：短暫綻放的美", img:"art/little-prince/scene-18.png",
+        en:"On the sixth planet, an old geographer wrote huge books. When the little prince described his planet, he mentioned his flower. “We do not record flowers,” said the scholar, “because they are ephemeral.” “What does that mean?” “It means that which is in danger of speedy disappearance.” The little prince felt a pang of sorrow: “My flower is ephemeral, and she has only four thorns to protect herself against the world, and I left her all alone!” Still, he asked where to travel next, and the scholar replied: “The planet Earth.”",
+        zh:"第六顆星球上住著一位著書立說的老地理學家。小王子向他介紹自己的星球時提到了他的花。「我們不記錄花卉，」學者說：「因為花朵是短暫的（ephemeral）。」「短暫是什麼意思？」「意思是很快就會面臨消失的危險。」小王子心中猛然一痛：「我的花兒是如此短暫脆弱，她只有四根小刺來抵禦整個世界，而我卻把她孤零零留在那裡！」但他依然問起下一站去處，學者回答：「地球，那裡名聲很好。」"},
+      {n:"19", title:"Arrival on Earth: The Golden Snake", z:"降落地球與金黃小蛇", img:"art/little-prince/scene-19.png",
+        en:"The seventh planet was Earth. The little prince landed in the African desert and saw no human beings, only a coil of gold in the sand—a snake. “Where are the men? It is a little lonely in the desert,” said the little prince. “It is also lonely among men,” replied the snake. Looking at the slender creature, the boy said: “You are not very powerful.” The snake hissed gently: “I am more powerful than the finger of a king. Whomever I touch, I send back to the earth from whence he came. But you are innocent, from a star...”",
+        zh:"第七顆星球就是地球。小王子降落在撒哈拉沙漠，四周空無一人，只看見沙地上盤著一條如月光般金黃的小蛇。「人在哪裡呢？沙漠裡有點孤單，」小王子說。「在人群之中也一樣孤單，」蛇回答。看著纖細的蛇，男孩說：「你看起來並不強大。」蛇輕吐信子：「我比國王的手指還要強大。被我碰觸的人，我都將他送回最初誕生的大地。但你是如此純潔，來自遙遠的星辰……」"},
+      {n:"20", title:"The Desert Flower and the Echo", z:"沙漠裡的小花與空谷迴音", img:"art/little-prince/scene-20.png",
+        en:"The little prince crossed the desert and met only a modest flower with three petals. “Where are the men?” he asked. “Men?” she echoed. “I saw six or seven years ago. The wind blows them away; they have no roots, which makes life difficult.” Later, he climbed a sharp rock peak and shouted into the silence: “Good morning!” “Good morning... good morning...” answered the echo. “Be my friends, I am all alone!” “All alone... all alone...” sighed the mountain. The little prince longed for his sweet rose.",
+        zh:"小王子穿過沙漠，只遇見一朵只有三片花瓣的普通小花。「人在哪裡呢？」他問。「人啊？」小花答道：「幾年前我看過六七個，風把他們吹向四方；他們沒有根，所以過得很辛苦。」後來他爬上一座如針般陡峭的山峰，對著深谷大喊：「你好！」谷底傳來迴音：「你好……你好……」「做我的朋友吧，我好孤單！」山谷迴盪著：「好孤單……好孤單……」小王子無比想念起會主動開口說話的玫瑰。"},
+      {n:"21", title:"Five Thousand Roses", z:"五千朵玫瑰花園", img:"art/little-prince/scene-21.png",
+        en:"Walking through rocks and sand, he came upon a garden overflowing with roses. “Who are you?” he gasped. “We are roses,” they replied. The little prince was overcome with sorrow. His flower had told him she was the only one of her kind in all the universe, yet here were five thousand identical blossoms in a single garden! “I thought that I was rich with a unique flower,” he wept in the grass, “and all I had was an ordinary rose and three knee-high volcanoes. That does not make me a very great prince.”",
+        zh:"走過碎石與黃沙，他突然撞見了一座盛開著玫瑰的花園。「你們是誰？」他驚訝地問。「我們是玫瑰花，」花兒們齊聲回答。小王子的心頓時沉入了谷底。他的花兒曾驕傲地宣稱自己是全宇宙唯一的玫瑰，而眼前單單一個花園裡就有五千朵一模一樣的花！「我原本以為自己很富有，擁有一朵獨一無二的花，」他在草地上痛哭：「原來我有的只是一朵平凡無奇的玫瑰和三座膝蓋高的火山，這根本不算什麼大王子。」"},
+      {n:"22", title:"The Fox: “To Tame Means to Establish Ties”", z:"狐狸登場：「馴服就是建立牽絆」", img:"art/little-prince/scene-22.png",
+        en:"It was then that the fox appeared beneath the apple tree. “Come and play with me; I am so unhappy,” pleaded the little prince. “I cannot play with you,” said the fox, “I am not tamed.” “What does that mean?” “It means to establish ties. To me, you are still nothing more than a little boy like a hundred thousand other little boys, and I am a fox like a hundred thousand other foxes. But if you tame me, we shall need each other. To me, you will be unique in all the world. To you, I shall be unique in all the world.”",
+        zh:"就在這時，一隻狐狸出現在蘋果樹下。「來跟我玩吧，我好難過，」小王子懇求道。「我不能跟你玩，」狐狸說：「我還沒被馴服。」「馴服是什麼意思？」「那是常被遺忘的事，意思是『建立牽絆』。對我來說，你現在只不過是個小男孩，跟其他十萬個男孩沒什麼兩樣；對你而言，我也只是一隻狐狸。但如果你馴服了我，我們就彼此需要了。對我來說，你將是全世界唯一的；對你來說，我也將是全世界唯一的。」"},
+      {n:"23", title:"What is Essential is Invisible to the Eye", z:"狐狸的秘密：用心才能看清", img:"art/little-prince/scene-23.png",
+        en:"The little prince tamed the fox with patience. When parting came, the fox sent him back to the roses: “You are not at all like my rose,” the boy told the five thousand blossoms. “You are beautiful, but you are empty. My rose is the one I watered, sheltered, and listened to. She is my rose.” Returning to the fox, the fox whispered his parting gift: “Here is my secret, a very simple secret: It is only with the heart that one can see rightly; what is essential is invisible to the eye. It is the time you have wasted for your rose that makes your rose so important.”",
+        zh:"小王子用無比的耐心馴服了狐狸。離別時，狐狸讓他再去看看那些玫瑰。「你們一點也不像我的玫瑰，」他對五千朵花說道：「你們很美麗，但你們是空虛的。我的玫瑰是我親手澆水、呵護並傾聽的花。她是屬於我的玫瑰。」回到狐狸身邊時，狐狸送給他臨別的秘密：「這是一個非常簡單的秘密：只有用心才能看清真相；真正重要的人事物，用肉眼是看不見的。正是你為你的玫瑰花所付出的時間，才使她變得如此重要。」"},
+      {n:"24", title:"The Switchman and the Clock", z:"扳道工與匆忙的世界", img:"art/little-prince/scene-24.png",
+        en:"Later, the little prince met a railway switchman sorting travelers on thunderous trains. “What are they looking for?” asked the boy. “Not even the engineer knows,” replied the switchman. “No one is ever satisfied where he is. Only the children flatten their noses against the glass; only children know what they are looking for.” Next he met a merchant selling pills to quench thirst: “They save fifty-three minutes a week!” The little prince thought: “If I had fifty-three minutes to spend, I would walk at my leisure toward a spring of fresh water.”",
+        zh:"小王子後來遇見了一位調度疾駛列車的鐵路扳道工。「火車上的人在尋找什麼？」男孩問。「連火車司機都不知道，」扳道工回答：「沒有人對自己所在的地方感到滿意。只有孩子會把鼻子貼在車窗上看；只有孩子清楚自己想要什麼。」隨後他又遇見賣止渴藥丸的商人：「這每週可以省下五十三分鐘！」「如果我有五十三分鐘的閒暇，」小王子心想：「我會慢悠悠地走向一泓清涼甘甜的泉水。」"},
+      {n:"25", title:"The Singing Well", z:"沙漠裡歌唱的水井", img:"art/little-prince/scene-25.png",
+        en:"On the eighth day in the desert, our water ran out. We walked through the night under the stars until daybreak, when we discovered a well. It had a bucket, rope, and pulley, which groaned in the wind like an old melody. “Do you hear?” smiled the little prince. “We have wakened the well, and it is singing.” I raised the cool water to his lips. It was sweet as a festival gift, born of the walk under the stars and the labor of my arms. “The eyes are blind,” the little prince murmured, “one must look with the heart.”",
+        zh:"在沙漠中的第八天，我們的水喝光了。星空下我們走了一整夜，直到黎明時分，竟在荒漠中發現了一座古井。水井備有吊桶、繩索和滑輪，在晨風中發出悠遠的轆餾聲。「你聽見了嗎？」小王子笑了：「我們喚醒了這口井，它正在唱歌呢。」我把清冽的水端到他唇邊。這水比世上任何珍饈更甜美，它是星空下長途跋涉與雙臂辛勞的饋贈。「眼睛是盲目的，」小王子輕聲說：「人必須用心去尋找。」"},
+      {n:"26", title:"The Wall and the Golden Snake", z:"石牆上的約定與金黃小蛇", img:"art/little-prince/scene-26.png",
+        en:"The next evening, I found the little prince sitting atop a ruined stone wall, talking with the yellow snake below: “You have good poison? It will not make me suffer?” I chased the serpent away and caught the child in my arms. “Tonight will be a year since I came to Earth,” he said gently. “In one of the stars, I shall be living and laughing. When you look at the sky at night, all the stars will laugh like five hundred million little bells! I cannot carry this heavy body; it is too far. It is like an old shell.” Then, with a flash of gold at his ankle, he fell as gently as a tree falls in the sand.",
+        zh:"隔天傍晚，我看見小王子坐在頹圮的石牆上，正與下方的黃蛇對話：「你的毒液好嗎？保證不會讓我受苦太久吧？」我拔槍趕走毒蛇，把嚇得臉色蒼白的他抱在懷裡。「今晚是我降落地球滿一週年的日子，」他柔聲說：「在其中一顆星星上，我會住在那裡、笑著。當你夜晚看著天空時，就像擁有五億個會笑的清脆小鈴鐺！我帶不走這具沉重的身軀，路途太遙遠了。這只不過是個被遺棄的舊驅殼罷了。」接著，一道金黃光芒閃過他的腳踝，他像一棵樹那樣無聲而輕柔地倒在沙地上。"},
+      {n:"27", title:"The Star in the Desert: Look Up at the Sky", z:"沙漠夜空下的星星：抬頭看看天空吧", img:"art/little-prince/scene-27.png",
+        en:"Six years have passed, and I have never yet told this story. At night, I love to listen to the stars; they are like five hundred million bells. Look up at the sky and ask yourselves: has the sheep eaten the flower, yes or no? And you will see how everything changes... No grown-up will ever understand that this is a matter of so much importance! If you should travel to the African desert and come upon this spot beneath the solitary star, do not hurry on. If a golden-haired boy who laughs should come to you, comfort my heart—send me word that he has returned.",
+        zh:"六年過去了，我從未向任何人講過這個故事。如今每當夜晚，我依舊深愛傾聽繁星的私語，那就像五億串清脆的小鈴鐺。抬頭看看天空吧，問問你們自己：那隻羊究竟有沒有把花兒吃掉？一想到這裡，整個宇宙的樣貌都為之改變……然而沒有任何一個大人會明白，這件事究竟有多麼重大！若有一天你前往非洲沙漠，來到這顆孤獨閃爍的星辰下方，請別行色匆匆。如果看見一個笑聲如鈴鐺的金髮小男孩來到你面前，請撫慰我的心靈——寫信告訴我，他已經回來了。" }
+    ],
+    vocab:[
+      ["primeval", "adj.", "原始的、遠古的（primeval forest 原始森林）"],
+      ["masterpiece", "n.", "傑作、代表作（my masterpiece）"],
+      ["ponder", "v.", "沉思、深思（pondered deeply）"],
+      ["thunderstruck", "adj.", "目瞪口呆的、極度震驚的"],
+      ["cumbersome", "adj.", "笨重的、累贅難處理的"],
+      ["forbearance", "n.", "寬容、克制（show great forbearance）"],
+      ["catastrophe", "n.", "大災難、大浩劫（catastrophe of the baobabs）"],
+      ["discipline", "n.", "紀律、自律（a question of discipline）"],
+      ["melancholy", "adj./n.", "憂鬱沉靜的；哀愁感傷"],
+      ["spite", "n.", "惡意、刁難（just for spite 純屬刁難）"],
+      ["coquettish", "adj.", "嬌柔做作的、賣弄風情的"],
+      ["monarch", "n.", "君主、國王（absolute monarch）"],
+      ["conceited", "adj.", "自負的、愛慕虛榮的"],
+      ["ephemeral", "adj.", "短暫的、轉瞬即逝的（in danger of speedy disappearance）"],
+      ["tame", "v./adj.", "馴服、建立牽絆；溫馴的（to establish ties）"],
+      ["essential", "adj.", "本質的、至關重要的（what is essential is invisible）"],
+      ["rite", "n.", "儀式、典禮（proper rites）"],
+      ["consolation", "n.", "安慰、撫慰（comfort and consolation）"]
+    ],
+    aside:{
+      titleEn:"Behind the Story",
+      titleZh:"小王子背後的真實傳奇",
+      en:"Antoine de Saint-Exupéry was a pioneering aviator who flew perilous airmail routes over the Sahara and the Andes. In December 1935, his plane crashed in the Egyptian desert; he and his navigator survived four days with barely any water, experiencing vivid hallucinations before being rescued by a Bedouin nomad. The Rose in the story was inspired by his Salvadoran wife, Consuelo—fragile, fiery, and eternally cherished. In 1944, Saint-Exupéry took off on a wartime reconnaissance flight and vanished over the Mediterranean. In 1993, Asteroid 46610 was officially named 'Bésixdouze' (B-612) in honour of his immortal boy.",
+      zh:"作者安東尼·聖修伯里（Antoine de Saint-Exupéry）本身就是一位傳奇飛行員，曾開闢穿越撒哈拉沙漠與安地斯山脈的極度險峻郵航路線。1935 年 12 月，他的飛機墜毀於埃及沙漠，在水盡援絕的沙漠中苦撐四天、出現幻覺，最後奇蹟似地被一位貝都因遊牧民族所救。故事中那朵嬌縱美麗的玫瑰，正是以他深愛的薩爾瓦多籍妻子康蘇爾洛（Consuelo）為原型。1944 年，他駕駛戰機執行最後一次偵察任務時失蹤於地中海上空。1993 年，天文學家將小行星 46610 正式命名為「B-612（Bésixdouze）」，向這位永遠活在星空裡的金髮小王子致敬。"
+    },
+    close:{
+      en:"“All grown-ups were once children—although few of them remember it.” Love is not about possession, but about the time and care we dedicate to someone. In a noisy world obsessed with numbers and hurried trains, take a moment to look up at the night sky. Somewhere out there, five hundred million golden stars are laughing like little bells.",
+      zh:"「所有的大人都曾經是個孩子——雖然很少有人記得這一點。」真正的愛不是佔有，而是我們為彼此傾注的心血與時間。在這個被冰冷數字與匆忙列車追逐的世界裡，別忘了時常抬頭仰望夜空。在星河深處，有五億顆星星正像清脆的小鈴鐺一樣，溫柔地對著你微笑。"
+    },
+    discuss:[
+      {en:"Why did the grown-ups see a hat instead of an elephant inside a boa constrictor? What does this tell us about imagination?", zh:"初階思考：為什麼大人看第一號畫作時只看到帽子，而看不見蟒蛇肚子裡的大象？這反映了大人與小孩在想像力上的什麼差異？"},
+      {en:"What does the fox mean when he says 'to tame is to establish ties'? How did this make the little prince realize his rose was unique?", zh:"初階思考：狐狸說「馴服就是建立牽絆」，這是什麼意思？這又是如何讓小王子明白，他那朵驕傲的玫瑰在全宇宙中是獨一無二的？"},
+      {en:"Among the king, the conceited man, the tippler, the businessman, and the lamplighter, why was the lamplighter the only one the little prince respected?", zh:"初階思考：在拜訪過的行星居民中（國王、愛虛榮者、酒鬼、商人、點燈人），為什麼只有點燈人得到了小王子的尊重？"},
+      {en:"“It is only with the heart that one can see rightly; what is essential is invisible to the eye.” Can you share something in your life that cannot be seen, yet is essential?", zh:"進階哲思：狐狸最著名的秘密是「真正重要的東西，用眼睛是看不見的，必須用心才能看清」。在你的生活中，有沒有什麼東西是肉眼看不見、卻最無可取代的？"},
+      {en:"At the end, the narrator asks us to look up at the stars and wonder whether the sheep has eaten the rose. Why does this single question change the meaning of the entire universe for him?", zh:"進階哲思：故事結尾，作者請讀者抬頭仰望星空，思考「羊究竟有沒有把花吃掉」。為什麼這看似微不足道的一件事，會讓整個浩瀚宇宙的意義完全不同？"}
+    ],
+    note:"Original text and illustrations by Antoine de Saint-Exupéry (1943, translated by Katherine Woods, public domain). Presented with bilingual annotations, Web Speech read-aloud and interactive vocabulary support."
+  },
+  {
     id:"babel",
     category:"lore",
     title:"The Tower of Babel",
@@ -7902,6 +8065,82 @@ function renderSonnet(){
 function snAll(){ SN.show=!SN.show; if(!SN.show) SN.open={}; renderSonnet(); }
 function snToggle(i){ if(SN.show) return; SN.open[i]=!SN.open[i]; renderSonnet(); }
 
+/* =====================================================
+   Mindset in Action — case-based learning-attitude clips.
+   Embedded public English talks + our own bilingual key
+   lines (paraphrased for study, not a verbatim transcript),
+   with a subtitle toggle: 雙語 / 全英 / 關閉.
+   ===================================================== */
+const MINDSET = [
+  { key:"ownership", tag:"學習責任 · Take Ownership", title:"Own your learning", zh:"為自己的學習負責",
+    who:"RocketKids", videoId:"RGJpO2qHUbQ", videoTitle:"Stop Making Excuses & Own Your Actions",
+    intro:"考差了，怪考題、怪老師、怪運氣最輕鬆。但「負責」是換一個更有力的問題：下次我可以怎麼做得不一樣？<span class='z'>When something goes wrong, blaming others is easy. Taking ownership asks a better question: what can I do differently next time?</span>",
+    lines:[
+      {en:"Excuses feel comfortable, but they keep you stuck.", zh:"找藉口很舒服，卻會讓你原地打轉。"},
+      {en:"Blaming others gives your power away.", zh:"怪別人，等於把「改變的力量」交了出去。"},
+      {en:"Ask 'What can I control?' — not 'Whose fault is it?'", zh:"問「我能掌控什麼？」，而不是「這是誰的錯？」"},
+      {en:"Owning a mistake is the first step to fixing it.", zh:"承認錯誤，是修正它的第一步。"},
+      {en:"Your effort is your responsibility — and your superpower.", zh:"你的努力由你負責——那也是你最大的超能力。"}
+    ]},
+  { key:"growth", tag:"成長型思維 · Growth Mindset", title:"Believe you can improve", zh:"相信自己會進步",
+    who:"Carol Dweck · TED", videoId:"_X0mgOOSpLU", videoTitle:"The power of believing that you can improve | Carol Dweck | TED",
+    intro:"心理學家 Carol Dweck 研究：為什麼有些學生遇難就放棄，有些卻越挫越勇？關鍵常在一個信念——能力是可以長出來的。<span class='z'>Why do some students give up while others push on? Often it comes down to one belief: abilities can grow.</span>",
+    lines:[
+      {en:"A 'fixed mindset' says talent is set; a 'growth mindset' says it can grow.", zh:"「定型心態」認為能力天生固定；「成長心態」相信能力能變強。"},
+      {en:"Add one word to 'I can't do it' — 'yet'.", zh:"在「我做不到」後面加一個字：「還沒」。"},
+      {en:"Effort and strategy grow the brain like a muscle.", zh:"努力加上方法，會像鍛鍊肌肉一樣長大腦。"},
+      {en:"Praise the process, not just the result.", zh:"讚美過程，而不只是結果。"},
+      {en:"A hard problem isn't a wall — it's a workout.", zh:"難題不是一道牆，而是一次訓練。"}
+    ]},
+  { key:"grit", tag:"恆毅力 · Grit", title:"Passion and perseverance", zh:"熱情與堅持",
+    who:"Angela Duckworth · TED", videoId:"H14bBuluwB8", videoTitle:"Grit: The Power of Passion and Perseverance | Angela Lee Duckworth | TED",
+    intro:"Duckworth 發現：預測成功的不是 IQ，而是「恆毅力」——長時間對目標保持熱情與堅持。<span class='z'>What predicts success isn't IQ — it's grit: sticking with your goals over the long run.</span>",
+    lines:[
+      {en:"Grit is passion plus perseverance for long-term goals.", zh:"恆毅力 ＝ 對長期目標的熱情 ＋ 堅持。"},
+      {en:"Talent is not the same as follow-through.", zh:"有天分，不等於能堅持到底。"},
+      {en:"Treat learning as a marathon, not a sprint.", zh:"把學習當馬拉松，而不是短跑。"},
+      {en:"A growth mindset is fuel for grit.", zh:"成長心態，是恆毅力的燃料。"},
+      {en:"Show up again tomorrow — that's the secret.", zh:"明天再回來繼續——這就是祕訣。"}
+    ]},
+  { key:"mistakes", tag:"從錯誤中學習 · Learn from Mistakes", title:"How to learn? From mistakes", zh:"怎麼學？從錯誤中學",
+    who:"Diana Laufenberg · TED", videoId:"up4hFj-jcTY", videoTitle:"Diana Laufenberg: How to learn? From mistakes",
+    intro:"當答案到處查得到，背答案就不再稀奇。Laufenberg 認為，真正的學習來自「嘗試、犯錯、再試一次」。<span class='z'>When answers are everywhere, memorizing them matters less. Real learning comes from trying, failing, and trying again.</span>",
+    lines:[
+      {en:"If you only ever get it right, you're not learning much.", zh:"如果你永遠都做對，其實學得很少。"},
+      {en:"Mistakes are data, not disasters.", zh:"錯誤是「數據」，不是「災難」。"},
+      {en:"Some things experience teaches — a textbook can't.", zh:"有些事，親身經歷才學得會，課本教不來。"},
+      {en:"Give yourself permission to be wrong — then improve.", zh:"允許自己犯錯——然後把它變得更好。"},
+      {en:"The goal isn't a perfect answer; it's a better next try.", zh:"目標不是完美的答案，而是更好的下一次嘗試。"}
+    ]}
+];
+let MIND = { mode:{} };
+function mindModeOf(k){ return MIND.mode[k] || "bi"; }
+function renderMindset(){
+  const box = document.getElementById("mindsetZone");
+  if(!box) return;
+  box.innerHTML = MINDSET.map(m=>{
+    const mode = mindModeOf(m.key);
+    const subs = mode==="off" ? "" : `<div class="ms-subs">${m.lines.map(l=>`<div class="ms-sub"><span class="ms-en">${l.en}</span>${mode==="bi"?`<span class="ms-zh">${l.zh}</span>`:""}</div>`).join("")}</div>`;
+    return `<article class="ms-case">
+      <div class="ms-tag">${m.tag}</div>
+      <h3 class="ms-title">${m.title}<span>${m.zh}</span></h3>
+      <div class="ms-who">${m.who}</div>
+      <p class="ms-intro">${m.intro}</p>
+      <div class="lab-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${m.videoId}" title="${m.videoTitle}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div class="ms-cap">
+        <div class="ms-cap-h"><span>📝 重點字幕 Key lines</span><a href="https://www.youtube.com/watch?v=${m.videoId}" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a></div>
+        <div class="ms-seg">
+          <button class="${mode==="bi"?"on":""}" onclick="mindSet('${m.key}','bi')">雙語</button>
+          <button class="${mode==="en"?"on":""}" onclick="mindSet('${m.key}','en')">全英</button>
+          <button class="${mode==="off"?"on":""}" onclick="mindSet('${m.key}','off')">關閉字幕</button>
+        </div>
+        ${subs}
+      </div>
+    </article>`;
+  }).join("");
+}
+function mindSet(k,mode){ MIND.mode[k]=mode; renderMindset(); }
+
 function renderLab(id){
   const c = labById(id);
   if(!c){ location.hash = "#/lab"; return; }
@@ -7946,7 +8185,16 @@ function renderTheoryList(){
       <p class="lede">用科學為學生打氣。三個關於「記憶、努力與相信自己」的經典理論，附上小故事、圖解與來源，隨時拿來上課鼓勵學生。<br>Three classic ideas about memory, effort and self-belief — with a short story, a diagram and sources for the classroom.</p>
     </div>
     <div class="th-list">${cards}</div>
+    <div class="ms-zone">
+      <div class="ms-zone-hd">
+        <div class="eyebrow" style="color:var(--th-accent)">Mindset in Action · 學習心態實戰</div>
+        <h2 class="ms-zone-h">把心態變成行動</h2>
+        <p class="lede">從常見的情境出發——為學習負責、相信自己會進步、堅持與從錯誤中學——先看一段公開的英語短講，下方附上重點字幕，可切換 <b>雙語 / 全英 / 關閉</b>。<br>Start from everyday situations. Watch a short public talk, then read the key lines below — switch between bilingual, English-only, or off.</p>
+      </div>
+      <div id="mindsetZone" class="ms-list"></div>
+    </div>
   </div>`;
+  renderMindset();
 }
 
 function renderTheory(id){
