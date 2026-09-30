@@ -9,19 +9,9 @@ const VQ_START = '2026-09-30';   // 各路線第 1 單元的日期，之後每�
 /* 路線：學生在「背單字總覽」選一條；各路線依日期各自輪替。core 為最早上線的路線，紀錄沿用舊的日期 key。 */
 const VQ_TRACKS = {
  g7:{title:'七年級', desc:'教育部基本字・較基礎的 539 字', book:'jh7'},
- g8:{title:'八年級', desc:'旅行、健康、節慶、科技、環境、職業、比賽、友情'},
+ g8:{title:'八年級', desc:'教育部基本字・較進階的 548 字', book:'jh8'},
  core:{title:'會考＋學測', desc:'國中會考核心字 → 學測進階字'}
 };
-const VQ_UNITS_G8 = [
- {book:'jh8', title:'出發去旅行', words:['trip','ticket','airport','visit','plan']},
- {book:'jh8', title:'健康生活', words:['healthy','fever','rest','dentist','stomach']},
- {book:'jh8', title:'節慶時光', words:['festival','celebrate','gift','decorate','lantern']},
- {book:'jh8', title:'科技與網路', words:['computer','internet','online','download','smartphone']},
- {book:'jh8', title:'愛護地球', words:['environment','trash','recycle','save','pollution']},
- {book:'jh8', title:'夢想與職業', words:['dream','future','become','engineer','nurse']},
- {book:'jh8', title:'比賽加油', words:['contest','team','win','lose','cheer']},
- {book:'jh8', title:'友情與心情', words:['friendship','angry','worried','share','excited']}
-];
 const VQ_UNITS = [
  {book:'jh-core', title:'出國與日常', words:['abroad','borrow','careful','decide','enough']},
  {book:'jh-core', title:'有名的旅程', words:['famous','guess','habit','important','journey']},
@@ -217,7 +207,7 @@ function vqUnits(track){
   const u=[]; for(let i=0;i<b.words.length;i+=5) u.push({book:t.book, title:'', words:b.words.slice(i,i+5).map(x=>x.w)});
   return (VQ_UNIT_CACHE[track]=u);
  }
- return ({g8:VQ_UNITS_G8})[track] || VQ_UNITS;
+ return VQ_UNITS;
 }
 const vqQ = w => (w && w.q) || VQ_GRAMMAR[w.w];   // 字庫的題目優先，其次是手寫的 VQ_GRAMMAR
 const vqKey = (date, track) => track==='core' ? date : track+':'+date;   // core 沿用舊的日期 key
