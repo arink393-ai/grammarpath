@@ -8585,6 +8585,35 @@ const WORD_ORIGINS = [
      rows:[["i am happy","<b>I</b> am happy","I 永遠大寫"],["in Summer","in <b>s</b>ummer","季節不大寫"],["I speak chinese","I speak <b>C</b>hinese","語言要大寫"],["next monday","next <b>M</b>onday","星期要大寫"],["a BIG problem（想強調）","a big problem","大寫不是拿來強調的"]]},
    {t:"call", zhTitle:"課堂活動 · Capital hunt 大寫獵人", zh:"發一段「全部小寫」的短文，請學生把「該大寫的字」圈出來，並說出理由（是專有名詞？星期？句首？）。也可以玩分類卡：July vs summer、English vs happy，分成「大寫／小寫」兩堆。", en:"Give an all-lowercase paragraph; students circle every word that needs a capital and name the rule. Or sort cards into capital/lowercase piles: July vs summer, English vs happy."},
    {t:"link", href:"#/etymology", label:"回字源學堂目錄 Back to all chapters"}
+  ]},
+ {id:"numbers", icon:"🔢", en:"Numbers in English", zh:"常見數字表達規則", tag:"Usage · 數字",
+  hook:"數字看似簡單，唸法和寫法卻很多眉角——中文以「萬」為單位，英文卻以「千、百萬」往上跳，最容易卡住。",
+  blocks:[
+   {t:"p", en:"Numbers look simple but hide many rules — when to spell them out, how to read big ones, dates, time, money. The biggest trap for Chinese speakers: Chinese counts in units of 萬 (ten-thousands), but English jumps in thousands, millions, and billions. Master that shift and big numbers stop being scary.",
+       zh:"數字看起來簡單，其實藏了很多規則——什麼時候要拼成字、大數字怎麼唸、日期、時間、金錢。對中文使用者最大的陷阱：中文以「萬」為單位，英文卻是以「千、百萬、十億」往上跳。把這個轉換搞懂，大數字就不可怕了。"},
+   {t:"h", en:"Spell it out, or use numerals?", zh:"用文字還是阿拉伯數字？"},
+   {t:"table", head:["規則 Rule","例子 Example"],
+     rows:[["小數字（一到十）常用文字","I have <b>three</b> cats."],["句子開頭一定用文字","<b>Twenty</b> students came.（不是 20）"],["大數字、日期、時間用數字","in <b>2026</b>, at <b>7:30</b>, page <b>15</b>"],["同一句要一致","We invited <b>8</b> boys and <b>12</b> girls."]]},
+   {t:"h", en:"The 萬 trap — reading big numbers", zh:"「萬」的陷阱：大數字怎麼唸"},
+   {t:"p", en:"Chinese groups digits by four (萬, 億); English groups by three, with a comma every three digits, named thousand / million / billion. So 一萬 is 'ten thousand', not 'one 萬'.",
+       zh:"中文每四位一組（萬、億）；英文每三位一組，每三位加一個逗號，名稱是 thousand（千）／million（百萬）／billion（十億）。所以「一萬」要唸 ten thousand，不是「one 萬」。"},
+   {t:"table", head:["中文","數字 Number","英文 English"],
+     rows:[["一千","1,000","one thousand"],["一萬","10,000","ten thousand"],["十萬","100,000","one hundred thousand"],["一百萬","1,000,000","one million"],["一億","100,000,000","one hundred million"]]},
+   {t:"call", zhTitle:"訣竅 · 讓逗號幫你唸", zh:"每個逗號都是路標：從右邊數，第一個逗號＝thousand（千）、第二個＝million（百萬）、第三個＝billion（十億）。看到 12,000 → 逗號前是 12 → twelve thousand。", en:"Each comma is a signpost: from the right, the first comma = thousand, the second = million, the third = billion. 12,000 → 'twelve' before the comma → twelve thousand."},
+   {t:"h", en:"Cardinal & ordinal numbers", zh:"基數與序數"},
+   {t:"p", en:"Cardinal numbers count (one, two, three); ordinal numbers rank (first, second, third). Most ordinals just add -th, but a few change spelling — watch these:",
+       zh:"基數用來「數數量」（one、two、three）；序數用來「排順序」（first、second、third）。大部分序數只是加 -th，但有幾個會改拼字，要特別注意："},
+   {t:"table", head:["基數 Cardinal","序數 Ordinal","注意 Note"],
+     rows:[["one / two / three","first / second / third","前三個不規則"],["five","fifth","不是 fiveth"],["eight","eighth","只有一個 t"],["nine","ninth","去掉 e"],["twelve","twelfth","ve → f"],["twenty","twentieth","y → ie + th"]]},
+   {t:"h", en:"Dates, years & time", zh:"日期、年份、時間"},
+   {t:"table", head:["寫法 Written","唸法 Said"],
+     rows:[["日期（美式）July 4, 2026","July fourth, twenty twenty-six"],["日期（英式）4 July 2026","the fourth of July"],["年份 1999","nineteen ninety-nine"],["年份 2008","two thousand (and) eight"],["年份 2026","twenty twenty-six"],["3:15","(a) quarter past three / three fifteen"],["3:30","half past three / three thirty"],["3:45","(a) quarter to four / three forty-five"]]},
+   {t:"h", en:"Money, decimals & percent", zh:"金錢、小數、百分比"},
+   {t:"table", head:["寫法 Written","唸法 Said"],
+     rows:[["$5","five dollars"],["$5.99","five ninety-nine（或 five dollars and ninety-nine cents）"],["3.14","three point one four（小數點後一個一個唸）"],["1/2　·　3/4","a half　·　three quarters"],["50%","fifty percent"]]},
+   {t:"call", zhTitle:"常見錯誤 · hundred／thousand 不加 s！", zh:"前面有數字時，hundred、thousand、million 不加 s：two hundred（不是 two hundreds）。但表示「幾百個、很多」時要加：hundreds of people。另外 21–99 要用連字號：twenty-one、thirty-five。", en:"After a number, hundred/thousand/million take no -s: 'two hundred' (not 'two hundreds'). But vague amounts do: 'hundreds of people'. And 21–99 are hyphenated: twenty-one, thirty-five."},
+   {t:"call", zhTitle:"課堂活動 · Number dictation 數字聽寫", zh:"老師唸數字（含大數字、年份、價錢），學生寫下阿拉伯數字；再反過來，讓學生看數字唸出來。重點練 10,000 = ten thousand 這種「萬」的轉換。", en:"Read numbers aloud (big numbers, years, prices); students write the numerals, then read numerals back aloud. Drill the 萬 shift: 10,000 = ten thousand."},
+   {t:"link", href:"#/etymology", label:"回字源學堂目錄 Back to all chapters"}
   ]}
 ];
 const etymById = id => WORD_ORIGINS.find(x=>x.id===id);
