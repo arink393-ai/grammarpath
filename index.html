@@ -15701,23 +15701,57 @@ function renderGames(){
 }
 
 /* =====================================================
-   Crossword 填字遊戲 (hand-built mini, NYT-style)
+   Shared word bank — pulled from the 背單字 app (vocab/)
+   so the games never keep a duplicate word list. The
+   bank is lazy-loaded the first time a word game opens.
    ===================================================== */
-const XWORD = {
+/* books.js is already loaded by the main page (BUILTIN_BOOKS exists with the
+   small starter books); here we lazily add the big data books, reusing the
+   same URLs/version as the 背單字 app so the cache is shared, then flatten. */
+const WB_BOOKS = ["jh7","jh8","jh9","gsat3","gsat4"];
+let WB = null, WB_P = null;
+function loadWordBank(){
+  if(WB) return Promise.resolve(WB);
+  if(WB_P) return WB_P;
+  const V = (typeof VQ_DATA_V!=="undefined") ? VQ_DATA_V : 1;
+  const has = id => (typeof BUILTIN_BOOKS!=="undefined") && BUILTIN_BOOKS.some(b=>b.id===id);
+  const one = id => has(id) ? Promise.resolve() : new Promise((ok,no)=>{
+    const el=document.createElement("script"); el.src="vocab/data/"+id+".js?v="+V; el.onload=ok; el.onerror=()=>no(new Error(id)); document.head.appendChild(el);
+  });
+  WB_P = WB_BOOKS.reduce((p,id)=>p.then(()=>one(id).catch(()=>{})), Promise.resolve()).then(()=>{
+    const books = (typeof BUILTIN_BOOKS!=="undefined") ? BUILTIN_BOOKS : [];
+    const seen={}, out=[];
+    books.forEach(bk=>(bk.words||[]).forEach(w=>{
+      const up=(w.w||"").toUpperCase();
+      if(!/^[A-Z]+$/.test(up) || seen[up]) return;
+      const zh=((w.zh||"").split(/[；;，,]/)[0]||"").trim();
+      if(!zh) return;
+      seen[up]=1; out.push({w:up, zh, pos:(w.pos||"").trim()});
+    }));
+    WB = out; return WB;
+  });
+  return WB_P;
+}
+
+/* =====================================================
+   Crossword 填字遊戲 — generated from the word bank
+   (NYT-style; falls back to a hand-built mini)
+   ===================================================== */
+const XWORD_FALLBACK = {
   rows:["BREAD","E#A#E","APRIL","C#T#T","H#H#A"],
   across:[
-    {num:1, r:0, c:0, clue:"Food baked from flour — you eat it every day.", zh:"用麵粉烤成、天天吃的主食。"},
-    {num:4, r:2, c:0, clue:"The fourth month — “___ showers bring May flowers.”", zh:"一年的第四個月。"}
+    {num:1, clue:"Food baked from flour — you eat it every day.", zh:"用麵粉烤成、天天吃的主食。"},
+    {num:4, clue:"The fourth month — “___ showers bring May flowers.”", zh:"一年的第四個月。"}
   ],
   down:[
-    {num:1, r:0, c:0, clue:"Sandy shore by the sea — perfect in summer.", zh:"海邊的沙灘。"},
-    {num:2, r:0, c:2, clue:"The planet we all live on.", zh:"我們居住的行星。"},
-    {num:3, r:0, c:4, clue:"Triangle-shaped land where a river meets the sea (also a Greek letter).", zh:"河流入海口的三角洲（也是希臘字母 Δ）。"}
+    {num:1, clue:"Sandy shore by the sea — perfect in summer.", zh:"海邊的沙灘。"},
+    {num:2, clue:"The planet we all live on.", zh:"我們居住的行星。"},
+    {num:3, clue:"Triangle-shaped land where a river meets the sea (also a Greek letter).", zh:"河流入海口的三角洲（也是希臘字母 Δ）。"}
   ]
 };
-let XW = { done:false };
-function xwNumbers(){
-  const g = XWORD.rows.map(r=>r.split("")), R=g.length, C=g[0].length, num={};
+let XW = { done:false }, XW_PUZZLE = null;
+function xwNumbers(rows){
+  const g = rows.map(r=>r.split("")), R=g.length, C=g[0].length, num={};
   let n=0;
   for(let r=0;r<R;r++)for(let c=0;c<C;c++){
     if(g[r][c]==="#") continue;
@@ -15727,37 +15761,110 @@ function xwNumbers(){
   }
   return num;
 }
+function genCrossword(pool, want){
+  want = want||6;
+  const cand = shuffle(pool.filter(x=>x.w.length>=4 && x.w.length<=7 && x.zh)).slice(0,600);
+  if(cand.length < want) return null;
+  const cell={}, placed=[], K=(r,c)=>r+"_"+c;
+  const place=(item,r,c,dir)=>{ for(let i=0;i<item.w.length;i++){ const rr=dir==="A"?r:r+i, cc=dir==="A"?c+i:c; cell[K(rr,cc)]=item.w[i]; } placed.push({word:item.w,zh:item.zh,pos:item.pos,r,c,dir}); };
+  const canPlace=(w,r,c,dir)=>{
+    const D=dir==="D", len=w.length;
+    if(cell[K(D?r-1:r, D?c:c-1)]) return false;         // cell before start
+    if(cell[K(D?r+len:r, D?c:c+len)]) return false;     // cell after end
+    let cross=0;
+    for(let i=0;i<len;i++){
+      const rr=D?r+i:r, cc=D?c:c+i, ex=cell[K(rr,cc)];
+      if(ex){ if(ex!==w[i]) return false; cross++; }
+      else if(D){ if(cell[K(rr,cc-1)]||cell[K(rr,cc+1)]) return false; }
+      else { if(cell[K(rr-1,cc)]||cell[K(rr+1,cc)]) return false; }
+    }
+    return cross>=1;
+  };
+  const seed = cand.find(x=>x.w.length>=5) || cand[0];
+  place(seed,0,0,"A");
+  let pass=0;
+  while(placed.length<want && pass<8){
+    pass++; let added=false;
+    for(const item of cand){
+      if(placed.length>=want) break;
+      if(placed.some(p=>p.word===item.w)) continue;
+      let done=false;
+      for(const pe of placed){
+        const perp = pe.dir==="A"?"D":"A";
+        for(let i=0;i<item.w.length && !done;i++) for(let j=0;j<pe.word.length && !done;j++){
+          if(item.w[i]!==pe.word[j]) continue;
+          const cr = pe.dir==="A"?pe.r:pe.r+j, cc = pe.dir==="A"?pe.c+j:pe.c;
+          const sr = perp==="A"?cr:cr-i, sc = perp==="A"?cc-i:cc;
+          if(canPlace(item.w,sr,sc,perp)){ place(item,sr,sc,perp); done=true; added=true; }
+        }
+        if(done) break;
+      }
+    }
+    if(!added) break;
+  }
+  if(placed.length < Math.min(5,want)) return null;
+  let minR=1e9,minC=1e9,maxR=-1e9,maxC=-1e9;
+  Object.keys(cell).forEach(k=>{ const p=k.split("_"), r=+p[0], c=+p[1]; minR=Math.min(minR,r);maxR=Math.max(maxR,r);minC=Math.min(minC,c);maxC=Math.max(maxC,c); });
+  const H=maxR-minR+1, W=maxC-minC+1;
+  if(H>11||W>11) return null;
+  const rows=[];
+  for(let r=0;r<H;r++){ let s=""; for(let c=0;c<W;c++) s+= cell[K(r+minR,c+minC)]||"#"; rows.push(s); }
+  const num=xwNumbers(rows), across=[], down=[];
+  placed.forEach(p=>{
+    const n=num[(p.r-minR)+"_"+(p.c-minC)];
+    const entry={num:n, clue:p.zh, sub:(p.pos?p.pos+" · ":"")+p.word.length+" letters"};
+    (p.dir==="A"?across:down).push(entry);
+  });
+  across.sort((a,b)=>a.num-b.num); down.sort((a,b)=>a.num-b.num);
+  return {rows, across, down};
+}
 function renderCrossword(){
   XW = { done:false };
-  const g = XWORD.rows.map(r=>r.split("")), num = xwNumbers();
-  const grid = g.map((row,r)=>`<div class="xw-row">`+row.map((ch,c)=>{
-    if(ch==="#") return `<div class="xw-cell xw-block"></div>`;
-    const badge = num[r+"_"+c] ? `<span class="xw-num">${num[r+"_"+c]}</span>` : "";
-    return `<div class="xw-cell">${badge}<input class="xw-in" maxlength="1" data-sol="${ch}" inputmode="latin" autocapitalize="characters" oninput="xwInput(this)" onkeydown="xwKey(event,this)"></div>`;
-  }).join("")+`</div>`).join("");
-  const clueList = (arr)=>arr.map(e=>`<li><b>${e.num}.</b> ${e.clue}<span class="xw-zh">${e.zh}</span></li>`).join("");
   app.innerHTML = `<div class="view xw-view">
     <div class="crumb"><a href="#/home">Home</a> › <a href="#/games">Games</a> › Crossword</div>
     <div class="eyebrow">Crossword · 填字遊戲</div>
     <h1 class="display">Mini Crossword</h1>
-    <p class="lede">Read a clue, then type letters into the grid. Cells that cross share a letter, so one answer helps another.<br>看提示，把字母打進格子裡。交叉的格子共用同一個字母，一個答案能幫你解出另一個。</p>
+    <p class="lede">Read a clue, then type letters into the grid. Words that cross share a letter, so one answer helps another. Every word comes from your 背單字 word bank.<br>看提示把字母填進格子；交叉的格子共用字母。所有單字都取自你的「背單字」單字庫。</p>
     <div class="xw-wrap">
-      <div class="xw-gridwrap"><div id="xwGrid" class="xw-grid">${grid}</div>
+      <div class="xw-gridwrap"><div id="xwGrid" class="xw-grid"></div>
         <div class="xw-btns">
           <button class="btn btn-primary" onclick="xwCheck()">檢查 Check</button>
           <button class="btn btn-ghost" onclick="xwReveal()">顯示答案 Reveal</button>
           <button class="btn btn-ghost" onclick="xwClear()">清除 Clear</button>
+          <button class="btn btn-ghost" onclick="xwNew()">換一題 New ↻</button>
         </div>
-        <div id="xwMsg" class="xw-msg"></div>
+        <div id="xwMsg" class="xw-msg">載入單字庫中… Loading word bank…</div>
       </div>
       <div class="xw-clues">
-        <div class="xw-cl-group"><h3>Across 橫</h3><ul>${clueList(XWORD.across)}</ul></div>
-        <div class="xw-cl-group"><h3>Down 直</h3><ul>${clueList(XWORD.down)}</ul></div>
+        <div class="xw-cl-group"><h3>Across 橫</h3><ul id="xwAcross"></ul></div>
+        <div class="xw-cl-group"><h3>Down 直</h3><ul id="xwDown"></ul></div>
       </div>
     </div>
   </div>`;
+  loadWordBank().then(bank=>buildCrossword(bank)).catch(()=>buildCrossword(null));
   window.scrollTo(0,0);
 }
+function buildCrossword(bank){
+  let p=null;
+  if(bank && bank.length) for(let t=0;t<15 && !p;t++) p=genCrossword(bank,6);
+  if(!p) p=XWORD_FALLBACK;
+  XW_PUZZLE=p; XW={done:false};
+  paintCrossword(p);
+}
+function paintCrossword(p){
+  const num=xwNumbers(p.rows);
+  const grid = p.rows.map((row,r)=>`<div class="xw-row">`+row.split("").map((ch,c)=>{
+    if(ch==="#") return `<div class="xw-cell xw-block"></div>`;
+    const badge = num[r+"_"+c] ? `<span class="xw-num">${num[r+"_"+c]}</span>` : "";
+    return `<div class="xw-cell">${badge}<input class="xw-in" maxlength="1" data-sol="${ch}" autocapitalize="characters" oninput="xwInput(this)" onkeydown="xwKey(event,this)"></div>`;
+  }).join("")+`</div>`).join("");
+  const clueList=(arr)=>arr.map(e=>`<li><b>${e.num}.</b> ${e.clue}${(e.sub||e.zh)?`<span class="xw-zh">${e.sub||e.zh}</span>`:""}</li>`).join("");
+  const gridEl=document.getElementById("xwGrid"); if(gridEl) gridEl.innerHTML=grid;
+  const acEl=document.getElementById("xwAcross"); if(acEl) acEl.innerHTML=clueList(p.across);
+  const dnEl=document.getElementById("xwDown"); if(dnEl) dnEl.innerHTML=clueList(p.down);
+  const msg=document.getElementById("xwMsg"); if(msg){ msg.textContent=""; msg.className="xw-msg"; }
+}
+function xwNew(){ if(WB){ buildCrossword(WB); } else { renderCrossword(); } }
 function xwInput(el){
   el.value = (el.value||"").toUpperCase().replace(/[^A-Z]/g,"").slice(0,1);
   el.classList.remove("ok","bad");
@@ -15799,47 +15906,38 @@ function xwClear(){
 /* =====================================================
    Word guess 猜字遊戲 (Wordle-style, 5 letters)
    ===================================================== */
-const WORDLE_WORDS = [
-  ["APPLE","蘋果"],["BEACH","海灘"],["BREAD","麵包"],["CHAIR","椅子"],["CLOUD","雲"],
-  ["DANCE","跳舞"],["DREAM","夢想"],["EARTH","地球"],["EAGLE","老鷹"],["FRUIT","水果"],
-  ["GLASS","玻璃杯"],["GRAPE","葡萄"],["GREEN","綠色"],["HAPPY","快樂的"],["HEART","心"],
-  ["HOUSE","房子"],["JUICE","果汁"],["LIGHT","光"],["LEMON","檸檬"],["MONEY","錢"],
-  ["MOUSE","老鼠"],["MUSIC","音樂"],["NIGHT","夜晚"],["OCEAN","海洋"],["PARTY","派對"],
-  ["PEACE","和平"],["PHONE","電話"],["PLANT","植物"],["PIZZA","披薩"],["QUEEN","皇后"],
-  ["QUIET","安靜的"],["RIVER","河流"],["ROBOT","機器人"],["SALAD","沙拉"],["SHEEP","綿羊"],
-  ["SHIRT","襯衫"],["SMILE","微笑"],["SNAKE","蛇"],["SPOON","湯匙"],["STONE","石頭"],
-  ["STORM","暴風雨"],["SUGAR","糖"],["SUNNY","晴朗的"],["SWEET","甜的"],["TABLE","桌子"],
-  ["TIGER","老虎"],["TOAST","吐司"],["TOOTH","牙齒"],["TRAIN","火車"],["WATER","水"],
-  ["WHITE","白色"],["WORLD","世界"],["YOUNG","年輕的"],["ZEBRA","斑馬"],["BRING","帶來"],
-  ["CATCH","抓住"],["CLEAN","乾淨的"],["CLIMB","攀爬"],["CLOSE","關閉"],["DRINK","喝"],
-  ["DRIVE","開車"],["ENJOY","享受"],["EVERY","每一個"],["FIRST","第一"],["FLOOR","地板"],
-  ["FRESH","新鮮的"],["FUNNY","有趣的"],["GIANT","巨人"],["GRASS","草"],["GROUP","群組"],
-  ["GUIDE","引導"],["HELLO","哈囉"],["HOBBY","嗜好"],["HOTEL","旅館"],["HURRY","匆忙"],
-  ["LEARN","學習"],["LUCKY","幸運的"],["MAGIC","魔法"],["MONTH","月份"],["MOVIE","電影"],
-  ["OFFER","提供"],["PAINT","畫；油漆"],["PAPER","紙"],["PLACE","地方"],["PLANE","飛機"],
-  ["PLATE","盤子"],["POINT","點"],["PRICE","價格"],["PROUD","驕傲的"],["RADIO","收音機"],
-  ["SPORT","運動"],["START","開始"],["STORY","故事"],["STUDY","讀書"],["TEACH","教"],
-  ["THANK","感謝"],["THINK","思考"],["THREE","三"],["TIRED","疲倦的"],["UNCLE","叔叔"],
-  ["VOICE","聲音"],["WATCH","手錶；看"],["WHEEL","輪子"],["WOMAN","女人"],["WRITE","寫"]
+const WORDLE_FALLBACK = [
+  {w:"APPLE",zh:"蘋果"},{w:"BEACH",zh:"海灘"},{w:"BREAD",zh:"麵包"},{w:"EARTH",zh:"地球"},
+  {w:"HAPPY",zh:"快樂的"},{w:"HOUSE",zh:"房子"},{w:"MUSIC",zh:"音樂"},{w:"OCEAN",zh:"海洋"},
+  {w:"RIVER",zh:"河流"},{w:"TIGER",zh:"老虎"},{w:"WATER",zh:"水"},{w:"WORLD",zh:"世界"}
 ];
 const WD_KEYROWS = ["QWERTYUIOP","ASDFGHJKL","ZXCVBNM"];
-let WD = null, WD_LISTENER=false;
+let WD = null, WD_LISTENER=false, WD_POOL=null;
 function renderWordle(){
-  const pick = WORDLE_WORDS[Math.floor(Math.random()*WORDLE_WORDS.length)];
-  WD = { answer:pick[0], zh:pick[1], rows:6, cols:5, guesses:[], cur:"", done:false, key:{} };
   if(!WD_LISTENER){ document.addEventListener("keydown", wdPhysical); WD_LISTENER=true; }
+  WD = { answer:"", zh:"", rows:6, cols:5, guesses:[], cur:"", done:true, key:{} };
   app.innerHTML = `<div class="view wd-view">
     <div class="crumb"><a href="#/home">Home</a> › <a href="#/games">Games</a> › Word guess</div>
     <div class="eyebrow">Word guess · 猜字遊戲</div>
     <h1 class="display">Guess the 5-letter word</h1>
-    <p class="lede">You have 6 tries. After each guess: <b class="wd-lg wd-correct">green</b> = right letter, right spot; <b class="wd-lg wd-present">yellow</b> = right letter, wrong spot; grey = not in the word.<br>六次機會。<b>綠</b>＝字母對、位置也對；<b>黃</b>＝有這個字母但位置不對；灰＝不在字裡。</p>
+    <p class="lede">You have 6 tries. After each guess: <b class="wd-lg wd-correct">green</b> = right letter, right spot; <b class="wd-lg wd-present">yellow</b> = right letter, wrong spot; grey = not in the word. Words come from your 背單字 word bank.<br>六次機會。<b>綠</b>＝字母對、位置也對；<b>黃</b>＝有這個字母但位置不對；灰＝不在字裡。單字取自你的「背單字」單字庫。</p>
     <div id="wdBoard" class="wd-board"></div>
-    <div id="wdMsg" class="wd-msg"></div>
+    <div id="wdMsg" class="wd-msg">載入單字庫中… Loading word bank…</div>
     <div id="wdKeys" class="wd-keys"></div>
-    <div class="wd-foot"><button class="btn btn-ghost" onclick="renderWordle()">換一個字 New word ↻</button></div>
+    <div class="wd-foot"><button class="btn btn-ghost" onclick="newWordle()">換一個字 New word ↻</button></div>
   </div>`;
   updateWordle();
+  if(WD_POOL){ newWordle(); }
+  else loadWordBank().then(bank=>{ WD_POOL=bank.filter(x=>x.w.length===5); if(!WD_POOL.length) WD_POOL=WORDLE_FALLBACK; newWordle(); })
+                     .catch(()=>{ WD_POOL=WORDLE_FALLBACK; newWordle(); });
   window.scrollTo(0,0);
+}
+function newWordle(){
+  const pool = (WD_POOL&&WD_POOL.length) ? WD_POOL : WORDLE_FALLBACK;
+  const pick = pool[Math.floor(Math.random()*pool.length)];
+  WD = { answer:pick.w, zh:pick.zh, rows:6, cols:5, guesses:[], cur:"", done:false, key:{} };
+  wdMsg("");
+  updateWordle();
 }
 function wdStatus(guess){
   const res=Array(5).fill("absent"), a=WD.answer.split("");
