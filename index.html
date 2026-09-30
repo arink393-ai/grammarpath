@@ -6947,8 +6947,8 @@ function renderStoryList(filterCat = "all"){
     const plateContent = isFab
       ? (FABLE_ART[s.id] || `<span class="sb-fable-emoji">${s.emoji || "🦊"}</span>`)
       : (s.coverImg
-        ? `<img src="${s.coverImg}" alt="${s.title}" loading="lazy">`
-        : (s.scenes[0].img ? `<img src="${s.scenes[0].img}" alt="${s.title}" loading="lazy">` : s.scenes[0].svg));
+        ? `<img src="${s.coverImg}" alt="${s.title}" decoding="async">`
+        : (s.scenes[0].img ? `<img src="${s.scenes[0].img}" alt="${s.title}" decoding="async">` : s.scenes[0].svg));
     return `
     <button class="sb-list-card ${s.category==='picturebook'?'sb-card-pb':''} ${isFab?'sb-card-fable':''}" onclick="location.hash='#/story/${s.id}'">
       <div class="sb-list-plate ${s.category==='picturebook'?'sb-plate-cover':''} ${isFab?'sb-plate-fable':''}">${plateContent}</div>
@@ -7131,7 +7131,7 @@ function renderStory(id){
         </div>
       </div>
       <div class="sb-plate ${sc.img ? 'sb-plate-pb' : ''}">
-        ${sc.img ? `<img src="${sc.img}" alt="${sc.title}" loading="lazy">` : sc.svg}
+        ${sc.img ? `<img src="${sc.img}" alt="${sc.title}" decoding="async">` : sc.svg}
       </div>
       <div class="sb-tale">
         <p class="en">${sbGlossify(sc.en, gmap)}</p>
