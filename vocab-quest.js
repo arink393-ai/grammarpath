@@ -12,6 +12,7 @@ const VQ_TRACKS = {
  g8:{title:'八年級', desc:'教育部基本字・較進階的 548 字', book:'jh8'},
  g9:{title:'九年級', desc:'教育部常用 2,000 字・基本字以外的 793 字', book:'jh9'},
  l3:{title:'學測 Level 3', desc:'大考中心參考詞彙表第三級・992 字', book:'gsat3'},
+ l4:{title:'學測 Level 4', desc:'大考中心參考詞彙表第四級・985 字', book:'gsat4'},
  core:{title:'會考＋學測精選', desc:'60 個精選字（最早的版本）'}
 };
 const VQ_UNITS = [
@@ -258,7 +259,7 @@ function renderVocabHub(){
   <section class="dq-hero"><div><div class="eyebrow">DAILY WORDS</div><h1 class="display">每天 5 個字，<br>背完馬上用出來。</h1><p>先認識單字（發音、中文、例句、搭配詞），再做含有這些字的文法題。完成後，這些字會自動排進「每日單字」的複習。</p><p class="dq-meta">已完成 ${doneN} 天 · ${esc(VQ_TRACKS[d.track].title)} · 今天是 Unit ${d.n}</p><a class="btn btn-primary" href="#/vocab/${t}">今日任務：Unit ${d.n}${d.title?' '+esc(d.title):''} →</a></div><div class="dq-mascot">${catSVG(150,'orange')}<span>一天五個字，喵！</span></div></section>
   <section class="vq-tracks"><b>選擇路線</b>${Object.entries(VQ_TRACKS).map(([k,x])=>`<button class="vq-track ${k===d.track?'on':''}" onclick="vqSetTrack('${k}')"><span>${esc(x.title)}</span><small>${esc(x.desc)}</small></button>`).join('')}</section>
   <section class="vq-days">${days.map(x=>{const st=vqStatus(x.date),isT=x.date===t,fut=x.date>t;return `<a class="vq-day card ${st} ${isT?'today':''}" href="#/vocab/${x.date}"><span class="vq-day-date">${isT?'今天':fut?'明天・預習':x.date.slice(5).replace('-','/')}</span><b>Unit ${x.n}</b><span class="vq-day-t">${esc(x.title)}</span><span class="vq-day-w">${x.items.map(w=>esc(w.w)).join(' · ')}</span><span class="vq-day-st">${st==='done'?'✓ 完成':st==='started'?'進行中':isT?'今日任務':fut?'可預習':'可補做'}</span></a>`;}).join('')}</section>
-  <p class="vq-source">單字來源：教育部《十二年國教課綱 英語文》參考字彙表（七、八年級為基本 1,200 字依難易分級，九年級為其他常用 800 字）；大學入學考試中心《高中英文參考詞彙表（111 學年度起適用）》第三級，僅供非營利教學使用。例句、搭配詞與文法題為本站自編。</p>
+  <p class="vq-source">單字來源：教育部《十二年國教課綱 英語文》參考字彙表（七、八年級為基本 1,200 字依難易分級，九年級為其他常用 800 字）；大學入學考試中心《高中英文參考詞彙表（111 學年度起適用）》第三、四級，僅供非營利教學使用。例句、搭配詞與文法題為本站自編。</p>
   <section class="vq-app card"><div><b>📱 每日單字 App</b><p>間隔複習、三種小測驗、生詞本、真人發音影片，還有國中會考、學測單字書。</p></div><a class="btn btn-navy" href="vocab/">開啟每日單字 →</a></section>
  </div>`;
 }
