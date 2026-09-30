@@ -10,6 +10,7 @@ const VQ_START = '2026-09-30';   // 各路線第 1 單元的日期，之後每�
 const VQ_TRACKS = {
  g7:{title:'七年級', desc:'教育部基本字・較基礎的 539 字', book:'jh7'},
  g8:{title:'八年級', desc:'教育部基本字・較進階的 548 字', book:'jh8'},
+ g9:{title:'九年級', desc:'教育部常用 2,000 字・基本字以外的 793 字', book:'jh9'},
  core:{title:'會考＋學測', desc:'國中會考核心字 → 學測進階字'}
 };
 const VQ_UNITS = [

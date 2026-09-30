@@ -52,6 +52,7 @@ def build(book):
             if not has_form(ex, w): errs.append(f'{where} {w}：例句沒有出現該字')
             if not has_form(qs, w): errs.append(f'{where} {w}：文法題沒有出現該字')
             if not all([zh, ex, exzh, why, qzh]): errs.append(f'{where} {w}：有空白欄位')
+            if re.search(r'請見|請看解析|替換|注意：本題|注意：此題', why): errs.append(f'{where} {w}：解析含未完成的註記')
             cols = []
             for x in [x.strip() for x in re.split(r'[;；]', col) if x.strip()]:
                 if '=' not in x: errs.append(f'{where} {w}：搭配詞「{x}」缺 =中文'); continue
