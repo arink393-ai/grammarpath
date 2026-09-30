@@ -15,6 +15,7 @@ BOOKS = {
  'jh8':  ('國中八年級單字（教育部基本字）', '教育部基本 1,200 字中較進階的一半'),
  'jh9':  ('國中九年級單字（教育部常用 2,000 字）', '教育部常用 2,000 字中，基本字以外的 800 字'),
  'gsat3':('學測 Level 3（大考中心）', '大考中心高中英文參考詞彙表 第三級'),
+ 'gsat4':('學測 Level 4（大考中心）', '大考中心高中英文參考詞彙表 第四級'),
 }
 IRREG = {  # 不規則變化：例句/題目可用這些形式
 }
@@ -52,7 +53,7 @@ def build(book):
             if not has_form(ex, w): errs.append(f'{where} {w}：例句沒有出現該字')
             if not has_form(qs, w): errs.append(f'{where} {w}：文法題沒有出現該字')
             if not all([zh, ex, exzh, why, qzh]): errs.append(f'{where} {w}：有空白欄位')
-            if re.search(r'請見|請看解析|替換|改為下方|改用下方|下方版本|下方題目|此題改寫|注意：本題|注意：此題', why): errs.append(f'{where} {w}：解析含未完成的註記')
+            if re.search(r'請見|請看解析|替換|改為下方|改用下方|下方版本|下方題目|此題改寫|改寫|注意：本題|注意：此題', why): errs.append(f'{where} {w}：解析含未完成的註記')
             cols = []
             for x in [x.strip() for x in re.split(r';', col) if x.strip()]:   # 只用半形分號分隔，中文意思裡可以有「；」
                 if '=' not in x: errs.append(f'{where} {w}：搭配詞「{x}」缺 =中文'); continue
