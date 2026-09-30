@@ -8561,6 +8561,30 @@ const WORD_ORIGINS = [
      rows:[["句號","<b>.</b>","。"],["逗號／頓號","<b>,</b>","，、"],["引號","<b>\" \"</b>","「」"],["空格","標點後空一格","不空格"]]},
    {t:"call", zhTitle:"課堂活動 · Punctuation repair", zh:"發一段「完全沒有標點」的短文，讓學生一邊唸一邊補上標點——逗號＝短停頓、句號＝停下來。唸出聲音來，標點的節奏感最容易抓到。", en:"Hand out a paragraph with no punctuation; students read it aloud and add marks — comma = short pause, period = full stop. Reading aloud makes the rhythm click."},
    {t:"link", href:"#/etymology", label:"回字源學堂目錄 Back to all chapters"}
+  ]},
+ {id:"capitalization", icon:"🔠", en:"Capitalization Rules", zh:"常見大寫規則", tag:"Writing · 大寫",
+  hook:"英文的大寫不是隨便加的——它標記「句子的開頭」和「專有名詞」。學會規則，寫作就專業又清楚。",
+  blocks:[
+   {t:"p", en:"English uses capital letters for two big reasons: to mark the start of a sentence, and to mark proper nouns (specific names). A handful of extra rules cover the tricky cases. Note what capitals are NOT for: they are not decoration and not a way to shout or emphasise a word.",
+       zh:"英文的大寫主要有兩個作用：標記「句子的開頭」，以及標記「專有名詞」（特定的名字）。再加幾條規則，就能涵蓋容易出錯的情況。也要記住大寫「不是」用來裝飾、或用來強調某個字的。"},
+   {t:"h", en:"The core rules", zh:"核心規則"},
+   {t:"table", head:["規則 Rule","例子 Example"],
+     rows:[["句子的第一個字","<b>T</b>he cat is here."],["代名詞 I 永遠大寫","Yes, <b>I</b> can."],["人名、地名等專有名詞","<b>A</b>my, <b>T</b>aiwan, <b>M</b>ount Fuji"],["星期、月份、節日","<b>M</b>onday, <b>J</b>uly, <b>C</b>hristmas"],["語言、國籍、宗教","<b>E</b>nglish, <b>J</b>apanese, <b>B</b>uddhism"],["直接引用的第一個字","She said, \"<b>L</b>et's go.\""]]},
+   {t:"call", zhTitle:"重點 · 季節不大寫！", zh:"星期、月份、節日都要大寫，但「季節」不用：spring、summer、autumn／fall、winter 一律小寫。這是台灣學生最常見的錯誤之一。", en:"Days, months and holidays are capitalised, but seasons are NOT: spring, summer, autumn/fall, winter all stay lowercase."},
+   {t:"h", en:"Titles before names", zh:"頭銜與稱謂"},
+   {t:"p", en:"A title is capitalised when it comes right before a name, or is used in place of a name. It stays lowercase when it is just a general word — often when a word like my or the sits in front of it.",
+       zh:"頭銜「接在名字前面」或「當名字來用」時要大寫；只是泛指時就小寫——通常前面出現 my、the 這類字，就是小寫的訊號。"},
+   {t:"table", head:["大寫 Capital","小寫 lowercase"],
+     rows:[["<b>President</b> Lincoln","the <b>p</b>resident spoke"],["<b>Doctor</b> Chen / <b>Dr.</b> Chen","see a <b>d</b>octor"],["Hi, <b>Mom</b>!（當名字用）","my <b>m</b>om（前面有 my）"],["<b>Uncle</b> Bob","my <b>u</b>ncle"]]},
+   {t:"h", en:"Titles of works (title case)", zh:"書名、片名、歌名（title case）"},
+   {t:"p", en:"For the title of a book, film, or song, capitalise the important words. Small words — a, an, the, and, but, or, of, in, on — stay lowercase, UNLESS they are the first (or last) word of the title.",
+       zh:"書名、電影、歌名要用「標題式大寫（title case）」：重要的字都大寫；小字（a、an、the、and、of、in…）保持小寫，除非它是標題的第一個（或最後一個）字。"},
+   {t:"call", zhTitle:"例子 · Title case", zh:"The Lord of the Rings · A Tale of Two Cities — 注意句中的 of、the 小寫，但開頭的 The、A 要大寫。", en:"The Lord of the Rings · A Tale of Two Cities — 'of' and mid-sentence 'the' stay lowercase, but the opening The/A is capitalised."},
+   {t:"h", en:"Common mistakes", zh:"常見錯誤"},
+   {t:"table", head:["✗ 錯","✓ 對","為什麼"],
+     rows:[["i am happy","<b>I</b> am happy","I 永遠大寫"],["in Summer","in <b>s</b>ummer","季節不大寫"],["I speak chinese","I speak <b>C</b>hinese","語言要大寫"],["next monday","next <b>M</b>onday","星期要大寫"],["a BIG problem（想強調）","a big problem","大寫不是拿來強調的"]]},
+   {t:"call", zhTitle:"課堂活動 · Capital hunt 大寫獵人", zh:"發一段「全部小寫」的短文，請學生把「該大寫的字」圈出來，並說出理由（是專有名詞？星期？句首？）。也可以玩分類卡：July vs summer、English vs happy，分成「大寫／小寫」兩堆。", en:"Give an all-lowercase paragraph; students circle every word that needs a capital and name the rule. Or sort cards into capital/lowercase piles: July vs summer, English vs happy."},
+   {t:"link", href:"#/etymology", label:"回字源學堂目錄 Back to all chapters"}
   ]}
 ];
 const etymById = id => WORD_ORIGINS.find(x=>x.id===id);
