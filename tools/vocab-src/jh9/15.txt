@@ -21,7 +21,7 @@ therefore || adv. || 因此 || It rained. Therefore, the game was canceled. || �
 thief || n. || 小偷 || The police caught the thief. || 警察抓到了小偷。 || thieves=小偷（複數） || The thief ___ caught by the police last night. || was|is|were || 被動語態；過去用 was + p.p.。 || 小偷昨晚被警察抓到了。
 thought || n. || 想法 || That's a good thought. || 那是個好想法。 || on second thought=仔細一想 || Thank you ___ your kind thought. || for|to|of || thank you for + 名詞。 || 謝謝你的好意。
 thumb || n. || 拇指 || He gave me a thumbs-up. || 他對我比了個讚。 || thumbs-up=比讚 || He gave me a thumbs-up ___ I finished the race. || when|what|which || when 引導時間子句。 || 我跑完比賽時，他對我比了個讚。
-thunder || n. || 雷 || I heard thunder last night. || 我昨晚聽到打雷。 || thunder and lightning=雷電 || The dog was scared ___ the thunder. || of|at by|for || be scared of = 害怕…。 || 那隻狗被雷聲嚇到了。
+thunder || n. || 雷 || I heard thunder last night. || 我昨晚聽到打雷。 || thunder and lightning=雷電 || The dog was scared ___ the thunder. || of|at|for || be scared of = 害怕…。 || 那隻狗被雷聲嚇到了。
 till || prep. || 直到 || Wait till I come back. || 等到我回來。 || till now=直到現在 || Wait here till the rain ___. || stops|will stop|stopped || 時間子句 till… 用現在式代替未來式。 || 在這裡等到雨停。
 tiny || adj. || 極小的 || The kitten is tiny. || 那隻小貓好小。 || tiny bit=一點點 || The kitten is ___ tiny that it fits in my hand. || so|such|too || so + 形容詞 + that…。 || 那隻小貓小到可以放在我手上。
 title || n. || 標題；稱號 || What's the title of the book? || 這本書的書名是什麼？ || the title of=…的標題 || What's the title ___ this song? || of|for|to || the title of = …的標題。 || 這首歌的歌名是什麼？
@@ -47,5 +47,5 @@ truth || n. || 真相；事實 || Tell me the truth. || 告訴我實話。 || te
 tub || n. || 浴缸；桶 || The baby is in the tub. || 寶寶在浴缸裡。 || bath tub=浴缸 || The water in the tub is ___ hot. || too|to|two || too + 形容詞 = 太…。 || 浴缸裡的水太燙了。
 tube || n. || 管子 || A tube of toothpaste costs 80 dollars. || 一條牙膏八十元。 || a tube of=一條（管）… || I need a tube ___ toothpaste. || of|for|with || a tube of = 一條…。 || 我需要一條牙膏。
 tunnel || n. || 隧道 || The train went through a tunnel. || 火車穿過了一條隧道。 || go through a tunnel=穿過隧道 || The train went ___ a long tunnel. || through|across|along || go through = 穿過（內部）。 || 火車穿過了一條長隧道。
-turkey || n. || 火雞 || Americans eat turkey on Thanksgiving. || 美國人在感恩節吃火雞。 || roast turkey=烤火雞 || Americans eat turkey ___ Thanksgiving. || on|in|at of || 特定的節日（日子）前面用 on。 || 美國人在感恩節吃火雞。
-underline || v. || 在…下畫線 || Underline the new words. || 在生字底下畫線。 || underline a word=在字下畫線 || Underline the important words ___ a red pen. || with|by|in of || 用某工具用 with。 || 用紅筆在重要的字底下畫線。
+turkey || n. || 火雞 || Americans eat turkey on Thanksgiving. || 美國人在感恩節吃火雞。 || roast turkey=烤火雞 || Americans eat turkey ___ Thanksgiving. || on|in|at || 特定的節日（日子）前面用 on。 || 美國人在感恩節吃火雞。
+underline || v. || 在…下畫線 || Underline the new words. || 在生字底下畫線。 || underline a word=在字下畫線 || Underline the important words ___ a red pen. || with|by|in || 用某工具用 with。 || 用紅筆在重要的字底下畫線。

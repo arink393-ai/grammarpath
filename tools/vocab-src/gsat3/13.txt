@@ -20,7 +20,7 @@ penguin || n. || 企鵝 || Penguins can't fly. || 企鵝不會飛。 || emperor 
 penny || n. || 一分錢 || I don't have a penny. || 我身無分文。 || a penny saved is a penny earned=省一分是一分 || A penny saved is a penny ___. || earned|earn|earning || 諺語，過去分詞 earned 表被動；與 saved 對應。 || 省一分就是賺一分。
 pepper || n. || 胡椒；甜椒 || Add some salt and pepper. || 加點鹽和胡椒。 || black pepper=黑胡椒; green pepper=青椒 || Would you like some pepper ___ your soup? || in|on|at || 加在湯裡用 in。 || 你的湯要加點胡椒嗎？
 perform || v. || 表演；執行 || The band performed on stage. || 樂團在舞台上表演。 || perform well=表現良好 || The students performed ___ well that the audience clapped for a long time. || so|such|too || so + 副詞 + that…。 || 學生們表演得非常好，觀眾鼓掌了很久。
-performance || n. || 表演；表現 || Her performance was amazing. || 她的表演很精彩。 || give a performance=演出 || Everyone was impressed ___ her performance. || by|with to|at || be impressed by = 對…印象深刻。 || 大家都對她的表演印象深刻。
+performance || n. || 表演；表現 || Her performance was amazing. || 她的表演很精彩。 || give a performance=演出 || Everyone was impressed ___ her performance. || by|with|at || be impressed by = 對…印象深刻。 || 大家都對她的表演印象深刻。
 permission || n. || 許可 || You need permission to enter. || 你需要許可才能進入。 || ask for permission=請求許可 || You need to ask for permission ___ you use the lab. || before|after|since || 使用「之前」申請許可，用 before。 || 使用實驗室之前你需要申請許可。
 permit || v./n. || 允許；許可證 || Smoking is not permitted here. || 這裡禁止吸菸。 || work permit=工作許可證 || Students are not permitted ___ phones during the exam. || to use|using|use || be permitted to + 原形動詞。 || 考試期間學生不准使用手機。
 persuade || v. || 說服 || She persuaded me to join the club. || 她說服我加入社團。 || persuade sb to V=說服某人做… || My friend persuaded me ___ the English club. || to join|joining|join || persuade sb to + 原形動詞。 || 我朋友說服我加入英文社。

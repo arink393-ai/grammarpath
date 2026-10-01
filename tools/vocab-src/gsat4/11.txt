@@ -1,5 +1,5 @@
 # 學測 L4 11：immigration – isolation
-immigration || n. || 移民；入境 || We went through immigration at the airport. || 我們在機場通過入境檢查。 || immigration office=移民署 || You need to show your passport ___ immigration. || at|on|in of || at immigration = 在入境審查處。 || 你需要在入境審查處出示護照。
+immigration || n. || 移民；入境 || We went through immigration at the airport. || 我們在機場通過入境檢查。 || immigration office=移民署 || You need to show your passport ___ immigration. || at|on|in || at immigration = 在入境審查處。 || 你需要在入境審查處出示護照。
 impact || n./v. || 影響；衝擊 || Technology has a big impact on our lives. || 科技對我們的生活影響很大。 || have an impact on=對…有影響 || Social media has a huge impact ___ young people. || on|to|for || have an impact on = 對…有影響。 || 社群媒體對年輕人有巨大的影響。
 imply || v. || 暗示 || What are you implying? || 你在暗示什麼？ || imply that=暗示… || His silence implied ___ he didn't agree. || that|what|which || that 引導名詞子句當 implied 的受詞。 || 他的沉默暗示他不同意。
 impose || v. || 強加；徵收 || The government imposed a new tax. || 政府開徵了一項新稅。 || impose on=強加於… || Parents shouldn't impose their own dreams ___ their children. || on|to|with || impose A on B = 把 A 強加於 B。 || 父母不應該把自己的夢想強加在孩子身上。
@@ -14,11 +14,11 @@ inflation || n. || 通貨膨脹 || Inflation is making everything more expensive
 influential || adj. || 有影響力的 || She is an influential writer. || 她是一位有影響力的作家。 || highly influential=非常有影響力 || He is one of the ___ influential leaders in the world. || most|more|much || one of the + 最高級 + 複數名詞。 || 他是世界上最有影響力的領袖之一。
 informative || adj. || 資訊豐富的 || The lecture was very informative. || 這場演講資訊非常豐富。 || informative article=內容豐富的文章 || The documentary was ___ informative that I learned a lot. || so|such|too || so + 形容詞 + that…。 || 這部紀錄片資訊豐富到我學了很多。
 ingredient || n. || 材料；成分 || What are the ingredients of this cake? || 這個蛋糕的材料是什麼？ || main ingredient=主要材料 || Fresh ingredients are the key ___ good cooking. || to|of|for || the key to = …的關鍵。 || 新鮮的食材是美味料理的關鍵。
-initial || adj./n. || 最初的；首字母 || My initial reaction was surprise. || 我最初的反應是驚訝。 || initial stage=初期 || The project is still ___ its initial stage. || in|on|at of || in the … stage = 在…階段。 || 這個計畫仍在初期階段。
+initial || adj./n. || 最初的；首字母 || My initial reaction was surprise. || 我最初的反應是驚訝。 || initial stage=初期 || The project is still ___ its initial stage. || in|on|at || in the … stage = 在…階段。 || 這個計畫仍在初期階段。
 injure || v. || 使受傷 || He was injured in the accident. || 他在事故中受傷。 || be injured in=在…中受傷 || Three people ___ injured in the car accident. || were|was|are || 被動語態；Three people 複數，過去用 were。 || 車禍中有三人受傷。
 innocence || n. || 天真；清白 || He proved his innocence. || 他證明了自己的清白。 || prove one's innocence=證明清白 || The new evidence proved the man's innocence, ___ he was set free. || so|but|or || 前面是原因、後面是結果，用 so。 || 新證據證明了那名男子的清白，所以他被釋放了。
 input || n. || 輸入；意見 || Thank you for your input. || 謝謝你的意見。 || give input=提供意見 || We welcome input ___ students and parents. || from|of|by || input from = 來自…的意見。 || 我們歡迎學生和家長提供意見。
-insert || v. || 插入 || Insert the card into the machine. || 把卡片插進機器裡。 || insert a coin=投幣 || Insert the coin ___ the slot. || into|in to|onto || insert A into B = 把 A 插入 B。 || 把硬幣投入投幣孔。
+insert || v. || 插入 || Insert the card into the machine. || 把卡片插進機器裡。 || insert a coin=投幣 || Insert the coin ___ the slot. || into|in|onto || insert A into B = 把 A 插入 B。 || 把硬幣投入投幣孔。
 inspection || n. || 檢查 || The car needs an inspection. || 這輛車需要檢驗。 || safety inspection=安全檢查 || All bags are subject ___ inspection at the airport. || to|for|with || be subject to = 需接受…。 || 機場的所有行李都需接受檢查。
 inspiration || n. || 靈感；鼓舞 || Nature is her inspiration. || 大自然是她的靈感來源。 || source of inspiration=靈感來源 || The artist found inspiration ___ nature. || in|on|at || find inspiration in = 從…中找到靈感。 || 那位藝術家從大自然中找到靈感。
 inspire || v. || 啟發；激勵 || Her story inspired me. || 她的故事啟發了我。 || inspire sb to V=激勵某人做… || Her speech inspired many students ___ harder. || to study|studying|study || inspire sb to + 原形動詞。 || 她的演講激勵了許多學生更加用功。
@@ -37,7 +37,7 @@ intensive || adj. || 密集的 || She took an intensive English course. || 她�
 intention || n. || 意圖 || I have no intention of leaving. || 我無意離開。 || have no intention of=無意… || I have no intention ___ giving up. || of|to|for || have no intention of + V-ing = 無意做…。 || 我無意放棄。
 interact || v. || 互動 || Children learn by interacting with others. || 孩子透過與他人互動來學習。 || interact with=與…互動 || Teachers should interact ___ their students more. || with|to|for || interact with = 與…互動。 || 老師應該多和學生互動。
 interaction || n. || 互動 || Social interaction is important for children. || 社交互動對孩子很重要。 || social interaction=社交互動 || There is a lot of interaction ___ teachers and students in this class. || between|among of|with || 兩群人之間用 between。 || 這堂課師生之間有很多互動。
-interfere || v. || 干涉；妨礙 || Don't interfere in my business. || 別干涉我的事。 || interfere with=妨礙…; interfere in=干涉… || Playing video games too much can interfere ___ your studies. || with|in to|on || interfere with = 妨礙…。 || 打太多電動會妨礙你的課業。
+interfere || v. || 干涉；妨礙 || Don't interfere in my business. || 別干涉我的事。 || interfere with=妨礙…; interfere in=干涉… || Playing video games too much can interfere ___ your studies. || with|in|on || interfere with = 妨礙…。 || 打太多電動會妨礙你的課業。
 intermediate || adj. || 中級的 || I'm taking an intermediate English course. || 我在上中級英文課程。 || intermediate level=中級程度 || This book is suitable ___ intermediate learners. || for|to|with || be suitable for = 適合…。 || 這本書適合中級程度的學習者。
 interpret || v. || 口譯；詮釋 || She interpreted for the president. || 她為總統擔任口譯。 || interpret A as B=把 A 詮釋為 B || His silence was interpreted ___ agreement. || as|for|to || interpret A as B = 把 A 理解為 B。 || 他的沉默被解讀為同意。
 interruption || n. || 打斷 || Sorry for the interruption. || 抱歉打擾了。 || without interruption=不間斷地 || He worked for five hours ___ interruption. || without|with|within || without interruption = 不間斷地。 || 他不間斷地工作了五個小時。

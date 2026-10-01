@@ -1,6 +1,6 @@
 # 九年級 02：balloon – cancer
 balloon || n. || 氣球 || The child is holding a red balloon. || 那個孩子拿著一個紅氣球。 || blow up a balloon=吹氣球 || The room was decorated ___ balloons. || with|by|of || be decorated with = 用…裝飾。 || 房間用氣球裝飾。
-barbecue || n. || 烤肉 || We have a barbecue on Moon Festival. || 我們中秋節烤肉。 || have a barbecue=烤肉 || Many families have a barbecue ___ the Moon Festival. || at|in|on of || 在節日期間用 at。 || 很多家庭在中秋節烤肉。
+barbecue || n. || 烤肉 || We have a barbecue on Moon Festival. || 我們中秋節烤肉。 || have a barbecue=烤肉 || Many families have a barbecue ___ the Moon Festival. || at|in|on || 在節日期間用 at。 || 很多家庭在中秋節烤肉。
 barber || n. || 理髮師 || I got my hair cut at the barber's. || 我在理髮店剪了頭髮。 || barber shop=理髮店 || I had my hair ___ by the barber yesterday. || cut|cutting|to cut || have + 物 + p.p. = 請人把某物…（使役）。 || 我昨天請理髮師剪了頭髮。
 bark || v. || （狗）吠叫 || The dog barks at strangers. || 那隻狗對陌生人吠叫。 || bark at=對…吠叫 || The dog barks ___ strangers. || at|to|for || bark at = 對…吠叫。 || 那隻狗會對陌生人吠叫。
 base || n. || 基礎；底部 || The base of the lamp is heavy. || 燈座很重。 || baseball base=壘包 || The base of the tower ___ made of stone. || is|are|be || The base 單數；被動 is made of = 由…製成。 || 塔的底部是用石頭做的。
@@ -46,6 +46,6 @@ cafeteria || n. || 自助餐廳；學生餐廳 || We eat lunch in the school caf
 cage || n. || 籠子 || The bird is in the cage. || 鳥在籠子裡。 || bird cage=鳥籠 || The bird ___ kept in a cage. || is|are|be || 被動語態；The bird 單數用 is + p.p.。 || 那隻鳥被關在籠子裡。
 calendar || n. || 日曆 || Mark the date on your calendar. || 在你的日曆上標出日期。 || on the calendar=在日曆上 || I wrote the date of the test ___ my calendar. || on|in|at || 寫在日曆上用 on。 || 我把考試日期寫在日曆上。
 calm || adj./v. || 冷靜的；使平靜 || Stay calm. || 保持冷靜。 || calm down=冷靜下來; stay calm=保持冷靜 || Calm ___! Everything will be fine. || down|up|off || calm down = 冷靜下來。 || 冷靜點！一切都會沒事的。
-campus || n. || 校園 || The university has a big campus. || 這所大學有一個很大的校園。 || on campus=在校園裡 || Students live ___ campus. || on|in|at of || on campus = 在校園裡（住校）。 || 學生住在校園裡。
+campus || n. || 校園 || The university has a big campus. || 這所大學有一個很大的校園。 || on campus=在校園裡 || Students live ___ campus. || on|in|at || on campus = 在校園裡（住校）。 || 學生住在校園裡。
 cancel || v. || 取消 || The game was canceled because of the rain. || 比賽因雨取消。 || cancel a plan=取消計畫 || The game was canceled ___ the typhoon. || because of|because|so || 後面接名詞 the typhoon，用 because of。 || 比賽因為颱風取消了。
 cancer || n. || 癌症 || Smoking can cause cancer. || 抽菸會導致癌症。 || lung cancer=肺癌 || Smoking can cause cancer, ___ you should stop smoking. || so|but|or || 前面是原因、後面是結果，用 so。 || 抽菸會導致癌症，所以你應該戒菸。

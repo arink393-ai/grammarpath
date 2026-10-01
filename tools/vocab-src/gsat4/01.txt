@@ -12,7 +12,7 @@ accompany || v. || 陪同；伴隨 || Children must be accompanied by an adult. 
 accountant || n. || 會計師 || My mother is an accountant. || 我媽媽是會計師。 || certified accountant=執業會計師 || My aunt works ___ an accountant for a big company. || as|like|for || work as + 職業 = 擔任…。 || 我阿姨在一家大公司擔任會計師。
 accuracy || n. || 準確性 || Accuracy is important in math. || 數學講求準確。 || with accuracy=準確地 || The machine can measure the temperature ___ great accuracy. || with|in|by || with accuracy = 準確地。 || 這台機器能非常準確地測量溫度。
 accuse || v. || 指控 || He was accused of stealing. || 他被控偷竊。 || accuse sb of=指控某人… || The man was accused ___ stealing a car. || of|for|with || accuse sb of + V-ing = 指控某人做…。 || 那名男子被控偷車。
-acid || n./adj. || 酸 || Lemons contain acid. || 檸檬含有酸。 || acid rain=酸雨 || Acid rain is caused ___ air pollution. || by|with|from of || 被動語態中動作執行者用 by。 || 酸雨是空氣污染造成的。
+acid || n./adj. || 酸 || Lemons contain acid. || 檸檬含有酸。 || acid rain=酸雨 || Acid rain is caused ___ air pollution. || by|with|from || 被動語態中動作執行者用 by。 || 酸雨是空氣污染造成的。
 acknowledge || v. || 承認；致謝 || He acknowledged his mistake. || 他承認了自己的錯誤。 || acknowledge a mistake=承認錯誤 || He finally acknowledged ___ he had made a mistake. || that|what|which || that 引導名詞子句當 acknowledged 的受詞。 || 他終於承認自己犯了錯。
 acquaintance || n. || 熟人；認識 || He is just an acquaintance, not a close friend. || 他只是點頭之交，不是好朋友。 || make the acquaintance of=結識… || She is an old acquaintance of mine ___ I met in college. || whom|which|whose || 關係代名詞修飾人並當受詞，用 whom。 || 她是我在大學認識的老朋友。
 acquire || v. || 獲得；習得 || Children acquire language quickly. || 兒童學習語言很快。 || acquire a skill=習得技能 || It takes years ___ acquire a new language. || to|for|of || It takes + 時間 + to V。 || 學會一種新語言需要好幾年。
@@ -30,7 +30,7 @@ agreeable || adj. || 令人愉快的；同意的 || The weather is agreeable tod
 alcohol || n. || 酒精 || Don't drink alcohol and drive. || 酒後不要開車。 || drink alcohol=喝酒 || People under 18 are not allowed ___ alcohol. || to buy|buying|buy || be allowed to + 原形動詞。 || 未滿十八歲者不准購買酒精飲料。
 alert || adj./v. || 警覺的；警告 || Stay alert while driving. || 開車時要保持警覺。 || stay alert=保持警覺 || Drivers need to stay alert ___ they drive at night. || when|which|what || when 引導時間子句。 || 駕駛在夜間開車時需要保持警覺。
 allowance || n. || 零用錢；津貼 || I get an allowance every week. || 我每週都有零用錢。 || weekly allowance=每週零用錢 || She saves part of her allowance ___ month. || every|each of|all || every + 單數名詞 = 每…。 || 她每個月存下一部分零用錢。
-alternative || adj./n. || 替代的；選擇 || We have no alternative. || 我們別無選擇。 || alternative energy=替代能源 || Solar power is a clean alternative ___ fossil fuels. || to|of|for with || an alternative to = …的替代品。 || 太陽能是化石燃料的乾淨替代方案。
+alternative || adj./n. || 替代的；選擇 || We have no alternative. || 我們別無選擇。 || alternative energy=替代能源 || Solar power is a clean alternative ___ fossil fuels. || to|of|for || an alternative to = …的替代品。 || 太陽能是化石燃料的乾淨替代方案。
 amateur || adj./n. || 業餘的 || He is an amateur photographer. || 他是業餘攝影師。 || amateur athlete=業餘運動員 || Although he is ___ amateur, he takes great photos. || an|a|the || amateur 以母音開頭，用 an。 || 雖然他是業餘的，但拍的照片很棒。
 ambiguous || adj. || 模稜兩可的 || His answer was ambiguous. || 他的回答模稜兩可。 || ambiguous meaning=含糊的意思 || The sentence is ambiguous, ___ it can be understood in two ways. || so|but|or || 前面是原因、後面是結果，用 so。 || 這個句子模稜兩可，可以有兩種理解。
 ambitious || adj. || 有抱負的 || She is an ambitious student. || 她是個有抱負的學生。 || ambitious plan=雄心勃勃的計畫 || He is so ambitious ___ he wants to start his own company at 20. || that|what|which || so + 形容詞 + that…。 || 他雄心勃勃到二十歲就想創業。
@@ -38,7 +38,7 @@ analysis || n. || 分析 || The analysis shows interesting results. || 分析顯
 analyze || v. || 分析 || Scientists analyze the data. || 科學家分析資料。 || analyze data=分析資料 || The data ___ analyzed by a team of experts last week. || was|were being|is || 被動語態；data 在此視為不可數，過去用 was + p.p.。 || 這些資料上週由專家團隊進行了分析。
 ancestor || n. || 祖先 || We honor our ancestors during Tomb Sweeping Day. || 我們在清明節祭祖。 || worship ancestors=祭祖 || People visit the graves of ___ ancestors on Tomb Sweeping Day. || their|them|theirs || 名詞 ancestors 前用所有格形容詞 their。 || 人們在清明節去掃祖先的墓。
 anniversary || n. || 週年紀念 || Today is our wedding anniversary. || 今天是我們的結婚週年紀念日。 || wedding anniversary=結婚紀念日 || The school will celebrate ___ 100th anniversary next year. || its|it's|their || the school 單數，所有格用 its。 || 學校明年將慶祝創校一百週年。
-annoy || v. || 使惱怒 || The noise annoyed me. || 那噪音讓我很煩。 || be annoyed with=對…感到惱怒 || I was annoyed ___ him for being late again. || with|of|at to || be annoyed with sb = 對某人感到惱怒。 || 他又遲到了，讓我很生氣。
+annoy || v. || 使惱怒 || The noise annoyed me. || 那噪音讓我很煩。 || be annoyed with=對…感到惱怒 || I was annoyed ___ him for being late again. || with|of|at || be annoyed with sb = 對某人感到惱怒。 || 他又遲到了，讓我很生氣。
 annual || adj. || 每年的 || The school has an annual sports day. || 學校每年舉辦一次運動會。 || annual event=年度活動 || The annual festival ___ held in October every year. || is|are|was being || 被動語態；習慣性用現在式 is + p.p.。 || 這個年度節慶每年十月舉行。
 anxiety || n. || 焦慮 || Exams cause anxiety for many students. || 考試讓很多學生焦慮。 || feel anxiety=感到焦慮 || Exercise can help reduce stress ___ anxiety. || and|but|or || 兩者並列用 and。 || 運動可以幫助減輕壓力和焦慮。
 apology || n. || 道歉 || Please accept my apology. || 請接受我的道歉。 || make an apology=道歉; owe sb an apology=欠某人一個道歉 || I think you owe her ___ apology. || an|a|the || apology 以母音開頭，用 an。 || 我認為你欠她一個道歉。

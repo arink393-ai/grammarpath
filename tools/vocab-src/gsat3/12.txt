@@ -29,7 +29,7 @@ onion || n. || 洋蔥 || Cutting onions makes me cry. || 切洋蔥讓我流淚�
 onto || prep. || 到…之上 || The cat jumped onto the table. || 貓跳到了桌子上。 || onto=到…上 || The cat jumped onto the table and knocked ___ a cup. || over|off of|down to || knock over = 打翻。 || 貓跳上桌子打翻了一個杯子。
 operation || n. || 手術；運作 || He had an operation on his knee. || 他的膝蓋動了手術。 || have an operation=動手術 || He had an operation ___ his heart last month. || on|in|at || an operation on + 身體部位 = …的手術。 || 他上個月動了心臟手術。
 opportunity || n. || 機會 || This is a great opportunity for you. || 這對你來說是個大好機會。 || take the opportunity to V=利用機會做… || I took the opportunity ___ my English when I was in the U.S. || to practice|practicing|practice || the opportunity to + 原形動詞。 || 我在美國時趁機練習英文。
-optimistic || adj. || 樂觀的 || She is optimistic about the future. || 她對未來很樂觀。 || be optimistic about=對…樂觀 || He remains optimistic ___ the result. || about|of|with to || be optimistic about = 對…樂觀。 || 他對結果仍然很樂觀。
+optimistic || adj. || 樂觀的 || She is optimistic about the future. || 她對未來很樂觀。 || be optimistic about=對…樂觀 || He remains optimistic ___ the result. || about|of|with || be optimistic about = 對…樂觀。 || 他對結果仍然很樂觀。
 oral || adj. || 口頭的；口腔的 || We have an oral test tomorrow. || 我們明天有口試。 || oral test=口試; oral health=口腔健康 || Brushing your teeth twice a day is important for ___ oral health. || your|you|yours || 名詞 oral health 前用所有格形容詞 your。 || 一天刷兩次牙對口腔健康很重要。
 organic || adj. || 有機的 || She only buys organic vegetables. || 她只買有機蔬菜。 || organic food=有機食品 || Organic vegetables are grown ___ using chemicals. || without|with|within || without + V-ing = 不…。 || 有機蔬菜的種植不使用化學藥劑。
 organize || v. || 組織；籌劃 || She organized a party for her friend. || 她為朋友籌辦了一場派對。 || organize an event=籌辦活動 || The event ___ organized by the student council. || was|is being|were || 被動語態；過去用 was + p.p.。 || 這個活動是由學生會籌辦的。
@@ -48,4 +48,4 @@ pad || n. || 墊子；便條本 || Write it down on the note pad. || 把它寫�
 painter || n. || 畫家 || Van Gogh was a Dutch painter. || 梵谷是荷蘭畫家。 || famous painter=知名畫家 || The painter, ___ works are now very valuable, was poor during his life. || whose|who|which || 所有格關係代名詞 whose + 名詞。 || 這位畫家的作品如今非常珍貴，但他生前很窮。
 pal || n. || 朋友 || She is my pen pal. || 她是我的筆友。 || pen pal=筆友 || I have been writing to my pen pal in Canada ___ three years. || for|since|in || for + 一段時間，搭配現在完成進行式。 || 我和加拿大的筆友通信已經三年了。
 palace || n. || 宮殿 || The king lived in a palace. || 國王住在宮殿裡。 || royal palace=皇宮 || The National Palace Museum is famous ___ its Chinese art. || for|of|with || be famous for = 以…聞名。 || 故宮博物院以中國藝術品聞名。
-palm || n. || 手掌；棕櫚 || She read my palm. || 她幫我看手相。 || palm tree=棕櫚樹 || There are many palm trees ___ the beach. || on|in|at of || 在海灘上用 on the beach。 || 海灘上有很多棕櫚樹。
+palm || n. || 手掌；棕櫚 || She read my palm. || 她幫我看手相。 || palm tree=棕櫚樹 || There are many palm trees ___ the beach. || on|in|at || 在海灘上用 on the beach。 || 海灘上有很多棕櫚樹。

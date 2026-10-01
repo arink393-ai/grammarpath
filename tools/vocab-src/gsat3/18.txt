@@ -9,7 +9,7 @@ sum || n. || 總數；金額 || He paid a large sum of money. || 他付了一大
 summary || n. || 摘要 || Write a summary of the story. || 寫下這個故事的摘要。 || in summary=總之 || Write a summary ___ the article in 100 words. || of|for|to || a summary of = …的摘要。 || 用一百字寫出這篇文章的摘要。
 summit || n. || 山頂；高峰會 || They reached the summit of the mountain. || 他們登上了山頂。 || reach the summit=登頂 || It took them five hours ___ reach the summit. || to|for|of || It takes sb + 時間 + to V。 || 他們花了五小時才登上山頂。
 superior || adj. || 較優的 || This product is superior to that one. || 這個產品比那個好。 || be superior to=優於… || This new phone is superior ___ the old one in many ways. || to|than|from || be superior to = 優於…（不用 than）。 || 這支新手機在很多方面都優於舊的。
-surround || v. || 包圍 || The house is surrounded by trees. || 房子被樹木環繞。 || be surrounded by=被…包圍 || The village is surrounded ___ mountains. || by|with to|from || be surrounded by = 被…包圍。 || 那個村莊被群山環繞。
+surround || v. || 包圍 || The house is surrounded by trees. || 房子被樹木環繞。 || be surrounded by=被…包圍 || The village is surrounded ___ mountains. || by|with|from || be surrounded by = 被…包圍。 || 那個村莊被群山環繞。
 survey || n./v. || 調查 || The survey shows that most students like sports. || 調查顯示大多數學生喜歡運動。 || do a survey=做調查 || According ___ the survey, most teenagers sleep less than seven hours. || to|with|for || according to = 根據…。 || 根據調查，大多數青少年睡不到七小時。
 survivor || n. || 倖存者 || He was the only survivor. || 他是唯一的倖存者。 || the only survivor=唯一的倖存者 || The survivors ___ taken to the hospital right away. || were|was|are || 被動語態；survivors 複數，過去用 were。 || 倖存者立刻被送往醫院。
 suspect || v./n. || 懷疑；嫌疑犯 || The police arrested the suspect. || 警方逮捕了嫌疑犯。 || suspect sb of=懷疑某人… || The man was suspected ___ stealing the car. || of|for|with || be suspected of = 被懷疑…。 || 那名男子涉嫌偷車。
@@ -23,14 +23,14 @@ sword || n. || 劍 || The knight drew his sword. || 騎士拔出了劍。 || the
 tablet || n. || 平板；藥片 || I read e-books on my tablet. || 我用平板看電子書。 || tablet computer=平板電腦 || Take two tablets ___ day after meals. || a|an|the || 每天用 a day。 || 每天飯後服用兩片。
 tag || n. || 標籤 || Check the price tag. || 看看價格標籤。 || price tag=價格標籤; name tag=名牌 || Please wear your name tag ___ the event. || during|while|since || during + 名詞 = 在…期間。 || 活動期間請佩戴名牌。
 tailor || n. || 裁縫師 || The tailor made a suit for him. || 裁縫師為他做了一套西裝。 || tailor-made=量身訂做的 || He had his suit ___ by a tailor. || made|make|making || have + 物 + p.p. = 請人把某物…（使役）。 || 他請裁縫師幫他做了一套西裝。
-talent || n. || 天賦 || She has a talent for music. || 她有音樂天賦。 || have a talent for=有…的天分 || He has a natural talent ___ drawing. || for|of|in to || a talent for = …的天分。 || 他有繪畫的天分。
+talent || n. || 天賦 || She has a talent for music. || 她有音樂天賦。 || have a talent for=有…的天分 || He has a natural talent ___ drawing. || for|of|in || a talent for = …的天分。 || 他有繪畫的天分。
 talkative || adj. || 健談的 || She is very talkative. || 她非常健談。 || talkative person=健談的人 || She is the ___ talkative person in our family. || most|more|much || 三者以上比較用最高級 the most。 || 她是我們家最健談的人。
 tame || adj./v. || 溫馴的；馴服 || The horse is tame. || 那匹馬很溫馴。 || tame animal=溫馴的動物 || It took a long time ___ tame the wild horse. || to|for|of || It takes + 時間 + to V。 || 馴服那匹野馬花了很長的時間。
 tangerine || n. || 橘子 || We eat tangerines during Chinese New Year. || 我們在農曆新年吃橘子。 || tangerine=橘子 || Tangerines are a symbol ___ good luck in Chinese culture. || of|for|to || a symbol of = …的象徵。 || 在中華文化中，橘子象徵好運。
 tank || n. || 槽；坦克 || The fish tank needs cleaning. || 魚缸需要清理了。 || fish tank=魚缸; gas tank=油箱 || The fish tank needs ___ every week. || cleaning|clean|to cleaning || need + V-ing = 需要被…（被動意味）。 || 魚缸每週都需要清理。
 tap || v./n. || 輕敲；水龍頭 || She tapped me on the shoulder. || 她輕拍我的肩膀。 || tap water=自來水 || Someone tapped me ___ the shoulder. || on|in|at || tap sb on + 身體部位。 || 有人輕拍了我的肩膀。
 tasty || adj. || 美味的 || The food here is tasty. || 這裡的食物很好吃。 || tasty food=美味的食物 || This is the ___ tasty cake I've ever eaten. || most|more|much || 最高級 the most + 形容詞。 || 這是我吃過最好吃的蛋糕。
-tease || v. || 取笑 || Don't tease your little sister. || 不要取笑你妹妹。 || tease sb about=拿…取笑某人 || He was teased ___ his big ears when he was young. || about|for with|at || tease sb about sth = 拿某事取笑某人。 || 他小時候因為耳朵大被取笑。
+tease || v. || 取笑 || Don't tease your little sister. || 不要取笑你妹妹。 || tease sb about=拿…取笑某人 || He was teased ___ his big ears when he was young. || about|for|at || tease sb about sth = 拿某事取笑某人。 || 他小時候因為耳朵大被取笑。
 technical || adj. || 技術的 || There was a technical problem. || 出現了技術上的問題。 || technical problem=技術問題 || The flight was delayed ___ a technical problem. || because of|because|so || 後面接名詞片語，用 because of。 || 班機因技術問題延誤。
 technique || n. || 技巧 || She learned a new painting technique. || 她學了一種新的繪畫技巧。 || learning technique=學習技巧 || Using mind maps is a useful technique ___ learning new words. || for|to|of || a technique for + V-ing = …的技巧。 || 使用心智圖是學習新單字的實用技巧。
 teenage || adj. || 青少年的 || She has two teenage children. || 她有兩個十幾歲的孩子。 || teenage years=青少年時期 || Many teenage students feel stressed ___ exams. || about|with|of || feel stressed about = 為…感到壓力。 || 許多青少年學生對考試感到壓力。

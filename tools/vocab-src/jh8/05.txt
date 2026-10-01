@@ -34,7 +34,7 @@ heat || n./v. || 熱；加熱 || Heat the soup before you eat it. || 喝湯前�
 heavy || adj. || 重的 || This box is too heavy. || 這個箱子太重了。 || heavy rain=大雨; heavy bag=重的包包 || This box is too heavy ___ me to carry. || for|of|to || too + 形容詞 + for sb + to V = 對某人來說太…而無法…。 || 這個箱子太重，我搬不動。
 height || n. || 身高；高度 || What's your height? || 你身高多少？ || the height of=…的高度 || My height is 160 centimeters, and my brother's height ___ 170. || is|are|has || my brother's height 單數，用 is。 || 我身高一百六十公分，我哥哥一百七十公分。
 helpful || adj. || 有幫助的 || Thank you. You're very helpful. || 謝謝，你幫了大忙。 || be helpful to=對…有幫助 || This book is very helpful ___ me. || to|for|at || be helpful to sb = 對某人有幫助。 || 這本書對我很有幫助。
-hide || v. || 躲藏；隱藏 || The cat hides under the bed. || 貓躲在床底下。 || hide and seek=捉迷藏 || The cat always hides ___ the bed. || under|on|in of || under = 在…下面。 || 貓總是躲在床底下。
+hide || v. || 躲藏；隱藏 || The cat hides under the bed. || 貓躲在床底下。 || hide and seek=捉迷藏 || The cat always hides ___ the bed. || under|on|in || under = 在…下面。 || 貓總是躲在床底下。
 hike || v./n. || 健行 || We like to hike in the mountains. || 我們喜歡去山裡健行。 || go hiking=去健行 || We ___ going to hike in the mountains this weekend. || are|will|do || be going to + 原形動詞；主詞 We 用 are。 || 我們這週末要去山裡健行。
 history || n. || 歷史 || I'm interested in history. || 我對歷史有興趣。 || history class=歷史課; in history=在歷史上 || I'm interested ___ history. || in|on|at || be interested in = 對…有興趣。 || 我對歷史有興趣。
 hit || v. || 打；撞 || The ball hit the window. || 球打到窗戶。 || hit the ball=擊球; be hit by=被…撞到 || The man ___ hit by a car yesterday. || was|is|were || 過去的被動語態 was + p.p.。 || 那個人昨天被車撞了。

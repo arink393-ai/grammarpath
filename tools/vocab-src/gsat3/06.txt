@@ -15,7 +15,7 @@ dump || v./n. || 傾倒；垃圾場 || Don't dump trash in the river. || 不要�
 dumpling || n. || 水餃 || We made dumplings together. || 我們一起包水餃。 || make dumplings=包水餃 || Dumplings are a food ___ Taiwanese people often eat during holidays. || that|who|what || 關係代名詞 that 修飾物並當受詞。 || 水餃是台灣人在節日常吃的食物。
 dust || n./v. || 灰塵 || The old books are covered with dust. || 那些舊書積滿了灰塵。 || dust off=撢去灰塵 || The furniture was covered ___ dust. || with|of|by || be covered with = 覆蓋著…。 || 家具上積滿了灰塵。
 eager || adj. || 渴望的 || She is eager to learn. || 她渴望學習。 || be eager to V=渴望做… || The students are eager ___ the results of the exam. || to know|knowing|for knowing || be eager to + 原形動詞。 || 學生們渴望知道考試結果。
-echo || n./v. || 回音 || We heard the echo of our voices in the cave. || 我們在洞穴裡聽到自己聲音的回音。 || echo back=回響 || Our voices echoed ___ the empty hall. || through|across|along of || through = 穿過（內部）。 || 我們的聲音在空蕩的大廳裡迴盪。
+echo || n./v. || 回音 || We heard the echo of our voices in the cave. || 我們在洞穴裡聽到自己聲音的回音。 || echo back=回響 || Our voices echoed ___ the empty hall. || through|across|along || through = 穿過（內部）。 || 我們的聲音在空蕩的大廳裡迴盪。
 edit || v. || 編輯 || She edits the school newspaper. || 她編輯校刊。 || edit a video=剪輯影片 || The video ___ edited by a professional editor. || was|is being|were || 被動語態；過去用 was + p.p.。 || 這支影片由專業剪輯師剪輯。
 editor || n. || 編輯 || She is the editor of a magazine. || 她是一本雜誌的編輯。 || chief editor=總編輯 || The editor asked the writer ___ the article. || to revise|revising|revise || ask sb to + 原形動詞。 || 編輯要求作者修改那篇文章。
 educate || v. || 教育 || Parents should educate their children well. || 父母應該好好教育孩子。 || well-educated=受過良好教育的 || The program aims to educate people ___ the importance of recycling. || about|with|for || educate sb about sth = 教育某人關於某事。 || 這個計畫旨在教育民眾回收的重要性。

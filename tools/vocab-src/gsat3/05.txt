@@ -15,7 +15,7 @@ database || n. || 資料庫 || The information is stored in a database. || 資�
 dawn || n. || 黎明 || We got up at dawn to see the sunrise. || 我們天一亮就起床看日出。 || at dawn=黎明時; from dawn to dusk=從早到晚 || The farmers work ___ dawn to dusk. || from|since|between || from dawn to dusk = 從黎明到黃昏。 || 農夫們從早工作到晚。
 dealer || n. || 商人；經銷商 || He is a car dealer. || 他是汽車經銷商。 || car dealer=汽車經銷商 || The car dealer tried to persuade me ___ a new car. || to buy|buying|buy || persuade sb to + 原形動詞。 || 汽車業務試著說服我買新車。
 decade || n. || 十年 || The city has changed a lot in the past decade. || 這座城市在過去十年變化很大。 || for decades=數十年來 || Prices ___ risen a lot over the past decade. || have|has|had || 現在完成式；Prices 複數用 have。 || 過去十年物價上漲很多。
-deck || n. || 甲板 || We stood on the deck of the ship. || 我們站在船的甲板上。 || on deck=在甲板上 || The passengers enjoyed the sunset ___ the deck. || on|in|at of || 在甲板上用 on。 || 乘客們在甲板上欣賞夕陽。
+deck || n. || 甲板 || We stood on the deck of the ship. || 我們站在船的甲板上。 || on deck=在甲板上 || The passengers enjoyed the sunset ___ the deck. || on|in|at || 在甲板上用 on。 || 乘客們在甲板上欣賞夕陽。
 decorate || v. || 裝飾 || We decorated the tree with lights. || 我們用燈裝飾樹。 || decorate A with B=用 B 裝飾 A || The hall ___ decorated with flowers for the wedding. || was|is being|were || 被動語態；過去用 was + p.p.。 || 大廳為了婚禮用鮮花裝飾。
 decrease || v./n. || 減少 || The number of students has decreased. || 學生人數減少了。 || decrease by=減少了… || The birth rate in Taiwan ___ been decreasing for years. || has|have|is || 現在完成進行式；The birth rate 單數用 has。 || 台灣的出生率多年來持續下降。
 deed || n. || 行為；事蹟 || He did a good deed today. || 他今天做了一件好事。 || good deed=善行 || Doing one good deed a day ___ make the world a better place. || can|cans|canning || 助動詞 can 後接原形動詞。 || 每天做一件好事就能讓世界更美好。
@@ -34,7 +34,7 @@ determine || v. || 決定；確定 || Your attitude determines your success. || 
 devil || n. || 魔鬼 || Speak of the devil! || 說曹操，曹操到！ || speak of the devil=說曹操曹操到 || "Speak of the devil!" said Amy ___ Tom walked into the room. || as|so|unless || as = 當…的時候（同時發生）。 || 湯姆走進房間時，艾咪說：「說曹操，曹操到！」
 dim || adj./v. || 昏暗的 || The light is too dim to read by. || 燈光太暗，沒辦法看書。 || dim light=昏暗的燈光 || The light is ___ dim for me to read. || too|so|very || too + 形容詞 + for sb + to V。 || 燈光太暗了，我沒辦法看書。
 dime || n. || 一角硬幣 || A dime is worth ten cents. || 一角硬幣值十分錢。 || a dime a dozen=多得是 || A dime ___ worth ten cents. || is|are|be || A dime 單數，用 is。 || 一角硬幣值十分錢。
-dine || v. || 用餐 || We dined at a famous restaurant. || 我們在一家有名的餐廳用餐。 || dine out=外出用餐 || We decided to dine ___ tonight instead of cooking. || out|in of|off || dine out = 外出用餐。 || 我們決定今晚外出用餐，不自己煮。
+dine || v. || 用餐 || We dined at a famous restaurant. || 我們在一家有名的餐廳用餐。 || dine out=外出用餐 || We decided to dine ___ tonight instead of cooking. || out|in|off || dine out = 外出用餐。 || 我們決定今晚外出用餐，不自己煮。
 dinosaur || n. || 恐龍 || Dinosaurs died out millions of years ago. || 恐龍在數百萬年前滅絕。 || dinosaur fossil=恐龍化石 || Dinosaurs ___ out about 66 million years ago. || died|dead|have died || 過去的事用過去式；die out = 滅絕。 || 恐龍大約在六千六百萬年前滅絕。
 dip || v./n. || 浸；蘸 || Dip the fries in ketchup. || 把薯條沾番茄醬。 || dip into=浸入 || Dip the bread ___ the soup before eating it. || into|onto|at || dip A into B = 把 A 浸入 B。 || 吃之前把麵包沾湯。
 dirt || n. || 泥土；灰塵 || The kids came home covered in dirt. || 孩子們滿身泥巴回家。 || dirt road=泥土路 || His shoes were covered ___ dirt. || in|of|by || be covered in = 覆滿…。 || 他的鞋子沾滿了泥土。

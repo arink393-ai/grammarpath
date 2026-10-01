@@ -34,7 +34,7 @@ hatch || v. || 孵化 || The eggs will hatch soon. || 這些蛋很快就會孵�
 hateful || adj. || 可恨的 || That was a hateful thing to say. || 說那種話真可惡。 || hateful words=惡毒的話 || It was hateful ___ him to say such things. || of|for|to || It is + 描述人的形容詞 + of sb + to V。 || 他說那種話真可惡。
 hay || n. || 乾草 || The horses are eating hay. || 馬在吃乾草。 || make hay while the sun shines=把握時機 || Make hay while the sun ___. || shines|shine|is shining to || 諺語，while 子句中 the sun 單數用 shines。 || 把握時機（趁太陽出來時曬乾草）。
 headline || n. || 標題 || The news made headlines. || 這則新聞登上頭條。 || make headlines=成為頭條 || The story made headlines ___ over the world. || all|every|whole || all over the world = 全世界。 || 這則報導登上了全球頭條。
-headquarters || n. || 總部 || The company's headquarters is in Taipei. || 這家公司的總部在台北。 || company headquarters=公司總部 || The company moved its headquarters ___ Taipei last year. || to|at|in of || move A to + 地點 = 把 A 搬到…。 || 這家公司去年把總部遷到台北。
+headquarters || n. || 總部 || The company's headquarters is in Taipei. || 這家公司的總部在台北。 || company headquarters=公司總部 || The company moved its headquarters ___ Taipei last year. || to|at|in || move A to + 地點 = 把 A 搬到…。 || 這家公司去年把總部遷到台北。
 heal || v. || 痊癒 || The wound will heal in a week. || 傷口一週內會癒合。 || heal up=痊癒 || Time heals all wounds, ___ it? || doesn't|isn't|does || 肯定句（一般動詞 heals）的附加問句用 doesn't。 || 時間能治癒一切傷痛，不是嗎？
 heap || n. || 一堆 || There is a heap of clothes on the bed. || 床上有一堆衣服。 || a heap of=一堆… || There is a heap ___ dirty clothes in the corner. || of|with|in || a heap of = 一堆…。 || 角落裡有一堆髒衣服。
 heater || n. || 暖氣機 || Turn on the heater. It's cold. || 開暖氣，好冷。 || electric heater=電暖器 || Don't forget to turn off the heater ___ you leave. || before|after|since || 離開「之前」關掉，用 before。 || 離開前別忘了關暖氣。

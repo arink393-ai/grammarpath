@@ -7,13 +7,13 @@ safety || n. || 安全 || Safety comes first. || 安全第一。 || for safety=�
 sailor || n. || 水手 || The sailor has been at sea for a month. || 那名水手已經出海一個月了。 || sailor=水手 || The sailor has been at sea ___ two months. || for|since|in || for + 一段時間，搭配現在完成式。 || 那名水手已經出海兩個月了。
 sample || n. || 樣品；試吃品 || Can I try a free sample? || 我可以試吃看看嗎？ || free sample=免費試用品 || The store gave ___ some free samples. || us|we|our || gave 後面的人用受格 us。 || 那家店給了我們一些免費試吃品。
 sand || n. || 沙 || The kids are playing in the sand. || 孩子們在沙子裡玩。 || sand castle=沙堡 || The kids built a castle ___ sand. || of|from|by || be built of / made of = 用…蓋成。 || 孩子們用沙子蓋了一座城堡。
-satisfy || v. || 使滿意 || The food didn't satisfy him. || 這食物沒有讓他滿意。 || be satisfied with=對…滿意 || Are you satisfied ___ the result? || with|of|at to || be satisfied with = 對…感到滿意。 || 你對結果滿意嗎？
+satisfy || v. || 使滿意 || The food didn't satisfy him. || 這食物沒有讓他滿意。 || be satisfied with=對…滿意 || Are you satisfied ___ the result? || with|of|at || be satisfied with = 對…感到滿意。 || 你對結果滿意嗎？
 saucer || n. || 茶碟；碟子 || She put the cup on the saucer. || 她把杯子放在茶碟上。 || cup and saucer=杯碟; flying saucer=飛碟 || Put the cup ___ the saucer. || on|in|at || 放在碟子上用 on。 || 把杯子放在茶碟上。
 scarf || n. || 圍巾 || Wear a scarf. It's cold. || 戴條圍巾，好冷。 || wear a scarf=戴圍巾 || She wore a scarf ___ keep warm. || to|for|so || 不定詞 to V 表示目的。 || 她圍著圍巾保暖。
 scene || n. || 場景；現場 || This is my favorite scene in the movie. || 這是我最喜歡的電影場景。 || the scene of=…的現場 || The police arrived ___ the scene quickly. || at|in|to || arrive at + 地點 = 到達…。 || 警察很快就抵達現場。
 scenery || n. || 風景 || The scenery in Hualien is beautiful. || 花蓮的風景很美。 || beautiful scenery=美麗的風景 || The scenery here ___ beautiful. || is|are|be || scenery 不可數，用 is。 || 這裡的風景很美。
 scientist || n. || 科學家 || She wants to be a scientist. || 她想當科學家。 || famous scientist=有名的科學家 || The scientist ___ invented this machine is from Taiwan. || who|which|whose || 關係代名詞修飾「人」當主詞用 who。 || 發明這台機器的科學家來自台灣。
-score || n./v. || 分數；得分 || What's the score? || 比數是多少？ || get a high score=得高分 || She got a high score ___ the English test. || on|in|at of || 在考試上得分用 on the test。 || 她英文考試得了高分。
+score || n./v. || 分數；得分 || What's the score? || 比數是多少？ || get a high score=得高分 || She got a high score ___ the English test. || on|in|at || 在考試上得分用 on the test。 || 她英文考試得了高分。
 seafood || n. || 海鮮 || I love seafood. || 我愛海鮮。 || seafood restaurant=海鮮餐廳 || Some people are allergic ___ seafood. || to|with|of || be allergic to = 對…過敏。 || 有些人對海鮮過敏。
 search || v./n. || 搜尋 || I searched the Internet for information. || 我上網搜尋資料。 || search for=搜尋… || They searched ___ the lost dog all day. || for|to|at || search for = 搜尋…。 || 他們整天都在找那隻走失的狗。
 secondary || adj. || 次要的；中等的 || Money is secondary to health. || 金錢比健康次要。 || secondary school=中學 || Money is secondary ___ health. || to|than|for || be secondary to = 比…次要。 || 金錢比健康次要。
@@ -45,7 +45,7 @@ sink || n./v. || 水槽；下沉 || Put the dishes in the sink. || 把碗盤放�
 skate || v. || 溜冰 || Can you skate? || 你會溜冰嗎？ || ice skate=溜冰 || It's dangerous ___ skate on thin ice. || to|for|of || It is + 形容詞 + to V。 || 在薄冰上溜冰很危險。
 ski || v. || 滑雪 || We went skiing in Japan. || 我們去日本滑雪。 || go skiing=去滑雪 || Have you ever ___ skiing? || been|went|go || 現在完成式問經驗：Have you ever been + V-ing? || 你滑過雪嗎？
 skill || n. || 技能 || Reading is an important skill. || 閱讀是一項重要的技能。 || language skills=語言能力 || Reading is ___ important skill. || an|a|the || important 以母音開頭，用 an。 || 閱讀是一項重要的技能。
-skillful || adj. || 熟練的 || He is a skillful driver. || 他是個技術熟練的駕駛。 || be skillful at=擅長… || He is skillful ___ playing the guitar. || at|in to|for || be skillful at = 擅長…。 || 他很擅長彈吉他。
+skillful || adj. || 熟練的 || He is a skillful driver. || 他是個技術熟練的駕駛。 || be skillful at=擅長… || He is skillful ___ playing the guitar. || at|in|for || be skillful at = 擅長…。 || 他很擅長彈吉他。
 skin || n. || 皮膚 || She has soft skin. || 她的皮膚很柔嫩。 || dry skin=乾性皮膚 || Sunscreen protects your skin ___ the sun. || from|of|with || protect A from B = 保護 A 免於 B。 || 防曬乳保護你的皮膚免受陽光傷害。
 skinny || adj. || 很瘦的 || The dog is very skinny. || 那隻狗非常瘦。 || skinny jeans=緊身牛仔褲 || The skinny dog ___ fed by a kind girl yesterday. || was|is|were || 被動語態；過去用 was + p.p.。 || 那隻瘦巴巴的狗昨天被一個好心的女孩餵了。
 sleepy || adj. || 想睡的 || I'm sleepy. I want to go to bed. || 我好睏，想去睡覺。 || feel sleepy=覺得睏 || I felt sleepy ___ I stayed up late. || because|so|but || 後面是原因，用 because。 || 我覺得很睏，因為我熬夜了。

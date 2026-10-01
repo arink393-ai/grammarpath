@@ -9,7 +9,7 @@ habitual || adj. || 習慣性的 || He is a habitual liar. || 他習慣說謊。
 halt || n./v. || 停止 || The train came to a halt. || 火車停了下來。 || come to a halt=停止 || The car came ___ a sudden halt. || to|at|in || come to a halt = 停下來。 || 車子突然停了下來。
 handwriting || n. || 筆跡 || Your handwriting is beautiful. || 你的字很漂亮。 || neat handwriting=工整的字跡 || His handwriting is so messy ___ nobody can read it. || that|what|which || so + 形容詞 + that…。 || 他的字潦草到沒人看得懂。
 hardship || n. || 艱難 || They went through many hardships. || 他們經歷了許多困苦。 || face hardship=面對困境 || She overcame many hardships ___ she became successful. || before|after|since || 成功「之前」克服困難，用 before。 || 她在成功之前克服了許多困難。
-hardware || n. || 硬體；五金 || The computer hardware needs to be updated. || 電腦硬體需要更新了。 || hardware store=五金行 || I bought a hammer ___ the hardware store. || at|on|to of || 在商店（地點）用 at。 || 我在五金行買了一把鐵鎚。
+hardware || n. || 硬體；五金 || The computer hardware needs to be updated. || 電腦硬體需要更新了。 || hardware store=五金行 || I bought a hammer ___ the hardware store. || at|on|to || 在商店（地點）用 at。 || 我在五金行買了一把鐵鎚。
 harmony || n. || 和諧 || We should live in harmony with nature. || 我們應該與自然和諧共處。 || in harmony with=與…和諧 || People should live in harmony ___ nature. || with|to|for || in harmony with = 與…和諧。 || 人們應該與自然和諧共處。
 harsh || adj. || 嚴厲的；惡劣的 || The weather in winter is harsh. || 冬天的天氣很惡劣。 || harsh words=嚴厲的話 || Don't be ___ harsh on yourself. || so|such|much || so + 形容詞 = 那麼…。 || 別對自己那麼嚴苛。
 haste || n. || 匆忙 || Haste makes waste. || 欲速則不達。 || in haste=匆忙地 || He left ___ haste and forgot his keys. || in|with|by || in haste = 匆忙地。 || 他匆忙離開，忘了帶鑰匙。
@@ -17,7 +17,7 @@ hasten || v. || 加快 || We need to hasten the process. || 我們需要加快�
 hatred || n. || 憎恨 || Hatred leads to violence. || 仇恨導致暴力。 || racial hatred=種族仇恨 || We should replace hatred ___ love. || with|by|to || replace A with B = 用 B 取代 A。 || 我們應該用愛取代仇恨。
 hawk || n. || 鷹 || A hawk flew over the field. || 一隻老鷹飛過田野。 || eyes like a hawk=眼尖 || The hawk can see a mouse ___ far away. || from|of|at || from far away = 從遠處。 || 老鷹從很遠的地方就能看見老鼠。
 helicopter || n. || 直升機 || The injured man was taken by helicopter. || 傷者被直升機送走。 || by helicopter=搭直升機 || The climbers were rescued ___ helicopter. || by|with|on || 搭乘交通工具用 by。 || 登山者被直升機救了出來。
-herd || n./v. || 獸群 || A herd of cows was eating grass. || 一群牛在吃草。 || a herd of=一群（牛等） || The farmer herded the sheep ___ the barn. || into|in|onto of || herd A into B = 把 A 趕進 B。 || 農夫把羊趕進了穀倉。
+herd || n./v. || 獸群 || A herd of cows was eating grass. || 一群牛在吃草。 || a herd of=一群（牛等） || The farmer herded the sheep ___ the barn. || into|onto|of || herd A into B = 把 A 趕進 B。 || 農夫把羊趕進了穀倉。
 hesitation || n. || 猶豫 || She answered without hesitation. || 她毫不猶豫地回答。 || without hesitation=毫不猶豫 || He agreed to help ___ hesitation. || without|with|within || without hesitation = 毫不猶豫。 || 他毫不猶豫地答應幫忙。
 hive || n. || 蜂巢 || The bees returned to the hive. || 蜜蜂回到蜂巢。 || bee hive=蜂巢 || Don't go near the hive, ___ you may get stung. || or|and|but || 語意「否則」用 or。 || 別靠近蜂巢，否則可能會被螫。
 homeland || n. || 祖國；家鄉 || He returned to his homeland. || 他回到了祖國。 || return to one's homeland=返回祖國 || After twenty years abroad, he finally returned ___ his homeland. || to|at|in || return to = 回到…。 || 在國外二十年後，他終於回到了祖國。
@@ -40,7 +40,7 @@ idiom || n. || 成語；慣用語 || "Break a leg" is an English idiom. || 「br
 idle || adj. || 閒置的；懶散的 || Don't stay idle all day. || 不要整天閒著。 || idle time=閒暇時間 || The machines were idle ___ the holiday. || during|while|since || during + 名詞 = 在…期間。 || 假期期間機器都閒置著。
 idol || n. || 偶像 || He is my idol. || 他是我的偶像。 || pop idol=流行偶像 || The singer is an idol ___ many teenagers. || to|of|with || an idol to sb = 某人的偶像。 || 那位歌手是許多青少年的偶像。
 ignorance || n. || 無知 || Ignorance is not an excuse. || 無知不是藉口。 || out of ignorance=出於無知 || He made the mistake out ___ ignorance. || of|from|for || out of + 名詞 = 出於…。 || 他出於無知而犯了這個錯。
-ignorant || adj. || 無知的 || He is ignorant of the rules. || 他不知道規則。 || be ignorant of=對…無知 || Many people are ignorant ___ the dangers of smoking. || of|about to|with || be ignorant of = 對…不了解。 || 很多人不了解抽菸的危險。
+ignorant || adj. || 無知的 || He is ignorant of the rules. || 他不知道規則。 || be ignorant of=對…無知 || Many people are ignorant ___ the dangers of smoking. || of|to|with || be ignorant of = 對…不了解。 || 很多人不了解抽菸的危險。
 illustrate || v. || 說明；畫插圖 || The book is illustrated with pictures. || 這本書配有插圖。 || illustrate a point=說明論點 || The story book ___ illustrated by a famous artist. || was|were|is being || 被動語態；過去用 was + p.p.。 || 這本故事書是由一位知名畫家繪製插圖的。
 illustration || n. || 插圖 || The book has beautiful illustrations. || 這本書有美麗的插圖。 || book illustration=書籍插圖 || The illustrations ___ the book are colorful. || in|on|at || 在書裡用 in。 || 書裡的插圖色彩繽紛。
 imaginary || adj. || 虛構的 || The story is about an imaginary world. || 這個故事是關於一個虛構的世界。 || imaginary friend=幻想中的朋友 || Many children have imaginary friends ___ they play with. || that|what|who of || 關係代名詞 that 修飾（擬人的）朋友並當 play with 的受詞。 || 很多孩子有和他們一起玩的想像朋友。

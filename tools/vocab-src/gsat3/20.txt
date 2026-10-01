@@ -20,7 +20,7 @@ wax || n. || 蠟 || Candles are made of wax. || 蠟燭是用蠟做的。 || cand
 weaken || v. || 使變弱 || The illness weakened him. || 那場病讓他變虛弱。 || weaken one's health=削弱健康 || Lack of sleep can weaken your immune system, ___ you may get sick easily. || so|but|or || 前面是原因、後面是結果，用 so。 || 睡眠不足會削弱免疫力，所以你可能容易生病。
 wealthy || adj. || 富有的 || He comes from a wealthy family. || 他出身富裕家庭。 || wealthy family=富裕家庭 || He is wealthy, ___ he isn't happy. || but|so|or || 前後語意相反用 but。 || 他很有錢，但並不快樂。
 weapon || n. || 武器 || Weapons are not allowed on the plane. || 飛機上禁止攜帶武器。 || nuclear weapon=核武 || Weapons of any kind ___ not allowed on the plane. || are|is|be || Weapons 複數，用 are。 || 飛機上禁止攜帶任何武器。
-weave || v. || 編織 || She weaves baskets from bamboo. || 她用竹子編籃子。 || weave a basket=編籃子 || The women in the village weave baskets ___ bamboo. || from|by|of with || weave A from B = 用 B 編織 A。 || 村裡的婦女用竹子編籃子。
+weave || v. || 編織 || She weaves baskets from bamboo. || 她用竹子編籃子。 || weave a basket=編籃子 || The women in the village weave baskets ___ bamboo. || from|by|of || weave A from B = 用 B 編織 A。 || 村裡的婦女用竹子編籃子。
 web || n. || 網；網路 || The spider spun a web. || 蜘蛛織了一張網。 || spider web=蜘蛛網; the Web=網際網路 || You can find a lot of information ___ the Web. || on|in|at || on the Web = 在網路上。 || 你可以在網路上找到很多資訊。
 wed || v. || 結婚 || They wed in the spring. || 他們在春天結婚。 || newly wed=新婚 || The couple will wed ___ June. || in|on|at || 月份前面用 in。 || 這對情侶將在六月結婚。
 weed || n./v. || 雜草；除草 || Grandpa is pulling weeds in the garden. || 爺爺在花園拔雜草。 || pull weeds=拔草 || The garden is full ___ weeds. || of|with|by || be full of = 充滿…。 || 花園裡長滿了雜草。
@@ -33,7 +33,7 @@ wicked || adj. || 邪惡的 || The wicked witch put a spell on the princess. || 
 widen || v. || 加寬 || They are widening the road. || 他們正在拓寬道路。 || widen the gap=擴大差距 || The road ___ widened last year to reduce traffic jams. || was|is|were || 被動語態；過去用 was + p.p.。 || 這條路去年拓寬以減少塞車。
 wipe || v. || 擦 || Wipe the table, please. || 請擦桌子。 || wipe off=擦掉 || Wipe the table ___ a wet cloth. || with|by|in || 用某個工具用 with。 || 用濕布擦桌子。
 wisdom || n. || 智慧 || My grandpa is full of wisdom. || 我爺爺充滿智慧。 || words of wisdom=智慧之言 || Wisdom comes ___ experience. || from|of|with || come from = 來自…。 || 智慧來自經驗。
-wrap || v. || 包裝 || She wrapped the gift in red paper. || 她用紅紙包禮物。 || wrap up=包好 || She wrapped the gift ___ colorful paper. || in|with of|by || wrap A in B = 用 B 包 A。 || 她用彩色紙包禮物。
+wrap || v. || 包裝 || She wrapped the gift in red paper. || 她用紅紙包禮物。 || wrap up=包好 || She wrapped the gift ___ colorful paper. || in|with|by || wrap A in B = 用 B 包 A。 || 她用彩色紙包禮物。
 wrist || n. || 手腕 || She wears a watch on her wrist. || 她手腕上戴著一支錶。 || sprain one's wrist=扭傷手腕 || He sprained his wrist ___ playing tennis. || while|during|since || while + V-ing（分詞構句）= 在…的時候。 || 他在打網球時扭傷了手腕。
 yearly || adj./adv. || 每年的 || We have a yearly health check. || 我們每年做一次健康檢查。 || yearly checkup=年度健檢 || The festival is held yearly ___ October. || in|on|at || 月份前面用 in。 || 這個節慶每年十月舉辦。
 yell || v. || 大叫 || Don't yell at me. || 不要對我大吼。 || yell at=對…吼叫 || The coach yelled ___ the players to run faster. || at|to|on || yell at sb = 對某人大吼。 || 教練對球員大吼要他們跑快一點。

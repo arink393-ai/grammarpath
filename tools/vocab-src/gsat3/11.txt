@@ -10,9 +10,9 @@ magnet || n. || 磁鐵 || The magnet attracts metal. || 磁鐵吸引金屬。 ||
 maid || n. || 女僕；女傭 || The maid cleans the rooms every day. || 女傭每天打掃房間。 || house maid=女傭 || The rooms ___ cleaned by the maid every morning. || are|is|be || 被動語態；The rooms 複數用 are + p.p.。 || 房間每天早上由女傭打掃。
 majority || n. || 大多數 || The majority of students agreed. || 大多數學生同意。 || the majority of=大多數的… || The majority of the students ___ against the new rule. || are|is|be || the majority of + 複數名詞，動詞用複數 are。 || 大多數學生反對新規定。
 mall || n. || 購物中心 || Let's go to the mall. || 我們去購物中心吧。 || shopping mall=購物中心 || The new mall, ___ opened last month, is always crowded. || which|that|where || 非限定關係子句修飾物，用 which。 || 上個月開幕的新購物中心總是擠滿人。
-marble || n. || 大理石；彈珠 || The floor is made of marble. || 地板是大理石做的。 || marble floor=大理石地板 || The statue is carved ___ white marble. || from|by|with of || carve A from B = 用 B 雕刻成 A。 || 這座雕像是用白色大理石雕成的。
+marble || n. || 大理石；彈珠 || The floor is made of marble. || 地板是大理石做的。 || marble floor=大理石地板 || The statue is carved ___ white marble. || from|by|with || carve A from B = 用 B 雕刻成 A。 || 這座雕像是用白色大理石雕成的。
 march || v./n. || 行進 || The soldiers marched down the street. || 士兵們沿著街道行進。 || march on=向前行進 || The students marched ___ the street to protest. || down|to down|at || march down the street = 沿著街道行進。 || 學生們沿著街道遊行抗議。
-marker || n. || 麥克筆；標記 || Write your name with a marker. || 用麥克筆寫你的名字。 || permanent marker=油性麥克筆 || Please write your answers ___ a black marker. || with|by|in of || 用某工具寫用 with。 || 請用黑色麥克筆寫下答案。
+marker || n. || 麥克筆；標記 || Write your name with a marker. || 用麥克筆寫你的名字。 || permanent marker=油性麥克筆 || Please write your answers ___ a black marker. || with|by|in || 用某工具寫用 with。 || 請用黑色麥克筆寫下答案。
 marvelous || adj. || 很棒的 || We had a marvelous time. || 我們度過了非常美好的時光。 || marvelous view=絕佳的景色 || The view from the top of the mountain was ___ marvelous that we took many photos. || so|such|too || so + 形容詞 + that…。 || 山頂的景色美到我們拍了好多照片。
 mathematical || adj. || 數學的 || She has great mathematical skills. || 她數學能力很強。 || mathematical problem=數學題 || He is good at solving mathematical problems ___ a young age. || at|in|on || at a young age = 在年紀很小時。 || 他年紀很小就擅長解數學題。
 mayor || n. || 市長 || The mayor gave a speech. || 市長發表了演說。 || city mayor=市長 || The mayor promised ___ more parks in the city. || to build|building|build || promise to + 原形動詞。 || 市長承諾在市區興建更多公園。
@@ -36,7 +36,7 @@ misery || n. || 痛苦；悲慘 || The war caused a lot of misery. || 戰爭造�
 missile || n. || 飛彈 || The missile hit the target. || 飛彈擊中了目標。 || missile attack=飛彈攻擊 || The missile ___ launched from a ship. || was|is|were || 被動語態；過去用 was + p.p.。 || 飛彈是從一艘船上發射的。
 missing || adj. || 失蹤的；遺失的 || My wallet is missing. || 我的皮夾不見了。 || missing person=失蹤人口 || The missing child ___ found by the police last night. || was|is|were || 被動語態；過去用 was + p.p.。 || 失蹤的孩子昨晚被警方找到了。
 mission || n. || 任務 || Their mission is to help poor children. || 他們的任務是幫助貧童。 || mission impossible=不可能的任務 || The astronauts successfully completed their mission ___ space. || in|on|at || in space = 在太空中。 || 太空人成功完成了在太空中的任務。
-mist || n. || 薄霧 || The mountain is covered in mist. || 山被薄霧籠罩著。 || morning mist=晨霧 || The mountain was covered ___ mist in the morning. || in|of|by with || be covered in = 覆滿…。 || 早上山被薄霧籠罩著。
+mist || n. || 薄霧 || The mountain is covered in mist. || 山被薄霧籠罩著。 || morning mist=晨霧 || The mountain was covered ___ mist in the morning. || in|of|by || be covered in = 覆滿…。 || 早上山被薄霧籠罩著。
 mob || n. || 暴民；人群 || An angry mob gathered outside. || 一群憤怒的民眾聚集在外面。 || angry mob=憤怒的群眾 || The singer was surrounded ___ a mob of fans. || by|with|of || 被動語態中動作執行者用 by。 || 那位歌手被一大群粉絲包圍。
 mobile || adj. || 可移動的 || Mobile phones are very useful. || 手機很有用。 || mobile phone=手機 || Mobile phones have changed the way people ___. || communicate|communicates|communicating || the way (that) + 子句；people 複數用原形。 || 手機改變了人們溝通的方式。
 moist || adj. || 潮濕的 || Keep the soil moist. || 保持土壤濕潤。 || moist soil=濕潤的土壤 || Keep the soil moist ___ the plant can grow well. || so that|such that|so as || so that = 以便…。 || 保持土壤濕潤，植物才能長得好。

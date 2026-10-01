@@ -7,7 +7,7 @@ convenience || n. || 便利 || For your convenience, we open 24 hours. || 為了
 convention || n. || 大會；慣例 || The comic convention attracted thousands of fans. || 漫畫博覽會吸引了數千名粉絲。 || social convention=社會慣例 || The convention ___ held in the Taipei World Trade Center every year. || is|are|be || 被動語態；The convention 用 is + p.p.。 || 這個大會每年在台北世貿中心舉行。
 conventional || adj. || 傳統的 || She doesn't like conventional ideas. || 她不喜歡傳統的觀念。 || conventional wisdom=一般看法 || Online learning is different ___ conventional classroom learning. || from|to be|with || be different from = 與…不同。 || 線上學習和傳統的課堂學習不同。
 converse || v. || 交談 || They conversed in English. || 他們用英文交談。 || converse with=與…交談 || She conversed ___ the foreign guests in French. || with|to|at || converse with = 與…交談。 || 她用法文和外國賓客交談。
-convey || v. || 傳達 || Words cannot convey my feelings. || 言語無法傳達我的感受。 || convey a message=傳達訊息 || It's hard to convey feelings ___ words. || in|with|by of || in words = 用言語。 || 很難用言語傳達感受。
+convey || v. || 傳達 || Words cannot convey my feelings. || 言語無法傳達我的感受。 || convey a message=傳達訊息 || It's hard to convey feelings ___ words. || in|with|by || in words = 用言語。 || 很難用言語傳達感受。
 convince || v. || 說服；使相信 || I convinced him to come. || 我說服他來了。 || be convinced that=確信… || I'm convinced ___ he is telling the truth. || that|what|which || be convinced that… = 確信…。 || 我確信他說的是實話。
 cooperate || v. || 合作 || We need to cooperate. || 我們需要合作。 || cooperate with=與…合作 || The two schools cooperated ___ each other on the project. || with|to|for || cooperate with = 與…合作。 || 兩所學校在這個計畫上互相合作。
 cooperation || n. || 合作 || Thank you for your cooperation. || 謝謝你的合作。 || in cooperation with=與…合作 || The event was held in cooperation ___ the city government. || with|to|by || in cooperation with = 與…合作。 || 這個活動是與市政府合作舉辦的。
@@ -19,7 +19,7 @@ correspond || v. || 符合；通信 || The results correspond with our expectati
 costume || n. || 服裝；戲服 || She wore a witch costume for Halloween. || 她萬聖節穿巫婆裝。 || Halloween costume=萬聖節服裝 || The kids dressed up ___ costumes for the party. || in|with|on || dress up in = 穿上…打扮。 || 孩子們穿上戲服參加派對。
 cottage || n. || 小屋 || They live in a small cottage. || 他們住在一間小屋裡。 || country cottage=鄉間小屋 || The cottage ___ we stayed in was near a lake. || that|who|what || 關係代名詞 that 修飾物並當 stayed in 的受詞。 || 我們住的小屋在湖邊。
 council || n. || 會議；委員會 || She is on the student council. || 她是學生會的成員。 || student council=學生會 || She was elected ___ the student council last year. || to|in|at || be elected to + 組織 = 當選為…的成員。 || 她去年當選學生會成員。
-counter || n. || 櫃台 || Pay at the counter. || 在櫃台付款。 || check-in counter=報到櫃台 || Please pay ___ the counter. || at|on|in of || 在櫃台（地點）用 at。 || 請到櫃台付款。
+counter || n. || 櫃台 || Pay at the counter. || 在櫃台付款。 || check-in counter=報到櫃台 || Please pay ___ the counter. || at|on|in || 在櫃台（地點）用 at。 || 請到櫃台付款。
 courageous || adj. || 勇敢的 || It was courageous of her to speak up. || 她勇於發聲真是勇敢。 || courageous act=英勇的行為 || It was courageous ___ him to save the child. || of|for|to || It is + 描述人的形容詞 + of sb + to V。 || 他救了那個孩子真是勇敢。
 courtesy || n. || 禮貌 || Please show courtesy to others. || 請對別人有禮貌。 || common courtesy=基本禮貌 || It's common courtesy ___ say "thank you." || to|for|of || It is + 名詞 + to V。 || 說「謝謝」是基本禮貌。
 coward || n. || 懦夫 || Don't be a coward. || 別當懦夫。 || coward=膽小鬼 || He called me a coward ___ I didn't dare to jump. || because|so|although || 後面是原因，用 because。 || 他叫我膽小鬼，因為我不敢跳。

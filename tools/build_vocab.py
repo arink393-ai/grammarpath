@@ -16,6 +16,8 @@ BOOKS = {
  'jh9':  ('國中九年級單字（教育部常用 2,000 字）', '教育部常用 2,000 字中，基本字以外的 800 字'),
  'gsat3':('學測 Level 3（大考中心）', '大考中心高中英文參考詞彙表 第三級'),
  'gsat4':('學測 Level 4（大考中心）', '大考中心高中英文參考詞彙表 第四級'),
+ 'gsat5':('學測 Level 5（大考中心）', '大考中心高中英文參考詞彙表 第五級'),
+ 'gsat6':('學測 Level 6（大考中心）', '大考中心高中英文參考詞彙表 第六級'),
 }
 IRREG = {  # 不規則變化：例句/題目可用這些形式
 }
@@ -45,6 +47,7 @@ def build(book):
             w, pos, zh, ex, exzh, col, qs, opts, why, qzh = [x.strip() for x in c]
             o = [x.strip() for x in opts.split('|')]
             if len(o) != 3 or len(set(o)) != 3: errs.append(f'{where} {w}：選項要 3 個且不重複')
+            if any(re.fullmatch(r'(of|to|for|with|in|on|at|by|from|into|onto|along|through|across|about) (of|to|for|with|in|on|at|by|from|about)', x) for x in o): errs.append(f'{where} {w}：選項黏在一起（兩個介系詞）')
             if qs.count('___') != 1: errs.append(f'{where} {w}：文法題要剛好一個 ___')
             a = o[0].lower()
             wl = w.lower()

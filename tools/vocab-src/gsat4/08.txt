@@ -6,7 +6,7 @@ exaggerate || v. || 誇大 || Don't exaggerate. || 別誇大其詞。 || exagger
 exception || n. || 例外 || There is an exception to every rule. || 每條規則都有例外。 || with the exception of=除了…之外 || Everyone passed the test ___ the exception of Tom. || with|in|by || with the exception of = 除了…之外。 || 除了湯姆以外，每個人都通過了考試。
 exhaust || v./n. || 使筋疲力盡；廢氣 || The long hike exhausted us. || 長途健行讓我們筋疲力盡。 || car exhaust=汽車廢氣 || Car exhaust is one of the main causes ___ air pollution. || of|for|to || the cause of = …的原因。 || 汽車廢氣是空氣污染的主要原因之一。
 exhibit || n./v. || 展覽品；展出 || The museum exhibits ancient art. || 這間博物館展出古代藝術品。 || on exhibit=展出中 || The paintings ___ exhibited in the museum until next month. || will be|will|are being be || 未來被動：will be + p.p.。 || 這些畫將在博物館展出到下個月。
-expand || v. || 擴大 || The company plans to expand. || 公司打算擴張。 || expand a business=擴展事業 || The company is planning to expand its business ___ Japan next year. || to|at|in of || expand to + 地點 = 擴展到…。 || 這家公司計畫明年把業務擴展到日本。
+expand || v. || 擴大 || The company plans to expand. || 公司打算擴張。 || expand a business=擴展事業 || The company is planning to expand its business ___ Japan next year. || to|at|in || expand to + 地點 = 擴展到…。 || 這家公司計畫明年把業務擴展到日本。
 expansion || n. || 擴張 || The expansion of the city is fast. || 這座城市擴張得很快。 || rapid expansion=快速擴張 || The expansion ___ the airport will take three years. || of|for|to || the expansion of = …的擴建。 || 機場的擴建工程將花三年。
 experimental || adj. || 實驗性的 || The drug is still experimental. || 這種藥仍在實驗階段。 || experimental stage=實驗階段 || The new medicine is still ___ the experimental stage. || at|in|on || at the … stage = 在…階段。 || 這種新藥仍在實驗階段。
 explanation || n. || 解釋 || Can you give me an explanation? || 你能給我一個解釋嗎？ || give an explanation=解釋 || The teacher gave ___ clear explanation of the rule. || a|an|the || clear 以子音開頭，用 a。 || 老師對這條規則做了清楚的解釋。
@@ -38,7 +38,7 @@ finance || n./v. || 財務；資助 || She works in finance. || 她在金融業�
 financial || adj. || 財務的 || The company has financial problems. || 這家公司有財務問題。 || financial support=經濟支援 || He needs financial support ___ his studies. || for|to|of || support for = 對…的支持。 || 他需要經濟援助來完成學業。
 fireplace || n. || 壁爐 || We sat by the fireplace. || 我們坐在壁爐旁。 || by the fireplace=在壁爐旁 || The family sat ___ the fireplace on the cold night. || by|in|on || by = 在…旁邊。 || 寒冷的夜晚，一家人坐在壁爐旁。
 flatter || v. || 奉承 || You're flattering me. || 你過獎了。 || be flattered=受寵若驚 || I'm flattered ___ you remember my name. || that|what|which || be flattered that… = 對…感到受寵若驚。 || 你記得我的名字讓我受寵若驚。
-flea || n. || 跳蚤 || The dog has fleas. || 那隻狗有跳蚤。 || flea market=跳蚤市場 || We bought some old books ___ a flea market. || at|in|on of || at a market = 在市集。 || 我們在跳蚤市場買了一些舊書。
+flea || n. || 跳蚤 || The dog has fleas. || 那隻狗有跳蚤。 || flea market=跳蚤市場 || We bought some old books ___ a flea market. || at|in|on || at a market = 在市集。 || 我們在跳蚤市場買了一些舊書。
 flee || v. || 逃跑 || People had to flee the fire. || 人們不得不逃離火災。 || flee from=從…逃離 || Many people had to flee ___ their homes because of the war. || from|of|out || flee from = 從…逃離。 || 許多人因戰爭而不得不逃離家園。
 flexible || adj. || 有彈性的 || My schedule is flexible. || 我的時間很有彈性。 || flexible schedule=彈性的時間表 || My working hours are flexible, ___ I can pick up my kids after school. || so|but|or || 前面是原因、後面是結果，用 so。 || 我的上班時間很有彈性，所以可以放學後接孩子。
 fluent || adj. || 流利的 || She is fluent in three languages. || 她能流利地說三種語言。 || be fluent in=精通…語 || She is fluent ___ English and Japanese. || in|at|with || be fluent in = 精通…語言。 || 她精通英文和日文。

@@ -35,7 +35,7 @@ refuse || v. || 拒絕 || She refused to help me. || 她拒絕幫我。 || refus
 regret || v. || 後悔 || I regret not studying harder. || 我後悔沒有更用功。 || regret + V-ing=後悔做了… || I regret ___ so much time on games. || spending|to spend|spend || regret + V-ing = 後悔做了…（過去的事）。 || 我後悔花了那麼多時間在遊戲上。
 regular || adj. || 規律的；普通的 || Regular exercise is good for you. || 規律運動對你有益。 || regular exercise=規律運動 || Regular exercise ___ good for your health. || is|are|be || Regular exercise 單數（不可數），用 is。 || 規律運動對健康有益。
 reject || v. || 拒絕 || My idea was rejected. || 我的想法被否決了。 || reject an offer=拒絕提議 || My idea ___ rejected by the team. || was|is|were || 被動語態；過去用 was + p.p.。 || 我的想法被團隊否決了。
-remind || v. || 提醒 || Remind me to call Mom. || 提醒我打電話給媽媽。 || remind sb to V=提醒某人做…; remind sb of=使某人想起… || This song reminds me ___ my childhood. || of|about to|for || remind sb of = 使某人想起…。 || 這首歌讓我想起童年。
+remind || v. || 提醒 || Remind me to call Mom. || 提醒我打電話給媽媽。 || remind sb to V=提醒某人做…; remind sb of=使某人想起… || This song reminds me ___ my childhood. || of|to|for || remind sb of = 使某人想起…。 || 這首歌讓我想起童年。
 rent || v./n. || 租 || We rent an apartment. || 我們租了一間公寓。 || rent a car=租車; pay the rent=付房租 || We rented a car ___ our trip to Hualien. || for|to|at || for + 名詞 = 為了…。 || 我們為了去花蓮旅行租了一輛車。
 repair || v. || 修理 || My bike needs to be repaired. || 我的腳踏車需要修理。 || repair a car=修車 || My bike needs ___ repaired. || to be|being|be || need to be + p.p. = 需要被…。 || 我的腳踏車需要修理。
 respect || v./n. || 尊重 || We should respect our parents. || 我們應該尊重父母。 || show respect=表示尊敬 || We should respect ___ elders. || our|us|ours || 名詞 elders 前用所有格形容詞 our。 || 我們應該尊敬長輩。
@@ -47,5 +47,5 @@ revise || v. || 修改 || Please revise your essay. || 請修改你的作文。 
 rob || v. || 搶劫 || The bank was robbed. || 那家銀行被搶了。 || rob sb of sth=搶奪某人的某物 || The man robbed the woman ___ her purse. || of|from|with || rob sb of sth = 搶奪某人的某物。 || 那個男人搶了那位女士的錢包。
 role || n. || 角色 || She played the role of the queen. || 她飾演女王的角色。 || play a role=扮演角色; role model=榜樣 || Parents play an important role ___ children's lives. || in|on|at || play a role in = 在…中扮演角色。 || 父母在孩子的生命中扮演重要的角色。
 roller skate || n. || 直排輪；溜冰鞋 || I want a pair of roller skates. || 我想要一雙直排輪。 || go roller skating=去溜直排輪 || Wear a helmet when you ___ roller skating. || go|goes|going || 主詞 you，動詞用原形。 || 溜直排輪時要戴安全帽。
-roof || n. || 屋頂 || There is a cat on the roof. || 屋頂上有一隻貓。 || on the roof=在屋頂上 || There is a cat ___ the roof. || on|in|at of || 在屋頂上用 on。 || 屋頂上有一隻貓。
+roof || n. || 屋頂 || There is a cat on the roof. || 屋頂上有一隻貓。 || on the roof=在屋頂上 || There is a cat ___ the roof. || on|in|at || 在屋頂上用 on。 || 屋頂上有一隻貓。
 rub || v. || 摩擦；揉 || Don't rub your eyes. || 不要揉眼睛。 || rub one's eyes=揉眼睛 || Don't rub your eyes ___ your dirty hands. || with|by|in || 用某物用 with。 || 不要用髒手揉眼睛。

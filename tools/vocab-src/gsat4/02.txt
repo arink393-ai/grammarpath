@@ -7,7 +7,7 @@ artistic || adj. || 藝術的；有藝術天分的 || She is very artistic. || �
 ashamed || adj. || 感到羞愧的 || He was ashamed of his behavior. || 他對自己的行為感到羞愧。 || be ashamed of=對…感到羞愧 || You should be ashamed ___ yourself. || of|for|with || be ashamed of = 對…感到羞愧。 || 你應該感到羞愧。
 aspect || n. || 方面 || We discussed every aspect of the problem. || 我們討論了這個問題的各個面向。 || in every aspect=在各方面 || Technology has changed every aspect ___ our lives. || of|in|to || every aspect of = …的每個方面。 || 科技改變了我們生活的每個面向。
 aspirin || n. || 阿斯匹靈 || Take an aspirin for your headache. || 吃一顆阿斯匹靈治頭痛。 || take aspirin=服用阿斯匹靈 || You shouldn't take aspirin ___ an empty stomach. || on|in|with || on an empty stomach = 空腹。 || 你不應該空腹服用阿斯匹靈。
-assemble || v. || 組裝；集合 || We assembled the furniture ourselves. || 我們自己組裝了家具。 || assemble a desk=組裝書桌 || The students assembled ___ the hall for the ceremony. || in|on|at of || 在大廳裡用 in。 || 學生們在禮堂集合參加典禮。
+assemble || v. || 組裝；集合 || We assembled the furniture ourselves. || 我們自己組裝了家具。 || assemble a desk=組裝書桌 || The students assembled ___ the hall for the ceremony. || in|on|at || 在大廳裡用 in。 || 學生們在禮堂集合參加典禮。
 assembly || n. || 集會；組裝 || We have a school assembly every Monday. || 我們每週一有朝會。 || school assembly=朝會 || The school assembly ___ held every Monday morning. || is|are|be || 被動語態；The school assembly 用 is + p.p.。 || 學校朝會每週一早上舉行。
 assistance || n. || 協助 || Thank you for your assistance. || 謝謝你的協助。 || need assistance=需要協助 || If you need any assistance, please don't hesitate ___ ask. || to|for|of || hesitate to + 原形動詞。 || 如果需要任何協助，請儘管開口。
 associate || v./n. || 聯想；同事 || People associate red with luck. || 人們把紅色和好運聯想在一起。 || associate A with B=把 A 和 B 聯想在一起 || In Chinese culture, the color red is associated ___ good luck. || with|to|by || be associated with = 與…有關聯。 || 在中華文化中，紅色與好運有關。
@@ -19,7 +19,7 @@ atmosphere || n. || 氣氛；大氣 || The restaurant has a nice atmosphere. || 
 atom || n. || 原子 || Everything is made of atoms. || 萬物都由原子組成。 || atom bomb=原子彈 || Everything around us is made ___ atoms. || of|from|by || be made of = 由…構成。 || 我們周遭的一切都是由原子構成的。
 atomic || adj. || 原子的 || The atomic bomb was used in World War II. || 原子彈在二戰中被使用。 || atomic energy=原子能 || The atomic bomb ___ dropped on Hiroshima in 1945. || was|is|were || 被動語態；過去用 was + p.p.。 || 原子彈於 1945 年投在廣島。
 attraction || n. || 吸引力；景點 || Taipei 101 is a popular tourist attraction. || 台北 101 是熱門的觀光景點。 || tourist attraction=觀光景點 || Taroko Gorge is one of the most famous tourist attractions ___ Taiwan. || in|of|at || 最高級 + in + 地方。 || 太魯閣是台灣最有名的觀光景點之一。
-audio || adj. || 聲音的 || The audio quality is very good. || 音質非常好。 || audio guide=語音導覽 || You can rent an audio guide ___ the entrance of the museum. || at|in|on of || 在入口（地點）用 at。 || 你可以在博物館入口租語音導覽。
+audio || adj. || 聲音的 || The audio quality is very good. || 音質非常好。 || audio guide=語音導覽 || You can rent an audio guide ___ the entrance of the museum. || at|in|on || 在入口（地點）用 at。 || 你可以在博物館入口租語音導覽。
 authentic || adj. || 真正的；道地的 || This restaurant serves authentic Italian food. || 這家餐廳供應道地的義大利菜。 || authentic food=道地料理 || The restaurant serves authentic Japanese food, ___ is why it is always full. || which|that|what || 非限定關係子句 which 指代整個前句。 || 那家餐廳供應道地的日本料理，這就是它總是客滿的原因。
 authority || n. || 權威；當局 || The local authorities closed the road. || 地方當局封閉了這條路。 || the authorities=當局 || The road was closed ___ the authorities because of the landslide. || by|with|from || 被動語態中動作執行者用 by。 || 因為山崩，道路被當局封閉。
 autobiography || n. || 自傳 || She wrote her autobiography. || 她寫了自傳。 || write an autobiography=寫自傳 || In his autobiography, he describes ___ he grew up poor. || how|what|which || 名詞子句 how… = 如何…。 || 他在自傳中描述了自己如何在貧困中長大。
@@ -34,7 +34,7 @@ barrier || n. || 障礙 || Language can be a barrier. || 語言可能是一種�
 basin || n. || 盆；盆地 || Taipei is in a basin. || 台北位於盆地中。 || Taipei Basin=台北盆地 || Taipei is located ___ a basin. || in|on|at || 在盆地裡用 in。 || 台北位於盆地中。
 battery || n. || 電池 || My phone battery is dead. || 我的手機沒電了。 || charge the battery=充電 || My phone battery ran out, so I couldn't call ___. || you|your|yours || call 後面接受詞，用受格 you。 || 我的手機沒電了，所以沒辦法打給你。
 beggar || n. || 乞丐 || A beggar asked me for money. || 一個乞丐向我要錢。 || beggar=乞丐 || The beggar ___ sat outside the station every day was given a job. || who|which|whom || 關係代名詞修飾人並當主詞，用 who。 || 那個每天坐在車站外的乞丐得到了一份工作。
-behavior || n. || 行為 || His behavior was rude. || 他的行為很無禮。 || good behavior=良好的行為 || Parents should set a good example ___ their children's behavior. || for|of|to with || set an example for sb = 為某人樹立榜樣。 || 父母應該為孩子的行為樹立好榜樣。
+behavior || n. || 行為 || His behavior was rude. || 他的行為很無禮。 || good behavior=良好的行為 || Parents should set a good example ___ their children's behavior. || for|of|to || set an example for sb = 為某人樹立榜樣。 || 父母應該為孩子的行為樹立好榜樣。
 bin || n. || 箱；垃圾桶 || Throw it in the bin. || 把它丟進垃圾桶。 || recycling bin=回收桶 || Please put the bottles ___ the recycling bin. || in|on|at || 放進桶子裡用 in。 || 請把瓶子放進回收桶。
 biography || n. || 傳記 || I'm reading a biography of Steve Jobs. || 我正在讀賈伯斯的傳記。 || biography of=…的傳記 || This biography tells the story of a man ___ changed the world. || who|which|whom || 關係代名詞修飾人並當主詞，用 who。 || 這本傳記講述一個改變世界的人的故事。
 biology || n. || 生物學 || Biology is my favorite subject. || 生物是我最喜歡的科目。 || marine biology=海洋生物學 || She wants to major ___ biology in college. || in|on|at || major in = 主修…。 || 她想在大學主修生物。

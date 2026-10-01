@@ -8,9 +8,9 @@ delight || n./v. || 高興 || To my delight, I passed the test. || 令我高興�
 delightful || adj. || 令人愉快的 || We had a delightful evening. || 我們度過了一個愉快的夜晚。 || delightful time=愉快的時光 || It was ___ delightful evening. || a|an|the || delightful 以子音開頭，用 a。 || 那是一個愉快的夜晚。
 demand || n./v. || 要求；需求 || There is a high demand for this product. || 這項產品的需求很高。 || in demand=需求量大 || English teachers are in great demand ___ Asia. || in|on|at || 在某地區用 in。 || 英文老師在亞洲需求量很大。
 demonstrate || v. || 示範；證明 || The teacher demonstrated the experiment. || 老師示範了實驗。 || demonstrate how to V=示範如何… || The teacher demonstrated ___ to use the machine. || how|what|which || how to + 原形動詞。 || 老師示範了如何使用這台機器。
-demonstration || n. || 示範；示威 || The chef gave a cooking demonstration. || 主廚做了一場烹飪示範。 || give a demonstration=示範 || Thousands of people joined the demonstration ___ the new law. || against|for of|with || against = 反對…。 || 數千人參加了反對新法的示威活動。
+demonstration || n. || 示範；示威 || The chef gave a cooking demonstration. || 主廚做了一場烹飪示範。 || give a demonstration=示範 || Thousands of people joined the demonstration ___ the new law. || against|for|with || against = 反對…。 || 數千人參加了反對新法的示威活動。
 dense || adj. || 密集的；濃密的 || The forest is very dense. || 森林非常茂密。 || dense fog=濃霧 || The fog was ___ dense that we couldn't see the road. || so|such|too || so + 形容詞 + that…。 || 霧濃到我們看不見路。
-depart || v. || 出發 || The train departs at 9:00. || 火車九點出發。 || depart from=從…出發 || The flight departs ___ Gate 5. || from|at of|to || depart from = 從…出發。 || 班機從五號登機門出發。
+depart || v. || 出發 || The train departs at 9:00. || 火車九點出發。 || depart from=從…出發 || The flight departs ___ Gate 5. || from|at|to || depart from = 從…出發。 || 班機從五號登機門出發。
 departure || n. || 出發 || The departure time is 10 a.m. || 出發時間是上午十點。 || departure time=出發時間 || Please arrive two hours ___ departure. || before|after|since || 出發「之前」抵達，用 before。 || 請在出發前兩小時抵達。
 dependent || adj. || 依賴的 || Babies are dependent on their parents. || 嬰兒依賴父母。 || be dependent on=依賴… || Many young people are too dependent ___ their parents. || on|to|of || be dependent on = 依賴…。 || 很多年輕人太依賴父母了。
 depression || n. || 沮喪；憂鬱症 || He suffered from depression. || 他罹患憂鬱症。 || suffer from depression=罹患憂鬱症 || People ___ suffer from depression should get professional help. || who|which|whose || 關係代名詞修飾人並當主詞，用 who。 || 罹患憂鬱症的人應該尋求專業協助。
@@ -25,7 +25,7 @@ devise || v. || 設計；想出 || They devised a new plan. || 他們想出了�
 devote || v. || 奉獻 || She devoted her life to helping others. || 她一生奉獻於助人。 || devote oneself to=致力於… || He devoted himself ___ teaching. || to|for|with || devote oneself to = 致力於…。 || 他獻身於教育。
 dew || n. || 露水 || The grass is wet with dew. || 草地上沾滿了露水。 || morning dew=晨露 || The grass was wet ___ dew in the morning. || with|of|by || be wet with = 被…弄濕。 || 早上草地被露水沾濕了。
 diagram || n. || 圖表 || Look at the diagram on page 5. || 看第五頁的圖表。 || draw a diagram=畫圖表 || The diagram shows ___ the machine works. || how|what|which || 名詞子句 how… = …如何運作。 || 這張圖表顯示這台機器如何運作。
-differ || v. || 不同 || Our opinions differ. || 我們的意見不同。 || differ from=與…不同 || My opinion differs ___ yours. || from|to|with of || differ from = 與…不同。 || 我的意見和你的不同。
+differ || v. || 不同 || Our opinions differ. || 我們的意見不同。 || differ from=與…不同 || My opinion differs ___ yours. || from|to|with || differ from = 與…不同。 || 我的意見和你的不同。
 digest || v./n. || 消化；摘要 || Some foods are hard to digest. || 有些食物很難消化。 || digest food=消化食物 || Fatty food is hard ___ digest. || to|for|of || 形容詞 + to V。 || 油膩的食物很難消化。
 digital || adj. || 數位的 || We live in a digital age. || 我們生活在數位時代。 || digital camera=數位相機 || Digital books are becoming ___ popular. || more and more|most and most|much and much || 比較級 and 比較級 = 越來越…。 || 電子書越來越受歡迎。
 dignity || n. || 尊嚴 || Everyone deserves to be treated with dignity. || 每個人都應受到有尊嚴的對待。 || with dignity=有尊嚴地 || Everyone should be treated ___ dignity and respect. || with|in|by || with dignity = 有尊嚴地。 || 每個人都應該受到尊重與有尊嚴的對待。
@@ -44,7 +44,7 @@ disorder || n. || 混亂；失調 || The room was in disorder. || 房間一片�
 dispute || n./v. || 爭論；糾紛 || There is a dispute over the land. || 這塊土地有糾紛。 || dispute over=對…的爭議 || The two countries have a dispute ___ the island. || over|to|with || a dispute over = 對…的爭議。 || 兩國對這座島嶼有領土爭議。
 distinct || adj. || 明顯不同的 || The two languages are distinct. || 這兩種語言截然不同。 || be distinct from=與…不同 || Taiwanese culture is distinct ___ other Asian cultures. || from|to|with || be distinct from = 與…有明顯不同。 || 台灣文化與其他亞洲文化截然不同。
 distinguish || v. || 區別 || Can you distinguish between the twins? || 你分得出那對雙胞胎嗎？ || distinguish A from B=區分 A 和 B || Can you distinguish right ___ wrong? || from|to|with || distinguish A from B = 區分 A 和 B。 || 你能分辨是非嗎？
-distinguished || adj. || 傑出的 || He is a distinguished scientist. || 他是一位傑出的科學家。 || distinguished guest=貴賓 || She is distinguished ___ her work in medicine. || for|by|with of || be distinguished for = 以…著稱。 || 她以醫學上的成就而著稱。
+distinguished || adj. || 傑出的 || He is a distinguished scientist. || 他是一位傑出的科學家。 || distinguished guest=貴賓 || She is distinguished ___ her work in medicine. || for|by|with || be distinguished for = 以…著稱。 || 她以醫學上的成就而著稱。
 distribute || v. || 分配；分發 || The teacher distributed the test papers. || 老師發下了考卷。 || distribute food=分發食物 || Food was distributed ___ the people in need. || to|for|with || distribute A to B = 把 A 分發給 B。 || 食物被分發給有需要的人。
 distribution || n. || 分配 || The distribution of wealth is unequal. || 財富分配不均。 || distribution of=…的分配 || The distribution ___ food was organized by volunteers. || of|for|to || the distribution of = …的分配。 || 食物的分發是由志工組織的。
 district || n. || 區 || Da'an is a district in Taipei. || 大安是台北的一個區。 || school district=學區 || Xinyi District is famous ___ Taipei 101. || for|of|with || be famous for = 以…聞名。 || 信義區以台北 101 聞名。

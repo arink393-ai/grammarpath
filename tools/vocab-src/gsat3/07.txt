@@ -10,7 +10,7 @@ fare || n. || 車資 || The bus fare is 15 dollars. || 公車車資是十五元�
 farther || adv./adj. || 更遠地 || I can't walk any farther. || 我走不動了。 || farther away=更遠 || The station is farther ___ than I thought. || away|off from|out of || farther away = 更遠。 || 車站比我想的還遠。
 fashionable || adj. || 時髦的 || She always wears fashionable clothes. || 她總是穿時髦的衣服。 || fashionable clothes=時髦的衣服 || These shoes are the ___ fashionable ones in the shop. || most|more|much || 三者以上比較用最高級 the most。 || 這雙鞋是店裡最時髦的。
 faucet || n. || 水龍頭 || Turn off the faucet. || 關上水龍頭。 || leaky faucet=漏水的水龍頭 || Remember to turn off the faucet ___ you are brushing your teeth. || while|during|for || while + 子句 = 當…的時候。 || 刷牙時記得關水龍頭。
-fearful || adj. || 害怕的 || The child was fearful of the dark. || 那個孩子怕黑。 || be fearful of=害怕… || The villagers were fearful ___ another earthquake. || of|about to|with || be fearful of = 害怕…。 || 村民們害怕再發生地震。
+fearful || adj. || 害怕的 || The child was fearful of the dark. || 那個孩子怕黑。 || be fearful of=害怕… || The villagers were fearful ___ another earthquake. || of|to|with || be fearful of = 害怕…。 || 村民們害怕再發生地震。
 feather || n. || 羽毛 || The bird has colorful feathers. || 那隻鳥有彩色的羽毛。 || birds of a feather=物以類聚 || Birds of a feather flock ___. || together|each other|with || 諺語：Birds of a feather flock together.（物以類聚） || 物以類聚。
 fence || n. || 籬笆 || The dog jumped over the fence. || 狗跳過了籬笆。 || build a fence=築圍籬 || The garden is surrounded ___ a wooden fence. || by|with|from || be surrounded by = 被…圍繞。 || 花園被一道木籬笆圍繞著。
 fighter || n. || 戰士；鬥士 || He is a brave fighter. || 他是個勇敢的鬥士。 || fire fighter=消防員 || The fire fighters worked hard ___ put out the fire. || to|for|so || 不定詞 to V 表示目的。 || 消防員努力撲滅大火。
@@ -32,18 +32,18 @@ follower || n. || 追隨者；粉絲 || The singer has millions of followers. ||
 fond || adj. || 喜愛的 || She is fond of music. || 她喜愛音樂。 || be fond of=喜愛… || My grandpa is fond ___ telling old stories. || of|with|for || be fond of = 喜愛…。 || 我爺爺很喜歡講古早的故事。
 forever || adv. || 永遠 || I will remember this forever. || 我會永遠記得這件事。 || forever young=永遠年輕 || Nothing lasts forever, ___ we should enjoy every moment. || so|but|or || 前面是原因、後面是結果，用 so。 || 沒有什麼是永恆的，所以我們應該珍惜每一刻。
 fortune || n. || 財富；運氣 || He made a fortune in business. || 他做生意發了大財。 || make a fortune=發大財; good fortune=好運 || He made a fortune ___ selling phones online. || by|with|for || by + V-ing = 藉由…。 || 他靠在網路上賣手機發了財。
-fountain || n. || 噴泉 || The kids are playing near the fountain. || 孩子們在噴泉附近玩。 || water fountain=噴泉；飲水機 || There is a big fountain ___ the middle of the park. || in|on|at of || in the middle of = 在…的中央。 || 公園中央有一座大噴泉。
+fountain || n. || 噴泉 || The kids are playing near the fountain. || 孩子們在噴泉附近玩。 || water fountain=噴泉；飲水機 || There is a big fountain ___ the middle of the park. || in|on|at || in the middle of = 在…的中央。 || 公園中央有一座大噴泉。
 frank || adj. || 坦白的 || To be frank, I don't agree. || 坦白說，我不同意。 || to be frank=坦白說 || To be frank ___ you, I don't like your idea. || with|to|for || be frank with sb = 對某人坦白。 || 坦白跟你說，我不喜歡你的點子。
 freeze || v. || 結冰；冷凍 || Water freezes at 0°C. || 水在攝氏零度結冰。 || freeze to death=凍死 || Water freezes ___ 0°C. || at|in|on || 在某個溫度用 at。 || 水在攝氏零度結冰。
 freezer || n. || 冷凍庫 || Put the meat in the freezer. || 把肉放進冷凍庫。 || in the freezer=在冷凍庫 || Meat can be kept in the freezer ___ several months. || for|since|in || for + 一段時間。 || 肉可以在冷凍庫保存好幾個月。
 frequent || adj. || 頻繁的 || Typhoons are frequent in summer. || 夏天常有颱風。 || frequent visitor=常客 || Earthquakes are frequent in Taiwan ___ it lies on a plate boundary. || because|so|although || 後面是原因，用 because。 || 台灣地震頻繁，因為它位在板塊交界處。
 fright || n. || 驚嚇 || The noise gave me a fright. || 那個聲音嚇了我一跳。 || give sb a fright=嚇某人一跳 || She screamed ___ fright when she saw the snake. || in|with|by || in fright = 驚嚇地。 || 她看到蛇時嚇得尖叫。
-frighten || v. || 使驚嚇 || The loud noise frightened the baby. || 巨響嚇到了寶寶。 || be frightened of=害怕… || The little girl was frightened ___ the big dog. || of|with|about to || be frightened of = 害怕…。 || 小女孩很怕那隻大狗。
+frighten || v. || 使驚嚇 || The loud noise frightened the baby. || 巨響嚇到了寶寶。 || be frightened of=害怕… || The little girl was frightened ___ the big dog. || of|with|to || be frightened of = 害怕…。 || 小女孩很怕那隻大狗。
 fuel || n. || 燃料 || The car is running out of fuel. || 這輛車快沒油了。 || fossil fuel=化石燃料 || We should use less fossil fuel ___ protect the environment. || to|for|so || 不定詞 to V 表示目的。 || 我們應該少用化石燃料以保護環境。
 fund || n./v. || 資金；基金 || We need funds for the project. || 我們需要這個計畫的資金。 || raise funds=募款 || The students held a concert ___ raise funds for the poor. || to|for|so as || 不定詞 to V 表示目的。 || 學生們舉辦音樂會為窮人募款。
 fur || n. || 毛皮 || The cat has soft fur. || 那隻貓的毛很柔軟。 || fur coat=皮草大衣 || The cat ___ fur is white is very friendly. || whose|which|that || 所有格關係代名詞 whose + 名詞。 || 那隻白毛的貓非常親人。
 gallon || n. || 加侖 || The car uses one gallon of gas every 30 miles. || 這輛車每三十英里用一加侖油。 || a gallon of=一加侖… || A gallon is equal ___ about 3.8 liters. || to|with|as || be equal to = 等於…。 || 一加侖約等於三點八公升。
-gamble || v./n. || 賭博 || He lost all his money gambling. || 他賭博輸光了所有的錢。 || gamble away=賭輸掉 || He lost all his money ___ gambling. || by|with|in of || by + V-ing = 因為…。 || 他因為賭博輸光了所有的錢。
+gamble || v./n. || 賭博 || He lost all his money gambling. || 他賭博輸光了所有的錢。 || gamble away=賭輸掉 || He lost all his money ___ gambling. || by|with|in || by + V-ing = 因為…。 || 他因為賭博輸光了所有的錢。
 gang || n. || 幫派；一夥人 || The police arrested the gang members. || 警方逮捕了幫派成員。 || gang member=幫派分子 || The gang members ___ arrested by the police last night. || were|was|are || 被動語態；members 複數，過去用 were。 || 幫派成員昨晚被警方逮捕。
 gap || n. || 差距；縫隙 || There is a big gap between the rich and the poor. || 貧富差距很大。 || generation gap=代溝; the gap between=…之間的差距 || The generation gap ___ parents and children is common. || between|among|in || the gap between A and B = A 與 B 之間的差距。 || 父母與子女之間的代溝很常見。
 garage || n. || 車庫 || He parked the car in the garage. || 他把車停在車庫裡。 || garage sale=車庫拍賣 || The car ___ in the garage now. || is|are|does || 描述現在的位置，The car 用 is。 || 車子現在在車庫裡。

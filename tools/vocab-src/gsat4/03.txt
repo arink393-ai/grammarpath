@@ -19,7 +19,7 @@ capitalist || n./adj. || 資本家；資本主義的 || The U.S. is a capitalist
 cargo || n. || 貨物 || The ship is carrying cargo to Japan. || 這艘船正載貨前往日本。 || cargo ship=貨輪 || The cargo ___ loaded onto the ship last night. || was|were|is being || 被動語態；cargo 不可數，過去用 was + p.p.。 || 貨物昨晚被裝上了船。
 carrier || n. || 運送者；航空公司 || He works for a mail carrier. || 他在一家郵件運送公司工作。 || mail carrier=郵差 || The mail carrier delivers letters ___ every house in the neighborhood. || to|at|for || deliver sth to + 地點 = 把某物送到…。 || 郵差把信送到社區裡的每一戶。
 carve || v. || 雕刻 || He carved a bird out of wood. || 他用木頭雕了一隻鳥。 || carve out of=用…雕刻 || The statue was carved ___ a single piece of stone. || from|by|with || carve from = 用…雕刻而成。 || 這座雕像是用一整塊石頭雕成的。
-catalogue || n. || 目錄 || Look through the catalogue. || 翻閱這本目錄。 || online catalogue=線上目錄 || You can find all our products ___ the catalogue. || in|on|at of || 在目錄裡用 in。 || 你可以在目錄裡找到我們所有的產品。
+catalogue || n. || 目錄 || Look through the catalogue. || 翻閱這本目錄。 || online catalogue=線上目錄 || You can find all our products ___ the catalogue. || in|on|at || 在目錄裡用 in。 || 你可以在目錄裡找到我們所有的產品。
 category || n. || 類別 || Put the books into different categories. || 把書分成不同的類別。 || in the category of=屬於…類 || The books are divided ___ five categories. || into|in|to be || divide A into B = 把 A 分成 B。 || 這些書被分成五類。
 cease || v. || 停止 || The rain finally ceased. || 雨終於停了。 || cease to exist=不復存在 || The factory ceased production ___ 2020. || in|on|at || 年份前面用 in。 || 這家工廠在 2020 年停產。
 celebration || n. || 慶祝 || There was a big celebration after the game. || 比賽後有一場盛大的慶祝。 || in celebration of=為了慶祝… || The party was held in celebration ___ her birthday. || of|for|to || in celebration of = 為了慶祝…。 || 這場派對是為了慶祝她的生日而舉辦的。
@@ -33,7 +33,7 @@ chew || v. || 咀嚼 || Chew your food well. || 食物要好好咀嚼。 || chew
 choke || v. || 噎住 || He choked on a fish bone. || 他被魚刺哽住了。 || choke on=被…噎住 || The child almost choked ___ a piece of candy. || on|with|by || choke on = 被…噎住。 || 那個孩子差點被一顆糖噎住。
 chorus || n. || 合唱團；副歌 || She sings in the school chorus. || 她參加學校合唱團。 || school chorus=學校合唱團 || Everyone joined in when the chorus ___. || started|starts|starting || 描述過去的事用過去式 started。 || 副歌開始時大家都跟著唱。
 circular || adj. || 圓形的 || The table is circular. || 這張桌子是圓的。 || circular shape=圓形 || The table is circular, ___ everyone can see each other during meetings. || so|but|or || 前面是原因、後面是結果，用 so。 || 這張桌子是圓的，所以開會時大家都看得到彼此。
-circulate || v. || 循環；流傳 || Blood circulates through the body. || 血液在全身循環。 || circulate news=傳播消息 || The news circulated quickly ___ the school. || around|about of|to || around = 在…四處。 || 消息很快在學校傳開了。
+circulate || v. || 循環；流傳 || Blood circulates through the body. || 血液在全身循環。 || circulate news=傳播消息 || The news circulated quickly ___ the school. || around|of|to || around = 在…四處。 || 消息很快在學校傳開了。
 circulation || n. || 循環；發行量 || Exercise improves blood circulation. || 運動能促進血液循環。 || blood circulation=血液循環 || Exercise is good ___ blood circulation. || for|to|with || be good for = 對…有益。 || 運動對血液循環有益。
 circumstance || n. || 情況；環境 || Under no circumstances should you give up. || 無論如何你都不該放棄。 || under no circumstances=無論如何都不 || Under no circumstances ___ you tell anyone the password. || should|you should|shall you || 否定副詞放句首要倒裝：should + 主詞 + 原形。 || 無論如何你都不應該告訴任何人密碼。
 civilian || n./adj. || 平民 || Many civilians were hurt in the war. || 很多平民在戰爭中受傷。 || civilian life=平民生活 || Many civilians ___ killed during the war. || were|was|are || 被動語態；civilians 複數，過去用 were。 || 戰爭期間許多平民喪生。
@@ -41,9 +41,9 @@ civilization || n. || 文明 || Ancient Egypt had a great civilization. || 古�
 clarify || v. || 澄清 || Could you clarify what you mean? || 你可以說明你的意思嗎？ || clarify a point=澄清一個觀點 || Could you clarify ___ you mean by that? || what|which|that || 名詞子句 what you mean = 你的意思。 || 你可以說明一下你那句話是什麼意思嗎？
 clash || n./v. || 衝突 || There was a clash between the two groups. || 兩個團體之間發生了衝突。 || clash with=與…衝突 || The meeting clashes ___ my piano lesson. || with|to|for || clash with = 與…衝突（時間撞期）。 || 會議和我的鋼琴課撞期了。
 classification || n. || 分類 || The classification of animals is important in biology. || 動物分類在生物學中很重要。 || classification system=分類系統 || The classification ___ plants helps scientists study them. || of|for|to || the classification of = …的分類。 || 植物的分類有助於科學家研究它們。
-classify || v. || 分類 || Classify the words into nouns and verbs. || 把這些字分成名詞和動詞。 || classify A into B=把 A 分成 B || The books are classified ___ subject. || by|with|in to || classify by… = 依照…分類。 || 這些書是依照科目分類的。
+classify || v. || 分類 || Classify the words into nouns and verbs. || 把這些字分成名詞和動詞。 || classify A into B=把 A 分成 B || The books are classified ___ subject. || by|with|in || classify by… = 依照…分類。 || 這些書是依照科目分類的。
 claw || n. || 爪子 || The cat has sharp claws. || 那隻貓有鋒利的爪子。 || sharp claws=利爪 || The cat scratched me ___ its claws. || with|by|in || 用某物用 with。 || 那隻貓用爪子抓了我。
-cliff || n. || 懸崖 || Don't stand too close to the cliff. || 不要站得離懸崖太近。 || cliff edge=懸崖邊 || The house stands ___ the edge of a cliff. || on|in|at of || on the edge of = 在…的邊緣。 || 那間房子矗立在懸崖邊。
+cliff || n. || 懸崖 || Don't stand too close to the cliff. || 不要站得離懸崖太近。 || cliff edge=懸崖邊 || The house stands ___ the edge of a cliff. || on|in|at || on the edge of = 在…的邊緣。 || 那間房子矗立在懸崖邊。
 clumsy || adj. || 笨拙的 || I'm so clumsy. I dropped my phone again. || 我好笨手笨腳，又把手機摔了。 || clumsy mistake=笨拙的錯誤 || He is so clumsy ___ he always drops things. || that|what|which || so + 形容詞 + that…。 || 他笨手笨腳到總是掉東西。
 coarse || adj. || 粗糙的 || The cloth feels coarse. || 這塊布摸起來很粗。 || coarse sand=粗沙 || This fabric feels ___ coarse to wear next to the skin. || too|so|very || too + 形容詞 + to V = 太…而不能…。 || 這塊布料太粗了，不適合貼身穿。
 code || n. || 密碼；規範 || Enter the code to open the door. || 輸入密碼開門。 || dress code=服裝規定; secret code=密碼 || The school has a strict dress code ___ all students must follow. || that|what|who || 關係代名詞 that 修飾物並當 follow 的受詞。 || 學校有所有學生都必須遵守的嚴格服裝規定。

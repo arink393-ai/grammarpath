@@ -5,14 +5,14 @@ painful || adj. || 疼痛的；痛苦的 || The injury was painful. || 那個傷
 painter || n. || 畫家 || Van Gogh was a Dutch painter. || 梵谷是荷蘭畫家。 || famous painter=有名的畫家 || The painting ___ painted by a famous painter. || was|is|were || 被動語態；過去用 was + p.p.。 || 這幅畫是一位有名的畫家畫的。
 pajamas || n. || 睡衣 || He is still in his pajamas. || 他還穿著睡衣。 || a pair of pajamas=一套睡衣 || My pajamas ___ blue and white. || are|is|am || pajamas 永遠是複數，用 are。 || 我的睡衣是藍白色的。
 pale || adj. || 蒼白的 || You look pale. Are you sick? || 你臉色蒼白，你生病了嗎？ || look pale=臉色蒼白 || You look pale. You ___ go see a doctor. || should|must not|don't || 給建議用 should + 原形動詞。 || 你臉色蒼白，應該去看醫生。
-pan || n. || 平底鍋 || Fry the eggs in a pan. || 用平底鍋煎蛋。 || frying pan=平底鍋 || Heat some oil ___ the pan. || in|on|at of || 在鍋子裡用 in。 || 在平底鍋裡熱一些油。
+pan || n. || 平底鍋 || Fry the eggs in a pan. || 用平底鍋煎蛋。 || frying pan=平底鍋 || Heat some oil ___ the pan. || in|on|at || 在鍋子裡用 in。 || 在平底鍋裡熱一些油。
 panda || n. || 貓熊 || Pandas eat bamboo. || 貓熊吃竹子。 || giant panda=大貓熊 || Pandas ___ found only in China. || are|is|be || 被動語態；Pandas 複數用 are + p.p.。 || 貓熊只在中國被發現（野生）。
 pardon || n./v. || 原諒；再說一次 || Pardon me? || 你說什麼？（請再說一次） || I beg your pardon=請再說一次 || Pardon me, could you say that ___? || again|ago|back || say that again = 再說一次。 || 不好意思，您可以再說一次嗎？
-parking lot || n. || 停車場 || The parking lot is full. || 停車場滿了。 || parking lot=停車場 || There are no empty spaces ___ the parking lot. || in|on|at of || 在停車場裡用 in。 || 停車場裡沒有空位了。
+parking lot || n. || 停車場 || The parking lot is full. || 停車場滿了。 || parking lot=停車場 || There are no empty spaces ___ the parking lot. || in|on|at || 在停車場裡用 in。 || 停車場裡沒有空位了。
 parrot || n. || 鸚鵡 || The parrot can say "hello." || 那隻鸚鵡會說「哈囉」。 || talking parrot=會說話的鸚鵡 || The parrot can ___ "hello" and "goodbye." || say|says|saying || 助動詞 can 後面接原形動詞。 || 那隻鸚鵡會說「哈囉」和「再見」。
 partner || n. || 夥伴 || Work with your partner. || 和你的夥伴一起做。 || business partner=事業夥伴 || Please work ___ your partner. || with|to|at || work with sb = 和某人合作。 || 請和你的夥伴一起做。
 passenger || n. || 乘客 || The bus has thirty passengers. || 公車上有三十名乘客。 || passenger seat=副駕駛座 || All passengers ___ asked to wear seat belts. || are|is|be || 被動語態；All passengers 複數用 are + p.p.。 || 請所有乘客繫好安全帶。
-path || n. || 小路 || Follow the path to the lake. || 沿著小路走到湖邊。 || walk along the path=沿著小徑走 || We walked ___ the path to the lake. || along|across of|through of || walk along = 沿著…走。 || 我們沿著小路走到湖邊。
+path || n. || 小路 || Follow the path to the lake. || 沿著小路走到湖邊。 || walk along the path=沿著小徑走 || We walked ___ the path to the lake. || along|across|through || walk along = 沿著…走。 || 我們沿著小路走到湖邊。
 patient || adj./n. || 有耐心的；病人 || Be patient with children. || 對孩子要有耐心。 || be patient with=對…有耐心 || Be patient ___ your little brother. || with|to|for || be patient with = 對…有耐心。 || 對你弟弟要有耐心。
 pattern || n. || 圖案；模式 || I like the pattern on your shirt. || 我喜歡你襯衫上的圖案。 || sentence pattern=句型 || I like the pattern ___ your dress. || on|in|at || 衣服表面上的圖案用 on。 || 我喜歡你洋裝上的圖案。
 pause || v./n. || 暫停 || She paused for a moment. || 她停頓了一下。 || pause for a moment=暫停一下 || Let's pause ___ a moment and think. || for|in|at || for a moment = 一會兒。 || 我們暫停一下想一想。
@@ -23,14 +23,14 @@ perfect || adj. || 完美的 || Nobody is perfect. || 沒有人是完美的。 |
 period || n. || 期間；節（課） || We have seven periods a day. || 我們一天有七節課。 || class period=課堂時間 || During that period, he lived ___ Japan. || in|on|at || 住在國家用 in。 || 在那段期間，他住在日本。
 personal || adj. || 個人的 || This is my personal opinion. || 這是我個人的意見。 || personal information=個人資料 || Don't share your personal information ___ strangers online. || with|to|for || share sth with sb = 和某人分享某物。 || 不要在網路上和陌生人分享你的個人資料。
 physics || n. || 物理學 || Physics is my favorite subject. || 物理是我最喜歡的科目。 || physics class=物理課 || Physics ___ difficult for many students. || is|are|be || physics 是學科名稱，視為單數，用 is。 || 物理對很多學生來說很難。
-pigeon || n. || 鴿子 || There are many pigeons in the park. || 公園裡有很多鴿子。 || feed pigeons=餵鴿子 || Please don't feed the pigeons ___ the park. || in|on|at of || 在公園裡用 in。 || 請不要在公園裡餵鴿子。
+pigeon || n. || 鴿子 || There are many pigeons in the park. || 公園裡有很多鴿子。 || feed pigeons=餵鴿子 || Please don't feed the pigeons ___ the park. || in|on|at || 在公園裡用 in。 || 請不要在公園裡餵鴿子。
 pile || n. || 一堆 || There is a pile of books on my desk. || 我桌上有一堆書。 || a pile of=一堆… || There is a pile ___ clothes on the bed. || of|with|in || a pile of = 一堆…。 || 床上有一堆衣服。
 pillow || n. || 枕頭 || This pillow is soft. || 這個枕頭很軟。 || pillow fight=枕頭大戰 || This pillow is ___ than that one. || softer|soft|softest || 兩者比較用比較級 softer。 || 這個枕頭比那個軟。
 pineapple || n. || 鳳梨 || Pineapple cakes are famous in Taiwan. || 鳳梨酥在台灣很有名。 || pineapple cake=鳳梨酥 || Pineapple cakes are famous ___ Taiwan. || in|on|at || 在國家用 in。 || 鳳梨酥在台灣很有名。
 plain || adj. || 樸素的；簡單的 || She wears plain clothes. || 她穿著樸素。 || plain water=白開水 || I'd like a glass of plain water, ___ ice. || with no|no with|without no || with no ice = 不加冰。 || 我要一杯白開水，不加冰。
-platform || n. || 月台 || The train leaves from Platform 3. || 火車從三號月台出發。 || Platform 3=第三月台 || Please wait for the train ___ Platform 2. || on|in|at of || 在月台上用 on。 || 請在第二月台候車。
+platform || n. || 月台 || The train leaves from Platform 3. || 火車從三號月台出發。 || Platform 3=第三月台 || Please wait for the train ___ Platform 2. || on|in|at || 在月台上用 on。 || 請在第二月台候車。
 pleasant || adj. || 令人愉快的 || We had a pleasant trip. || 我們有一趟愉快的旅程。 || pleasant weather=宜人的天氣 || The weather is ___ pleasant today. || very|much|many || 形容詞前面加 very 表示「很」。 || 今天天氣很宜人。
-pleased || adj. || 高興的 || I'm pleased to meet you. || 很高興認識你。 || be pleased with=對…感到滿意 || The teacher was pleased ___ our work. || with|of|at to || be pleased with = 對…感到滿意。 || 老師對我們的作品很滿意。
+pleased || adj. || 高興的 || I'm pleased to meet you. || 很高興認識你。 || be pleased with=對…感到滿意 || The teacher was pleased ___ our work. || with|of|at || be pleased with = 對…感到滿意。 || 老師對我們的作品很滿意。
 plus || prep. || 加 || Two plus three is five. || 二加三等於五。 || plus=加 || Two plus three ___ five. || is|are|be || 數學算式視為單數，用 is。 || 二加三等於五。
 poem || n. || 詩 || She wrote a poem about the sea. || 她寫了一首關於大海的詩。 || write a poem=寫詩 || This poem ___ written by Li Bai. || was|is|were || 被動語態；過去用 was + p.p.。 || 這首詩是李白寫的。
 poison || n. || 毒藥 || Some mushrooms contain poison. || 有些蘑菇含有毒素。 || rat poison=老鼠藥 || Keep the poison away ___ children. || from|of|to || keep A away from B = 讓 A 遠離 B。 || 讓毒藥遠離兒童。

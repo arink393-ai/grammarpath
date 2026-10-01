@@ -1,6 +1,6 @@
 # 學測 L4 15：peep – privilege
 peep || v./n. || 偷看 || The kid peeped through the window. || 那個小孩從窗戶偷看。 || peep at=偷看… || Don't peep ___ the answers before you finish. || at|to|on || peep at = 偷看…。 || 寫完之前不要偷看答案。
-peer || n./v. || 同儕；凝視 || Teenagers are influenced by their peers. || 青少年受同儕影響。 || peer pressure=同儕壓力 || Many teenagers feel pressure ___ their peers. || from|of|by with || pressure from = 來自…的壓力。 || 很多青少年感受到來自同儕的壓力。
+peer || n./v. || 同儕；凝視 || Teenagers are influenced by their peers. || 青少年受同儕影響。 || peer pressure=同儕壓力 || Many teenagers feel pressure ___ their peers. || from|of|by || pressure from = 來自…的壓力。 || 很多青少年感受到來自同儕的壓力。
 penalty || n. || 處罰；罰金 || The penalty for littering is 1,200 dollars. || 亂丟垃圾的罰款是一千二百元。 || death penalty=死刑 || There is a heavy penalty ___ drunk driving. || for|of|to || a penalty for = 對…的處罰。 || 酒駕會受到重罰。
 percent || n. || 百分之… || Sixty percent of the students are girls. || 百分之六十的學生是女生。 || percent=百分比 || About 30 percent of the water ___ wasted every day. || is|are|be || percent of + 不可數名詞，動詞用單數 is。 || 每天約有百分之三十的水被浪費。
 percentage || n. || 百分比 || A large percentage of students have phones. || 大部分學生都有手機。 || a large percentage of=大部分的 || A large percentage ___ teenagers use social media every day. || of|in|for || a percentage of = …的百分比。 || 很大比例的青少年每天使用社群媒體。
@@ -9,7 +9,7 @@ perfume || n. || 香水 || She wears expensive perfume. || 她擦昂貴的香水
 permanent || adj. || 永久的 || This is not a permanent job. || 這不是一份長期的工作。 || permanent address=永久地址 || The damage to his eyes was permanent, ___ he couldn't see clearly again. || so|but|or || 前面是原因、後面是結果，用 so。 || 他眼睛的損傷是永久性的，所以再也看不清楚了。
 persuasion || n. || 說服 || After much persuasion, he agreed. || 經過一番勸說，他同意了。 || powers of persuasion=說服力 || After a lot of persuasion, my parents let me ___ to the concert. || go|to go|going || let + 受詞 + 原形動詞。 || 經過一番說服，我爸媽讓我去聽演唱會了。
 persuasive || adj. || 有說服力的 || She gave a persuasive speech. || 她發表了一場很有說服力的演講。 || persuasive argument=有說服力的論點 || His argument was ___ persuasive that everyone agreed with him. || so|such|too || so + 形容詞 + that…。 || 他的論點很有說服力，大家都同意他。
-pessimistic || adj. || 悲觀的 || Don't be so pessimistic. || 別那麼悲觀。 || be pessimistic about=對…悲觀 || He is pessimistic ___ his chances of winning. || about|of|with to || be pessimistic about = 對…悲觀。 || 他對自己贏的機會很悲觀。
+pessimistic || adj. || 悲觀的 || Don't be so pessimistic. || 別那麼悲觀。 || be pessimistic about=對…悲觀 || He is pessimistic ___ his chances of winning. || about|of|with || be pessimistic about = 對…悲觀。 || 他對自己贏的機會很悲觀。
 pest || n. || 害蟲 || Farmers use chemicals to kill pests. || 農夫用化學藥劑殺害蟲。 || pest control=除蟲 || Some birds help farmers ___ eating pests. || by|with|for || by + V-ing = 藉由…。 || 有些鳥藉由吃害蟲來幫助農夫。
 phenomenon || n. || 現象 || The northern lights are a natural phenomenon. || 北極光是一種自然現象。 || natural phenomenon=自然現象 || A rainbow is a natural phenomenon ___ happens after rain. || that|what|who || 關係代名詞 that 修飾物（phenomenon）。 || 彩虹是一種在雨後出現的自然現象。
 philosopher || n. || 哲學家 || Confucius was a great philosopher. || 孔子是一位偉大的哲學家。 || Greek philosopher=希臘哲學家 || Confucius, ___ lived over 2,500 years ago, was a great philosopher. || who|which|whom || 非限定關係子句修飾人並當主詞，用 who。 || 生活在兩千五百多年前的孔子是一位偉大的哲學家。
