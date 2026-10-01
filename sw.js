@@ -1,14 +1,16 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v49-prefixcards";
+const CACHE = "eci-v50-account-safety";
 const SHELL = [
   "./",
   "./index.html",
+  "./progress-sync.js?v=1",
   "./daily.js",
   "./daily.css",
   "./vocab-quest.js",
   "./manifest.webmanifest",
   "./vocab/",
-  "./vocab/app.js",
+  "./vocab/account-storage.js?v=1",
+  "./vocab/app.js?v=2",
   "./vocab/books.js",
   "./vocab/style.css",
   "./icons/icon-192.png",

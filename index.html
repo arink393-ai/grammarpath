@@ -1744,6 +1744,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <main class="wrap" id="app" aria-live="polite"></main>
 <div class="toast" id="toast" role="status"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="progress-sync.js?v=1"></script>
 <script src="daily.js?v=16"></script>
 <script src="vocab/books.js?v=6"></script>
 <script src="vocab-quest.js?v=9"></script>
@@ -4614,15 +4615,19 @@ const CLOUD = {
     try{
       const { data:{ session } } = await SB.auth.getSession();
       if(session && session.user) await this._setUser(session.user);
+      else {this._syncEpoch++;this.user=null;clearTimeout(this._syncTimer);}
     }catch(e){ console.warn("cloud init", e); }
     return this.user;
   },
   async _setUser(u){
+    if(this.user?.id!==u.id){this._syncEpoch++;this.user=null;clearTimeout(this._syncTimer);}
+    const epoch=this._syncEpoch;
     let name = (u.user_metadata && u.user_metadata.name) || u.email, role = "student";
     try{
       const { data } = await SB.from("profiles").select("name, role").eq("id", u.id).maybeSingle();
       if(data){ name = data.name || name; role = data.role || "student"; }
     }catch(e){}
+    if(epoch!==this._syncEpoch)return null;
     this.user = { id:u.id, email:u.email, name, role };
     return this.user;
   },
@@ -4656,47 +4661,95 @@ const CLOUD = {
     await this._setUser(data.user);
     return {ok:true};
   },
-  async logout(){ try{ await SB.auth.signOut(); }catch(e){} this.user=null; },
-
-  /* ---- progress sync (mirror of the local game store) ---- */
-  async pullProgress(){
-    if(!this.on || !this.user) return;
-    try{
-      const { data } = await SB.from("progress").select("data").eq("user_id", this.user.id).maybeSingle();
-      if(data && data.data && typeof data.data === "object" && Object.keys(data.data).length){
-        store.data = Object.assign(store.defaults(), data.data);   // cloud = source of truth across devices
-        store.saveLocal();
-      } else {
-        await this.pushProgress();                                  // first login: seed cloud from local
-      }
-    }catch(e){ console.warn("pullProgress", e); }
+  async logout(){
+    clearTimeout(this._syncTimer);
+    // Local data/dirty marker survive a failed flush; a later login will retry.
+    await this.pushProgress();
+    this._syncEpoch++; this.user=null; clearTimeout(this._syncTimer);
+    try{ await SB.auth.signOut(); }catch(e){console.warn("sign out",e);}
   },
+
+  /* Progress writes are serialized, account-bound, and conditional on the remote revision. */
+  syncState: "idle",
+  _syncEpoch: 0,
+  _syncJob: null,
+  syncMeta(key = STORE_KEY){
+    try { return JSON.parse(localStorage.getItem(key + "__sync") || "null") || {}; }
+    catch { return {}; }
+  },
+  saveSyncMeta(value, key = STORE_KEY){ localStorage.setItem(key + "__sync", JSON.stringify(value)); },
+  async pullProgress(){ return this.pushProgress(); },
   scheduleSync(){
     if(!this.on || !this.user) return;
+    try { this.saveSyncMeta({...this.syncMeta(), dirty:true}); }
+    catch(e){ this.syncState="error"; console.warn("sync metadata",e); }
     clearTimeout(this._syncTimer);
     this._syncTimer = setTimeout(()=>this.pushProgress(), 1500);
   },
   async pushProgress(){
-    if(!this.on || !this.user) return;
-    const d = store.data;
-    try{
-      await SB.from("progress").upsert({
-        user_id: this.user.id,
-        xp: d.xp||0, cans: d.cans||0,
-        streak: store.streakCount(),
-        completed_count: Object.keys(d.completed||{}).length,
-        data: d,
-        last_active: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      }, { onConflict:"user_id" });
-    }catch(e){ console.warn("pushProgress", e); }
+    if(!this.on || !this.user) return false;
+    const userId=this.user.id, key=STORE_KEY, epoch=this._syncEpoch;
+    if(this._syncJob?.epoch===epoch && this._syncJob.key===key) return this._syncJob.promise;
+    const current=()=>this.user?.id===userId && STORE_KEY===key && this._syncEpoch===epoch;
+    const job={epoch,key}; this._syncJob=job; this.syncState="saving";
+    job.promise=(async()=>{
+      try{
+        const ok=await ProgressSync.synchronize({
+          current, local:()=>store.data, base:()=>this.syncMeta(key).base,
+          pending:()=>this.syncMeta(key).pending,
+          prepare:pending=>this.saveSyncMeta({...this.syncMeta(key),pending,dirty:true},key),
+          read:async()=>{
+            const {data,error}=await SB.from("progress").select("data,updated_at").eq("user_id",userId).maybeSingle();
+            if(error)throw error; return data;
+          },
+          write:async(row,data)=>{
+            if(!current())return false;
+            const updated_at=new Date(Math.max(Date.now(),(Date.parse(row?.updated_at)||0)+1)).toISOString();
+            const payload={user_id:userId,data,xp:data.xp||0,cans:data.cans||0,
+              streak:data.streak?.count||0,completed_count:Object.keys(data.completed||{}).length,
+              last_active:new Date().toISOString(),updated_at};
+            let request;
+            if(row){
+              request=SB.from("progress").update(payload).eq("user_id",userId);
+              request=row.updated_at==null?request.is("updated_at",null):request.eq("updated_at",row.updated_at);
+            }else request=SB.from("progress").insert(payload);
+            const {data:written,error}=await request.select("user_id").maybeSingle();
+            if(error?.code==="23505")return false;
+            if(error)throw error;
+            return !!written;
+          },
+          backup:(local,remote)=>{
+            if(!ProgressSync.same(local,remote))localStorage.setItem(key+"__sync_recovery",JSON.stringify({local,remote,at:new Date().toISOString()}));
+          },
+          ack:(base,latest)=>{
+            localStorage.setItem(key,JSON.stringify(Object.assign(store.defaults(),latest)));
+            store.data=Object.assign(store.defaults(),latest);
+            this.saveSyncMeta({base,dirty:!ProgressSync.same(base,latest)},key);
+          }
+        });
+        if(current()){ this.syncState=ok?"synced":"idle"; paintHeader(); }
+        return ok;
+      }catch(e){
+        if(current()){
+          this.syncState="error";
+          try{this.saveSyncMeta({...this.syncMeta(key),dirty:true},key);}catch(_){}
+          toast("☁️ 同步未完成，進度已保留在本機；連線恢復後重試");
+          clearTimeout(this._syncTimer); this._syncTimer=setTimeout(()=>this.pushProgress(),15000);
+        }
+        console.warn("progress sync",e); return false;
+      }finally{
+        if(this._syncJob===job)this._syncJob=null;
+        if(current() && this.syncState==="synced" && this.syncMeta(key).dirty)this.scheduleSync();
+      }
+    })();
+    return job.promise;
   },
 
   /* ---- homework (student) ---- */
   async listAssignments(){ const { data } = await SB.from("assignments").select("*").order("created_at",{ascending:false}); return data||[]; },
   async mySubmissions(){ const { data } = await SB.from("submissions").select("*").eq("user_id", this.user.id); return data||[]; },
   async submitHomework(assignmentId, { text, link, file }){
-    let payload = { assignment_id:assignmentId, user_id:this.user.id, text:text||null, link:link||null, status:"submitted", submitted_at:new Date().toISOString(), graded_at:null };
+    let payload = { assignment_id:assignmentId, user_id:this.user.id, text:text||null, link:link||null, status:"submitted", submitted_at:new Date().toISOString() };
     if(file){
       const ext = (file.name.split(".").pop()||"dat").toLowerCase().replace(/[^a-z0-9]/g,"") || "dat";
       const path = `${this.user.id}/${assignmentId}_${Date.now()}.${ext}`;
@@ -4729,6 +4782,15 @@ const CLOUD = {
 /* keep local cache, and mirror every save to the cloud (debounced) */
 store.saveLocal = store.save.bind(store);
 store.save = function(){ store.saveLocal(); if(CLOUD.on && CLOUD.user) CLOUD.scheduleSync(); };
+window.addEventListener("online",()=>CLOUD.pushProgress());
+document.addEventListener("visibilitychange",()=>{if(document.hidden)CLOUD.pushProgress();});
+if(SB) SB.auth.onAuthStateChange((event,session)=>{
+  if(event === "SIGNED_OUT" || (CLOUD.user && session?.user?.id!==CLOUD.user.id)){
+    CLOUD._syncEpoch++;clearTimeout(CLOUD._syncTimer);CLOUD.user=null;SESSION=null;
+    store.rebind(null);
+    setTimeout(()=>{applyAuthUI();updateTeacherNav();route();paintHeader();},0);
+  }
+});
 
 /* =====================================================
    Helpers

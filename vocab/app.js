@@ -4,11 +4,7 @@
 const $ = s => document.querySelector(s);
 const app = $('#app');
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const LS = {
-  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
-  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { toast('瀏覽器無法儲存進度（可能是無痕模式）'); } },
-  del(k) { try { localStorage.removeItem(k); } catch {} }
-};
+const LS = createAccountStorage(localStorage);
 const today = () => { const d = new Date(); return Math.floor((d.getTime() - d.getTimezoneOffset() * 60000) / 86400000); };
 const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const sample = (a, n) => shuffle(a).slice(0, n);
@@ -25,6 +21,7 @@ const KILLED = 99;
 const DEFAULT_SETTINGS = { bookId: 'jh-core', dailyNew: 10, autoplay: true, voice: 'youdao', accent: 2 };
 let settings = { ...DEFAULT_SETTINGS, ...LS.get('vr:settings', {}) };
 const saveSettings = () => LS.set('vr:settings', settings);
+const requestedBook = new URLSearchParams(location.search).get('book');
 // ?book=<id>：從外部連結直接指定單字書（例如 Language Lab 章節）
 (() => {
   const q = new URLSearchParams(location.search).get('book');
@@ -180,43 +177,67 @@ const clozeEx = (ex, w) => esc(ex).replace(stemRe(w), '<u>&nbsp;</u>');
 const CLOUD = { sb: null, user: null, timer: null, dirty: new Set(), state: 'off' };
 function markDirty(id) {
   if (!CLOUD.user) return;
-  CLOUD.dirty.add(id); clearTimeout(CLOUD.timer); CLOUD.timer = setTimeout(cloudPush, 2000);
+  CLOUD.dirty.add(id); LS.set('vr:dirty', [...new Set([...CLOUD.dirty,...(CLOUD.inflight?.token===LS.token()?CLOUD.inflight.ids:[])])]); CLOUD.state='pending'; clearTimeout(CLOUD.timer); CLOUD.timer = setTimeout(cloudPush, 2000);
 }
 function cloudBar() {
   if (CLOUD.state === 'off') return '';
   if (CLOUD.state === 'guest') return `<a class="cloudbar warn" href="../#/home">☁️ 還沒登入：登入 English Cat Island 帳號後，進度會同步給老師 →</a>`;
   if (CLOUD.state === 'error') return `<div class="cloudbar warn">☁️ 同步暫時失敗，進度先存在這台裝置，稍後會自動再試</div>`;
+  if (CLOUD.state === 'loading' || CLOUD.state === 'pending') return `<div class="cloudbar">☁️ 進度已存在本機，正在同步…</div>`;
   const m = CLOUD.user.user_metadata || {};
   return `<div class="cloudbar">☁️ ${esc(m.name || CLOUD.user.email)} · 進度已同步給老師</div>`;
 }
-function wipeLocal() {
-  const ks = [];
-  for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (/^vr:(p|star|bs):|^vr:(stats|books)$/.test(k)) ks.push(k); }
-  ks.forEach(k => localStorage.removeItem(k));
+function switchAccount(user) {
+  if (CLOUD.ready && CLOUD.user?.id === user?.id) { CLOUD.user = user; return; }
+  CLOUD.ready = true;
+  clearTimeout(CLOUD.timer);
+  CLOUD.user = user;
+  LS.switchTo(user?.id);
+  CLOUD.dirty = new Set(LS.get('vr:dirty', []));
+  CLOUD.state = user ? 'loading' : 'guest';
+  CLOUD.pulled = false;
+  settings = { ...DEFAULT_SETTINGS, ...LS.get('vr:settings', {}) };
+  if(requestedBook && allBooks().some(b=>b.id===requestedBook)){settings.bookId=requestedBook;saveSettings();}
+  draft = LS.get('vr:t:draft', { id:'',title:'',desc:'',raw:'' }); parsed = [];
+  session = null; quiz = null;
+  if (audio) { audio.onerror=null; audio.pause(); audio=null; }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  if (YGW) { try { YGW.widget.close(); } catch {} YGW=null; }
+  route();
+  if (user) setTimeout(syncAccount, 0);
+}
+async function syncAccount() {
+  const token=LS.token();
+  try {
+    if (!CLOUD.user) return;
+    const pulled=await cloudPull();
+    if(!LS.current(token))return;
+    if(!pulled)throw new Error('Could not load cloud progress');
+    allBooks().forEach(b => { if (Object.keys(prog(b.id)).length || stars(b.id).size) CLOUD.dirty.add(b.id); });
+    LS.set('vr:dirty', [...CLOUD.dirty]);
+    await cloudPush();
+  } catch(e) {
+    if(LS.current(token)){CLOUD.state='error'; console.warn('cloud sync',e);clearTimeout(CLOUD.timer);CLOUD.timer=setTimeout(syncAccount,15000);}
+  }
+  if(LS.current(token) && !session && !(quiz && !quiz.done) && !location.hash.startsWith('#teacher')) route();
 }
 async function cloudInit() {
   const cfg = window.VR_SUPABASE;
-  if (!cfg || !window.supabase) return;
+  if (!cfg || !window.supabase) { route(); return; }
   CLOUD.state = 'guest';
   try {
     CLOUD.sb = window.supabase.createClient(cfg.url, cfg.key, { auth: { persistSession: true, autoRefreshToken: true } });
-    const { data: { session: s } } = await CLOUD.sb.auth.getSession();
-    CLOUD.user = s && s.user || null;
-  } catch (e) { console.warn('cloud init', e); }
-  if (CLOUD.user) {
-    // 共用電腦：換了另一位同學登入，就清掉上一位留在本機的進度
-    const owner = LS.get('vr:owner', null);
-    if (owner && owner !== CLOUD.user.id) wipeLocal();
-    LS.set('vr:owner', CLOUD.user.id);
-    await cloudPull();
-    allBooks().forEach(b => { if (Object.keys(prog(b.id)).length || stars(b.id).size) CLOUD.dirty.add(b.id); });
-    await cloudPush();
-  }
-  if (!session && !(quiz && !quiz.done) && !location.hash.startsWith('#teacher')) route();
+    CLOUD.sb.auth.onAuthStateChange((_event,s) => switchAccount(s?.user || null));
+    const { data: { session: s }, error } = await CLOUD.sb.auth.getSession();
+    if(error) throw error;
+    if(!CLOUD.ready) switchAccount(s?.user || null);
+  } catch(e) { CLOUD.state='error'; console.warn('cloud init',e); route(); }
 }
 async function cloudPull() {
-  const { data, error } = await CLOUD.sb.from('vocab_progress').select('book_id,words,stars,days,book_data').eq('user_id', CLOUD.user.id);
-  if (error) { CLOUD.state = 'error'; console.warn('cloud pull', error); return; }
+  const token=LS.token(), userId=CLOUD.user?.id; if(!userId)return false;
+  const { data, error } = await CLOUD.sb.from('vocab_progress').select('book_id,words,stars,days,book_data').eq('user_id', userId);
+  if(!LS.current(token))return false;
+  if (error) { CLOUD.state = 'error'; console.warn('cloud pull', error); return false; }
   CLOUD.state = 'synced';
   for (const row of data || []) {
     const id = row.book_id;
@@ -232,10 +253,16 @@ async function cloudPull() {
     }
     LS.set('vr:bs:' + id, bs);
   }
+  CLOUD.pulled=true; return true;
 }
 async function cloudPush() {
   if (!CLOUD.user || !CLOUD.dirty.size) return;
+  if(!CLOUD.pulled){await syncAccount();return;}
+  const token=LS.token();
+  if(CLOUD.pushToken===token)return;
+  CLOUD.pushToken=token;
   const ids = [...CLOUD.dirty]; CLOUD.dirty.clear();
+  CLOUD.inflight={token,ids};
   const now = new Date().toISOString(), cut = today() - 90;
   const rows = ids.map(id => {
     const b = allBooks().find(x => x.id === id); if (!b) return null;
@@ -247,17 +274,24 @@ async function cloudPush() {
       last_active: now, updated_at: now
     };
   }).filter(Boolean);
-  if (!rows.length) return;
-  const { error } = await CLOUD.sb.from('vocab_progress').upsert(rows, { onConflict: 'user_id,book_id' });
+  if (!rows.length) {CLOUD.pushToken=null;CLOUD.inflight=null;LS.set('vr:dirty',[...CLOUD.dirty]);return;}
+  let error;
+  try { ({error}=await CLOUD.sb.from('vocab_progress').upsert(rows, { onConflict: 'user_id,book_id' })); } catch(e) {error=e;}
+  if(CLOUD.pushToken===token)CLOUD.pushToken=null;
+  if(!LS.current(token))return;
+  CLOUD.inflight=null;
   const was = CLOUD.state;
   if (error) { ids.forEach(i => CLOUD.dirty.add(i)); CLOUD.state = 'error'; console.warn('cloud push', error); }
-  else CLOUD.state = 'synced';
+  else CLOUD.state = CLOUD.dirty.size ? 'pending' : 'synced';
+  LS.set('vr:dirty', [...CLOUD.dirty]);
+  if(CLOUD.dirty.size){clearTimeout(CLOUD.timer);CLOUD.timer=setTimeout(cloudPush,error?15000:2000);}
   if (was !== CLOUD.state && (location.hash === '#home' || !location.hash)) home();
 }
 async function cloudDelete(id) {
-  CLOUD.dirty.delete(id);
+  CLOUD.dirty.delete(id); LS.set('vr:dirty',[...CLOUD.dirty]);
   if (CLOUD.user) { try { await CLOUD.sb.from('vocab_progress').delete().eq('user_id', CLOUD.user.id).eq('book_id', id); } catch {} }
 }
+window.addEventListener('online',syncAccount);
 document.addEventListener('visibilitychange', () => { if (document.hidden) cloudPush(); });
 
 /* ========== 路由 ========== */
@@ -654,19 +688,22 @@ function me() {
 }
 
 async function backup() {
-  const data = {};
-  for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k.startsWith('vr:') && !k.startsWith('vr:t:')) data[k] = localStorage.getItem(k); }
+  const token=LS.token(), data=LS.exportData();
   const code = 'VR1:' + await pack(JSON.stringify(data));
+  if(!LS.current(token))return;
   try { await navigator.clipboard.writeText(code); toast('備份碼已複製，貼到記事本或傳給自己'); }
   catch { prompt('複製下面這串備份碼：', code); }
 }
 async function restore() {
+  const token=LS.token();
   const code = (prompt('貼上備份碼：') || '').trim();
   if (!code) return;
   try {
     const data = JSON.parse(await unpack(code.replace(/^VR1:/, '')));
+    if(!LS.current(token))return;
     if (!confirm('還原後，這台裝置目前的進度會被覆蓋，確定嗎？')) return;
-    Object.entries(data).forEach(([k, v]) => { if (k.startsWith('vr:')) localStorage.setItem(k, v); });
+    LS.restore(data);
+    allBooks().forEach(b=>markDirty(b.id));
     settings = { ...DEFAULT_SETTINGS, ...LS.get('vr:settings', {}) };
     toast('進度已還原'); go('home');
   } catch { alert('備份碼格式不正確'); }
@@ -689,8 +726,10 @@ async function unpack(code) {
 }
 
 async function importFromHash(code) {
+  const token=LS.token();
   try {
     const book = JSON.parse(await unpack(decodeURIComponent(code)));
+    if(!LS.current(token))return;
     if (!book.title || !Array.isArray(book.words) || !book.words.length) throw 0;
     book.id = book.id || 'c_' + Date.now().toString(36);
     book.words = book.words.filter(w => w && w.w && w.zh);
@@ -701,6 +740,7 @@ async function importFromHash(code) {
     route();
     toast(`已加入單字書「${book.title}」`);
   } catch {
+    if(!LS.current(token))return;
     history.replaceState(null, '', location.pathname + '#home');
     route();
     toast('連結無法讀取，請跟老師確認連結是否完整');
@@ -813,6 +853,7 @@ function teacherBook() {
 }
 
 async function teacherAct(act) {
+  const token=LS.token();
   if (act === 't-newbook') { if (!confirm('清空目前的草稿，開始新的一本？')) return; draft = { id: '', title: '', desc: '', raw: '' }; saveDraft(); return teacher(); }
   if (act === 't-ph') {
     parsed = parseRaw(draft.raw);
@@ -825,12 +866,14 @@ async function teacherAct(act) {
         const r = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + encodeURIComponent(w.w.toLowerCase()));
         if (r.ok) {
           const j = await r.json(), e = j[0];
+          if(!LS.current(token))return;
           const ph = e.phonetic || (e.phonetics || []).map(x => x.text).find(Boolean);
           if (ph) w.ph = ph.startsWith('/') ? ph : '/' + ph + '/';
           if (!w.pos && e.meanings && e.meanings[0]) w.pos = ({ noun: 'n.', verb: 'v.', adjective: 'adj.', adverb: 'adv.', preposition: 'prep.', conjunction: 'conj.', pronoun: 'pron.' })[e.meanings[0].partOfSpeech] || '';
         }
       } catch {}
     }
+    if(!LS.current(token))return;
     draft.raw = toRaw(parsed); saveDraft(); teacher(); tStatus(`完成：${todo.filter(w => w.ph).length}/${todo.length} 個字找到音標（IPA）`); return;
   }
   if (act === 't-ai') {
@@ -858,6 +901,7 @@ async function teacherAct(act) {
           body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.4 } })
         });
         const j = await r.json();
+        if(!LS.current(token))return;
         if (!r.ok) throw new Error(j.error?.message || r.status);
         const arr = JSON.parse(j.candidates[0].content.parts.map(p => p.text).join(''));
         for (const a of arr) {
@@ -865,8 +909,9 @@ async function teacherAct(act) {
           ['pos', 'zh', 'ex', 'exZh'].forEach(k => { if (!w[k] && a[k]) w[k] = String(a[k]).trim(); });
           if (!(w.col && w.col.length) && Array.isArray(a.col)) w.col = a.col.filter(c => Array.isArray(c) && c[0]).map(c => [String(c[0]).trim(), String(c[1] || '').trim()]);
         }
-      } catch (e) { tStatus('AI 發生錯誤：' + e.message); draft.raw = toRaw(parsed); saveDraft(); return; }
+      } catch (e) { if(!LS.current(token))return; tStatus('AI 發生錯誤：' + e.message); draft.raw = toRaw(parsed); saveDraft(); return; }
     }
+    if(!LS.current(token))return;
     draft.raw = toRaw(parsed); saveDraft(); teacher(); tStatus('AI 補齊完成，請檢查預覽內容'); return;
   }
   const book = teacherBook(); if (!book) return;
@@ -956,5 +1001,5 @@ document.addEventListener('keydown', e => {
 });
 
 if (window.speechSynthesis) speechSynthesis.getVoices();
-route();
+app.innerHTML='<p class="muted">正在載入帳號與本機進度…</p>';
 cloudInit();
