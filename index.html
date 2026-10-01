@@ -1706,6 +1706,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/story/fables">🦊 伊索寓言 Aesop's Fables</button>
   <button data-nav="#/theory">🧠 學習理論 Theory</button>
   <button data-nav="#/etymology">🔤 字源學堂 Word Origins</button>
+  <button data-nav="#/prefixcards">🃏 字首翻卡 Prefix Cards</button>
   <button data-nav="#/lab">🔬 語言探索室 Language Lab</button>
   <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
   <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
@@ -4962,6 +4963,7 @@ function route(){
   else if(h[0]==="theory") renderTheoryList();
   else if(h[0]==="etymology" && h[1]) renderEtymology(h[1]);
   else if(h[0]==="etymology") renderEtymologyList();
+  else if(h[0]==="prefixcards") renderPrefixCards();
   else if(h[0]==="philosophy" && h[1]) renderPhil(h[1]);
   else if(h[0]==="philosophy") renderPhilList();
   else if(h[0]==="reflect") renderReflect();
@@ -8716,6 +8718,104 @@ function renderEtymology(id){
       <button class="btn btn-ghost" onclick="location.hash='#/etymology'">← 所有章節 All chapters</button>
       ${next?`<button class="btn btn-navy" onclick="location.hash='#/etymology/${next.id}'">下一章：${next.en} →</button>`:""}
     </div>
+  </div>`;
+  window.scrollTo(0,0);
+}
+const PREFIX_CARDS = [
+ {p:"en- / em-", zh:"打造成～、在～裡面", ex:[["<b>en</b>able","使能夠"],["<b>en</b>large","使變大"],["<b>em</b>power","賦予力量"]]},
+ {p:"in- / im-", zh:"在～裡面", ex:[["<b>in</b>clude","包含"],["<b>im</b>port","進口"],["<b>in</b>put","輸入"]]},
+ {p:"ob-", zh:"朝向～、前往～", ex:[["<b>ob</b>ject","反對；物體"],["<b>ob</b>serve","觀察"],["<b>ob</b>stacle","障礙"]]},
+ {p:"a-", zh:"朝向～、往～裡面", ex:[["<b>a</b>rise","升起"],["<b>a</b>side","在一旁"],["<b>a</b>shore","上岸"]]},
+ {p:"ad-", zh:"朝向～、對著～", ex:[["<b>ad</b>vance","前進"],["<b>ad</b>apt","適應"],["<b>ad</b>just","調整"]]},
+ {p:"counter-", zh:"相反地", ex:[["<b>counter</b>attack","反擊"],["<b>counter</b>act","抵消"],["<b>counter</b>clockwise","逆時針"]]},
+ {p:"un-", zh:"不是～、相反動作", ex:[["<b>un</b>happy","不快樂"],["<b>un</b>lock","解開；打開"],["<b>un</b>fair","不公平"]]},
+ {p:"dis-", zh:"不做～、不是～、離開", ex:[["<b>dis</b>like","不喜歡"],["<b>dis</b>agree","不同意"],["<b>dis</b>appear","消失"]]},
+ {p:"de-", zh:"往下、離開、完全地", ex:[["<b>de</b>crease","減少"],["<b>de</b>scend","下降"],["<b>de</b>stroy","摧毀"]]},
+ {p:"ab-", zh:"從～（離開）、不做～", ex:[["<b>ab</b>sent","缺席"],["<b>ab</b>normal","不正常的"],["<b>ab</b>sorb","吸收"]]},
+ {p:"pre- / pro-", zh:"在～之前", ex:[["<b>pre</b>view","預覽"],["<b>pre</b>dict","預測"],["<b>pro</b>gress","前進；進步"]]},
+ {p:"inter-", zh:"～之間、互相", ex:[["<b>inter</b>national","國際的"],["<b>inter</b>act","互動"],["<b>inter</b>view","面談"]]},
+ {p:"ex- / e-", zh:"向外", ex:[["<b>ex</b>it","出口"],["<b>ex</b>port","輸出"],["<b>e</b>ject","彈出；逐出"]]},
+ {p:"syn- / sym-", zh:"一起、同時、一樣地", ex:[["<b>sym</b>pathy","同情"],["<b>sym</b>bol","象徵"],["<b>syn</b>onym","同義字"]]},
+ {p:"con- / com- / co-", zh:"一起、徹底地", ex:[["<b>con</b>nect","連接"],["<b>com</b>bine","結合"],["<b>co</b>operate","合作"]]},
+ {p:"sur-", zh:"在上方、超越", ex:[["<b>sur</b>face","表面"],["<b>sur</b>pass","超越"],["<b>sur</b>round","包圍"]]},
+ {p:"super-", zh:"在上方、超越", ex:[["<b>super</b>man","超人"],["<b>super</b>market","超級市場"],["<b>super</b>ior","較優秀的"]]},
+ {p:"sub-", zh:"在～下方、其次", ex:[["<b>sub</b>marine","潛水艇"],["<b>sub</b>way","地鐵"],["<b>sub</b>title","字幕"]]},
+ {p:"re-", zh:"再度、在後面、返回", ex:[["<b>re</b>turn","返回"],["<b>re</b>peat","重複"],["<b>re</b>view","複習"]]},
+ {p:"for(e)-", zh:"在～之前", ex:[["<b>fore</b>cast","預報"],["<b>fore</b>see","預見"],["<b>fore</b>head","前額"]]},
+ {p:"dou- / du-", zh:"二", ex:[["<b>dou</b>ble","兩倍的"],["<b>du</b>al","雙重的"],["<b>du</b>et","二重唱"]]},
+ {p:"in- / im-", zh:"不是～（否定）", note:"與「在裡面」的 in- 同形不同義，看字義判斷。", ex:[["<b>in</b>correct","不正確的"],["<b>im</b>possible","不可能的"],["<b>in</b>visible","隱形的"]]},
+ {p:"mis-", zh:"弄錯、弄壞", ex:[["<b>mis</b>take","錯誤"],["<b>mis</b>understand","誤解"],["<b>mis</b>spell","拼錯"]]},
+ {p:"a-", zh:"沒有～、不是～（否定）", note:"與「朝向」的 a- 同形不同義。", ex:[["<b>a</b>typical","非典型的"],["<b>a</b>symmetry","不對稱"],["<b>a</b>pathy","冷漠；無感"]]},
+ {p:"trans-", zh:"超越、橫越", ex:[["<b>trans</b>port","運輸"],["<b>trans</b>late","翻譯"],["<b>trans</b>form","轉變"]]},
+ {p:"tri-", zh:"三", ex:[["<b>tri</b>angle","三角形"],["<b>tri</b>cycle","三輪車"],["<b>tri</b>ple","三倍的"]]},
+ {p:"uni-", zh:"一個", ex:[["<b>uni</b>corn","獨角獸"],["<b>uni</b>form","制服"],["<b>uni</b>te","團結；聯合"]]},
+ {p:"mal-", zh:"壞的", ex:[["<b>mal</b>function","故障"],["<b>mal</b>ware","惡意軟體"],["<b>mal</b>nutrition","營養不良"]]},
+ {p:"up-", zh:"在上方、向上", ex:[["<b>up</b>load","上傳"],["<b>up</b>grade","升級"],["<b>up</b>stairs","樓上"]]},
+ {p:"per-", zh:"透過～、徹底地", ex:[["<b>per</b>fect","完美的"],["<b>per</b>form","表演；執行"],["<b>per</b>manent","永久的"]]},
+ {p:"semi- / hemi-", zh:"一半", ex:[["<b>semi</b>circle","半圓"],["<b>semi</b>final","準決賽"],["<b>hemi</b>sphere","半球"]]},
+ {p:"mono-", zh:"一、單一", ex:[["<b>mono</b>rail","單軌電車"],["<b>mono</b>logue","獨白"],["<b>mono</b>poly","獨佔；壟斷"]]},
+ {p:"micro-", zh:"小的、微量的", ex:[["<b>micro</b>scope","顯微鏡"],["<b>micro</b>phone","麥克風"],["<b>micro</b>wave","微波爐"]]},
+ {p:"down-", zh:"在下方、向下", ex:[["<b>down</b>load","下載"],["<b>down</b>stairs","樓下"],["<b>down</b>town","市中心"]]},
+ {p:"out-", zh:"向外、更～、超過", ex:[["<b>out</b>side","外面"],["<b>out</b>put","產出"],["<b>out</b>standing","傑出的"]]},
+ {p:"cent-", zh:"百", ex:[["<b>cent</b>ury","世紀"],["<b>cent</b>imeter","公分"],["<b>cent</b>ipede","蜈蚣"]]},
+ {p:"bi-", zh:"二", ex:[["<b>bi</b>cycle","腳踏車"],["<b>bi</b>lingual","雙語的"],["<b>bi</b>weekly","雙週的"]]},
+ {p:"multi-", zh:"多數的", ex:[["<b>multi</b>ply","相乘；增加"],["<b>multi</b>media","多媒體"],["<b>multi</b>ple","多重的"]]},
+ {p:"over-", zh:"超過、跨越、太過～", ex:[["<b>over</b>come","克服"],["<b>over</b>sleep","睡過頭"],["<b>over</b>flow","溢出"]]},
+ {p:"under- / infra-", zh:"在～下方", ex:[["<b>under</b>ground","地下的"],["<b>under</b>line","畫底線"],["<b>infra</b>red","紅外線"]]},
+ {p:"mil-", zh:"千", ex:[["<b>mil</b>lion","百萬"],["<b>mil</b>limeter","公釐"],["<b>mil</b>lennium","千年；千禧年"]]}
+];
+function renderPrefixCards(){
+  const cards = PREFIX_CARDS.map(c=>`
+    <button class="pfc-card" onclick="this.classList.toggle('flipped')" aria-label="${c.p}">
+      <span class="pfc-inner">
+        <span class="pfc-face pfc-front">
+          <span class="pfc-p">${c.p}</span>
+          <span class="pfc-zh">${c.zh}</span>
+          <span class="pfc-hint">翻卡看例字 ↻</span>
+        </span>
+        <span class="pfc-face pfc-back">
+          <span class="pfc-bp">${c.p}</span>
+          <ul class="pfc-ex">${c.ex.map(e=>`<li><span class="pfc-w">${e[0]}</span><span class="pfc-g">${e[1]}</span></li>`).join("")}</ul>
+          ${c.note?`<span class="pfc-note">⚠ ${c.note}</span>`:""}
+        </span>
+      </span>
+    </button>`).join("");
+  app.innerHTML = `<style>
+    .pfc-wrap{max-width:1040px;margin:0 auto}
+    .pfc-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0 18px}
+    .pfc-count{margin-left:auto;font-size:13px;color:var(--th-soft,#777)}
+    .pfc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:14px}
+    .pfc-card{background:transparent;border:0;padding:0;font:inherit;cursor:pointer;perspective:1000px;aspect-ratio:3/4}
+    .pfc-inner{position:relative;display:block;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+    .pfc-card.flipped .pfc-inner{transform:rotateY(180deg)}
+    .pfc-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-sizing:border-box;box-shadow:0 2px 9px rgba(0,0,0,.13)}
+    .pfc-front{background:var(--th-accent,#2C6E72);color:#fff;gap:6px;padding:8px}
+    .pfc-p{font:700 clamp(20px,4.6vw,28px)/1.05 var(--serif,serif);text-align:center}
+    .pfc-zh{font-size:14px;opacity:.95;text-align:center;line-height:1.3}
+    .pfc-hint{position:absolute;bottom:9px;font-size:11px;opacity:.72}
+    .pfc-back{background:#fff;color:var(--th-ink,#222);transform:rotateY(180deg);align-items:stretch;justify-content:flex-start;padding:10px 11px;border:2px solid var(--th-accent,#2C6E72)}
+    .pfc-bp{font:700 15px var(--serif,serif);color:var(--th-accent,#2C6E72);border-bottom:1px solid #eee;padding-bottom:4px;margin-bottom:7px;text-align:center}
+    .pfc-ex{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+    .pfc-ex li{display:flex;flex-direction:column;line-height:1.2;text-align:left}
+    .pfc-w{font-size:15px;color:#222}
+    .pfc-w b{color:var(--th-warm,#C6892F)}
+    .pfc-g{font-size:11.5px;color:#666}
+    .pfc-note{margin-top:8px;font-size:11px;color:#b1405a;line-height:1.3}
+  </style>
+  <div class="view theorybook pfc-wrap">
+    <div class="crumb"><a href="#/home">Home</a> › 字首翻卡 Prefix Cards</div>
+    <div class="th-hd">
+      <div class="eyebrow" style="color:var(--th-accent)">Prefix Flashcards · 字首翻卡</div>
+      <h1 class="display">字首翻卡<span class="zh-term-lg" style="color:var(--th-warm)">Prefix Cards</span></h1>
+      <p class="lede">正面是字首和意思，點一下翻到背面看<b>例字</b>。看字首、想意思、再用例字記起來——${PREFIX_CARDS.length} 個常見字首一次收齊。<br>Tap a card to flip it and see example words. ${PREFIX_CARDS.length} common prefixes.</p>
+    </div>
+    <div class="pfc-controls">
+      <button class="btn btn-ghost" onclick="document.querySelectorAll('.pfc-card').forEach(c=>c.classList.remove('flipped'))">↺ 全部翻回正面</button>
+      <button class="btn btn-navy" onclick="document.querySelectorAll('.pfc-card').forEach(c=>c.classList.add('flipped'))">看全部例字 →</button>
+      <a class="btn btn-ghost" href="#/etymology/affixes">看字首字尾教學章節</a>
+      <span class="pfc-count">共 ${PREFIX_CARDS.length} 張</span>
+    </div>
+    <div class="pfc-grid">${cards}</div>
   </div>`;
   window.scrollTo(0,0);
 }

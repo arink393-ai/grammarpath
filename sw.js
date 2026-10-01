@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v48-games-wordbank";
+const CACHE = "eci-v49-prefixcards";
 const SHELL = [
   "./",
   "./index.html",
