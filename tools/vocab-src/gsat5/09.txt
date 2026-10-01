@@ -1,0 +1,46 @@
+# 學測 L5 09：gathering – implement
+gathering || n. || 聚會 || We have a family gathering every Chinese New Year. || 我們每年過年都有家庭聚會。 || family gathering=家庭聚會 || We have a big family gathering ___ Chinese New Year's Eve. || on|in|at || 特定的日子用 on。 || 我們在除夕夜有盛大的家庭聚會。
+generate || v. || 產生 || Wind can generate electricity. || 風能可以發電。 || generate electricity=發電 || Solar panels are used ___ generate electricity. || to|for|of || be used to + 原形動詞 = 被用來…。 || 太陽能板被用來發電。
+generator || n. || 發電機 || The hospital has a backup generator. || 醫院有備用發電機。 || backup generator=備用發電機 || The generator was turned on ___ the power went out. || when|which|what || when 引導時間子句。 || 停電時發電機啟動了。
+genetic || adj. || 基因的 || Some diseases are genetic. || 有些疾病是遺傳的。 || genetic disease=遺傳疾病 || Eye color is determined ___ genetic factors. || by|with|from || 被動語態中動作執行者用 by。 || 眼睛的顏色由基因因素決定。
+genetics || n. || 遺傳學 || She is studying genetics. || 她在研究遺傳學。 || modern genetics=現代遺傳學 || Genetics ___ a branch of biology. || is|are|be || genetics 作學科名稱時視為單數。 || 遺傳學是生物學的一個分支。
+genre || n. || 類型 || What genre of music do you like? || 你喜歡哪一類音樂？ || music genre=音樂類型 || Science fiction is my favorite genre ___ movies. || of|for|in || genre of = …的類型。 || 科幻是我最喜歡的電影類型。
+glare || v./n. || 怒視；刺眼的光 || She glared at him. || 她怒瞪著他。 || glare at=瞪著… || The teacher glared ___ the student who was talking. || at|to|on || glare at = 怒視…。 || 老師怒瞪著那個在講話的學生。
+gloomy || adj. || 陰暗的；憂鬱的 || It was a gloomy day. || 那是陰沉的一天。 || gloomy weather=陰沉的天氣 || He has looked gloomy ___ he lost his job. || since|for|from || since + 子句，搭配現在完成式。 || 自從失業以來他一直看起來很憂鬱。
+gorgeous || adj. || 華麗的；極美的 || You look gorgeous! || 你看起來好美！ || gorgeous view=絕美的景色 || The view from the top of the mountain was ___ gorgeous! || absolutely|absolute|absoluteness || 修飾形容詞用副詞。 || 從山頂看出去的景色美極了！
+grant || v./n. || 給予；補助金 || She was granted a scholarship. || 她獲得了獎學金。 || take sth for granted=視…為理所當然 || Don't take your parents ___ granted. || for|as|to || take sb for granted = 視某人為理所當然。 || 不要把父母的付出視為理所當然。
+graphic || adj./n. || 圖像的；生動的 || She is a graphic designer. || 她是平面設計師。 || graphic designer=平面設計師 || She wants to become a graphic designer ___ she graduates. || after|before|since || 畢業「之後」，用 after。 || 她想在畢業後成為平面設計師。
+gravity || n. || 重力；嚴重性 || Gravity keeps us on the ground. || 重力使我們留在地面上。 || law of gravity=萬有引力定律 || Newton discovered the law of gravity ___ watching an apple fall. || by|with|for || by + V-ing = 藉由…。 || 牛頓藉由觀察蘋果落下發現了萬有引力定律。
+greed || n. || 貪婪 || His greed made him lose everything. || 他的貪婪讓他失去一切。 || out of greed=出於貪婪 || He stole the money out ___ greed. || of|from|for || out of + 名詞 = 出於…。 || 他出於貪婪偷了錢。
+grieve || v. || 悲傷 || She is still grieving for her dog. || 她仍在為她的狗傷心。 || grieve for=為…悲傷 || The whole town grieved ___ the victims of the fire. || for|to|at || grieve for = 為…悲傷。 || 全鎮為火災的罹難者哀悼。
+grill || v./n. || 燒烤；烤架 || We grilled some fish. || 我們烤了一些魚。 || grilled fish=烤魚 || We grilled some meat ___ the barbecue last night. || at|in|to || at + 活動 = 在…。 || 我們昨晚在烤肉會上烤了一些肉。
+grim || adj. || 嚴峻的；冷酷的 || The news was grim. || 消息很不樂觀。 || grim reality=嚴峻的現實 || The doctor had a grim look ___ his face. || on|in|at || on one's face = 在臉上。 || 醫生臉上表情嚴肅。
+grip || n./v. || 緊握 || Keep a firm grip on the rope. || 緊緊抓住繩子。 || get a grip=冷靜下來 || Keep a firm grip ___ the handle. || on|in|at || a grip on = 緊握…。 || 緊緊抓住把手。
+gross || adj. || 噁心的；總的 || That's so gross! || 好噁心！ || gross income=總收入 || The country's gross domestic product ___ grown by 3% this year. || has|have|is || 主詞 product 單數，用 has。 || 這個國家今年的國內生產毛額成長了百分之三。
+guideline || n. || 準則 || Please follow the safety guidelines. || 請遵守安全準則。 || safety guidelines=安全準則 || All visitors must follow the guidelines ___ by the museum. || given|giving|give || 過去分詞片語 given by… 表被動，修飾 guidelines。 || 所有參觀者都必須遵守博物館給的準則。
+gut || n. || 腸；直覺 || Trust your gut. || 相信你的直覺。 || gut feeling=直覺 || I had a gut feeling ___ something was wrong. || that|what|which || that 引導同位語子句，說明 feeling 的內容。 || 我直覺有什麼不對勁。
+habitat || n. || 棲息地 || Pandas live in their natural habitat. || 熊貓生活在自然棲息地。 || natural habitat=自然棲息地 || Many animals are losing their habitats ___ of human activity. || because|since|due || because of = 因為…。 || 許多動物因為人類活動而失去棲息地。
+haul || v./n. || 拖運 || They hauled the boat onto the beach. || 他們把船拖上沙灘。 || long haul=長途 || The workers hauled the heavy boxes ___ the truck. || onto|into|from || haul sth onto = 把某物拖上…。 || 工人們把沉重的箱子拖上卡車。
+hazard || n. || 危險 || Smoking is a health hazard. || 吸菸危害健康。 || health hazard=健康危害 || Wet floors are a hazard ___ older people. || to|for|of || a hazard to = 對…的危害。 || 濕滑的地板對老人是一種危險。
+heir || n. || 繼承人 || He is the heir to a large fortune. || 他是一大筆財產的繼承人。 || heir to=…的繼承人 || The prince is the heir ___ the throne. || to|of|for || heir to the throne = 王位繼承人。 || 王子是王位的繼承人。
+hence || adv. || 因此 || He was sick, hence his absence. || 他生病了，因此缺席。 || hence=因此 || He didn't study; hence, he failed the test, ___ was not surprising. || which|what|that || 非限定關係子句中 which 可指前面整句。 || 他沒讀書，因此考試不及格，這並不意外。
+herb || n. || 香草；藥草 || I grow herbs in my garden. || 我在花園裡種香草。 || herbal tea=花草茶 || I add fresh herbs ___ my pasta. || to|in|with || add A to B = 把 A 加到 B。 || 我在義大利麵裡加新鮮香草。
+heritage || n. || 遺產；傳統 || We must protect our cultural heritage. || 我們必須保護文化遺產。 || cultural heritage=文化遺產 || The old street is part ___ the city's heritage. || of|for|in || part of = …的一部分。 || 這條老街是這座城市文化遺產的一部分。
+highlight || v./n. || 強調；精彩部分 || The highlight of the trip was the night market. || 這趟旅行最精彩的是夜市。 || highlight of=…的精華 || The highlight of the trip ___ visiting the night market. || was|were|is || 主詞 The highlight 單數，過去用 was。 || 這趟旅行的亮點是逛夜市。
+hockey || n. || 曲棍球 || He plays ice hockey. || 他打冰上曲棍球。 || ice hockey=冰上曲棍球 || He plays ice hockey ___ a week. || twice|two|second || twice a week = 一週兩次。 || 他一週打兩次冰上曲棍球。
+honorable || adj. || 可敬的；光榮的 || He is an honorable man. || 他是個正直的人。 || honorable mention=佳作 || She won an honorable mention ___ the writing contest. || in|on|to || in a contest = 在比賽中。 || 她在寫作比賽中獲得佳作。
+horizontal || adj. || 水平的 || Draw a horizontal line. || 畫一條水平線。 || horizontal line=水平線 || Draw a horizontal line ___ the middle of the page. || across|into|onto || across = 橫越…。 || 在頁面中央畫一條水平線。
+hormone || n. || 荷爾蒙 || Hormones affect our mood. || 荷爾蒙會影響我們的情緒。 || growth hormone=生長激素 || Teenagers' moods are often affected ___ hormones. || by|with|from || 被動語態中動作執行者用 by。 || 青少年的情緒常受荷爾蒙影響。
+hostage || n. || 人質 || The man took three people hostage. || 那名男子挾持了三名人質。 || take sb hostage=挾持某人為人質 || The hostages ___ released after ten hours. || were|was|be || 被動語態；hostages 複數用 were + p.p.。 || 人質在十小時後被釋放。
+hostile || adj. || 敵意的 || The crowd was hostile. || 群眾充滿敵意。 || hostile to=對…有敵意 || Why is he so hostile ___ new ideas? || to|for|with || be hostile to = 對…有敵意。 || 他為什麼對新點子這麼有敵意？
+hostility || n. || 敵意 || There is hostility between the two groups. || 兩群人之間有敵意。 || hostility toward=對…的敵意 || There was a lot of hostility ___ the two teams. || between|among|with || 兩方之間用 between。 || 兩隊之間有很多敵意。
+housing || n. || 住宅 || Housing in Taipei is expensive. || 台北的住房很貴。 || housing price=房價 || Housing prices in big cities ___ risen a lot. || have|has|is || 主詞 prices 複數，用 have。 || 大城市的房價上漲了很多。
+howl || v./n. || 嚎叫 || The wolves howled at the moon. || 狼對著月亮嚎叫。 || howl with laughter=狂笑 || We heard wolves howl ___ the distance. || in|on|at || in the distance = 在遠處。 || 我們聽到遠處有狼在嚎叫。
+hypothesis || n. || 假設 || Scientists tested the hypothesis. || 科學家測試了這個假設。 || test a hypothesis=驗證假設 || The experiment was designed ___ test the hypothesis. || to|for|of || 不定詞 to V 表示目的。 || 這個實驗是為了驗證假設而設計的。
+icon || n. || 圖示；偶像 || Click the icon to open the app. || 點擊圖示開啟應用程式。 || pop icon=流行偶像 || Click ___ the icon to open the file. || on|in|at || click on = 點擊…。 || 點擊圖示開啟檔案。
+ideology || n. || 意識形態 || They have different political ideologies. || 他們有不同的政治意識形態。 || political ideology=政治意識形態 || People ___ different ideologies can still be friends. || with|of|in || with + 特徵 = 有…的。 || 意識形態不同的人仍然可以當朋友。
+idiot || n. || 白痴 || I felt like an idiot. || 我覺得自己像個白痴。 || feel like an idiot=覺得自己很蠢 || I felt like ___ idiot when I called her by the wrong name. || an|a|the || idiot 以母音開頭，用 an。 || 我叫錯她的名字時，覺得自己像個白痴。
+illusion || n. || 錯覺；幻想 || The mirror creates an illusion of space. || 鏡子製造空間變大的錯覺。 || optical illusion=視覺錯覺 || Mirrors can create the illusion ___ a bigger room. || of|for|to || the illusion of = …的錯覺。 || 鏡子可以營造房間更大的錯覺。
+immense || adj. || 巨大的 || The project was an immense success. || 這個計畫獲得巨大成功。 || immense pressure=巨大的壓力 || Students are under immense pressure ___ exams. || before|after|since || 考試「之前」壓力大，用 before。 || 學生在考試前承受巨大壓力。
+immune || adj. || 免疫的 || Exercise keeps your immune system strong. || 運動讓你的免疫系統強壯。 || immune system=免疫系統 || Once you have had chickenpox, you are immune ___ it. || to|from|with || be immune to = 對…免疫。 || 一旦得過水痘，你就對它免疫了。
+implement || v. || 實施 || The new rule will be implemented next month. || 新規定下個月實施。 || implement a plan=實施計畫 || The new policy will ___ implemented next year. || be|is|been || 助動詞 will 後接 be + p.p.。 || 新政策將於明年實施。
