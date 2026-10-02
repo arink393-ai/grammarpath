@@ -1,0 +1,42 @@
+# 學測 L5 16：script – soar
+script || n. || 劇本 || The actor read the script. || 演員讀了劇本。 || movie script=電影劇本 || The actors had to learn the script ___ heart. || by|with|in || learn by heart = 背熟。 || 演員們必須把劇本背熟。
+sector || n. || 部門；領域 || He works in the public sector. || 他在公部門工作。 || private sector=私人企業 || More jobs are being created ___ the tech sector. || in|on|at || in a sector = 在…領域。 || 科技領域正在創造更多工作機會。
+segment || n. || 部分；片段 || The show has three segments. || 這個節目有三個單元。 || market segment=市場區隔 || The last segment ___ the show was the most interesting. || of|for|in || a segment of = …的一部分。 || 節目的最後一段最有趣。
+seminar || n. || 研討會 || I attended a seminar on climate change. || 我參加了一場關於氣候變遷的研討會。 || attend a seminar=參加研討會 || She will give a talk ___ the seminar next week. || at|on|to || at + 活動 = 在…。 || 她下週將在研討會上發表演講。
+senator || n. || 參議員 || The senator gave a speech. || 那位參議員發表了演說。 || U.S. senator=美國參議員 || The senator, ___ has served for 20 years, will retire. || who|which|whom || 非限定關係子句修飾人並當主詞，用 who。 || 那位任職二十年的參議員即將退休。
+sensation || n. || 感覺；轟動 || I felt a burning sensation. || 我感到一陣灼熱感。 || cause a sensation=引起轟動 || The young singer became an overnight sensation ___ the world. || around|among|along || around the world = 全世界。 || 那位年輕歌手一夜之間轟動全世界。
+sensitivity || n. || 敏感 || She has a sensitivity to light. || 她對光很敏感。 || sensitivity to=對…的敏感 || Some people have a sensitivity ___ certain foods. || to|for|with || sensitivity to = 對…的敏感。 || 有些人對某些食物敏感。
+sensor || n. || 感應器 || The light has a motion sensor. || 這盞燈有動作感應器。 || motion sensor=動作感應器 || The door opens automatically ___ the sensor detects someone. || when|which|what || when 引導時間子句。 || 感應器偵測到有人時，門會自動打開。
+sentiment || n. || 情感；看法 || Public sentiment is against the plan. || 民意反對這個計畫。 || public sentiment=民意 || Public sentiment is strongly ___ the new tax. || against|to|with || be against = 反對…。 || 民意強烈反對新稅。
+sentimental || adj. || 感傷的；多愁善感的 || This old photo has sentimental value. || 這張舊照片有情感上的價值。 || sentimental value=情感價值 || The watch is not expensive, ___ it has great sentimental value. || but|so|because || 前後語意相反，用 but。 || 這支手錶不貴，但很有紀念價值。
+sequence || n. || 順序；連續 || Put the pictures in the right sequence. || 把圖片按正確順序排列。 || in sequence=按順序 || Please put the events ___ the correct sequence. || in|on|at || in sequence = 按順序。 || 請把事件按正確順序排列。
+series || n. || 系列 || I'm watching a TV series. || 我在看一部影集。 || TV series=影集 || This TV series ___ very popular among teenagers. || is|are|be || a series 視為單數，用 is。 || 這部影集在青少年間很受歡迎。
+server || n. || 伺服器；服務生 || The server is down. || 伺服器當機了。 || web server=網頁伺服器 || The website crashed ___ the server was overloaded. || because|although|unless || 表示原因用 because。 || 因為伺服器過載，網站當機了。
+session || n. || 一段時間；會議 || We have a training session today. || 我們今天有一場訓練課程。 || training session=訓練課程 || The question-and-answer session will start ___ ten minutes. || in|after|on || in + 一段時間 = 在…之後（未來）。 || 問答時間將在十分鐘後開始。
+setting || n. || 背景；設定 || The story's setting is Taipei. || 這個故事的背景在台北。 || privacy settings=隱私設定 || The story takes place ___ a setting of 1950s Taiwan. || in|on|at || in a setting = 在…背景中。 || 這個故事以 1950 年代的台灣為背景。
+shareholder || n. || 股東 || The shareholders voted on the plan. || 股東們對計畫進行表決。 || major shareholder=大股東 || The shareholders ___ unhappy with the company's profits. || were|was|be || shareholders 複數，用 were。 || 股東們對公司的利潤不滿意。
+shatter || v. || 粉碎 || The glass shattered on the floor. || 玻璃在地上摔得粉碎。 || shatter into pieces=碎成片 || The vase fell and shattered ___ pieces. || into|onto|from || shatter into pieces = 碎成碎片。 || 花瓶掉下來摔成碎片。
+shed || v./n. || 脫落；流（淚）；小屋 || Snakes shed their skin. || 蛇會蛻皮。 || shed tears=流淚 || Trees shed their leaves ___ autumn. || in|on|at || 季節前用 in。 || 樹木在秋天落葉。
+sheer || adj. || 純粹的；陡峭的 || It was sheer luck. || 那純粹是運氣。 || sheer luck=純屬運氣 || We won the game ___ sheer luck. || by|with|in || by luck = 靠運氣。 || 我們贏得比賽純粹是運氣。
+sheriff || n. || 警長 || The sheriff arrested the thief. || 警長逮捕了小偷。 || county sheriff=郡警長 || The thief ___ arrested by the sheriff. || was|is|were || 被動語態；過去用 was + p.p.。 || 小偷被警長逮捕了。
+shield || n./v. || 盾；保護 || Sunglasses shield your eyes from the sun. || 太陽眼鏡保護你的眼睛免受陽光照射。 || shield A from B=保護 A 免受 B || Wear a hat to shield your face ___ the sun. || from|of|with || shield A from B = 保護 A 免受 B。 || 戴帽子保護你的臉不被陽光曬傷。
+shiver || v./n. || 顫抖 || She was shivering with cold. || 她冷得發抖。 || shiver with cold=冷得發抖 || The children were shivering ___ cold. || with|by|in || shiver with + 原因 = 因…而發抖。 || 孩子們冷得發抖。
+shortage || n. || 短缺 || There is a water shortage. || 缺水了。 || water shortage=缺水 || There is a shortage ___ nurses in many hospitals. || of|for|in || a shortage of = …的短缺。 || 許多醫院護理師短缺。
+shove || v./n. || 推擠 || Don't shove! || 不要推！ || push and shove=推擠 || Stop shoving ___ wait in line! || and|or|but || 兩個並列的命令句用 and。 || 別再推了，排隊等候！
+shrug || v./n. || 聳肩 || He shrugged and said nothing. || 他聳聳肩，什麼也沒說。 || shrug one's shoulders=聳肩 || When I asked him, he just shrugged ___ shoulders. || his|him|he || 名詞 shoulders 前用所有格形容詞。 || 我問他時，他只是聳聳肩。
+shuttle || n./v. || 接駁車 || Take the shuttle bus to the airport. || 搭接駁車到機場。 || shuttle bus=接駁車 || The shuttle bus runs ___ 20 minutes. || every|each|all || every + 數字 + 複數名詞 = 每隔…。 || 接駁車每二十分鐘一班。
+sibling || n. || 兄弟姊妹 || Do you have any siblings? || 你有兄弟姊妹嗎？ || sibling rivalry=手足競爭 || How many siblings ___ you have? || do|are|does || 一般動詞 have 的疑問句用 do。 || 你有幾個兄弟姊妹？
+siege || n. || 圍攻 || The city was under siege for months. || 那座城市被圍困了好幾個月。 || under siege=被圍攻 || The castle was ___ siege for three months. || under|below|over || under siege = 被圍攻。 || 那座城堡被圍攻了三個月。
+skeleton || n. || 骨骼；骷髏 || The museum has a dinosaur skeleton. || 博物館有恐龍骨骼。 || dinosaur skeleton=恐龍骨骼 || The dinosaur skeleton ___ found in 1990. || was|is|were || 被動語態；過去用 was + p.p.。 || 那副恐龍骨骼是在 1990 年被發現的。
+skull || n. || 頭骨 || The helmet protects your skull. || 安全帽保護你的頭骨。 || human skull=人類頭骨 || A helmet can protect your skull ___ you fall off your bike. || if|unless|though || if 引導條件子句。 || 如果你從腳踏車上摔下來，安全帽能保護你的頭骨。
+slam || v. || 猛力關上 || Don't slam the door! || 不要用力甩門！ || slam the door=甩門 || She was so angry ___ she slammed the door. || that|which|what || so + 形容詞 + that…。 || 她氣到甩門。
+slap || v./n. || 打耳光 || She slapped him in the face. || 她打了他一巴掌。 || slap sb in the face=打某人耳光 || She slapped him ___ the face. || in|on|at || slap sb in the face = 打某人耳光。 || 她打了他一巴掌。
+slavery || n. || 奴隸制度 || Slavery was abolished long ago. || 奴隸制度很久以前就廢除了。 || abolish slavery=廢除奴隸制 || Lincoln fought ___ end slavery. || to|for|of || 不定詞 to V 表示目的。 || 林肯為終結奴隸制度而奮鬥。
+slot || n. || 投幣孔；時段 || Put a coin in the slot. || 把硬幣投進投幣孔。 || time slot=時段 || Is there a free time slot ___ Friday afternoon? || on|in|at || 特定某天的下午用 on。 || 星期五下午有空的時段嗎？
+smash || v./n. || 打碎 || He smashed the window. || 他打破了窗戶。 || smash hit=大受歡迎的作品 || The movie was a smash hit ___ over the world. || all|every|whole || all over the world = 全世界。 || 這部電影在全世界大受歡迎。
+smog || n. || 霧霾 || The city is covered in smog. || 城市被霧霾籠罩。 || heavy smog=嚴重霧霾 || The city was covered ___ thick smog. || in|on|at || be covered in = 被…覆蓋。 || 城市被濃濃的霧霾籠罩。
+snatch || v./n. || 搶奪 || A man snatched her bag. || 一名男子搶了她的包包。 || snatch sth from=從…搶走 || A thief snatched the phone ___ her hand. || from|of|off with || snatch sth from = 從…搶走某物。 || 一個小偷從她手中搶走了手機。
+sneak || v. || 偷偷地走 || He tried to sneak into the theater. || 他試圖偷溜進電影院。 || sneak into=溜進… || The cat tried to sneak ___ the kitchen. || into|onto|from || sneak into = 偷偷溜進…。 || 貓試圖偷溜進廚房。
+sniff || v./n. || 嗅 || The dog sniffed the bag. || 狗嗅了嗅那個袋子。 || sniff at=嗅… || The dog ___ trained to sniff out drugs. || was|is|were || 被動語態；過去用 was + p.p.。 || 那隻狗受過嗅出毒品的訓練。
+soak || v. || 浸泡；濕透 || Soak the beans overnight. || 把豆子泡一個晚上。 || soaked to the skin=全身濕透 || We got soaked ___ the rain. || in|on|at || get soaked in the rain = 淋雨淋濕。 || 我們被雨淋得濕透了。
+soar || v. || 高飛；暴漲 || Prices soared last year. || 去年物價飆升。 || soar into the sky=高飛入天 || House prices have soared ___ the past ten years. || in|on|at || in the past + 時間 = 在過去…裡。 || 過去十年房價飆漲。
