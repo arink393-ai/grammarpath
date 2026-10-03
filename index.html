@@ -543,6 +543,13 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rd-sources{font:400 12.5px/1.7 var(--sans);color:var(--muted);background:var(--amber-bg);border:1.5px solid var(--amber-line);border-radius:12px;padding:10px 14px;margin:0 0 18px}
 .rd-sources b{color:var(--amber)}
 .rd-sources .rd-src-list{color:var(--ink);font-weight:600}
+.rd-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 18px}
+.rd-tab{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font:600 13.5px var(--sans);color:var(--navy);cursor:pointer;transition:background .12s,border-color .12s}
+.rd-tab:hover{border-color:var(--teal);background:var(--paper)}
+.rd-tab.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.rd-tab-n{font:700 11px var(--sans);opacity:.6;background:rgba(0,0,0,.06);border-radius:999px;padding:1px 7px}
+.rd-tab.on .rd-tab-n{background:rgba(255,255,255,.22);opacity:.9}
+.rd-week-cat{color:var(--amber)!important}
 .rd-hero{display:flex;gap:14px;align-items:flex-start;margin:6px 0 4px}
 .rd-hero svg{width:60px;height:60px;flex-shrink:0}
 .rd-lv-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 12px}
@@ -1094,7 +1101,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sb-plate{border:1px solid var(--sb-line2);border-radius:16px;overflow:hidden;background:#0f1b2a;box-shadow:0 16px 38px -26px rgba(60,40,15,.55);margin-bottom:20px}
 .sb-plate svg{display:block;width:100%;height:auto}
 .sb-plate.sb-plate-pb{background:#FFFDF8;display:flex;align-items:center;justify-content:center;padding:22px 14px;gap:16px;flex-wrap:wrap}
-.sb-plate.sb-plate-pb img{max-width:100%;max-height:500px;height:auto;object-fit:contain;display:block;border-radius:8px;box-shadow:0 8px 24px -12px rgba(60,40,15,.25);flex:1 1 auto;min-width:0}
+.sb-plate.sb-plate-pb img{max-width:100%;max-height:640px;height:auto;object-fit:contain;display:block;border-radius:8px;box-shadow:0 8px 24px -12px rgba(60,40,15,.25);flex:1 1 auto;min-width:0}
 .sb-plate.sb-plate-pb.sb-plate-imgs img{max-height:420px}
 .sb-lang-sc-btn{background:var(--sb-panel);border:1px solid var(--sb-line2);cursor:pointer;font:600 11px var(--sans);color:var(--sb-soft);padding:3px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;transition:all .15s ease}
 .sb-lang-sc-btn:hover,.sb-lang-sc-btn.active{background:#fff;border-color:var(--sb-lapis);color:var(--sb-lapis)}
@@ -2275,6 +2282,7 @@ async function route(){
   else if(h[0]==="worksheet" && h[1]) renderWorksheet(h[1]);
   else if(h[0]==="worksheets") renderWorksheets();
   else if(h[0]==="resources") renderResources(h[1]);
+  else if(h[0]==="reading" && h[1]==="topic") renderReadings(h[2]);
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
   else if(h[0]==="story" && (h[1]==="picture-books" || h[1]==="picturebook" || h[1]==="picture-book")) renderStoryList("picturebook");
@@ -6167,6 +6175,7 @@ function renderPrefixCards(){
     <div class="pfc-controls">
       <button class="btn btn-ghost" onclick="document.querySelectorAll('.pfc-card').forEach(c=>c.classList.remove('flipped'))">↺ 全部翻回正面</button>
       <button class="btn btn-navy" onclick="document.querySelectorAll('.pfc-card').forEach(c=>c.classList.add('flipped'))">看全部例字 →</button>
+      <a class="btn btn-navy" href="prefix-study.html">🎴 開始背誦 Swipe Study</a>
       <a class="btn btn-ghost" href="#/etymology/affixes">看字首字尾教學章節</a>
       <span class="pfc-count">共 ${PREFIX_CARDS.length} 張</span>
     </div>
@@ -8265,7 +8274,277 @@ function youglishURL(phrase){
    全文為原創英文，未複製任何原報導文字。 */
 const READINGS = [
 {
- id:"un-day-2026",
+ id:"pompeii", cat:"history",
+ topic:"Pompeii: The City Frozen in Time", zh:"龐貝：凝固在時間裡的城市",
+ src:"Nature · National Geographic · BBC", date:"evergreen",
+ tag:"History 歷史", icon:"ruins",
+ proper:["Pompeii","Mount","Vesuvius","Italy","Roman","Romans","Rome","Naples"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:114,
+   title:"The City the Volcano Buried",
+   text:[
+    "Pompeii was a busy Roman city in Italy, almost two thousand years ago. People lived, worked, and shopped there every day.",
+    "Near the city stood a mountain called Mount Vesuvius. The people did not know it was a dangerous volcano.",
+    "In the year 79, the volcano erupted. It threw ash and rock high into the sky for two days.",
+    "The whole city was buried under deep ash. Sadly, many people could not escape in time.",
+    "For hundreds of years, Pompeii lay hidden and forgotten. Then, much later, people dug it up again.",
+    "Today we can walk through its streets and houses. Pompeii shows us exactly how Romans lived long ago."],
+   gloss:[["busy","adj.","繁忙的"],["volcano","n.","火山"],["erupt","v.","（火山）爆發"],["ash","n.","火山灰"],["bury","v.","掩埋"],["escape","v.","逃脫；逃離"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["A Roman city buried by a volcano and found again","How to climb a mountain","A modern city in Italy","A cooking school in Rome"], a:0,
+     why:"全文講龐貝這座羅馬城被火山掩埋、後來又被挖掘出來。"},
+    {t:"細節 Detail", q:"What was Mount Vesuvius?",
+     opts:["A river","A dangerous volcano","A large church","A kind of ship"], a:1,
+     why:"第二段：a dangerous volcano。"},
+    {t:"細節 Detail", q:"What happened to the city in the year 79?",
+     opts:["It became the capital","It was buried under ash","It won a war","It was moved to Rome"], a:1,
+     why:"第三、四段：火山爆發，整座城被深厚的火山灰掩埋。"},
+    {t:"字義 Vocabulary", q:"In the text, “erupt” means a volcano ___.",
+     opts:["goes quiet","suddenly throws out ash, rock, and fire","turns into a lake","grows flowers"], a:1,
+     why:"erupt =（火山）爆發，噴出火山灰、岩石與火。"},
+    {t:"推論 Inference", q:"Why is Pompeii special today?",
+     opts:["It has the tallest buildings","It shows us exactly how Romans lived long ago","It is the newest city in Italy","No one is allowed to visit"], a:1,
+     why:"末段：Pompeii shows us exactly how Romans lived long ago。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:203,
+   title:"A Day That Stopped Forever",
+   text:[
+    "Nearly two thousand years ago, Pompeii was a lively Roman town near the bay of Naples, in Italy — home to shops, baths, theatres, and around twelve thousand people.",
+    "Looming above it was Mount Vesuvius. Few people realised that the green mountain was in fact a sleeping volcano.",
+    "In AD 79, Vesuvius exploded with terrible force. For two days it rained ash and burning rock, until the town — and many who had stayed behind — lay buried under metres of volcanic debris.",
+    "Terrible as it was, the ash also preserved the city. Buildings, wall paintings, loaves of bread, and even the shapes of people were sealed and protected underground for centuries.",
+    "Rediscovered and slowly excavated from the 1700s onward, Pompeii became a window into the ancient world. Archaeologists could read shop signs, study homes, and learn what Romans ate and wore.",
+    "Vesuvius is still active today, and scientists watch it closely. Pompeii remains a haunting reminder of nature's power — and a priceless record of a single ancient day."],
+   gloss:[["lively","adj.","熱鬧的；有活力的"],["loom","v.","（高大地）隱約聳現"],["debris","n.","碎屑；殘骸"],["preserve","v.","保存"],["excavate","v.","挖掘（出土）"],["archaeologist","n.","考古學家"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Pompeii was always empty.","A volcano destroyed Pompeii in AD 79, but the ash preserved it as a record of Roman life.","Mount Vesuvius no longer exists.","Romans built the biggest theatres."], a:1,
+     why:"核心：火山摧毀龐貝，但火山灰保存了它，成為羅馬生活的紀錄。"},
+    {t:"細節 Detail", q:"About how many people lived in Pompeii?",
+     opts:["About 12,000","About 500","About two million","No one"], a:0,
+     why:"第一段：around twelve thousand people。"},
+    {t:"細節 Detail", q:"How did the ash help, despite the disaster?",
+     opts:["It made the soil richer","It sealed and preserved buildings and objects underground","It put out the fire","It built new houses"], a:1,
+     why:"第四段：the ash also preserved the city…sealed and protected underground。"},
+    {t:"字義 Vocabulary", q:"In paragraph 5, “excavated” means ___.",
+     opts:["painted","carefully dug out of the ground","sold to tourists","burned down"], a:1,
+     why:"excavate = 挖掘出土；考古學家把龐貝從地底慢慢挖出來。"},
+    {t:"推論 Inference", q:"Why is Pompeii called “a window into the ancient world”?",
+     opts:["It has large glass windows","Its preserved streets and objects let us see how Romans really lived","It can only be seen from the sky","It was built yesterday"], a:1,
+     why:"被保存的街道與物件讓我們直接看見古羅馬人的真實生活，如同一扇觀看古代的窗。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:283,
+   title:"The Gift of Catastrophe",
+   text:[
+    "Among the ironies of history, few are sharper than Pompeii: a catastrophe that destroyed a city and, in the same stroke, saved it. When Mount Vesuvius erupted in AD 79, it ended thousands of lives; it also sealed an entire Roman town beneath a blanket of ash, pausing it, mid-gesture, for nearly two millennia.",
+    "What makes Pompeii extraordinary is not grandeur but ordinariness. Rome left behind temples and monuments by design; Pompeii left behind the unguarded everyday — graffiti scratched on walls, election posters, a dog chained in a doorway, a meal abandoned on a table. The eruption froze not emperors but ordinary people, caught in an ordinary morning.",
+    "The ash proved a cruel kind of preservative. By packing tightly around bodies that later decayed, it left hollow moulds; when archaeologists poured plaster into these voids, the victims' final postures emerged — figures crouching, shielding children, holding one another.",
+    "Such discoveries raise uneasy questions about how we study the dead. Pompeii is at once a scientific treasure and a mass grave, and the line between learning and intrusion is not always clear.",
+    "Still, the town endures as our most vivid link to antiquity — proof that the smallest details of a vanished life can outlast the empires that once seemed so much more permanent."],
+   gloss:[["catastrophe","n.","大災難"],["grandeur","n.","宏偉；壯麗"],["graffiti","n.","塗鴉"],["preservative","n.","防腐劑；保存物"],["intrusion","n.","侵擾；冒犯"],["antiquity","n.","古代"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's central idea?",
+     opts:["Pompeii was unimportant.","Pompeii is a disaster that, by destroying a city, also preserved it as a uniquely ordinary record of the past.","Volcanoes are good for cities.","Rome was never powerful."], a:1,
+     why:"開頭的反諷即主旨：一場毀滅城市的災難，同時把它保存成最平凡卻珍貴的歷史紀錄。"},
+    {t:"字義 Vocabulary", q:"In paragraph 2, the writer says Pompeii's value is “not grandeur but ordinariness,” meaning its worth lies in ___.",
+     opts:["its grand temples and monuments","the ordinary, everyday details of real lives","its enormous size","its gold and treasure"], a:1,
+     why:"grandeur（宏偉）對比 ordinariness（平凡）：龐貝珍貴之處在於塗鴉、選舉海報、餐桌等日常細節。"},
+    {t:"推論 Inference", q:"How were the famous body shapes of victims created?",
+     opts:["They are statues made by Romans","Plaster was poured into hollow moulds the decayed bodies left in the ash","They are modern wax models","Artists painted them on walls"], a:1,
+     why:"第三段：遺體腐化後在火山灰中留下空腔，考古學家灌入石膏，還原出罹難者最後的姿態。"},
+    {t:"語氣 Tone / Ethics", q:"What tension does paragraph 4 raise?",
+     opts:["Whether Pompeii is real","That Pompeii is both a scientific treasure and a mass grave, so studying it can feel like intrusion","Whether to rebuild Rome","How to sell tickets"], a:1,
+     why:"第四段點出矛盾：龐貝既是科學寶藏，也是集體墳墓，研究與冒犯之間界線模糊。"},
+    {t:"篇章 Organization", q:"The whole essay is framed around ___.",
+     opts:["a list of Roman kings","an irony: destruction that also preserved","a travel schedule","a scientific experiment"], a:1,
+     why:"全文以「摧毀同時也保存」的反諷貫穿（首段提出、末段呼應）。"}]}
+ },
+ discuss:[
+  "Why do you think people today are so fascinated by Pompeii?",
+  "Pompeii is both a scientific treasure and a mass grave. Should human remains be shown to the public? Why or why not?",
+  "If a city today were suddenly frozen in time, what everyday objects would best tell the future about us?"]
+},
+{
+ id:"icarus", cat:"myth",
+ topic:"Icarus and the Fall", zh:"伊卡洛斯的墜落",
+ src:"National Geographic · BBC Culture · The New York Times", date:"evergreen",
+ tag:"Myth 神話", icon:"wings",
+ proper:["Icarus","Daedalus","Greek","Greece","Crete","King","Minos"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:116,
+   title:"The Boy Who Flew Too High",
+   text:[
+    "Long ago, in an old Greek story, a clever man named Daedalus and his son Icarus were trapped on an island.",
+    "To escape, Daedalus made two big pairs of wings. He joined feathers together with soft wax.",
+    "Before they flew, Daedalus warned his son. “Do not fly too low, or the sea will wet your wings. Do not fly too high, or the sun will melt the wax.”",
+    "At first, Icarus was careful. But flying felt wonderful, and soon he forgot his father's words.",
+    "He flew higher and higher, close to the sun. The wax melted, his wings fell apart, and Icarus dropped into the sea.",
+    "People still tell this story today. It teaches us to be brave — but also to listen, and to know our limits."],
+   gloss:[["clever","adj.","聰明的"],["trapped","adj.","被困住的"],["wings","n.","翅膀"],["wax","n.","蠟"],["warn","v.","警告"],["melt","v.","融化"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this story mainly about?",
+     opts:["A boy who flew too high and fell","How to build a boat","A trip to the beach","A king and his gold"], a:0,
+     why:"全文是伊卡洛斯飛得太高、最後墜落的故事。"},
+    {t:"細節 Detail", q:"How did Daedalus make the wings?",
+     opts:["From paper and glue","From feathers joined with wax","From metal and fire","From leaves and water"], a:1,
+     why:"第二段：feathers together with soft wax。"},
+    {t:"細節 Detail", q:"What did the father warn Icarus NOT to do?",
+     opts:["Not to sleep","Not to fly too high (near the sun) or too low (near the sea)","Not to talk","Not to eat"], a:1,
+     why:"第三段：別飛太低（海會弄濕翅膀），也別飛太高（太陽會融化蠟）。"},
+    {t:"字義 Vocabulary", q:"In the story, “melt” means to ___.",
+     opts:["become hard and cold","turn soft or liquid from heat","fly away","grow bigger"], a:1,
+     why:"melt = 融化；太陽的熱把蠟融化了。"},
+    {t:"推論 Inference", q:"What lesson does the story teach?",
+     opts:["Never try anything new","Be brave, but also listen and know your limits","The sun is close to the sea","Wings are easy to make"], a:1,
+     why:"末段：be brave — but also to listen, and to know our limits。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:203,
+   title:"Between the Sea and the Sun",
+   text:[
+    "One of the most famous of all Greek myths tells of Daedalus, a brilliant inventor, and his son Icarus, imprisoned on the island of Crete by King Minos.",
+    "Daedalus devised a daring escape. From feathers and wax he built two great pairs of wings, so that he and his son might simply fly away.",
+    "He gave Icarus one firm warning: fly a middle course. Too low, and the sea's spray would weigh the feathers down; too high, and the sun's heat would melt the wax.",
+    "For a while the plan worked, and the two rose into the open sky. But Icarus, thrilled by the sheer power of flight, ignored his father and soared ever upward toward the sun.",
+    "The wax softened, the feathers loosened, and the boy plunged into the sea that still bears his name. Daedalus flew on alone, grief-stricken.",
+    "For thousands of years the tale has been read as a warning against pride and recklessness — yet some also see in Icarus the beauty of daring to reach for something far greater than yourself."],
+   gloss:[["inventor","n.","發明家"],["imprison","v.","囚禁"],["devise","v.","設計；想出"],["warning","n.","警告"],["soar","v.","翱翔；高飛"],["recklessness","n.","魯莽"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Daedalus hated flying.","Icarus ignored a warning, flew too high, and fell — a story read as both a caution and an act of daring.","Crete is a cold island.","King Minos could fly."], a:1,
+     why:"核心：伊卡洛斯不聽勸、飛太高而墜落；此故事既是警世，也被視為一種勇於追求的壯舉。"},
+    {t:"細節 Detail", q:"Who imprisoned Daedalus and Icarus, and where?",
+     opts:["King Minos, on the island of Crete","A sailor, on a ship","No one; they were free","The sun, in the sky"], a:0,
+     why:"第一段：imprisoned on the island of Crete by King Minos。"},
+    {t:"細節 Detail", q:"What were the two dangers in the warning?",
+     opts:["Rain and snow","Flying too low (sea spray) and too high (the sun's heat)","Birds and storms","Night and fog"], a:1,
+     why:"第三段：太低會被海浪弄濕，太高會被太陽融化蠟。"},
+    {t:"字義 Vocabulary", q:"In paragraph 4, “soared” means ___.",
+     opts:["fell quickly","flew high and freely","swam slowly","stood still"], a:1,
+     why:"soar = 翱翔、高飛；伊卡洛斯不斷往上朝太陽飛去。"},
+    {t:"推論 Inference", q:"Why does the last paragraph offer two readings of the story?",
+     opts:["Because the writer is unsure what happened","Because the myth can mean both “don't be reckless” and “it is beautiful to dare greatly”","Because Daedalus wrote it","Because it has no ending"], a:1,
+     why:"末段並陳兩種解讀：對傲慢魯莽的警告，以及勇於追求更高目標的美好。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:282,
+   title:"The Two Lessons of Icarus",
+   text:[
+    "Few images from mythology have proved as enduring as the fall of Icarus: a boy, feathered wings melting, dropping from a bright sky into an indifferent sea. For nearly three thousand years the Greek tale has been retold, painted, and argued over — chiefly because it refuses to mean only one thing.",
+    "The conventional reading is a caution against hubris. Warned by his father Daedalus to keep a middle course, Icarus flew too close to the sun, and his pride — or his carelessness — destroyed him. In this version the moral is restraint: know your limits, and heed those wiser than you.",
+    "Yet a second reading has grown louder in modern times. Icarus, after all, did what humankind had only dreamed of — he flew. If his reach exceeded his grasp, perhaps the reaching itself was glorious, and a life spent hugging the safe middle is its own kind of failure.",
+    "Tellingly, the myth gives us both a reckless son and a cautious father, and it is the son we remember. Daedalus survives, yet it is Icarus whose name endures — as if the story cannot quite decide whether to mourn his fall or admire his flight.",
+    "That unresolved tension is the myth's genius. It hands each listener a mirror and asks a question as old as ambition itself: how high is too high?"],
+   gloss:[["enduring","adj.","持久的；歷久不衰的"],["hubris","n.","傲慢；過度自信"],["restraint","n.","節制；克制"],["exceed","v.","超過"],["glorious","adj.","光榮的；壯麗的"],["unresolved","adj.","未解決的"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's overall point?",
+     opts:["The myth has one clear lesson.","The myth endures because it holds two opposing lessons — a warning against pride and a tribute to daring — and refuses to choose.","Icarus was a real person.","Flying is impossible."], a:1,
+     why:"全文主旨：此神話之所以不朽，正因它同時容納「警戒傲慢」與「歌頌勇敢」兩種對立解讀，且不作取捨。"},
+    {t:"字義 Vocabulary", q:"In paragraph 2, “hubris” means ___.",
+     opts:["kindness","excessive pride or overconfidence","deep sadness","careful planning"], a:1,
+     why:"hubris = 傲慢、過度自信，是傳統解讀中伊卡洛斯墜落的原因。"},
+    {t:"推論 Inference", q:"Why does the writer note that it is Icarus, not Daedalus, whom we remember?",
+     opts:["Because Daedalus died first","Because the story is quietly drawn to the daring son as much as to the careful father","Because Daedalus had no name","Because Icarus built the wings"], a:1,
+     why:"第四段：謹慎的父親活下來，但後世記得的是勇敢的兒子——暗示故事對「敢飛」的傾慕不亞於對謹慎的肯定。"},
+    {t:"語氣 Tone", q:"What is the writer's stance on which lesson is correct?",
+     opts:["Firmly on the side of caution","Deliberately leaves the question open","Firmly against all ambition","Bored by the myth"], a:1,
+     why:"作者刻意不下定論，以「how high is too high?」收尾，保留開放。"},
+    {t:"篇章 Organization", q:"How is the essay structured?",
+     opts:["As a timeline of Greek history","As two contrasting readings of the same myth, then a reflection on their tension","As a list of characters","As a travel guide to Crete"], a:1,
+     why:"第2段傳統解讀、第3段現代解讀，第4–5段再反思兩者的張力——對比結構。"}]}
+ },
+ discuss:[
+  "Which lesson do you take from Icarus — be careful, or be bold? Why?",
+  "Have you ever ignored good advice and learned something the hard way?",
+  "Is it better to aim very high and risk failing, or to choose a safe, steady path?"]
+},
+{
+ id:"kyoto", cat:"travel",
+ topic:"Kyoto: Japan's Ancient Capital", zh:"京都：日本的千年古都",
+ src:"The New York Times · National Geographic · Taipei Times", date:"evergreen",
+ tag:"Travel 旅遊", icon:"torii",
+ proper:["Kyoto","Japan","Japanese","Tokyo","Gion","Arashiyama","Fushimi","Inari","Kiyomizu"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:116,
+   title:"Welcome to Kyoto",
+   text:[
+    "Kyoto is a beautiful old city in Japan. For more than a thousand years, it was the country's capital.",
+    "Kyoto is famous for its temples and shrines. Some are made of wood and are very, very old.",
+    "One famous place is Fushimi Inari, where thousands of bright orange gates stand in a long line up a hill.",
+    "In spring, pink cherry blossoms cover the city. In autumn, the leaves turn red and gold. Many people visit just to see them.",
+    "In the old streets of Gion, you might see a geisha in a beautiful kimono walking quietly by.",
+    "Kyoto mixes the old and the new. It is a wonderful place to learn about Japanese history and culture."],
+   gloss:[["capital","n.","首都"],["temple","n.","寺廟"],["shrine","n.","神社"],["gate","n.","門；鳥居"],["blossom","n.","花（尤指果樹的花）"],["kimono","n.","和服"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["A beautiful old Japanese city and what to see there","How to cook Japanese food","A train station in Tokyo","A new shopping mall"], a:0,
+     why:"全文介紹京都這座古城與值得一看的景點。"},
+    {t:"細節 Detail", q:"What was Kyoto for more than a thousand years?",
+     opts:["A small village","Japan's capital","An island","A mountain"], a:1,
+     why:"第一段：for more than a thousand years, it was the country's capital。"},
+    {t:"細節 Detail", q:"What is famous about Fushimi Inari?",
+     opts:["A tall tower","Thousands of bright orange gates up a hill","A long beach","A big zoo"], a:1,
+     why:"第三段：thousands of bright orange gates…up a hill。"},
+    {t:"字義 Vocabulary", q:"In the text, a “shrine” is ___.",
+     opts:["a kind of food","a holy place where people pray","a type of train","a shopping street"], a:1,
+     why:"shrine = 神社，供人參拜的神聖之地。"},
+    {t:"推論 Inference", q:"Why do many people visit Kyoto in spring and autumn?",
+     opts:["To see the cherry blossoms and the red autumn leaves","Because it is the cheapest time","Because temples close in summer","To go swimming"], a:0,
+     why:"第四段：春天櫻花、秋天紅黃落葉，很多人專程來看。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:204,
+   title:"A City of a Thousand Years",
+   text:[
+    "For over a thousand years, until 1868, Kyoto was the capital of Japan. Though Tokyo holds that title now, Kyoto remains the nation's cultural heart.",
+    "The city is home to around two thousand temples and shrines. At Kiyomizu-dera, a wooden hall stands on tall pillars over a hillside; at Fushimi Inari, thousands of vermilion gates form glowing tunnels up the mountain.",
+    "Kyoto changes beautifully with the seasons. Spring brings clouds of cherry blossom; autumn sets the maples of Arashiyama ablaze in red and orange. These two seasons draw by far the largest crowds.",
+    "The old district of Gion is famous for its wooden tea houses and its geisha, women trained for years in traditional dance, music, and the art of conversation.",
+    "Visitors can still enjoy a simple cup of matcha tea, a quiet temple garden, or a meal of local tofu and vegetables.",
+    "Above all, Kyoto asks to be taken slowly. It rewards those who wander its back streets and pause to notice small, carefully made beauty."],
+   gloss:[["capital","n.","首都"],["pillar","n.","柱子"],["vermilion","adj.","朱紅色的"],["season","n.","季節"],["district","n.","區；地段"],["wander","v.","漫步；閒逛"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Kyoto is a modern business city.","Kyoto, Japan's old capital, is a seasonal, cultural city best enjoyed slowly.","Tokyo is better than Kyoto.","Kyoto has no temples left."], a:1,
+     why:"核心：京都是日本古都、充滿四季與文化之美，最適合慢慢品味。"},
+    {t:"細節 Detail", q:"Until what year was Kyoto the capital of Japan?",
+     opts:["1868","2000","1600","Last year"], a:0,
+     why:"第一段：until 1868, Kyoto was the capital of Japan。"},
+    {t:"細節 Detail", q:"What is the Gion district known for?",
+     opts:["Wooden tea houses and geisha","A large airport","Tall office towers","A football stadium"], a:0,
+     why:"第四段：Gion is famous for its wooden tea houses and its geisha。"},
+    {t:"字義 Vocabulary", q:"In paragraph 4, a “district” is ___.",
+     opts:["a type of temple","an area or part of a city","a kind of tea","a festival"], a:1,
+     why:"district = （城市的）區、地段。"},
+    {t:"推論 Inference", q:"What does “Kyoto asks to be taken slowly” suggest?",
+     opts:["Walking in Kyoto is forbidden","You appreciate Kyoto best by slowing down and noticing details","Kyoto is boring","The trains are very slow"], a:1,
+     why:"末段：放慢腳步、留意細節的人，最能體會京都的美。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:282,
+   title:"The Art of Going Slowly",
+   text:[
+    "To arrive in Kyoto expecting a museum is to misread it. Japan's capital for more than a millennium, the city wears its history not as a relic under glass but as a living habit — in the rhythm of its seasons, the manners of its streets, and a quiet insistence on doing things with care.",
+    "Its set-piece treasures are rightly famous: the vermilion corridors of Fushimi Inari, the hillside stage of Kiyomizu-dera, the towering bamboo groves of Arashiyama. Yet the first-time visitor, hurrying between them with a guidebook, often misses what makes Kyoto itself — the unhurried attention it pays to small things.",
+    "That attention shows everywhere: in a bowl of tea whisked just so, in a raked gravel garden meant to be contemplated rather than entered, in the training of a geisha measured not in weeks but in years.",
+    "Modern Kyoto, of course, also has traffic, convenience stores, and crowds that strain its most delicate corners, raising hard questions about how a living city can carry so priceless a past.",
+    "Perhaps that is Kyoto's deepest lesson for the traveller — and a useful one anywhere: that beauty is often found not by seeing more, but by slowing down enough to notice what was already there."],
+   gloss:[["relic","n.","遺物；遺跡"],["corridor","n.","走廊；通道"],["grove","n.","小樹林"],["contemplate","v.","沉思；凝視"],["strain","v.","使負荷過重"],["priceless","adj.","無價的"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's overall point?",
+     opts:["Kyoto is just an open-air museum.","Kyoto is a living city whose real beauty is found by slowing down and paying attention.","Kyoto should build more attractions.","Only famous sites in Kyoto matter."], a:1,
+     why:"主旨：京都是座「活著」的城市，其真正之美在於放慢腳步、用心留意。"},
+    {t:"字義 Vocabulary", q:"In paragraph 1, a “relic under glass” is used to describe what Kyoto is NOT — meaning Kyoto's history is ___.",
+     opts:["a dead object on display","alive and part of daily life","hidden from visitors","recently invented"], a:1,
+     why:"作者說京都不是玻璃櫃裡的遺物（relic），而是「活的習慣」——歷史融入日常。"},
+    {t:"推論 Inference", q:"What do hurried first-time visitors tend to miss?",
+     opts:["The famous sites","The unhurried attention Kyoto pays to small things","The train schedule","The bamboo groves"], a:1,
+     why:"第二段：趕景點的遊客，反而錯過了京都真正的特質——對小事的從容用心。"},
+    {t:"語氣 Tone", q:"What does paragraph 4 add to the essay?",
+     opts:["It claims Kyoto is perfect","It honestly admits modern strains (traffic, crowds) on a fragile, priceless city","It ends the piece abruptly","It lists ticket prices"], a:1,
+     why:"第四段坦承現代京都也有交通、人潮等壓力，讓讚美更真實平衡。"},
+    {t:"篇章 Organization", q:"How does the writer mainly develop the piece?",
+     opts:["By listing dates in order","By contrasting rushing between sights with slowing down to notice detail","By comparing Kyoto to Tokyo only","By giving a map"], a:1,
+     why:"全文以「趕景點 vs 放慢留意細節」的對比推進，最後收束成普遍的人生體會。"}]}
+ },
+ discuss:[
+  "Would you rather travel to see as much as possible, or slow down and experience a few places deeply? Why?",
+  "Kyoto struggles with too many tourists. How can a city protect its culture and still welcome visitors?",
+  "Think of a place in Taiwan that mixes old and new. How would you introduce it to a foreign friend in English?"]
+},
+{
+ id:"un-day-2026", cat:"culture",
  topic:"United Nations Day", zh:"聯合國日",
  src:"The New York Times · The Economist · United Nations", date:"2026-10-24", week:"10/19–10/25",
  tag:"Society 社會", icon:"globe",
@@ -8355,7 +8634,7 @@ const READINGS = [
   "Name one global problem you think only countries working together can solve. How might they start?"]
 },
 {
- id:"halloween-2026",
+ id:"halloween-2026", cat:"customs",
  topic:"Halloween", zh:"萬聖節",
  src:"TIME · NBC · National Geographic", date:"2026-10-31", week:"10/26–11/1",
  tag:"Culture 文化", icon:"pumpkin",
@@ -8445,7 +8724,7 @@ const READINGS = [
   "Some say Halloween is too commercial. Do you agree? Can a holiday be both fun and meaningful?"]
 },
 {
- id:"animal-day-2026",
+ id:"animal-day-2026", cat:"nature",
  topic:"World Animal Day", zh:"世界動物日",
  src:"Nature · National Geographic · The New York Times", date:"2026-10-04", week:"9/28–10/4",
  tag:"Animals 動物", icon:"paw",
@@ -8535,7 +8814,7 @@ const READINGS = [
   "Humans change the Earth the most. What responsibility do we have toward wild animals?"]
 },
 {
- id:"teachers-day-2026",
+ id:"teachers-day-2026", cat:"culture",
  topic:"World Teachers' Day", zh:"世界教師日",
  src:"VOA · UNESCO · The New York Times", date:"2026-10-05", week:"10/5–10/11",
  tag:"Education 教育", icon:"apple",
@@ -8625,7 +8904,7 @@ const READINGS = [
   "Can technology or AI ever replace a human teacher? What can it not do?"]
 },
 {
- id:"food-day-2026",
+ id:"food-day-2026", cat:"culture",
  topic:"World Food Day", zh:"世界糧食日",
  src:"The Economist · Nature · United Nations (FAO)", date:"2026-10-16", week:"10/12–10/18",
  tag:"Society 社會", icon:"bowl",
@@ -8715,7 +8994,7 @@ const READINGS = [
   "Food brings people together. What dish means “home” to you, and why?"]
 },
 {
- id:"water-week-2026",
+ id:"water-week-2026", cat:"science",
  topic:"World Water Week", zh:"世界水資源週",
  src:"Science · Nature · Reuters", date:"2026-08-22", week:"8/17–8/23",
  tag:"Environment 環境", icon:"water",
@@ -8805,7 +9084,7 @@ const READINGS = [
   "Taiwan often faces both droughts and typhoon floods. What could we do to manage water better?"]
 },
 {
- id:"charity-day-2026",
+ id:"charity-day-2026", cat:"culture",
  topic:"International Day of Charity", zh:"國際慈善日",
  src:"The New York Times · TIME · United Nations", date:"2026-09-05", week:"8/31–9/6",
  tag:"Society 社會", icon:"heart",
@@ -8896,7 +9175,7 @@ const READINGS = [
   "Is it better to give help openly (to inspire others) or anonymously? Why?"]
 },
 {
- id:"midautumn-2026",
+ id:"midautumn-2026", cat:"customs",
  topic:"The Mid-Autumn Festival", zh:"中秋節",
  src:"Taiwan News · Taipei Times · The New York Times", date:"2026-09-25", week:"9/21–9/27",
  tag:"Culture 文化", icon:"moon",
@@ -8986,7 +9265,7 @@ const READINGS = [
   "The festival is about being together. In a busy, digital world, why do people still travel home to meet in person?"]
 },
 {
- id:"literacy-day-2026",
+ id:"literacy-day-2026", cat:"culture",
  topic:"International Literacy Day", zh:"國際識字日",
  src:"UNESCO · VOA · The Economist", date:"2026-09-08", week:"9/7–9/13",
  tag:"Education 教育", icon:"book",
@@ -9076,7 +9355,7 @@ const READINGS = [
   "With so much information online, how can students learn to tell what is true from what is false?"]
 },
 {
- id:"worldcup-final",
+ id:"worldcup-final", cat:"news",
  topic:"The World Cup Final", zh:"世界盃決賽",
  src:"The New York Times · The Washington Post · BBC Sport", date:"2026-07-16", week:"7/13–7/19",
  tag:"Sport 運動", icon:"ball",
@@ -9165,7 +9444,7 @@ const READINGS = [
   "If Taiwan hosted a World Cup, which city would you choose, and why?"]
 },
 {
- id:"eclipse-2026",
+ id:"eclipse-2026", cat:"science",
  topic:"Europe's First Total Eclipse in 27 Years", zh:"歐洲 27 年來首見日全食",
  src:"Science · Nature · NASA", date:"2026-07-16", week:"7/20–7/26",
  tag:"Science 科學", icon:"eclipse",
@@ -9254,7 +9533,7 @@ const READINGS = [
   "Should schools stop lessons so students can watch a rare natural event? Give reasons."]
 },
 {
- id:"spacex-ipo",
+ id:"spacex-ipo", cat:"news",
  topic:"The Biggest Stock Market Debut Ever", zh:"史上最大規模上市案",
  src:"The Economist · The Washington Post · Reuters", date:"2026-07-16", week:"7/27–8/2",
  tag:"Business 財經", icon:"rocket",
@@ -9343,7 +9622,7 @@ const READINGS = [
   "Taiwan's tech industry is central to the world economy. What kind of company would you like to start?"]
 },
 {
- id:"eala-first-title",
+ id:"eala-first-title", cat:"news",
  topic:"A First WTA Title for the Philippines", zh:"菲律賓首座 WTA 巡迴賽冠軍",
  src:"Taipei Times · TIME · ESPN", date:"2026-08-03", week:"8/3–8/9",
  tag:"Sport 運動", icon:"trophy",
@@ -9431,7 +9710,7 @@ const READINGS = [
   "Why do people feel proud when someone from their own country succeeds?"]
 },
 {
- id:"norway-new-king",
+ id:"norway-new-king", cat:"news",
  topic:"Norway Gets a New King", zh:"挪威迎來新國王",
  src:"The New York Times · The Economist · Reuters", date:"2026-08-28", week:"8/24–8/30",
  tag:"World 國際", icon:"crown",
@@ -9519,7 +9798,7 @@ const READINGS = [
   "In your country, who represents the nation to the world, and how are they chosen?"]
 },
 {
- id:"basketball-wwc-2026",
+ id:"basketball-wwc-2026", cat:"news",
  topic:"USA Win a Fifth Straight Basketball World Cup", zh:"美國女籃世界盃五連霸",
  src:"NBC · The New York Times · FIBA", date:"2026-09-13", week:"9/14–9/20",
  tag:"Sport 運動", icon:"trophy",
@@ -9608,7 +9887,7 @@ const READINGS = [
   "Women's sports are getting more attention around the world. How could we support them in Taiwan?"]
 },
 {
- id:"europe-heatwave-2026",
+ id:"europe-heatwave-2026", cat:"science",
  topic:"Europe's Record-Breaking Heatwave", zh:"歐洲破紀錄熱浪",
  src:"Nature · Science · The Washington Post", date:"2026-08-07", week:"8/10–8/16",
  tag:"Science 科學", icon:"heat",
@@ -10376,7 +10655,10 @@ const RD_ART = {
   apple:`<svg viewBox="0 0 64 64"><path d="M32 22 c-6-5-17-3-17 9 c0 11 9 21 17 21 c8 0 17-10 17-21 c0-12-11-14-17-9z" fill="#D98A6C" stroke="#B4623B" stroke-width="2" stroke-linejoin="round"/><path d="M32 22 c0-6 3-9 8-9" stroke="#7A9A5B" stroke-width="2.5" fill="none" stroke-linecap="round"/><ellipse cx="40" cy="13" rx="4.5" ry="2.6" fill="#7FB5B5" transform="rotate(-28 40 13)"/><path d="M25 30 q4 4 0 9" stroke="#FBE2D4" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/></svg>`,
   bowl:`<svg viewBox="0 0 64 64"><ellipse cx="32" cy="33" rx="21" ry="5" fill="#F3E7C6" stroke="#E0C98A" stroke-width="1.5"/><path d="M11 33 h42 a21 18 0 0 1-42 0z" fill="#7FB5B5" stroke="#4F8A8B" stroke-width="2" stroke-linejoin="round"/><path d="M25 15 q-3 4 0 9 M32 13 q-3 4 0 9 M39 15 q-3 4 0 9" stroke="#C9B7A2" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/></svg>`,
   globe:`<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="#7FB5B5" stroke="#4F8A8B" stroke-width="2"/><path d="M12 32 h40 M32 12 v40 M17 21 q15 8 30 0 M17 43 q15-8 30 0" fill="none" stroke="#EAF6F5" stroke-width="1.6" opacity=".9"/><ellipse cx="32" cy="32" rx="9" ry="20" fill="none" stroke="#EAF6F5" stroke-width="1.6" opacity=".9"/></svg>`,
-  pumpkin:`<svg viewBox="0 0 64 64"><path d="M32 19 c-11 0-19 6-19 16 s8 15 19 15 s19-5 19-15 s-8-16-19-16z" fill="#E8973E" stroke="#C46A1B" stroke-width="2"/><path d="M24 19 c-6 1-9 8-9 16 s3 13 9 15 M40 19 c6 1 9 8 9 16 s-3 13-9 15 M32 19 v31" fill="none" stroke="#C46A1B" stroke-width="1.5" opacity=".65"/><path d="M32 19 q1-6 7-8" stroke="#7A9A5B" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M24 31 l5 6 -9 0z M40 31 l-5 6 9 0z" fill="#5A2E12"/><path d="M23 41 q9 6 18 0" stroke="#5A2E12" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`
+  pumpkin:`<svg viewBox="0 0 64 64"><path d="M32 19 c-11 0-19 6-19 16 s8 15 19 15 s19-5 19-15 s-8-16-19-16z" fill="#E8973E" stroke="#C46A1B" stroke-width="2"/><path d="M24 19 c-6 1-9 8-9 16 s3 13 9 15 M40 19 c6 1 9 8 9 16 s-3 13-9 15 M32 19 v31" fill="none" stroke="#C46A1B" stroke-width="1.5" opacity=".65"/><path d="M32 19 q1-6 7-8" stroke="#7A9A5B" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M24 31 l5 6 -9 0z M40 31 l-5 6 9 0z" fill="#5A2E12"/><path d="M23 41 q9 6 18 0" stroke="#5A2E12" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`,
+  ruins:`<svg viewBox="0 0 64 64"><rect x="13" y="22" width="7" height="27" fill="#E3D6B8" stroke="#A58B5F" stroke-width="1.5"/><rect x="29" y="27" width="7" height="22" fill="#E3D6B8" stroke="#A58B5F" stroke-width="1.5"/><rect x="45" y="19" width="7" height="30" fill="#E3D6B8" stroke="#A58B5F" stroke-width="1.5"/><path d="M10 15 h32 v6 h-32z" fill="#D2BE92" stroke="#A58B5F" stroke-width="1.5"/><rect x="9" y="49" width="46" height="5" rx="1.5" fill="#B49A6C"/><path d="M15 25 h3 M31 30 h3 M47 22 h3" stroke="#A58B5F" stroke-width="1"/></svg>`,
+  wings:`<svg viewBox="0 0 64 64"><path d="M31 42 C21 40 11 33 8 20 c11 2 17 0 23 12z" fill="#EAF0F3" stroke="#9FB6C2" stroke-width="1.5" stroke-linejoin="round"/><path d="M33 42 C43 40 53 33 56 20 c-11 2-17 0-23 12z" fill="#EAF0F3" stroke="#9FB6C2" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 23 q6 4 12 10 M50 23 q-6 4-12 10" stroke="#C7D5DD" stroke-width="1.2" fill="none"/><circle cx="32" cy="43" r="4" fill="#EEB868" stroke="#C9893A" stroke-width="1.5"/><path d="M30 50 q2 4 4 0" stroke="#C9893A" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`,
+  torii:`<svg viewBox="0 0 64 64"><path d="M9 19 q23-7 46 0 l-2 6 q-21-6-42 0z" fill="#C0392B" stroke="#8E2A20" stroke-width="1.5" stroke-linejoin="round"/><rect x="13" y="27" width="38" height="5" rx="1" fill="#C0392B" stroke="#8E2A20" stroke-width="1.5"/><rect x="19" y="25" width="6" height="28" fill="#C0392B" stroke="#8E2A20" stroke-width="1.5"/><rect x="39" y="25" width="6" height="28" fill="#C0392B" stroke="#8E2A20" stroke-width="1.5"/><rect x="28" y="32" width="8" height="4" fill="#8E2A20"/></svg>`
 };
 let RD_LEVEL = "a";
 let RD_ANS = {};
@@ -10398,6 +10680,18 @@ function rdToday(){ const t=(typeof dailyToday==="function")?dailyToday():new Da
    (never a future-dated preview, even when later weeks are added early) */
 function weekArticle(){ const k=rdToday(); const started=READINGS.filter(r=>rdOrder(r)<=k); const pool=started.length?started:READINGS; return pool.reduce((a,b)=> rdOrder(b)>rdOrder(a)?b:a, pool[0]); }
 function rdById(id){ return READINGS.find(r=>r.id===id) || weekArticle(); }
+/* Reading topic zones (分區). Tabs appear only for categories that have content. */
+const RD_CATS = [
+  {key:"news",    emoji:"📰", zh:"每週新聞", en:"Weekly News",    desc:"每週更新的國際重大時事，依事實改寫成三種難度，全班可讀同一主題一起討論。"},
+  {key:"history", emoji:"🏛️", zh:"歷史",     en:"History",        desc:"走進歷史現場——改變世界的事件、人物與古文明。"},
+  {key:"nature",  emoji:"🌿", zh:"自然",     en:"Nature",         desc:"從動物到生態，認識我們共享的這顆星球。"},
+  {key:"science", emoji:"🔬", zh:"科學",     en:"Science",        desc:"用英文讀懂天文、氣候與各種科學新發現。"},
+  {key:"myth",    emoji:"🐉", zh:"神話故事", en:"Myths & Legends",desc:"世界各地的神話與傳說，以及它們流傳千年的智慧。"},
+  {key:"culture", emoji:"🎭", zh:"文化",     en:"Culture",        desc:"節慶、價值與社會——理解世界如何思考與生活。"},
+  {key:"travel",  emoji:"🧳", zh:"旅遊介紹", en:"Travel Guides",  desc:"跟著文章環遊世界，認識各地值得一訪的城市與風景。"},
+  {key:"customs", emoji:"🌏", zh:"風俗民情", en:"World Customs",  desc:"各國特別的節慶、習俗與生活方式。"},
+];
+const rdCatOf = k => RD_CATS.find(c=>c.key===k);
 
 /* ---- 聽力更正遊戲 UI ---- */
 let RG = null; // {id, lvl, pairs, paras, fixed:{}, selIdx:null, shakeId:null, flashIdx:null, rewarded:Set}
@@ -10488,24 +10782,43 @@ function renderReadGame(id, lvl, keepScroll){
   if(keepScroll) window.scrollTo(0, y);
 }
 
-function renderReadings(){
+function renderReadings(cat){
+  const active = rdCatOf(cat) ? cat : null;          // null = 全部 All
   const cur = weekArticle();
-  const cards = [...READINGS].sort((a,b)=> rdOrder(b)-rdOrder(a)).map(r=>{
-    const isNow = r.id===cur.id;
+  const all = [...READINGS].sort((a,b)=> rdOrder(b)-rdOrder(a));
+  const counts = {}; all.forEach(r=> counts[r.cat||"news"]=(counts[r.cat||"news"]||0)+1);
+  const list = active ? all.filter(r=> (r.cat||"news")===active) : all;
+  const tabs = `<div class="rd-tabs">
+    <button class="rd-tab ${!active?"on":""}" onclick="location.hash='#/reading'">全部 All<span class="rd-tab-n">${all.length}</span></button>
+    ${RD_CATS.filter(c=>counts[c.key]).map(c=>`<button class="rd-tab ${active===c.key?"on":""}" onclick="location.hash='#/reading/topic/${c.key}'">${c.emoji} ${c.zh}<span class="rd-tab-n">${counts[c.key]}</span></button>`).join("")}
+  </div>`;
+  const cards = list.map(r=>{
+    const isNow = r.id===cur.id && (!active || active==="news");
+    const cm = rdCatOf(r.cat||"news");
+    const chip = isNow ? '<span class="rd-now-tag">本週選文 This week</span>'
+      : (r.week ? `<span class="rd-week">${r.week}</span>` : `<span class="rd-week rd-week-cat">${cm?cm.emoji+" "+cm.zh:""}</span>`);
     return `<button class="rd-card ${isNow?"now":""}" onclick="location.hash='#/reading/${r.id}'">
       <div class="rd-card-art">${RD_ART[r.icon]||""}</div>
       <div class="rd-card-body">
-        ${isNow?'<span class="rd-now-tag">本週選文 This week</span>':`<span class="rd-week">${r.week}</span>`}
+        ${chip}
         <h3>${r.topic}</h3><div class="rd-card-zh">${r.zh}</div>
         <div class="rd-card-meta"><span class="rd-tag">${r.tag}</span><span class="rd-src">${r.src}</span></div>
         <div class="rd-card-lv">A1–A2 · B1–B2 · C1–C2　三種難度</div>
       </div></button>`;
   }).join("");
+  const meta = active ? rdCatOf(active) : null;
+  const head = meta
+    ? `<div class="crumb"><a href="#/reading">時事閱讀</a> › ${meta.zh}</div>
+       <div class="eyebrow">Reading zone · 閱讀專區</div>
+       <h1 class="display">${meta.emoji} ${meta.zh}<span class="zh-term-lg">${meta.en}</span></h1>
+       <p class="lede">${meta.desc}　每篇皆附 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度與中英對照。</p>`
+    : `<div class="eyebrow">News reading · 每週時事閱讀</div>
+       <h1 class="display">Read the World<span class="zh-term-lg">讀懂世界</span></h1>
+       <p class="lede">分成「每週新聞、歷史、自然、科學、神話、文化、旅遊、風俗民情」等專區，每篇改寫成 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度。同一主題、三個版本，全班可一起讀再討論。點下方分頁切換主題，或直接點任一篇。</p>
+       <p class="rd-sources">📰 <b>資料來源 Sources</b>　本專欄選文改寫自 <span class="rd-src-list">Science、Nature、The New York Times、TIME、The Economist、The Washington Post、Taiwan News、Taipei Times、VOA、NBC</span> 等國際媒體之公開報導，並依主題保留原始出處（如 UN、UNESCO、FAO、NASA）。皆為依事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</p>`;
   app.innerHTML = `<div class="view">
-    <div class="eyebrow">News reading · 每週時事閱讀</div>
-    <h1 class="display">Read the World<span class="zh-term-lg">讀懂世界</span></h1>
-    <p class="lede">取材自國際主流媒體的重大時事，改寫成 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度。同一則新聞、三個版本，全班可以讀同一個主題再一起討論。文章每週自動更換，也可以直接點下面任何一篇。</p>
-    <p class="rd-sources">📰 <b>資料來源 Sources</b>　本專欄選文改寫自 <span class="rd-src-list">Science、Nature、The New York Times、TIME、The Economist、The Washington Post、Taiwan News、Taipei Times、VOA、NBC</span> 等國際媒體之公開報導，並依主題保留原始出處（如 UN、UNESCO、FAO、NASA）。皆為依事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</p>
+    ${head}
+    ${tabs}
     <div class="rd-actions"><button class="btn btn-ghost" onclick="rdPrintAll()">🖨 批次列印全部文章（三種難度）</button></div>
     <div class="rd-grid">${cards}</div>
     <div class="rd-note">📖 題型參考國中會考與大考：主旨大意、細節理解、字義推敲、推論、語氣與篇章結構。<br>
