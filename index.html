@@ -8855,17 +8855,19 @@ const PREFIX_CARDS = [
  {p:"under- / infra-", zh:"在～下方", ex:[["<b>under</b>ground","地下的"],["<b>under</b>line","畫底線"],["<b>infra</b>red","紅外線"]]},
  {p:"mil-", zh:"千", ex:[["<b>mil</b>lion","百萬"],["<b>mil</b>limeter","公釐"],["<b>mil</b>lennium","千年；千禧年"]]}
 ];
+const PFC_IMG = ["en","in-inside","ob","a-toward","ad","counter","un","dis","de","ab","pre","inter","ex","syn","con","sur","super","sub","re","fore","dou","in-not","mis","a-not","trans","tri","uni","mal","up","per","semi","mono","micro","down","out","cent","bi","multi","over","under","mil"];
 function renderPrefixCards(){
-  const cards = PREFIX_CARDS.map(c=>`
+  const cards = PREFIX_CARDS.map((c,i)=>`
     <button class="pfc-card" onclick="this.classList.toggle('flipped')" aria-label="${c.p}">
       <span class="pfc-inner">
         <span class="pfc-face pfc-front">
-          <span class="pfc-p">${c.p}</span>
-          <span class="pfc-zh">${c.zh}</span>
-          <span class="pfc-hint">翻卡看例字 ↻</span>
+          <img class="pfc-img" src="art/prefix-cards/${PFC_IMG[i]}.png" alt="${c.p} 圖像" loading="lazy">
+          <span class="pfc-fp">${c.p}</span>
+          <span class="pfc-hint">翻卡看意思 ↻</span>
         </span>
         <span class="pfc-face pfc-back">
           <span class="pfc-bp">${c.p}</span>
+          <span class="pfc-bzh">${c.zh}</span>
           <ul class="pfc-ex">${c.ex.map(e=>`<li><span class="pfc-w">${e[0]}</span><span class="pfc-g">${e[1]}</span></li>`).join("")}</ul>
           ${c.note?`<span class="pfc-note">⚠ ${c.note}</span>`:""}
         </span>
@@ -8880,12 +8882,13 @@ function renderPrefixCards(){
     .pfc-inner{position:relative;display:block;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
     .pfc-card.flipped .pfc-inner{transform:rotateY(180deg)}
     .pfc-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-sizing:border-box;box-shadow:0 2px 9px rgba(0,0,0,.13)}
-    .pfc-front{background:var(--th-accent,#2C6E72);color:#fff;gap:6px;padding:8px}
-    .pfc-p{font:700 clamp(20px,4.6vw,28px)/1.05 var(--serif,serif);text-align:center}
-    .pfc-zh{font-size:14px;opacity:.95;text-align:center;line-height:1.3}
-    .pfc-hint{position:absolute;bottom:9px;font-size:11px;opacity:.72}
+    .pfc-front{background:#fff;color:var(--th-ink,#222);gap:3px;padding:9px 9px 22px;border:2px solid var(--th-warm,#C6892F)}
+    .pfc-img{flex:1 1 auto;min-height:0;width:100%;object-fit:contain}
+    .pfc-fp{font:700 clamp(15px,3.4vw,19px)/1.1 var(--serif,serif);color:var(--th-accent,#2C6E72);text-align:center}
+    .pfc-hint{position:absolute;bottom:7px;left:0;right:0;font-size:10.5px;opacity:.5;text-align:center}
     .pfc-back{background:#fff;color:var(--th-ink,#222);transform:rotateY(180deg);align-items:stretch;justify-content:flex-start;padding:10px 11px;border:2px solid var(--th-accent,#2C6E72)}
-    .pfc-bp{font:700 15px var(--serif,serif);color:var(--th-accent,#2C6E72);border-bottom:1px solid #eee;padding-bottom:4px;margin-bottom:7px;text-align:center}
+    .pfc-bp{font:700 16px var(--serif,serif);color:var(--th-accent,#2C6E72);padding-bottom:3px;text-align:center}
+    .pfc-bzh{font-size:12.5px;color:#555;text-align:center;border-bottom:1px solid #eee;padding-bottom:6px;margin-bottom:7px}
     .pfc-ex{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
     .pfc-ex li{display:flex;flex-direction:column;line-height:1.2;text-align:left}
     .pfc-w{font-size:15px;color:#222}
@@ -8898,7 +8901,7 @@ function renderPrefixCards(){
     <div class="th-hd">
       <div class="eyebrow" style="color:var(--th-accent)">Prefix Flashcards · 字首翻卡</div>
       <h1 class="display">字首翻卡<span class="zh-term-lg" style="color:var(--th-warm)">Prefix Cards</span></h1>
-      <p class="lede">正面是字首和意思，點一下翻到背面看<b>例字</b>。看字首、想意思、再用例字記起來——${PREFIX_CARDS.length} 個常見字首一次收齊。<br>Tap a card to flip it and see example words. ${PREFIX_CARDS.length} common prefixes.</p>
+      <p class="lede">正面是<b>圖像和字首</b>（老師手繪的字首法卡片），點一下翻到背面看<b>意思和例字</b>。看圖想字首、再用例字記起來——${PREFIX_CARDS.length} 個常見字首一次收齊。<br>Tap a card to flip from the picture to its meaning and example words. ${PREFIX_CARDS.length} common prefixes.</p>
     </div>
     <div class="pfc-controls">
       <button class="btn btn-ghost" onclick="document.querySelectorAll('.pfc-card').forEach(c=>c.classList.remove('flipped'))">↺ 全部翻回正面</button>
