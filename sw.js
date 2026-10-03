@@ -1,16 +1,21 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v52-vocab-l5";
+const CACHE = "eci-v51-lazy-offline";
 const SHELL = [
   "./",
   "./index.html",
   "./progress-sync.js?v=1",
-  "./daily.js",
-  "./daily.css",
-  "./vocab-quest.js",
+  "./daily.js?v=16",
+  "./curriculum-loader.js?v=1",
+  "./offline-content.js?v=1",
+  "./daily.css?v=17",
+  "./vocab-quest.js?v=10",
   "./manifest.webmanifest",
   "./vocab/",
-  "./vocab/account-storage.js?v=1",
-  "./vocab/app.js?v=2",
+  "./vocab/account-storage.js?v=2",
+  "./vocab/app.js?v=3",
+  "./vocab/catalog.js?v=1",
+  "./vocab/book-loader.js?v=1",
+  "./vocab/books.js?v=6",
   "./vocab/books.js",
   "./vocab/style.css",
   "./icons/icon-192.png",
@@ -28,14 +33,20 @@ self.addEventListener("install", (e) => {
 self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => /^eci-v\d+-/.test(k) && k !== CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
 
+async function cachedAsset(req){
+  const current=await caches.open(CACHE);
+  return await current.match(req) || await (await caches.open('eci-offline-v1')).match(req);
+}
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
+  // Explicit offline downloads must fetch fresh content, not stale cached copies.
+  if(req.cache === "reload" && req.mode !== "navigate")return;
   const url = new URL(req.url);
 
   // Page loads: network-first (always fresh when online), fall back to cached shell offline.
@@ -46,13 +57,14 @@ self.addEventListener("fetch", (e) => {
       fetch(req)
         .then((r) => {
           // 只有主站首頁存成 index.html；子頁（例如 vocab/）各自快取，避免蓋掉主站
+          if(!r.ok)throw new Error("Page unavailable");
           const cp = r.clone();
           caches.open(CACHE).then((c) => isShell ? c.put("./index.html", cp) : c.put(req, cp));
           return r;
         })
         .catch(() => isShell
-          ? caches.match("./index.html").then((r) => r || caches.match("./"))
-          : caches.match(req).then((r) => r || caches.match("./index.html")))
+          ? cachedAsset("./index.html").then(r=>r||Response.error())
+          : cachedAsset(req).then(async r=>r || (url.pathname===scope+"vocab/" || url.pathname===scope+"vocab/index.html" ? await cachedAsset("./vocab/") : null) || Response.error()))
     );
     return;
   }
@@ -60,11 +72,11 @@ self.addEventListener("fetch", (e) => {
   // Same-origin assets (audio, icons, etc.): stale-while-revalidate.
   if (url.origin === location.origin) {
     e.respondWith(
-      caches.match(req).then((cached) => {
+      cachedAsset(req).then((cached) => {
         const net = fetch(req).then((r) => {
           if (r && r.status === 200) { const cp = r.clone(); caches.open(CACHE).then((c) => c.put(req, cp)); }
           return r;
-        }).catch(() => cached);
+        }).catch(() => cached || Response.error());
         return cached || net;
       })
     );
@@ -76,9 +88,9 @@ self.addEventListener("fetch", (e) => {
 
   // Cross-origin (Google Fonts, cdnjs, YouTube thumbs): cache-first, tolerate opaque.
   e.respondWith(
-    caches.match(req).then((cached) => cached || fetch(req).then((r) => {
+    cachedAsset(req).then((cached) => cached || fetch(req).then((r) => {
       try { const cp = r.clone(); caches.open(CACHE).then((c) => c.put(req, cp)); } catch (_) {}
       return r;
-    }).catch(() => cached))
+    }).catch(() => cached || Response.error()))
   );
 });

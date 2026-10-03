@@ -3,9 +3,9 @@ const {createAccountStorage}=require('../vocab/account-storage.js');
 function harness(){
  const m=new Map(),storage={get length(){return m.size},key:i=>[...m.keys()][i],getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k)};
  const node={addEventListener(){},classList:{toggle(){}},querySelectorAll:()=>[]};
- const context=vm.createContext({console:{warn(){}},localStorage:storage,createAccountStorage,document:{querySelector:()=>node,addEventListener(){}},window:{addEventListener(){}},location:{search:'',hash:'#home'},URLSearchParams,BUILTIN_BOOKS:[{id:'jh-core',words:[],title:'test'}],setTimeout:()=>1,clearTimeout(){}});
+ const context=vm.createContext({console:{warn(){}},localStorage:storage,createAccountStorage,createBookLoader:require("../vocab/book-loader.js").createBookLoader,VOCAB_CATALOG:[],document:{querySelector:()=>node,addEventListener(){}},window:{addEventListener(){}},location:{search:'',hash:'#home'},URLSearchParams,BUILTIN_BOOKS:[{id:'jh-core',words:[],title:'test'}],setTimeout:()=>1,clearTimeout(){}});
  const source=fs.readFileSync(require.resolve('../vocab/app.js'),'utf8').replace(/app.innerHTML='<p class="muted">正在載入帳號與本機進度…<\/p>';\s*cloudInit\(\);\s*$/,'');
- vm.runInContext(source+`;route=()=>{};home=()=>{};globalThis.api={CLOUD,LS,switchAccount,cloudPull,cloudPush,markDirty,prog,saveProg,getSettings:()=>settings};`,context);
+ vm.runInContext(source+`;route=()=>{};home=()=>{};globalThis.api={CLOUD,LS,switchAccount,cloudPull,cloudPush,cloudDelete,syncAccount,markDirty,prog,saveProg,getSettings:()=>settings};`,context);
  return context.api;
 }
 function deferred(){let resolve;const promise=new Promise(r=>resolve=r);return {promise,resolve}}
@@ -26,4 +26,17 @@ test('local changes during an in-flight write remain pending on disk',async()=>{
 });
 test('sign-out restores guest settings and hides account records',()=>{
  const a=harness();a.LS.set('vr:settings',{dailyNew:5});a.switchAccount({id:'A'});a.LS.set('vr:settings',{dailyNew:20});a.saveProg('jh-core',{cat:{s:1}});a.switchAccount(null);assert.equal(a.getSettings().dailyNew,5);assert.equal(a.prog('jh-core').cat,undefined);
+});
+
+test('failed reset persists across account reload and retries before pulling old records',async()=>{
+ const a=harness();a.switchAccount({id:'A'});a.CLOUD.pulled=true;
+ let failed=true;
+ a.CLOUD.sb={from:()=>({delete:()=>({eq:()=>({eq:async()=>({error:failed?{message:'offline'}:null})})})})};
+ await a.cloudDelete('jh-core');assert.equal(a.CLOUD.state,'error');assert.deepEqual([...a.LS.get('vr:deletes')],['jh-core']);
+ a.switchAccount(null);a.switchAccount({id:'A'});assert.equal(a.CLOUD.deletes.has('jh-core'),true);a.CLOUD.pulled=true;failed=false;await a.cloudPush();assert.equal(a.CLOUD.deletes.size,0);assert.deepEqual([...a.LS.get('vr:deletes')],[]);
+});
+test('pull does not resurrect a book awaiting deletion',async()=>{
+ const a=harness();a.switchAccount({id:'A'});a.CLOUD.deletes.add('jh-core');
+ a.CLOUD.sb={from:()=>({select:()=>({eq:async()=>({data:[{book_id:'jh-core',words:{cat:{s:8}}}]})})})};
+ await a.cloudPull();assert.equal(a.prog('jh-core').cat,undefined);
 });
