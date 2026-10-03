@@ -1752,7 +1752,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="progress-sync.js?v=1"></script>
 <script src="daily.js?v=16"></script>
 <script src="vocab/books.js?v=6"></script>
-<script src="vocab-quest.js?v=9"></script>
+<script src="vocab-quest.js?v=10"></script>
 <script>
 /* Supabase backend (teacher dashboard + progress sync + homework).
    The anon key is meant to be public; Row Level Security protects the data. */
@@ -15899,7 +15899,7 @@ function renderGames(){
 /* books.js is already loaded by the main page (BUILTIN_BOOKS exists with the
    small starter books); here we lazily add the big data books, reusing the
    same URLs/version as the 背單字 app so the cache is shared, then flatten. */
-const WB_BOOKS = ["jh7","jh8","jh9","gsat3","gsat4"];
+const WB_BOOKS = ["jh7","jh8","jh9","gsat3","gsat4","gsat5"];
 let WB = null, WB_P = null;
 function loadWordBank(){
   if(WB) return Promise.resolve(WB);
