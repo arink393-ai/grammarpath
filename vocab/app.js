@@ -25,12 +25,15 @@ const requestedBook = new URLSearchParams(location.search).get('book');
 // ?book=<id>：從外部連結直接指定單字書（例如 Language Lab 章節）
 (() => {
   const q = new URLSearchParams(location.search).get('book');
-  if (q && BUILTIN_BOOKS.concat(LS.get('vr:books', [])).some(b => b.id === q)) { settings.bookId = q; saveSettings(); }
+  if (q && BUILTIN_BOOKS.concat(VOCAB_CATALOG,LS.get('vr:books', [])).some(b => b.id === q)) { settings.bookId = q; saveSettings(); }
   if (q) history.replaceState(null, '', location.pathname + location.hash);
 })();
 
+const bookLoader = createBookLoader(BUILTIN_BOOKS,VOCAB_CATALOG);
+const bookCount = b => b.words ? b.words.length : b.count;
 const customBooks = () => LS.get('vr:books', []);
-const allBooks = () => [...BUILTIN_BOOKS, ...customBooks()];
+const allBooks = () => [...BUILTIN_BOOKS, ...VOCAB_CATALOG.filter(b=>!BUILTIN_BOOKS.some(x=>x.id===b.id)), ...customBooks()];
+const isBuiltin = id => BUILTIN_BOOKS.some(b=>b.id===id)||VOCAB_CATALOG.some(b=>b.id===id);
 const curBook = () => allBooks().find(b => b.id === settings.bookId) || allBooks().find(b => b.id === DEFAULT_SETTINGS.bookId);
 const prog = id => LS.get('vr:p:' + id, {});
 const saveProg = (id, p) => { LS.set('vr:p:' + id, p); markDirty(id); };
@@ -62,6 +65,7 @@ const newToday = book => { const p = prog(book.id), t = today(); return book.wor
 function summary(book) {
   const p = prog(book.id), t = today();
   const c = { new: 0, learning: 0, master: 0, killed: 0, due: 0 };
+  if(!book.words){for(const r of Object.values(p)){c[status(r)]++;if(r&&r.s<KILLED&&r.due<=t)c.due++;}c.new=Math.max(0,book.count-c.learning-c.master-c.killed);return c;}
   for (const w of book.words) {
     const r = p[w.w]; c[status(r)]++;
     if (r && r.s < KILLED && r.due <= t) c.due++;
@@ -174,11 +178,12 @@ const clozeEx = (ex, w) => esc(ex).replace(stemRe(w), '<u>&nbsp;</u>');
 /* ========== 雲端同步（English Cat Island 帳號，老師後台看得到） ========== */
 // 只有在頁面提供 window.VR_SUPABASE（grammarpath/vocab/index.html）時啟用；
 // 與主站同網域，所以共用主站的登入狀態。
-const CLOUD = { sb: null, user: null, timer: null, dirty: new Set(), state: 'off' };
+const CLOUD = { sb: null, user: null, timer: null, dirty: new Set(), deletes:new Set(), state: 'off' };
 function markDirty(id) {
   if (!CLOUD.user) return;
-  CLOUD.dirty.add(id); LS.set('vr:dirty', [...new Set([...CLOUD.dirty,...(CLOUD.inflight?.token===LS.token()?CLOUD.inflight.ids:[])])]); CLOUD.state='pending'; clearTimeout(CLOUD.timer); CLOUD.timer = setTimeout(cloudPush, 2000);
+  CLOUD.dirty.add(id); LS.set('vr:dirty', [...new Set([...CLOUD.dirty,...(CLOUD.inflight?.token===LS.token()?CLOUD.inflight.ids:[])])]); CLOUD.state='pending'; updateCloudBar(); clearTimeout(CLOUD.timer); CLOUD.timer = setTimeout(cloudPush, 2000);
 }
+function updateCloudBar(){const bar=document.querySelector('.cloudbar');if(bar)bar.outerHTML=cloudBar();}
 function cloudBar() {
   if (CLOUD.state === 'off') return '';
   if (CLOUD.state === 'guest') return `<a class="cloudbar warn" href="../#/home">☁️ 還沒登入：登入 English Cat Island 帳號後，進度會同步給老師 →</a>`;
@@ -194,6 +199,7 @@ function switchAccount(user) {
   CLOUD.user = user;
   LS.switchTo(user?.id);
   CLOUD.dirty = new Set(LS.get('vr:dirty', []));
+  CLOUD.deletes = new Set(LS.get('vr:deletes', []));
   CLOUD.state = user ? 'loading' : 'guest';
   CLOUD.pulled = false;
   settings = { ...DEFAULT_SETTINGS, ...LS.get('vr:settings', {}) };
@@ -241,6 +247,7 @@ async function cloudPull() {
   CLOUD.state = 'synced';
   for (const row of data || []) {
     const id = row.book_id;
+    if(CLOUD.deletes.has(id))continue;
     if (row.book_data && !allBooks().some(b => b.id === id)) LS.set('vr:books', [...customBooks(), row.book_data]);
     const p = prog(id);
     for (const [w, r] of Object.entries(row.words || {})) if (!p[w] || (r.u || 0) > (p[w].u || 0)) p[w] = r;
@@ -256,10 +263,23 @@ async function cloudPull() {
   CLOUD.pulled=true; return true;
 }
 async function cloudPush() {
-  if (!CLOUD.user || !CLOUD.dirty.size) return;
+  if (!CLOUD.user || (!CLOUD.dirty.size && !CLOUD.deletes.size)) return;
   if(!CLOUD.pulled){await syncAccount();return;}
   const token=LS.token();
   if(CLOUD.pushToken===token)return;
+  CLOUD.pushToken=token;
+  try {
+    for(const id of [...CLOUD.deletes]){
+      const {error}=await CLOUD.sb.from('vocab_progress').delete().eq('user_id',CLOUD.user.id).eq('book_id',id);
+      if(!LS.current(token))return;
+      if(error)throw error;
+      CLOUD.deletes.delete(id);LS.set('vr:deletes',[...CLOUD.deletes]);
+    }
+  }catch(e){
+    if(LS.current(token)){CLOUD.state='error';updateCloudBar();clearTimeout(CLOUD.timer);CLOUD.timer=setTimeout(cloudPush,15000);}
+    return;
+  }finally{if(CLOUD.pushToken===token)CLOUD.pushToken=null;}
+  if(!LS.current(token))return;
   CLOUD.pushToken=token;
   const ids = [...CLOUD.dirty]; CLOUD.dirty.clear();
   CLOUD.inflight={token,ids};
@@ -268,13 +288,13 @@ async function cloudPush() {
     const b = allBooks().find(x => x.id === id); if (!b) return null;
     const days = Object.fromEntries(Object.entries(bstats(id)).filter(([d]) => +d >= cut));
     return {
-      user_id: CLOUD.user.id, book_id: id, book_title: b.title, total: b.words.length,
+      user_id: CLOUD.user.id, book_id: id, book_title: b.title, total: bookCount(b),
       words: prog(id), stars: [...stars(id)], days,
-      book_data: BUILTIN_BOOKS.some(x => x.id === id) ? null : b,
+      book_data: isBuiltin(id) ? null : b,
       last_active: now, updated_at: now
     };
   }).filter(Boolean);
-  if (!rows.length) {CLOUD.pushToken=null;CLOUD.inflight=null;LS.set('vr:dirty',[...CLOUD.dirty]);return;}
+  if (!rows.length) {CLOUD.pushToken=null;CLOUD.inflight=null;LS.set('vr:dirty',[...CLOUD.dirty]);CLOUD.state='synced';updateCloudBar();return;}
   let error;
   try { ({error}=await CLOUD.sb.from('vocab_progress').upsert(rows, { onConflict: 'user_id,book_id' })); } catch(e) {error=e;}
   if(CLOUD.pushToken===token)CLOUD.pushToken=null;
@@ -282,14 +302,18 @@ async function cloudPush() {
   CLOUD.inflight=null;
   const was = CLOUD.state;
   if (error) { ids.forEach(i => CLOUD.dirty.add(i)); CLOUD.state = 'error'; console.warn('cloud push', error); }
-  else CLOUD.state = CLOUD.dirty.size ? 'pending' : 'synced';
+  else CLOUD.state = (CLOUD.dirty.size || CLOUD.deletes.size) ? 'pending' : 'synced';
   LS.set('vr:dirty', [...CLOUD.dirty]);
-  if(CLOUD.dirty.size){clearTimeout(CLOUD.timer);CLOUD.timer=setTimeout(cloudPush,error?15000:2000);}
-  if (was !== CLOUD.state && (location.hash === '#home' || !location.hash)) home();
+  updateCloudBar();
+  if(CLOUD.dirty.size || CLOUD.deletes.size){clearTimeout(CLOUD.timer);CLOUD.timer=setTimeout(cloudPush,error?15000:2000);}
+  if (was !== CLOUD.state && (location.hash === '#home' || !location.hash)) route();
 }
 async function cloudDelete(id) {
-  CLOUD.dirty.delete(id); LS.set('vr:dirty',[...CLOUD.dirty]);
-  if (CLOUD.user) { try { await CLOUD.sb.from('vocab_progress').delete().eq('user_id', CLOUD.user.id).eq('book_id', id); } catch {} }
+  CLOUD.dirty.delete(id);LS.set('vr:dirty',[...CLOUD.dirty]);
+  if(!CLOUD.user)return;
+  CLOUD.deletes.add(id);LS.set('vr:deletes',[...CLOUD.deletes]);
+  CLOUD.state='pending';updateCloudBar();
+  await cloudPush();
 }
 window.addEventListener('online',syncAccount);
 document.addEventListener('visibilitychange', () => { if (document.hidden) cloudPush(); });
@@ -297,11 +321,21 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) cloud
 /* ========== 路由 ========== */
 let session = null, quiz = null;
 const routes = { home, study, quiz: quizHome, list, me, teacher };
+let routeVersion=0;
 async function route() {
+  const version=++routeVersion, owner=LS.token();
   const h = location.hash.slice(1);
   if (h.startsWith('b=')) return importFromHash(h.slice(2));
   const [name] = h.split('?');
   const fn = routes[name] || home;
+  if(!['me','teacher'].includes(name) && !curBook().words){
+    app.innerHTML='<p role="status">正在載入單字書…</p>';
+    try{await bookLoader.load(curBook().id);}catch(e){
+      if(version===routeVersion && LS.current(owner))app.innerHTML='<p role="alert">單字書尚未下載，請連線後重試。</p><button class="btn" data-act="retry-load">重試</button> <a href="#me">選擇其他單字書</a>';
+      return;
+    }
+    if(version!==routeVersion || !LS.current(owner))return;
+  }
   document.body.classList.toggle('focus', name === 'study' || (name === 'quiz' && quiz && !quiz.done));
   document.querySelectorAll('#tabbar a').forEach(a => a.classList.toggle('on', a.dataset.tab === (name || 'home') || (name === 'teacher' && a.dataset.tab === 'me')));
   if (window.speechSynthesis) speechSynthesis.cancel();
@@ -647,11 +681,11 @@ function me() {
     <h1>設定</h1>
     <h2>選擇單字書</h2>
     <div class="booklist">${books.map(b => {
-      const c = summary(b), custom = !BUILTIN_BOOKS.includes(b);
+      const c = summary(b), custom = !isBuiltin(b.id);
       return `<div class="card bookitem ${b.id === settings.bookId ? 'on' : ''}">
         <div class="grow" data-act="pickbook" data-id="${esc(b.id)}" style="cursor:pointer"><b>${esc(b.title)}</b>
           <div class="small muted">${esc(b.desc || (custom ? '老師分享的單字書' : ''))}</div>
-          <div class="small muted">${b.words.length} 字 · 已學 ${b.words.length - c.new}</div></div>
+          <div class="small muted">${bookCount(b)} 字 · 已學 ${bookCount(b) - c.new}</div></div>
         ${b.id === settings.bookId ? '<span class="tag">使用中</span>' : `<button class="btn sm" data-act="pickbook" data-id="${esc(b.id)}">使用</button>`}
         ${custom ? `<button class="iconbtn" data-act="delbook" data-id="${esc(b.id)}" title="移除這本書">🗑</button>` : ''}
       </div>`;
@@ -671,17 +705,19 @@ function me() {
       <div class="switch"><span>試聽</span><button class="speak" data-act="sayw" data-w="Practice makes perfect.">🔊</button></div>
     </div>
 
+    <section class="card" id="offline-content-panel"></section>
     <h2>進度備份</h2>
     <div class="card">
-      <p class="small muted" style="margin-top:0">進度存在這台裝置的瀏覽器裡。換手機或電腦時，先在這裡複製備份碼，再到新裝置貼上。</p>
+      <p class="small muted" style="margin-top:0">訪客進度只存於這台裝置；登入後會同步單字進度、收藏、自訂單字書與每日練習統計，老師可查看。備份碼只包含目前帳號的學習資料，請自行妥善保存。</p>
       <div class="row wrap"><button class="btn sm" data-act="backup">複製備份碼</button><button class="btn sm" data-act="restore">貼上備份碼還原</button>
       <button class="btn sm ghost" data-act="reset" style="color:var(--bad)">重設目前這本書的進度</button></div>
     </div>
 
     <h2>老師專區</h2>
     <a class="card btn block mode" href="#teacher" style="text-decoration:none"><span class="ico">🍎</span><span><b>建立並分享單字書</b><span class="small muted">貼上單字表，產生學生專用連結與 QR Code</span></span></a>
-    <p class="small muted center" style="margin-top:28px">每日單字 · 進度只存在本機，不需登入</p>
+    <p class="small muted center" style="margin-top:28px">每日單字 · 可免登入練習；登入後啟用雲端同步</p>
   </div>`;
+  OfflineContent.mount(document.getElementById('offline-content-panel'),{bookId:curBook().id,bookTitle:curBook().title,largeBook:VOCAB_CATALOG.some(b=>b.id===curBook().id)});
   $('#dailyNew').onchange = e => { settings.dailyNew = +e.target.value; saveSettings(); toast('已更新'); };
   $('#autoplay').onchange = e => { settings.autoplay = e.target.checked; saveSettings(); };
   $('#voice').onchange = e => { const [v, a] = e.target.value.split('|'); settings.voice = v; settings.accent = +a; saveSettings(); speak('Hello'); };
@@ -974,6 +1010,7 @@ document.addEventListener('click', e => {
     el.classList.toggle('on', st.has(w)); el.textContent = st.has(w) ? '★' : '☆'; return;
   }
   if (act === 'unkill') { const b = curBook(), p = prog(b.id); p[el.dataset.w] = { s: 1, due: today(), l: 0, d0: today(), u: Date.now() }; saveProg(b.id, p); toast('已放回學習中，今天會複習'); return list(); }
+  if (act === 'retry-load') return route();
   if (act === 'pickbook') { settings.bookId = el.dataset.id; saveSettings(); toast('已切換單字書'); return me(); }
   if (act === 'delbook') {
     if (!confirm('移除這本單字書和它的學習進度？')) return;

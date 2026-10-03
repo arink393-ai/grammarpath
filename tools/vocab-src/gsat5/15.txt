@@ -7,7 +7,7 @@ recite || v. || 背誦 || She recited a poem. || 她背誦了一首詩。 || rec
 recommend || v. || 推薦；建議 || Can you recommend a good book? || 你能推薦一本好書嗎？ || recommend that=建議… || The doctor recommended that he ___ more water. || drink|drinks|drank || recommend that + 主詞 + (should) + 原形動詞。 || 醫生建議他多喝水。
 recommendation || n. || 推薦；建議 || I bought this book on your recommendation. || 我照你的推薦買了這本書。 || letter of recommendation=推薦信 || I need a letter of recommendation ___ my teacher. || from|of|by || from + 人 = 來自…。 || 我需要一封老師寫的推薦信。
 recruit || v./n. || 招募 || The company is recruiting new staff. || 公司正在招募新員工。 || new recruit=新成員 || The club is trying ___ recruit new members. || to|for|of || try to + 原形動詞。 || 社團正在努力招募新成員。
-refuge || n. || 避難所 || They took refuge in a cave. || 他們躲進山洞避難。 || take refuge=避難 || During the storm, we took refuge ___ a small temple. || in|on|at of || take refuge in = 在…避難。 || 暴風雨中我們在一間小廟避難。
+refuge || n. || 避難所 || They took refuge in a cave. || 他們躲進山洞避難。 || take refuge=避難 || During the storm, we took refuge ___ a small temple. || in|on|to || take refuge in = 在…避難。 || 暴風雨中我們在一間小廟避難。
 regardless || adv. || 不管 || He went regardless of the danger. || 他不顧危險還是去了。 || regardless of=不管… || Everyone is welcome, regardless ___ age. || of|to|for || regardless of = 不管…。 || 不論年齡，歡迎所有人。
 regime || n. || 政權 || The regime controlled the media. || 那個政權控制媒體。 || military regime=軍事政權 || Many people escaped ___ the regime to find freedom. || from|of|with || escape from = 逃離…。 || 許多人逃離那個政權以尋找自由。
 rehearsal || n. || 排練 || We have a rehearsal tonight. || 我們今晚要彩排。 || dress rehearsal=彩排 || The actors are ___ rehearsal for the new play. || in|on|at || in rehearsal = 排練中。 || 演員們正在排練新戲。
@@ -23,7 +23,7 @@ reservoir || n. || 水庫 || The reservoir is almost empty. || 水庫幾乎乾�
 residence || n. || 住所 || This is the president's official residence. || 這是總統的官邸。 || official residence=官邸 || The old house was once the residence ___ a famous writer. || of|for|to || the residence of = …的住所。 || 那棟老房子曾經是一位知名作家的住所。
 resident || n. || 居民 || Local residents complained about the noise. || 當地居民抱怨噪音。 || local resident=當地居民 || Residents ___ the area complained about the noise. || of|for|to || residents of = …的居民。 || 這個地區的居民抱怨噪音。
 residential || adj. || 住宅的 || This is a quiet residential area. || 這是一個安靜的住宅區。 || residential area=住宅區 || Factories are not allowed ___ residential areas. || in|on|at || in an area = 在…區域。 || 住宅區內不准設工廠。
-resort || n. || 度假勝地 || We stayed at a beach resort. || 我們住在海灘度假村。 || beach resort=海灘度假村 || We spent our holiday ___ a beach resort in Kenting. || at|in|on of || at + 地點 = 在…。 || 我們在墾丁的一個海灘度假村度假。
+resort || n. || 度假勝地 || We stayed at a beach resort. || 我們住在海灘度假村。 || beach resort=海灘度假村 || We spent our holiday ___ a beach resort in Kenting. || at|on|to || at + 地點 = 在…。 || 我們在墾丁的一個海灘度假村度假。
 respondent || n. || 受訪者 || Most respondents agreed with the plan. || 大多數受訪者同意這個計畫。 || survey respondent=調查受訪者 || More than half of the respondents ___ they were happy. || said|says|saying || 主詞 half of the respondents，過去調查用過去式。 || 超過一半的受訪者說他們很快樂。
 resume || v. || 重新開始 || Classes will resume next week. || 課程下週恢復。 || resume work=復工 || The game resumed ___ the rain stopped. || after|before|until || 雨停「之後」恢復，用 after。 || 雨停後比賽恢復進行。
 retail || n./adj. || 零售 || She works in retail. || 她從事零售業。 || retail price=零售價 || The retail price of this phone is higher ___ I expected. || than|then|as || 比較級 + than。 || 這支手機的零售價比我預期的高。
@@ -35,7 +35,7 @@ ridge || n. || 山脊 || We walked along the ridge. || 我們沿著山脊走。 
 ridiculous || adj. || 荒謬的 || That's a ridiculous idea. || 那是個荒謬的點子。 || look ridiculous=看起來可笑 || It's ridiculous ___ pay 500 dollars for a cup of coffee. || to|for|of || It is + 形容詞 + to V。 || 花五百元買一杯咖啡真是荒謬。
 rifle || n. || 步槍 || The soldier carried a rifle. || 士兵扛著步槍。 || hunting rifle=獵槍 || The soldier ___ a rifle stood at the gate. || with|of|in || with + 物品 = 帶著…。 || 那名帶著步槍的士兵站在門口。
 rigid || adj. || 嚴格的；僵硬的 || The school has rigid rules. || 這間學校規定很嚴格。 || rigid rules=嚴格的規定 || The rules are ___ rigid that students feel stressed. || so|such|too || so + 形容詞 + that…。 || 規定嚴格到讓學生覺得有壓力。
-rim || n. || 邊緣 || There is a crack on the rim of the cup. || 杯緣有一道裂痕。 || rim of a cup=杯緣 || There is salt ___ the rim of the glass. || on|in|at of || 在表面上用 on。 || 玻璃杯緣上有鹽。
+rim || n. || 邊緣 || There is a crack on the rim of the cup. || 杯緣有一道裂痕。 || rim of a cup=杯緣 || There is salt ___ the rim of the glass. || on|of|to || 在表面上用 on。 || 玻璃杯緣上有鹽。
 riot || n./v. || 暴動 || The police stopped the riot. || 警方平息了暴動。 || riot police=鎮暴警察 || The riot police were sent ___ control the crowd. || to|for|of || 不定詞 to V 表示目的。 || 鎮暴警察被派去控制群眾。
 rip || v./n. || 撕裂 || He ripped his jeans. || 他把牛仔褲扯破了。 || rip off=敲竹槓 || Fifty dollars for a bottle of water? That's a rip-off, ___ it? || isn't|is|doesn't || 前句 is 肯定，附加問句用 isn't it。 || 一瓶水五十元？太坑人了，不是嗎？
 risky || adj. || 有風險的 || It's risky to invest all your money. || 把所有錢拿去投資很冒險。 || risky business=冒險的事 || It is risky ___ swim alone in the sea. || to|for|of || It is + 形容詞 + to V。 || 獨自在海裡游泳很危險。
