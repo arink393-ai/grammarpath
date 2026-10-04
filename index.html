@@ -1375,6 +1375,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 /* ===== Student login + 罐罐 economy ===== */
 .auth-gate{position:fixed;inset:0;z-index:200;background:linear-gradient(160deg,#FCF5EC,#EFE0C8);display:flex;align-items:flex-start;justify-content:center;padding:6vh 20px 40px;overflow:auto}
 .auth-gate[hidden],.auth-field[hidden],.acct-menu[hidden]{display:none!important}
+.auth-card [hidden],.auth-tabs[hidden],#authForm[hidden],#forgotForm[hidden],#resetForm[hidden]{display:none!important}
 .auth-card{position:relative}
 .auth-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--muted);font-size:15px;line-height:1;cursor:pointer;display:grid;place-items:center}
 .auth-close:hover{color:var(--navy)}
@@ -1398,7 +1399,14 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .auth-field input{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;font:400 15px var(--sans);color:var(--ink);background:var(--bg)}
 .auth-field input:focus{outline:none;border-color:var(--teal);background:var(--paper)}
 .auth-err{background:#FBE8E4;color:#B0503A;border:1px solid #F0C9C0;border-radius:9px;padding:9px 12px;font-size:13px;line-height:1.5;margin:0 0 12px}
+.auth-ok{background:#E5F3EC;color:#2F7A52;border:1px solid #BEE2CE;border-radius:9px;padding:10px 13px;font-size:13px;line-height:1.55;margin:0 0 12px}
 .auth-submit{width:100%;justify-content:center;margin-top:4px}
+.auth-forgot-row{text-align:center;margin-top:12px}
+.auth-link{background:none;border:none;color:var(--teal);font:600 13px var(--sans);cursor:pointer;padding:4px}
+.auth-link:hover{text-decoration:underline}
+.auth-sub2{font-size:13.5px;color:var(--body);line-height:1.6;margin:0 0 14px}
+.auth-hint2{font-size:12px;color:var(--muted);line-height:1.6;margin:14px 0 0}
+.auth-hint2 b{color:var(--body)}
 .auth-note{font-size:11.5px;color:var(--muted);line-height:1.6;margin:16px 0 0}
 .auth-note b{color:var(--body)}
 .can-pill{display:flex;align-items:center;gap:5px;background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:999px;padding:5px 12px;color:var(--amber);font:700 13px var(--sans);white-space:nowrap}
@@ -1738,8 +1746,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
     <button class="auth-close" id="authClose" type="button" aria-label="關閉 Close">✕</button>
     <div class="auth-brand"><span class="brand-mark">🐱</span> English Cat Island</div>
     <h1 class="auth-title">歡迎來到英語貓咪島 🐾</h1>
-    <p class="auth-sub">登入後才能使用島上的資源。每天<b>打卡</b>可以拿到 <b>10 個罐罐 🥫</b>，用來餵養貓咪、解鎖進階單元。</p>
-    <div class="auth-tabs">
+    <p class="auth-sub" id="authSub">登入後才能使用島上的資源。每天<b>打卡</b>可以拿到 <b>10 個罐罐 🥫</b>，用來餵養貓咪、解鎖進階單元。</p>
+    <div class="auth-tabs" id="authTabs">
       <button class="auth-tab active" id="tabLogin" type="button">登入 Log in</button>
       <button class="auth-tab" id="tabReg" type="button">註冊 Sign up</button>
     </div>
@@ -1749,6 +1757,23 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
       <label class="auth-field"><span>密碼 Password</span><input id="inPass" type="password" autocomplete="current-password" placeholder="••••••"></label>
       <p class="auth-err" id="authErr" hidden></p>
       <button class="btn btn-primary auth-submit" id="authSubmit" type="submit">登入 Log in</button>
+      <div class="auth-forgot-row" id="forgotRow"><button type="button" class="auth-link" id="forgotLink">忘記密碼？ Forgot password?</button></div>
+    </form>
+    <form id="forgotForm" autocomplete="off" novalidate hidden>
+      <p class="auth-sub2">輸入你註冊時用的 Email，我們會寄一封「重設密碼」的連結給你。<br>Enter your email and we'll send a password-reset link.</p>
+      <label class="auth-field"><span>Email</span><input id="fgEmail" type="email" autocomplete="email" placeholder="you@example.com"></label>
+      <p class="auth-err" id="fgErr" hidden></p>
+      <p class="auth-ok" id="fgOk" hidden></p>
+      <button class="btn btn-primary auth-submit" id="fgSubmit" type="submit">寄送重設連結 Send reset link</button>
+      <div class="auth-forgot-row"><button type="button" class="auth-link" id="fgBack">← 回到登入 Back to log in</button></div>
+      <p class="auth-hint2">沒收到信？請檢查垃圾郵件，或<b>直接請老師幫你重設密碼</b>。<br>No email? Check your spam folder, or ask your teacher to reset it.</p>
+    </form>
+    <form id="resetForm" autocomplete="off" novalidate hidden>
+      <p class="auth-sub2">為你的帳號設定一個新密碼（至少 6 個字）。<br>Set a new password for your account (at least 6 characters).</p>
+      <label class="auth-field"><span>新密碼 New password</span><input id="rsPass" type="password" autocomplete="new-password" placeholder="••••••"></label>
+      <label class="auth-field"><span>再輸入一次 Confirm password</span><input id="rsPass2" type="password" autocomplete="new-password" placeholder="••••••"></label>
+      <p class="auth-err" id="rsErr" hidden></p>
+      <button class="btn btn-primary auth-submit" id="rsSubmit" type="submit">設定新密碼 Set new password</button>
     </form>
     <p class="auth-note">🔒 登入後，姓名、Email、學習進度（完成課程、XP、罐罐、錯題、反思筆記、貓島狀態、單字與複習紀錄）及繳交作業會儲存在雲端。老師可查看學習紀錄、作業與評分。這台裝置也會保留各帳號的進度；共用裝置請記得登出。<b>請使用本網站專用的密碼。</b></p>
   </div>
@@ -1917,6 +1942,21 @@ const CLOUD = {
     await this._setUser(data.user);
     return {ok:true};
   },
+  async sendReset(email){
+    email=(email||"").trim().toLowerCase();
+    if(!this.on) return {err:"目前無法連線到伺服器。 Can't reach the server."};
+    const redirectTo = location.origin + location.pathname;   // must be in Supabase → Auth → URL allowlist
+    const { error } = await SB.auth.resetPasswordForEmail(email, { redirectTo });
+    if(error) return {err:this._msg(error)};
+    return {ok:true};
+  },
+  async updatePassword(newPass){
+    if(!this.on) return {err:"目前無法連線到伺服器。 Can't reach the server."};
+    const { error } = await SB.auth.updateUser({ password:newPass });
+    if(error) return {err:this._msg(error)};
+    try{ const gu = await SB.auth.getUser(); if(gu.data && gu.data.user) await this._setUser(gu.data.user); }catch(e){}
+    return {ok:true};
+  },
   async logout(){
     clearTimeout(this._syncTimer);
     // Local data/dirty marker survive a failed flush; a later login will retry.
@@ -2041,6 +2081,11 @@ store.save = function(){ store.saveLocal(); if(CLOUD.on && CLOUD.user) CLOUD.sch
 window.addEventListener("online",()=>CLOUD.pushProgress());
 document.addEventListener("visibilitychange",()=>{if(document.hidden)CLOUD.pushProgress();});
 if(SB) SB.auth.onAuthStateChange((event,session)=>{
+  if(event === "PASSWORD_RECOVERY"){   // user arrived via the "reset password" email link
+    RECOVERY = true;
+    setTimeout(()=>{ try{ openAuthModal(); setAuthMode("reset"); }catch(e){} }, 0);
+    return;
+  }
   if(event === "SIGNED_OUT" || (CLOUD.user && session?.user?.id!==CLOUD.user.id)){
     CLOUD._syncEpoch++;clearTimeout(CLOUD._syncTimer);CLOUD.user=null;SESSION=null;
     store.rebind(null);
@@ -14399,14 +14444,27 @@ async function tcFile(path){ const url=await CLOUD.fileLink(path); if(url) windo
    Boot + login gate
    ===================================================== */
 let AUTH_MODE = "login";
+let RECOVERY = false;
 function setAuthMode(m){
   AUTH_MODE = m;
-  $("#tabLogin").classList.toggle("active", m==="login");
-  $("#tabReg").classList.toggle("active", m==="register");
-  $("#fldName").hidden = (m==="login");
-  $("#inPass").setAttribute("autocomplete", m==="login" ? "current-password" : "new-password");
-  $("#authSubmit").textContent = (m==="login" ? "登入 Log in" : "註冊並登島 Sign up");
-  $("#authErr").hidden = true;
+  const login = m==="login", register = m==="register", forgot = m==="forgot", reset = m==="reset";
+  $("#authTabs").hidden   = !(login||register);
+  $("#authForm").hidden   = !(login||register);
+  $("#forgotForm").hidden = !forgot;
+  $("#resetForm").hidden  = !reset;
+  $("#authSub") && ($("#authSub").hidden = !(login||register));
+  if(login||register){
+    $("#tabLogin").classList.toggle("active", login);
+    $("#tabReg").classList.toggle("active", register);
+    $("#fldName").hidden = login;
+    $("#inPass").setAttribute("autocomplete", login ? "current-password" : "new-password");
+    $("#authSubmit").textContent = login ? "登入 Log in" : "註冊並登島 Sign up";
+    $("#forgotRow").hidden = !login;
+    $("#authErr").hidden = true;
+  }
+  const t = $(".auth-title");
+  if(t) t.textContent = forgot ? "重設密碼 🔑" : reset ? "設定新密碼 🔑" : "歡迎來到英語貓咪島 🐾";
+  ["#fgErr","#fgOk","#rsErr"].forEach(s=>{ const e=$(s); if(e) e.hidden = true; });
 }
 function applyAuthUI(){ $("#topbar").classList.toggle("auth-out", !currentUser()); }
 function openAuthModal(){ $("#acctMenu").hidden = true; $("#authGate").hidden = false; setAuthMode(AUTH_MODE); }
@@ -14417,7 +14475,8 @@ async function bootApp(){
   else { SESSION = AUTH.current(); }
   store.rebind(SESSION ? SESSION.email : null);
   if(CLOUD.on && SESSION) await CLOUD.pullProgress();
-  $("#authGate").hidden = true;
+  if(RECOVERY){ openAuthModal(); setAuthMode("reset"); }   // arrived via reset-password link
+  else $("#authGate").hidden = true;
   applyAuthUI();
   updateTeacherNav();
   route();
@@ -14445,6 +14504,37 @@ $("#authForm").addEventListener("submit", async (e)=>{
 $("#loginBtn").addEventListener("click", ()=>openAuthModal());
 $("#authClose").addEventListener("click", ()=>closeAuthModal());
 $("#authGate").addEventListener("click", (e)=>{ if(e.target===$("#authGate")) closeAuthModal(); });
+/* forgot / reset password */
+$("#forgotLink").addEventListener("click", ()=>setAuthMode("forgot"));
+$("#fgBack").addEventListener("click", ()=>setAuthMode("login"));
+$("#forgotForm").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const email = $("#fgEmail").value.trim();
+  const err = $("#fgErr"), ok = $("#fgOk"); err.hidden = true; ok.hidden = true;
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent = "Email 格式不正確。 That doesn't look like an email."; err.hidden = false; return; }
+  const btn = $("#fgSubmit"); btn.disabled = true; btn.textContent = "寄送中… Sending…";
+  const r = await (CLOUD.on ? CLOUD.sendReset(email) : Promise.resolve({err:"目前無法連線到伺服器，請改用有網路的環境，或請老師協助重設密碼。 Can't reach the server — ask your teacher to reset it."}));
+  btn.disabled = false; btn.textContent = "寄送重設連結 Send reset link";
+  if(r.err){ err.textContent = r.err; err.hidden = false; return; }
+  ok.innerHTML = "📧 如果這個 Email 有註冊過，重設連結已經寄出囉，請到信箱（記得看垃圾郵件）點開連結設定新密碼。<br>If that email is registered, a reset link is on its way — check your inbox and spam.";
+  ok.hidden = false;
+});
+$("#resetForm").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const p1 = $("#rsPass").value, p2 = $("#rsPass2").value, err = $("#rsErr"); err.hidden = true;
+  if((p1||"").length < 6){ err.textContent = "密碼至少要 6 個字。 At least 6 characters."; err.hidden = false; return; }
+  if(p1 !== p2){ err.textContent = "兩次輸入的密碼不一樣。 The two passwords don't match."; err.hidden = false; return; }
+  const btn = $("#rsSubmit"); btn.disabled = true; btn.textContent = "設定中… Saving…";
+  const r = await CLOUD.updatePassword(p1);
+  btn.disabled = false; btn.textContent = "設定新密碼 Set new password";
+  if(r.err){ err.textContent = r.err; err.hidden = false; return; }
+  RECOVERY = false;
+  $("#resetForm").reset();
+  closeAuthModal();
+  await bootApp();
+  location.hash = "#/home"; route();
+  toast("密碼已更新，歡迎回來 🐾");
+});
 /* check-in */
 $("#checkinPill").addEventListener("click", ()=>{
   if(store.checkIn()) toast("🐾 今日打卡完成 +" + CHECKIN_REWARD + " 🥫");
