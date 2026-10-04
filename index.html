@@ -1539,6 +1539,14 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .ps-phrase{background:var(--lab-paper);border:1px solid var(--lab-line);border-left:3px solid var(--lab-accent);border-radius:0 9px 9px 0;padding:9px 13px}
 .ps-phrase b{display:block;font:600 14.5px var(--serif);color:var(--lab-ink)}
 .ps-phrase span{display:block;font-family:var(--han);font-size:12.5px;color:var(--muted);margin-top:2px}
+.pq-form{font-size:13px;color:var(--body);line-height:1.6;margin:0 0 12px}
+.pq-form a{color:var(--lab-accent);font-weight:600;text-decoration:none;white-space:nowrap}
+.pq-form a:hover{text-decoration:underline}
+.pck{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
+.pck li label{display:flex;gap:11px;align-items:flex-start;padding:9px 11px;border-radius:9px;cursor:pointer;font:400 14px/1.55 var(--sans);color:var(--ink)}
+.pck li label:hover{background:var(--lab-paper)}
+.pck input{margin-top:2px;width:17px;height:17px;accent-color:var(--lab-accent);flex:none;cursor:pointer}
+.pck-print{margin-top:14px}
 /* reader */
 .lab-reader{max-width:760px}
 .lab-hero{text-align:center;padding:14px 0 8px;border-bottom:2px solid var(--lab-line);margin-bottom:8px}
@@ -5762,12 +5770,182 @@ const PRESENT = [
       {en:"Thank you for your attention.", zh:"謝謝大家的聆聽。"},
       {en:"I'm happy to take any questions.", zh:"很樂意回答任何問題。"}] }
 ];
+/* Self-check items per lesson (ticked on screen, or printed). */
+const PRESENT_CHECK = {
+  start:["我知道學術簡報的目的：分享知識、建立人脈。 I know the purpose: share knowledge and network.",
+         "我能說出簡報的三大塊：開場、主體、結論。 I can name the three parts.",
+         "我了解研究簡報對應論文的主要段落。 I know it mirrors a paper's main sections.",
+         "我知道結論不放新資訊。 I know the conclusion adds no new information.",
+         "我會為 Q&A 事先準備可能的問題。 I prepare for Q&A in advance."],
+  blocks:["我的簡報有清楚的開場、主體、結論。 Clear intro–body–conclusion.",
+          "我用了「先說→說它→再回顧」的結構。 I used the golden rule.",
+          "主體只放 2–4 個重點，講完一個再下一個。 Only 2–4 main points.",
+          "每換一個段落我都有一句轉場。 A transition at each new section.",
+          "結論有摘要＋謝謝＋開放提問。 Conclusion summarises, thanks, invites questions."],
+  hello:["我用了強力開場（問題／數據／故事）。 I used a strong hook.",
+         "我有問候並自我介紹。 I greeted and introduced myself.",
+         "我說清楚了主題與它為什麼重要。 I stated the topic and why it matters.",
+         "我在開場最後給了大綱。 I gave an outline at the end of the opening.",
+         "前 30 秒我抓住了聽眾注意力。 I grabbed attention in the first 30 seconds."],
+  proof:["每個主張我都有證據支持。 Every claim has evidence.",
+         "介紹圖表：是什麼圖 → 軸代表什麼 → 重點。 I introduced visuals properly.",
+         "我沒有唸出每一個數字。 I didn't read out every number.",
+         "我用了描述趨勢的語言。 I used language to describe trends.",
+         "我標示了資料來源。 I cited my sources."],
+  linking:["段落之間都有轉場語。 Signposts between sections.",
+           "補充／對比／順序／總結的連接詞我用對了。 I used the right linkers.",
+           "轉場之後我有停頓。 I paused after transitions.",
+           "聽眾隨時知道我講到哪裡。 The audience always knew where we were.",
+           "整場聽起來很流暢。 The whole talk flowed."],
+  engage:["我用反問句和「you」語言和聽眾互動。 I engaged with questions and 'you'.",
+          "我有眼神接觸，掃視全場。 I made eye contact across the room.",
+          "Q&A 我先聽完再回答。 I listened fully before answering.",
+          "需要時我會確認問題。 I clarified questions when needed.",
+          "不會的問題我誠實面對。 I was honest when I didn't know."],
+  delivery:["站姿穩、肩膀打開，手勢自然。 Tall, open posture, natural gestures.",
+            "我沒有一直唸投影片。 I didn't read off the slides.",
+            "我放慢速度、重音在關鍵字、善用停頓。 I paced my voice well.",
+            "我減少了贅詞（um、like、那個）。 I cut fillers.",
+            "我的聲音清楚、聽眾聽得懂。 My voice was clear."],
+  practice:["我有出聲練習，不只在心裡跑一遍。 I rehearsed out loud.",
+            "我計時並控制在時間內。 I timed myself and stayed on time.",
+            "我用提示卡（關鍵字）而不是整篇講稿。 I used cue cards, not a script.",
+            "我練了開場與結尾最多次。 I practised the opening and closing most.",
+            "我錄音回放或請人給了回饋。 I got feedback."],
+  better:["投影片少字、大字、一圖一重點。 Clean, simple slides.",
+          "我刪掉了多餘的字與投影片。 I trimmed extra words and slides.",
+          "出錯時我平靜更正、繼續。 I recovered calmly from mistakes.",
+          "我準備了備案（設備故障時）。 I had a backup plan.",
+          "我用了強而有力的動詞。 I used strong verbs."],
+  showtime:["我早到並測試了設備。 I arrived early and tested the tech.",
+            "我用強力開場並掃視全場。 Strong opening and eye contact.",
+            "我照練習的節奏、記得停頓。 I kept my practised pace.",
+            "我清楚收尾（摘要＋金句＋謝謝）。 I closed clearly.",
+            "我自信地開放提問。 I confidently invited questions."]
+};
+/* Comprehension Q&A per lesson. Lesson 1 uses the official NTNU CAL form
+   questions; the rest are original checks based on the key points. */
+const PRESENT_QUIZ = {
+  start:[
+    {q:"Researchers believe information is <b>not</b> worth sharing.", opts:["True 對","False 錯"], a:1, why:"研究者相信知識值得分享——這正是學術簡報存在的理由。"},
+    {q:"What are two main purposes of an academic presentation?", opts:["Share knowledge and build a professional network","Entertain the audience and gain speaking experience","Criticize others' work and collect data","Avoid collaboration with peers"], a:0, why:"兩大目的：分享知識、建立專業人脈。"},
+    {q:"A strong introduction includes the full details of your <b>Methodology</b>.", opts:["True 對","False 錯"], a:1, why:"方法的細節放在 Methodology 段，不是放在開場介紹。"},
+    {q:"The Results section is a great place for charts and graphs.", opts:["True 對","False 錯"], a:0, why:"結果（Results）最適合用圖表呈現數據。"},
+    {q:"Which of the following is <b>NOT</b> allowed in the conclusion?", opts:["A summary of the presentation","Recommendations for future research","A recap of main points","New information"], a:3, why:"結論只做總結與展望，不放新資訊。"},
+    {q:"How should you prepare for the Q&A session?", opts:["Rely on improvisation during the session","Repeat your whole presentation","Anticipate the questions the audience may ask","Go overtime to avoid Q&A"], a:2, why:"事先預想聽眾可能會提出的問題。"},
+    {q:"“Q&A” stands for Questions and Accusations.", opts:["True 對","False 錯"], a:1, why:"Q&A ＝ Questions and <b>Answers</b>（問與答）。"},
+    {q:"At the end, which is <b>NOT</b> a good way to network?", opts:["Chat with people still in the room","Leave immediately","Hand out your contact details","Tell people how to reach you"], a:1, why:"立刻離開＝放棄了建立人脈的機會。"}],
+  blocks:[
+    {q:"The golden rule of structure is:", opts:["Tell them what you'll say, say it, then tell them what you said","Say everything as fast as possible","Start with your conclusion only","Skip the outline to save time"], a:0, why:"先預告、再講、最後回顧——聽眾最容易跟上。"},
+    {q:"A good introduction includes a greeting, your topic, and an outline.", opts:["True 對","False 錯"], a:0, why:"開場＝問候＋主題＋大綱。"},
+    {q:"How many main points work best in the body?", opts:["10 or more","2–4, each finished before the next","Exactly 1","As many as your slides"], a:1, why:"2–4 個重點最清楚，一個講完再下一個。"},
+    {q:"The conclusion is a good place to add brand-new information.", opts:["True 對","False 錯"], a:1, why:"結論只做摘要與收尾，不放新內容。"}],
+  hello:[
+    {q:"A strong hook can be:", opts:["A question, a surprising fact, or a short story","Reading your whole abstract aloud","Apologising for being nervous","A long list of references"], a:0, why:"問題、驚人數據或小故事都是好鉤子。"},
+    {q:"The first 30 seconds strongly affect whether the audience pays attention.", opts:["True 對","False 錯"], a:0, why:"開場前 30 秒決定聽眾要不要專心。"},
+    {q:"A good opening tells the audience:", opts:["Who you are, your topic, and why it matters","Only your name","Only how much time is left","Your personal problems"], a:0, why:"說清楚你是誰、講什麼、為什麼重要。"},
+    {q:"You should end your opening with an outline of the talk.", opts:["True 對","False 錯"], a:0, why:"最後給大綱，讓聽眾知道接下來的路線。"}],
+  proof:[
+    {q:"When you show a chart, you should:", opts:["Read out every single number","Name what it is, what the axes show, then the key point","Hide the source","Skip explaining it"], a:1, why:"介紹圖表：是什麼圖→軸→重點。"},
+    {q:"You should always cite the source of your data.", opts:["True 對","False 錯"], a:0, why:"標示來源才可信。"},
+    {q:"The best way to use evidence is to:", opts:["Make a claim, then support it with evidence","Give evidence with no claim","Share only opinions","Guess the numbers"], a:0, why:"先主張，再用證據支持。"},
+    {q:"Describing a trend (‘rose sharply’, ‘stayed steady’) helps the audience read a graph.", opts:["True 對","False 錯"], a:0, why:"用趨勢語言幫聽眾快速讀懂圖。"}],
+  linking:[
+    {q:"Signposting language is used to:", opts:["Tell the audience where you are in the talk","Fill silence randomly","Replace your content","Confuse the audience"], a:0, why:"轉場語像路標，告訴聽眾進度。"},
+    {q:"You should use a transition each time you move to a new section.", opts:["True 對","False 錯"], a:0, why:"每換段落用一句轉場。"},
+    {q:"‘However’ and ‘On the other hand’ are used for:", opts:["Contrast","Adding ideas","Concluding","Greeting"], a:0, why:"這兩個用來表示對比。"},
+    {q:"Pausing briefly after a transition helps the audience keep up.", opts:["True 對","False 錯"], a:0, why:"轉場後停一下，給聽眾跟上的時間。"}],
+  engage:[
+    {q:"A good way to engage the audience is:", opts:["Rhetorical questions and ‘you’ language","Staring at your notes","Talking as fast as possible","Ignoring the audience"], a:0, why:"反問句和「you」語言能拉近距離。"},
+    {q:"In Q&A, you should listen fully before answering.", opts:["True 對","False 錯"], a:0, why:"先聽完整個問題再回答。"},
+    {q:"If you don't know the answer to a question, you should:", opts:["Make something up confidently","Honestly say so and offer to follow up","Ignore the person","End the talk"], a:1, why:"誠實面對，並說會再研究／回覆。"},
+    {q:"Clarifying a question (‘If I understand correctly…’) is a useful Q&A skill.", opts:["True 對","False 錯"], a:0, why:"確認問題能避免答錯方向。"}],
+  delivery:[
+    {q:"Good delivery includes:", opts:["Reading every word off the slides","Eye contact, open posture, and natural gestures","Looking only at the floor","Speaking in a flat monotone"], a:1, why:"眼神、站姿、手勢都是台風的一部分。"},
+    {q:"Slides are your script to read from word by word.", opts:["True 對","False 錯"], a:1, why:"投影片是給聽眾看的，不是你的逐字稿。"},
+    {q:"To sound clear, you should:", opts:["Speak very fast with no pauses","Slow down, stress key words, and use pauses","Mumble","Fill every gap with ‘um’"], a:1, why:"放慢、重音、停頓＝清楚有力。"},
+    {q:"A short pause is more powerful than a filler word like ‘um’.", opts:["True 對","False 錯"], a:0, why:"停頓比贅詞更專業、更有力。"}],
+  practice:[
+    {q:"The best way to rehearse is:", opts:["Read it silently once","Out loud, with timing","Only the night before","Not at all"], a:1, why:"出聲練習並計時最有效。"},
+    {q:"Using cue cards with keywords is better than reading a full script.", opts:["True 對","False 錯"], a:0, why:"提示卡讓你自然，而不是照稿唸。"},
+    {q:"If your rehearsal runs over time, you should:", opts:["Speak faster on the day","Cut some content","Ignore the limit","Add more slides"], a:1, why:"超時就刪內容，不要臨場加速。"},
+    {q:"Recording yourself or presenting to a friend gives useful feedback.", opts:["True 對","False 錯"], a:0, why:"回放或朋友回饋能看到盲點。"}],
+  better:[
+    {q:"Good slides are:", opts:["Full of small text","Few words, big font, one idea each","All long paragraphs","Only decorations"], a:1, why:"少字、大字、一圖一重點。"},
+    {q:"If you make a small mistake, you should pause, correct calmly, and move on.", opts:["True 對","False 錯"], a:0, why:"平靜更正、繼續，不要慌。"},
+    {q:"A smart presenter prepares:", opts:["No backup at all","A backup plan for tech failures","Only one copy on one device","Nothing"], a:1, why:"準備備案，設備故障也不怕。"},
+    {q:"Apologising many times for small mistakes makes your talk better.", opts:["True 對","False 錯"], a:1, why:"過度道歉反而放大錯誤；更正後繼續就好。"}],
+  showtime:[
+    {q:"Before you present, you should:", opts:["Arrive late","Arrive early, test the tech, and breathe","Skip testing the slides","Avoid the room until it starts"], a:1, why:"早到、測設備、深呼吸。"},
+    {q:"A clear closing includes a summary, a key message, thanks, and inviting questions.", opts:["True 對","False 錯"], a:0, why:"收尾四件事：摘要＋金句＋謝謝＋提問。"},
+    {q:"During the talk, keep your pace by:", opts:["Rushing to finish","Following your practised speed and using pauses","Skipping sections at random","Reading faster each slide"], a:1, why:"照練習的節奏，記得停頓。"},
+    {q:"Ending with eye contact and a confident ‘thank you’ leaves a strong impression.", opts:["True 對","False 錯"], a:0, why:"自信收尾讓人印象深刻。"}]
+};
+/* Official NTNU CAL practice form (only Lesson 1 was provided). */
+const PRESENT_FORM = {
+  start:"https://docs.google.com/forms/d/e/1FAIpQLSdWhSbNg6VZUlBfcvWMax82HAFOXya8iErDedZV0nX0ltTmpA/viewform"
+};
+let PQ = { cur:null, ans:{} };
+function renderPQuiz(){
+  const box = document.getElementById("pQuiz");
+  if(!box || !PQ.cur) return;
+  const quiz = PRESENT_QUIZ[PQ.cur] || [];
+  const total = quiz.length, answered = Object.keys(PQ.ans).length, correct = quiz.filter((q,i)=>PQ.ans[i]===q.a).length;
+  const rows = quiz.map((q,qi)=>{
+    const picked = PQ.ans[qi], done = picked!==undefined;
+    const opts = q.opts.map((o,oi)=>{ let cls="rg-opt"; if(done){ if(oi===q.a) cls+=" correct"; else if(oi===picked) cls+=" wrong"; } return `<button class="${cls}" ${done?"disabled":""} onclick="pqPick(${qi},${oi})">${o}</button>`; }).join("");
+    const fb = done ? `<div class="rg-why">${picked===q.a?"✅ 答對了！":"💡 "}${q.why}</div>` : "";
+    return `<div class="rg-q"><div class="rg-prompt"><span class="rg-n">${qi+1}</span><span>${q.q}</span></div><div class="rg-opts">${opts}</div>${fb}</div>`;
+  }).join("");
+  let score = "";
+  if(answered){
+    const tail = answered<total ? `已作答 ${answered} / ${total}　答對 ${correct}` : `全部完成！答對 ${correct} / ${total}　${correct===total?"全對，太棒了！🏆":correct>=total*0.6?"不錯喔，繼續保持！🐾":"再看一次影片複習吧～"}`;
+    score = `<div class="rg-score"><span>${tail}</span><button class="rg-reset" onclick="pqReset()">再做一次 ↻</button></div>`;
+  }
+  box.innerHTML = rows + score;
+}
+function pqPick(qi,oi){ if(PQ.ans[qi]!==undefined) return; PQ.ans[qi]=oi; renderPQuiz(); }
+function pqReset(){ PQ.ans={}; renderPQuiz(); }
+function presentPrintChecklist(id){
+  const p = presentById(id); if(!p) return;
+  const items = (PRESENT_CHECK[id]||[]).map(t=>`<li><span class="bx"></span><span>${t}</span></li>`).join("");
+  const doc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>${esc(p.title)} — 自我檢核表</title><style>
+   *{box-sizing:border-box} body{font-family:Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:#111;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#2F6F6A;color:#fff;padding:10px 16px;font-size:14px}
+   .bar button{font:inherit;background:#fff;color:#2F6F6A;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
+   .sheet{background:#fff;max-width:720px;margin:16px auto;padding:40px 46px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+   .ey{color:#2F6F6A;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 4px}
+   h1{font-size:20px;margin:0 0 2px} .zh{color:#555;font-size:13px;margin:0 0 14px}
+   .dn{display:flex;gap:26px;font-size:13px;margin:0 0 18px} .dn u{border-bottom:1px solid #000;min-width:150px;display:inline-block}
+   ul{list-style:none;margin:0;padding:0} li{display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed #cfcfcf;font-size:13.5px;line-height:1.5}
+   .bx{width:15px;height:15px;border:1.6px solid #333;border-radius:3px;flex:none;margin-top:2px}
+   .note{margin-top:20px;font-size:13px} .note u{display:block;border-bottom:1px solid #999;height:26px;margin-top:8px}
+   .src{margin-top:18px;font-size:11px;color:#777}
+   @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} } @page{margin:1.4cm}
+  </style></head><body>
+   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>勾選你已經做到的項目。Tick what you can already do.</span></div>
+   <div class="sheet">
+     <p class="ey">Presentation Skills · 自我檢核表 Self-check</p>
+     <h1>Lesson ${p.n}　${esc(p.title)}</h1>
+     <p class="zh">${esc(p.zh)}</p>
+     <div class="dn"><span>Name：<u></u></span><span>Date：<u></u></span></div>
+     <ul>${items}</ul>
+     <div class="note"><b>我的下一步 My next step：</b><u></u><u></u></div>
+     <p class="src">English Cat Island · 參考 NTNU CAL「英語學術簡報」課程（YouTube）</p>
+   </div></body></html>`;
+  safeOpenPrintDoc(doc, p.title + " 檢核表");
+}
 function presentById(id){ return PRESENT.find(p=>p.id===id); }
 function presentBody(p){
   const vid = `<figure class="lab-video"><div class="lab-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${p.vid}" title="${p.title} — NTNU CAL" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>國立臺灣師範大學 NTNU CAL · ${p.title}<a href="https://www.youtube.com/watch?v=${p.vid}" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a></figcaption></figure>`;
   const tips = `<section class="lab-sec"><h3>重點 Key points <span>看影片時注意這些</span></h3><ul class="ps-list">${p.tips.map(t=>`<li>${t}</li>`).join("")}</ul></section>`;
   const phr = (p.phrases&&p.phrases.length) ? `<section class="lab-sec"><h3>實用句型 Useful phrases <span>直接套用</span></h3><div class="ps-phr">${p.phrases.map(x=>`<div class="ps-phrase"><b>${x.en}</b><span>${x.zh}</span></div>`).join("")}</div></section>` : "";
-  return vid + tips + phr;
+  const hasQuiz = (PRESENT_QUIZ[p.id]||[]).length;
+  const formLink = PRESENT_FORM[p.id] ? `<p class="pq-form">也可以到老師的官方練習表單作答（需登入 Google）：<a href="${PRESENT_FORM[p.id]}" target="_blank" rel="noopener">📝 開啟 Google 表單 ↗</a></p>` : "";
+  const quiz = hasQuiz ? `<section class="lab-sec"><h3>問答集 Quiz <span>看完影片測一下</span></h3>${formLink}<div id="pQuiz" class="pq-wrap"></div></section>` : "";
+  const checkItems = PRESENT_CHECK[p.id] || [];
+  const checklist = checkItems.length ? `<section class="lab-sec"><h3>自我檢核表 Self-check <span>勾一勾，也可以列印</span></h3><ul class="pck">${checkItems.map(t=>`<li><label><input type="checkbox"><span>${t}</span></label></li>`).join("")}</ul><button class="btn btn-ghost pck-print" onclick="presentPrintChecklist('${p.id}')">🖨 列印檢核表 Print checklist</button></section>` : "";
+  return vid + tips + phr + quiz + checklist;
 }
 function renderPresent(id){
   const p = presentById(id);
@@ -5788,6 +5966,8 @@ function renderPresent(id){
       ${nx?`<button class="btn btn-navy" onclick="location.hash='#/present/${nx.id}'">${nx.title} →</button>`:`<button class="btn btn-navy" onclick="location.hash='#/present'">回到目錄 →</button>`}
     </div>
   </div>`;
+  PQ = { cur:p.id, ans:{} };
+  renderPQuiz();
   window.scrollTo(0,0);
 }
 function renderPresentList(){
