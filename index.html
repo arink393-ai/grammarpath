@@ -695,6 +695,13 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .res-tab:hover{border-color:var(--teal-line);background:var(--teal-bg)}
 .res-tab.active{background:var(--teal);border-color:var(--teal);color:#fff}
 .res-tab.active span{color:#FCE9DC}
+.res-subtabs{display:flex;gap:7px;flex-wrap:wrap;margin:2px 0 4px}
+.res-subtab{font:600 13px var(--sans);color:var(--body);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer;transition:all .12s ease}
+.res-subtab:hover{border-color:var(--teal-line);background:var(--teal-bg)}
+.res-subtab.active{background:var(--teal-bg);border-color:var(--teal);color:var(--teal)}
+.lab-xlink{font-size:13.5px;line-height:1.6;color:var(--body);background:var(--lab-paper);border:1px solid var(--lab-line);border-radius:10px;padding:10px 14px;margin:12px 0}
+.lab-xlink a{color:var(--lab-accent);font-weight:600;text-decoration:none}
+.lab-xlink a:hover{text-decoration:underline}
 .res-nowarn{font:500 13px var(--sans);color:var(--amber);background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:8px;padding:8px 12px}
 .res-group{margin-top:24px}
 .res-group-h{display:flex;align-items:center;gap:9px;font:600 18px var(--serif);color:var(--navy);margin:0 0 12px;padding-bottom:6px;border-bottom:1.5px solid var(--line)}
@@ -1821,11 +1828,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/cats">🐱 貓咪搜集庫 Cat Dex</button>
   <button data-nav="#/reading">📰 每週閱讀 Reading</button>
   <button data-nav="#/story">📖 故事時間 Stories</button>
-  <button data-nav="#/story/picture-books">🎨 繪本區 Picture Books</button>
-  <button data-nav="#/story/fables">🦊 伊索寓言 Aesop's Fables</button>
   <button data-nav="#/theory">🧠 學習理論 Theory</button>
   <button data-nav="#/etymology">🔤 字源學堂 Word Origins</button>
-  <button data-nav="#/prefixcards">🃏 字首翻卡 Prefix Cards</button>
   <button data-nav="#/lab">🔬 語言探索室 Language Lab</button>
   <button data-nav="#/present">🎤 簡報技巧 Presentation Skills</button>
   <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
@@ -5443,6 +5447,7 @@ const LAB = [
  blurb:"A root is a seed of meaning; prefixes and suffixes grow it into a family of words.",
  body:`
  <p class="lab-p">A <b>root</b> carries the core meaning; a <b>prefix</b> is added in front and a <b>suffix</b> at the end. Learn one root and Grimm's Law, and a whole family of words opens up.<span class="z"><b>字根</b>承載核心語義，<b>字首</b>加在前、<b>字尾</b>加在後。學會一個字根，再配上格林法則，一整群單字就打開了。</span></p>
+ <p class="lab-xlink">🔤 想更系統地學字源？到 <a href="#/etymology">字源學堂 Word Origins</a>（格林法則、同源雙式詞、字根字首字尾）＋ <a href="#/prefixcards">字首翻卡</a> 練習。</p>
  <section class="lab-sec"><h3>Lip family (Rule 1) <span>唇音家族</span></h3>
    <div class="lab-roots">
      <div class="lab-root"><div class="lab-root-h"><b>-ped / -pod</b><span>foot 腳 (p~f, d~t)</span></div><ul><li><b>pedestrian</b> 行人（用腳走路的人）</li><li><b>pedal</b> 踏板　·　<b>tripod</b> 三腳架</li><li><b>podium</b> 講台（腳踏的平台）</li></ul></div>
@@ -6553,7 +6558,26 @@ function renderEtymologyList(){
       <h1 class="display">字源學堂<span class="zh-term-lg" style="color:var(--th-warm)">Word Origins</span></h1>
       <p class="lede">單字不是硬背的，是「看懂」的。從格林法則到字根、字首、字尾，看清英文單字怎麼組成——一次學會一整家族。<br>Words aren't memorised, they're decoded — from Grimm's Law to roots and affixes.</p>
     </div>
-    <div class="th-list">${cards}</div>
+    <div class="th-list">${cards}
+      <button class="th-card" onclick="location.hash='#/prefixcards'">
+        <div class="th-card-plate wo-plate-icon">🃏</div>
+        <div class="th-card-body">
+          <span class="th-card-tag">練習 Practice</span>
+          <div class="th-card-title">Prefix Flip-Cards<span>字首翻卡</span></div>
+          <p class="th-card-hook">41 張字首翻卡：點一下看字首的意思與例字，把上面學到的字首練熟。</p>
+          <span class="th-card-go">翻卡練習 Flip →</span>
+        </div>
+      </button>
+      <button class="th-card" onclick="location.hash='#/lab/roots-affixes'">
+        <div class="th-card-plate wo-plate-icon">🌱</div>
+        <div class="th-card-body">
+          <span class="th-card-tag">延伸 Language Lab</span>
+          <div class="th-card-title">Word Roots &amp; Affixes<span>字根家族與互動練習</span></div>
+          <p class="th-card-hook">到語言探索室看三大字根家族（唇／齒／顎音）與格林法則，還有「字根家族大挑戰」互動測驗。</p>
+          <span class="th-card-go">前往探索室 Go →</span>
+        </div>
+      </button>
+    </div>
   </div>`;
 }
 function renderEtymology(id){
@@ -6662,7 +6686,7 @@ function renderPrefixCards(){
     .pfc-note{margin-top:8px;font-size:11px;color:#b1405a;line-height:1.3}
   </style>
   <div class="view theorybook pfc-wrap">
-    <div class="crumb"><a href="#/home">Home</a> › 字首翻卡 Prefix Cards</div>
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/etymology">字源學堂 Word Origins</a> › 字首翻卡</div>
     <div class="th-hd">
       <div class="eyebrow" style="color:var(--th-accent)">Prefix Flashcards · 字首翻卡</div>
       <h1 class="display">字首翻卡<span class="zh-term-lg" style="color:var(--th-warm)">Prefix Cards</span></h1>
@@ -13401,7 +13425,7 @@ function spkRecord(){
     if(SPK.state === "listening"){ SPK.state = err ? "error" : "done"; SPK.err = err; rerenderSpeaking(); }
   });
 }
-function rerenderSpeaking(){ renderResources('speaking'); }
+function rerenderSpeaking(){ renderResources('shadow'); }
 function spkHTML(){
   if(!SPK.item){ if(SPK.mode==="word") spkPickWord(); else spkPickSent(); }
   const tabs = `<div class="res-tabs" style="margin-top:4px">
@@ -13630,12 +13654,17 @@ function phDetail(it){
 function speak(text, rate){ if(tts && tts.ok) tts.speak(text, rate); }
 const RES_TABS = [
   {id:"phonics",   en:"Phonics",       zh:"基礎發音", icon:"🔤"},
-  {id:"situations",en:"Situations",    zh:"情境會話", icon:"🗣️"},
-  {id:"clips",     en:"Real Clips",    zh:"真實影片", icon:"🎬"},
+  {id:"speaking",  en:"Speaking",      zh:"口說練習", icon:"🗣️"},
   {id:"phrasals",  en:"Phrasal Verbs", zh:"片語動詞", icon:"🔗"},
-  {id:"idioms",    en:"Idioms",        zh:"慣用語",   icon:"💬"},
-  {id:"speaking",  en:"Speaking",      zh:"口說跟讀", icon:"🎤"}
+  {id:"idioms",    en:"Idioms",        zh:"慣用語",   icon:"💬"}
 ];
+/* The Speaking tab merges three practice modes under one tab. */
+const SPK_SUBS = [
+  {id:"situations", zh:"情境會話", icon:"🗣️"},
+  {id:"clips",      zh:"真實影片", icon:"🎬"},
+  {id:"shadow",     zh:"跟讀練習", icon:"🎤"}
+];
+let RES_SUB = "situations";
 /* Situational dialogues (travel & daily life). English lines play via phSpeak. */
 const SITUATIONS = [
   {id:"restaurant", emoji:"🍽️", en:"Ordering at a Restaurant", zh:"餐廳點餐",
@@ -14491,11 +14520,16 @@ function exList(arr){
   }).join("") + `</div>`;
 }
 function renderResources(tab){
-  tab = RES_TABS.find(t=>t.id===tab) ? tab : "phonics";
-  const meta = RES_TABS.find(t=>t.id===tab);
-  const tabsHTML = RES_TABS.map(t=>`<button class="res-tab ${t.id===tab?"active":""}" onclick="location.hash='#/resources/${t.id}'">${t.icon} ${t.en} <span>${t.zh}</span></button>`).join("");
+  const SPKMAP = {situations:1, clips:1, shadow:1};
+  let main, view;
+  if(SPKMAP[tab]){ main="speaking"; view=tab; RES_SUB=tab; }
+  else if(tab==="speaking"){ main="speaking"; view=(RES_SUB&&SPKMAP[RES_SUB])?RES_SUB:"situations"; }
+  else { main = RES_TABS.find(t=>t.id===tab) ? tab : "phonics"; view=main; }
+  const meta = RES_TABS.find(t=>t.id===main);
+  const tabsHTML = RES_TABS.map(t=>`<button class="res-tab ${t.id===main?"active":""}" onclick="location.hash='#/resources/${t.id}'">${t.icon} ${t.en} <span>${t.zh}</span></button>`).join("");
+  const subBar = main==="speaking" ? `<div class="res-subtabs">`+SPK_SUBS.map(s=>`<button class="res-subtab ${s.id===view?"active":""}" onclick="location.hash='#/resources/${s.id}'">${s.icon} ${s.zh}</button>`).join("")+`</div>` : "";
   let intro="", body="";
-  if(tab==="phonics"){
+  if(view==="phonics"){
     intro="點音標打開<b>口型動畫</b>與<b>舌位圖</b>，跟著嘴型念念看。每個音都標了發音位置：前 front／中 middle／後 back，可以用下面的按鈕篩選。";
     const chipsF = [["all","全部 All"],["front","前 Front"],["middle","中 Middle"],["back","後 Back"]]
       .map(f=>`<button class="ph-filter-chip ${PH_FILTER===f[0]?"active":""} ${f[0]}" onclick="phSetFilter('${f[0]}')">${f[1]}</button>`).join("");
@@ -14524,7 +14558,7 @@ function renderResources(tab){
       }).join("");
       return `<div class="res-group"><h2 class="res-group-h">${resIcon(g.icon)} ${g.group}</h2>${rows}</div>`;
     }).join("");
-  } else if(tab==="situations"){
+  } else if(view==="situations"){
     intro="像看短劇一樣學：選情境 → <b>調字幕</b>（中英／只看英文／遮住）與<b>語速</b> → 🔊 聽真人語音 → 🎤 逐句跟讀，語音辨識即時打分 → ☆ 把不熟的句子存進<b>我的句庫</b>複習。都是母語者的自然說法，避免中式直翻。";
     const s = SITUATIONS.find(x=>x.id===SIT_OPEN) || SITUATIONS[0];
     const esc = t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
@@ -14556,7 +14590,7 @@ function renderResources(tab){
       <div class="sit-keyh">🔑 關鍵句 Key phrases</div><div class="sit-keys">${keys}</div></div>
       <div class="sit-quizwrap" id="sitQuiz">${sitQuizBody()}</div>
       ${sitSavedHTML()}`;
-  } else if(tab==="clips"){
+  } else if(view==="clips"){
     intro="真實影片片段：用母語者的真實語速學道地英文。逐句聽、跟讀、循環、變速。影片透過 YouTube 官方播放器嵌入，未下載或轉存。";
     const card = (key, lvl, lvlColor, title, sub, note) => {
       const v = SIT_VIDEO[key];
@@ -14578,19 +14612,19 @@ function renderResources(tab){
         "🧑‍💼 The Office：The Password",
         "辦公室日常、真實語速、句子短、乾淨無髒話。",
         "情境：大家忘了密碼、無法工作。重點句：<b>Does anybody know the password?</b>、<b>I'm not doing every number.</b>、<b>Does anyone remember when it was set up?</b>");
-  } else if(tab==="speaking"){
+  } else if(view==="shadow"){
     intro="口說跟讀 Read-aloud：🔊 聽示範 → 🎤 跟著念 → 語音辨識立即回饋。單字模式可連回口型動畫，句子模式取自 34 課的例句。答對第一次 +2 XP！";
     if(!SPK.item) spkNew(SPK.mode||"word");
     body = spkHTML();
   } else {
-    const DATA_SET = tab==="phrasals" ? PHRASALS : IDIOMS;
-    intro = tab==="phrasals"
+    const DATA_SET = view==="phrasals" ? PHRASALS : IDIOMS;
+    intro = view==="phrasals"
       ? "片語動詞是「動詞＋介系詞/副詞」的組合，意思常和字面不同。每個都附 2–3 句中英例句與發音。"
       : "慣用語是母語者常用的固定說法，不能逐字翻譯。每個都附 2–3 句情境例句與發音。";
     body = DATA_SET.map(g=>{
       const cards = g.items.map(it=>{
-        const head = tab==="phrasals" ? it.pv : it.idiom;
-        const isIdiom = tab!=="phrasals";
+        const head = view==="phrasals" ? it.pv : it.idiom;
+        const isIdiom = view!=="phrasals";
         const frontWord = isIdiom ? idiomFrontHTML(head) : head;
         const frontHint = isIdiom ? "看圖猜一猜，點卡看答案 →" : "點一下看例句 →";
         const yg = `<a class="fb-yg" href="${youglishURL(head)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🎬 看真人怎麼用 · YouGlish</a>`;
@@ -14613,11 +14647,12 @@ function renderResources(tab){
       return `<div class="res-group"><h2 class="res-group-h">${resIcon(g.icon)} ${g.group}</h2><div class="res-grid2">${cards}</div></div>`;
     }).join("");
   }
-  const catKind = tab==="phonics"?"black":tab==="phrasals"?"cow":"orange";
+  const catKind = view==="phonics"?"black":view==="phrasals"?"cow":"orange";
   app.innerHTML = `<div class="view">
     <div class="eyebrow">Resources · 學習資源</div>
     <div class="res-hero">${catSVG(60,catKind)}<div><h1 class="display" style="margin:0">${meta.en}<span class="zh-term-lg">${meta.zh}</span></h1></div></div>
     <div class="res-tabs">${tabsHTML}</div>
+    ${subBar}
     <p class="lede">${intro}</p>
     ${tts.ok ? "" : '<p class="res-nowarn">⚠ 這個瀏覽器不支援語音朗讀，字詞與例句仍可閱讀。建議用 Chrome / Safari。</p>'}
     ${body}
