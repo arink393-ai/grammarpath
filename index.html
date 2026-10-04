@@ -1530,6 +1530,15 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .lab-card-blurb{font-size:13.5px;color:var(--body);line-height:1.6;margin:4px 0 6px;flex:1}
 .lab-card-go{font:600 13px var(--sans);color:var(--lab-accent)}
 .lab-source{text-align:center;font-size:12px;color:var(--muted);margin:26px 0 6px;line-height:1.7}
+/* 簡報技巧 Presentation Skills — reuses .lab-* with a teal accent */
+.psec{--lab-accent:#2F6F6A;--lab-ink:#2B4A52}
+.ps-list{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:9px}
+.ps-list li{font:400 14.5px/1.65 var(--sans);color:var(--ink)}
+.ps-list li b{color:var(--lab-ink)}
+.ps-phr{display:flex;flex-direction:column;gap:9px;margin-top:6px}
+.ps-phrase{background:var(--lab-paper);border:1px solid var(--lab-line);border-left:3px solid var(--lab-accent);border-radius:0 9px 9px 0;padding:9px 13px}
+.ps-phrase b{display:block;font:600 14.5px var(--serif);color:var(--lab-ink)}
+.ps-phrase span{display:block;font-family:var(--han);font-size:12.5px;color:var(--muted);margin-top:2px}
 /* reader */
 .lab-reader{max-width:760px}
 .lab-hero{text-align:center;padding:14px 0 8px;border-bottom:2px solid var(--lab-line);margin-bottom:8px}
@@ -1728,6 +1737,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/etymology">🔤 字源學堂 Word Origins</button>
   <button data-nav="#/prefixcards">🃏 字首翻卡 Prefix Cards</button>
   <button data-nav="#/lab">🔬 語言探索室 Language Lab</button>
+  <button data-nav="#/present">🎤 簡報技巧 Presentation Skills</button>
   <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
   <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
   <button data-nav="#/homework" id="navHomework">📝 作業繳交 Homework</button>
@@ -2338,6 +2348,8 @@ async function route(){
   else if(h[0]==="story") renderStoryList();
   else if(h[0]==="lab" && h[1]) renderLab(h[1]);
   else if(h[0]==="lab") renderLabList();
+  else if(h[0]==="present" && h[1]) renderPresent(h[1]);
+  else if(h[0]==="present") renderPresentList();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
   else if(h[0]==="etymology" && h[1]) renderEtymology(h[1]);
@@ -5621,6 +5633,182 @@ function renderLab(id){
   if(c.id==="roots-affixes"){ RFG={ans:{}}; renderRootGame(); }
   if(c.id==="vocab-method"){ SN={show:false,open:{}}; renderSonnet(); }
   window.scrollTo(0,0);
+}
+
+/* =====================================================
+   簡報技巧 Presentation Skills — a 10-lesson guide.
+   Each lesson embeds the official NTNU CAL video (embed
+   only, never re-hosted) + original bilingual study notes.
+   ===================================================== */
+const PRESENT = [
+  { id:"start", n:"01", icon:"🎤", title:"Let's Start Speaking!", zh:"開口開始：心態與全貌", vid:"rHyNU_8CNM4",
+    blurb:"The big picture: what a good academic talk looks like, and how to beat the nerves.",
+    tips:[
+      "一場好的學術簡報＝<b>清楚、有自信、以聽眾為中心</b>，不是把資料全部倒出來。 A good talk is clear, confident and audience-centred — not a data dump.",
+      "<b>緊張是正常的</b>。準備與練習會把緊張變成能量；深呼吸、放慢速度。 Nerves are normal — preparation turns them into energy.",
+      "每場簡報都有三大塊：<b>開場 → 主體 → 結論</b>，先把這個骨架想清楚。 Every talk has three parts: introduction, body, conclusion.",
+      "先問自己：<b>聽眾是誰？我希望他們記住哪一件事？</b> Start from your audience: who are they, and what one thing should they remember?"],
+    phrases:[
+      {en:"Good morning, everyone. Thank you for being here.", zh:"大家早安，謝謝各位出席。"},
+      {en:"Today I'm going to talk about …", zh:"今天我要談的是……"},
+      {en:"By the end of this talk, you'll understand …", zh:"聽完這場簡報，你會了解……"},
+      {en:"Let's get started.", zh:"我們開始吧。"}] },
+  { id:"blocks", n:"02", icon:"🧱", title:"Building Blocks!", zh:"架構：簡報的骨架", vid:"fTAWwgVxWdI",
+    blurb:"The three-part structure, and how to signpost it so no one gets lost.",
+    tips:[
+      "黃金原則：<b>先說你要說什麼，說它，再說你說過什麼。</b> Tell them what you'll say, say it, then tell them what you said.",
+      "<b>開場</b>：問候＋自我介紹＋主題＋大綱。 Introduction: greet, introduce yourself, state the topic, give an outline.",
+      "<b>主體</b>：2–4 個重點，一個講清楚再下一個。 Body: 2–4 main points, finish one before the next.",
+      "<b>結論</b>：摘要＋收尾金句＋謝謝並開放提問。 Conclusion: summarise, end with a key message, thank and invite questions."],
+    phrases:[
+      {en:"This talk has three parts.", zh:"這場簡報分成三個部分。"},
+      {en:"First, … Second, … Finally, …", zh:"第一……第二……最後……"},
+      {en:"Let me give you a quick outline.", zh:"我先說明一下大綱。"},
+      {en:"That brings me to my first point.", zh:"這就帶到我的第一個重點。"}] },
+  { id:"hello", n:"03", icon:"👋", title:"Hello There!", zh:"開場：第一分鐘定勝負", vid:"1dEscq7tSyc",
+    blurb:"Openings that grab attention: greet, introduce, hook, and preview.",
+    tips:[
+      "前 30 秒決定聽眾要不要專心，所以<b>開場要強</b>。 The first 30 seconds decide whether they listen — open strong.",
+      "強力鉤子：一個<b>問題、驚人數據、或簡短故事</b>。 Hook with a question, a surprising fact, or a short story.",
+      "清楚說出<b>你是誰、要講什麼、為什麼重要</b>。 Say who you are, what you'll cover, and why it matters.",
+      "開場最後給<b>大綱</b>，讓聽眾知道接下來的路線。 End the opening with an outline so they know the route."],
+    phrases:[
+      {en:"Have you ever wondered why …?", zh:"你有沒有想過為什麼……？"},
+      {en:"My name is …, and I'm from …", zh:"我叫……，來自……"},
+      {en:"The topic of my presentation is …", zh:"我這場簡報的主題是……"},
+      {en:"This matters because …", zh:"這很重要，因為……"}] },
+  { id:"proof", n:"04", icon:"📊", title:"Show the Proof!", zh:"用數據說話：圖表與證據", vid:"EuDZpWzLzBo",
+    blurb:"Presenting data and visuals: highlight the point, don't read every number.",
+    tips:[
+      "先給<b>主張</b>，再用<b>證據</b>支持：claim → evidence。 Make a claim, then back it with evidence.",
+      "介紹圖表的順序：<b>這是什麼圖 → 軸代表什麼 → 重點在哪</b>。 Introduce a visual: what it is, what the axes show, then the takeaway.",
+      "<b>不要唸出每個數字</b>，只點出最重要的趨勢或對比。 Don't read every number — highlight the key trend or contrast.",
+      "一定要<b>標示來源</b>，讓論點可信。 Always cite your source to stay credible."],
+    phrases:[
+      {en:"As you can see from this graph, …", zh:"從這張圖可以看到……"},
+      {en:"This chart shows the relationship between … and …", zh:"這張圖顯示……與……的關係。"},
+      {en:"The figure rose sharply / fell gradually / stayed steady.", zh:"數字急遽上升／逐漸下降／維持穩定。"},
+      {en:"The key point here is …", zh:"這裡的重點是……"},
+      {en:"According to …, …", zh:"根據……，……"}] },
+  { id:"linking", n:"05", icon:"🔗", title:"Linking Ideas Smoothly!", zh:"流暢轉場：把想法串起來", vid:"1hkCFcfLBC0",
+    blurb:"Signposting language that links your ideas so the talk flows.",
+    tips:[
+      "<b>轉場語（signposting）</b>像路標，告訴聽眾「我們到哪了」。 Signposts tell the audience where you are.",
+      "每換一個段落，就用<b>一句轉場</b>。 Use one transition each time you move to a new section.",
+      "常見四類：<b>補充、對比、順序、總結</b>。 Four kinds: adding, contrasting, sequencing, concluding.",
+      "轉場後<b>停一下再繼續</b>，給聽眾跟上的時間。 Pause briefly after a transition."],
+    phrases:[
+      {en:"Now, let's move on to …", zh:"接下來，我們看……"},
+      {en:"In addition, … / What's more, …", zh:"此外……／更重要的是……"},
+      {en:"However, … / On the other hand, …", zh:"然而……／另一方面……"},
+      {en:"As I mentioned earlier, …", zh:"如同我剛才提到的……"},
+      {en:"To sum up this section, …", zh:"這部分總結來說……"}] },
+  { id:"engage", n:"06", icon:"💬", title:"Engaging with the Audience", zh:"互動與問答", vid:"gQmXZXfJSCU",
+    blurb:"Pulling the audience in, and handling questions with confidence.",
+    tips:[
+      "用<b>「you」語言</b>和<b>反問句</b>把聽眾拉進來。 Use 'you' language and rhetorical questions to involve them.",
+      "保持<b>眼神接觸</b>，掃視全場而不是盯著螢幕。 Keep eye contact — scan the room, not the slides.",
+      "問答時：<b>先聽完 → 需要就確認問題 → 簡潔回答</b>。 In Q&A: listen fully, clarify if needed, answer concisely.",
+      "遇到不會的問題就<b>誠實面對</b>，別硬掰。 If you don't know, say so honestly — don't bluff."],
+    phrases:[
+      {en:"What do you think would happen if …?", zh:"你覺得如果……會怎樣？"},
+      {en:"That's a great question.", zh:"這是個很好的問題。"},
+      {en:"If I understand correctly, you're asking …", zh:"如果我理解正確，你問的是……"},
+      {en:"That's a good point — I'll look into it.", zh:"這點很好，我會再研究。"},
+      {en:"Does that answer your question?", zh:"這樣有回答到你的問題嗎？"}] },
+  { id:"delivery", n:"07", icon:"🧍", title:"Looking and Sounding Great!", zh:"台風：肢體與聲音", vid:"hkAi4oPA0i0",
+    blurb:"Delivery: body language and voice that make you look and sound great.",
+    tips:[
+      "<b>站姿穩、肩膀打開</b>，雙手自然；用手勢強調重點。 Stand tall, open posture, natural gestures to emphasise.",
+      "<b>別唸投影片</b>——投影片是給聽眾看的，不是你的講稿。 Don't read the slides — they're for the audience, not your script.",
+      "聲音：<b>放慢速度、重音落在關鍵字、善用停頓</b>。 Voice: slow down, stress key words, use pauses.",
+      "減少<b>贅詞</b>（um、like、那個）；一個停頓比填充詞更有力。 Cut fillers — a pause beats an 'um'."],
+    phrases:[
+      {en:"Let me emphasise this point.", zh:"我要特別強調這一點。"},
+      {en:"I'd like to draw your attention to …", zh:"請大家注意……"},
+      {en:"(pause) … and that is why it matters.", zh:"（停頓）……這正是它重要的原因。"}] },
+  { id:"practice", n:"08", icon:"🔁", title:"Practice Makes Perfect!", zh:"練習成就完美", vid:"LXlaaEYHg0E",
+    blurb:"Rehearsal: how to practise so it feels natural on the day.",
+    tips:[
+      "<b>出聲練習</b>，不要只在心裡跑一遍。 Rehearse out loud, not silently.",
+      "<b>計時</b>，確保不超時；超時就刪內容。 Time yourself — if you're over, cut content.",
+      "用<b>提示卡（關鍵字）</b>，不要寫整篇講稿。 Use cue cards with keywords, not a full script.",
+      "<b>錄下自己</b>回放，或講給朋友聽並收回饋。 Record yourself, or present to a friend for feedback."],
+    phrases:[
+      {en:"Let me start again from the top.", zh:"我從頭再來一次。"},
+      {en:"I'll time myself this round.", zh:"這次我幫自己計時。"},
+      {en:"Could you give me some feedback?", zh:"可以給我一些回饋嗎？"}] },
+  { id:"better", n:"09", icon:"✨", title:"Making It Even Better!", zh:"讓簡報更上一層樓", vid:"QuGtHF21wso",
+    blurb:"Refining your talk — and recovering gracefully when things go wrong.",
+    tips:[
+      "<b>精簡</b>：刪掉可有可無的字與投影片；用強動詞。 Trim weak words and slides; use strong verbs.",
+      "投影片<b>少字、大字、一圖一重點</b>。 Slides: few words, big font, one idea per slide.",
+      "出錯時：<b>停頓、平靜更正、繼續</b>，不用一直道歉。 If you slip: pause, correct calmly, move on.",
+      "準備<b>備案</b>：影片打不開、投影失效時怎麼辦。 Have a backup plan for tech failures."],
+    phrases:[
+      {en:"Sorry, let me rephrase that.", zh:"抱歉，我換個方式說。"},
+      {en:"Let me go back to the previous slide.", zh:"我回到上一張投影片。"},
+      {en:"Where was I? Right, …", zh:"我講到哪了？對，……"}] },
+  { id:"showtime", n:"10", icon:"🌟", title:"Showtime!", zh:"正式上場！", vid:"QzyeJMgssYE",
+    blurb:"The big day: a checklist from walking in to the final thank-you.",
+    tips:[
+      "上場前：<b>早點到、測試設備、深呼吸</b>。 Before: arrive early, test the tech, breathe.",
+      "一開場就用<b>強力鉤子</b>，眼神掃視全場。 Open with your hook and sweep the room with your eyes.",
+      "<b>掌握節奏</b>：照練習的速度，記得停頓。 Keep your pace; remember to pause.",
+      "<b>清楚收尾</b>：摘要＋金句＋謝謝＋開放提問。 Close clearly: summary, key message, thanks, invite questions."],
+    phrases:[
+      {en:"To conclude, …", zh:"總結來說……"},
+      {en:"In short, the main takeaway is …", zh:"簡單說，最重要的收穫是……"},
+      {en:"Thank you for your attention.", zh:"謝謝大家的聆聽。"},
+      {en:"I'm happy to take any questions.", zh:"很樂意回答任何問題。"}] }
+];
+function presentById(id){ return PRESENT.find(p=>p.id===id); }
+function presentBody(p){
+  const vid = `<figure class="lab-video"><div class="lab-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${p.vid}" title="${p.title} — NTNU CAL" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>國立臺灣師範大學 NTNU CAL · ${p.title}<a href="https://www.youtube.com/watch?v=${p.vid}" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a></figcaption></figure>`;
+  const tips = `<section class="lab-sec"><h3>重點 Key points <span>看影片時注意這些</span></h3><ul class="ps-list">${p.tips.map(t=>`<li>${t}</li>`).join("")}</ul></section>`;
+  const phr = (p.phrases&&p.phrases.length) ? `<section class="lab-sec"><h3>實用句型 Useful phrases <span>直接套用</span></h3><div class="ps-phr">${p.phrases.map(x=>`<div class="ps-phrase"><b>${x.en}</b><span>${x.zh}</span></div>`).join("")}</div></section>` : "";
+  return vid + tips + phr;
+}
+function renderPresent(id){
+  const p = presentById(id);
+  if(!p){ location.hash = "#/present"; return; }
+  const idx = PRESENT.indexOf(p), nx = PRESENT[idx+1], pv = PRESENT[idx-1];
+  app.innerHTML = `<div class="view lab lab-reader psec">
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/present">簡報技巧</a> › ${p.title}</div>
+    <header class="lab-hero">
+      <span class="lab-hero-ic">${p.icon}</span>
+      <div class="lab-hero-n">Lesson ${p.n}</div>
+      <h1>${p.title}</h1>
+      <div class="lab-hero-zh">${p.zh}</div>
+      <p class="lab-hero-sub">${p.blurb}</p>
+    </header>
+    <article class="lab-content">${presentBody(p)}</article>
+    <div class="lab-foot">
+      ${pv?`<button class="btn btn-ghost" onclick="location.hash='#/present/${pv.id}'">← ${pv.title}</button>`:`<button class="btn btn-ghost" onclick="location.hash='#/present'">← 所有單元</button>`}
+      ${nx?`<button class="btn btn-navy" onclick="location.hash='#/present/${nx.id}'">${nx.title} →</button>`:`<button class="btn btn-navy" onclick="location.hash='#/present'">回到目錄 →</button>`}
+    </div>
+  </div>`;
+  window.scrollTo(0,0);
+}
+function renderPresentList(){
+  const cards = PRESENT.map(p=>`
+    <button class="lab-card" onclick="location.hash='#/present/${p.id}'">
+      <span class="lab-card-ic">${p.icon}</span>
+      <span class="lab-card-n">${p.n}</span>
+      <div class="lab-card-title">${p.title}<span>${p.zh}</span></div>
+      <p class="lab-card-blurb">${p.blurb}</p>
+      <span class="lab-card-go">看影片學 Watch →</span>
+    </button>`).join("");
+  app.innerHTML = `<div class="view lab psec">
+    <div class="crumb"><a href="#/home">Home</a> › 簡報技巧</div>
+    <div class="lab-hd">
+      <div class="eyebrow" style="color:var(--lab-accent)">Presentation Skills · 簡報技巧</div>
+      <h1 class="display">簡報技巧<span class="zh-term-lg" style="color:var(--lab-ink)">Presentation Skills</span></h1>
+      <p class="lede">用英文做一場清楚又自信的學術簡報——從開口、架構、開場、數據、轉場，到互動、台風、練習與正式上場，十個單元循序漸進。<br>Give a clear, confident academic presentation in English — ten short lessons from your first words to showtime.</p>
+    </div>
+    <div class="lab-grid">${cards}</div>
+    <p class="lab-source">影片來源：國立臺灣師範大學「英語學術簡報」課程（NTNU CAL，YouTube）。影片以官方嵌入播放、未重新上傳；學習筆記與例句為原創整理。</p>
+  </div>`;
 }
 
 function renderTheoryList(){
