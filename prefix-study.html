@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>背字首字尾 Swipe Study</title>
+<title>背字首字根字尾 Swipe Study</title>
 <style>
   :root{
     --teal:#2C6E72; --teal-d:#235559; --gold:#C6892F; --cream:#FBF7EF;
@@ -52,6 +52,7 @@
   .card.revealed .c-top{display:none}
   .card.revealed .c-ans{display:flex}
   .a-term{font:700 22px var(--serif);color:var(--teal);text-align:center}
+  .a-key{font-size:12px;color:var(--gold);text-align:center;font-weight:700;margin:-2px 0 2px}
   .a-zh{font-size:16px;color:var(--ink);text-align:center;border-bottom:1px solid var(--line);padding-bottom:9px}
   .a-ex{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
   .a-ex li{display:flex;justify-content:space-between;gap:10px;align-items:baseline;line-height:1.3}
@@ -100,12 +101,13 @@
   <header>
     <div class="titlerow">
       <a class="back" href="index.html#/prefixcards">← 翻卡</a>
-      <h1>背字首字尾<small>Swipe Study · 右滑會了，左滑看答案</small></h1>
+      <h1>背字首字根字尾<small>Swipe Study · 右滑會了，左滑看答案</small></h1>
     </div>
     <div class="scope" id="scope">
-      <button data-s="prefix" class="on">字首 Prefixes</button>
-      <button data-s="suffix">字尾 Suffixes</button>
-      <button data-s="all">全部 All</button>
+      <button data-s="prefix" class="on">字首</button>
+      <button data-s="root">字根</button>
+      <button data-s="suffix">字尾</button>
+      <button data-s="all">全部</button>
     </div>
     <div class="prog"><span id="progTxt">—</span><span class="bar"><i id="progBar"></i></span></div>
   </header>
@@ -198,21 +200,38 @@ const SUFFIX_CARDS = [
  {p:"-ly", pos:"副詞字尾", zh:"以…的方式（…地）", ex:[["quick<b>ly</b>","快速地"],["happi<b>ly</b>","快樂地"],["careful<b>ly</b>","小心地"]]}
 ];
 
+/* ---------- data: 12 roots (teacher's drawn cards from Instagram) ---------- */
+const ROOT_CARDS = [
+ {id:"access", p:"cess", key:"access", zh:"走、前往、讓與", ex:[["ac<b>cess</b>","進入；存取"],["suc<b>cess</b>","成功"],["pro<b>cess</b>","過程"]]},
+ {id:"cast", p:"cast", key:"cast", zh:"投擲", ex:[["<b>cast</b>","投擲"],["fore<b>cast</b>","預報"],["broad<b>cast</b>","廣播"]]},
+ {id:"chance", p:"cas / cid", key:"chance", zh:"掉落", ex:[["ac<b>cid</b>ent","意外"],["<b>cas</b>ual","偶然的"],["oc<b>cas</b>ion","場合"]]},
+ {id:"care", p:"cur(e)", key:"care", zh:"當心、關心", ex:[["<b>care</b>ful","小心的"],["<b>cure</b>","治療"],["se<b>cure</b>","安全的"]]},
+ {id:"course", p:"cur / cour", key:"course", zh:"奔跑", ex:[["<b>cur</b>rent","當前的；水流"],["oc<b>cur</b>","發生"],["<b>cour</b>se","路線；課程"]]},
+ {id:"car", p:"car / char", key:"car", zh:"奔跑；車", ex:[["<b>car</b>ry","攜帶"],["<b>car</b>riage","馬車"],["<b>car</b>go","貨物"]]},
+ {id:"cap", p:"cap(t) / cup", key:"cap", zh:"頭；抓住", ex:[["<b>cap</b>tain","隊長"],["<b>cap</b>ture","捕捉"],["oc<b>cup</b>y","佔據"]]},
+ {id:"bat", p:"bat", key:"bat", zh:"打、擊", ex:[["<b>bat</b>","打擊"],["com<b>bat</b>","戰鬥"],["<b>batt</b>le","戰役"]]},
+ {id:"blanket", p:"bl(a)", key:"blanket", zh:"燃燒、閃耀", ex:[["<b>bla</b>ze","烈火"],["<b>bla</b>st","爆炸；一陣"],["<b>bla</b>re","強光；響亮"]]},
+ {id:"ball", p:"bal / bol", key:"ball", zh:"吹、膨脹", ex:[["<b>ball</b>oon","氣球"],["<b>ball</b>","球"],["<b>bol</b>ster","支撐；墊高"]]},
+ {id:"flower", p:"flor / flour", key:"flower", zh:"花、繁榮", ex:[["<b>flo</b>wer","花"],["<b>flour</b>ish","繁榮"],["<b>flor</b>ist","花商"]]},
+ {id:"base", p:"bas / base", key:"base", zh:"基礎、低", ex:[["<b>bas</b>ic","基本的"],["<b>base</b>ment","地下室"],["<b>bas</b>is","根據"]]}
+];
+
 /* ---------- build decks ---------- */
 const prefixDeck = PREFIX_CARDS.map((c,i)=>({type:"prefix", id:PFC_IMG[i], img:"art/prefix-cards/"+PFC_IMG[i]+".png", p:c.p, zh:c.zh, ex:c.ex, note:c.note}));
 const suffixDeck = SUFFIX_CARDS.map(c=>({type:"suffix", id:c.p, p:c.p, zh:c.zh, pos:c.pos, ex:c.ex}));
-const DECKS={prefix:prefixDeck, suffix:suffixDeck, all:prefixDeck.concat(suffixDeck)};
-const SCOPE_TOTAL={prefix:prefixDeck.length, suffix:suffixDeck.length, all:prefixDeck.length+suffixDeck.length};
+const rootDeck = ROOT_CARDS.map(c=>({type:"root", id:c.id, img:"art/root-cards/"+c.id+".png", p:c.p, key:c.key, zh:c.zh, ex:c.ex}));
+const DECKS={prefix:prefixDeck, root:rootDeck, suffix:suffixDeck, all:prefixDeck.concat(rootDeck, suffixDeck)};
+const SCOPE_TOTAL={prefix:prefixDeck.length, root:rootDeck.length, suffix:suffixDeck.length, all:prefixDeck.length+rootDeck.length+suffixDeck.length};
 
 /* ---------- persistence ---------- */
 const LS_KEY="eci_swipe_known_v1";
 function loadKnown(){
-  let raw={prefix:[],suffix:[]};
+  let raw={prefix:[],root:[],suffix:[]};
   try{ const s=localStorage.getItem(LS_KEY); if(s) raw=JSON.parse(s); }catch(e){}
-  return {prefix:new Set(raw.prefix||[]), suffix:new Set(raw.suffix||[])};
+  return {prefix:new Set(raw.prefix||[]), root:new Set(raw.root||[]), suffix:new Set(raw.suffix||[])};
 }
 function saveKnown(){
-  try{ localStorage.setItem(LS_KEY, JSON.stringify({prefix:[...known.prefix], suffix:[...known.suffix]})); }catch(e){}
+  try{ localStorage.setItem(LS_KEY, JSON.stringify({prefix:[...known.prefix], root:[...known.root], suffix:[...known.suffix]})); }catch(e){}
 }
 let known=loadKnown();
 
@@ -229,7 +248,7 @@ const btnRight=document.getElementById("btnRight");
 
 function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 
-function knownCount(sc){ if(sc==="all") return known.prefix.size+known.suffix.size; return known[sc].size; }
+function knownCount(sc){ if(sc==="all") return known.prefix.size+known.root.size+known.suffix.size; return known[sc].size; }
 function updateProgress(){
   const kc=knownCount(scope), tot=SCOPE_TOTAL[scope];
   document.getElementById("progTxt").textContent="已學會 "+kc+" / "+tot+"　（本輪剩 "+active.length+"）";
@@ -237,16 +256,19 @@ function updateProgress(){
 }
 
 function cardFrontHTML(c){
-  if(c.type==="prefix"){
+  const ask = c.type==="root" ? "這個字根是什麼意思？" : c.type==="suffix" ? "這個字尾是什麼意思？" : "這個字首是什麼意思？";
+  if(c.img){
     return '<div class="c-top"><img class="c-img" src="'+c.img+'" alt="'+c.p+'"><div class="c-term">'+c.p+'</div>'
-         + '<div class="c-ask">這個字首是什麼意思？</div></div>';
+         + '<div class="c-ask">'+ask+'</div></div>';
   }
   return '<div class="c-top"><div class="c-tag">'+c.pos+'</div><div class="c-suf">'+c.p+'</div>'
-       + '<div class="c-ask">這個字尾是什麼意思？</div></div>';
+       + '<div class="c-ask">'+ask+'</div></div>';
 }
 function cardAnsHTML(c){
   const ex=c.ex.map(e=>'<li><span class="w">'+e[0]+'</span><span class="g">'+e[1]+'</span></li>').join("");
-  return '<div class="c-ans"><div class="a-term">'+c.p+'</div><div class="a-zh">'+c.zh+'</div>'
+  return '<div class="c-ans"><div class="a-term">'+c.p+'</div>'
+       + (c.key?'<div class="a-key">助記 mnemonic：'+c.key+'</div>':'')
+       + '<div class="a-zh">'+c.zh+'</div>'
        + '<ul class="a-ex">'+ex+'</ul>'+(c.note?'<div class="a-note">⚠ '+c.note+'</div>':'')+'</div>';
 }
 
@@ -348,7 +370,7 @@ function showDone(){
   const again=document.getElementById("actAgain"); if(again) again.onclick=()=>startRound(scope,true);
   document.getElementById("actAll").onclick=()=>startRound(scope,false);
   document.getElementById("actReset").onclick=()=>{
-    if(scope==="all"){ known.prefix.clear(); known.suffix.clear(); } else { known[scope].clear(); }
+    if(scope==="all"){ known.prefix.clear(); known.root.clear(); known.suffix.clear(); } else { known[scope].clear(); }
     saveKnown(); startRound(scope,false);
   };
 }
