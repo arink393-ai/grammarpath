@@ -637,6 +637,24 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rv-star{background:none;border:0;cursor:pointer;font-size:20px;color:var(--amber);line-height:1}
 .rv-star.on{color:#E8A020}
 .rv-scram{font:800 30px var(--serif);letter-spacing:6px;color:var(--navy);background:var(--teal-bg);border:1.5px solid var(--teal-line);border-radius:12px;padding:16px;text-transform:lowercase;word-break:break-all}
+/* crossword */
+.cw-wrap{overflow-x:auto;padding:4px 0 8px}
+.cw-grid{display:inline-grid;gap:2px;margin:6px auto}
+.cw-blank{width:30px;height:30px}
+.cw-cell{position:relative;width:30px;height:30px;background:#fff;border:1.5px solid #c9b69f;border-radius:4px}
+.cw-cell input{width:100%;height:100%;border:0;background:transparent;text-align:center;font:700 16px var(--sans);color:var(--navy);text-transform:uppercase;padding:0;caret-color:var(--teal)}
+.cw-cell input:focus{outline:2px solid var(--teal);outline-offset:-1px;border-radius:3px}
+.cw-cell.ok{background:#e7f5ec;border-color:#86c79b}
+.cw-cell.ok input{color:#2f6b45}
+.cw-cell.bad{background:#fdecec;border-color:#e58b8b}
+.cw-num{position:absolute;top:0;left:2px;font:700 8px var(--sans);color:var(--muted);line-height:1.1;pointer-events:none}
+.cw-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.cw-clues{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-top:8px}
+.cw-clues h4{margin:0 0 6px;font:700 13px var(--sans);color:var(--navy)}
+.cw-cl{margin:0;padding-left:20px;font-size:13px;color:var(--body);line-height:1.9}
+.cw-cl i{color:var(--muted);font-size:11px;margin:0 2px}
+.cw-len{color:var(--muted);font-size:11px}
+@media(max-width:480px){.cw-clues{grid-template-columns:1fr}}
 /* 🐱 Cat Dex collection */
 .dex .lede{max-width:none}
 .dex-bar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--amber-bg);border:1.5px solid var(--amber-line);border-radius:12px;padding:10px 16px;margin:4px 0 18px;font:600 14px var(--sans);color:var(--amber)}
@@ -699,6 +717,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .res-subtab{font:600 13px var(--sans);color:var(--body);background:transparent;border:1.5px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer;transition:all .12s ease}
 .res-subtab:hover{border-color:var(--teal-line);background:var(--teal-bg)}
 .res-subtab.active{background:var(--teal-bg);border-color:var(--teal);color:var(--teal)}
+.daily-subtabs{margin:10px 0 6px}
 .lab-xlink{font-size:13.5px;line-height:1.6;color:var(--body);background:var(--lab-paper);border:1px solid var(--lab-line);border-radius:10px;padding:10px 14px;margin:12px 0}
 .lab-xlink a{color:var(--lab-accent);font-weight:600;text-decoration:none}
 .lab-xlink a:hover{text-decoration:underline}
@@ -1203,6 +1222,13 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .sb-vocab-w i{font:italic 400 12px var(--sans);color:var(--sb-soft);margin-left:4px}
 .sb-vocab-zh{font-size:13px;color:var(--sb-zh);line-height:1.4}
 .sb-tale{max-width:62ch;margin:0 auto}
+.sb-qbox{max-width:62ch;margin:16px auto 0;background:color-mix(in oklab,var(--sb-lapis) 8%,var(--sb-panel));border:1px solid color-mix(in oklab,var(--sb-lapis) 22%,var(--sb-line));border-left:4px solid var(--sb-lapis);border-radius:12px;padding:13px 18px 14px}
+.sb-qbox-h{font:600 .9rem var(--sb-disp);color:var(--sb-lapis);margin:0 0 7px;letter-spacing:.02em}
+.sb-qbox .en{display:block;font-family:var(--sb-serif);font-size:1.0rem;line-height:1.5;color:var(--sb-ink);margin:0}
+.sb-qbox .zh{display:block;font-family:var(--sb-han);color:var(--sb-zh);font-size:.95rem;line-height:1.75;margin-top:6px}
+.storybook.en-only .sb-qbox .zh{display:none}
+.sb-scene.zh-hidden .sb-qbox .zh{display:none}
+.sb-scene.en-hidden .sb-qbox .en{display:none}
 .sb-tale .en{font-family:var(--sb-serif);font-size:1.08rem;color:var(--sb-ink);margin:0 0 .5em}
 .sb-tale .en b,.sb-tale .zh b{font-weight:700;color:var(--sb-brick)}
 .sb-tale .zh{font-family:var(--sb-han);color:var(--sb-zh);font-size:1.02rem;line-height:1.95;margin:0 0 .5em}
@@ -1816,8 +1842,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <nav class="nav" id="mainNav" aria-label="Main">
   <div class="nav-head"><span class="nav-title">選單 Menu</span><button class="nav-close" id="navClose" type="button" aria-label="關閉 Close">✕</button></div>
   <button data-nav="#/home">🏝️ 首頁 Home</button>
-  <button data-nav="#/daily">🗓️ 每日任務 Daily Quests</button>
-  <button data-nav="#/vocab">📚 背單字 Vocabulary</button>
+  <button data-nav="#/daily">🗓️ 每日練習 Daily</button>
   <div class="nav-group">課程 Lessons</div>
   <button data-nav="#/level/basic">📗 初級 Basic</button>
   <button data-nav="#/level/intermediate">📘 中級 Intermediate</button>
@@ -1888,9 +1913,9 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="progress-sync.js?v=1"></script>
 <script src="curriculum-loader.js?v=1"></script>
 <script src="offline-content.js?v=1"></script>
-<script src="daily.js?v=16"></script>
+<script src="daily.js?v=17"></script>
 <script src="vocab/books.js?v=6"></script>
-<script src="vocab-quest.js?v=11"></script>
+<script src="vocab-quest.js?v=12"></script>
 <script>
 /* Supabase backend (teacher dashboard + progress sync + homework).
    The anon key is meant to be public; Row Level Security protects the data. */
@@ -2480,6 +2505,14 @@ $("#navClose").addEventListener("click", ()=> setNav(false));
 $("#navBackdrop").addEventListener("click", ()=> setNav(false));
 document.addEventListener("keydown", (e)=>{ if(e.key==="Escape" && $("#mainNav").classList.contains("open")) setNav(false); });
 
+/* Shared sub-tab bar for the merged 每日練習 Daily area (grammar quests + vocab). */
+function dailyTabs(active){
+  return `<div class="res-subtabs daily-subtabs">
+    <button class="res-subtab ${active==='quests'?'active':''}" onclick="location.hash='#/daily'">🎯 文法任務 Quests</button>
+    <button class="res-subtab ${active==='vocab'?'active':''}" onclick="location.hash='#/vocab'">📚 背單字 Words</button>
+  </div>`;
+}
+
 /* =====================================================
    Views — Home
    ===================================================== */
@@ -2723,7 +2756,7 @@ const STORIES = [
       zh:"在遠離人煙千里之外的浩瀚撒哈拉沙漠中，一位機械故障迫降的飛行員，遇見了一位來自遙遠小行星的金髮小男孩。這是一段關於愛、責任與成長的永恆追尋。"
     },
     scenes:[
-      {n:"1", title:"Drawing Number One", z:"第一號畫作：巨蟒與帽子", imgs:["art/little-prince/scene-01a.png","art/little-prince/scene-01b.png","art/little-prince/scene-01c.png"],
+      {n:"1", title:"Drawing Number One", z:"第一號畫作：巨蟒與帽子", q:{en:"Why did the grown-ups see a hat instead of an elephant inside a boa constrictor? What does this tell us about imagination?", zh:"初階思考：為什麼大人看第一號畫作時只看到帽子，而看不見蟒蛇肚子裡的大象？這反映了大人與小孩在想像力上的什麼差異？"}, imgs:["art/little-prince/scene-01a.png","art/little-prince/scene-01b.png","art/little-prince/scene-01c.png"],
         en:"Once when I was six years old, I saw a magnificent picture in a book called True Stories from Nature, about the primeval forest. It was a picture of a boa constrictor in the act of swallowing an animal. I pondered deeply, then made my first colored drawing. I showed my masterpiece to the grown-ups and asked them whether the drawing frightened them. But they answered: “Why should anyone be frightened by a hat?” My drawing was not a picture of a hat; it was a boa constrictor digesting an elephant. Grown-ups always need to have things explained.",
         zh:"在我六歲的時候，曾在一本名叫《真實的故事》的書裡看過一幅精彩的插圖。那是一條大蟒蛇正在吞食獵物。我深深思索後，用彩色鉛筆畫出了我的第一號作品。我拿給大人看，問他們害不害怕。但大人們回答：「一頂帽子有什麼好怕的？」我的畫才不是帽子，而是一條正在消化大象的大蟒蛇。大人總是需要別人跟他們解釋一切。"},
       {n:"2", title:"“Draw Me a Sheep!”", z:"沙漠迫降：「請幫我畫一隻羊！」", img:"art/little-prince/scene-02.png",
@@ -2771,7 +2804,7 @@ const STORIES = [
       {n:"16", title:"The Businessman Counting Stars", z:"算計星星的商人", img:"art/little-prince/scene-16.png",
         en:"The fourth planet belonged to a businessman so busy adding figures he did not even look up. “Five hundred and one million glittering objects!” he said. “You mean stars?” asked the little prince. “Yes! I own them!” “And what do you do with them?” “I count them and put the number in the bank. It makes me rich!” The little prince replied: “I own a flower that I water every day, and volcanoes that I clean out. It is of some use to them that I own them. But you are of no use to the stars.”",
         zh:"第四顆星球屬於一個商人，他忙著計算數字連頭都沒抬。「五億零一百萬個發亮的東西！」「你是說星星嗎？」小王子問。「對！我擁有它們！」「你擁有星星做什麼？」「我把它們數一數，把數字存進銀行，這讓我變得富有！」小王子平靜地說：「我擁有一朵每天澆水的花，擁有每週清掃的火山。我擁有它們，對它們是有益處的。但你對星星卻一點用處也沒有。」商人啞口無言。"},
-      {n:"17", title:"The Faithful Lamplighter", z:"點燈人：忠於職守的微光",
+      {n:"17", title:"The Faithful Lamplighter", z:"點燈人：忠於職守的微光", q:{en:"Among the king, the conceited man, the tippler, the businessman, and the lamplighter, why was the lamplighter the only one the little prince respected?", zh:"初階思考：在拜訪過的行星居民中（國王、愛虛榮者、酒鬼、商人、點燈人），為什麼只有點燈人得到了小王子的尊重？"},
         en:"The fifth planet was tiny, with room only for a street lamp and a lamplighter. Every minute, the planet turned completely, and the man had to light the lamp and put it out without a single second of rest. “Those are the orders,” he sighed. Yet the little prince respected him: “He would be scorned by the king and the businessman, but he is the only one who does not seem ridiculous to me—because he is thinking of something else besides himself. When he lights his lamp, it is as if he brought one more star to life.”",
         zh:"第五顆小星球只容得下一盞路燈和一個點燈人。行星每分鐘自轉一圈，點燈人必須毫不停歇地一會兒點亮、一會兒熄滅。「這就是命令，」他嘆氣道。但小王子卻由衷敬佩他：「國王與商人或許會嘲笑他，但在我看來，他是唯一不荒謬的人——因為他所關心的不是他自己。當他點亮路燈時，彷彿就讓天空中多綻放了一顆星星或一朵花。」"},
       {n:"18", title:"The Geographer: Flowers are Ephemeral", z:"地理學家：短暫綻放的美", img:"art/little-prince/scene-18.png",
@@ -2786,10 +2819,10 @@ const STORIES = [
       {n:"21", title:"Five Thousand Roses", z:"五千朵玫瑰花園", img:"art/little-prince/scene-21.png",
         en:"Walking through rocks and sand, he came upon a garden overflowing with roses. “Who are you?” he gasped. “We are roses,” they replied. The little prince was overcome with sorrow. His flower had told him she was the only one of her kind in all the universe, yet here were five thousand identical blossoms in a single garden! “I thought that I was rich with a unique flower,” he wept in the grass, “and all I had was an ordinary rose and three knee-high volcanoes. That does not make me a very great prince.”",
         zh:"走過碎石與黃沙，他突然撞見了一座盛開著玫瑰的花園。「你們是誰？」他驚訝地問。「我們是玫瑰花，」花兒們齊聲回答。小王子的心頓時沉入了谷底。他的花兒曾驕傲地宣稱自己是全宇宙唯一的玫瑰，而眼前單單一個花園裡就有五千朵一模一樣的花！「我原本以為自己很富有，擁有一朵獨一無二的花，」他在草地上痛哭：「原來我有的只是一朵平凡無奇的玫瑰和三座膝蓋高的火山，這根本不算什麼大王子。」"},
-      {n:"22", title:"The Fox: “To Tame Means to Establish Ties”", z:"狐狸登場：「馴服就是建立牽絆」", img:"art/little-prince/scene-22.png",
+      {n:"22", title:"The Fox: “To Tame Means to Establish Ties”", z:"狐狸登場：「馴服就是建立牽絆」", q:{en:"What does the fox mean when he says 'to tame is to establish ties'? How did this make the little prince realize his rose was unique?", zh:"初階思考：狐狸說「馴服就是建立牽絆」，這是什麼意思？這又是如何讓小王子明白，他那朵驕傲的玫瑰在全宇宙中是獨一無二的？"}, img:"art/little-prince/scene-22.png",
         en:"It was then that the fox appeared beneath the apple tree. “Come and play with me; I am so unhappy,” pleaded the little prince. “I cannot play with you,” said the fox, “I am not tamed.” “What does that mean?” “It means to establish ties. To me, you are still nothing more than a little boy like a hundred thousand other little boys, and I am a fox like a hundred thousand other foxes. But if you tame me, we shall need each other. To me, you will be unique in all the world. To you, I shall be unique in all the world.”",
         zh:"就在這時，一隻狐狸出現在蘋果樹下。「來跟我玩吧，我好難過，」小王子懇求道。「我不能跟你玩，」狐狸說：「我還沒被馴服。」「馴服是什麼意思？」「那是常被遺忘的事，意思是『建立牽絆』。對我來說，你現在只不過是個小男孩，跟其他十萬個男孩沒什麼兩樣；對你而言，我也只是一隻狐狸。但如果你馴服了我，我們就彼此需要了。對我來說，你將是全世界唯一的；對你來說，我也將是全世界唯一的。」"},
-      {n:"23", title:"What is Essential is Invisible to the Eye", z:"狐狸的秘密：用心才能看清", img:"art/little-prince/scene-23.png",
+      {n:"23", title:"What is Essential is Invisible to the Eye", z:"狐狸的秘密：用心才能看清", q:{en:"“It is only with the heart that one can see rightly; what is essential is invisible to the eye.” Can you share something in your life that cannot be seen, yet is essential?", zh:"進階哲思：狐狸最著名的秘密是「真正重要的東西，用眼睛是看不見的，必須用心才能看清」。在你的生活中，有沒有什麼東西是肉眼看不見、卻最無可取代的？"}, img:"art/little-prince/scene-23.png",
         en:"The little prince tamed the fox with patience. When parting came, the fox sent him back to the roses: “You are not at all like my rose,” the boy told the five thousand blossoms. “You are beautiful, but you are empty. My rose is the one I watered, sheltered, and listened to. She is my rose.” Returning to the fox, the fox whispered his parting gift: “Here is my secret, a very simple secret: It is only with the heart that one can see rightly; what is essential is invisible to the eye. It is the time you have wasted for your rose that makes your rose so important.”",
         zh:"小王子用無比的耐心馴服了狐狸。離別時，狐狸讓他再去看看那些玫瑰。「你們一點也不像我的玫瑰，」他對五千朵花說道：「你們很美麗，但你們是空虛的。我的玫瑰是我親手澆水、呵護並傾聽的花。她是屬於我的玫瑰。」回到狐狸身邊時，狐狸送給他臨別的秘密：「這是一個非常簡單的秘密：只有用心才能看清真相；真正重要的人事物，用肉眼是看不見的。正是你為你的玫瑰花所付出的時間，才使她變得如此重要。」"},
       {n:"24", title:"The Switchman and the Clock", z:"扳道工與匆忙的世界",
@@ -2801,7 +2834,7 @@ const STORIES = [
       {n:"26", title:"The Wall and the Golden Snake", z:"石牆上的約定與金黃小蛇", img:"art/little-prince/scene-26.png",
         en:"The next evening, I found the little prince sitting atop a ruined stone wall, talking with the yellow snake below: “You have good poison? It will not make me suffer?” I chased the serpent away and caught the child in my arms. “Tonight will be a year since I came to Earth,” he said gently. “In one of the stars, I shall be living and laughing. When you look at the sky at night, all the stars will laugh like five hundred million little bells! I cannot carry this heavy body; it is too far. It is like an old shell.” Then, with a flash of gold at his ankle, he fell as gently as a tree falls in the sand.",
         zh:"隔天傍晚，我看見小王子坐在頹圮的石牆上，正與下方的黃蛇對話：「你的毒液好嗎？保證不會讓我受苦太久吧？」我拔槍趕走毒蛇，把嚇得臉色蒼白的他抱在懷裡。「今晚是我降落地球滿一週年的日子，」他柔聲說：「在其中一顆星星上，我會住在那裡、笑著。當你夜晚看著天空時，就像擁有五億個會笑的清脆小鈴鐺！我帶不走這具沉重的身軀，路途太遙遠了。這只不過是個被遺棄的舊驅殼罷了。」接著，一道金黃光芒閃過他的腳踝，他像一棵樹那樣無聲而輕柔地倒在沙地上。"},
-      {n:"27", title:"The Star in the Desert: Look Up at the Sky", z:"沙漠夜空下的星星：抬頭看看天空吧", img:"art/little-prince/scene-27.png",
+      {n:"27", title:"The Star in the Desert: Look Up at the Sky", z:"沙漠夜空下的星星：抬頭看看天空吧", q:{en:"At the end, the narrator asks us to look up at the stars and wonder whether the sheep has eaten the rose. Why does this single question change the meaning of the entire universe for him?", zh:"進階哲思：故事結尾，作者請讀者抬頭仰望星空，思考「羊究竟有沒有把花吃掉」。為什麼這看似微不足道的一件事，會讓整個浩瀚宇宙的意義完全不同？"}, img:"art/little-prince/scene-27.png",
         en:"Six years have passed, and I have never yet told this story. At night, I love to listen to the stars; they are like five hundred million bells. Look up at the sky and ask yourselves: has the sheep eaten the flower, yes or no? And you will see how everything changes... No grown-up will ever understand that this is a matter of so much importance! If you should travel to the African desert and come upon this spot beneath the solitary star, do not hurry on. If a golden-haired boy who laughs should come to you, comfort my heart—send me word that he has returned.",
         zh:"六年過去了，我從未向任何人講過這個故事。如今每當夜晚，我依舊深愛傾聽繁星的私語，那就像五億串清脆的小鈴鐺。抬頭看看天空吧，問問你們自己：那隻羊究竟有沒有把花兒吃掉？一想到這裡，整個宇宙的樣貌都為之改變……然而沒有任何一個大人會明白，這件事究竟有多麼重大！若有一天你前往非洲沙漠，來到這顆孤獨閃爍的星辰下方，請別行色匆匆。如果看見一個笑聲如鈴鐺的金髮小男孩來到你面前，請撫慰我的心靈——寫信告訴我，他已經回來了。" }
     ],
@@ -2835,13 +2868,6 @@ const STORIES = [
       en:"“All grown-ups were once children—although few of them remember it.” Love is not about possession, but about the time and care we dedicate to someone. In a noisy world obsessed with numbers and hurried trains, take a moment to look up at the night sky. Somewhere out there, five hundred million golden stars are laughing like little bells.",
       zh:"「所有的大人都曾經是個孩子——雖然很少有人記得這一點。」真正的愛不是佔有，而是我們為彼此傾注的心血與時間。在這個被冰冷數字與匆忙列車追逐的世界裡，別忘了時常抬頭仰望夜空。在星河深處，有五億顆星星正像清脆的小鈴鐺一樣，溫柔地對著你微笑。"
     },
-    discuss:[
-      {en:"Why did the grown-ups see a hat instead of an elephant inside a boa constrictor? What does this tell us about imagination?", zh:"初階思考：為什麼大人看第一號畫作時只看到帽子，而看不見蟒蛇肚子裡的大象？這反映了大人與小孩在想像力上的什麼差異？"},
-      {en:"What does the fox mean when he says 'to tame is to establish ties'? How did this make the little prince realize his rose was unique?", zh:"初階思考：狐狸說「馴服就是建立牽絆」，這是什麼意思？這又是如何讓小王子明白，他那朵驕傲的玫瑰在全宇宙中是獨一無二的？"},
-      {en:"Among the king, the conceited man, the tippler, the businessman, and the lamplighter, why was the lamplighter the only one the little prince respected?", zh:"初階思考：在拜訪過的行星居民中（國王、愛虛榮者、酒鬼、商人、點燈人），為什麼只有點燈人得到了小王子的尊重？"},
-      {en:"“It is only with the heart that one can see rightly; what is essential is invisible to the eye.” Can you share something in your life that cannot be seen, yet is essential?", zh:"進階哲思：狐狸最著名的秘密是「真正重要的東西，用眼睛是看不見的，必須用心才能看清」。在你的生活中，有沒有什麼東西是肉眼看不見、卻最無可取代的？"},
-      {en:"At the end, the narrator asks us to look up at the stars and wonder whether the sheep has eaten the rose. Why does this single question change the meaning of the entire universe for him?", zh:"進階哲思：故事結尾，作者請讀者抬頭仰望星空，思考「羊究竟有沒有把花吃掉」。為什麼這看似微不足道的一件事，會讓整個浩瀚宇宙的意義完全不同？"}
-    ],
     note:"Original text and illustrations by Antoine de Saint-Exupéry (1943, translated by Katherine Woods, public domain). Presented with bilingual annotations, Web Speech read-aloud and interactive vocabulary support."
   },
   {
@@ -4705,6 +4731,7 @@ function renderStory(id){
           ${sc.cuv ? `<p class="cuv">${sc.cuv}</p>` : ""}
         </div>` : ""}
       </div>
+      ${sc.q ? `<div class="sb-qbox"><div class="sb-qbox-h">💬 討論一下 · Let's Talk</div><p class="en">${sc.q.en}</p><p class="zh">${sc.q.zh}</p></div>` : ""}
     </section>`).join("");
 
 
@@ -12328,7 +12355,7 @@ function renderReading(id, keepScroll){
    flash (翻卡) / match (配對) / listen (聽音選字) / spell (拼字).
    State in RV; re-rendered into #rv-stage. Resets when article/level changes. */
 let RV = null;
-const RV_TITLES = {flash:"🃏 閃卡 Flashcards", match:"🔗 配對 Match", listen:"👂 聽音選字 Listen & Choose", spell:"⌨️ 拼字 Spelling"};
+const RV_TITLES = {flash:"🃏 閃卡 Flashcards", match:"🔗 配對 Match", listen:"👂 聽音選字 Listen & Choose", spell:"⌨️ 拼字 Spelling", anagram:"🔤 字母重組 Anagram", cross:"🧩 填字遊戲 Crossword"};
 const rvEsc = s => String(s).replace(/\\/g,"\\\\").replace(/'/g,"\\'");
 function rvWords(){ const r=rdById(rdCurId), lv=r&&r.levels[RD_LEVEL]; return ((lv&&lv.gloss)||[]).map(g=>({w:g[0],pos:g[1],zh:g[2]})); }
 function rvOpen(mode){
@@ -12341,6 +12368,7 @@ function rvOpen(mode){
     RV.qs=RV.order.map(wi=>{ const correct=words[wi].w; const others=shuffle(words.filter((_,j)=>j!==wi).map(x=>x.w)).slice(0,3); return {wi, opts:shuffle([correct,...others])}; }); }
   else if(mode==="spell"){ RV.order=shuffle(idx.slice()); RV.answered=false; RV.correct=false; }
   else if(mode==="anagram"){ RV.order=shuffle(idx.slice()); RV.answered=false; RV.correct=false; RV.scram=RV.order.map(wi=>rvScramble(words[wi].w)); }
+  else if(mode==="cross"){ const seen={}, cwords=[]; words.forEach(x=>{ const W=x.w.toUpperCase(); if(/^[A-Z]{3,}$/.test(W) && !seen[W]){ seen[W]=1; cwords.push({w:W, zh:x.zh, pos:x.pos}); } }); RV.cw = cwords.length>=2 ? cwFinalize(cwBuild(cwords)) : null; }
   rvRender(true);
   if(mode==="listen"||mode==="spell") rvSayCurrent();
 }
@@ -12349,17 +12377,20 @@ function rvProgressText(){
   const n=RV.words.length;
   if(RV.mode==="flash") return `${RV.i+1} / ${n}`;
   if(RV.mode==="match") return `${Object.keys(RV.matched).length} / ${n} 配對`;
+  if(RV.mode==="cross") return `填字 · ${RV.cw?RV.cw.placed.length:0} 個單字`;
   return `第 ${RV.i+1} / ${n} 題 · 得分 ${RV.score}`;
 }
 function rvChooserHTML(){
   const n=rvWords().length;
   if(n<2) return `<p class="rv-empty">這一篇沒有可玩的單字。</p>`;
-  const picks=[["flash","🃏","閃卡","翻卡記單字"],["match","🔗","配對","英中連連看"],["listen","👂","聽音選字","聽發音選拼寫"],["spell","⌨️","拼字","聽音打出單字"],["anagram","🔤","字母重組","重排字母拼單字"]];
+  const picks=[["flash","🃏","閃卡","翻卡記單字"],["match","🔗","配對","英中連連看"],["listen","👂","聽音選字","聽發音選拼寫"],["spell","⌨️","拼字","聽音打出單字"],["anagram","🔤","字母重組","重排字母拼單字"],["cross","🧩","填字遊戲","看中文填英文字"]];
   return `<div class="rv-choose">${picks.map(([m,ic,zh,sub])=>`<button class="rv-pick" onclick="rvOpen('${m}')"><span class="rv-ic">${ic}</span><b>${zh}</b><span>${sub}</span></button>`).join("")}</div>`;
 }
 function rvRender(focus){
   const stage=document.getElementById("rv-stage"); if(!stage) return;
   if(RV && RV.srcId!==rdCurId+"|"+RD_LEVEL) RV=null;
+  if(RV && RV.mode==="cross" && RV.cw && !RV.cw._skip){ rvCrossHarvest(); }
+  if(RV && RV.cw) RV.cw._skip=false;
   if(!RV){ stage.innerHTML=rvChooserHTML(); return; }
   stage.innerHTML=`<div class="rv-bar"><button class="rv-back" onclick="rvClose()">← 換遊戲</button><span class="rv-title">${RV_TITLES[RV.mode]}</span><span class="rv-prog">${rvProgressText()}</span></div><div class="rv-body">${rvBodyHTML()}</div>`;
   const f=document.getElementById("rv-spell-form");
@@ -12367,7 +12398,7 @@ function rvRender(focus){
 }
 function rvBodyHTML(){
   if(RV.finished) return rvResultHTML();
-  return RV.mode==="flash"?rvFlashHTML():RV.mode==="match"?rvMatchHTML():RV.mode==="listen"?rvListenHTML():RV.mode==="spell"?rvSpellHTML():rvAnagramHTML();
+  return RV.mode==="flash"?rvFlashHTML():RV.mode==="match"?rvMatchHTML():RV.mode==="listen"?rvListenHTML():RV.mode==="spell"?rvSpellHTML():RV.mode==="anagram"?rvAnagramHTML():rvCrossHTML();
 }
 function rvResultHTML(){ const n=RV.words.length; const pct=Math.round(RV.score/n*100);
   return `<div class="rv-result"><div class="rv-win">🎉 完成！</div><div class="rv-score">得分 <b>${RV.score} / ${n}</b>　${pct}%</div>
@@ -12439,6 +12470,86 @@ function rvSaveWord(w, zh){
   if(sitIsSaved(w)){ SIT_SAVED=SIT_SAVED.filter(x=>x.en!==w); }
   else { SIT_SAVED.unshift({en:w, zh:zh, from:"📰 "+((rdById(rdCurId)||{}).topic||"時事閱讀")}); toast("⭐ 已收藏到「我的句庫」"); }
   sitSaveWrite(); rvRender();
+}
+/* --- 填字遊戲 crossword: auto-generated from the current glossary --- */
+function cwBuild(words){
+  let best=null;
+  for(let a=0;a<60;a++){
+    const ws = a===0 ? words.slice().sort((x,y)=>y.w.length-x.w.length) : shuffle(words.slice());
+    const lay = cwPlace(ws);
+    if(!best || lay.placed.length>best.placed.length) best=lay;
+    if(best.placed.length===words.length) break;
+  }
+  return best;
+}
+function cwPlace(ws){
+  const cells={}, placed=[], key=(r,c)=>r+","+c;
+  function canPlace(w,r,c,dir){
+    const dr=dir==="D"?1:0, dc=dir==="A"?1:0;
+    if(cells[key(r-dr,c-dc)]!=null) return false;                 // cell before start
+    if(cells[key(r+dr*w.length,c+dc*w.length)]!=null) return false; // cell after end
+    let cross=0;
+    const pr=dir==="A"?1:0, pc=dir==="A"?0:1;                      // perpendicular
+    for(let i=0;i<w.length;i++){
+      const rr=r+dr*i, cc=c+dc*i, ex=cells[key(rr,cc)];
+      if(ex!=null){ if(ex!==w[i]) return false; cross++; }
+      else { if(cells[key(rr+pr,cc+pc)]!=null) return false; if(cells[key(rr-pr,cc-pc)]!=null) return false; }
+    }
+    return cross;
+  }
+  const first=ws[0];
+  for(let i=0;i<first.w.length;i++) cells[key(0,i)]=first.w[i];
+  placed.push({...first,row:0,col:0,dir:"A"});
+  for(let k=1;k<ws.length;k++){
+    const w=ws[k]; let done=false;
+    for(let i=0;i<w.w.length && !done;i++){
+      for(const pk in cells){ if(cells[pk]!==w.w[i]) continue;
+        const pr=pk.split(",").map(Number);
+        for(const dir of ["D","A"]){
+          const dr=dir==="D"?1:0, dc=dir==="A"?1:0, r=pr[0]-dr*i, c=pr[1]-dc*i;
+          if(canPlace(w.w,r,c,dir)){ for(let j=0;j<w.w.length;j++) cells[key(r+dr*j,c+dc*j)]=w.w[j]; placed.push({...w,row:r,col:c,dir}); done=true; break; }
+        }
+        if(done) break;
+      }
+    }
+  }
+  return {cells, placed};
+}
+function cwFinalize(layout){
+  const cells=layout.cells, placed=layout.placed, has=(r,c)=>cells[r+","+c]!=null;
+  let minR=1e9,maxR=-1e9,minC=1e9,maxC=-1e9;
+  Object.keys(cells).forEach(k=>{const [r,c]=k.split(",").map(Number); minR=Math.min(minR,r);maxR=Math.max(maxR,r);minC=Math.min(minC,c);maxC=Math.max(maxC,c);});
+  const numberAt={}; let n=0;
+  for(let r=minR;r<=maxR;r++) for(let c=minC;c<=maxC;c++){ if(!has(r,c)) continue;
+    if((!has(r,c-1)&&has(r,c+1)) || (!has(r-1,c)&&has(r+1,c))){ n++; numberAt[r+","+c]=n; } }
+  const across=[], down=[];
+  placed.forEach(p=>{ p.num=numberAt[p.row+","+p.col]; (p.dir==="A"?across:down).push(p); });
+  across.sort((a,b)=>a.num-b.num); down.sort((a,b)=>a.num-b.num);
+  return {cells, placed, numberAt, across, down, minR, maxR, minC, maxC, entries:{}, checked:false};
+}
+function rvCrossHarvest(){ const cw=RV&&RV.cw; if(!cw)return; cw.entries=cw.entries||{}; document.querySelectorAll("#rv-stage .cw-cell input").forEach(inp=>{ cw.entries[inp.dataset.k]=(inp.value||"").toUpperCase(); }); }
+function rvCrossSolved(){ const cw=RV.cw; return Object.keys(cw.cells).every(k=>(cw.entries[k]||"")===cw.cells[k]); }
+function rvCrossCheck(){ if(!RV||!RV.cw)return; rvCrossHarvest(); RV.cw.checked=true; if(rvCrossSolved() && !RV.awarded){ RV.awarded=true; rvAward(); } rvRender(); }
+function rvCrossReveal(){ if(!RV||!RV.cw)return; RV.cw.entries={}; Object.keys(RV.cw.cells).forEach(k=>RV.cw.entries[k]=RV.cw.cells[k]); RV.cw.checked=true; RV.cw._skip=true; rvRender(); }
+function rvCrossHTML(){
+  const cw=RV.cw;
+  if(!cw || cw.placed.length<2) return `<p class="rv-tip">這一篇可用的單字太少，無法生成填字。先玩別種吧！</p>`;
+  const w=cw.maxC-cw.minC+1; let grid="";
+  for(let r=cw.minR;r<=cw.maxR;r++) for(let c=cw.minC;c<=cw.maxC;c++){
+    const k=r+","+c, sol=cw.cells[k];
+    if(!sol){ grid+=`<div class="cw-blank"></div>`; continue; }
+    const val=cw.entries[k]||""; let cls="cw-cell";
+    if(cw.checked){ if(val&&val===sol)cls+=" ok"; else if(val)cls+=" bad"; }
+    const num=cw.numberAt[k]?`<span class="cw-num">${cw.numberAt[k]}</span>`:"";
+    grid+=`<div class="${cls}">${num}<input data-k="${k}" maxlength="1" value="${val}" ${cw.checked&&val===sol?"disabled":""} oninput="this.value=this.value.toUpperCase().slice(0,1)"></div>`;
+  }
+  const clue=p=>`<li><b>${p.num}.</b> ${p.zh} <i>${p.pos}</i> <span class="cw-len">(${p.w.length})</span></li>`;
+  const win = cw.checked && rvCrossSolved() ? `<div class="rv-win">🎉 全部填對了！</div>` : "";
+  return `<div class="cw-wrap"><div class="cw-grid" style="grid-template-columns:repeat(${w},30px)">${grid}</div></div>
+    ${win}
+    <p class="rv-tip">看「中文提示」在格子裡填入對應的英文單字（括號是字數）。</p>
+    <div class="cw-actions"><button class="btn btn-primary" onclick="rvCrossCheck()">檢查答案</button><button class="btn btn-ghost" onclick="rvCrossReveal()">看答案</button><button class="btn btn-ghost" onclick="rvOpen('cross')">換一題 ↻</button></div>
+    <div class="cw-clues"><div><h4>橫 Across →</h4><ol class="cw-cl">${cw.across.map(clue).join("")}</ol></div><div><h4>直 Down ↓</h4><ol class="cw-cl">${cw.down.map(clue).join("")}</ol></div></div>`;
 }
 
 /* ================= ABC Handwriting 字母書寫 =================

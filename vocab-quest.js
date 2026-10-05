@@ -257,7 +257,8 @@ function renderVocabHub(){
  const days=[]; for(let i=-6;i<=1;i++){ const x=vqDateAdd(t,i); if(x>=VQ_START) days.push(vqDay(x)); }   // 開始日之前沒有任務
  const doneN=Object.values(recs).filter(r=>r&&r.done).length;
  app.innerHTML=`<div class="view dq vq">
-  <div class="crumb"><a href="#/home">Home</a> › 背單字 Vocabulary</div>
+  <div class="crumb"><a href="#/home">Home</a> › <a href="#/daily">每日練習 Daily</a> › 背單字 Vocabulary</div>
+  ${typeof dailyTabs==='function'?dailyTabs('vocab'):''}
   <section class="dq-hero"><div><div class="eyebrow">DAILY WORDS</div><h1 class="display">每天 5 個字，<br>背完馬上用出來。</h1><p>先認識單字（發音、中文、例句、搭配詞），再做含有這些字的文法題。完成後，這些字會自動排進「每日單字」的複習。</p><p class="dq-meta">已完成 ${doneN} 天 · ${esc(VQ_TRACKS[d.track].title)} · 今天是 Unit ${d.n}</p><a class="btn btn-primary" href="#/vocab/${t}">今日任務：Unit ${d.n}${d.title?' '+esc(d.title):''} →</a></div><div class="dq-mascot">${catSVG(150,'orange')}<span>一天五個字，喵！</span></div></section>
   <section class="vq-tracks"><b>選擇路線</b>${Object.entries(VQ_TRACKS).map(([k,x])=>`<button class="vq-track ${k===d.track?'on':''}" onclick="vqSetTrack('${k}')"><span>${esc(x.title)}</span><small>${esc(x.desc)}</small></button>`).join('')}</section>
   <section class="vq-days">${days.map(x=>{const st=vqStatus(x.date),isT=x.date===t,fut=x.date>t;return `<a class="vq-day card ${st} ${isT?'today':''}" href="#/vocab/${x.date}"><span class="vq-day-date">${isT?'今天':fut?'明天・預習':x.date.slice(5).replace('-','/')}</span><b>Unit ${x.n}</b><span class="vq-day-t">${esc(x.title)}</span><span class="vq-day-w">${x.items.map(w=>esc(w.w)).join(' · ')}</span><span class="vq-day-st">${st==='done'?'✓ 完成':st==='started'?'進行中':isT?'今日任務':fut?'可預習':'可補做'}</span></a>`;}).join('')}</section>
