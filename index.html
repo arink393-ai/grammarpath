@@ -2628,7 +2628,7 @@ const STORIES = [
       {n:"2", title:"Mother's Warning", z:"媽媽的告誡", img:"art/peter-rabbit/img-005.png",
         en:"“Now my dears,” said old Mrs. Rabbit one morning, “you may go into the fields or down the lane, but don't go into Mr. McGregor's garden: your Father had an accident there; he was put in a pie by Mrs. McGregor.”",
         zh:"「孩子們，」一天早晨，兔媽媽叮嚀道：「你們可以到田野裡玩，也可以沿著鄉間小路走，但千萬不能跑進麥先生的菜園裡：你們的爸爸就是在那裡出了意外；他被麥太太做成了餡餅。」"},
-      {n:"3", title:"“Don't Get into Mischief”", z:"「別調皮搗蛋」", img:"art/peter-rabbit/img-006.png",
+      {n:"3", title:"“Don't Get into Mischief”", z:"「別調皮搗蛋」", q:{en:"Have you ever done something even though you were told not to? What happened afterwards?", zh:"初階思考：你有沒有哪次像彼得一樣，做了一件大人交代不能做的事？後來發生了什麼？"}, img:"art/peter-rabbit/img-006.png",
         en:"“Now run along, and don't get into mischief. I am going out.”",
         zh:"「去跑跑吧，記得不要調皮搗蛋。媽媽要出門一趟。」"},
       {n:"4", title:"Through the Wood to the Baker's", z:"穿過森林去麵包店", img:"art/peter-rabbit/img-007.png",
@@ -2637,7 +2637,7 @@ const STORIES = [
       {n:"5", title:"Gathering Blackberries", z:"採黑莓的乖兔子", img:"art/peter-rabbit/img-008.png",
         en:"Flopsy, Mopsy, and Cotton-tail, who were good little bunnies, went down the lane to gather blackberries.",
         zh:"弗洛普西、莫普西和棉球尾是乖巧聽話的小兔子，他們乖乖沿著小路去採野生黑莓。"},
-      {n:"6", title:"Under the Gate!", z:"擠進菜園大門！", img:"art/peter-rabbit/img-009.png",
+      {n:"6", title:"Under the Gate!", z:"擠進菜園大門！", q:{en:"How did you feel when Peter squeezed into Mr. McGregor's garden even though his mother warned him?", zh:"初階思考：當彼得不顧媽媽的警告、硬擠進麥先生的花園時，你心裡有什麼感受？"}, img:"art/peter-rabbit/img-009.png",
         en:"But Peter, who was very naughty, ran straight away to Mr. McGregor's garden, and squeezed under the gate!",
         zh:"可是非常淘氣的彼得，卻一溜煙直奔麥先生的菜園，從大門底下硬擠了進去！"},
       {n:"7", title:"Lettuces, Beans, and Radishes", z:"生菜、四季豆與蘿蔔", img:"art/peter-rabbit/img-010.png",
@@ -12109,9 +12109,36 @@ const rdEsc   = s => String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&l
 const rdPlain = s => rdEsc(String(s==null?"":s).replace(/<[^>]*>/g,""));   // drop <b> etc, then escape
 const RD_LET  = ["A","B","C","D","E","F"];
 /* One printable worksheet block (a single article at a single level). */
+/* Build a printable crossword for a reading level from its glossary (reuses the
+   same generator as the on-screen game). Needs ≥3 single alphabetic words. */
+function cwForLevel(lv){
+  const seen={}, words=[];
+  (lv.gloss||[]).forEach(g=>{ const W=String(g[0]).toUpperCase(); if(/^[A-Z]{3,}$/.test(W)&&!seen[W]){ seen[W]=1; words.push({w:W, zh:g[2], pos:g[1]}); } });
+  return words.length>=3 ? cwFinalize(cwBuild(words)) : null;
+}
+function cwSheetGrid(cw, showAns){
+  let h="<table class='cwp'><tbody>";
+  for(let r=cw.minR;r<=cw.maxR;r++){ h+="<tr>";
+    for(let c=cw.minC;c<=cw.maxC;c++){ const k=r+","+c, sol=cw.cells[k];
+      if(!sol){ h+="<td class='cwp-x'></td>"; continue; }
+      const num=cw.numberAt[k]?`<span class='cwp-num'>${cw.numberAt[k]}</span>`:"";
+      h+=`<td class='cwp-c'>${num}${showAns?`<span class='cwp-a'>${sol}</span>`:""}</td>`;
+    } h+="</tr>";
+  } return h+"</tbody></table>";
+}
+function cwSheetClues(cw){
+  const cl=p=>`<li><b>${p.num}.</b> ${rdPlain(p.zh)} <i>(${rdPlain(p.pos)} · ${p.w.length} letters)</i></li>`;
+  return `<div class="cwp-clues"><div><b>橫 Across →</b><ol>${cw.across.map(cl).join("")}</ol></div><div><b>直 Down ↓</b><ol>${cw.down.map(cl).join("")}</ol></div></div>`;
+}
 function rdSheetHTML(r, lv){
   const paras   = lv.text.map(p=>`<p>${rdEsc(p)}</p>`).join("");
   const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${rdEsc(g[0])}</b> <i>${rdEsc(g[1])}</i> ${rdEsc(g[2])}</span>`).join("");
+  const cw = cwForLevel(lv);
+  const cwSec = cw ? `<div class="cwp-sec"><h2>Vocabulary Crossword 單字填字</h2>
+    <p class="cwp-tip">看下面的中文提示，把正確的英文單字填進格子裡（數字對應題號，括號是字母數）。</p>
+    <div class="cwp-wrap">${cwSheetGrid(cw,false)}</div>
+    ${cwSheetClues(cw)}</div>` : "";
+  const cwAns = cw ? `<div class="ak-cw"><b>Crossword 填字解答</b>${cwSheetGrid(cw,true)}</div>` : "";
   const qs = (lv.q||[]).map((q,i)=>{
     const opts = (q.opts||[]).map((o,oi)=>`<div class="rd-ws-option">(${RD_LET[oi]}) ${rdPlain(o)}</div>`).join("");
     return `<div class="q"><div class="qh"><span class="qn">${i+1}.</span> ${rdPlain(q.q)}<span class="qtag">${rdEsc(q.t)}</span></div><div class="rd-ws-options">${opts}</div></div>`;
@@ -12124,11 +12151,12 @@ function rdSheetHTML(r, lv){
   <div class="meta"><span class="cefr">${rdEsc(lv.cefr)}</span>${rdEsc(r.topic)} · ${rdEsc(r.zh)} · 改寫自 ${rdEsc(r.src)}</div>
   <div class="article">${paras}</div>
   ${gloss?`<h2>Words 單字</h2><div class="gloss">${gloss}</div>`:""}
+  ${cwSec}
   <h2>Comprehension Questions 閱讀測驗</h2>
   ${qs}
   ${discuss?`<h2>Discussion 討論與延伸</h2><ol class="disc">${discuss}</ol>`:""}
   <div class="src-note">📰 Source 資料來源：改寫自 ${rdEsc(r.src)} 等媒體之公開報導（${rdEsc(r.date)}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</div>
-  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}</div>
+  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}${cwAns}</div>
 </section>`;
 }
 /* Same-page preview avoids blocked popup windows and keeps the reading answers intact. */
@@ -12214,6 +12242,20 @@ function rdOpenWorksheet(sections, docTitle){
  #rd-print-preview .answers{break-before:page;page-break-before:always;border:0;margin:0;padding:0}
  @page{size:A4;margin:16mm}
 }
+#rd-print-preview .cwp-sec{break-inside:avoid;page-break-inside:avoid}
+#rd-print-preview .cwp-tip{font:10pt system-ui,sans-serif;color:#555;margin:0 0 8px}
+#rd-print-preview .cwp-wrap{overflow-x:auto}
+#rd-print-preview table.cwp{border-collapse:collapse;margin:6px 0 12px}
+#rd-print-preview table.cwp td{width:26px;height:26px;padding:0}
+#rd-print-preview td.cwp-c{border:1.2px solid #222;position:relative;background:#fff}
+#rd-print-preview td.cwp-x{border:0}
+#rd-print-preview .cwp-num{position:absolute;top:0;left:1.5px;font:700 7px system-ui,sans-serif;color:#333;line-height:1.1}
+#rd-print-preview .cwp-a{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 13px system-ui,sans-serif;color:#111}
+#rd-print-preview .cwp-clues{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;font:10.5pt system-ui,sans-serif}
+#rd-print-preview .cwp-clues ol{margin:3px 0 0;padding-left:20px}
+#rd-print-preview .cwp-clues li{margin:3px 0;break-inside:avoid}
+#rd-print-preview .cwp-clues i{color:#555;font-size:9pt}
+#rd-print-preview .ak-cw{margin-top:10px;break-inside:avoid}
 </style>
 <div class="bar">
   <span>🐱 閱讀練習卷預覽</span>
