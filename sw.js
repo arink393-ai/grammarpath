@@ -1,14 +1,14 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v58-merge-resources";
+const CACHE = "eci-v59-merge-daily";
 const SHELL = [
   "./",
   "./index.html",
   "./progress-sync.js?v=1",
-  "./daily.js?v=16",
+  "./daily.js?v=17",
   "./curriculum-loader.js?v=1",
   "./offline-content.js?v=1",
   "./daily.css?v=17",
-  "./vocab-quest.js?v=10",
+  "./vocab-quest.js?v=12",
   "./manifest.webmanifest",
   "./vocab/",
   "./vocab/account-storage.js?v=2",
