@@ -41,17 +41,21 @@ def uk_ipa(p):
     """ECDICT 舊式音標 → 現代英式 IPA（劍橋／牛津風格）"""
     if not p: return ''
     vs = [v for v in re.split(r'[,;]\s*|\.\s+', p.strip()) if v]
+    if len(vs) == 1 and '.' in vs[0]:
+        a, b = vs[0].split('.', 1)
+        if a and b and a[0] == b[0] and abs(len(a) - len(b)) <= 2 and "'" not in vs[0]: vs = [a, b]
     p = next((v for v in vs if 'ɑ:' in v), vs[0]) if len(vs) > 1 and any('æ' in v for v in vs) else vs[0]
-    p = p.replace('ә', 'ə').replace('ε', 'e').replace(':', 'ː').replace("'", 'ˈ').replace('.', 'ˌ').replace('ɡ', 'g')
-    for a, b in [('eiə', 'eɪə'), ('aiə', 'aɪə'), ('ei', 'eɪ'), ('ai', 'aɪ'), ('ɔi', 'ɔɪ'), ('əu', 'əʊ'), ('ou', 'əʊ'), ('au', 'aʊ'),
+    p = p.replace('ә', 'ə').replace('є', 'e').replace('ε', 'e').replace(':', 'ː').replace("'", 'ˈ').replace('.', 'ˌ').replace('ɡ', 'g')
+    for a, b in [('eiə', 'eɪə'), ('aiə', 'aɪə'), ('ei', 'eɪ'), ('ai', 'aɪ'), ('ɔi', 'ɔɪ'), ('ɒi', 'ɔɪ'), ('əu', 'əʊ'), ('ou', 'əʊ'), ('au', 'aʊ'),
                  ('iə', 'ɪə'), ('uə', 'ʊə'), ('ɒː', 'ɔː'), ('əː', 'ɜː')]:
         p = p.replace(a, b)
     p = re.sub(r'i(?!ː)', 'ɪ', p)                     # 短 i → ɪ
-    p = re.sub(r'ɪ$', 'i', p)                          # 字尾非重讀 happy 的 i
+    p = re.sub(r'(?<![ɔaeʊ])ɪ$', 'i', p)               # 字尾非重讀 happy 的 i（雙母音除外）
     p = re.sub(r'(?<![ʊ])u(?!ː)', 'ʊ', p)              # 短 u → ʊ
     p = re.sub(r'ɔ(?![ːɪ])', 'ɒ', p)                    # 短 ɔ → ɒ
     p = re.sub(r'fʊl$', 'fəl', p).replace(' ', '')
-    if len(re.findall(r'aɪ|aʊ|eɪ|əʊ|ɔɪ|ɪə|eə|ʊə|[iɪeæaɑɒɔoʊuʌəɜ]ː?', p)) <= 1: p = p.replace('ˈ', '')
+    syl = len(re.findall(r'aɪ|aʊ|eɪ|əʊ|ɔɪ|ɪə|eə|ʊə|[iɪeæaɑɒɔoʊuʌəɜ]ː?', p)) + len(re.findall(r'(?<=[^aeiouɪʊʌɒɔɜæəː])[ln]$', p))
+    if syl <= 1: p = p.replace('ˈ', '')
     return '/' + p + '/'
 
 VOW = 'iɪeɛæaɑɒɔoʊuʌəɜɝɚ'

@@ -33,6 +33,9 @@ def main():
     B = bank()
     auto = json.load(open(os.path.join(ROOT, 'vocab-src', 'wordinfo-auto.json'), encoding='utf-8'))
     info = {k.lower(): dict(v) for k, v in auto.items()}
+    # 自動音標缺漏或有誤的字，人工補在 wordinfo-ipa.json（覆蓋自動結果）
+    for k, v in json.load(open(os.path.join(ROOT, 'vocab-src', 'wordinfo-ipa.json'), encoding='utf-8')).items():
+        info.setdefault(k.lower(), {}).update(v)
     errs, n_rt, n_syn, seen = [], 0, 0, {}
     for f in sorted(glob.glob(os.path.join(ROOT, 'vocab-src', 'wordinfo', '*.txt'))):
         for i, line in enumerate(open(f, encoding='utf-8'), 1):
