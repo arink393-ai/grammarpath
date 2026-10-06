@@ -16,7 +16,7 @@ import glob, json, os, re, sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(ROOT)
 OUT = os.path.join(REPO, 'vocab', 'info')
-PLACEHOLDER = re.compile(r'TODO|待補|請見|同上|略')
+PLACEHOLDER = re.compile(r'TODO|待補|請見|同上')
 
 def bank():
     d = {}
