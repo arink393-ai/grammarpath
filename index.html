@@ -8535,7 +8535,157 @@ const WORKSHEETS = {
   {zh:"地上是濕的，昨晚一定下過雨。", en:"The ground is wet. It must have rained last night."},
   {zh:"那不可能是真的！", en:"That can't be true!"},
   {zh:"你早該打電話給我的。", en:"You should have called me."},
-  {zh:"他可能搭了早班火車。", en:"He might have taken the early train."}]}
+  {zh:"他可能搭了早班火車。", en:"He might have taken the early train."}]},
+
+"pattern-sv": {
+ extra:[
+  "常見不及物動詞：arrive, come, go, run, smile, cry, sleep, happen, fall, rise, sit, stand, swim, dance — 這些動詞後面不接直接受詞",
+  "有些動詞兼具及物與不及物用法：'The door opened.'（不及物 S+V）vs 'She opened the door.'（及物 S+V+O）",
+  "arrive 是不及物動詞，後接介系詞 at/in；reach 是及物動詞，直接接地點：✓ arrived at school / ✓ reached the station（✗ arrived to / ✗ reached to）"],
+ mcq:[
+  {q:"The baby ___ all night because of the noise.", opts:["cried","cried tears","cry her tears","crying"], a:0},
+  {q:"Choose the correct S+V sentence.", opts:["She drank water.","The moon rose.","He gave me advice.","They made her happy."], a:1},
+  {q:"They ___ to Taichung last weekend.", opts:["went","went to went","go to","going"], a:0},
+  {q:"She ___ the station in ten minutes. (reach — transitive!)", opts:["arrived at","arrived","reached","reached to"], a:2}],
+ fill:[
+  {q:"The train ___ (arrive) at the station at eight every morning.", ans:"arrives"},
+  {q:"My cat ___ (sleep) on the sofa every afternoon.", ans:"sleeps"},
+  {q:"Leaves ___ (fall) from the trees in autumn.", ans:"fall"},
+  {q:"He ___ (run) quickly to catch the bus yesterday.", ans:"ran"},
+  {q:"A strange thing ___ (happen) on my way home.", ans:"happened"}],
+ err:[
+  {s:"Birds fly the sky every morning.", fix:"Birds fly in the sky every morning."},
+  {s:"She arrived to school very late.", fix:"She arrived at school very late."},
+  {s:"The baby cried its tears.", fix:"The baby cried."},
+  {s:"He fell the ground after the race.", fix:"He fell to the ground after the race."},
+  {s:"She smiled at me warmly.", ok:true},
+  {s:"The sun rises in the east.", ok:true}],
+ tr:[
+  {zh:"小鳥每天早上在樹上歌唱。", en:"Birds sing in the trees every morning."},
+  {zh:"火車昨天準時到達車站。", en:"The train arrived at the station on time yesterday."},
+  {zh:"他在比賽後疲憊地倒下。", en:"He fell to the ground after the race."},
+  {zh:"她向我微笑，讓我感到溫暖。", en:"She smiled at me warmly."},
+  {zh:"秋天到了，樹葉紛紛飄落。", en:"Autumn came and the leaves fell."}]},
+
+"pattern-svc": {
+ extra:[
+  "連綴動詞全覽：be / become / remain / seem / appear / prove；感官類 look / feel / sound / smell / taste；變化類 get / turn / grow（get cold / turn dark / grow nervous）",
+  "連綴動詞後接「形容詞」不接「副詞」：✗ He looks tiredly. → ✓ He looks tired.（形容詞修飾主詞，不是動詞）",
+  "補語也可以是名詞（主詞補語）：She became a doctor.（a doctor 說明主詞身份，不是受詞）"],
+ mcq:[
+  {q:"After the match, the players felt ___.", opts:["exhaustedly","exhausting","exhausted","exhaustion"], a:2},
+  {q:"The soup ___ a little salty to me.", opts:["is tasting","tastes","taste","tasted like"], a:1},
+  {q:"Which verb is a linking verb in this sentence?", opts:["kick","build","remain","eat"], a:2},
+  {q:"The sky ___ dark before the storm.", opts:["turned","turned to","turning","turns into"], a:0}],
+ fill:[
+  {q:"The music ___ (sound) beautiful in the concert hall.", ans:"sounds"},
+  {q:"After years of hard work, she ___ (become) a famous chef.", ans:"became"},
+  {q:"He ___ (seem) worried about the exam.", ans:"seems"},
+  {q:"The weather gets ___ in December. (cold / coldly)", ans:"cold"},
+  {q:"This bread smells ___! I want to eat it. (fresh / freshly)", ans:"fresh"}],
+ err:[
+  {s:"She became happily after hearing the good news.", fix:"She became happy after hearing the good news."},
+  {s:"The milk smells badly. Throw it away.", fix:"The milk smells bad. Throw it away."},
+  {s:"He looks tiredly after the long flight.", fix:"He looks tired after the long flight."},
+  {s:"The coffee tastes bitterly today.", fix:"The coffee tastes bitter today."},
+  {s:"She seems very confident before the speech.", ok:true},
+  {s:"The flowers smell lovely in spring.", ok:true}],
+ tr:[
+  {zh:"這蛋糕看起來很美味。", en:"The cake looks delicious."},
+  {zh:"他多年後成為了一位偉大的音樂家。", en:"He became a great musician years later."},
+  {zh:"那首歌聽起來很悲傷。", en:"The song sounds sad."},
+  {zh:"運動後她感覺棒極了。", en:"She felt great after exercising."},
+  {zh:"天空在暴風雨前變暗了。", en:"The sky turned dark before the storm."}]},
+
+"pattern-svo": {
+ extra:[
+  "直接接受詞、不加介系詞的動詞：discuss（✗ discuss about）、enter（✗ enter into）、reach（✗ reach to）、resemble、marry、approach、contact、answer、mention",
+  "enjoy / mind / finish / avoid / consider + V-ing；want / decide / hope / plan / refuse / manage + to V",
+  "remember/forget + V-ing（已做過）vs + to V（將來要做）：I remember locking the door.（記得鎖過了）/ Remember to lock the door.（記得去鎖）"],
+ mcq:[
+  {q:"We enjoyed ___ at the beach last summer.", opts:["to swim","swim","swimming","swam"], a:2},
+  {q:"Please ___ the door on your way out.", opts:["close","close to","closing","closed at"], a:0},
+  {q:"She ___ the station by taxi in ten minutes.", opts:["reached to","reached","arrived","arrived to"], a:1},
+  {q:"He ___ the plan with his team yesterday.", opts:["discussed","discussed about","discussed on","discuss about"], a:0}],
+ fill:[
+  {q:"She ___ (enjoy) playing the piano since she was five.", ans:"has enjoyed"},
+  {q:"They ___ (build) a new library in our town last year.", ans:"built"},
+  {q:"I ___ (avoid) eating too much sugar.", ans:"avoid"},
+  {q:"He ___ (finish) reading the novel last night.", ans:"finished"},
+  {q:"My teacher ___ (answer) all our questions patiently.", ans:"answered"}],
+ err:[
+  {s:"She discussed about the problem with her boss.", fix:"She discussed the problem with her boss."},
+  {s:"He entered into the classroom quietly.", fix:"He entered the classroom quietly."},
+  {s:"I enjoy to watch movies on weekends.", fix:"I enjoy watching movies on weekends."},
+  {s:"She wants go to Paris next year.", fix:"She wants to go to Paris next year."},
+  {s:"They built a beautiful bridge over the river.", ok:true},
+  {s:"He reached the top of the mountain at sunset.", ok:true}],
+ tr:[
+  {zh:"她喜歡在海邊散步。", en:"She enjoys walking by the sea."},
+  {zh:"我不喜歡吃辣的食物。", en:"I don't like eating spicy food."},
+  {zh:"他昨天讀了三本書。", en:"He read three books yesterday."},
+  {zh:"他們有沒有討論過這個計畫？", en:"Did they discuss the plan?"},
+  {zh:"你記得關燈了嗎？", en:"Did you remember to turn off the lights?"}]},
+
+"pattern-sviodo": {
+ extra:[
+  "IO（間接受詞）= 人；DO（直接受詞）= 事物 → IO 放前面時不加介系詞：She gave me a book.（✗ She gave to me a book.）",
+  "give / send / show / tell / teach / lend / bring / write + to 某人；buy / make / cook / get / find + for 某人",
+  "explain / suggest / introduce / say 不可用 IO+DO 順序：✓ explain the problem to me（✗ explain me the problem）"],
+ mcq:[
+  {q:"He ___ me the directions to the station.", opts:["showed","showed to","show to","showing"], a:0},
+  {q:"She cooked a meal ___.", opts:["for us","to us","for we","to we"], a:0},
+  {q:"Which sentence is correct?", opts:["She explained me the plan.","She explained the plan for me.","She explained the plan to me.","She explained me about the plan."], a:2},
+  {q:"My teacher ___ us a very interesting story.", opts:["told","told to","tell to","told for"], a:0}],
+ fill:[
+  {q:"My mom ___ (make) me a warm lunch every day.", ans:"makes"},
+  {q:"He ___ (send) his grandma a postcard from Japan.", ans:"sent"},
+  {q:"Can you ___ (show) me how to use this app?", ans:"show"},
+  {q:"The teacher ___ (give) the students some extra practice.", ans:"gave"},
+  {q:"She ___ (lend) her friend some money.", ans:"lent"}],
+ err:[
+  {s:"She gave to me a birthday card.", fix:"She gave me a birthday card."},
+  {s:"He explained me the grammar rules.", fix:"He explained the grammar rules to me."},
+  {s:"My mom bought for me a new bag.", fix:"My mom bought me a new bag."},
+  {s:"She introduced me her new classmate.", fix:"She introduced her new classmate to me."},
+  {s:"He sent his mother a beautiful bouquet.", ok:true},
+  {s:"She told us the whole story.", ok:true}],
+ tr:[
+  {zh:"媽媽每天早上幫我做早餐。", en:"My mom makes me breakfast every morning."},
+  {zh:"老師給了我們很多功課。", en:"The teacher gave us a lot of homework."},
+  {zh:"他把一張明信片寄給了他的朋友。", en:"He sent his friend a postcard."},
+  {zh:"請告訴我你的名字和電話號碼。", en:"Please tell me your name and phone number."},
+  {zh:"她把新手機展示給朋友看。", en:"She showed her friend her new phone."}]},
+
+"pattern-svooc": {
+ extra:[
+  "OC（受詞補語）補充說明受詞的「狀態或身份」：They made the room clean.（clean 補充說明 room，O 與 OC 之間存在 is 關係：the room IS clean）",
+  "make / keep / leave / find / consider + O + 形容詞；call / name / elect / appoint / consider + O + 名詞（頭銜、稱謂）",
+  "感官動詞 see / hear / watch + O + 原形動詞（完整動作）/ V-ing（進行中）：I saw him run.（完整跑過去）/ I saw him running.（正在跑）"],
+ mcq:[
+  {q:"The sad news made everyone ___.", opts:["sadly","sad","more sadly","a sadness"], a:1},
+  {q:"They ___ her the best player of the year.", opts:["named","named to","name to","elected to"], a:0},
+  {q:"I ___ him run across the finish line.", opts:["watched","watched to","watching","see"], a:0},
+  {q:"She kept the children ___ during the long trip.", opts:["quietly","quiet","a quiet","in quiet"], a:1}],
+ fill:[
+  {q:"The long meeting made everyone ___ (tired / tiredly).", ans:"tired"},
+  {q:"They ___ (elect) him class president last week.", ans:"elected"},
+  {q:"Exercise keeps you ___ (health / healthy).", ans:"healthy"},
+  {q:"She found the homework very ___. (difficulty / difficult)", ans:"difficult"},
+  {q:"They ___ (call) the little dog Peanut.", ans:"called"}],
+ err:[
+  {s:"She made him happily with her kind words.", fix:"She made him happy with her kind words."},
+  {s:"He found the test very difficulty.", fix:"He found the test very difficult."},
+  {s:"They named the cat to Mochi.", fix:"They named the cat Mochi."},
+  {s:"The long journey left us exhaustedly.", fix:"The long journey left us exhausted."},
+  {s:"I heard someone singing in the next room.", ok:true},
+  {s:"We elected her president of the student council.", ok:true}],
+ tr:[
+  {zh:"他們把那隻小狗叫做「豆豆」。", en:"They called the little dog Dodo."},
+  {zh:"這部電影讓我非常感動。", en:"The film made me very moved."},
+  {zh:"運動讓你保持健康和快樂。", en:"Exercise keeps you healthy and happy."},
+  {zh:"我看見他在雨中跑過馬路。", en:"I saw him run across the road in the rain."},
+  {zh:"同學們選她擔任班長。", en:"The classmates elected her class leader."}]}
 };
 
 /* ---- Mouth-shape presets ----
