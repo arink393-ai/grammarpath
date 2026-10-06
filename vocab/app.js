@@ -106,7 +106,7 @@ function colHTML(w) {
 
 /* ========== 單字補充：英美音標與發音、派生詞、詞根、同義詞 ========== */
 // 資料在 info/<字首>.js（tools/build_wordinfo.py 產生），點開單字時才載入那個字首的檔案
-const INFO_V = 4;   // 改了 info/*.js 就加 1
+const INFO_V = 5;   // 改了 info/*.js 就加 1
 const VOCAB_INFO = {}, infoJobs = {};
 window.VOCAB_INFO_ADD = (c, d) => Object.assign(VOCAB_INFO, d);
 const infoKey = w => String(w || '').toLowerCase();
