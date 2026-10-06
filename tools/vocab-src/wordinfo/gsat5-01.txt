@@ -1,0 +1,4 @@
+# 學測 L5：詞根拆解 || 同義詞（字庫有的字只寫英文；其他寫 英文=中文）
+abnormal || ab-（離開）+ normal（正常的）→ 偏離正常 → 不正常的 || unusual=不尋常的; strange; odd
+abolish || ab-（離開）+ olish（← 拉丁 olescere 成長）→ 使停止生長 → 廢除 || end; cancel; eliminate
+accommodate || ac-（= ad 朝向）+ com-（加強）+ mod（尺寸、模式）+ -ate（動詞字尾）→ 調整成合適的大小 → 容納；使適應 || hold; house=提供住處; adapt

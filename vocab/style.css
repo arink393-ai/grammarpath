@@ -203,3 +203,17 @@ body.focus { padding-bottom: 16px; }
 .ygattr { font-size: 11px; color: var(--muted); margin: 6px 0 0; line-height: 1.5; }
 .ygattr a { color: var(--muted); }
 .wlist mark { background: none; color: var(--accent); font-weight: 700; border-bottom: 2px solid var(--accent); }
+
+/* 英美音標、派生詞、詞根、同義詞 */
+.phrow { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 4px; }
+.phbtn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--card); border-radius: 99px; padding: 5px 12px 5px 6px; min-height: 36px; }
+.phbtn:active { background: var(--accent-soft); }
+.phl { background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 12px; border-radius: 99px; padding: 2px 7px; }
+.ipa { font-size: 15px; color: var(--text, inherit); font-family: "Lucida Sans Unicode", "Segoe UI", "Noto Sans", sans-serif; }
+.phbtn i { font-style: normal; font-size: 12px; opacity: .55; }
+.rt { font-size: 14.5px; line-height: 1.7; padding: 2px 2px 4px; }
+.syns { display: flex; flex-wrap: wrap; gap: 8px; }
+.synchip { display: inline-flex; flex-direction: column; align-items: flex-start; border: 1px solid var(--line); background: var(--card); border-radius: 10px; padding: 6px 10px; text-align: left; }
+.synchip b { font-family: Georgia, serif; color: var(--accent); font-size: 15px; }
+.synchip span { color: var(--muted); font-size: 12.5px; }
+.synchip:active { background: var(--accent-soft); }

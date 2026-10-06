@@ -75,21 +75,22 @@ function summary(book) {
 
 /* ========== 發音 ========== */
 let audio;
-function speak(text, slow) {
+function speak(text, slow, acc) {
+  const accent = acc || settings.accent;
   if (!text) return;
   if (audio) { audio.pause(); audio = null; }
   if (window.speechSynthesis) speechSynthesis.cancel();
   const fallback = () => {
     if (!window.speechSynthesis) return;
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = settings.accent === 1 ? 'en-GB' : 'en-US';
+    u.lang = accent === 1 ? 'en-GB' : 'en-US';
     u.rate = slow ? 0.75 : 0.95;
     const v = speechSynthesis.getVoices().find(v => v.lang === u.lang && /Samantha|Google|Daniel|Karen|Ava|Serena/.test(v.name));
     if (v) u.voice = v;
     speechSynthesis.speak(u);
   };
-  if (settings.voice !== 'youdao') return fallback();
-  audio = new Audio('https://dict.youdao.com/dictvoice?type=' + settings.accent + '&audio=' + encodeURIComponent(text));
+  if (settings.voice !== 'youdao' && !acc) return fallback();
+  audio = new Audio('https://dict.youdao.com/dictvoice?type=' + accent + '&audio=' + encodeURIComponent(text));
   audio.onerror = fallback;
   audio.play().catch(fallback);
 }
@@ -101,6 +102,45 @@ function colHTML(w) {
   if (!w.col || !w.col.length) return '';
   return `<div class="cols"><div class="colh">常見搭配 Collocations</div>${w.col.map(([en, zh]) =>
     `<button class="colrow" data-act="sayw" data-w="${esc(speakable(en))}"><b>${esc(en)}</b><span>${esc(zh || '')}</span><i>🔊</i></button>`).join('')}</div>`;
+}
+
+/* ========== 單字補充：英美音標與發音、派生詞、詞根、同義詞 ========== */
+// 資料在 info/<字首>.js（tools/build_wordinfo.py 產生），點開單字時才載入那個字首的檔案
+const INFO_V = 1;   // 改了 info/*.js 就加 1
+const VOCAB_INFO = {}, infoJobs = {};
+window.VOCAB_INFO_ADD = (c, d) => Object.assign(VOCAB_INFO, d);
+const infoKey = w => String(w || '').toLowerCase();
+function loadInfo(w) {
+  const k = infoKey(w), c = /^[a-z]/.test(k) ? k[0] : '_';
+  if (!infoJobs[c]) infoJobs[c] = new Promise(ok => {
+    const el = document.createElement('script'); el.src = 'info/' + c + '.js?v=' + INFO_V;
+    el.onload = ok; el.onerror = () => { delete infoJobs[c]; ok(); }; document.head.appendChild(el);
+  });
+  return infoJobs[c];
+}
+// part = 'ph'（英美音標＋發音）或 'more'（派生詞、詞根、同義詞）
+const infoBox = (w, part) => `<div class="winfo" data-w="${esc(w.w)}" data-ph="${esc(w.ph || '')}" data-part="${part}"></div>`;
+function infoHTML(word, kk, part) {
+  const d = VOCAB_INFO[infoKey(word)] || {};
+  if (part === 'ph') {
+    const btn = (lab, acc, ipa) => `<button class="phbtn" data-act="sayw" data-w="${esc(word)}" data-acc="${acc}"><span class="phl">${lab}</span><span class="ipa">${esc(ipa || '')}</span><i>🔊</i></button>`;
+    return `<div class="phrow">${btn('英', 1, d.uk)}${btn('美', 2, d.us || kk)}</div>`;
+  }
+  const row = (en, sub) => `<button class="colrow" data-act="sayw" data-w="${esc(en)}"><b>${esc(en)}</b><span>${esc(sub || '')}</span><i>🔊</i></button>`;
+  let h = '';
+  if (d.der && d.der.length) h += `<div class="cols"><div class="colh">派生詞 Word family</div>${d.der.map(([en, pos, zh]) => row(en, (pos ? pos + ' ' : '') + zh)).join('')}</div>`;
+  if (d.rt) h += `<div class="cols"><div class="colh">詞根拆解 Word roots</div><div class="rt">${esc(d.rt)}</div></div>`;
+  if (d.syn && d.syn.length) h += `<div class="cols"><div class="colh">同義詞 Synonyms</div><div class="syns">${d.syn.map(([en, zh]) => `<button class="synchip" data-act="sayw" data-w="${esc(en)}"><b>${esc(en)}</b><span>${esc(zh || '')}</span></button>`).join('')}</div></div>`;
+  return h;
+}
+// 把畫面（或某個區塊）裡的 .winfo 填上內容
+function fillInfo(root) {
+  const boxes = [...(root || document).querySelectorAll('.winfo:not(.done)')];
+  boxes.forEach(b => {
+    const paint = () => { b.innerHTML = infoHTML(b.dataset.w, b.dataset.ph, b.dataset.part); b.classList.add('done'); };
+    if (b.dataset.part === 'ph') paint();      // 先用書裡的音標顯示，載入後再換成英美音標
+    loadInfo(b.dataset.w).then(() => { if (b.isConnected) paint(); });
+  });
 }
 
 /* ========== 真人發音（YouGlish 官方嵌入元件） ========== */
@@ -450,9 +490,11 @@ function study() {
       <div class="kbd">鍵盤：1 想起來了 · 3 還是不認識</div>`;
   } else {
     body = `${wordLine}
+      ${infoBox(w, 'ph')}
       <div class="meaning"><span class="pos">${esc(w.pos || '')}</span>${esc(w.zh)}</div>
       ${exLine}${w.exZh ? `<div class="exzh">${esc(w.exZh)}</div>` : ''}
       ${colHTML(w)}
+      ${infoBox(w, 'more')}
       ${ygBtn(w.w)}
       <div class="spacer"></div>
       <button class="btn primary block" data-act="next">下一個 →</button>
@@ -465,6 +507,7 @@ function study() {
         <div><button class="iconbtn" data-act="kill" title="太簡單，以後不再出現">✂︎</button>
         <button class="iconbtn ${star ? 'on' : ''}" data-act="star" title="加入生詞本">${star ? '★' : '☆'}</button></div>
       </div>${body}</div>`;
+  fillInfo(app);
   if (S.phase === 'q' && settings.autoplay && !S.spoke) { S.spoke = true; speak(w.w); }
   // 看答案時自動念一次例句（只念一遍）
   if (S.phase.startsWith('a') && w.ex && settings.autoplay && !S.exSpoke) { S.exSpoke = true; speak(w.ex); }
@@ -663,9 +706,11 @@ function list() {
       <div class="top" data-act="expand"><span class="ww">${esc(w.w)}</span><span class="zz">${esc(w.zh)}</span>${chip(p[w.w])}
       <button class="iconbtn ${st.has(w.w) ? 'on' : ''}" data-act="lstar" data-w="${esc(w.w)}" aria-label="生詞本">${st.has(w.w) ? '★' : '☆'}</button></div>
       <div class="more" hidden>
-        <div class="row"><span class="muted">${esc(w.ph || '')}</span><span class="pos">${esc(w.pos || '')}</span><span class="grow"></span><button class="speak" data-act="sayw" data-w="${esc(w.w)}">🔊</button></div>
+        <div class="row"><span class="pos">${esc(w.pos || '')}</span><span class="grow">${esc(w.zh || '')}</span></div>
+        ${infoBox(w, 'ph')}
         ${w.ex ? `<div data-act="sayw" data-w="${esc(w.ex)}" style="cursor:pointer" title="點一下聽例句">${markEx(w.ex, w.w)} 🔊</div><div class="exzh">${esc(w.exZh || '')}</div>` : ''}
         ${colHTML(w)}
+        ${infoBox(w, 'more')}
         ${ygBtn(w.w)}
         ${p[w.w] && p[w.w].s >= KILLED ? `<button class="linkbtn small" data-act="unkill" data-w="${esc(w.w)}">取消「太簡單」，重新學習</button>` : ''}
       </div></li>`).join('') || '<p class="muted center" style="padding:30px 0">沒有符合的單字</p>'}</ul>
@@ -996,13 +1041,13 @@ document.addEventListener('click', e => {
   if (act === 'home') return go('home');
   if (act === 'yg') return openYG(el.closest('.ygbox'));
   if (act === 'ygreplay' || act === 'ygnext') return ygAct(act);
-  if (act === 'sayw' && session && location.hash === '#study') { e.stopPropagation(); return speak(el.dataset.w); }
+  if (act === 'sayw' && session && location.hash === '#study') { e.stopPropagation(); return speak(el.dataset.w, false, +el.dataset.acc || 0); }
   if (session && location.hash === '#study') { e.preventDefault(); return studyAct(act); }
   if (act === 'quiz') return startQuiz(el.dataset.mode, $('#onlystar')?.checked);
   if (['qsay', 'qquit', 'pick', 'check', 'qnext'].includes(act)) return quizAct(act, el);
-  if (act === 'sayw') { e.stopPropagation(); return speak(el.dataset.w); }
+  if (act === 'sayw') { e.stopPropagation(); return speak(el.dataset.w, false, +el.dataset.acc || 0); }
   if (act === 'filter') { listFilter = el.dataset.f; return list(); }
-  if (act === 'expand') { const m = el.nextElementSibling; m.hidden = !m.hidden; return; }
+  if (act === 'expand') { const m = el.nextElementSibling; m.hidden = !m.hidden; if (!m.hidden) fillInfo(m); return; }
   if (act === 'lstar') {
     e.stopPropagation();
     const b = curBook(), st = stars(b.id), w = el.dataset.w;
