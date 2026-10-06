@@ -973,6 +973,12 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .formbox .fb-p{font:500 18px/1.5 var(--mono);color:var(--navy)}
 .formbox .fb-ex{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:14px}
 .formbox .fb-ex b{color:var(--teal);font-weight:600}
+.hl-sub{color:#1D6FA5;font-weight:700}
+.hl-vrb{color:#C93B2B;font-weight:700}
+.hl-legend{display:inline-flex;gap:14px;align-items:center;background:rgba(255,255,255,.65);border:1px solid var(--line);border-radius:99px;padding:3px 12px;margin-bottom:14px;font:500 12px var(--sans)}
+.hl-legend .leg-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.hl-legend .leg-sub{background:#1D6FA5}
+.hl-legend .leg-vrb{background:#C93B2B}
 .use{margin-bottom:24px;padding-left:16px;border-left:3px solid var(--teal-line)}
 .use h3{font:600 16.5px var(--sans);color:var(--navy);margin-bottom:4px}
 .use .u-desc{font-size:14.5px;color:var(--body);margin-bottom:10px}
@@ -1911,7 +1917,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <div class="toast" id="toast" role="status"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="progress-sync.js?v=1"></script>
-<script src="curriculum-loader.js?v=1"></script>
+<script src="curriculum-loader.js?v=2"></script>
 <script src="offline-content.js?v=1"></script>
 <script src="daily.js?v=17"></script>
 <script src="vocab/books.js?v=6"></script>
@@ -7451,6 +7457,7 @@ function renderLesson(id){
         <p class="lede" style="margin-bottom:24px">${l.sub}</p>
         ${lessonVideoHTML(l.id)}
         <div class="formbox"><div class="fb-l">Form</div><div class="fb-p">${l.form.p}</div>
+          ${(l.form.p.includes("hl-sub")||l.form.p.includes("hl-vrb")||l.form.ex.some(e=>e.includes("hl-sub")||e.includes("hl-vrb"))) ? `<div class="hl-legend"><span class="leg-dot leg-sub"></span><b>主詞 (Subject)</b> 藍色 &nbsp;·&nbsp; <span class="leg-dot leg-vrb"></span><b>動詞 (Verb)</b> 紅色</div>` : ""}
           <div class="fb-ex">${l.form.ex.map(e=>`<span>${e}</span>`).join("")}</div></div>
         ${timelineHTML(l.tl)}
         <h2 class="section">How to use it</h2>

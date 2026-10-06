@@ -6,7 +6,7 @@
       if(loaded.has(id))return Promise.resolve();
       if(jobs.has(id))return jobs.get(id);
       const job=(async()=>{
-        const response=await request('curriculum/'+id+'.json?v=1');
+        const response=await request('curriculum/'+id+'.json?v=2');
         if(!response.ok)throw new Error('Curriculum unavailable');
         const lessons=await response.json();
         const expected=data.lessons.filter(l=>data.units.find(u=>u.id===l.unit)?.level===id);
