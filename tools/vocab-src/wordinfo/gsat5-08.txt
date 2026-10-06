@@ -1,0 +1,76 @@
+trigger || - || cause=引起; set off=觸發
+trim || - || cut=剪; clip=修剪
+triple || tri（三）+ ple（摺）→ 三倍的 || threefold=三倍的
+trivial || tri（三）+ via（路）+ -al → 三岔路口的閒聊 → 瑣碎的 || minor=次要的; unimportant=不重要的; small=小的
+trophy || - || prize=獎品; award=獎項; cup=獎盃
+tuition || tuit（照看，同 tutor）+ -ion → 教導 → 學費 || fees=費用
+tumor || tum（腫脹）+ -or → 腫瘤 || growth=腫塊
+tuna || - || -
+ultimate || ultim（最遠、最後）+ -ate → 最終的；極致的 || final=最終的; best=最好的
+uncover || un-（相反）+ cover（覆蓋）→ 揭開 → 揭露 || reveal=揭露; discover=發現
+undergo || under（在下）+ go（走）→ 經歷；接受 || experience=經歷; go through=經歷
+undergraduate || under（在下）+ graduate（研究生、畢業生）→ 大學生 || college student=大學生
+underline || under（在下）+ line（線）→ 在下面畫線；強調 || emphasize=強調; stress=強調
+undermine || under（在下）+ mine（挖）→ 從底下挖 → 削弱 || weaken=削弱; damage=損害
+undertake || under（在下）+ take（拿）→ 接下 → 承擔；著手 || take on=承擔; begin=開始
+undo || un-（相反）+ do（做）→ 解開；取消 || reverse=撤銷; untie=解開
+undoubtedly || un-（不）+ doubt（懷疑）+ -edly → 無疑地 || certainly=當然; definitely=肯定地
+unemployment || un-（不）+ employment（就業）→ 失業 || joblessness=失業
+unfold || un-（相反）+ fold（摺）→ 展開 || open=打開; develop=發展
+unlock || un-（相反）+ lock（鎖）→ 解鎖 || open=打開
+unprecedented || un-（不）+ precedent（先例）+ -ed → 前所未有的 || new=全新的; unheard-of=前所未聞的
+update || up（向上）+ date（日期）→ 更新到最新日期 → 更新 || renew=更新; refresh=更新
+upgrade || up（向上）+ grade（等級）→ 升級 || improve=改善
+utility || uti（使用，同 use）+ -lity → 效用；公用事業 || usefulness=實用性
+utilize || uti（使用）+ -lize → 利用 || use=使用; employ=運用
+vacuum || vac（空）+ -uum → 真空；吸塵 || -
+vague || vag（漫遊）+ -ue → 飄來飄去的 → 模糊的 || unclear=不清楚的; uncertain=不確定的
+valid || val（強、有價值）+ -id → 有效的 || legal=合法的; effective=有效的; sound=合理的
+variable || vari（變化）+ -able → 多變的；變數 || changeable=易變的
+variation || vari（變化）+ -ation → 變化 || change=變化; difference=差異
+vein || - || -
+vendor || vend（賣）+ -or（人）→ 小販 || seller=賣家; trader=商人
+venture || adventure（冒險）的縮寫 → 冒險事業 || business=事業; risk=冒險
+venue || ven（來）+ -ue → 來的地方 → 場地 || place=地方; site=場地; location=地點
+verbal || verb（話語）+ -al → 口頭的；言語的 || spoken=口說的; oral=口頭的
+verdict || ver（真實）+ dict（說）→ 說出真相 → 判決 || judgment=判決; decision=決定
+version || vers（轉）+ -ion → 轉換出的形式 → 版本 || edition=版本; form=形式
+versus || vers（轉向、對著）+ -us → 對抗 || against=對抗
+vertical || vertic（頂點）+ -al → 垂直的 || upright=直立的
+veteran || veter（老的）+ -an（人）→ 老兵；老手 || expert=專家
+via || via（路）→ 經由 || through=經由; by way of=經由
+viable || via（路）+ -ble → 有路可走的 → 可行的 || possible=可能的; practical=實際可行的; workable=可行的
+vicious || vice（惡行）+ -ious → 惡毒的；兇猛的 || cruel=殘忍的; violent=暴力的; fierce=兇猛的
+viewer || view（看）+ -er（人）→ 觀眾 || audience=觀眾; spectator=觀眾
+viewpoint || view（看）+ point（點）→ 觀點 || opinion=意見; perspective=觀點
+vinegar || vin（酒，同 wine）+ egar（酸）→ 酸酒 → 醋 || -
+virtual || virtu（力量、實質）+ -al → 實質上的；虛擬的 || online=線上的; almost=幾乎
+visa || vis（看）+ -a → 被看過的文件 → 簽證 || permit=許可證
+vocal || voc（聲音）+ -al → 聲音的；直言的 || vocal=聲音的; outspoken=直言的
+volcano || 羅馬火神 Vulcan → 火山 || -
+vomit || - || throw up=嘔吐
+voucher || vouch（擔保）+ -er → 憑證 → 禮券；優惠券 || coupon=優惠券
+vow || vot（發誓，同 vote）的同源字 → 誓言 || promise=承諾; pledge=誓約; swear=發誓
+vulnerable || vulner（傷口）+ -able → 容易受傷的 || weak=脆弱的; exposed=暴露的
+warehouse || ware（商品）+ house（房子）→ 倉庫 || storehouse=倉庫
+warrior || war（戰爭）+ -rior（人）→ 戰士 || fighter=戰士; soldier=士兵
+wary || ware（小心）+ -y → 小心的；警惕的 || careful=小心的; cautious=謹慎的; suspicious=懷疑的
+weird || - || strange=奇怪的; odd=古怪的; bizarre=怪異的
+whatsoever || what（什麼）+ so + ever → 一點也（不） || at all=一點也
+wheelchair || wheel（輪子）+ chair（椅子）→ 輪椅 || -
+whereabouts || where（哪裡）+ abouts（附近）→ 下落 || location=位置
+whereas || where（在…情況下）+ as → 然而 || while=然而; but=但是
+whine || - || complain=抱怨; moan=抱怨
+widespread || wide（廣）+ spread（散布）→ 普遍的 || common=常見的; general=普遍的
+wig || periwig（← 法語 perruque 假髮）的縮寫 → 假髮 || -
+wilderness || wild（野生的）+ -er + -ness → 荒野 || wild=荒野; desert=荒漠
+wildlife || wild（野生的）+ life（生物）→ 野生動物 || animals=動物
+windshield || wind（風）+ shield（盾）→ 擋風玻璃 || -
+wither || weather（天氣）的同源字 → 因風吹日曬而枯萎 → 枯萎 || dry up=乾枯; fade=凋謝
+witty || wit（機智）+ -ty → 機智的；風趣的 || funny=好笑的; clever=聰明的; humorous=幽默的
+workshop || work（工作）+ shop（店）→ 工作坊；工作室 || class=課程; seminar=研討會
+worship || worth（價值）+ -ship → 崇拜 || adore=崇拜; pray=祈禱
+worthwhile || worth（值得）+ while（時間）→ 值得花時間的 || valuable=有價值的; useful=有用的
+worthy || worth（價值）+ -y → 值得的 || deserving=值得的; good=好的
+yacht || - || boat=船
+yield || - || produce=產生; give way=讓步
