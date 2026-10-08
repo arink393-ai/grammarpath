@@ -16012,7 +16012,7 @@ function paintTeacher(){
       const subs = subsByA[a.id]||[];
       const rows = subs.length ? subs.map(s=>`<tr>
         <td>${esc(tName(s.user_id))}</td>
-        <td>${s.text?`<div class="tc-answer">${esc(s.text)}</div>`:""}${s.link?`<a href="${esc(s.link)}" target="_blank" rel="noopener">🔗 連結</a> `:""}${s.file_url?`<button class="tc-link" onclick="tcFile('${esc(s.file_url)}')">📎 開啟檔案</button>`:""}</td>
+        <td>${s.text?`<div class="tc-answer">${esc(s.text)}</div>`:""}${s.link&&/^https?:\/\//i.test(s.link)?`<a href="${esc(s.link)}" target="_blank" rel="noopener">🔗 連結</a> `:s.link?`<span class="tc-sub">${esc(s.link)}</span> `:""}${s.file_url?`<button class="tc-link" data-path="${esc(s.file_url)}" onclick="tcFile(this.dataset.path)">📎 開啟檔案</button>`:""}</td>
         <td>${fmtDate(s.submitted_at)}</td>
         <td><input class="tc-grade" id="gr-${s.id}" value="${esc(s.grade||"")}" placeholder="分數/評語"></td>
         <td><input class="tc-fb" id="fb-${s.id}" value="${esc(s.feedback||"")}" placeholder="回饋"></td>
@@ -16035,7 +16035,7 @@ function paintTeacher(){
       const dq = d.dailyQuests || {}; const dqDone = Object.values(dq).filter(x=>x&&x.done).length;
       return `<div class="card tc-reflect"><h3>${esc(p.name||p.email)}</h3>
         <div class="tc-sub">每日任務完成 ${dqDone} 天 · 反思日記 ${days.length} 篇</div>
-        ${latest?`<div class="tc-journal"><b>最新日記（${days[0]}）</b>
+        ${latest?`<div class="tc-journal"><b>最新日記（${esc(days[0])}）</b>
           <div>😊 ${esc(latest.best||"—")}</div><div>💪 ${esc(latest.improve||"—")}</div><div>🎯 ${esc(latest.goal||"—")}</div></div>`:`<div class="tc-sub">尚無反思日記。</div>`}
       </div>`;
     }).join("") : `<div class="card" style="padding:20px;color:var(--muted)">還沒有學生資料。</div>`;
@@ -16046,7 +16046,7 @@ function paintTeacher(){
     const rows = students.length ? students.map(p=>{
       const fq = (progById[p.id] && progById[p.id].data && progById[p.id].data.fableQuiz) || {};
       let done=0, correct=0, total=0;
-      Object.keys(fq).forEach(k=>{ const r=fq[k]; if(r && typeof r==="object"){ done++; correct+=r.correct||0; total+=r.total||0; } else if(r===true){ done++; } });
+      Object.keys(fq).forEach(k=>{ const r=fq[k]; if(r && typeof r==="object"){ done++; correct+=Number(r.correct)||0; total+=Number(r.total)||0; } else if(r===true){ done++; } });
       const acc = total ? Math.round(correct/total*100)+"%" : "—";
       return `<tr><td>${esc(p.name||"")}<div class="tc-sub">${esc(p.email||"")}</div></td>
         <td class="num">${done} / ${totalFables}</td><td class="num">${total?`${correct} / ${total}`:"—"}</td>
@@ -16096,8 +16096,10 @@ function tcVocabBody(students){
   if(TDATA.vocabErr) return `<div class="card" style="padding:18px">還讀不到背單字資料：${esc(TDATA.vocabErr)}<br><span class="tc-sub">請到 Supabase → SQL Editor 執行 <code>supabase/vocab.sql</code> 建立資料表。</span></div>`;
   const d0 = new Date(), T = Math.floor((d0.getTime() - d0.getTimezoneOffset()*60000)/86400000);
   const byUser = {}; (TDATA.vocab||[]).forEach(r=>(byUser[r.user_id]=byUser[r.user_id]||[]).push(r));
-  const sumDays = (rows, from) => rows.reduce((a,r)=>a+Object.entries(r.days||{}).reduce((b,[d,x])=>b+(+d>=from?(x.n||0)+(x.r||0):0),0),0);
-  const streakOf = rows => { const on = new Set(); rows.forEach(r=>Object.entries(r.days||{}).forEach(([d,x])=>{ if((x.n||0)+(x.r||0)>0) on.add(+d); })); let t=T; if(!on.has(t)) t--; let n=0; while(on.has(t)){ n++; t--; } return n; };
+  // 這些欄位來自學生端同步的資料，一律轉成數字再顯示（避免被塞入 HTML）
+  const num = v => { const n = Number(v); return Number.isFinite(n) ? n : 0; };
+  const sumDays = (rows, from) => rows.reduce((a,r)=>a+Object.entries(r.days||{}).reduce((b,[d,x])=>b+(+d>=from&&x?num(x.n)+num(x.r):0),0),0);
+  const streakOf = rows => { const on = new Set(); rows.forEach(r=>Object.entries(r.days||{}).forEach(([d,x])=>{ if(x && num(x.n)+num(x.r)>0) on.add(+d); })); let t=T; if(!on.has(t)) t--; let n=0; while(on.has(t)){ n++; t--; } return n; };
   const activeWeek = students.filter(p=>byUser[p.id] && sumDays(byUser[p.id], T-6)>0).length;
   const rows = students.map(p=>{
     const rs = (byUser[p.id]||[]).slice().sort((a,b)=>String(b.last_active).localeCompare(String(a.last_active)));
@@ -16106,13 +16108,13 @@ function tcVocabBody(students){
     const name = `<td rowspan="${Math.max(1,rs.length)}">${esc(p.name||"")}<div class="tc-sub">${esc(p.email||"")}</div><div class="tc-sub">連續 ${streakOf(rs)} 天 🔥 · 每日背單字任務 ${vqDone} 天</div></td>`;
     if(!rs.length) return `<tr>${name}<td colspan="7" style="color:var(--muted)">${vqDone?'只做過每日背單字任務，還沒打開每日單字 App':'還沒開始背單字'}</td></tr>`;
     return rs.map((r,i)=>{
-      const w = Object.entries(r.words||{});
+      const w = Object.entries(r.words||{}).filter(([,x])=>x&&typeof x==='object');
       const learned = w.length, mastered = w.filter(([,x])=>x.s>=5).length;
       const due = w.filter(([,x])=>x.s<99 && x.due<=T).length;
-      const weak = w.filter(([,x])=>(x.l||0)>0).sort((a,b)=>(b[1].l||0)-(a[1].l||0)).slice(0,4).map(([k,x])=>`${esc(k)}<sup>${x.l}</sup>`).join("、") || "—";
-      const pct = r.total ? Math.round(learned/r.total*100) : 0;
+      const weak = w.filter(([,x])=>(x.l||0)>0).sort((a,b)=>(b[1].l||0)-(a[1].l||0)).slice(0,4).map(([k,x])=>`${esc(k)}<sup>${num(x.l)}</sup>`).join("、") || "—";
+      const total = num(r.total), pct = total ? Math.min(100, Math.round(learned/total*100)) : 0;
       return `<tr>${i===0?name:""}<td>${esc(r.book_title||r.book_id)}</td>
-        <td class="num">${learned} / ${r.total||"?"}<div class="tc-vbar"><i style="width:${pct}%"></i></div></td>
+        <td class="num">${learned} / ${total||"?"}<div class="tc-vbar"><i style="width:${pct}%"></i></div></td>
         <td class="num">${mastered}</td><td class="num">${due}</td>
         <td class="num">${sumDays([r],T)}</td><td class="num">${sumDays([r],T-6)}</td>
         <td class="tc-weak">${weak}</td></tr>`;

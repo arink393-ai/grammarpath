@@ -813,9 +813,19 @@ async function importFromHash(code) {
   try {
     const book = JSON.parse(await unpack(decodeURIComponent(code)));
     if(!LS.current(token))return;
-    if (!book.title || !Array.isArray(book.words) || !book.words.length) throw 0;
-    book.id = book.id || 'c_' + Date.now().toString(36);
-    book.words = book.words.filter(w => w && w.w && w.zh);
+    if (!book || typeof book.title !== 'string' || !Array.isArray(book.words) || !book.words.length) throw 0;
+    // 連結內容來自外部：只留字串欄位，id 不可和內建書撞名
+    const str = v => typeof v === 'string' ? v.slice(0, 500) : '';
+    const builtinIds = new Set([...BUILTIN_BOOKS, ...VOCAB_CATALOG].map(b => b.id));
+    book.title = str(book.title); book.desc = str(book.desc);
+    book.id = /^[\w-]{1,40}$/.test(book.id || '') && !builtinIds.has(book.id) ? book.id : 'c_' + Date.now().toString(36);
+    book.words = book.words.filter(w => w && str(w.w) && str(w.zh)).slice(0, 3000).map(w => {
+      const o = { w: str(w.w), zh: str(w.zh) };
+      ['ph', 'pos', 'ex', 'exZh'].forEach(k => { if (str(w[k])) o[k] = str(w[k]); });
+      if (Array.isArray(w.col)) o.col = w.col.filter(c => Array.isArray(c) && str(c[0])).slice(0, 8).map(c => [str(c[0]), str(c[1])]);
+      return o;
+    });
+    if (!book.words.length) throw 0;
     const books = customBooks().filter(b => b.id !== book.id);
     books.push(book); LS.set('vr:books', books); markDirty(book.id);
     settings.bookId = book.id; saveSettings();

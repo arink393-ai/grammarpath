@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v66-bugfix-pass";
+const CACHE = "eci-v67-safety";
 const SHELL = [
   "./",
   "./index.html",
@@ -17,7 +17,7 @@ const SHELL = [
   "./vocab/catalog.js?v=1",
   "./vocab/book-loader.js?v=2",
   "./vocab/account-storage.js?v=2",
-  "./vocab/app.js?v=6",
+  "./vocab/app.js?v=7",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/maskable-512.png",
