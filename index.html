@@ -1267,6 +1267,35 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .storybook.en-only .sb-qbox .zh{display:none}
 .sb-scene.zh-hidden .sb-qbox .zh{display:none}
 .sb-scene.en-hidden .sb-qbox .en{display:none}
+/* ---- Read-aloud companion (copyright-safe book guide) ---- */
+.sb-plate-comp{background:#FBF7EF !important;align-items:center;justify-content:center}
+.sb-comp-ic{font-size:72px;line-height:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.15))}
+.sb-plate-comp{box-shadow:inset 0 0 0 6px color-mix(in oklab,var(--comp-accent) 22%,#FBF7EF)}
+.sb-card-comp .sb-list-tag{color:var(--sb-lapis)}
+.sb-companion .sb-comp-hero-ic{font-size:66px;line-height:1;margin:0 auto 6px;width:108px;height:108px;display:flex;align-items:center;justify-content:center;border-radius:26px;background:color-mix(in oklab,var(--comp-accent) 14%,#FBF7EF);box-shadow:inset 0 0 0 3px color-mix(in oklab,var(--comp-accent) 34%,#FBF7EF)}
+.sb-companion .sb-hero-tag{font:600 11px var(--sb-disp);letter-spacing:.14em;text-transform:uppercase;color:var(--sb-lapis);margin-top:4px}
+.sb-companion .sb-hero-title{font:700 2rem var(--sb-disp);color:var(--sb-ink);margin:6px 0 2px;line-height:1.15}
+.sb-companion .sb-hero-zh{font-family:var(--sb-han);font-size:1.1rem;color:var(--sb-zh)}
+.sb-companion .sb-hero-author{font-size:12.5px;color:var(--sb-faint);margin-top:6px}
+.sb-companion .sb-hero-blurb{max-width:60ch;margin:12px auto 0;font-family:var(--sb-serif);font-size:1.02rem;color:var(--sb-ink);line-height:1.55}
+.sb-companion .sb-hero-blurb .z{display:block;font-family:var(--sb-han);font-size:.95rem;color:var(--sb-zh);margin-top:4px}
+.sb-comp-note{max-width:62ch;margin:18px auto 0;background:#FFF6E8;border:1px solid #F0DDB4;border-radius:12px;padding:11px 16px;font-size:12.5px;line-height:1.7;color:#7A5A2E}
+.sb-comp-cta{display:block;max-width:62ch;margin:14px auto 0;text-align:center;background:var(--sb-lapis);color:#fff;text-decoration:none;font:600 14px var(--sb-serif);padding:12px 18px;border-radius:12px;transition:.15s}
+.sb-comp-cta:hover{filter:brightness(1.08)}
+.sb-comp-sec{max-width:62ch;margin:26px auto 0}
+.sb-comp-sec h2{font:700 1.15rem var(--sb-disp);color:var(--sb-ink);border-bottom:2px solid var(--sb-line2);padding-bottom:6px;margin:0 0 12px}
+.sb-comp-sec .en{font-family:var(--sb-serif);font-size:1.05rem;color:var(--sb-ink);line-height:1.6;margin:0 0 .5em}
+.sb-comp-sec .zh{font-family:var(--sb-han);font-size:1rem;color:var(--sb-zh);line-height:1.9;margin:0}
+.storybook.en-only .sb-comp-sec .zh,.storybook.en-only .sb-tips .zh{display:none}
+.sb-vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.sb-vocab-item{background:var(--sb-panel);border:1px solid var(--sb-line);border-radius:9px;padding:8px 11px}
+.sb-vocab-item b{color:var(--sb-brick);font-size:15px}
+.sb-vocab-item i{color:var(--sb-faint);font-size:11.5px;margin-left:3px}
+.sb-vocab-item span{display:block;font-family:var(--sb-han);font-size:12.5px;color:var(--sb-zh);margin-top:2px}
+.sb-tips{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:11px}
+.sb-tips li{color:var(--sb-ink)}
+.sb-tips .en{display:block;font-family:var(--sb-serif);font-size:.99rem;line-height:1.5}
+.sb-tips .zh{display:block;font-family:var(--sb-han);font-size:.92rem;color:var(--sb-zh);line-height:1.7;margin-top:3px}
 .sb-tale .en{font-family:var(--sb-serif);font-size:1.08rem;color:var(--sb-ink);margin:0 0 .5em}
 .sb-tale .en b,.sb-tale .zh b{font-weight:700;color:var(--sb-brick)}
 .sb-tale .zh{font-family:var(--sb-han);color:var(--sb-zh);font-size:1.02rem;line-height:1.95;margin:0 0 .5em}
@@ -4909,10 +4938,45 @@ function renderRubric(){
   </div>`;
   window.scrollTo(0,0);
 }
+function renderCompanion(s){
+  const vocab = (s.vocab||[]).map(v=>`<div class="sb-vocab-item"><b>${v[0]}</b> <i>${v[1]}</i><span>${v[2]}</span></div>`).join("");
+  const tips = (s.readaloud||[]).map(t=>`<li><span class="en">${t.en}</span><span class="zh">${t.zh}</span></li>`).join("");
+  const qs = (s.discuss||[]).map(q=>`<div class="sb-qbox"><div class="sb-qbox-h">💬 討論一下 · Let's Talk</div><p class="en">${q.en}</p><p class="zh">${q.zh}</p></div>`).join("");
+  app.innerHTML = `<div class="view storybook sb-companion">
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/story">Story Time</a> › <a href="#/story/picture-books">繪本區</a> › ${s.title}</div>
+    <header class="sb-hero">
+      <div class="sb-comp-hero-ic" style="--comp-accent:${s.accent||'#5B7FB0'}">${s.icon||'📖'}</div>
+      <div class="sb-hero-tag">${s.tag}</div>
+      <h1 class="sb-hero-title">${s.title}</h1>
+      <div class="sb-hero-zh">${s.zh}</div>
+      <div class="sb-hero-author">${s.author||""}</div>
+      <p class="sb-hero-blurb">${s.blurb||""}<span class="z">${s.blurbZh||""}</span></p>
+    </header>
+    <div class="sb-comp-note">📖 這是老師自製的「伴讀導讀頁」，不是書本內容。原書為現代版權作品，請到圖書館或書店閱讀完整繪本。<br>This is an original read-aloud companion — not the book itself. Please enjoy the real picture book from your library or a bookshop.</div>
+    ${s.findUrl ? `<a class="sb-comp-cta" href="${s.findUrl}" target="_blank" rel="noopener">📺 找線上朗讀影片 Find a read-aloud (YouTube) ↗</a>` : ""}
+    <section class="sb-comp-sec"><h2>故事大意 · The Story</h2>
+      <p class="en">${s.summary ? s.summary.en : ""}</p>
+      <p class="zh">${s.summary ? s.summary.zh : ""}</p>
+    </section>
+    <section class="sb-comp-sec"><h2>🎯 目標單字 · Target Words</h2>
+      <div class="sb-vocab-grid">${vocab}</div>
+    </section>
+    <section class="sb-comp-sec"><h2>🎙️ 朗讀小技巧 · Read-Aloud Tips</h2>
+      <ul class="sb-tips">${tips}</ul>
+    </section>
+    <section class="sb-comp-sec"><h2>討論與分享 · Talk About It</h2>
+      ${qs}
+    </section>
+    <div class="sb-foot"><button class="btn btn-ghost" onclick="location.hash='#/story/picture-books'">← 繪本區 Picture Books</button></div>
+  </div>`;
+  window.scrollTo(0,0);
+}
+
 function renderStory(id){
   sbStop();
   const s = storyById(id);
   if(!s){ location.hash = "#/story"; return; }
+  if(s.companion){ renderCompanion(s); return; }
   const isPB = s.category === "picturebook";
   const isFable = s.category === "fable";
   const gmap = sbGlossMap(s);
