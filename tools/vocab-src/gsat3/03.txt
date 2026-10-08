@@ -1,5 +1,5 @@
 # 學測 L3 03：budget – client
-budget || n./v. || 預算 || We have a small budget for the trip. || 我們這趟旅行的預算不多。 || on a budget=預算有限; budget for=為…編預算 || We need to travel ___ a tight budget this year. || on|in|with || on a budget = 在有限預算下。 || 我們今年需要在預算吃緊的情況下旅行。
+budget || n./v. || 預算 || We have a small budget for the trip. || 我們這趟旅行的預算不多。 || on a budget=預算有限; budget for=為…編預算 || We need to travel ___ a tight budget this year. || on|in|at || on a budget = 在有限預算下。 || 我們今年需要在預算吃緊的情況下旅行。
 buffalo || n. || 水牛 || The farmer uses a buffalo to plow the field. || 農夫用水牛犁田。 || water buffalo=水牛 || In the past, buffaloes ___ used to plow rice fields. || were|was|are || 被動語態；buffaloes 複數，過去用 were。 || 過去水牛被用來犁稻田。
 buffet || n. || 自助餐 || The hotel offers a breakfast buffet. || 飯店提供自助早餐。 || buffet dinner=自助晚餐 || At a buffet, you can eat as much as you ___. || like|liked|to like || as much as you like = 你想吃多少就吃多少。 || 在自助餐，你想吃多少就吃多少。
 bulb || n. || 燈泡 || The bulb in the kitchen is broken. || 廚房的燈泡壞了。 || light bulb=燈泡 || The light bulb ___ by Edison in 1879. || was improved|improved|has improved || 被動語態：燈泡「被」改良，過去用 was + p.p.。 || 電燈泡在 1879 年由愛迪生改良。
@@ -7,7 +7,7 @@ bull || n. || 公牛 || The bull is very strong. || 那頭公牛非常強壯。 
 bullet || n. || 子彈 || The bullet hit the wall. || 子彈打中了牆壁。 || bullet train=子彈列車 || The bullet train, ___ travels at 300 km/h, is very convenient. || which|who|what || 非限定關係子句修飾物，用 which。 || 時速三百公里的子彈列車非常方便。
 bump || v./n. || 撞；碰 || I bumped my head on the door. || 我的頭撞到門。 || bump into=撞到、巧遇 || I bumped ___ an old friend at the station yesterday. || into|on|to || bump into = 巧遇、撞到。 || 我昨天在車站巧遇一位老朋友。
 bunch || n. || 一串；一束 || He gave her a bunch of flowers. || 他送她一束花。 || a bunch of=一串／束… || A bunch of bananas ___ on the table. || is|are|be || a bunch of + 複數名詞當主詞，看 bunch，用單數 is。 || 桌上有一串香蕉。
-bundle || n. || 捆 || She carried a bundle of clothes. || 她提著一捆衣服。 || a bundle of=一捆… || A bundle of old newspapers ___ left at the door. || was|were|is being || a bundle of 當主詞看 bundle，過去被動用 was + p.p.。 || 門口放著一捆舊報紙。
+bundle || n. || 捆 || She carried a bundle of clothes. || 她提著一捆衣服。 || a bundle of=一捆… || A bundle of old newspapers ___ left at the door. || was|were|be || a bundle of 當主詞看 bundle，過去被動用 was + p.p.。 || 門口放著一捆舊報紙。
 bury || v. || 埋葬；埋 || Dogs like to bury bones in the yard. || 狗喜歡把骨頭埋在院子裡。 || bury treasure=埋寶藏 || The pirates decided to bury the treasure ___ nobody could find it. || where|which|what || 關係副詞 where 引導地點子句。 || 海盜們決定把寶藏埋在沒人找得到的地方。
 bush || n. || 灌木 || The cat is hiding in the bush. || 貓躲在灌木叢裡。 || beat around the bush=拐彎抹角 || Stop beating around the bush and tell me ___ happened. || what|which|that || 名詞子句 what happened = 發生了什麼事。 || 別拐彎抹角了，告訴我發生了什麼事。
 buzz || n./v. || 嗡嗡聲 || I heard the buzz of a bee. || 我聽到蜜蜂的嗡嗡聲。 || buzz around=嗡嗡地飛來飛去 || A bee ___ buzzing around the flowers. || is|are|does || 現在進行式；A bee 用 is。 || 一隻蜜蜂在花叢間嗡嗡地飛。
@@ -29,18 +29,18 @@ casual || adj. || 休閒的；隨意的 || We wear casual clothes on Fridays. ||
 cattle || n. || 牛（總稱） || The farmer raises cattle. || 那位農夫養牛。 || dairy cattle=乳牛 || Cattle ___ raised on this farm for milk. || are|is|was || cattle 永遠是複數，用 are。 || 這座農場養牛是為了產牛奶。
 cave || n. || 洞穴 || Bats live in caves. || 蝙蝠住在洞穴裡。 || cave man=穴居人 || The cave ___ we explored was dark and cold. || that|who|where || 關係代名詞 that 修飾物並當 explored 的受詞。 || 我們探險的那個洞穴又暗又冷。
 champion || n. || 冠軍 || She is the world champion. || 她是世界冠軍。 || world champion=世界冠軍 || The champion was given a gold medal ___ the end of the game. || at|in|on || at the end of = 在…結束時。 || 比賽結束時，冠軍獲頒一面金牌。
-charm || n./v. || 魅力 || The old town has its own charm. || 這座老城有它獨特的魅力。 || lucky charm=幸運符 || Everyone was charmed ___ her smile. || by|with|of || 被動語態中動作執行者用 by。 || 大家都被她的笑容迷住了。
+charm || n./v. || 魅力 || The old town has its own charm. || 這座老城有它獨特的魅力。 || lucky charm=幸運符 || Everyone was charmed ___ her smile. || by|to|of || 被動語態中動作執行者用 by。 || 大家都被她的笑容迷住了。
 chat || v./n. || 聊天 || We chatted for hours. || 我們聊了好幾個小時。 || chat with=和…聊天 || We chatted ___ hours last night. || for|since|in || for + 一段時間。 || 我們昨晚聊了好幾個小時。
 cheek || n. || 臉頰 || She kissed him on the cheek. || 她親了他的臉頰。 || rosy cheeks=紅潤的臉頰 || She kissed her baby ___ the cheek. || on|in|at || kiss sb on the cheek = 親某人的臉頰。 || 她親了寶寶的臉頰。
 cheerful || adj. || 愉快的 || She is always cheerful. || 她總是很開朗。 || cheerful smile=開朗的笑容 || No matter ___ happens, she stays cheerful. || what|which|how || no matter what = 無論發生什麼事。 || 無論發生什麼事，她都保持開朗。
 cherry || n. || 櫻桃 || Cherry blossoms bloom in spring. || 櫻花在春天盛開。 || cherry blossom=櫻花 || Many people go to Japan ___ see the cherry blossoms. || to|for|so || 不定詞 to V 表示目的。 || 很多人去日本賞櫻。
-chest || n. || 胸部；箱子 || He has a pain in his chest. || 他胸口痛。 || treasure chest=寶箱; chest pain=胸痛 || The treasure chest was found ___ the bottom of the sea. || at|in|on || at the bottom of = 在…的底部。 || 寶箱在海底被發現。
+chest || n. || 胸部；箱子 || He has a pain in his chest. || 他胸口痛。 || treasure chest=寶箱; chest pain=胸痛 || The treasure chest was found ___ the bottom of the sea. || at|in|of || at the bottom of = 在…的底部。 || 寶箱在海底被發現。
 chill || n./v. || 寒意；冷卻 || There is a chill in the air. || 空氣中有股寒意。 || chill out=放鬆 || Put the drinks in the fridge ___ chill them. || to|for|so || 不定詞 to V 表示目的。 || 把飲料放進冰箱冰涼。
 chilly || adj. || 寒冷的 || It's chilly this morning. || 今天早上很冷。 || chilly weather=寒冷的天氣 || It's chilly outside, so you'd better ___ a jacket. || wear|to wear|wearing || had better + 原形動詞 = 最好…。 || 外面很冷，你最好穿件外套。
 chimney || n. || 煙囪 || Smoke came out of the chimney. || 煙從煙囪冒出來。 || factory chimney=工廠煙囪 || Santa Claus is said ___ down the chimney. || to come|coming|come || be said to + 原形動詞 = 據說…。 || 據說聖誕老人會從煙囪下來。
 chin || n. || 下巴 || He rested his chin on his hand. || 他用手托著下巴。 || keep one's chin up=打起精神 || Keep your chin up. Things ___ better soon. || will get|get|got || 表示將會發生用 will + 原形動詞。 || 打起精神，事情很快就會好轉。
 chip || n. || 碎片；洋芋片；晶片 || I like potato chips. || 我喜歡洋芋片。 || potato chips=洋芋片; computer chip=電腦晶片 || Taiwan is famous ___ making computer chips. || for|of|with || be famous for = 以…聞名。 || 台灣以製造電腦晶片聞名。
-chop || v. || 砍；切 || Chop the onions into small pieces. || 把洋蔥切成小塊。 || chop down=砍倒; chopsticks=筷子 || Chop the carrots ___ small pieces. || into|in|to || chop A into B = 把 A 切成 B。 || 把紅蘿蔔切成小塊。
+chop || v. || 砍；切 || Chop the onions into small pieces. || 把洋蔥切成小塊。 || chop down=砍倒; chopsticks=筷子 || Chop the carrots ___ small pieces. || into|on|to || chop A into B = 把 A 切成 B。 || 把紅蘿蔔切成小塊。
 cigarette || n. || 香菸 || Smoking cigarettes is bad for your health. || 抽菸對你的健康有害。 || a pack of cigarettes=一包菸 || Smoking cigarettes ___ harmful to your health. || is|are|be || 動名詞當主詞視為單數，用 is。 || 抽菸有害健康。
 cinema || n. || 電影院 || Let's go to the cinema tonight. || 我們今晚去看電影吧。 || go to the cinema=去看電影 || The new cinema, ___ opened last month, has ten screens. || which|that|where || 非限定關係子句修飾物，用 which。 || 上個月開幕的新電影院有十個影廳。
 circus || n. || 馬戲團 || We went to the circus last weekend. || 我們上週末去看馬戲團表演。 || circus clown=馬戲團小丑 || The children were excited ___ the circus. || about|of|with || be excited about = 對…感到興奮。 || 孩子們對馬戲團感到很興奮。

@@ -186,7 +186,7 @@ function vqDiff(a, b){ return Math.round((new Date(a+'T00:00:00Z') - new Date(b+
 function vqTrack(){ const t=store.data.vqTrack; if(VQ_TRACKS[t]) return t; return Object.keys(store.data.vocabQuests||{}).some(k=>!k.includes(':'))?'core':'g7'; }
 function vqSetTrack(t){ if(!VQ_TRACKS[t]) return; store.data.vqTrack=t; store.save(); renderVocabHub(); }
 /* 字庫路線（有 book 的路線）：單字資料在 vocab/data/<book>.js，選到才載入；每 5 個字一個單元，文法題存在每個字的 q。 */
-const VQ_DATA_V = 2;
+const VQ_DATA_V = 3;
 const VQ_LOADING = {};
 const vqBook = id => (typeof BUILTIN_BOOKS!=='undefined'?BUILTIN_BOOKS:[]).find(x=>x.id===id);
 function vqReady(track){ const b=VQ_TRACKS[track]&&VQ_TRACKS[track].book; return !b || !!vqBook(b); }

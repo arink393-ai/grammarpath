@@ -5,17 +5,17 @@ strait || n. || 海峽 || The Taiwan Strait separates Taiwan from China. || 台�
 strangle || v. || 勒死；扼殺 || The weeds strangled the flowers. || 雜草把花悶死了。 || strangle=勒住 || Too many rules can strangle creativity ___ schools. || in|on|at || in schools = 在學校中。 || 太多規定會扼殺學校裡的創造力。
 stray || adj./v. || 流浪的；迷路 || We adopted a stray cat. || 我們領養了一隻流浪貓。 || stray dog=流浪狗 || We adopted a stray dog ___ we found in the park. || that|what|who || 關係代名詞 that 修飾動物並當 found 的受詞。 || 我們領養了一隻在公園發現的流浪狗。
 stride || n./v. || 大步；進展 || She has made great strides in English. || 她的英文有很大的進步。 || make great strides=大有進展 || She has made great strides ___ her English this year. || in|on|at || make strides in = 在…方面進步。 || 她今年英文進步很多。
-stroll || v./n. || 散步 || We strolled along the beach. || 我們沿著海灘散步。 || take a stroll=散步 || Let's take a stroll ___ the park after dinner. || in|on|to || in the park = 在公園裡。 || 晚餐後我們去公園散步吧。
+stroll || v./n. || 散步 || We strolled along the beach. || 我們沿著海灘散步。 || take a stroll=散步 || Let's take a stroll ___ the park after dinner. || in|on|of || in the park = 在公園裡。 || 晚餐後我們去公園散步吧。
 stun || v. || 使震驚 || The news stunned everyone. || 這消息震驚了所有人。 || be stunned by=對…感到震驚 || Everyone was stunned ___ the news. || by|with|of || 被動語態中動作執行者用 by。 || 每個人都被這個消息震驚了。
 stutter || v./n. || 口吃 || He stutters when he is nervous. || 他緊張時會結巴。 || stutter=結巴 || He tends to stutter ___ he is nervous. || when|which|what || when 引導時間子句。 || 他緊張時容易結巴。
 stylish || adj. || 時髦的 || She wears stylish clothes. || 她穿著時髦。 || stylish=有型的 || The café is small ___ stylish. || but|or|so || 前後語意稍有轉折，用 but。 || 這間咖啡廳雖小但很有型。
 subjective || adj. || 主觀的 || Taste is subjective. || 品味是主觀的。 || subjective opinion=主觀意見 || Beauty is subjective; it depends ___ the person. || on|in|at || depend on = 取決於…。 || 美是主觀的，因人而異。
 subordinate || n./adj. || 下屬 || She treats her subordinates well. || 她對下屬很好。 || subordinate=部屬 || A good manager listens ___ his subordinates. || to|for|with || listen to = 聽…。 || 好主管會傾聽下屬的意見。
 subscribe || v. || 訂閱 || I subscribe to a magazine. || 我訂閱一本雜誌。 || subscribe to=訂閱… || Please subscribe ___ our YouTube channel. || to|for|with || subscribe to = 訂閱…。 || 請訂閱我們的 YouTube 頻道。
-subscription || n. || 訂閱 || I have a subscription to Netflix. || 我有訂閱 Netflix。 || monthly subscription=月訂閱 || I canceled my subscription ___ the magazine. || to|for|with || a subscription to = 對…的訂閱。 || 我取消了那本雜誌的訂閱。
+subscription || n. || 訂閱 || I have a subscription to Netflix. || 我有訂閱 Netflix。 || monthly subscription=月訂閱 || I canceled my subscription ___ the magazine. || to|at|with || a subscription to = 對…的訂閱。 || 我取消了那本雜誌的訂閱。
 subsidize || v. || 補貼 || The government subsidizes school lunches. || 政府補貼學校午餐。 || subsidize=補助 || Public transportation is subsidized ___ the government. || by|with|from || 被動語態中動作執行者用 by。 || 大眾運輸由政府補貼。
 succession || n. || 連續；繼承 || He won three games in succession. || 他連贏三場。 || in succession=連續地 || Our team won five games ___ succession. || in|on|at || in succession = 連續地。 || 我們隊連贏了五場。
-successive || adj. || 連續的 || It rained for three successive days. || 連續下了三天雨。 || successive=接連的 || The team has won the title ___ three successive years. || for|since|in || for + 一段時間，搭配現在完成式。 || 這支隊伍已連續三年奪冠。
+successive || adj. || 連續的 || It rained for three successive days. || 連續下了三天雨。 || successive=接連的 || The team has won the title ___ three successive years. || for|since|at || for + 一段時間，搭配現在完成式。 || 這支隊伍已連續三年奪冠。
 suffocate || v. || 窒息 || The smoke almost suffocated him. || 濃煙差點讓他窒息。 || suffocate=悶死 || Plastic bags can suffocate small children, ___ keep them away. || so|but|because || 前因後果用 so。 || 塑膠袋可能讓幼兒窒息，所以要放遠一點。
 suitcase || n. || 行李箱 || I packed my suitcase. || 我收好了行李箱。 || pack a suitcase=打包行李 || I have to pack my suitcase ___ tonight. || by|until|since || by + 時間 = 在…之前。 || 我今晚之前得把行李箱打包好。
 summon || v. || 召喚；召集 || The principal summoned the students. || 校長召集學生。 || summon courage=鼓起勇氣 || She summoned the courage ___ ask him out. || to|for|of || summon the courage to V = 鼓起勇氣做…。 || 她鼓起勇氣約他出去。
@@ -31,21 +31,21 @@ surname || n. || 姓 || What is your surname? || 你姓什麼？ || surname=姓�
 surpass || v. || 超越 || Her score surpassed mine. || 她的分數超過我。 || surpass expectations=超出預期 || The results surpassed ___ expectations. || our|us|ours || 名詞 expectations 前用所有格形容詞。 || 結果超出了我們的預期。
 suspense || n. || 懸疑 || The movie is full of suspense. || 這部電影充滿懸疑。 || keep sb in suspense=吊人胃口 || Don't keep me ___ suspense; tell me what happened! || in|on|at || keep sb in suspense = 吊某人胃口。 || 別吊我胃口了，快告訴我發生什麼事！
 suspension || n. || 暫停；停學 || He got a three-day suspension. || 他被停學三天。 || suspension bridge=吊橋 || The student got a suspension ___ cheating. || for|of|with || for + V-ing = 因為…。 || 那名學生因作弊被停學。
-swamp || n./v. || 沼澤；使應接不暇 || I'm swamped with work. || 我工作忙得不可開交。 || be swamped with=被…淹沒 || I'm swamped ___ homework this week. || with|by|of || be swamped with = 忙於…。 || 我這週作業多到做不完。
+swamp || n./v. || 沼澤；使應接不暇 || I'm swamped with work. || 我工作忙得不可開交。 || be swamped with=被…淹沒 || I'm swamped ___ homework this week. || with|at|of || be swamped with = 忙於…。 || 我這週作業多到做不完。
 swarm || n./v. || 一大群；蜂擁 || A swarm of bees attacked him. || 一大群蜜蜂攻擊他。 || a swarm of=一大群… || A swarm ___ bees flew out of the tree. || of|for|with || a swarm of = 一大群…。 || 一大群蜜蜂從樹裡飛出來。
 symbolize || v. || 象徵 || The dove symbolizes peace. || 鴿子象徵和平。 || symbolize=代表 || In Chinese culture, the color red symbolizes good ___. || luck|lucky|luckily || 形容詞 good + 名詞。 || 在中華文化中，紅色象徵好運。
 symmetry || n. || 對稱 || The building has perfect symmetry. || 這棟建築完美對稱。 || symmetry=對稱性 || The Taj Mahal is famous ___ its perfect symmetry. || for|of|with || be famous for = 以…聞名。 || 泰姬瑪哈陵以完美的對稱聞名。
 sympathize || v. || 同情 || I sympathize with you. || 我很同情你。 || sympathize with=同情… || I sympathize ___ people who lost their homes. || with|to|for || sympathize with = 同情…。 || 我同情那些失去家園的人。
 symphony || n. || 交響樂 || We went to a symphony concert. || 我們去聽了交響樂音樂會。 || symphony orchestra=交響樂團 || Beethoven wrote nine symphonies ___ his life. || during|while|since || during + 名詞 = 在…期間。 || 貝多芬一生寫了九首交響曲。
-synonym || n. || 同義詞 || "Big" is a synonym for "large." || 「big」是「large」的同義詞。 || synonym for=…的同義詞 || "Happy" is a synonym ___ "glad." || for|of|to || a synonym for = …的同義詞。 || 「happy」是「glad」的同義詞。
+synonym || n. || 同義詞 || "Big" is a synonym for "large." || 「big」是「large」的同義詞。 || synonym for=…的同義詞 || "Happy" is a synonym ___ "glad." || for|at|on || a synonym for = …的同義詞。 || 「happy」是「glad」的同義詞。
 synthetic || adj. || 合成的 || This shirt is made of synthetic fabric. || 這件襯衫是合成纖維做的。 || synthetic fiber=合成纖維 || Synthetic fabrics dry faster ___ cotton. || than|then|as || 比較級 + than。 || 合成布料比棉布乾得快。
 syrup || n. || 糖漿 || I put syrup on my pancakes. || 我在鬆餅上淋糖漿。 || maple syrup=楓糖漿 || Pour some syrup ___ the pancakes. || over|in|at || pour over = 淋在…上。 || 在鬆餅上淋一些糖漿。
 tan || n./v. || 曬黑 || She got a tan at the beach. || 她在海邊曬黑了。 || get a tan=曬黑 || He got a nice tan ___ his trip to Kenting. || during|while|since || during + 名詞 = 在…期間。 || 他去墾丁玩時曬得一身古銅色。
 tedious || adj. || 乏味的 || The work is tedious. || 這工作很乏味。 || tedious task=乏味的工作 || Copying words over and over is ___ tedious task. || a|an|the || tedious 以子音開頭，用 a。 || 一再抄寫單字是件乏味的工作。
 telecommunications || n. || 電信 || He works in telecommunications. || 他在電信業工作。 || telecommunications industry=電信業 || She has worked in telecommunications ___ 2015. || since|for|from || since + 時間點，搭配現在完成式。 || 她從 2015 年起就在電信業工作。
 teller || n. || 銀行出納員 || The bank teller counted the money. || 銀行行員點了錢。 || bank teller=銀行行員 || The bank teller asked me ___ sign the form. || to|for|of || ask sb to + 原形動詞。 || 銀行行員請我在表格上簽名。
-tempo || n. || 節奏；速度 || The song has a fast tempo. || 這首歌節奏很快。 || fast tempo=快節奏 || The band played the song ___ a slower tempo. || at|in|on || at a tempo = 以…節奏。 || 樂團用較慢的節奏演奏這首歌。
+tempo || n. || 節奏；速度 || The song has a fast tempo. || 這首歌節奏很快。 || fast tempo=快節奏 || The band played the song ___ a slower tempo. || at|by|on || at a tempo = 以…節奏。 || 樂團用較慢的節奏演奏這首歌。
 tenant || n. || 房客 || The tenant pays rent every month. || 房客每個月付房租。 || tenant=租戶 || The landlord asked the tenant ___ pay the rent on time. || to|for|of || ask sb to + 原形動詞。 || 房東要求房客準時付房租。
-tentative || adj. || 暫定的；猶豫的 || We have a tentative plan. || 我們有一個暫定的計畫。 || tentative plan=暫定計畫 || The meeting is tentatively set ___ Friday. || for|on|at || be set for + 時間 = 定在…。 || 會議暫定在星期五。
+tentative || adj. || 暫定的；猶豫的 || We have a tentative plan. || 我們有一個暫定的計畫。 || tentative plan=暫定計畫 || The meeting is tentatively set ___ Friday. || for|in|at || be set for + 時間 = 定在…。 || 會議暫定在星期五。
 terrace || n. || 梯田；露台 || We had dinner on the terrace. || 我們在露台上吃晚餐。 || rice terraces=梯田 || We had coffee ___ the terrace. || on|of|to || on the terrace = 在露台上。 || 我們在露台上喝咖啡。
-textile || n. || 紡織品 || Taiwan exports textiles. || 台灣出口紡織品。 || textile industry=紡織業 || The textile industry was very important ___ Taiwan's economy. || to|for|with || be important to = 對…很重要。 || 紡織業對台灣經濟非常重要。
+textile || n. || 紡織品 || Taiwan exports textiles. || 台灣出口紡織品。 || textile industry=紡織業 || The textile industry was very important ___ Taiwan's economy. || to|at|with || be important to = 對…很重要。 || 紡織業對台灣經濟非常重要。

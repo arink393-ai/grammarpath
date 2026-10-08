@@ -14,11 +14,11 @@ inflation || n. || 通貨膨脹 || Inflation is making everything more expensive
 influential || adj. || 有影響力的 || She is an influential writer. || 她是一位有影響力的作家。 || highly influential=非常有影響力 || He is one of the ___ influential leaders in the world. || most|more|much || one of the + 最高級 + 複數名詞。 || 他是世界上最有影響力的領袖之一。
 informative || adj. || 資訊豐富的 || The lecture was very informative. || 這場演講資訊非常豐富。 || informative article=內容豐富的文章 || The documentary was ___ informative that I learned a lot. || so|such|too || so + 形容詞 + that…。 || 這部紀錄片資訊豐富到我學了很多。
 ingredient || n. || 材料；成分 || What are the ingredients of this cake? || 這個蛋糕的材料是什麼？ || main ingredient=主要材料 || Fresh ingredients are the key ___ good cooking. || to|of|for || the key to = …的關鍵。 || 新鮮的食材是美味料理的關鍵。
-initial || adj./n. || 最初的；首字母 || My initial reaction was surprise. || 我最初的反應是驚訝。 || initial stage=初期 || The project is still ___ its initial stage. || in|on|at || in the … stage = 在…階段。 || 這個計畫仍在初期階段。
+initial || adj./n. || 最初的；首字母 || My initial reaction was surprise. || 我最初的反應是驚訝。 || initial stage=初期 || The project is still ___ its initial stage. || in|of|to || in the … stage = 在…階段。 || 這個計畫仍在初期階段。
 injure || v. || 使受傷 || He was injured in the accident. || 他在事故中受傷。 || be injured in=在…中受傷 || Three people ___ injured in the car accident. || were|was|are || 被動語態；Three people 複數，過去用 were。 || 車禍中有三人受傷。
 innocence || n. || 天真；清白 || He proved his innocence. || 他證明了自己的清白。 || prove one's innocence=證明清白 || The new evidence proved the man's innocence, ___ he was set free. || so|but|or || 前面是原因、後面是結果，用 so。 || 新證據證明了那名男子的清白，所以他被釋放了。
 input || n. || 輸入；意見 || Thank you for your input. || 謝謝你的意見。 || give input=提供意見 || We welcome input ___ students and parents. || from|of|by || input from = 來自…的意見。 || 我們歡迎學生和家長提供意見。
-insert || v. || 插入 || Insert the card into the machine. || 把卡片插進機器裡。 || insert a coin=投幣 || Insert the coin ___ the slot. || into|in|onto || insert A into B = 把 A 插入 B。 || 把硬幣投入投幣孔。
+insert || v. || 插入 || Insert the card into the machine. || 把卡片插進機器裡。 || insert a coin=投幣 || Insert the coin ___ the slot. || into|at|onto || insert A into B = 把 A 插入 B。 || 把硬幣投入投幣孔。
 inspection || n. || 檢查 || The car needs an inspection. || 這輛車需要檢驗。 || safety inspection=安全檢查 || All bags are subject ___ inspection at the airport. || to|for|with || be subject to = 需接受…。 || 機場的所有行李都需接受檢查。
 inspiration || n. || 靈感；鼓舞 || Nature is her inspiration. || 大自然是她的靈感來源。 || source of inspiration=靈感來源 || The artist found inspiration ___ nature. || in|on|at || find inspiration in = 從…中找到靈感。 || 那位藝術家從大自然中找到靈感。
 inspire || v. || 啟發；激勵 || Her story inspired me. || 她的故事啟發了我。 || inspire sb to V=激勵某人做… || Her speech inspired many students ___ harder. || to study|studying|study || inspire sb to + 原形動詞。 || 她的演講激勵了許多學生更加用功。
@@ -28,7 +28,7 @@ instruct || v. || 指示；教導 || The teacher instructed us to sit down. || �
 instructor || n. || 教練；講師 || She is a swimming instructor. || 她是游泳教練。 || driving instructor=駕訓教練 || The instructor ___ taught me to drive was very patient. || who|which|whom || 關係代名詞修飾人並當主詞，用 who。 || 教我開車的教練非常有耐心。
 insult || v./n. || 侮辱 || Don't insult people. || 不要侮辱別人。 || insult sb=侮辱某人 || He felt insulted ___ her rude comment. || by|with|of || 被動語態中動作執行者用 by。 || 他覺得被她無禮的評論侮辱了。
 insurance || n. || 保險 || Do you have health insurance? || 你有健康保險嗎？ || health insurance=健康保險 || Everyone in Taiwan is covered ___ national health insurance. || by|with|from || be covered by = 由…承保。 || 台灣每個人都有全民健保。
-intellectual || adj./n. || 智力的；知識分子 || Reading helps intellectual growth. || 閱讀有助於智力發展。 || intellectual property=智慧財產 || Reading is important ___ children's intellectual development. || for|to|of || be important for = 對…很重要。 || 閱讀對孩子的智力發展很重要。
+intellectual || adj./n. || 智力的；知識分子 || Reading helps intellectual growth. || 閱讀有助於智力發展。 || intellectual property=智慧財產 || Reading is important ___ children's intellectual development. || for|at|of || be important for = 對…很重要。 || 閱讀對孩子的智力發展很重要。
 intelligence || n. || 智力 || Dolphins have high intelligence. || 海豚的智力很高。 || artificial intelligence=人工智慧 || Artificial intelligence is changing the way we ___. || work|works|working || the way (that) we + 原形動詞。 || 人工智慧正在改變我們的工作方式。
 intend || v. || 打算 || I intend to study abroad. || 我打算出國讀書。 || intend to V=打算做… || She intends ___ a doctor in the future. || to become|becoming|become || intend to + 原形動詞。 || 她打算將來成為醫生。
 intense || adj. || 強烈的 || The heat was intense. || 熱氣非常強烈。 || intense training=高強度訓練 || The competition was ___ intense that only three teams made it to the final. || so|such|too || so + 形容詞 + that…。 || 競爭激烈到只有三支隊伍進入決賽。

@@ -33,7 +33,7 @@ quit || v. || 停止；辭職 || He quit his job last month. || 他上個月辭�
 quote || v./n. || 引用 || He quoted a famous saying. || 他引用了一句名言。 || quote from=引用自… || The speaker quoted ___ a famous poem. || from|of|with || quote from = 引用自…。 || 演講者引用了一首知名的詩。
 racial || adj. || 種族的 || Racial discrimination is wrong. || 種族歧視是錯的。 || racial discrimination=種族歧視 || Racial discrimination should not ___ tolerated in any society. || be|is|been || should 後面接 be；被動 be + p.p.。 || 任何社會都不應容忍種族歧視。
 rag || n. || 破布 || Clean the table with a rag. || 用抹布擦桌子。 || in rags=衣衫襤褸 || Clean the window ___ a wet rag. || with|by|in || 用某個工具用 with。 || 用濕抹布擦窗戶。
-rank || n./v. || 等級；排名 || The team ranks first in the league. || 這支隊伍在聯盟中排名第一。 || rank first=排名第一 || Taiwan ranks among the safest countries ___ the world. || in|of|on || 最高級 + in the world。 || 台灣名列世界上最安全的國家之一。
+rank || n./v. || 等級；排名 || The team ranks first in the league. || 這支隊伍在聯盟中排名第一。 || rank first=排名第一 || Taiwan ranks among the safest countries ___ the world. || in|at|on || 最高級 + in the world。 || 台灣名列世界上最安全的國家之一。
 rate || n. || 比率；速度 || The birth rate is falling. || 出生率正在下降。 || birth rate=出生率; at a rate of=以…的速度 || The birth rate in Taiwan ___ been falling for years. || has|have|is || 現在完成進行式；The birth rate 單數用 has。 || 台灣的出生率多年來持續下降。
 raw || adj. || 生的 || Do you eat raw fish? || 你吃生魚片嗎？ || raw fish=生魚; raw material=原料 || Raw meat should ___ kept in the fridge. || be|is|been || should 後面接 be；被動 be + p.p.。 || 生肉應該放在冰箱保存。
 ray || n. || 光線 || A ray of sunlight came through the window. || 一道陽光從窗戶照進來。 || X-ray=X 光 || A ray of hope appeared ___ everything seemed lost. || when|which|what || when 引導時間子句。 || 就在一切似乎都完了的時候，出現了一線希望。

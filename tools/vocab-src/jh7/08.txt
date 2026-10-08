@@ -27,15 +27,15 @@ only || adj./adv. || 唯一的；只 || I only have ten dollars. || 我只有十
 open || v./adj. || 打開；開著的 || Open your books to page ten. || 把書翻到第十頁。 || open the door=開門; open to=對…開放 || The store is open ___ 9 a.m. to 10 p.m. || from|at|in || from A to B = 從 A 到 B。 || 這家店從早上九點營業到晚上十點。
 orange || n./adj. || 柳橙；橘色（的） || I like orange juice. || 我喜歡柳橙汁。 || orange juice=柳橙汁 || I eat ___ orange every day. || an|a|two || orange 以母音開頭，用 an。 || 我每天吃一顆柳橙。
 order || v./n. || 點餐；命令；順序 || May I take your order? || 可以幫您點餐了嗎？ || take an order=點餐; in order=依序 || Are you ready ___ order? || to|for|of || be ready to + 原形動詞。 || 您準備好點餐了嗎？
-out || adv. || 出去；在外 || Let's go out for dinner. || 我們出去吃晚餐吧。 || go out=出去; out of=從…出來 || Let's go out ___ dinner. || for|to|at || go out for dinner = 出去吃晚餐。 || 我們出去吃晚餐吧。
+out || adv. || 出去；在外 || Let's go out for dinner. || 我們出去吃晚餐吧。 || go out=出去; out of=從…出來 || Let's go out ___ dinner. || for|of|at || go out for dinner = 出去吃晚餐。 || 我們出去吃晚餐吧。
 over || prep./adv. || 在…上方；結束 || The class is over. || 下課了。 || be over=結束; over there=在那裡 || The game is over. Let's ___ home. || go|goes|going || Let's 後面接原形動詞。 || 比賽結束了，我們回家吧。
-page || n. || 頁 || Turn to page 20. || 翻到第二十頁。 || on page 10=在第十頁 || Open your books ___ page 30. || to|at|on || open your books to page… = 把書翻到第…頁。 || 把書翻到第三十頁。
+page || n. || 頁 || Turn to page 20. || 翻到第二十頁。 || on page 10=在第十頁 || Open your books ___ page 30. || to|of|by || open your books to page… = 把書翻到第…頁。 || 把書翻到第三十頁。
 paint || v./n. || 油漆；繪畫 || We paint the wall white. || 我們把牆漆成白色。 || paint a picture=畫畫; wet paint=油漆未乾 || Let's paint the wall ___. || blue|blues|bluely || paint + 受詞 + 顏色（形容詞）= 把…漆成某顏色。 || 我們把牆漆成藍色吧。
 pair || n. || 一雙；一對 || I need a new pair of shoes. || 我需要一雙新鞋。 || a pair of=一雙 || This pair of shoes ___ too small. || is|are|am || a pair of + 複數名詞當主詞，看 pair，用單數 is。 || 這雙鞋太小了。
 pants || n. || 褲子 || These pants are too long. || 這條褲子太長了。 || a pair of pants=一條褲子; long pants=長褲 || These pants ___ too short. || are|is|am || pants 永遠是複數，用 are。 || 這條褲子太短了。
 paper || n. || 紙 || I need a piece of paper. || 我需要一張紙。 || a piece of paper=一張紙; paper bag=紙袋 || Can I have two pieces ___ paper? || of|for|in || a piece of paper = 一張紙。 || 可以給我兩張紙嗎？
 parent || n. || 父親或母親 || My parents are teachers. || 我的父母是老師。 || parents=父母 || My parents ___ very kind. || are|is|am || My parents 複數，用 are。 || 我的父母非常親切。
-park || n. || 公園 || Let's go to the park. || 我們去公園吧。 || in the park=在公園; car park=停車場 || The kids are playing ___ the park. || in|on|at || 在公園裡用 in the park。 || 孩子們正在公園玩。
+park || n. || 公園 || Let's go to the park. || 我們去公園吧。 || in the park=在公園; car park=停車場 || The kids are playing ___ the park. || in|on|of || 在公園裡用 in the park。 || 孩子們正在公園玩。
 part || n. || 部分 || This is the best part of the movie. || 這是電影最精彩的部分。 || part of=…的一部分; take part in=參加 || Many students take part ___ the contest. || in|on|at || take part in = 參加。 || 很多學生參加這個比賽。
 party || n. || 派對 || Come to my birthday party. || 來參加我的生日派對。 || birthday party=生日派對; have a party=開派對 || Can you come to my party ___ Saturday? || on|in|at || 星期幾前面用 on。 || 你星期六能來我的派對嗎？
 PE || n. || 體育課 || We have PE on Tuesday. || 我們星期二有體育課。 || PE class=體育課 || We play basketball ___ PE class. || in|on|at || 在某堂課上用 in class。 || 我們在體育課打籃球。

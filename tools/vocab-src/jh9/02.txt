@@ -1,12 +1,12 @@
 # 九年級 02：balloon – cancer
 balloon || n. || 氣球 || The child is holding a red balloon. || 那個孩子拿著一個紅氣球。 || blow up a balloon=吹氣球 || The room was decorated ___ balloons. || with|by|of || be decorated with = 用…裝飾。 || 房間用氣球裝飾。
-barbecue || n. || 烤肉 || We have a barbecue on Moon Festival. || 我們中秋節烤肉。 || have a barbecue=烤肉 || Many families have a barbecue ___ the Moon Festival. || at|in|on || 在節日期間用 at。 || 很多家庭在中秋節烤肉。
+barbecue || n. || 烤肉 || We have a barbecue on Moon Festival. || 我們中秋節烤肉。 || have a barbecue=烤肉 || Many families have a barbecue ___ the Moon Festival. || at|of|to || 在節日期間用 at。 || 很多家庭在中秋節烤肉。
 barber || n. || 理髮師 || I got my hair cut at the barber's. || 我在理髮店剪了頭髮。 || barber shop=理髮店 || I had my hair ___ by the barber yesterday. || cut|cutting|to cut || have + 物 + p.p. = 請人把某物…（使役）。 || 我昨天請理髮師剪了頭髮。
 bark || v. || （狗）吠叫 || The dog barks at strangers. || 那隻狗對陌生人吠叫。 || bark at=對…吠叫 || The dog barks ___ strangers. || at|to|for || bark at = 對…吠叫。 || 那隻狗會對陌生人吠叫。
 base || n. || 基礎；底部 || The base of the lamp is heavy. || 燈座很重。 || baseball base=壘包 || The base of the tower ___ made of stone. || is|are|be || The base 單數；被動 is made of = 由…製成。 || 塔的底部是用石頭做的。
 basement || n. || 地下室 || We keep old things in the basement. || 我們把舊東西放在地下室。 || in the basement=在地下室 || The parking lot is ___ the basement. || in|on|at || 在地下室裡用 in。 || 停車場在地下室。
 basic || adj. || 基本的 || These are basic English words. || 這些是基本的英文單字。 || basic skills=基本技能 || You need to learn the basic rules ___ you play the game. || before|after|since || 玩遊戲「之前」要先學規則，用 before。 || 玩這個遊戲之前你需要先學會基本規則。
-bathe || v. || 洗澡；替…洗澡 || Mom bathes the baby every night. || 媽媽每天晚上幫寶寶洗澡。 || bathe the baby=幫嬰兒洗澡 || The baby ___ bathed by her mom every night. || is|was being|are || 被動語態；習慣性用現在式 is + p.p.。 || 寶寶每天晚上由媽媽幫她洗澡。
+bathe || v. || 洗澡；替…洗澡 || Mom bathes the baby every night. || 媽媽每天晚上幫寶寶洗澡。 || bathe the baby=幫嬰兒洗澡 || The baby ___ bathed by her mom every night. || is|are|be || 被動語態；習慣性用現在式 is + p.p.。 || 寶寶每天晚上由媽媽幫她洗澡。
 beard || n. || 鬍子 || My grandpa has a white beard. || 我爺爺有白鬍子。 || grow a beard=留鬍子 || The man ___ a long beard is Santa Claus. || with|in|on || with + 外表特徵 = 有著…的。 || 那位留長鬍子的男人是聖誕老公公。
 beat || v. || 打敗；敲打 || Our team beat them 3 to 1. || 我們隊以三比一打敗他們。 || beat sb=打敗某人 || They were beaten ___ our team last night. || by|with|from || 被動語態中動作執行者用 by。 || 他們昨晚被我們隊打敗了。
 beauty || n. || 美 || The beauty of nature is amazing. || 大自然的美令人驚嘆。 || Beauty and the Beast=美女與野獸 || We were amazed ___ the beauty of the mountains. || by|of|to || be amazed by = 對…感到驚嘆。 || 我們對山的美景感到驚嘆。
@@ -26,11 +26,11 @@ blouse || n. || 女用襯衫 || She is wearing a white blouse. || 她穿著一�
 board || n./v. || 板子；登上（車、船、機） || Please board the plane now. || 請現在登機。 || on board=在船/機上; notice board=公告欄 || Passengers are asked to board the plane ___ gate 5. || at|in|on || 在某個登機門用 at。 || 請旅客在五號登機門登機。
 bomb || n. || 炸彈 || The bomb was found near the station. || 車站附近發現了炸彈。 || atom bomb=原子彈 || The bomb ___ found by the police this morning. || was|is|were || 被動語態；過去用 was + p.p.。 || 警方今天早上發現了那顆炸彈。
 bone || n. || 骨頭 || The dog is eating a bone. || 那隻狗在啃骨頭。 || break a bone=骨折 || Milk is good for your bones ___ teeth. || and|but|or || 兩者都有益，用 and。 || 牛奶對你的骨頭和牙齒有益。
-bookcase || n. || 書櫃 || Put the books back in the bookcase. || 把書放回書櫃。 || in the bookcase=在書櫃裡 || The bookcase is full ___ comic books. || of|with|in || be full of = 裝滿…。 || 書櫃裡裝滿了漫畫書。
+bookcase || n. || 書櫃 || Put the books back in the bookcase. || 把書放回書櫃。 || in the bookcase=在書櫃裡 || The bookcase is full ___ comic books. || of|to|in || be full of = 裝滿…。 || 書櫃裡裝滿了漫畫書。
 bother || v. || 打擾 || Sorry to bother you. || 抱歉打擾你。 || bother sb=打擾某人 || Don't bother him. He ___ studying for the exam. || is|was|does || 現在進行式；He 用 is。 || 別打擾他，他正在準備考試。
 bowling || n. || 保齡球 || Let's go bowling this weekend. || 我們這週末去打保齡球吧。 || go bowling=打保齡球 || Have you ever ___ bowling? || been|went|go || 現在完成式問經驗：Have you ever been…? || 你打過保齡球嗎？
 branch || n. || 樹枝；分店 || A bird is sitting on the branch. || 一隻鳥停在樹枝上。 || branch office=分公司 || The bank has more than fifty branches ___ Taiwan. || in|on|at || 在國家用 in。 || 這家銀行在台灣有五十多家分行。
-brick || n. || 磚塊 || The house is made of red bricks. || 這房子是用紅磚蓋的。 || brick wall=磚牆 || The house is made ___ bricks. || of|from|in || be made of = 由…製成（看得出原料）。 || 這房子是用磚塊蓋的。
+brick || n. || 磚塊 || The house is made of red bricks. || 這房子是用紅磚蓋的。 || brick wall=磚牆 || The house is made ___ bricks. || of|by|to || be made of = 由…製成（看得出原料）。 || 這房子是用磚塊蓋的。
 broad || adj. || 寬廣的 || The river is broad and deep. || 這條河又寬又深。 || broad road=寬闊的道路 || The road is broad enough ___ two trucks. || for|to|of || enough for + 名詞 = 足以容納…。 || 這條路寬到能容納兩輛卡車。
 broadcast || v./n. || 廣播；播出 || The game will be broadcast live. || 這場比賽將現場直播。 || live broadcast=現場直播 || The news is broadcast ___ seven every evening. || at|on|in || 幾點鐘前面用 at。 || 新聞每天晚上七點播出。
 brunch || n. || 早午餐 || We have brunch on Sundays. || 我們星期天吃早午餐。 || have brunch=吃早午餐 || Let's have brunch ___ Sunday morning. || on|in|at || 特定某天的早上用 on。 || 我們星期天早上吃早午餐吧。
@@ -44,7 +44,7 @@ cabbage || n. || 高麗菜 || Mom made cabbage soup. || 媽媽煮了高麗菜湯
 cable || n. || 電纜；纜線 || We have cable TV at home. || 我們家有第四台。 || cable TV=有線電視; cable car=纜車 || We took the cable car ___ the top of the mountain. || to|at|in || take… to + 地點 = 搭…到某地。 || 我們搭纜車到山頂。
 cafeteria || n. || 自助餐廳；學生餐廳 || We eat lunch in the school cafeteria. || 我們在學校餐廳吃午餐。 || school cafeteria=學生餐廳 || The school cafeteria ___ open from 11 to 1. || is|are|does || The school cafeteria 單數，用 is。 || 學生餐廳從十一點開到一點。
 cage || n. || 籠子 || The bird is in the cage. || 鳥在籠子裡。 || bird cage=鳥籠 || The bird ___ kept in a cage. || is|are|be || 被動語態；The bird 單數用 is + p.p.。 || 那隻鳥被關在籠子裡。
-calendar || n. || 日曆 || Mark the date on your calendar. || 在你的日曆上標出日期。 || on the calendar=在日曆上 || I wrote the date of the test ___ my calendar. || on|in|at || 寫在日曆上用 on。 || 我把考試日期寫在日曆上。
+calendar || n. || 日曆 || Mark the date on your calendar. || 在你的日曆上標出日期。 || on the calendar=在日曆上 || I wrote the date of the test ___ my calendar. || on|of|at || 寫在日曆上用 on。 || 我把考試日期寫在日曆上。
 calm || adj./v. || 冷靜的；使平靜 || Stay calm. || 保持冷靜。 || calm down=冷靜下來; stay calm=保持冷靜 || Calm ___! Everything will be fine. || down|up|off || calm down = 冷靜下來。 || 冷靜點！一切都會沒事的。
 campus || n. || 校園 || The university has a big campus. || 這所大學有一個很大的校園。 || on campus=在校園裡 || Students live ___ campus. || on|in|at || on campus = 在校園裡（住校）。 || 學生住在校園裡。
 cancel || v. || 取消 || The game was canceled because of the rain. || 比賽因雨取消。 || cancel a plan=取消計畫 || The game was canceled ___ the typhoon. || because of|because|so || 後面接名詞 the typhoon，用 because of。 || 比賽因為颱風取消了。

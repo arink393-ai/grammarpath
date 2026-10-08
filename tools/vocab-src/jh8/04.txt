@@ -29,7 +29,7 @@ expensive || adj. || 昂貴的 || This bag is too expensive. || 這個包包太�
 experience || n. || 經驗；經歷 || It was a great experience. || 那是一次很棒的經驗。 || have experience=有經驗; work experience=工作經驗 || Traveling abroad was a great experience ___ me. || for|to|of || 「對某人來說」用 for sb。 || 出國旅行對我來說是很棒的經驗。
 explain || v. || 解釋 || Can you explain this word to me? || 你可以解釋這個字給我聽嗎？ || explain sth to sb=向某人解釋某事 || Can you explain this rule ___ me? || to|for|with || explain sth to sb = 向某人解釋某事。 || 你可以向我解釋這個規則嗎？
 fact || n. || 事實 || In fact, I don't like coffee. || 事實上，我不喜歡咖啡。 || in fact=事實上; the fact that=…的事實 || In fact, he ___ never been to Japan. || has|have|is || 現在完成式；主詞 he 用 has。 || 事實上，他從沒去過日本。
-factory || n. || 工廠 || My father works in a factory. || 我爸爸在工廠工作。 || car factory=汽車工廠 || There are two hundred workers ___ the factory. || in|on|at || 在工廠裡用 in。 || 這間工廠有兩百名工人。
+factory || n. || 工廠 || My father works in a factory. || 我爸爸在工廠工作。 || car factory=汽車工廠 || There are two hundred workers ___ the factory. || in|on|of || 在工廠裡用 in。 || 這間工廠有兩百名工人。
 fail || v. || 失敗；不及格 || Don't be sad if you fail. || 失敗了也別難過。 || fail a test=考試不及格; fail to V=未能做… || He failed the test ___ he didn't study. || because|so|but || 前面是結果、後面是原因，用 because。 || 他考試不及格，因為他沒讀書。
 famous || adj. || 有名的 || Taiwan is famous for its night markets. || 台灣以夜市聞名。 || be famous for=以…聞名 || Taiwan is famous ___ its night markets. || for|of|at || be famous for = 以…聞名。 || 台灣以夜市聞名。
 farmer || n. || 農夫 || The farmer grows rice. || 那位農夫種稻米。 || rice farmer=稻農 || The farmers ___ busy in the fields now. || are|is|be || The farmers 複數，用 are。 || 農夫們現在在田裡忙著。
@@ -40,7 +40,7 @@ fight || v./n. || 打架；對抗 || Don't fight with your brother. || 不要跟
 file || n. || 檔案 || Save the file on your computer. || 把檔案存在你的電腦裡。 || save a file=存檔 || Did you send me the file? Yes, I ___ it yesterday. || sent|send|have sent || yesterday 是過去，用過去式 sent。 || 你把檔案傳給我了嗎？有，我昨天傳了。
 fill || v. || 裝滿；填寫 || Fill the glass with water. || 把杯子裝滿水。 || fill in=填寫; fill A with B=用 B 裝滿 A || Fill the bottle ___ water. || with|of|by || fill A with B = 用 B 裝滿 A。 || 把瓶子裝滿水。
 finally || adv. || 最後；終於 || We finally arrived home. || 我們終於到家了。 || finally=終於 || After two hours, we finally ___ home. || arrived|arrive|arriving || 描述過去的事用過去式 arrived。 || 兩個小時後，我們終於到家了。
-finger || n. || 手指 || I cut my finger. || 我割到手指了。 || little finger=小指; point one's finger=指著 || Don't point your finger ___ people. || at|to|on || point at = 指著…。 || 不要用手指指著別人。
+finger || n. || 手指 || I cut my finger. || 我割到手指了。 || little finger=小指; point one's finger=指著 || Don't point your finger ___ people. || at|of|on || point at = 指著…。 || 不要用手指指著別人。
 finish || v. || 完成 || Have you finished your homework? || 你寫完功課了嗎？ || finish + V-ing=做完… || I finished ___ my homework at nine. || doing|to do|do || finish 後面接動名詞 V-ing。 || 我九點寫完功課。
 fisherman || n. || 漁夫 || The fisherman caught a big fish. || 那位漁夫捕到一條大魚。 || fishermen=漁夫（複數） || The fisherman ___ a big fish yesterday. || caught|catches|catch || yesterday 是過去，用過去式 caught。 || 那位漁夫昨天捕到一條大魚。
 fix || v. || 修理 || Can you fix my bike? || 你可以修我的腳踏車嗎？ || fix a car=修車 || Can you fix my bike ___ me? || for|to|with || 替某人做某事用 for。 || 你可以幫我修腳踏車嗎？

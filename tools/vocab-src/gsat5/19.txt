@@ -9,9 +9,9 @@ tile || n. || 磁磚 || The bathroom floor has white tiles. || 浴室地板鋪�
 tin || n. || 錫；罐頭 || We opened a tin of tuna. || 我們打開一罐鮪魚。 || a tin of=一罐… || Can you pass me a tin ___ beans? || of|for|with || a tin of = 一罐…。 || 你可以遞給我一罐豆子嗎？
 toll || n. || 通行費；死傷人數 || The death toll rose to 100. || 死亡人數增加到一百人。 || death toll=死亡人數 || The death toll from the earthquake ___ risen to 200. || has|have|is || 主詞 The death toll 單數，用 has。 || 地震的死亡人數已上升到兩百人。
 torch || n. || 火炬；手電筒 || The runner carried the Olympic torch. || 跑者手持奧運聖火。 || Olympic torch=奧運聖火 || The Olympic torch ___ carried through many cities. || was|were|is || 被動語態；過去用 was + p.p.。 || 奧運聖火被傳遞經過許多城市。
-torment || n./v. || 折磨 || He was tormented by guilt. || 他受罪惡感折磨。 || in torment=痛苦中 || He was tormented ___ guilt after the accident. || by|with|for || 被動語態中動作執行者用 by。 || 意外發生後，他飽受罪惡感折磨。
+torment || n./v. || 折磨 || He was tormented by guilt. || 他受罪惡感折磨。 || in torment=痛苦中 || He was tormented ___ guilt after the accident. || by|at|for || 被動語態中動作執行者用 by。 || 意外發生後，他飽受罪惡感折磨。
 tournament || n. || 錦標賽 || Our team won the tournament. || 我們隊贏得了錦標賽。 || tennis tournament=網球錦標賽 || Sixteen teams took part ___ the tournament. || in|on|at || take part in = 參加…。 || 十六支隊伍參加了這次錦標賽。
-toxic || adj. || 有毒的 || These chemicals are toxic. || 這些化學物質有毒。 || toxic waste=有毒廢料 || Some plants are toxic ___ dogs and cats. || to|for|with || be toxic to = 對…有毒。 || 有些植物對貓狗有毒。
+toxic || adj. || 有毒的 || These chemicals are toxic. || 這些化學物質有毒。 || toxic waste=有毒廢料 || Some plants are toxic ___ dogs and cats. || to|at|with || be toxic to = 對…有毒。 || 有些植物對貓狗有毒。
 trait || n. || 特質 || Kindness is her best trait. || 善良是她最好的特質。 || personality trait=人格特質 || Honesty is a trait ___ I admire in people. || that|what|who || 關係代名詞 that 修飾物並當 admire 的受詞。 || 誠實是我欣賞的人格特質。
 traitor || n. || 叛徒 || He was called a traitor. || 他被稱為叛徒。 || traitor to=…的叛徒 || He was seen as a traitor ___ his country. || to|of|for || a traitor to = …的叛徒。 || 他被視為國家的叛徒。
 transaction || n. || 交易 || The bank charges a fee for each transaction. || 銀行對每筆交易收取手續費。 || online transaction=線上交易 || The bank charges a small fee ___ each transaction. || for|of|to || fee for = …的費用。 || 銀行每筆交易收取少許手續費。
@@ -39,7 +39,7 @@ underline || v. || 在…下面畫線；強調 || Underline the important words.
 undermine || v. || 削弱 || Lack of sleep can undermine your health. || 睡眠不足會損害你的健康。 || undermine confidence=削弱信心 || His rude comments undermined her confidence, ___ she stopped speaking up. || so|but|or || 前因後果用 so。 || 他無禮的評論削弱了她的信心，所以她不再發言。
 undertake || v. || 承擔；著手 || She will undertake the project. || 她將承擔這個計畫。 || undertake a task=承擔任務 || Nobody wanted to undertake such ___ difficult task. || a|an|the || such + a + 形容詞 + 單數名詞。 || 沒有人想承擔這麼困難的任務。
 undo || v. || 解開；取消 || Can you undo this knot? || 你能解開這個結嗎？ || undo a button=解開扣子 || What's done cannot ___ undone. || be|is|been || 助動詞 cannot 後接 be + p.p.。 || 覆水難收。
-undoubtedly || adv. || 無疑地 || She is undoubtedly the best player. || 她無疑是最好的選手。 || undoubtedly=無疑地 || She is undoubtedly the best player ___ the team. || on|of|at || on a team = 在隊上。 || 她無疑是隊上最好的選手。
+undoubtedly || adv. || 無疑地 || She is undoubtedly the best player. || 她無疑是最好的選手。 || undoubtedly=無疑地 || She is undoubtedly the best player ___ the team. || on|to|at || on a team = 在隊上。 || 她無疑是隊上最好的選手。
 unemployment || n. || 失業 || Unemployment is rising. || 失業率正在上升。 || unemployment rate=失業率 || The unemployment rate ___ risen this year. || has|have|is || 主詞 rate 單數，用 has。 || 今年失業率上升了。
 unfold || v. || 展開；呈現 || She unfolded the map. || 她攤開地圖。 || unfold a map=攤開地圖 || We watched the story unfold ___ the screen. || on|in|at || on the screen = 在螢幕上。 || 我們看著故事在螢幕上展開。
 unlock || v. || 解鎖 || Use your fingerprint to unlock the phone. || 用指紋解鎖手機。 || unlock the door=開鎖 || You can unlock the phone ___ your fingerprint. || with|by|on || with + 工具 = 用…。 || 你可以用指紋解鎖手機。

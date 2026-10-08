@@ -14,8 +14,8 @@ mere || adj. || 僅僅的 || She was a mere child at the time. || 她當時只�
 merit || n. || 優點 || The plan has many merits. || 這個計畫有很多優點。 || merits and demerits=優缺點 || Each plan has ___ own merits. || its|it's|their || Each plan 單數，所有格用 its。 || 每個計畫都有其優點。
 messenger || n. || 信差 || The messenger delivered the letter. || 信差送來了信。 || messenger app=通訊軟體 || The messenger ___ sent to deliver the good news. || was|is|were || 被動語態；過去用 was + p.p.。 || 信差被派去傳遞好消息。
 messy || adj. || 凌亂的 || Your room is messy. || 你的房間好亂。 || messy room=凌亂的房間 || His room is ___ messy that he can never find anything. || so|such|too || so + 形容詞 + that…。 || 他的房間亂到他什麼都找不到。
-microscope || n. || 顯微鏡 || We looked at cells under a microscope. || 我們在顯微鏡下觀察細胞。 || under a microscope=在顯微鏡下 || Bacteria can only be seen ___ a microscope. || under|below|with || under a microscope = 在顯微鏡下。 || 細菌只能在顯微鏡下看到。
-mild || adj. || 溫和的 || The weather is mild today. || 今天天氣很溫和。 || mild weather=溫和的天氣 || The winter in Taiwan is mild compared ___ Japan. || to|with|as || compared to = 與…相比。 || 和日本相比，台灣的冬天很溫和。
+microscope || n. || 顯微鏡 || We looked at cells under a microscope. || 我們在顯微鏡下觀察細胞。 || under a microscope=在顯微鏡下 || Bacteria can only be seen ___ a microscope. || under|below|at || under a microscope = 在顯微鏡下。 || 細菌只能在顯微鏡下看到。
+mild || adj. || 溫和的 || The weather is mild today. || 今天天氣很溫和。 || mild weather=溫和的天氣 || The winter in Taiwan is mild compared ___ Japan. || to|for|as || compared to = 與…相比。 || 和日本相比，台灣的冬天很溫和。
 mill || n. || 磨坊；工廠 || The old mill is by the river. || 那座老磨坊在河邊。 || paper mill=造紙廠 || The old mill ___ used to grind wheat. || was|is|were || 被動語態；過去用 was + p.p.。 || 那座老磨坊過去被用來磨小麥。
 millionaire || n. || 百萬富翁 || He became a millionaire at 30. || 他三十歲就成了百萬富翁。 || self-made millionaire=白手起家的富翁 || He became a millionaire ___ selling products online. || by|with|for || by + V-ing = 藉由…。 || 他靠網路銷售成了百萬富翁。
 miner || n. || 礦工 || The miners work underground. || 礦工在地底下工作。 || coal miner=煤礦工 || The miners ___ trapped underground were rescued after two days. || who were|which were|who was || 關係代名詞修飾人用 who；miners 複數用 were。 || 受困地底的礦工在兩天後獲救了。
@@ -43,7 +43,7 @@ multiple || adj. || 多重的 || This is a multiple-choice test. || 這是選擇
 murderer || n. || 謀殺犯 || The murderer was caught. || 那名謀殺犯被抓到了。 || murderer=兇手 || The murderer ___ sentenced to life in prison. || was|is|were || 被動語態；過去用 was + p.p.。 || 那名兇手被判無期徒刑。
 murmur || v./n. || 低語 || She murmured something to me. || 她對我低聲說了些什麼。 || in a murmur=低聲地 || She murmured something ___ a low voice. || in|with|by || in a low voice = 低聲地。 || 她低聲說了些什麼。
 mutual || adj. || 相互的；共同的 || We have mutual friends. || 我們有共同的朋友。 || mutual friend=共同朋友; mutual respect=互相尊重 || A good friendship is based ___ mutual respect. || on|in|at || be based on = 以…為基礎。 || 良好的友誼建立在互相尊重的基礎上。
-mysterious || adj. || 神祕的 || The house looks mysterious. || 那棟房子看起來很神祕。 || mysterious man=神祕男子 || A mysterious man ___ a black hat was standing at the door. || in|with|on || in + 衣物 = 穿戴著…。 || 一個戴著黑帽子的神祕男子站在門口。
+mysterious || adj. || 神祕的 || The house looks mysterious. || 那棟房子看起來很神祕。 || mysterious man=神祕男子 || A mysterious man ___ a black hat was standing at the door. || in|at|on || in + 衣物 = 穿戴著…。 || 一個戴著黑帽子的神祕男子站在門口。
 namely || adv. || 即 || Two students, namely Tom and Amy, won prizes. || 兩位學生，即湯姆和艾咪，得了獎。 || namely=也就是 || Only one student, namely Amy, ___ the test. || passed|pass|passing || 描述過去的事用過去式 passed。 || 只有一個學生，也就是艾咪，通過了考試。
 nationality || n. || 國籍 || What is your nationality? || 你的國籍是什麼？ || dual nationality=雙重國籍 || People of different nationalities ___ at this school. || study|studies|studying || People 複數，動詞用原形。 || 不同國籍的人在這所學校就讀。
 needy || adj. || 貧困的 || We donated food to needy families. || 我們捐食物給貧困家庭。 || the needy=窮人 || The money will be used ___ help needy children. || to|for|so || be used to + 原形動詞 = 被用來…。 || 這筆錢將用來幫助貧困兒童。

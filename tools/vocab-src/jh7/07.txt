@@ -4,7 +4,7 @@ lemon || n. || 檸檬 || I like lemon tea. || 我喜歡檸檬茶。 || lemon jui
 less || adj./adv. || 較少的 || You should eat less sugar. || 你應該少吃糖。 || less than=少於; more or less=多多少少 || You should eat less candy ___ more fruit. || and|but|or || 兩個建議都要做，用 and 連接。 || 你應該少吃糖果、多吃水果。
 library || n. || 圖書館 || I borrow books from the library. || 我從圖書館借書。 || school library=學校圖書館; go to the library=去圖書館 || There ___ many books in the library. || are|is|be || many books 複數，There are。 || 圖書館裡有很多書。
 life || n. || 生活；生命 || Life is beautiful. || 人生是美好的。 || daily life=日常生活; school life=學校生活 || How ___ your school life? || is|are|do || your school life 單數，用 is。 || 你的學校生活怎麼樣？
-light || n./adj. || 燈；光；輕的 || Turn off the light. || 關燈。 || turn on the light=開燈; traffic light=紅綠燈 || Please turn ___ the light when you leave. || off|of|out || turn off = 關掉（電器）。 || 離開時請關燈。
+light || n./adj. || 燈；光；輕的 || Turn off the light. || 關燈。 || turn on the light=開燈; traffic light=紅綠燈 || Please turn ___ the light when you leave. || off|of|in || turn off = 關掉（電器）。 || 離開時請關燈。
 like || v./prep. || 喜歡；像 || I like apples. || 我喜歡蘋果。 || like + V-ing=喜歡做…; look like=看起來像 || She likes ___ pictures. || taking|take|takes || like 後面可接動名詞 V-ing。 || 她喜歡拍照。
 line || n. || 線；隊伍 || Please wait in line. || 請排隊等候。 || in line=排隊; draw a line=畫一條線 || Please wait ___ line. || in|on|at || wait in line = 排隊等候。 || 請排隊。
 lion || n. || 獅子 || The lion is the king of animals. || 獅子是萬獸之王。 || lion dance=舞獅 || The lion ___ sleeping under the tree. || is|are|does || 現在進行式；The lion 用 is。 || 獅子正在樹下睡覺。
@@ -14,19 +14,19 @@ listen || v. || 聽 || Listen to me. || 聽我說。 || listen to=聽…; listen
 little || adj. || 小的；少的 || I have a little brother. || 我有一個弟弟。 || a little=一點點; little brother=弟弟 || There is a little ___ in the bottle. || water|waters|bottle || a little 後面接不可數名詞 water。 || 瓶子裡還有一點點水。
 live || v. || 住；生活 || I live in Taipei. || 我住在台北。 || live in=住在…; live with=和…住 || My cousin lives ___ Tainan. || in|on|at || 住在城市用 in。 || 我表哥住在台南。
 long || adj. || 長的 || The river is very long. || 那條河很長。 || long hair=長髮; how long=多久 || ___ long is the movie? Two hours. || How|What|Which || 問時間多長用 How long。 || 電影多長？兩個小時。
-look || v. || 看 || Look at the board. || 看黑板。 || look at=看; look for=尋找; look like=看起來像 || I'm looking ___ my keys. || for|at|like || look for = 尋找。 || 我在找我的鑰匙。
+look || v. || 看 || Look at the board. || 看黑板。 || look at=看; look for=尋找; look like=看起來像 || I'm looking ___ my keys. || for|of|like || look for = 尋找。 || 我在找我的鑰匙。
 lose || v. || 遺失；輸 || Don't lose your key. || 別弄丟你的鑰匙。 || lose weight=減重; lose a game=輸比賽 || Put your money in your bag, ___ you may lose it. || or|and|so || 祈使句 + or = 否則…。 || 把錢放進包包裡，不然你可能會弄丟。
 loud || adj. || 大聲的 || The music is too loud. || 音樂太大聲了。 || loud voice=大嗓門; out loud=出聲地 || The music is ___ loud. Please turn it down. || too|to|two || too + 形容詞 = 太…。 || 音樂太大聲了，請轉小聲。
 love || v. || 愛 || I love my family. || 我愛我的家人。 || love to V=很喜歡做…; fall in love=墜入愛河 || My sister loves ___ to music. || listening|listen|listens || love 後面可接動名詞 V-ing。 || 我姊姊很喜歡聽音樂。
-low || adj. || 低的 || The price is low. || 價格很低。 || low price=低價; low voice=低聲 || Please speak in a low voice ___ the library. || in|on|at || 在圖書館裡面用 in。 || 在圖書館請低聲說話。
+low || adj. || 低的 || The price is low. || 價格很低。 || low price=低價; low voice=低聲 || Please speak in a low voice ___ the library. || in|on|of || 在圖書館裡面用 in。 || 在圖書館請低聲說話。
 lucky || adj. || 幸運的 || You are so lucky! || 你真幸運！ || lucky number=幸運數字; lucky day=幸運日 || What ___ your lucky number? || is|are|do || your lucky number 單數，用 is。 || 你的幸運數字是多少？
-lunch || n. || 午餐 || We have lunch at noon. || 我們中午吃午餐。 || have lunch=吃午餐; lunch box=便當 || What do you want ___ lunch? || for|at|in || 「午餐吃…」用 for lunch。 || 你午餐想吃什麼？
+lunch || n. || 午餐 || We have lunch at noon. || 我們中午吃午餐。 || have lunch=吃午餐; lunch box=便當 || What do you want ___ lunch? || for|of|in || 「午餐吃…」用 for lunch。 || 你午餐想吃什麼？
 mad || adj. || 生氣的；瘋狂的 || Mom is mad at me. || 媽媽在生我的氣。 || be mad at=生…的氣; go mad=發瘋 || Why is she mad ___ you? || at|to|for || be mad at sb = 生某人的氣。 || 她為什麼在生你的氣？
 mail || n./v. || 郵件；郵寄 || Did you get any mail today? || 你今天有收到信嗎？ || send mail=寄信; by mail=郵寄 || Is there ___ mail for me? || any|many|a || 疑問句用 any；mail 不可數。 || 有我的信嗎？
 make || v. || 做；製作 || Mom makes breakfast every day. || 媽媽每天做早餐。 || make a cake=做蛋糕; make friends=交朋友 || Can you make a cake ___ me? || for|to|of || 為某人做某事用 for。 || 你可以幫我做一個蛋糕嗎？
 man || n. || 男人 || The man is my uncle. || 那個男人是我叔叔。 || old man=老人; men=男人（複數） || Who is the man ___ the red hat? || in|on|at || 穿戴著某物用 in：the man in the red hat。 || 戴紅帽子的那個男人是誰？
 map || n. || 地圖 || Let's look at the map. || 我們看一下地圖吧。 || world map=世界地圖; on the map=在地圖上 || Can you find Taiwan ___ the map? || on|in|at || 在地圖上用 on。 || 你能在地圖上找到台灣嗎？
-math || n. || 數學 || Math is my favorite subject. || 數學是我最喜歡的科目。 || math class=數學課; math test=數學考試 || She is good ___ math. || at|in|with || be good at = 擅長…。 || 她擅長數學。
+math || n. || 數學 || Math is my favorite subject. || 數學是我最喜歡的科目。 || math class=數學課; math test=數學考試 || She is good ___ math. || at|of|to || be good at = 擅長…。 || 她擅長數學。
 maybe || adv. || 也許 || Maybe it will rain tomorrow. || 明天也許會下雨。 || maybe not=也許不會 || Maybe he ___ at home now. || is|be|are || 主詞 he 用 is（maybe 是副詞，不影響動詞）。 || 他現在也許在家。
 meat || n. || 肉 || I don't eat much meat. || 我不太吃肉。 || eat meat=吃肉 || I don't eat ___ meat. || much|many|a few || meat 不可數，用 much。 || 我不太吃肉。
 meet || v. || 遇見；見面 || Nice to meet you. || 很高興認識你。 || meet sb=和某人見面; nice to meet you=很高興認識你 || Let's meet ___ the park at three. || at|on|to || 在某個地點（點）用 at。 || 我們三點在公園碰面吧。
@@ -45,4 +45,4 @@ mouse || n. || 老鼠；滑鼠 || The cat is chasing a mouse. || 貓在追一隻
 mouth || n. || 嘴巴 || Open your mouth. || 張開你的嘴巴。 || open one's mouth=張嘴 || Don't talk with food in ___ mouth. || your|you|yours || 名詞 mouth 前用所有格形容詞 your。 || 嘴裡有食物時不要說話。
 move || v. || 移動；搬家 || We move to a new house next month. || 我們下個月搬新家。 || move to=搬到…; move the chair=移動椅子 || Please help me move ___ desk. || this|these|those || desk 單數，用 this。 || 請幫我搬這張書桌。
 movie || n. || 電影 || Let's go to a movie. || 我們去看電影吧。 || go to a movie=去看電影; movie theater=電影院 || What time ___ the movie start? || does|do|is || 一般動詞 start 的疑問句，the movie 單數用 does。 || 電影幾點開始？
-mud || n. || 泥巴 || The kids are playing in the mud. || 孩子們在玩泥巴。 || play in the mud=玩泥巴 || Your shoes are full ___ mud. || of|with|in || be full of = 充滿…。 || 你的鞋子沾滿了泥巴。
+mud || n. || 泥巴 || The kids are playing in the mud. || 孩子們在玩泥巴。 || play in the mud=玩泥巴 || Your shoes are full ___ mud. || of|to|in || be full of = 充滿…。 || 你的鞋子沾滿了泥巴。

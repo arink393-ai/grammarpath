@@ -1,7 +1,7 @@
 # 學測 L6 02：applaud – bribe
 applaud || v. || 鼓掌；稱讚 || The audience applauded loudly. || 觀眾熱烈鼓掌。 || applaud sb for=因…讚揚某人 || We applaud her ___ her courage. || for|of|with || applaud sb for = 因…讚揚某人。 || 我們讚揚她的勇氣。
 applicable || adj. || 適用的 || This rule is applicable to everyone. || 這條規則適用於每個人。 || be applicable to=適用於… || The discount is not applicable ___ sale items. || to|for|with || be applicable to = 適用於…。 || 這個折扣不適用於特價商品。
-apprentice || n. || 學徒 || He worked as an apprentice to a baker. || 他在麵包師傅那裡當學徒。 || apprentice to=…的學徒 || He worked as an apprentice ___ a famous chef. || to|of|for || an apprentice to = …的學徒。 || 他在一位知名主廚那裡當學徒。
+apprentice || n. || 學徒 || He worked as an apprentice to a baker. || 他在麵包師傅那裡當學徒。 || apprentice to=…的學徒 || He worked as an apprentice ___ a famous chef. || to|at|for || an apprentice to = …的學徒。 || 他在一位知名主廚那裡當學徒。
 approximate || adj. || 大約的 || The approximate cost is 500 dollars. || 大約的費用是五百元。 || approximate number=大約的數字 || The approximate number of visitors ___ 2,000. || was|were|be || 主詞 The number 單數，用 was。 || 遊客的大約人數是兩千人。
 archaeology || n. || 考古學 || She is interested in archaeology. || 她對考古學有興趣。 || study archaeology=研究考古學 || She has been interested in archaeology ___ she was a child. || since|for|from || since + 子句，搭配現在完成式。 || 她從小就對考古學有興趣。
 archive || n. || 檔案館；檔案 || The old letters are kept in the archive. || 舊信件保存在檔案館。 || national archive=國家檔案館 || The old photos are kept ___ the city archive. || in|on|to || 在檔案館裡用 in。 || 這些老照片保存在市立檔案館。
@@ -11,7 +11,7 @@ aspire || v. || 渴望 || She aspires to be a doctor. || 她立志成為醫生�
 assassinate || v. || 暗殺 || The president was assassinated in 1963. || 那位總統在 1963 年遭暗殺。 || assassinate a leader=暗殺領袖 || The leader ___ assassinated while giving a speech. || was|is|were || 被動語態；過去用 was + p.p.。 || 那位領袖在演講時遭到暗殺。
 asthma || n. || 氣喘 || She has asthma. || 她有氣喘。 || asthma attack=氣喘發作 || Air pollution can make asthma ___. || worse|bad|worst || make + 受詞 + 形容詞（比較級）。 || 空氣汙染會讓氣喘更嚴重。
 astray || adv. || 迷路；誤入歧途 || The letter went astray. || 那封信寄丟了。 || go astray=迷路；遺失 || Bad friends can lead young people astray, ___ choose your friends carefully. || so|but|because || 前因後果用 so。 || 損友會把年輕人帶壞，所以要謹慎交友。
-astronaut || n. || 太空人 || She wants to be an astronaut. || 她想當太空人。 || astronaut=太空人 || The astronauts lived ___ the space station for six months. || on|in|at || on the space station = 在太空站上。 || 太空人在太空站上生活了六個月。
+astronaut || n. || 太空人 || She wants to be an astronaut. || 她想當太空人。 || astronaut=太空人 || The astronauts lived ___ the space station for six months. || on|of|at || on the space station = 在太空站上。 || 太空人在太空站上生活了六個月。
 astronomer || n. || 天文學家 || The astronomer discovered a new star. || 那位天文學家發現了一顆新星。 || amateur astronomer=業餘天文學家 || The astronomer ___ discovered the comet was only 20. || who|which|whom || 關係代名詞修飾人並當主詞，用 who。 || 發現那顆彗星的天文學家才二十歲。
 astronomy || n. || 天文學 || I'm interested in astronomy. || 我對天文學有興趣。 || study astronomy=研究天文學 || Astronomy is the study ___ stars and planets. || of|for|in || the study of = 對…的研究。 || 天文學是研究星星和行星的學問。
 attendant || n. || 服務員 || The flight attendant served drinks. || 空服員送上飲料。 || flight attendant=空服員 || The flight attendant asked us ___ fasten our seat belts. || to|for|of || ask sb to + 原形動詞。 || 空服員請我們繫好安全帶。
@@ -38,7 +38,7 @@ bleach || n./v. || 漂白劑；漂白 || Don't mix bleach with other cleaners. |
 blond || adj./n. || 金髮的 || She has blond hair. || 她有一頭金髮。 || blond hair=金髮 || The girl ___ blond hair is my cousin. || with|of|in || with + 特徵 = 有…的。 || 那個金髮女孩是我表妹。
 blot || n./v. || 汙點；吸乾 || There is an ink blot on the page. || 頁面上有一團墨漬。 || a blot on=…的汙點 || The scandal was a blot ___ his career. || on|in|at || a blot on = …上的汙點。 || 那件醜聞是他職業生涯的汙點。
 blunt || adj. || 鈍的；直率的 || The knife is blunt. || 這把刀很鈍。 || to be blunt=坦白說 || The knife is too blunt ___ cut the bread. || to|for|of || too + 形容詞 + to V = 太…而不能…。 || 這把刀太鈍了，切不了麵包。
-bodily || adj. || 身體的 || The accident caused bodily harm. || 這場意外造成身體傷害。 || bodily harm=身體傷害 || He was lucky to escape ___ bodily harm. || without|with|from || without + 名詞 = 沒有…。 || 他很幸運，沒有受到身體傷害就逃過一劫。
+bodily || adj. || 身體的 || The accident caused bodily harm. || 這場意外造成身體傷害。 || bodily harm=身體傷害 || He was lucky to escape ___ bodily harm. || without|with|by || without + 名詞 = 沒有…。 || 他很幸運，沒有受到身體傷害就逃過一劫。
 booklet || n. || 小冊子 || Please read the booklet. || 請閱讀這本小冊子。 || information booklet=說明手冊 || You can find the rules ___ the booklet. || in|on|at || 在書冊中用 in。 || 你可以在小冊子裡找到規則。
 bosom || n. || 胸懷 || She held the baby to her bosom. || 她把寶寶抱在懷裡。 || bosom friend=知己 || They have been bosom friends ___ childhood. || since|for|from || since + 時間點，搭配現在完成式。 || 他們從小就是知己。
 boulevard || n. || 林蔭大道 || We walked along the boulevard. || 我們沿著林蔭大道散步。 || tree-lined boulevard=林蔭大道 || There are many cafés ___ the boulevard. || along|among|between || along = 沿著…。 || 林蔭大道沿路有許多咖啡廳。

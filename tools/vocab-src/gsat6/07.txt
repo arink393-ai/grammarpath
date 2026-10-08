@@ -14,7 +14,7 @@ examinee || n. || 考生 || Each examinee must bring an ID card. || 每位考生
 examiner || n. || 主考官 || The examiner asked me some questions. || 主考官問了我一些問題。 || driving examiner=駕照考官 || The examiner asked ___ I had any questions. || if|that|what || ask if = 詢問是否…。 || 主考官問我是否有任何問題。
 excel || v. || 擅長 || She excels at math. || 她數學很好。 || excel at/in=擅長… || He excels ___ sports, especially basketball. || at|on|to || excel at = 擅長…。 || 他擅長運動，尤其是籃球。
 excerpt || n. || 摘錄 || We read an excerpt from the novel. || 我們讀了小說的一段摘錄。 || excerpt from=…的摘錄 || The teacher read an excerpt ___ a famous novel. || from|of|by || an excerpt from = 摘自…。 || 老師朗讀了一段知名小說的摘錄。
-excess || n./adj. || 過量 || Don't eat to excess. || 不要吃太多。 || in excess of=超過… || Eating sugar ___ excess is bad for your health. || to|in|with || to excess = 過度地。 || 過度吃糖對健康有害。
+excess || n./adj. || 過量 || Don't eat to excess. || 不要吃太多。 || in excess of=超過… || Eating sugar ___ excess is bad for your health. || to|on|with || to excess = 過度地。 || 過度吃糖對健康有害。
 exclusion || n. || 排除 || He felt a sense of exclusion. || 他有被排擠的感覺。 || social exclusion=社會排斥 || She studied hard to the exclusion ___ everything else. || of|for|from || to the exclusion of = 排除…。 || 她拚命讀書，其他事都不管。
 exempt || adj./v. || 免除的 || Students are exempt from the fee. || 學生免繳費用。 || be exempt from=免於… || Children under six are exempt ___ the entrance fee. || from|of|with || be exempt from = 免於…。 || 六歲以下兒童免收門票。
 exert || v. || 施加；盡力 || Don't exert yourself too much. || 別太勉強自己。 || exert pressure=施加壓力 || Parents should not exert too much pressure ___ their children. || on|to|for || exert pressure on = 對…施加壓力。 || 父母不應對孩子施加太多壓力。

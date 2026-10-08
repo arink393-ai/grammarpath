@@ -10,7 +10,7 @@ demand || n./v. || 要求；需求 || There is a high demand for this product. |
 demonstrate || v. || 示範；證明 || The teacher demonstrated the experiment. || 老師示範了實驗。 || demonstrate how to V=示範如何… || The teacher demonstrated ___ to use the machine. || how|what|which || how to + 原形動詞。 || 老師示範了如何使用這台機器。
 demonstration || n. || 示範；示威 || The chef gave a cooking demonstration. || 主廚做了一場烹飪示範。 || give a demonstration=示範 || Thousands of people joined the demonstration ___ the new law. || against|for|with || against = 反對…。 || 數千人參加了反對新法的示威活動。
 dense || adj. || 密集的；濃密的 || The forest is very dense. || 森林非常茂密。 || dense fog=濃霧 || The fog was ___ dense that we couldn't see the road. || so|such|too || so + 形容詞 + that…。 || 霧濃到我們看不見路。
-depart || v. || 出發 || The train departs at 9:00. || 火車九點出發。 || depart from=從…出發 || The flight departs ___ Gate 5. || from|at|to || depart from = 從…出發。 || 班機從五號登機門出發。
+depart || v. || 出發 || The train departs at 9:00. || 火車九點出發。 || depart from=從…出發 || The flight departs ___ Gate 5. || from|of|to || depart from = 從…出發。 || 班機從五號登機門出發。
 departure || n. || 出發 || The departure time is 10 a.m. || 出發時間是上午十點。 || departure time=出發時間 || Please arrive two hours ___ departure. || before|after|since || 出發「之前」抵達，用 before。 || 請在出發前兩小時抵達。
 dependent || adj. || 依賴的 || Babies are dependent on their parents. || 嬰兒依賴父母。 || be dependent on=依賴… || Many young people are too dependent ___ their parents. || on|to|of || be dependent on = 依賴…。 || 很多年輕人太依賴父母了。
 depression || n. || 沮喪；憂鬱症 || He suffered from depression. || 他罹患憂鬱症。 || suffer from depression=罹患憂鬱症 || People ___ suffer from depression should get professional help. || who|which|whose || 關係代名詞修飾人並當主詞，用 who。 || 罹患憂鬱症的人應該尋求專業協助。
@@ -38,13 +38,13 @@ disadvantage || n. || 缺點；不利條件 || Every plan has advantages and dis
 disaster || n. || 災難 || The earthquake was a terrible disaster. || 那場地震是一場可怕的災難。 || natural disaster=天災 || Typhoons and earthquakes are natural disasters ___ often happen in Taiwan. || that|what|who || 關係代名詞 that 修飾物（disasters）。 || 颱風和地震是台灣常發生的天然災害。
 discipline || n./v. || 紀律 || The school has strict discipline. || 這所學校紀律嚴格。 || self-discipline=自律 || Self-discipline is the key ___ success. || to|of|for || the key to = …的關鍵。 || 自律是成功的關鍵。
 disguise || v./n. || 偽裝 || He disguised himself as a doctor. || 他偽裝成醫生。 || in disguise=偽裝的 || The thief disguised himself ___ a police officer. || as|like|for || disguise oneself as = 偽裝成…。 || 小偷偽裝成警察。
-disgust || n./v. || 厭惡 || She looked at the food with disgust. || 她厭惡地看著那些食物。 || in disgust=厭惡地 || He left the room ___ disgust. || in|with|by || in disgust = 厭惡地。 || 他厭惡地離開了房間。
+disgust || n./v. || 厭惡 || She looked at the food with disgust. || 她厭惡地看著那些食物。 || in disgust=厭惡地 || He left the room ___ disgust. || in|on|by || in disgust = 厭惡地。 || 他厭惡地離開了房間。
 dismiss || v. || 解散；開除 || The teacher dismissed the class. || 老師宣布下課。 || dismiss a class=下課 || The class was dismissed ___ the bell rang. || when|which|what || when 引導時間子句。 || 鐘聲響時老師宣布下課。
 disorder || n. || 混亂；失調 || The room was in disorder. || 房間一片凌亂。 || eating disorder=飲食失調 || After the party, the house was ___ complete disorder. || in|on|at || in disorder = 凌亂。 || 派對過後，房子一片凌亂。
 dispute || n./v. || 爭論；糾紛 || There is a dispute over the land. || 這塊土地有糾紛。 || dispute over=對…的爭議 || The two countries have a dispute ___ the island. || over|to|with || a dispute over = 對…的爭議。 || 兩國對這座島嶼有領土爭議。
 distinct || adj. || 明顯不同的 || The two languages are distinct. || 這兩種語言截然不同。 || be distinct from=與…不同 || Taiwanese culture is distinct ___ other Asian cultures. || from|to|with || be distinct from = 與…有明顯不同。 || 台灣文化與其他亞洲文化截然不同。
 distinguish || v. || 區別 || Can you distinguish between the twins? || 你分得出那對雙胞胎嗎？ || distinguish A from B=區分 A 和 B || Can you distinguish right ___ wrong? || from|to|with || distinguish A from B = 區分 A 和 B。 || 你能分辨是非嗎？
-distinguished || adj. || 傑出的 || He is a distinguished scientist. || 他是一位傑出的科學家。 || distinguished guest=貴賓 || She is distinguished ___ her work in medicine. || for|by|with || be distinguished for = 以…著稱。 || 她以醫學上的成就而著稱。
+distinguished || adj. || 傑出的 || He is a distinguished scientist. || 他是一位傑出的科學家。 || distinguished guest=貴賓 || She is distinguished ___ her work in medicine. || for|at|with || be distinguished for = 以…著稱。 || 她以醫學上的成就而著稱。
 distribute || v. || 分配；分發 || The teacher distributed the test papers. || 老師發下了考卷。 || distribute food=分發食物 || Food was distributed ___ the people in need. || to|for|with || distribute A to B = 把 A 分發給 B。 || 食物被分發給有需要的人。
 distribution || n. || 分配 || The distribution of wealth is unequal. || 財富分配不均。 || distribution of=…的分配 || The distribution ___ food was organized by volunteers. || of|for|to || the distribution of = …的分配。 || 食物的分發是由志工組織的。
 district || n. || 區 || Da'an is a district in Taipei. || 大安是台北的一個區。 || school district=學區 || Xinyi District is famous ___ Taipei 101. || for|of|with || be famous for = 以…聞名。 || 信義區以台北 101 聞名。

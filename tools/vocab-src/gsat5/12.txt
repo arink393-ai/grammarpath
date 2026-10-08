@@ -3,12 +3,12 @@ monopoly || n. || 壟斷 || The company has a monopoly on the market. || 這家�
 morality || n. || 道德 || The story teaches morality to children. || 這個故事教孩子道德。 || public morality=公共道德 || The story teaches children ___ morality. || about|to|for || teach sb about sth = 教某人有關…。 || 這個故事教孩子有關道德的事。
 mortality || n. || 死亡率 || The infant mortality rate has dropped. || 嬰兒死亡率已經下降。 || mortality rate=死亡率 || The mortality rate of the disease ___ dropped thanks to new medicine. || has|have|is || 主詞 rate 單數，用 has。 || 由於新藥，這種疾病的死亡率已經下降。
 mortgage || n. || 房貸 || They took out a mortgage to buy the house. || 他們辦了房貸買房子。 || pay off a mortgage=還清房貸 || It took them twenty years ___ pay off their mortgage. || to|for|of || It takes + 時間 + to V。 || 他們花了二十年才還清房貸。
-motive || n. || 動機 || What was the motive for the crime? || 犯罪動機是什麼？ || motive for=…的動機 || The police are trying to find the motive ___ the crime. || for|of|to || a motive for = …的動機。 || 警方正試圖找出犯罪動機。
+motive || n. || 動機 || What was the motive for the crime? || 犯罪動機是什麼？ || motive for=…的動機 || The police are trying to find the motive ___ the crime. || for|at|to || a motive for = …的動機。 || 警方正試圖找出犯罪動機。
 mount || v./n. || 增加；登上 || Pressure is mounting on the government. || 政府承受的壓力越來越大。 || Mount Jade=玉山 || Have you ever climbed Mount Jade, ___ highest mountain in Taiwan? || the|a|an || 最高級前用 the。 || 你爬過台灣最高的山——玉山嗎？
 mumble || v. || 喃喃自語 || He mumbled something. || 他咕噥了一些話。 || mumble to oneself=喃喃自語 || Stop mumbling ___ speak clearly. || and|or|but || 兩個並列的命令句用 and。 || 別再咕噥了，說清楚一點。
 municipal || adj. || 市立的 || She works at the municipal library. || 她在市立圖書館工作。 || municipal government=市政府 || The municipal library is open ___ 9 a.m. to 9 p.m. || from|between|since || from A to B = 從 A 到 B。 || 市立圖書館從早上九點開到晚上九點。
 muscular || adj. || 肌肉發達的 || He has a muscular body. || 他身材很壯。 || muscular arms=結實的手臂 || He became muscular ___ working out every day. || by|with|for || by + V-ing = 藉由…。 || 他藉由每天健身練出了肌肉。
-mustard || n. || 芥末 || I like mustard on my hot dog. || 我喜歡在熱狗上加芥末。 || mustard sauce=芥末醬 || Would you like some mustard ___ your sandwich? || on|in|at || 塗在上面用 on。 || 你的三明治要加芥末嗎？
+mustard || n. || 芥末 || I like mustard on my hot dog. || 我喜歡在熱狗上加芥末。 || mustard sauce=芥末醬 || Would you like some mustard ___ your sandwich? || on|at|of || 塗在上面用 on。 || 你的三明治要加芥末嗎？
 myth || n. || 神話；迷思 || It's a myth that goldfish have short memories. || 金魚記憶很短是個迷思。 || Greek myth=希臘神話 || It is a myth ___ we only use 10% of our brains. || that|what|which || It is a myth that… = …是個迷思。 || 我們只用了大腦的百分之十是個迷思。
 naive || adj. || 天真的 || Don't be so naive. || 別這麼天真。 || naive idea=天真的想法 || It was naive ___ me to trust him. || of|for|to || It is + 形容詞(人的特質) + of sb + to V。 || 我相信他真是太天真了。
 narrative || n./adj. || 敘述；故事 || The book has a strong narrative. || 這本書的敘事很強。 || narrative writing=記敘文 || The narrative of the novel is told ___ the point of view of a child. || from|in|by || from the point of view of = 從…的觀點。 || 這本小說的敘事是從一個孩子的觀點出發。
@@ -25,7 +25,7 @@ notify || v. || 通知 || Please notify us of any changes. || 如有任何變更
 notion || n. || 概念；想法 || I have no notion of what he means. || 我完全不懂他的意思。 || the notion that=…的想法 || I don't agree with the notion ___ money brings happiness. || that|what|which || that 引導同位語子句，說明 notion 的內容。 || 我不同意「金錢帶來快樂」這個想法。
 nowhere || adv. || 無處 || There is nowhere to park. || 沒有地方停車。 || nowhere to V=無處可… || There was nowhere ___ sit on the train. || to|for|of || nowhere to V = 無處可…。 || 火車上沒有地方可以坐。
 nutrient || n. || 營養素 || Vegetables are full of nutrients. || 蔬菜富含營養素。 || essential nutrient=必需營養素 || Vegetables are full ___ nutrients. || of|with|in || be full of = 充滿…。 || 蔬菜富含營養素。
-nutrition || n. || 營養 || Good nutrition is important for children. || 良好的營養對孩子很重要。 || good nutrition=良好營養 || Good nutrition is important ___ growing children. || for|to|with || be important for = 對…很重要。 || 良好的營養對成長中的孩子很重要。
+nutrition || n. || 營養 || Good nutrition is important for children. || 良好的營養對孩子很重要。 || good nutrition=良好營養 || Good nutrition is important ___ growing children. || for|at|with || be important for = 對…很重要。 || 良好的營養對成長中的孩子很重要。
 obligation || n. || 義務 || You have no obligation to buy anything. || 你沒有義務購買任何東西。 || under no obligation=沒有義務 || You are under no obligation ___ buy anything. || to|for|of || an obligation to V = 做…的義務。 || 你沒有義務購買任何東西。
 obscure || adj. || 不為人知的；模糊的 || He is an obscure poet. || 他是一位不知名的詩人。 || obscure meaning=晦澀的含意 || The poem was written by an obscure poet ___ name nobody remembers. || whose|who|which || whose + 名詞 表示「…的」。 || 這首詩是一位沒人記得名字的無名詩人寫的。
 observer || n. || 觀察者 || She is a careful observer. || 她是個細心的觀察者。 || neutral observer=中立觀察者 || To a casual observer, everything seemed normal, ___ something was wrong. || but|so|because || 前後語意相反，用 but。 || 對一般觀察者而言一切看似正常，但事情不對勁。
@@ -50,7 +50,7 @@ overhead || adv./adj. || 在頭頂上 || A plane flew overhead. || 一架飛機�
 oversee || v. || 監督 || She oversees the whole project. || 她監督整個計畫。 || oversee a project=監督計畫 || Who will oversee the project ___ the manager is away? || while|during|since || while + 子句 = 當…的時候。 || 經理不在時誰來監督這個計畫？
 overtake || v. || 超越；超車 || Never overtake on a curve. || 絕對不要在彎道超車。 || overtake a car=超車 || It is dangerous to overtake another car ___ a curve. || on|in|to || on a curve = 在彎道上。 || 在彎道上超車很危險。
 overturn || v. || 翻覆；推翻 || The truck overturned on the highway. || 卡車在高速公路上翻覆。 || overturn a decision=推翻決定 || The court overturned the decision ___ new evidence was found. || after|before|until || 發現新證據「之後」推翻，用 after。 || 發現新證據後，法院推翻了判決。
-overwhelm || v. || 壓倒；使不知所措 || I was overwhelmed by all the work. || 我被所有的工作壓得喘不過氣。 || be overwhelmed by=被…壓垮 || She was overwhelmed ___ joy when she heard the news. || with|by|of || be overwhelmed with + 情緒 = 充滿…。 || 她聽到消息時欣喜若狂。
-parallel || adj./n. || 平行的 || The two lines are parallel. || 這兩條線是平行的。 || parallel to=與…平行 || The road runs parallel ___ the river. || to|with|for || parallel to = 與…平行。 || 這條路與河流平行。
+overwhelm || v. || 壓倒；使不知所措 || I was overwhelmed by all the work. || 我被所有的工作壓得喘不過氣。 || be overwhelmed by=被…壓垮 || She was overwhelmed ___ joy when she heard the news. || with|at|of || be overwhelmed with + 情緒 = 充滿…。 || 她聽到消息時欣喜若狂。
+parallel || adj./n. || 平行的 || The two lines are parallel. || 這兩條線是平行的。 || parallel to=與…平行 || The road runs parallel ___ the river. || to|at|for || parallel to = 與…平行。 || 這條路與河流平行。
 participant || n. || 參與者 || Each participant got a T-shirt. || 每位參加者都拿到一件 T 恤。 || active participant=積極參與者 || Each participant ___ given a free T-shirt. || was|were|be || each + 單數名詞，用單數 was。 || 每位參加者都拿到一件免費 T 恤。
 particle || n. || 微粒 || There are dust particles in the air. || 空氣中有灰塵微粒。 || dust particle=灰塵微粒 || Tiny particles ___ dust can cause allergies. || of|for|with || particles of = …的微粒。 || 微小的灰塵微粒可能引起過敏。

@@ -3,7 +3,7 @@ persevere || v. || 堅持不懈 || If you persevere, you will succeed. || 只要
 persistence || n. || 堅持 || Success requires persistence. || 成功需要堅持。 || with persistence=堅持地 || ___ persistence, he finally passed the exam. || With|By|For || with + 抽象名詞 = 憑著…。 || 憑著毅力，他終於通過了考試。
 persistent || adj. || 持續的；堅持不懈的 || I have a persistent cough. || 我一直咳嗽。 || persistent rain=持續的雨 || If the cough is persistent, you should see ___ doctor. || a|an|the || doctor 以子音開頭，用 a。 || 如果咳嗽一直不好，你應該去看醫生。
 petrol || n. || 汽油 || The car ran out of petrol. || 車子沒油了。 || petrol station=加油站 || We ran out ___ petrol on the highway. || of|from|off || run out of = 用完…。 || 我們在高速公路上沒油了。
-petroleum || n. || 石油 || Plastic is made from petroleum. || 塑膠是由石油製成的。 || petroleum products=石油產品 || Plastic is made ___ petroleum. || from|of|by || be made from = 由…製成（看不出原料）。 || 塑膠是由石油製成的。
+petroleum || n. || 石油 || Plastic is made from petroleum. || 塑膠是由石油製成的。 || petroleum products=石油產品 || Plastic is made ___ petroleum. || from|by|at || be made from = 由…製成（看不出原料）。 || 塑膠是由石油製成的。
 pharmacist || n. || 藥劑師 || Ask the pharmacist about the medicine. || 向藥劑師詢問這種藥。 || pharmacist=藥師 || Ask the pharmacist ___ you have questions about the medicine. || if|unless|though || if 引導條件子句。 || 如果你對藥有疑問，請問藥劑師。
 pharmacy || n. || 藥局 || I bought it at the pharmacy. || 我在藥局買的。 || pharmacy=藥房 || You can buy masks ___ any pharmacy. || at|on|to || at + 商店 = 在…。 || 你在任何一家藥局都可以買到口罩。
 pianist || n. || 鋼琴家 || She is a famous pianist. || 她是一位知名鋼琴家。 || concert pianist=演奏鋼琴家 || The pianist ___ played tonight is only 15. || who|which|whom || 關係代名詞修飾人並當主詞，用 who。 || 今晚演奏的鋼琴家才十五歲。
@@ -11,13 +11,13 @@ pickpocket || n. || 扒手 || Watch out for pickpockets. || 小心扒手。 || p
 pilgrim || n. || 朝聖者 || Pilgrims visit the temple every year. || 每年都有朝聖者來參拜這座廟。 || pilgrim=香客 || Thousands of pilgrims follow the goddess ___ the Mazu pilgrimage. || during|while|since || during + 名詞 = 在…期間。 || 數千名信眾在媽祖遶境期間跟隨神明。
 pimple || n. || 青春痘 || I have a pimple on my nose. || 我鼻子上長了一顆痘痘。 || pimple=粉刺 || Don't touch the pimple ___ your face. || on|in|at || 臉上用 on。 || 不要摸你臉上的痘痘。
 pinch || v./n. || 捏 || He pinched my arm. || 他捏了我的手臂。 || a pinch of=一撮… || Add a pinch ___ salt to the soup. || of|for|with || a pinch of = 一撮…。 || 在湯裡加一小撮鹽。
-plague || n./v. || 瘟疫；困擾 || The plague killed millions. || 瘟疫奪走數百萬人的性命。 || be plagued by=被…困擾 || The city has been plagued ___ traffic problems for years. || by|with|from || 被動語態中動作執行者用 by。 || 這座城市多年來飽受交通問題困擾。
+plague || n./v. || 瘟疫；困擾 || The plague killed millions. || 瘟疫奪走數百萬人的性命。 || be plagued by=被…困擾 || The city has been plagued ___ traffic problems for years. || by|to|from || 被動語態中動作執行者用 by。 || 這座城市多年來飽受交通問題困擾。
 plantation || n. || 種植園 || They work on a tea plantation. || 他們在茶園工作。 || tea plantation=茶園 || We visited a tea plantation ___ the mountains. || in|on|at || in the mountains = 在山裡。 || 我們參觀了山上的一座茶園。
 playwright || n. || 劇作家 || Shakespeare was a famous playwright. || 莎士比亞是知名劇作家。 || playwright=劇作家 || Shakespeare is the most famous playwright ___ has ever lived. || that|which|what || 最高級後面的關係代名詞用 that。 || 莎士比亞是有史以來最有名的劇作家。
 plow || n./v. || 犁；耕 || The farmer plowed the field. || 農夫犁田。 || plow the field=犁田 || In the past, farmers used cows ___ plow the fields. || to|for|of || 不定詞 to V 表示目的。 || 以前農夫用牛來犁田。
 pneumonia || n. || 肺炎 || He was in the hospital with pneumonia. || 他因肺炎住院。 || catch pneumonia=得肺炎 || My grandfather was hospitalized ___ pneumonia. || with|of|to || be hospitalized with + 疾病。 || 我祖父因肺炎住院。
 polar || adj. || 極地的 || Polar bears live in the Arctic. || 北極熊住在北極。 || polar bear=北極熊 || Polar bears are losing their homes ___ the ice is melting. || because|although|unless || 表示原因用 because。 || 因為冰在融化，北極熊正在失去家園。
-ponder || v. || 沉思 || She pondered the question. || 她仔細思考這個問題。 || ponder over=考慮… || He pondered ___ the question for a long time. || over|on|in || ponder over = 仔細考慮…。 || 他對這個問題沉思了很久。
+ponder || v. || 沉思 || She pondered the question. || 她仔細思考這個問題。 || ponder over=考慮… || He pondered ___ the question for a long time. || over|to|at || ponder over = 仔細考慮…。 || 他對這個問題沉思了很久。
 pony || n. || 小馬 || The kids rode a pony. || 孩子們騎了小馬。 || pony ride=騎小馬 || The little girl rode a pony ___ the farm. || on|of|to || on the farm = 在農場。 || 小女孩在農場騎小馬。
 populate || v. || 居住於 || The area is densely populated. || 這個地區人口稠密。 || densely populated=人口稠密 || Taipei is one of the most densely populated cities ___ Taiwan. || in|on|at || in + 國家。 || 台北是台灣人口最稠密的城市之一。
 porter || n. || 搬運工 || The porter carried our bags. || 搬運工幫我們提行李。 || hotel porter=飯店行李員 || The porter helped us carry our bags ___ our room. || to|at|in || carry sth to = 把某物搬到…。 || 行李員幫我們把行李搬到房間。
@@ -38,14 +38,14 @@ preview || n./v. || 預告；預覽 || We watched the movie preview. || 我們�
 priceless || adj. || 無價的 || The painting is priceless. || 這幅畫是無價之寶。 || priceless=珍貴無比 || Good friends are priceless; you can ___ buy them with money. || never|ever|always || 語意「絕對不能」用 never。 || 好朋友是無價的，用錢永遠買不到。
 privatize || v. || 民營化 || The government privatized the railway. || 政府將鐵路民營化。 || privatize=私有化 || The state-owned company was privatized ___ 2005. || in|on|at || 年份前用 in。 || 那家國營公司在 2005 年民營化。
 probe || v./n. || 調查；探測器 || The police probed the case. || 警方調查此案。 || space probe=太空探測器 || The space probe was sent ___ study Mars. || to|for|of || 不定詞 to V 表示目的。 || 太空探測器被派去研究火星。
-procession || n. || 遊行隊伍 || The procession moved slowly through the streets. || 遊行隊伍緩緩穿過街道。 || in procession=列隊 || The procession moved slowly ___ the streets. || through|across|over || through = 穿過…。 || 遊行隊伍緩緩穿過街道。
+procession || n. || 遊行隊伍 || The procession moved slowly through the streets. || 遊行隊伍緩緩穿過街道。 || in procession=列隊 || The procession moved slowly ___ the streets. || through|under|over || through = 穿過…。 || 遊行隊伍緩緩穿過街道。
 proficiency || n. || 精通 || She has high proficiency in English. || 她的英文程度很高。 || English proficiency=英語能力 || The job requires proficiency ___ English. || in|on|at || proficiency in = 精通…。 || 這份工作要求精通英文。
 prohibition || n. || 禁止 || There is a prohibition on smoking here. || 這裡禁止吸菸。 || prohibition on=對…的禁令 || There is a prohibition ___ selling alcohol to minors. || on|in|at || a prohibition on = 對…的禁令。 || 禁止賣酒給未成年人。
 propel || v. || 推進 || The boat is propelled by wind. || 這艘船靠風推進。 || propel=推動 || The rocket is propelled ___ powerful engines. || by|with|from || 被動語態中動作執行者用 by。 || 火箭由強大的引擎推進。
 prose || n. || 散文 || The book is written in prose. || 這本書是用散文寫的。 || prose=散文體 || The story is written ___ prose, not poetry. || in|on|with || in prose = 以散文形式。 || 這個故事是用散文而非詩寫成的。
 prosecute || v. || 起訴 || He was prosecuted for theft. || 他因偷竊被起訴。 || be prosecuted for=因…被起訴 || Shoplifters will be prosecuted ___ the law. || under|below|over || under the law = 依法。 || 順手牽羊者將依法起訴。
 prospective || adj. || 未來的；潛在的 || We met prospective students. || 我們見了未來的學生。 || prospective buyer=潛在買家 || The school held an open day ___ prospective students. || for|to|of || for + 對象 = 為…。 || 學校為未來的學生舉辦了開放日。
-prototype || n. || 原型 || They built a prototype of the car. || 他們打造了這輛車的原型。 || prototype=樣品 || The engineers built a prototype ___ the new robot. || of|for|to || a prototype of = …的原型。 || 工程師打造了新機器人的原型。
+prototype || n. || 原型 || They built a prototype of the car. || 他們打造了這輛車的原型。 || prototype=樣品 || The engineers built a prototype ___ the new robot. || of|in|to || a prototype of = …的原型。 || 工程師打造了新機器人的原型。
 proverb || n. || 諺語 || "Time is money" is a proverb. || 「時間就是金錢」是一句諺語。 || old proverb=古諺 || As the proverb ___, "Practice makes perfect." || goes|says that|tells || As the proverb goes = 正如諺語所說。 || 正如諺語所說：「熟能生巧。」
 provincial || adj. || 省的；地方的 || He works for the provincial government. || 他在省政府工作。 || provincial government=省政府 || The provincial government is responsible ___ local roads. || for|of|to || be responsible for = 負責…。 || 省政府負責地方道路。
 provisional || adj. || 暫時的 || This is a provisional plan. || 這是一個暫定的計畫。 || provisional license=臨時駕照 || The dates are provisional and may change ___ the future. || in|on|at || in the future = 在未來。 || 日期是暫定的，將來可能會更改。

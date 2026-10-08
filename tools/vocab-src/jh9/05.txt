@@ -11,16 +11,16 @@ direction || n. || 方向 || Which direction is the station? || 車站在哪個�
 disappear || v. || 消失 || The cat disappeared into the dark. || 貓消失在黑暗中。 || disappear from=從…消失 || The sun disappeared ___ the clouds. || behind|beside|between of || behind = 在…後面。 || 太陽消失在雲層後面。
 discover || v. || 發現 || Columbus discovered America. || 哥倫布發現了美洲。 || discover a secret=發現祕密 || The island ___ discovered in 1600. || was|is|were || 被動語態；過去用 was + p.p.。 || 那座島在 1600 年被發現。
 discuss || v. || 討論 || Let's discuss the plan. || 我們來討論這個計畫吧。 || discuss sth with sb=和某人討論某事 || We discussed the problem ___ our teacher. || with|to|about || discuss sth with sb = 和某人討論某事。 || 我們和老師討論了這個問題。
-discussion || n. || 討論 || We had a discussion about the trip. || 我們討論了這次旅行。 || have a discussion=討論 || We had a long discussion ___ the school trip. || about|on|for || a discussion about = 關於…的討論。 || 我們針對校外教學討論了很久。
+discussion || n. || 討論 || We had a discussion about the trip. || 我們討論了這次旅行。 || have a discussion=討論 || We had a long discussion ___ the school trip. || about|to|for || a discussion about = 關於…的討論。 || 我們針對校外教學討論了很久。
 dishonest || adj. || 不誠實的 || It is dishonest to cheat. || 作弊是不誠實的。 || dishonest behavior=不誠實的行為 || It is dishonest ___ copy other people's homework. || to|for|of || It is + 形容詞 + to V。 || 抄別人的作業是不誠實的。
 distance || n. || 距離 || What's the distance between Taipei and Tainan? || 台北到台南的距離是多少？ || in the distance=在遠處 || We could see a mountain ___ the distance. || in|at|on || in the distance = 在遠處。 || 我們可以看到遠處的一座山。
 distant || adj. || 遙遠的 || She lives in a distant village. || 她住在一個偏遠的村莊。 || distant future=遙遠的未來 || Maybe people will live on Mars in the distant future, ___ they? || won't|will|don't || 肯定句的附加問句用否定：will → won't。 || 也許人們在遙遠的未來會住在火星上，不是嗎？
-divide || v. || 分開；劃分 || Divide the cake into four pieces. || 把蛋糕分成四塊。 || divide A into B=把 A 分成 B || The class was divided ___ five groups. || into|in|to be || divide A into B = 把 A 分成 B。 || 全班被分成五組。
+divide || v. || 分開；劃分 || Divide the cake into four pieces. || 把蛋糕分成四塊。 || divide A into B=把 A 分成 B || The class was divided ___ five groups. || into|on|to be || divide A into B = 把 A 分成 B。 || 全班被分成五組。
 dizzy || adj. || 頭暈的 || I feel dizzy. || 我覺得頭暈。 || feel dizzy=頭暈 || I felt dizzy ___ I stood up too fast. || when|what|which || when 引導時間子句。 || 我站起來太快時覺得頭暈。
 dodge ball || n. || 躲避球 || We played dodge ball in PE class. || 我們在體育課玩躲避球。 || play dodge ball=玩躲避球 || We ___ dodge ball in PE class yesterday. || played|play|have played || yesterday 是過去，用過去式。 || 我們昨天在體育課玩躲避球。
 dolphin || n. || 海豚 || Dolphins are very smart. || 海豚非常聰明。 || dolphin watching=賞海豚 || Dolphins are ___ smarter than many other animals. || much|many|more || 比較級前面用 much 加強語氣。 || 海豚比許多其他動物聰明得多。
 donkey || n. || 驢子 || The donkey is carrying a heavy bag. || 那隻驢子馱著一個重袋子。 || as stubborn as a donkey=像驢一樣固執 || The donkey ___ used to carry goods in the past. || was|is|were || 被動語態；過去用 was + p.p.。 || 過去驢子被用來載貨。
-double || adj./v. || 雙倍的 || I'd like a double room. || 我要一間雙人房。 || double room=雙人房 || The price of eggs has doubled ___ last year. || since|for|from || since + 過去時間點，搭配現在完成式。 || 雞蛋價格從去年起翻了一倍。
+double || adj./v. || 雙倍的 || I'd like a double room. || 我要一間雙人房。 || double room=雙人房 || The price of eggs has doubled ___ last year. || since|for|at || since + 過去時間點，搭配現在完成式。 || 雞蛋價格從去年起翻了一倍。
 doubt || n./v. || 懷疑 || There is no doubt that he is right. || 毫無疑問他是對的。 || no doubt=無疑地; without doubt=毫無疑問 || There is no doubt ___ she will win. || that|what|which || There is no doubt that… = 毫無疑問…。 || 毫無疑問她會贏。
 doughnut || n. || 甜甜圈 || I had a doughnut for breakfast. || 我早餐吃了一個甜甜圈。 || chocolate doughnut=巧克力甜甜圈 || How many doughnuts ___ in the box? || are there|there are|is there || 疑問句的 There be 要倒裝：are there…? || 盒子裡有幾個甜甜圈？
 downstairs || adv. || 在樓下 || Mom is downstairs in the kitchen. || 媽媽在樓下的廚房。 || go downstairs=下樓 || Dinner is ready. Come downstairs, ___ you? || will|do|are || 祈使句的附加問句用 will you。 || 晚餐好了，下樓來好嗎？
@@ -34,7 +34,7 @@ dumb || adj. || 啞的；愚笨的 || That was a dumb question. || 那是個蠢�
 dumpling || n. || 水餃 || We eat dumplings on Chinese New Year's Eve. || 我們除夕吃水餃。 || make dumplings=包水餃 || We made dumplings ___ New Year's Eve. || on|in|at || 特定的日子用 on。 || 我們在除夕包水餃。
 duty || n. || 責任；職責 || It's our duty to protect the Earth. || 保護地球是我們的責任。 || on duty=值班中; duty-free=免稅 || It's our duty ___ the Earth. || to protect|protect|protecting || It is + 名詞 + to V。 || 保護地球是我們的責任。
 eagle || n. || 老鷹 || The eagle flew high in the sky. || 老鷹在天空高飛。 || bald eagle=白頭海鵰 || An eagle can see much ___ than humans. || farther|far|farthest || 兩者比較用比較級 farther。 || 老鷹可以看得比人類遠得多。
-earn || v. || 賺 || He earns money by teaching. || 他靠教書賺錢。 || earn money=賺錢; earn a living=謀生 || He earns money ___ delivering newspapers. || by|with|from || by + V-ing = 藉由…。 || 他靠送報紙賺錢。
+earn || v. || 賺 || He earns money by teaching. || 他靠教書賺錢。 || earn money=賺錢; earn a living=謀生 || He earns money ___ delivering newspapers. || by|with|at || by + V-ing = 藉由…。 || 他靠送報紙賺錢。
 earrings || n. || 耳環 || She is wearing gold earrings. || 她戴著金耳環。 || a pair of earrings=一副耳環 || These earrings ___ a gift from my mom. || were|was|is || These earrings 複數，用 were。 || 這副耳環是我媽媽送的禮物。
 ease || n. || 輕鬆；容易 || He finished the test with ease. || 他輕鬆地完成了考試。 || with ease=輕鬆地; at ease=自在 || She solved the problem ___ ease. || with|by|in || with ease = 輕鬆地。 || 她輕鬆地解決了問題。
 edge || n. || 邊緣 || Don't stand at the edge of the cliff. || 不要站在懸崖邊。 || on the edge of=在…的邊緣 || The cup is on the edge ___ the table. || of|in|at || on the edge of = 在…的邊緣。 || 杯子在桌子的邊緣。

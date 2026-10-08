@@ -12,17 +12,17 @@ bypass || v./n. || 繞過；繞道 || The new road bypasses the town. || 新路�
 caffeine || n. || 咖啡因 || Coffee contains caffeine. || 咖啡含有咖啡因。 || caffeine-free=無咖啡因 || Too much caffeine can keep you ___ at night. || awake|awaken|awaking || keep + 受詞 + 形容詞。 || 太多咖啡因會讓你晚上睡不著。
 calculator || n. || 計算機 || You may use a calculator. || 你可以使用計算機。 || pocket calculator=口袋型計算機 || Students are not allowed ___ use calculators during the test. || to|for|of || be allowed to + 原形動詞。 || 考試時學生不准使用計算機。
 calligraphy || n. || 書法 || My grandfather practices calligraphy. || 我祖父練書法。 || Chinese calligraphy=中國書法 || My grandfather has practiced calligraphy ___ fifty years. || for|since|in || for + 一段時間，搭配現在完成式。 || 我祖父練書法已經五十年了。
-cape || n. || 披風；岬角 || The superhero wears a red cape. || 那位超級英雄穿紅色披風。 || Cape of Good Hope=好望角 || The boy ___ a red cape is pretending to be Superman. || in|with|on || in + 衣物 = 穿著…。 || 那個披著紅色披風的男孩在假扮超人。
+cape || n. || 披風；岬角 || The superhero wears a red cape. || 那位超級英雄穿紅色披風。 || Cape of Good Hope=好望角 || The boy ___ a red cape is pretending to be Superman. || in|at|on || in + 衣物 = 穿著…。 || 那個披著紅色披風的男孩在假扮超人。
 capsule || n. || 膠囊 || Take one capsule a day. || 每天吃一顆膠囊。 || time capsule=時空膠囊 || We buried a time capsule ___ the school garden. || in|on|at || 埋在…裡用 in。 || 我們把一個時空膠囊埋在學校花園裡。
-caption || n. || 圖說；字幕 || Read the caption under the photo. || 讀照片下方的說明文字。 || photo caption=圖說 || Write a short caption ___ each picture. || for|of|to || a caption for = 為…寫的說明。 || 為每張圖片寫一段簡短的說明。
+caption || n. || 圖說；字幕 || Read the caption under the photo. || 讀照片下方的說明文字。 || photo caption=圖說 || Write a short caption ___ each picture. || for|at|to || a caption for = 為…寫的說明。 || 為每張圖片寫一段簡短的說明。
 captive || n./adj. || 俘虜；被俘的 || The soldiers were held captive. || 士兵們被俘虜了。 || hold sb captive=囚禁某人 || The animals ___ kept captive in small cages. || were|was|be || 被動語態；animals 複數用 were + p.p.。 || 那些動物被關在小籠子裡。
 captivity || n. || 囚禁 || The animals were born in captivity. || 這些動物在圈養環境中出生。 || in captivity=被囚禁；圈養 || Some animals don't live long ___ captivity. || in|on|at || in captivity = 在圈養中。 || 有些動物在圈養環境下活不久。
 cardboard || n. || 硬紙板 || The box is made of cardboard. || 這個箱子是硬紙板做的。 || cardboard box=紙箱 || The children made a house ___ cardboard boxes. || out of|to|into || make A out of B = 用 B 做成 A。 || 孩子們用紙箱做了一間房子。
-cardinal || adj./n. || 基本的；樞機主教 || Honesty is a cardinal rule here. || 誠實是這裡的基本原則。 || cardinal rule=基本原則 || The cardinal rule ___ safety is to stay calm. || of|for|to || the rule of = …的原則。 || 安全的首要原則是保持冷靜。
+cardinal || adj./n. || 基本的；樞機主教 || Honesty is a cardinal rule here. || 誠實是這裡的基本原則。 || cardinal rule=基本原則 || The cardinal rule ___ safety is to stay calm. || of|at|to || the rule of = …的原則。 || 安全的首要原則是保持冷靜。
 carefree || adj. || 無憂無慮的 || Children live a carefree life. || 孩子們過著無憂無慮的生活。 || carefree days=無憂無慮的日子 || I miss the carefree days ___ I was a child. || when|which|what || 關係副詞 when 修飾時間名詞。 || 我懷念小時候無憂無慮的日子。
-caretaker || n. || 看管人；照顧者 || The caretaker opened the gate. || 管理員打開了大門。 || caretaker=管理員 || She is the main caretaker ___ her sick mother. || of|for|to || the caretaker of = …的照顧者。 || 她是生病母親的主要照顧者。
+caretaker || n. || 看管人；照顧者 || The caretaker opened the gate. || 管理員打開了大門。 || caretaker=管理員 || She is the main caretaker ___ her sick mother. || of|at|to || the caretaker of = …的照顧者。 || 她是生病母親的主要照顧者。
 carton || n. || 紙盒 || I bought a carton of milk. || 我買了一盒牛奶。 || a carton of=一盒… || Could you buy a carton ___ eggs on your way home? || of|for|with || a carton of = 一盒…。 || 你回家路上可以買一盒蛋嗎？
-cashier || n. || 收銀員 || Please pay the cashier. || 請向收銀員付款。 || cashier=出納 || Please pay ___ the cashier near the door. || at|on|to || pay at = 在…付款。 || 請在門口附近的收銀台付款。
+cashier || n. || 收銀員 || Please pay the cashier. || 請向收銀員付款。 || cashier=出納 || Please pay ___ the cashier near the door. || at|on|of || pay at = 在…付款。 || 請在門口附近的收銀台付款。
 casualty || n. || 傷亡人員 || There were no casualties in the fire. || 火災中沒有人傷亡。 || heavy casualties=傷亡慘重 || Luckily, there were no casualties ___ the accident. || in|on|at || in an accident = 在事故中。 || 幸運的是，這場意外沒有人傷亡。
 catastrophe || n. || 大災難 || The flood was a catastrophe. || 這場洪水是一場大災難。 || natural catastrophe=天災 || The earthquake was a catastrophe ___ the whole country. || for|of|with || a catastrophe for = 對…是一場災難。 || 這場地震對全國而言是一場災難。
 cater || v. || 迎合；承辦宴席 || The restaurant caters for weddings. || 這家餐廳承辦婚宴。 || cater to=迎合… || The store caters ___ young customers. || to|of|with || cater to = 迎合…。 || 這家店迎合年輕顧客的需求。
@@ -31,7 +31,7 @@ cavity || n. || 蛀洞；腔 || I have a cavity in my tooth. || 我的牙齒有�
 celery || n. || 芹菜 || I don't like celery. || 我不喜歡芹菜。 || celery stick=芹菜棒 || Cut the celery ___ small pieces. || into|onto|from || cut A into B = 把 A 切成 B。 || 把芹菜切成小塊。
 cellular || adj. || 細胞的；行動電話的 || Please turn off your cellular phone. || 請關掉你的手機。 || cellular phone=手機 || Cellular phones ___ not allowed during the exam. || are|is|be || 主詞 phones 複數，用 are。 || 考試期間不准使用手機。
 Celsius || adj./n. || 攝氏 || It's 30 degrees Celsius today. || 今天攝氏三十度。 || degrees Celsius=攝氏…度 || Water boils ___ 100 degrees Celsius. || at|in|on || at + 溫度。 || 水在攝氏一百度沸騰。
-cement || n./v. || 水泥 || The workers mixed cement. || 工人在攪拌水泥。 || cement floor=水泥地 || The wall is made ___ cement. || of|from|by || be made of = 由…製成（看得出原料）。 || 這面牆是水泥做的。
+cement || n./v. || 水泥 || The workers mixed cement. || 工人在攪拌水泥。 || cement floor=水泥地 || The wall is made ___ cement. || of|at|by || be made of = 由…製成（看得出原料）。 || 這面牆是水泥做的。
 census || n. || 人口普查 || The government takes a census every ten years. || 政府每十年做一次人口普查。 || take a census=做人口普查 || A census is taken ___ ten years. || every|each|all || every + 數字 + 複數名詞 = 每隔…。 || 每十年進行一次人口普查。
 ceramic || adj./n. || 陶瓷的 || She makes ceramic cups. || 她做陶瓷杯。 || ceramic tile=瓷磚 || This ceramic vase was made ___ hand. || by|with|in || by hand = 手工。 || 這個陶瓷花瓶是手工做的。
 certify || v. || 證明；認證 || The doctor certified that he was healthy. || 醫生證明他很健康。 || certified teacher=合格教師 || She is a certified teacher ___ ten years of experience. || with|of|in || with + 特徵 = 有…的。 || 她是一位有十年經驗的合格教師。

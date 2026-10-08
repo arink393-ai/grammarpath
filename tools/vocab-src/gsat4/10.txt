@@ -33,15 +33,15 @@ humidity || n. || 濕度 || The humidity is high today. || 今天濕度很高。
 hurricane || n. || 颶風 || The hurricane destroyed many houses. || 颶風摧毀了許多房屋。 || hurricane season=颶風季 || Many houses ___ destroyed by the hurricane. || were|was|are || 被動語態；houses 複數，過去用 were。 || 許多房屋被颶風摧毀。
 hush || v./n. || 使安靜 || Hush! The baby is sleeping. || 噓！寶寶在睡覺。 || hush up=掩蓋 || A hush fell over the room ___ the teacher walked in. || when|which|what || when 引導時間子句。 || 老師走進來時，房間一片安靜。
 hydrogen || n. || 氫 || Water is made of hydrogen and oxygen. || 水是由氫和氧組成的。 || hydrogen gas=氫氣 || Water consists ___ hydrogen and oxygen. || of|in|with || consist of = 由…組成。 || 水由氫和氧組成。
-identical || adj. || 完全相同的 || The twins are identical. || 那對雙胞胎長得一模一樣。 || identical twins=同卵雙胞胎 || My bag is identical ___ yours. || to|with|as || be identical to = 和…完全相同。 || 我的包包和你的一模一樣。
+identical || adj. || 完全相同的 || The twins are identical. || 那對雙胞胎長得一模一樣。 || identical twins=同卵雙胞胎 || My bag is identical ___ yours. || to|for|as || be identical to = 和…完全相同。 || 我的包包和你的一模一樣。
 identification || n. || 身分證明 || Please show your identification. || 請出示你的身分證明。 || identification card=身分證 || You need to show some identification ___ you check in. || when|which|what || when 引導時間子句。 || 辦理入住時你需要出示身分證明。
 identify || v. || 辨認 || Can you identify the man in the photo? || 你能認出照片裡的人嗎？ || identify with=認同… || The victim ___ identified by her family. || was|is|were || 被動語態；過去用 was + p.p.。 || 受害者由她的家人指認身分。
 idiom || n. || 成語；慣用語 || "Break a leg" is an English idiom. || 「break a leg」是一個英文慣用語。 || English idiom=英文慣用語 || Idioms are phrases ___ meanings are different from the individual words. || whose|which|that || 所有格關係代名詞 whose + 名詞。 || 慣用語是意思與個別單字不同的片語。
 idle || adj. || 閒置的；懶散的 || Don't stay idle all day. || 不要整天閒著。 || idle time=閒暇時間 || The machines were idle ___ the holiday. || during|while|since || during + 名詞 = 在…期間。 || 假期期間機器都閒置著。
-idol || n. || 偶像 || He is my idol. || 他是我的偶像。 || pop idol=流行偶像 || The singer is an idol ___ many teenagers. || to|of|with || an idol to sb = 某人的偶像。 || 那位歌手是許多青少年的偶像。
+idol || n. || 偶像 || He is my idol. || 他是我的偶像。 || pop idol=流行偶像 || The singer is an idol ___ many teenagers. || to|at|with || an idol to sb = 某人的偶像。 || 那位歌手是許多青少年的偶像。
 ignorance || n. || 無知 || Ignorance is not an excuse. || 無知不是藉口。 || out of ignorance=出於無知 || He made the mistake out ___ ignorance. || of|from|for || out of + 名詞 = 出於…。 || 他出於無知而犯了這個錯。
 ignorant || adj. || 無知的 || He is ignorant of the rules. || 他不知道規則。 || be ignorant of=對…無知 || Many people are ignorant ___ the dangers of smoking. || of|to|with || be ignorant of = 對…不了解。 || 很多人不了解抽菸的危險。
-illustrate || v. || 說明；畫插圖 || The book is illustrated with pictures. || 這本書配有插圖。 || illustrate a point=說明論點 || The story book ___ illustrated by a famous artist. || was|were|is being || 被動語態；過去用 was + p.p.。 || 這本故事書是由一位知名畫家繪製插圖的。
+illustrate || v. || 說明；畫插圖 || The book is illustrated with pictures. || 這本書配有插圖。 || illustrate a point=說明論點 || The story book ___ illustrated by a famous artist. || was|were|be || 被動語態；過去用 was + p.p.。 || 這本故事書是由一位知名畫家繪製插圖的。
 illustration || n. || 插圖 || The book has beautiful illustrations. || 這本書有美麗的插圖。 || book illustration=書籍插圖 || The illustrations ___ the book are colorful. || in|on|at || 在書裡用 in。 || 書裡的插圖色彩繽紛。
 imaginary || adj. || 虛構的 || The story is about an imaginary world. || 這個故事是關於一個虛構的世界。 || imaginary friend=幻想中的朋友 || Many children have imaginary friends ___ they play with. || that|what|who of || 關係代名詞 that 修飾（擬人的）朋友並當 play with 的受詞。 || 很多孩子有和他們一起玩的想像朋友。
 imaginative || adj. || 富有想像力的 || She is an imaginative writer. || 她是一位富有想像力的作家。 || imaginative story=富想像力的故事 || Children are often ___ imaginative than adults. || more|most|much || 多音節形容詞的比較級用 more。 || 孩子通常比大人更有想像力。

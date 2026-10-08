@@ -15,7 +15,7 @@ kingdom || n. || 王國 || The king ruled the kingdom for 40 years. || 國王統
 kit || n. || 一套用具 || Do you have a first-aid kit? || 你有急救箱嗎？ || first-aid kit=急救箱; tool kit=工具組 || Every car should have a first-aid kit ___ case of emergency. || in|for|with || in case of = 以防…。 || 每輛車都應該備有急救箱以防萬一。
 knight || n. || 騎士 || The knight saved the princess. || 騎士救了公主。 || brave knight=勇敢的騎士 || The princess ___ saved by a brave knight. || was|is|were || 被動語態；過去用 was + p.p.。 || 公主被一位勇敢的騎士救了。
 knit || v. || 編織 || My grandma is knitting a sweater. || 我奶奶在織毛衣。 || knit a sweater=織毛衣 || My grandma knitted this scarf ___ me. || for|to|with || 為某人做某事用 for。 || 我奶奶為我織了這條圍巾。
-knot || n./v. || 結 || Tie a knot in the rope. || 在繩子上打個結。 || tie a knot=打結 || He tied the two ropes together ___ a strong knot. || with|by|in || with + 名詞 = 用…。 || 他用一個牢固的結把兩條繩子綁在一起。
+knot || n./v. || 結 || Tie a knot in the rope. || 在繩子上打個結。 || tie a knot=打結 || He tied the two ropes together ___ a strong knot. || with|by|at || with + 名詞 = 用…。 || 他用一個牢固的結把兩條繩子綁在一起。
 koala || n. || 無尾熊 || Koalas sleep most of the day. || 無尾熊大部分時間都在睡覺。 || koala bear=無尾熊 || Koalas sleep up ___ 20 hours a day. || to|for|at || up to = 多達…。 || 無尾熊一天睡多達二十小時。
 label || n./v. || 標籤 || Read the label before you buy it. || 購買前先看標籤。 || price label=價格標籤 || Always read the label ___ taking any medicine. || before|after|since || 吃藥「之前」看標籤，用 before。 || 服用任何藥物之前一定要看標籤。
 lace || n. || 蕾絲；鞋帶 || Her dress is made of lace. || 她的洋裝是蕾絲做的。 || shoe lace=鞋帶 || Your shoe laces are untied. You'd better ___ them. || tie|to tie|tying || had better + 原形動詞 = 最好…。 || 你的鞋帶鬆了，你最好綁一下。
@@ -27,7 +27,7 @@ lawn || n. || 草坪 || Dad is mowing the lawn. || 爸爸在除草。 || mow the
 leak || n./v. || 漏；洩漏 || The roof leaks when it rains. || 下雨時屋頂會漏水。 || gas leak=瓦斯外洩 || The roof started to leak ___ the heavy rain. || during|while|since || during + 名詞 = 在…期間。 || 大雨期間屋頂開始漏水。
 leap || v./n. || 跳躍 || The cat leaped onto the table. || 貓跳上了桌子。 || leap year=閏年; a leap of faith=信念的躍進 || There ___ 366 days in a leap year. || are|is|be || 366 days 複數，There are。 || 閏年有三百六十六天。
 learning || n. || 學習；學問 || Learning never stops. || 學習永無止境。 || lifelong learning=終身學習 || Online learning ___ becoming more and more popular. || is|are|be || learning 不可數，用 is。 || 線上學習越來越受歡迎。
-leather || n. || 皮革 || This bag is made of leather. || 這個包包是皮革做的。 || leather jacket=皮夾克 || These shoes are made ___ real leather. || of|from|by || be made of = 由…製成。 || 這雙鞋是真皮做的。
+leather || n. || 皮革 || This bag is made of leather. || 這個包包是皮革做的。 || leather jacket=皮夾克 || These shoes are made ___ real leather. || of|by|at || be made of = 由…製成。 || 這雙鞋是真皮做的。
 leisure || n. || 空閒；休閒 || What do you do in your leisure time? || 你空閒時做什麼？ || leisure time=空閒時間 || I like reading ___ my leisure time. || in|on|at || in one's leisure time = 在空閒時間。 || 我喜歡在空閒時間閱讀。
 lemonade || n. || 檸檬汁 || I'd like a glass of lemonade. || 我要一杯檸檬汁。 || a glass of lemonade=一杯檸檬汁 || I'd like a glass of lemonade ___ no ice, please. || with|by|of || with no ice = 去冰。 || 我要一杯檸檬汁，去冰，謝謝。
 leopard || n. || 豹 || A leopard can run very fast. || 豹可以跑得很快。 || snow leopard=雪豹 || A leopard can't change ___ spots. || its|it's|their || 諺語：A leopard can't change its spots.（本性難移）；動物用 its。 || 本性難移。
@@ -40,9 +40,9 @@ lightning || n. || 閃電 || The tree was struck by lightning. || 那棵樹被�
 lily || n. || 百合 || The lily is a symbol of purity. || 百合是純潔的象徵。 || white lily=白百合 || The lily is a flower ___ is often used at weddings. || that|what|who || 關係代名詞 that 修飾物（a flower）。 || 百合是常用於婚禮的花。
 limb || n. || 肢體；樹枝 || He broke a limb in the accident. || 他在事故中斷了一條肢體。 || life and limb=生命安全 || He broke a limb ___ he fell off the ladder. || when|what|which || when 引導時間子句。 || 他從梯子上摔下來時摔斷了一條肢體。
 litter || n./v. || 垃圾；亂丟 || Don't litter in the park. || 不要在公園亂丟垃圾。 || litter box=貓砂盆 || People who litter in public places should ___ fined. || be|being|been || should 後面接 be；被動 be + p.p.。 || 在公共場所亂丟垃圾的人應該被罰款。
-lively || adj. || 活潑的；熱鬧的 || The night market is very lively. || 夜市很熱鬧。 || lively discussion=熱烈的討論 || The class had a lively discussion ___ climate change. || about|of|with || a discussion about = 關於…的討論。 || 全班熱烈討論氣候變遷。
+lively || adj. || 活潑的；熱鬧的 || The night market is very lively. || 夜市很熱鬧。 || lively discussion=熱烈的討論 || The class had a lively discussion ___ climate change. || about|at|with || a discussion about = 關於…的討論。 || 全班熱烈討論氣候變遷。
 loaf || n. || 一條（麵包） || I bought a loaf of bread. || 我買了一條麵包。 || a loaf of bread=一條麵包 || Can you pick up a loaf ___ bread on your way home? || of|for|in || a loaf of bread = 一條麵包。 || 你回家路上可以順便買一條麵包嗎？
-lobby || n. || 大廳 || Let's meet in the hotel lobby. || 我們在飯店大廳碰面吧。 || hotel lobby=飯店大廳 || I'll wait for you ___ the lobby. || in|on|at || 在大廳裡用 in。 || 我會在大廳等你。
+lobby || n. || 大廳 || Let's meet in the hotel lobby. || 我們在飯店大廳碰面吧。 || hotel lobby=飯店大廳 || I'll wait for you ___ the lobby. || in|on|of || 在大廳裡用 in。 || 我會在大廳等你。
 locate || v. || 位於；找出 || The hotel is located near the station. || 飯店位於車站附近。 || be located in=位於… || Taipei 101 ___ located in the Xinyi District. || is|are|was being || 被動語態 be located；Taipei 101 用 is。 || 台北 101 位於信義區。
 location || n. || 位置 || The hotel has a great location. || 這間飯店的位置很好。 || convenient location=便利的位置 || The location of the new school ___ not been decided yet. || has|have|is || 現在完成式被動；The location 單數用 has。 || 新學校的位置還沒決定。
 lock || v./n. || 鎖 || Don't forget to lock the door. || 別忘了鎖門。 || lock the door=鎖門 || I found that the door ___ locked when I got home. || was|is|were || 主要子句過去式，名詞子句也用過去式；door 單數用 was。 || 我到家時發現門是鎖著的。

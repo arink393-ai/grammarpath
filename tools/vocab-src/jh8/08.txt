@@ -2,7 +2,7 @@
 pear || n. || 梨子 || This pear is sweet. || 這顆梨子很甜。 || Asian pear=水梨 || This pear is ___ than that apple. || sweeter|sweet|sweetest || 兩者比較用比較級 sweeter。 || 這顆梨子比那顆蘋果甜。
 perhaps || adv. || 也許 || Perhaps it will rain tomorrow. || 明天也許會下雨。 || perhaps not=也許不會 || Perhaps he ___ busy now. || is|be|are || perhaps 是副詞，不影響動詞；主詞 he 用 is。 || 他現在也許很忙。
 person || n. || 人 || She is a kind person. || 她是個好人。 || in person=親自; people=人（複數） || He is the kindest person I ___ ever met. || have|has|am || 現在完成式；主詞 I 用 have。 || 他是我見過最親切的人。
-picnic || n. || 野餐 || Let's have a picnic in the park. || 我們在公園野餐吧。 || have a picnic=野餐; go on a picnic=去野餐 || Let's go ___ a picnic this weekend. || on|to|for || go on a picnic = 去野餐。 || 我們這週末去野餐吧。
+picnic || n. || 野餐 || Let's have a picnic in the park. || 我們在公園野餐吧。 || have a picnic=野餐; go on a picnic=去野餐 || Let's go ___ a picnic this weekend. || on|to|at || go on a picnic = 去野餐。 || 我們這週末去野餐吧。
 piece || n. || 一片；一塊 || Can I have a piece of cake? || 我可以吃一塊蛋糕嗎？ || a piece of=一片/塊…; piece by piece=一片片地 || Can I have two pieces ___ paper? || of|for|in || a piece of = 一片…。 || 可以給我兩張紙嗎？
 pin || n. || 大頭針；別針 || She wears a pin on her coat. || 她在外套上別了一個胸針。 || safety pin=安全別針 || Be careful. There is a pin ___ the floor. || on|in|at || 在地板上用 on。 || 小心，地上有一根針。
 pipe || n. || 管子；煙斗 || The water pipe is broken. || 水管破了。 || water pipe=水管 || The water pipe ___ broken, so we have no water. || is|are|am || The water pipe 單數，用 is。 || 水管破了，所以我們沒有水。
@@ -10,7 +10,7 @@ planet || n. || 行星 || Earth is the planet we live on. || 地球是我們居�
 player || n. || 選手 || He is a good basketball player. || 他是個好籃球選手。 || basketball player=籃球選手; CD player=CD 播放器 || He is a good basketball player. He plays ___ than me. || better|good|best || 兩者比較用比較級 better（good/well 的比較級）。 || 他是個好籃球選手，他打得比我好。
 pleasure || n. || 樂趣；榮幸 || It's my pleasure. || 這是我的榮幸。 || my pleasure=不客氣; with pleasure=樂意 || Thank you for your help. It's ___ pleasure. || my|me|mine || It's my pleasure. = 不客氣、我的榮幸。 || 謝謝你的幫忙。不客氣。
 pocket || n. || 口袋 || He put his hands in his pockets. || 他把手放進口袋裡。 || pocket money=零用錢 || He put the key ___ his pocket. || in|on|at || 放進口袋裡用 in。 || 他把鑰匙放進口袋。
-point || v./n. || 指；重點 || Don't point at people. || 不要用手指著別人。 || point at=指著; the point is=重點是 || It's not polite to point ___ people. || at|to|on || point at = 指著…。 || 用手指著別人是不禮貌的。
+point || v./n. || 指；重點 || Don't point at people. || 不要用手指著別人。 || point at=指著; the point is=重點是 || It's not polite to point ___ people. || at|of|on || point at = 指著…。 || 用手指著別人是不禮貌的。
 police || n. || 警察 || Call the police! || 快報警！ || call the police=報警; police station=警察局 || The police ___ looking for the thief. || are|is|does || police 視為複數，用 are。 || 警察正在找那個小偷。
 polite || adj. || 有禮貌的 || She is always polite to others. || 她對別人總是很有禮貌。 || be polite to=對…有禮貌 || It's polite ___ say "thank you." || to|for|of || It's + 形容詞 + to V。 || 說「謝謝」是有禮貌的。
 pond || n. || 池塘 || There are fish in the pond. || 池塘裡有魚。 || fish pond=魚池 || Some ducks ___ swimming in the pond. || are|is|does || 現在進行式；Some ducks 複數用 are。 || 有一些鴨子正在池塘裡游泳。
@@ -29,7 +29,7 @@ pray || v. || 祈禱 || People pray at the temple. || 人們在廟裡祈禱。 |
 prepare || v. || 準備 || She is preparing for the exam. || 她正在準備考試。 || prepare for=為…做準備 || She is preparing ___ the final exam. || for|to|of || prepare for + 名詞 = 為…做準備。 || 她正在為期末考做準備。
 present || n. || 禮物；現在 || This present is for you. || 這份禮物是給你的。 || birthday present=生日禮物; at present=目前 || My aunt gave ___ a present for my birthday. || me|I|my || gave 後面的人用受格 me。 || 我阿姨送我一份生日禮物。
 pretty || adj./adv. || 漂亮的；相當 || She is a pretty girl. || 她是個漂亮的女孩。 || pretty good=相當好 || The test was pretty easy, ___ everyone passed. || so|but|or || 前面是原因、後面是結果，用 so。 || 考試相當簡單，所以大家都及格了。
-prize || n. || 獎品；獎項 || She won first prize. || 她得了第一名。 || win a prize=得獎; first prize=首獎 || She won first prize ___ the speech contest. || in|on|at || win a prize in + 比賽 = 在…中得獎。 || 她在演講比賽中得到第一名。
+prize || n. || 獎品；獎項 || She won first prize. || 她得了第一名。 || win a prize=得獎; first prize=首獎 || She won first prize ___ the speech contest. || in|on|of || win a prize in + 比賽 = 在…中得獎。 || 她在演講比賽中得到第一名。
 probably || adv. || 大概 || It will probably rain tomorrow. || 明天大概會下雨。 || most probably=很可能 || He will probably ___ late. || be|is|being || will 後面接原形動詞 be。 || 他大概會遲到。
 problem || n. || 問題 || No problem! || 沒問題！ || no problem=沒問題; solve a problem=解決問題 || Can you help me with this math problem? ___ problem! || No|Not|Nothing || No problem! = 沒問題！ || 你可以幫我解這道數學題嗎？沒問題！
 program || n. || 節目；程式 || My favorite TV program is on now. || 我最喜歡的電視節目正在播。 || TV program=電視節目 || What's your favorite TV program? I like ___ cooking shows. || watching|to watching|watch || like 後面可接動名詞 V-ing。 || 你最喜歡的電視節目是什麼？我喜歡看烹飪節目。

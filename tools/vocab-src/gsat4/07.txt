@@ -1,5 +1,5 @@
 # 學測 L4 07：diverse – evaluation
-diverse || adj. || 多樣的 || Taiwan has a diverse culture. || 台灣有多元的文化。 || culturally diverse=文化多元的 || Taiwan is home to people ___ diverse backgrounds. || from|of|with || from + 背景 = 來自…。 || 台灣是來自多元背景的人們的家園。
+diverse || adj. || 多樣的 || Taiwan has a diverse culture. || 台灣有多元的文化。 || culturally diverse=文化多元的 || Taiwan is home to people ___ diverse backgrounds. || from|to|at || from + 背景 = 來自…。 || 台灣是來自多元背景的人們的家園。
 diversity || n. || 多樣性 || We should respect cultural diversity. || 我們應該尊重文化多樣性。 || cultural diversity=文化多樣性 || The rainforest is famous ___ its diversity of plants and animals. || for|of|with || be famous for = 以…聞名。 || 雨林以其動植物的多樣性聞名。
 divine || adj. || 神的；神聖的 || The temple is a place of divine worship. || 這座廟是祭拜神明的地方。 || divine power=神力 || People believed that the emperor had divine power ___ came from heaven. || that|what|who || 關係代名詞 that 修飾物（power）。 || 人們相信皇帝擁有來自上天的神力。
 divorce || n./v. || 離婚 || Her parents got divorced. || 她的父母離婚了。 || get divorced=離婚 || Her parents got divorced ___ she was five. || when|which|what || when 引導時間子句。 || 她五歲時父母離婚了。
@@ -22,7 +22,7 @@ economic || adj. || 經濟的 || The country has economic problems. || 這個國
 economical || adj. || 節省的；經濟實惠的 || This car is very economical. || 這輛車很省油。 || economical car=省油的車 || Taking the MRT is ___ economical than taking a taxi. || more|most|much || 多音節形容詞的比較級用 more。 || 搭捷運比搭計程車經濟實惠。
 economics || n. || 經濟學 || She studies economics at university. || 她在大學讀經濟學。 || major in economics=主修經濟學 || Economics ___ the study of how people use money and resources. || is|are|be || economics 是學科名稱，視為單數，用 is。 || 經濟學是研究人們如何運用金錢和資源的學問。
 economist || n. || 經濟學家 || The economist predicted a recession. || 那位經濟學家預測會有經濟衰退。 || leading economist=頂尖經濟學家 || Many economists believe ___ prices will keep rising. || that|what|which || that 引導名詞子句當 believe 的受詞。 || 許多經濟學家相信物價會持續上漲。
-economy || n. || 經濟 || The economy is growing. || 經濟正在成長。 || the world economy=世界經濟 || Tourism is important ___ the economy of Taiwan. || to|for|with || be important to = 對…很重要。 || 觀光業對台灣經濟很重要。
+economy || n. || 經濟 || The economy is growing. || 經濟正在成長。 || the world economy=世界經濟 || Tourism is important ___ the economy of Taiwan. || to|at|with || be important to = 對…很重要。 || 觀光業對台灣經濟很重要。
 efficiency || n. || 效率 || We need to improve our efficiency. || 我們需要提高效率。 || energy efficiency=能源效率 || The new system improved the efficiency ___ the factory. || of|for|to || the efficiency of = …的效率。 || 新系統提高了工廠的效率。
 elastic || adj./n. || 有彈性的 || This material is elastic. || 這種材料有彈性。 || elastic band=橡皮筋 || This material is elastic, so it will return ___ its original shape. || to|for|with || return to = 回到…。 || 這種材料有彈性，所以會恢復原狀。
 electronics || n. || 電子產品；電子學 || He works in the electronics industry. || 他在電子業工作。 || consumer electronics=消費性電子產品 || Taiwan is famous ___ its electronics industry. || for|of|with || be famous for = 以…聞名。 || 台灣以電子產業聞名。

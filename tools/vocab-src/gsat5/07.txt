@@ -24,7 +24,7 @@ eligible || adj. || 有資格的 || You are eligible for the scholarship. || 你
 eloquent || adj. || 雄辯的；有說服力的 || She gave an eloquent speech. || 她發表了一場雄辯的演說。 || eloquent speaker=口才好的演說者 || He is the most eloquent speaker ___ I have ever heard. || that|which|what || 最高級後面的關係代名詞用 that。 || 他是我聽過口才最好的演講者。
 embrace || v./n. || 擁抱；欣然接受 || She embraced her son. || 她擁抱了兒子。 || embrace change=擁抱改變 || Young people are usually quick ___ embrace new technology. || to|for|in || be quick to + 原形動詞 = 很快就…。 || 年輕人通常很快就能接受新科技。
 emission || n. || 排放 || We must reduce carbon emissions. || 我們必須減少碳排放。 || carbon emissions=碳排放 || Cars are a major source ___ carbon emissions. || of|for|to || a source of = …的來源。 || 汽車是碳排放的主要來源。
-enterprise || n. || 企業 || Small enterprises need support. || 小企業需要支持。 || small enterprise=小型企業 || The government offers help ___ small enterprises. || to|for|with || offer help to = 提供協助給…。 || 政府提供協助給小型企業。
+enterprise || n. || 企業 || Small enterprises need support. || 小企業需要支持。 || small enterprise=小型企業 || The government offers help ___ small enterprises. || to|at|with || offer help to = 提供協助給…。 || 政府提供協助給小型企業。
 enthusiastic || adj. || 熱情的；熱衷的 || She is enthusiastic about music. || 她熱衷音樂。 || be enthusiastic about=熱衷於… || The students were enthusiastic ___ the school trip. || about|to|of || be enthusiastic about = 熱衷於…。 || 學生們對校外教學很熱衷。
 entitle || v. || 給予權利；為…命名 || You are entitled to a free drink. || 你可以免費喝一杯飲料。 || be entitled to=有權… || Every worker is entitled ___ ten days of paid leave. || to|for|of || be entitled to + 名詞 = 有權享有…。 || 每位員工都有權享有十天的有薪假。
 entity || n. || 實體 || The two companies are separate entities. || 這兩家公司是不同的實體。 || legal entity=法人 || The two schools are separate entities, ___ they share a campus. || although|because|so || although = 雖然，表讓步。 || 雖然兩所學校共用校園，但它們是各自獨立的單位。
@@ -34,7 +34,7 @@ envision || v. || 想像；展望 || I envision a better future. || 我展望更
 epidemic || n. || 流行病 || The flu epidemic spread fast. || 流感疫情迅速擴散。 || flu epidemic=流感疫情 || Schools were closed ___ the epidemic. || because of|because|although || because of + 名詞片語。 || 因為流行病，學校停課了。
 episode || n. || 一集；事件 || I watched the last episode. || 我看了最後一集。 || final episode=最後一集 || I've watched every episode of the show ___ the first one. || since|for|from || since + 時間點，搭配現在完成式。 || 從第一集起我每一集都有看。
 equation || n. || 方程式 || Solve the equation. || 解這個方程式。 || solve an equation=解方程式 || It took me an hour ___ solve the equation. || to|for|of || It takes + 時間 + to V。 || 我花了一個小時解這個方程式。
-equity || n. || 公平；股權 || We believe in equity in education. || 我們相信教育公平。 || gender equity=性別平等 || The goal is to bring equity ___ all students. || to|for|with || bring A to B = 為 B 帶來 A。 || 目標是為所有學生帶來公平。
+equity || n. || 公平；股權 || We believe in equity in education. || 我們相信教育公平。 || gender equity=性別平等 || The goal is to bring equity ___ all students. || to|at|with || bring A to B = 為 B 帶來 A。 || 目標是為所有學生帶來公平。
 equivalent || adj./n. || 相等的；等同物 || One dollar is equivalent to 30 NT dollars. || 一美元相當於三十元新台幣。 || be equivalent to=相當於… || One US dollar is equivalent ___ about 30 NT dollars. || to|with|for || be equivalent to = 相當於…。 || 一美元相當於大約三十元新台幣。
 erect || v./adj. || 豎立；直立的 || A statue was erected in the park. || 公園裡豎立了一座雕像。 || erect a statue=立雕像 || A statue of the poet ___ erected in the park last year. || was|is|were || 被動語態；過去用 was + p.p.。 || 去年公園裡立了一座那位詩人的雕像。
 errand || n. || 差事 || I have to run some errands. || 我得去辦點事。 || run errands=跑腿辦事 || My mom asked me ___ run an errand for her. || to|for|of || ask sb to + 原形動詞。 || 我媽叫我幫她跑個腿。

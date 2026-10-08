@@ -13,10 +13,10 @@ drunk || adj. || 喝醉的 || He was drunk last night. || 他昨晚喝醉了。 
 dumb || adj. || 啞的；愚蠢的 || That was a dumb idea. || 那是個蠢主意。 || dumb question=蠢問題 || It was dumb ___ me to forget my passport. || of|for|to || It is + 描述人的形容詞 + of sb + to V。 || 我忘了帶護照真是太蠢了。
 dump || v./n. || 傾倒；垃圾場 || Don't dump trash in the river. || 不要把垃圾倒進河裡。 || garbage dump=垃圾場 || People who dump trash in the river should ___ fined. || be|being|been || should 後面接 be；被動 be + p.p.。 || 往河裡倒垃圾的人應該被罰款。
 dumpling || n. || 水餃 || We made dumplings together. || 我們一起包水餃。 || make dumplings=包水餃 || Dumplings are a food ___ Taiwanese people often eat during holidays. || that|who|what || 關係代名詞 that 修飾物並當受詞。 || 水餃是台灣人在節日常吃的食物。
-dust || n./v. || 灰塵 || The old books are covered with dust. || 那些舊書積滿了灰塵。 || dust off=撢去灰塵 || The furniture was covered ___ dust. || with|of|by || be covered with = 覆蓋著…。 || 家具上積滿了灰塵。
+dust || n./v. || 灰塵 || The old books are covered with dust. || 那些舊書積滿了灰塵。 || dust off=撢去灰塵 || The furniture was covered ___ dust. || with|of|at || be covered with = 覆蓋著…。 || 家具上積滿了灰塵。
 eager || adj. || 渴望的 || She is eager to learn. || 她渴望學習。 || be eager to V=渴望做… || The students are eager ___ the results of the exam. || to know|knowing|for knowing || be eager to + 原形動詞。 || 學生們渴望知道考試結果。
-echo || n./v. || 回音 || We heard the echo of our voices in the cave. || 我們在洞穴裡聽到自己聲音的回音。 || echo back=回響 || Our voices echoed ___ the empty hall. || through|across|along || through = 穿過（內部）。 || 我們的聲音在空蕩的大廳裡迴盪。
-edit || v. || 編輯 || She edits the school newspaper. || 她編輯校刊。 || edit a video=剪輯影片 || The video ___ edited by a professional editor. || was|is being|were || 被動語態；過去用 was + p.p.。 || 這支影片由專業剪輯師剪輯。
+echo || n./v. || 回音 || We heard the echo of our voices in the cave. || 我們在洞穴裡聽到自己聲音的回音。 || echo back=回響 || Our voices echoed ___ the empty hall. || through|onto|along || through = 穿過（內部）。 || 我們的聲音在空蕩的大廳裡迴盪。
+edit || v. || 編輯 || She edits the school newspaper. || 她編輯校刊。 || edit a video=剪輯影片 || The video ___ edited by a professional editor. || was|be|were || 被動語態；過去用 was + p.p.。 || 這支影片由專業剪輯師剪輯。
 editor || n. || 編輯 || She is the editor of a magazine. || 她是一本雜誌的編輯。 || chief editor=總編輯 || The editor asked the writer ___ the article. || to revise|revising|revise || ask sb to + 原形動詞。 || 編輯要求作者修改那篇文章。
 educate || v. || 教育 || Parents should educate their children well. || 父母應該好好教育孩子。 || well-educated=受過良好教育的 || The program aims to educate people ___ the importance of recycling. || about|with|for || educate sb about sth = 教育某人關於某事。 || 這個計畫旨在教育民眾回收的重要性。
 educational || adj. || 教育的；有教育意義的 || This is an educational TV program. || 這是一個有教育意義的電視節目。 || educational toys=益智玩具 || The trip was both fun ___ educational. || and|or|but || both A and B = A 和 B 都…。 || 這趟旅行既好玩又有教育意義。
@@ -27,7 +27,7 @@ elect || v. || 選舉 || We elected a new class leader. || 我們選出新的班
 election || n. || 選舉 || The election will be held in January. || 選舉將於一月舉行。 || presidential election=總統大選 || The election will ___ held next January. || be|is|been || will 後面接 be；被動 be + p.p.。 || 選舉將於明年一月舉行。
 electricity || n. || 電 || The storm cut off the electricity. || 暴風雨讓電力中斷了。 || save electricity=節約用電 || We should save electricity ___ turning off the lights. || by|with|for || by + V-ing = 藉由…。 || 我們應該藉由關燈來節約用電。
 electronic || adj. || 電子的 || I bought some electronic products. || 我買了一些電子產品。 || electronic devices=電子裝置 || Please turn off all electronic devices ___ the plane takes off. || before|after|since || 起飛「之前」關閉，用 before。 || 飛機起飛前請關閉所有電子裝置。
-element || n. || 元素；要素 || Water is an important element of life. || 水是生命的重要元素。 || key element=關鍵要素 || Hard work is an important element ___ success. || of|in|to || an element of = …的要素。 || 努力是成功的重要要素。
+element || n. || 元素；要素 || Water is an important element of life. || 水是生命的重要元素。 || key element=關鍵要素 || Hard work is an important element ___ success. || of|at|to || an element of = …的要素。 || 努力是成功的重要要素。
 elevator || n. || 電梯 || Let's take the elevator. || 我們搭電梯吧。 || take the elevator=搭電梯 || In case of fire, don't use the elevator. Use the stairs ___. || instead|instead of|rather || instead（副詞）= 改為、取而代之。 || 發生火災時不要搭電梯，改走樓梯。
 emergency || n. || 緊急情況 || In an emergency, call 119. || 緊急時撥 119。 || in an emergency=在緊急時; emergency exit=緊急出口 || In ___ emergency, stay calm and call for help. || an|a|the || emergency 以母音開頭，用 an。 || 遇到緊急情況時，保持冷靜並求救。
 emotional || adj. || 情緒的；激動的 || She became emotional at the wedding. || 她在婚禮上情緒激動。 || emotional support=情感支持 || She got emotional ___ she saw her family again. || when|what|which || when 引導時間子句。 || 她再見到家人時情緒激動。
@@ -36,8 +36,8 @@ enable || v. || 使能夠 || The Internet enables us to learn anywhere. || 網�
 energetic || adj. || 精力充沛的 || The kids are energetic. || 孩子們精力充沛。 || energetic person=活力充沛的人 || She is ___ energetic that she exercises every morning before work. || so|such|too || so + 形容詞 + that…。 || 她精力充沛到每天早上上班前都會運動。
 enjoyable || adj. || 令人愉快的 || We had an enjoyable evening. || 我們度過了一個愉快的夜晚。 || enjoyable experience=愉快的經驗 || It was ___ enjoyable trip. || an|a|the || enjoyable 以母音開頭，用 an。 || 那是一趟愉快的旅行。
 entry || n. || 進入；參賽作品 || No entry! || 禁止進入！ || no entry=禁止進入; entry fee=入場費 || The contest received more than 500 entries, ___ were from high school students. || most of which|most of them which|which most || 非限定關係子句 most of which 修飾前面的 entries。 || 這項比賽收到五百多件作品，其中大多數來自高中生。
-envy || n./v. || 羨慕 || I envy your talent. || 我羨慕你的才華。 || be green with envy=非常羨慕 || Everyone looked at her new car ___ envy. || with|in|by || with envy = 羨慕地。 || 大家都羨慕地看著她的新車。
-erase || v. || 擦掉；刪除 || Please erase the board. || 請擦黑板。 || erase a file=刪除檔案 || The file ___ erased by mistake. || was|is being|were || 被動語態；過去用 was + p.p.。 || 那個檔案被不小心刪除了。
+envy || n./v. || 羨慕 || I envy your talent. || 我羨慕你的才華。 || be green with envy=非常羨慕 || Everyone looked at her new car ___ envy. || with|on|by || with envy = 羨慕地。 || 大家都羨慕地看著她的新車。
+erase || v. || 擦掉；刪除 || Please erase the board. || 請擦黑板。 || erase a file=刪除檔案 || The file ___ erased by mistake. || was|be|were || 被動語態；過去用 was + p.p.。 || 那個檔案被不小心刪除了。
 excellence || n. || 卓越 || The school is known for its excellence in teaching. || 這所學校以教學卓越聞名。 || academic excellence=學術卓越 || The school is known ___ its excellence in science. || for|as|with || be known for = 以…聞名。 || 這所學校以科學教育卓越著稱。
 exchange || n./v. || 交換 || We exchanged gifts at Christmas. || 我們在聖誕節交換禮物。 || exchange student=交換學生; in exchange for=作為…的交換 || I'd like to exchange this shirt ___ a larger size. || for|with|to || exchange A for B = 用 A 換 B。 || 我想把這件襯衫換成大一號的。
 exhibition || n. || 展覽 || We went to an art exhibition. || 我們去看了一場藝術展覽。 || art exhibition=藝術展覽 || The exhibition, ___ lasts for three months, attracts many visitors. || which|that|where || 非限定關係子句修飾物，用 which。 || 這個為期三個月的展覽吸引了許多參觀者。

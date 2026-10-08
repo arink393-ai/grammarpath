@@ -1,7 +1,7 @@
 # 七年級 05：front – hot dog
 front || n. || 前面 || There is a tree in front of my house. || 我家前面有一棵樹。 || in front of=在…前面; front door=前門 || A bus is stopping in front ___ the school. || of|to|at || in front of = 在…前面。 || 一輛公車停在學校前面。
 fruit || n. || 水果 || Eat more fruit and vegetables. || 多吃蔬菜水果。 || fresh fruit=新鮮水果; fruit juice=果汁 || What fruit ___ you like? || do|are|does || 一般動詞 like 的疑問句，主詞 you 用 do。 || 你喜歡什麼水果？
-full || adj. || 飽的；滿的 || I'm full. I can't eat any more. || 我飽了，吃不下了。 || be full of=充滿…; full moon=滿月 || The box is full ___ toys. || of|with|in || be full of = 裝滿…。 || 箱子裡裝滿了玩具。
+full || adj. || 飽的；滿的 || I'm full. I can't eat any more. || 我飽了，吃不下了。 || be full of=充滿…; full moon=滿月 || The box is full ___ toys. || of|to|in || be full of = 裝滿…。 || 箱子裡裝滿了玩具。
 fun || n. || 樂趣 || Swimming is fun. || 游泳很好玩。 || have fun=玩得開心; for fun=為了好玩 || We had a lot of fun ___ the party. || at|on|in || 在派對上用 at the party。 || 我們在派對上玩得很開心。
 funny || adj. || 好笑的；有趣的 || The movie is very funny. || 這部電影很好笑。 || funny story=好笑的故事 || The story is ___ funny that everyone laughs. || so|such|very || so + 形容詞 + that… = 如此…以致於…。 || 這個故事好笑到大家都笑了。
 game || n. || 遊戲；比賽 || Let's play a game. || 我們來玩遊戲吧。 || play games=玩遊戲; video game=電玩 || Don't play video games ___ late. || too|so|very || too late = 太晚。 || 別玩電動玩到太晚。
@@ -17,13 +17,13 @@ glad || adj. || 高興的 || I'm glad to see you. || 很高興見到你。 || be
 glass || n. || 玻璃杯；玻璃 || I drink a glass of water every morning. || 我每天早上喝一杯水。 || a glass of=一杯 || Can I have a glass ___ water? || of|for|with || a glass of + 飲料 = 一杯…。 || 可以給我一杯水嗎？
 glove || n. || 手套 || Wear your gloves. It's cold. || 戴上你的手套，天氣很冷。 || a pair of gloves=一雙手套 || I need a new pair ___ gloves. || of|for|to || a pair of = 一雙。 || 我需要一雙新手套。
 go || v. || 去 || Let's go to the park. || 我們去公園吧。 || go to school=上學; go home=回家 || My sister goes to school ___ bike. || by|on|with || 搭乘交通工具用 by。 || 我姊姊騎腳踏車上學。
-god || n. || 神 || Oh my god! || 我的天啊！ || thank God=謝天謝地 || People pray to the gods ___ the temple. || in|at|on || 在寺廟裡面用 in。 || 人們在廟裡向神明祈禱。
-good || adj. || 好的 || Good morning! || 早安！ || be good at=擅長; good job=做得好 || She is good ___ math. || at|in|for || be good at = 擅長…。 || 她擅長數學。
+god || n. || 神 || Oh my god! || 我的天啊！ || thank God=謝天謝地 || People pray to the gods ___ the temple. || in|of|on || 在寺廟裡面用 in。 || 人們在廟裡向神明祈禱。
+good || adj. || 好的 || Good morning! || 早安！ || be good at=擅長; good job=做得好 || She is good ___ math. || at|of|to || be good at = 擅長…。 || 她擅長數學。
 grandfather || n. || 祖父；外公 || My grandfather is seventy years old. || 我爺爺七十歲。 || visit grandfather=去看爺爺 || My grandfather ___ walking in the park now. || is|are|does || 現在進行式；My grandfather 用 is。 || 我爺爺現在正在公園散步。
 grandmother || n. || 祖母；外婆 || My grandmother cooks very well. || 我奶奶很會做菜。 || grandma's house=奶奶家 || My grandmother ___ in Hualien. || lives|live|living || My grandmother 第三人稱單數，動詞加 s。 || 我奶奶住在花蓮。
 grass || n. || 草 || The cows eat grass. || 牛吃草。 || on the grass=在草地上; keep off the grass=勿踐踏草坪 || Please keep ___ the grass. || off|of|out || keep off = 遠離、不要踩。 || 請勿踐踏草地。
 gray || adj./n. || 灰色（的） || The sky is gray today. || 今天天空灰灰的。 || gray hair=白頭髮 || My grandpa has gray hair, ___ he is still strong. || but|so|or || 前後語意相反用 but。 || 我爺爺頭髮灰白，但身體還是很硬朗。
-great || adj. || 很棒的；偉大的 || That's a great idea! || 那是個很棒的主意！ || great idea=好主意; have a great time=玩得很開心 || We had a great time ___ the beach. || at|in|on || at the beach = 在海邊。 || 我們在海邊玩得很開心。
+great || adj. || 很棒的；偉大的 || That's a great idea! || 那是個很棒的主意！ || great idea=好主意; have a great time=玩得很開心 || We had a great time ___ the beach. || at|in|of || at the beach = 在海邊。 || 我們在海邊玩得很開心。
 green || adj./n. || 綠色（的） || The grass is green. || 草是綠色的。 || green tea=綠茶; green light=綠燈 || Go when the light turns green, ___ stop when it's red. || and|or|so || 連接兩個指令用 and。 || 綠燈時前進，紅燈時停下。
 group || n. || 群；組 || We work in groups of four. || 我們四人一組合作。 || in groups=分組; a group of=一群 || We work in groups ___ four. || of|in|for || groups of four = 四人一組。 || 我們四人一組合作。
 grow || v. || 成長；種植 || My dad grows vegetables in the yard. || 我爸爸在院子裡種菜。 || grow up=長大; grow vegetables=種菜 || What do you want to be when you grow ___? || up|in|out || grow up = 長大。 || 你長大後想做什麼？

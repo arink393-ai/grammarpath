@@ -5,7 +5,7 @@ recession || n. || 經濟衰退 || Many people lost jobs during the recession. |
 recipient || n. || 接受者 || She was the recipient of an award. || 她是一個獎項的得主。 || award recipient=得獎者 || Each recipient ___ the scholarship will get 50,000 dollars. || of|for|to || the recipient of = …的接受者。 || 每位獎學金得主將獲得五萬元。
 recite || v. || 背誦 || She recited a poem. || 她背誦了一首詩。 || recite a poem=背誦詩 || The students were asked ___ recite the poem in class. || to|for|of || be asked to + 原形動詞。 || 學生被要求在課堂上背誦那首詩。
 recommend || v. || 推薦；建議 || Can you recommend a good book? || 你能推薦一本好書嗎？ || recommend that=建議… || The doctor recommended that he ___ more water. || drink|drinks|drank || recommend that + 主詞 + (should) + 原形動詞。 || 醫生建議他多喝水。
-recommendation || n. || 推薦；建議 || I bought this book on your recommendation. || 我照你的推薦買了這本書。 || letter of recommendation=推薦信 || I need a letter of recommendation ___ my teacher. || from|of|by || from + 人 = 來自…。 || 我需要一封老師寫的推薦信。
+recommendation || n. || 推薦；建議 || I bought this book on your recommendation. || 我照你的推薦買了這本書。 || letter of recommendation=推薦信 || I need a letter of recommendation ___ my teacher. || from|of|at || from + 人 = 來自…。 || 我需要一封老師寫的推薦信。
 recruit || v./n. || 招募 || The company is recruiting new staff. || 公司正在招募新員工。 || new recruit=新成員 || The club is trying ___ recruit new members. || to|for|of || try to + 原形動詞。 || 社團正在努力招募新成員。
 refuge || n. || 避難所 || They took refuge in a cave. || 他們躲進山洞避難。 || take refuge=避難 || During the storm, we took refuge ___ a small temple. || in|on|to || take refuge in = 在…避難。 || 暴風雨中我們在一間小廟避難。
 regardless || adv. || 不管 || He went regardless of the danger. || 他不顧危險還是去了。 || regardless of=不管… || Everyone is welcome, regardless ___ age. || of|to|for || regardless of = 不管…。 || 不論年齡，歡迎所有人。
@@ -27,7 +27,7 @@ resort || n. || 度假勝地 || We stayed at a beach resort. || 我們住在海�
 respondent || n. || 受訪者 || Most respondents agreed with the plan. || 大多數受訪者同意這個計畫。 || survey respondent=調查受訪者 || More than half of the respondents ___ they were happy. || said|says|saying || 主詞 half of the respondents，過去調查用過去式。 || 超過一半的受訪者說他們很快樂。
 resume || v. || 重新開始 || Classes will resume next week. || 課程下週恢復。 || resume work=復工 || The game resumed ___ the rain stopped. || after|before|until || 雨停「之後」恢復，用 after。 || 雨停後比賽恢復進行。
 retail || n./adj. || 零售 || She works in retail. || 她從事零售業。 || retail price=零售價 || The retail price of this phone is higher ___ I expected. || than|then|as || 比較級 + than。 || 這支手機的零售價比我預期的高。
-revenue || n. || 收入；稅收 || The company's revenue increased. || 公司的營收增加了。 || tax revenue=稅收 || Tourism brings a lot of revenue ___ the city. || to|for|with || bring A to B = 為 B 帶來 A。 || 觀光為這座城市帶來大量收入。
+revenue || n. || 收入；稅收 || The company's revenue increased. || 公司的營收增加了。 || tax revenue=稅收 || Tourism brings a lot of revenue ___ the city. || to|at|with || bring A to B = 為 B 帶來 A。 || 觀光為這座城市帶來大量收入。
 reverse || v./adj./n. || 反轉；相反的 || Put the car in reverse. || 把車子打到倒車檔。 || in reverse order=以相反順序 || Please read the numbers ___ reverse order. || in|on|at || in reverse order = 以相反的順序。 || 請以相反的順序唸這些數字。
 rhetoric || n. || 修辭；花言巧語 || His speech was full of rhetoric. || 他的演講充滿華麗的辭藻。 || political rhetoric=政治修辭 || His speech was full ___ empty rhetoric. || of|with|in || be full of = 充滿…。 || 他的演講充滿空洞的花言巧語。
 rib || n. || 肋骨；排骨 || He broke a rib in the accident. || 他在事故中斷了一根肋骨。 || pork ribs=豬肋排 || These pork ribs ___ delicious! || are|is|be || 主詞 ribs 複數，用 are。 || 這些豬肋排真好吃！

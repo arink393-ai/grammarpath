@@ -17,7 +17,7 @@ island || n. || 島 || Taiwan is a beautiful island. || 台灣是一座美麗的
 item || n. || 項目；物品 || How many items are on the list? || 清單上有幾項東西？ || an item on the list=清單上的一項 || There ___ ten items on the shopping list. || are|is|be || ten items 複數，There are。 || 購物清單上有十項東西。
 jog || v. || 慢跑 || My dad jogs every morning. || 我爸爸每天早上慢跑。 || go jogging=去慢跑 || My dad ___ jogging every morning. || goes|go|going || My dad 第三人稱單數，go 加 es。 || 我爸爸每天早上去慢跑。
 join || v. || 加入；參加 || Do you want to join us? || 你想加入我們嗎？ || join a club=參加社團 || Would you like to join our club? It ___ a lot of fun. || is|are|am || It 單數，用 is。 || 你想加入我們的社團嗎？很好玩喔。
-joy || n. || 喜悅 || She cried for joy. || 她喜極而泣。 || for joy=因為高興; jump for joy=高興得跳起來 || The kids jumped ___ joy. || for|with|in || jump for joy = 高興得跳起來。 || 孩子們高興得跳起來。
+joy || n. || 喜悅 || She cried for joy. || 她喜極而泣。 || for joy=因為高興; jump for joy=高興得跳起來 || The kids jumped ___ joy. || for|at|in || jump for joy = 高興得跳起來。 || 孩子們高興得跳起來。
 junior high school || n. || 國中 || I'm a junior high school student. || 我是國中生。 || junior high school student=國中生 || There ___ over 1,000 students in our junior high school. || are|is|be || over 1,000 students 複數，There are。 || 我們國中有一千多名學生。
 kill || v. || 殺死 || The fire killed many trees. || 那場火燒死了很多樹。 || kill time=消磨時間 || Many trees ___ killed in the fire. || were|was|are || 過去的被動語態；Many trees 複數用 were。 || 很多樹在那場火災中被燒死。
 kilogram || n. || 公斤 || I weigh forty kilograms. || 我體重四十公斤。 || two kilograms=兩公斤 || This bag of rice ___ five kilograms. || weighs|weigh|weighing || 主詞 This bag 單數，動詞加 s。 || 這袋米重五公斤。
@@ -32,13 +32,13 @@ least || adj./adv. || 最少的 || At least eat some bread. || 至少吃點麵�
 lend || v. || 借出 || Can you lend me your pen? || 你可以借我你的筆嗎？ || lend sb sth=借某物給某人 || Can you lend ___ some money? || me|I|my || lend sb sth：lend 後面的人用受格 me。 || 你可以借我一些錢嗎？
 lesson || n. || 課 || We have a piano lesson on Friday. || 我們星期五有鋼琴課。 || piano lesson=鋼琴課; learn a lesson=學到教訓 || I have a piano lesson ___ Friday evening. || on|in|at || 特定某天的晚上用 on。 || 我星期五晚上有鋼琴課。
 let || v. || 讓 || Let me help you. || 讓我幫你。 || let sb V=讓某人做…; let's=讓我們 || Let me ___ you. || help|to help|helping || let + 受詞 + 原形動詞。 || 讓我幫你。
-letter || n. || 信；字母 || I wrote a letter to my friend. || 我寫了一封信給朋友。 || write a letter=寫信 || I wrote a letter ___ my pen pal last night. || to|for|at || write a letter to sb = 寫信給某人。 || 我昨晚寫了一封信給我的筆友。
+letter || n. || 信；字母 || I wrote a letter to my friend. || 我寫了一封信給朋友。 || write a letter=寫信 || I wrote a letter ___ my pen pal last night. || to|of|at || write a letter to sb = 寫信給某人。 || 我昨晚寫了一封信給我的筆友。
 level || n. || 程度；層級 || What level are you in? || 你在哪個級別？ || high level=高水準; level up=升級 || This book is at an easy level, ___ it's good for beginners. || so|but|because || 前面是原因、後面是結果，用 so。 || 這本書程度簡單，所以適合初學者。
 lie || v./n. || 說謊；躺；謊言 || Don't tell a lie. || 不要說謊。 || tell a lie=說謊; lie down=躺下 || Don't lie ___ your parents. || to|at|for || lie to sb = 對某人說謊。 || 不要對你父母說謊。
 living room || n. || 客廳 || We watch TV in the living room. || 我們在客廳看電視。 || in the living room=在客廳 || My family ___ watching TV in the living room now. || is|are|am || 現在進行式；My family 視為一個整體用 is。 || 我家人現在正在客廳看電視。
-lonely || adj. || 寂寞的 || He felt lonely in the new city. || 他在新城市感到寂寞。 || feel lonely=覺得寂寞 || He felt lonely ___ he moved to a new city. || after|during|until || after + 子句 = 在…之後。 || 他搬到新城市後感到很寂寞。
+lonely || adj. || 寂寞的 || He felt lonely in the new city. || 他在新城市感到寂寞。 || feel lonely=覺得寂寞 || He felt lonely ___ he moved to a new city. || after|during|unless || after + 子句 = 在…之後。 || 他搬到新城市後感到很寂寞。
 lovely || adj. || 可愛的；美好的 || What a lovely day! || 多美好的一天！ || lovely day=美好的一天 || What ___ lovely day it is! || a|an|the || 感嘆句：What + a + 形容詞 + 名詞 + 主詞 + 動詞！ || 今天天氣多好啊！
-machine || n. || 機器 || This machine can make coffee. || 這台機器可以煮咖啡。 || washing machine=洗衣機; vending machine=販賣機 || This machine ___ made in Japan. || was|is being|were || 過去製造的被動語態 was + p.p.。 || 這台機器是日本製的。
+machine || n. || 機器 || This machine can make coffee. || 這台機器可以煮咖啡。 || washing machine=洗衣機; vending machine=販賣機 || This machine ___ made in Japan. || was|be|were || 過去製造的被動語態 was + p.p.。 || 這台機器是日本製的。
 magic || n./adj. || 魔術；魔法 || He can do magic tricks. || 他會變魔術。 || magic trick=魔術把戲; magic show=魔術表演 || He showed us a magic trick. It was ___ amazing! || so|such|much || so + 形容詞 = 好…。 || 他表演了一個魔術給我們看，好神奇！
 mailman || n. || 郵差 || The mailman comes at ten every day. || 郵差每天十點來。 || mail carrier=郵差 || The mailman ___ here at ten every morning. || comes|come|coming || The mailman 第三人稱單數，動詞加 s。 || 郵差每天早上十點來這裡。
 main || adj. || 主要的 || What is the main idea of this story? || 這個故事的主旨是什麼？ || main idea=主旨; main road=主要道路 || What ___ the main idea of the article? || is|are|does || the main idea 單數，用 is。 || 這篇文章的主旨是什麼？

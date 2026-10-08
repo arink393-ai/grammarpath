@@ -22,7 +22,7 @@ waiter || n. || 服務生 || The waiter brought us the menu. || 服務生拿菜�
 waitress || n. || 女服務生 || The waitress is very friendly. || 那位女服務生很友善。 || waitress=女服務生 || The waitress asked ___ we wanted to drink. || what|which of|who || what 引導名詞子句（我們想喝什麼）。 || 女服務生問我們想喝什麼。
 wallet || n. || 皮夾 || I lost my wallet. || 我弄丟了我的皮夾。 || leather wallet=皮夾 || Is this ___ wallet, Ben? || your|you|yours || 名詞 wallet 前用所有格形容詞 your。 || 班，這是你的皮夾嗎？
 watermelon || n. || 西瓜 || We eat watermelon in summer. || 我們夏天吃西瓜。 || a slice of watermelon=一片西瓜 || Would you like a slice ___ watermelon? || of|for|in || a slice of = 一片…。 || 你要來一片西瓜嗎？
-wave || v./n. || 揮手；波浪 || She waved goodbye to us. || 她向我們揮手道別。 || wave goodbye=揮手道別; ocean wave=海浪 || She waved ___ us from the train. || to|at|for || wave to sb = 向某人揮手。 || 她從火車上向我們揮手。
+wave || v./n. || 揮手；波浪 || She waved goodbye to us. || 她向我們揮手道別。 || wave goodbye=揮手道別; ocean wave=海浪 || She waved ___ us from the train. || to|of|for || wave to sb = 向某人揮手。 || 她從火車上向我們揮手。
 weak || adj. || 虛弱的 || I feel weak today. || 我今天覺得很虛弱。 || weak point=弱點 || He was sick, so he felt ___ weak to go to school. || too|so|very || too + 形容詞 + to V = 太…而無法…。 || 他生病了，虛弱到無法去上學。
 welcome || v./adj. || 歡迎 || Welcome to Taiwan! || 歡迎來到台灣！ || you're welcome=不客氣; welcome to=歡迎來到 || Welcome ___ our school! || to|at|in || welcome to + 地點 = 歡迎來到…。 || 歡迎來到我們學校！
 whether || conj. || 是否 || I don't know whether he will come. || 我不知道他是否會來。 || whether or not=是否 || I don't know whether it ___ rain tomorrow. || will|is|does || 名詞子句 whether… 講未來用 will。 || 我不知道明天是否會下雨。
@@ -32,11 +32,11 @@ wind || n. || 風 || The wind is strong today. || 今天風很大。 || strong w
 windy || adj. || 風大的 || It's windy in Hsinchu. || 新竹風很大。 || windy day=颳風的日子 || ___ is very windy in Hsinchu. || It|This|He || 描述天氣時主詞用 It。 || 新竹風很大。
 wise || adj. || 有智慧的 || My grandpa is a wise man. || 我爺爺是一位有智慧的人。 || wise choice=明智的選擇 || It was wise ___ you to save money. || of|for|to || It is + 描述人的形容詞 + of sb + to V。 || 你存錢是明智的。
 without || prep. || 沒有 || I can't live without my phone. || 沒有手機我活不下去。 || without doubt=毫無疑問 || He left without ___ goodbye. || saying|say|said || 介系詞 without 後面接動名詞 V-ing。 || 他沒說再見就離開了。
-wonderful || adj. || 極好的 || We had a wonderful time. || 我們度過了很美好的時光。 || wonderful time=美好的時光 || We had a wonderful time ___ the beach. || at|in|on || at the beach = 在海邊。 || 我們在海邊度過了美好的時光。
+wonderful || adj. || 極好的 || We had a wonderful time. || 我們度過了很美好的時光。 || wonderful time=美好的時光 || We had a wonderful time ___ the beach. || at|in|of || at the beach = 在海邊。 || 我們在海邊度過了美好的時光。
 workbook || n. || 練習簿 || Do the exercises in your workbook. || 做你練習簿上的習題。 || English workbook=英文練習簿 || Please finish page 10 ___ your workbook. || in|on|at || 在練習簿裡用 in。 || 請寫完練習簿第十頁。
 worker || n. || 工人 || The workers are building a bridge. || 工人們正在建橋。 || factory worker=工廠工人 || The workers ___ building a new bridge. || are|is|does || 現在進行式；The workers 複數用 are。 || 工人們正在建一座新橋。
 world || n. || 世界 || I want to travel around the world. || 我想環遊世界。 || around the world=全世界; in the world=在世界上 || Mount Everest is the highest mountain ___ the world. || in|of|on || 最高級 + in the world = 世界上最…。 || 聖母峰是世界上最高的山。
-worry || v. || 擔心 || Don't worry about me. || 不用擔心我。 || worry about=擔心… || Don't worry ___ me. I'm fine. || about|of|for || worry about = 擔心…。 || 不用擔心我，我很好。
+worry || v. || 擔心 || Don't worry about me. || 不用擔心我。 || worry about=擔心… || Don't worry ___ me. I'm fine. || about|of|at || worry about = 擔心…。 || 不用擔心我，我很好。
 writer || n. || 作家 || She wants to be a writer. || 她想當作家。 || famous writer=有名的作家 || She has the potential ___ a great writer. || to become|becoming|became || the potential to V = 有做…的潛力。 || 她有成為偉大作家的潛力。
 wrong || adj. || 錯誤的 || Your answer is wrong. || 你的答案錯了。 || go wrong=出錯; What's wrong?=怎麼了？ || What's wrong ___ you? || with|to|for || What's wrong with sb? = 某人怎麼了？ || 你怎麼了？
 yet || adv. || 還（沒）；已經 || I haven't finished my homework yet. || 我還沒寫完功課。 || not yet=還沒 || I ___ finished my homework yet. || haven't|didn't|don't || 現在完成式的否定 haven't + p.p.，常搭配 yet。 || 我還沒寫完功課。

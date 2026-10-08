@@ -21,9 +21,9 @@ physician || n. || 醫師 || She is a family physician. || 她是家庭醫師。
 physicist || n. || 物理學家 || Einstein was a famous physicist. || 愛因斯坦是著名的物理學家。 || famous physicist=知名物理學家 || The physicist ___ theory changed science won the Nobel Prize. || whose|who|which || 所有格關係代名詞 whose + 名詞。 || 那位理論改變了科學的物理學家獲得了諾貝爾獎。
 physics || n. || 物理學 || Physics is a difficult subject. || 物理是一門困難的科目。 || quantum physics=量子物理 || Physics ___ my favorite subject in high school. || was|were|are || physics 視為單數；過去的事用 was。 || 物理是我高中時最喜歡的科目。
 pickle || n. || 醃菜 || I like pickles in my hamburger. || 我喜歡漢堡裡有醃黃瓜。 || pickled cucumber=醃黃瓜 || Can you take the pickles ___ of my burger? || out|off|away || take out of = 從…拿出來。 || 你可以把我漢堡裡的醃黃瓜拿掉嗎？
-pioneer || n./v. || 先驅 || He was a pioneer in computer science. || 他是電腦科學的先驅。 || pioneer in=…的先驅 || She was a pioneer ___ the field of medicine. || in|of|on || a pioneer in = …領域的先驅。 || 她是醫學領域的先驅。
+pioneer || n./v. || 先驅 || He was a pioneer in computer science. || 他是電腦科學的先驅。 || pioneer in=…的先驅 || She was a pioneer ___ the field of medicine. || in|at|on || a pioneer in = …領域的先驅。 || 她是醫學領域的先驅。
 plentiful || adj. || 豐富的 || Food is plentiful here. || 這裡食物很充足。 || plentiful supply=充足的供應 || Fruit is plentiful and cheap ___ summer. || in|on|at || 季節前面用 in。 || 夏天水果充足又便宜。
-plot || n./v. || 情節；陰謀 || The plot of the movie is interesting. || 這部電影的情節很有趣。 || the plot of=…的情節 || The plot ___ the novel is very complicated. || of|for|in || the plot of = …的情節。 || 這本小說的情節非常複雜。
+plot || n./v. || 情節；陰謀 || The plot of the movie is interesting. || 這部電影的情節很有趣。 || the plot of=…的情節 || The plot ___ the novel is very complicated. || of|for|to || the plot of = …的情節。 || 這本小說的情節非常複雜。
 plum || n. || 李子；梅子 || Plum blossoms bloom in winter. || 梅花在冬天綻放。 || plum blossom=梅花 || The plum blossom is the national flower ___ Taiwan. || of|for|in || the national flower of = …的國花。 || 梅花是台灣的國花。
 plumber || n. || 水電工 || Call a plumber to fix the pipe. || 打電話叫水電工來修水管。 || call a plumber=叫水電工 || The pipe was fixed ___ a plumber. || by|with|from || 被動語態中動作執行者用 by。 || 水管由水電工修好了。
 poisonous || adj. || 有毒的 || Some mushrooms are poisonous. || 有些蘑菇有毒。 || poisonous snake=毒蛇 || Some snakes are poisonous, ___ you should stay away from them. || so|but|or || 前面是原因、後面是結果，用 so。 || 有些蛇有毒，所以你應該遠離牠們。

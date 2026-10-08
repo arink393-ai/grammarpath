@@ -5,18 +5,18 @@ sweep || v. || 掃 || Please sweep the floor. || 請掃地。 || sweep the floor
 swimsuit || n. || 泳衣 || Don't forget your swimsuit. || 別忘了帶泳衣。 || wear a swimsuit=穿泳衣 || You have to wear a swimsuit ___ you swim in the pool. || when|what|which || when 引導時間子句。 || 在泳池游泳時必須穿泳衣。
 symbol || n. || 象徵；符號 || The dove is a symbol of peace. || 鴿子是和平的象徵。 || a symbol of=…的象徵 || The dove is a symbol ___ peace. || of|for|to || a symbol of = …的象徵。 || 鴿子是和平的象徵。
 system || n. || 系統 || The school has a new computer system. || 學校有新的電腦系統。 || computer system=電腦系統 || The new system ___ used by all the teachers now. || is|are|be || 被動語態；The new system 用 is + p.p.。 || 所有老師現在都在用新系統。
-table tennis || n. || 桌球 || We play table tennis after school. || 我們放學後打桌球。 || play table tennis=打桌球 || He is good ___ table tennis. || at|in|for || be good at = 擅長…。 || 他很擅長打桌球。
-talent || n. || 天賦 || She has a talent for music. || 她有音樂天分。 || have a talent for=有…天分 || She has a talent ___ music. || for|of|in || have a talent for = 有…的天分。 || 她有音樂天分。
+table tennis || n. || 桌球 || We play table tennis after school. || 我們放學後打桌球。 || play table tennis=打桌球 || He is good ___ table tennis. || at|of|to || be good at = 擅長…。 || 他很擅長打桌球。
+talent || n. || 天賦 || She has a talent for music. || 她有音樂天分。 || have a talent for=有…天分 || She has a talent ___ music. || for|of|to || have a talent for = 有…的天分。 || 她有音樂天分。
 talkative || adj. || 愛說話的 || My little sister is very talkative. || 我妹妹很愛說話。 || talkative person=多話的人 || She is the ___ talkative girl in our class. || most|more|much || 三者以上比較用最高級 the most。 || 她是我們班最愛說話的女生。
 tangerine || n. || 橘子 || We eat tangerines during Chinese New Year. || 我們過年時吃橘子。 || tangerine=橘子 || Tangerines ___ popular during Chinese New Year. || are|is|be || Tangerines 複數，用 are。 || 橘子在農曆新年期間很受歡迎。
 tank || n. || 水槽；坦克 || The fish tank is clean. || 魚缸很乾淨。 || fish tank=魚缸; gas tank=油箱 || There are five goldfish ___ the tank. || in|on|at || 在魚缸裡用 in。 || 魚缸裡有五條金魚。
-teapot || n. || 茶壺 || Put the tea leaves in the teapot. || 把茶葉放進茶壺裡。 || teapot=茶壺 || This teapot ___ made in Yingge. || was|were|is being || 被動語態；過去用 was + p.p.。 || 這個茶壺是在鶯歌製造的。
+teapot || n. || 茶壺 || Put the tea leaves in the teapot. || 把茶葉放進茶壺裡。 || teapot=茶壺 || This teapot ___ made in Yingge. || was|were|be || 被動語態；過去用 was + p.p.。 || 這個茶壺是在鶯歌製造的。
 tear || n. || 眼淚 || Tears ran down her face. || 眼淚從她的臉頰流下。 || in tears=流著淚; burst into tears=放聲大哭 || She was ___ tears when she heard the news. || in|with|on || in tears = 流著淚。 || 她聽到消息時淚流滿面。
 temperature || n. || 溫度 || The temperature is 30 degrees today. || 今天溫度是三十度。 || high temperature=高溫; take one's temperature=量體溫 || The nurse took my temperature ___ checked my blood pressure. || and|but|or || 連接兩個動作用 and。 || 護理師量了我的體溫並檢查我的血壓。
 tent || n. || 帳篷 || We slept in a tent. || 我們睡在帳篷裡。 || put up a tent=搭帳篷 || We put up the tent ___ it got dark. || before|after|since || 天黑「之前」搭帳篷，用 before。 || 我們在天黑前搭好了帳篷。
 term || n. || 學期；用語 || The new term begins next week. || 新學期下週開始。 || in terms of=就…而言 || The first term ends ___ January. || in|on|at || 月份前面用 in。 || 第一學期在一月結束。
 terrific || adj. || 極好的 || That's a terrific idea! || 那是個超棒的主意！ || terrific idea=好點子 || We had a terrific time at the party, ___ we? || didn't|weren't|did || 肯定句的附加問句用否定：had → didn't。 || 我們在派對上玩得很開心，不是嗎？
-textbook || n. || 教科書 || Open your textbook to page 20. || 把課本翻到第二十頁。 || English textbook=英文課本 || Open your textbooks ___ page 20. || to|at|on || open to page… = 翻到第…頁。 || 把課本翻到第二十頁。
+textbook || n. || 教科書 || Open your textbook to page 20. || 把課本翻到第二十頁。 || English textbook=英文課本 || Open your textbooks ___ page 20. || to|of|by || open to page… = 翻到第…頁。 || 把課本翻到第二十頁。
 therefore || adv. || 因此 || It rained. Therefore, the game was canceled. || 下雨了，因此比賽取消了。 || therefore=因此 || It was raining. Therefore, the game ___ canceled. || was|is|were || 被動語態；過去用 was + p.p.。 || 下雨了，因此比賽被取消了。
 thief || n. || 小偷 || The police caught the thief. || 警察抓到了小偷。 || thieves=小偷（複數） || The thief ___ caught by the police last night. || was|is|were || 被動語態；過去用 was + p.p.。 || 小偷昨晚被警察抓到了。
 thought || n. || 想法 || That's a good thought. || 那是個好想法。 || on second thought=仔細一想 || Thank you ___ your kind thought. || for|to|of || thank you for + 名詞。 || 謝謝你的好意。
@@ -37,7 +37,7 @@ trade || n./v. || 貿易；交換 || Taiwan trades with many countries. || 台�
 tradition || n. || 傳統 || Eating mooncakes is a Mid-Autumn tradition. || 吃月餅是中秋節的傳統。 || follow a tradition=遵循傳統 || Eating mooncakes is a tradition ___ many families follow. || that|what|who || 關係代名詞 that 修飾物（a tradition）。 || 吃月餅是許多家庭遵循的傳統。
 traditional || adj. || 傳統的 || We wore traditional clothes. || 我們穿了傳統服裝。 || traditional food=傳統食物 || Dumplings are ___ traditional food during Chinese New Year. || a|an|the more || traditional 以子音開頭，用 a。 || 水餃是農曆新年的傳統食物。
 trap || n./v. || 陷阱；困住 || The mouse was caught in a trap. || 老鼠被捕鼠器抓到了。 || mouse trap=捕鼠器; be trapped=被困住 || Many people ___ trapped in the building during the fire. || were|was|are || 被動語態；Many people 複數，過去用 were。 || 火災時很多人被困在大樓裡。
-travel || v./n. || 旅行 || I want to travel around the world. || 我想環遊世界。 || travel abroad=出國旅行 || I have traveled ___ many countries. || to|in|at || travel to + 地點 = 去…旅行。 || 我去過很多國家旅行。
+travel || v./n. || 旅行 || I want to travel around the world. || 我想環遊世界。 || travel abroad=出國旅行 || I have traveled ___ many countries. || to|on|at || travel to + 地點 = 去…旅行。 || 我去過很多國家旅行。
 treasure || n. || 寶藏 || The pirates found the treasure. || 海盜們找到了寶藏。 || treasure map=藏寶圖 || The treasure ___ hidden on an island. || was|is|were || 被動語態；過去用 was + p.p.。 || 寶藏被藏在一座島上。
 triangle || n. || 三角形 || A triangle has three sides. || 三角形有三個邊。 || triangle shape=三角形 || A triangle ___ three sides. || has|have|is || A triangle 第三人稱單數，用 has。 || 三角形有三個邊。
 trousers || n. || 褲子 || These trousers are too long. || 這條褲子太長了。 || a pair of trousers=一條褲子 || These trousers ___ too long for me. || are|is|am || trousers 永遠是複數，用 are。 || 這條褲子對我來說太長了。
@@ -47,5 +47,5 @@ truth || n. || 真相；事實 || Tell me the truth. || 告訴我實話。 || te
 tub || n. || 浴缸；桶 || The baby is in the tub. || 寶寶在浴缸裡。 || bath tub=浴缸 || The water in the tub is ___ hot. || too|to|two || too + 形容詞 = 太…。 || 浴缸裡的水太燙了。
 tube || n. || 管子 || A tube of toothpaste costs 80 dollars. || 一條牙膏八十元。 || a tube of=一條（管）… || I need a tube ___ toothpaste. || of|for|with || a tube of = 一條…。 || 我需要一條牙膏。
 tunnel || n. || 隧道 || The train went through a tunnel. || 火車穿過了一條隧道。 || go through a tunnel=穿過隧道 || The train went ___ a long tunnel. || through|across|along || go through = 穿過（內部）。 || 火車穿過了一條長隧道。
-turkey || n. || 火雞 || Americans eat turkey on Thanksgiving. || 美國人在感恩節吃火雞。 || roast turkey=烤火雞 || Americans eat turkey ___ Thanksgiving. || on|in|at || 特定的節日（日子）前面用 on。 || 美國人在感恩節吃火雞。
+turkey || n. || 火雞 || Americans eat turkey on Thanksgiving. || 美國人在感恩節吃火雞。 || roast turkey=烤火雞 || Americans eat turkey ___ Thanksgiving. || on|in|to || 特定的節日（日子）前面用 on。 || 美國人在感恩節吃火雞。
 underline || v. || 在…下畫線 || Underline the new words. || 在生字底下畫線。 || underline a word=在字下畫線 || Underline the important words ___ a red pen. || with|by|in || 用某工具用 with。 || 用紅筆在重要的字底下畫線。

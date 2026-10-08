@@ -18,14 +18,14 @@ accusation || n. || 指控 || He denied the accusation. || 他否認這項指控
 accustom || v. || 使習慣 || It took time to accustom myself to the cold. || 我花了時間才習慣寒冷。 || be accustomed to=習慣於… || I'm not accustomed to ___ up so early. || getting|get|got || be accustomed to + V-ing（to 是介系詞）。 || 我不習慣這麼早起床。
 acne || n. || 青春痘 || Many teenagers have acne. || 許多青少年長青春痘。 || acne cream=痘痘藥膏 || Eating too much fried food may make your acne ___. || worse|bad|worst || make + 受詞 + 形容詞（比較級）。 || 吃太多油炸食物可能讓你的痘痘更嚴重。
 acre || n. || 英畝 || The farm covers 100 acres. || 這座農場占地一百英畝。 || acres of land=數英畝的土地 || The farm covers more ___ 500 acres. || than|then|as || more than = 超過。 || 這座農場占地超過五百英畝。
-adaptation || n. || 改編；適應 || The movie is an adaptation of a novel. || 這部電影改編自一本小說。 || film adaptation=電影改編 || The film is an adaptation ___ a famous novel. || of|for|from || an adaptation of = …的改編作品。 || 這部電影改編自一本知名小說。
+adaptation || n. || 改編；適應 || The movie is an adaptation of a novel. || 這部電影改編自一本小說。 || film adaptation=電影改編 || The film is an adaptation ___ a famous novel. || of|for|to || an adaptation of = …的改編作品。 || 這部電影改編自一本知名小說。
 addiction || n. || 上癮 || Phone addiction is common among teens. || 手機成癮在青少年中很常見。 || internet addiction=網路成癮 || He is trying to overcome his addiction ___ video games. || to|for|with || addiction to = 對…上癮。 || 他正努力克服對電玩的沉迷。
 admiral || n. || 海軍上將 || The admiral led the fleet. || 海軍上將率領艦隊。 || fleet admiral=艦隊司令 || The admiral, ___ led the navy for years, retired. || who|which|whom || 非限定關係子句修飾人並當主詞，用 who。 || 那位領導海軍多年的上將退休了。
 adolescence || n. || 青春期 || Adolescence can be a difficult time. || 青春期可能是一段艱難的時期。 || during adolescence=青春期間 || Many changes happen ___ adolescence. || during|while|since || during + 名詞 = 在…期間。 || 青春期間會發生許多變化。
 advisory || adj. || 諮詢的；警告的 || A typhoon advisory was issued. || 颱風警報已發布。 || advisory committee=諮詢委員會 || A heat advisory ___ issued for the weekend. || has been|have been|being || 現在完成被動式；主詞單數用 has been。 || 週末的高溫警報已經發布。
 aesthetic || adj. || 美學的 || The design has aesthetic value. || 這個設計有美學價值。 || aesthetic value=美學價值 || The building is not only useful ___ also aesthetic. || but|and|or || not only A but also B。 || 這棟建築不僅實用，也很有美感。
-affectionate || adj. || 深情的 || The cat is very affectionate. || 這隻貓很親人。 || affectionate hug=深情的擁抱 || My dog is very affectionate ___ children. || toward|with|of || be affectionate toward = 對…很親切。 || 我的狗對孩子很親。
-affiliate || v./n. || 使附屬；分會 || The hospital is affiliated with the university. || 這家醫院隸屬於該大學。 || be affiliated with=隸屬於… || The school is affiliated ___ a famous university. || with|to|for || be affiliated with = 隸屬於…。 || 這所學校隸屬於一所知名大學。
+affectionate || adj. || 深情的 || The cat is very affectionate. || 這隻貓很親人。 || affectionate hug=深情的擁抱 || My dog is very affectionate ___ children. || toward|at|of || be affectionate toward = 對…很親切。 || 我的狗對孩子很親。
+affiliate || v./n. || 使附屬；分會 || The hospital is affiliated with the university. || 這家醫院隸屬於該大學。 || be affiliated with=隸屬於… || The school is affiliated ___ a famous university. || with|at|for || be affiliated with = 隸屬於…。 || 這所學校隸屬於一所知名大學。
 affirm || v. || 斷言；確認 || He affirmed his support for the plan. || 他重申對計畫的支持。 || affirm one's support=重申支持 || The president affirmed ___ the country would stay neutral. || that|what|which || that 引導名詞子句當 affirmed 的受詞。 || 總統重申國家將保持中立。
 airtight || adj. || 密封的 || Keep the cookies in an airtight box. || 把餅乾放在密封盒裡。 || airtight container=密封容器 || Keep the tea leaves in an airtight container ___ they stay fresh. || so that|such that|so as || so that = 以便…。 || 把茶葉放在密封容器中以保持新鮮。
 airway || n. || 呼吸道 || Make sure his airway is clear. || 確保他的呼吸道暢通。 || clear airway=暢通的呼吸道 || Smoke can damage your airways, ___ is dangerous. || which|what|that || 非限定關係子句中 which 可指前面整句。 || 煙會傷害呼吸道，這很危險。
@@ -35,7 +35,7 @@ align || v. || 對齊；結盟 || Align the text to the left. || 把文字靠左
 allege || v. || 宣稱；指控 || He is alleged to have stolen the car. || 他被指控偷了那輛車。 || be alleged to V=被指稱… || The man is alleged ___ have stolen the money. || to|for|of || be alleged to + V = 被指稱…。 || 那名男子被指稱偷了錢。
 alligator || n. || 短吻鱷 || We saw an alligator in the river. || 我們在河裡看到一隻短吻鱷。 || alligator=短吻鱷 || The alligator ___ we saw was over three meters long. || that|what|who || 關係代名詞 that 修飾動物並當 saw 的受詞。 || 我們看到的那隻短吻鱷超過三公尺長。
 altitude || n. || 海拔；高度 || The plane is flying at a high altitude. || 飛機在高空飛行。 || high altitude=高海拔 || The plane is flying ___ an altitude of 10,000 meters. || at|in|on || at an altitude of = 在…高度。 || 飛機在一萬公尺的高度飛行。
-aluminum || n. || 鋁 || Soda cans are made of aluminum. || 汽水罐是鋁做的。 || aluminum foil=鋁箔紙 || Wrap the fish ___ aluminum foil before you grill it. || in|with|by || wrap sth in = 用…包起來。 || 烤之前先用鋁箔紙把魚包起來。
+aluminum || n. || 鋁 || Soda cans are made of aluminum. || 汽水罐是鋁做的。 || aluminum foil=鋁箔紙 || Wrap the fish ___ aluminum foil before you grill it. || in|at|by || wrap sth in = 用…包起來。 || 烤之前先用鋁箔紙把魚包起來。
 ambiguity || n. || 模稜兩可 || There is some ambiguity in the rules. || 規則中有些模糊之處。 || avoid ambiguity=避免含糊 || Please write clearly ___ avoid ambiguity. || to|for|so || 不定詞 to V 表示目的。 || 請寫清楚以避免含糊。
 amid || prep. || 在…之中 || The meeting continued amid protests. || 會議在抗議聲中繼續進行。 || amid=在…之中 || The game went on amid heavy rain, ___ surprised everyone. || which|what|that || 非限定關係子句中 which 可指前面整句。 || 比賽在大雨中繼續進行，這讓大家都很驚訝。
 amplify || v. || 放大 || Use a microphone to amplify your voice. || 用麥克風放大你的聲音。 || amplify sound=放大聲音 || The speaker is used ___ amplify the music. || to|for|of || be used to + 原形動詞 = 被用來…。 || 喇叭被用來放大音樂。
@@ -47,4 +47,4 @@ annoyance || n. || 惱怒；討厭的事 || The noise is a constant annoyance. |
 anthem || n. || 國歌；頌歌 || We sang the national anthem. || 我們唱了國歌。 || national anthem=國歌 || Everyone stood up ___ the national anthem was played. || when|which|what || when 引導時間子句。 || 演奏國歌時大家都站了起來。
 antibiotic || n. || 抗生素 || The doctor gave me antibiotics. || 醫生開了抗生素給我。 || take antibiotics=服用抗生素 || Antibiotics don't work ___ viruses. || against|to|with || work against = 對…有效。 || 抗生素對病毒無效。
 anticipation || n. || 期待 || The fans waited in anticipation. || 粉絲們滿懷期待地等待。 || in anticipation of=預期… || We bought umbrellas in anticipation ___ the rain. || of|for|to || in anticipation of = 預期…。 || 我們預料會下雨，所以買了傘。
-antonym || n. || 反義詞 || "Hot" is the antonym of "cold." || 「hot」是「cold」的反義詞。 || antonym of=…的反義詞 || "Happy" is an antonym ___ "sad." || of|for|to || an antonym of = …的反義詞。 || 「happy」是「sad」的反義詞。
+antonym || n. || 反義詞 || "Hot" is the antonym of "cold." || 「hot」是「cold」的反義詞。 || antonym of=…的反義詞 || "Happy" is an antonym ___ "sad." || of|at|to || an antonym of = …的反義詞。 || 「happy」是「sad」的反義詞。

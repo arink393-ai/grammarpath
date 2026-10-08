@@ -24,12 +24,12 @@ shallow || adj. || 淺的 || The river is shallow here. || 這裡的河很淺。
 shampoo || n./v. || 洗髮精 || I need to buy some shampoo. || 我需要買洗髮精。 || a bottle of shampoo=一瓶洗髮精 || I ran out ___ shampoo this morning. || of|from|with || run out of = 用完…。 || 我今天早上洗髮精用完了。
 shepherd || n. || 牧羊人 || The shepherd looks after the sheep. || 牧羊人照顧羊群。 || German shepherd=德國牧羊犬 || The shepherd, ___ lives in the mountains, has 200 sheep. || who|which|whom || 非限定關係子句修飾人並當主詞，用 who。 || 住在山上的那位牧羊人有兩百隻羊。
 shiny || adj. || 閃亮的 || She has shiny black hair. || 她有一頭亮麗的黑髮。 || shiny shoes=亮晶晶的鞋子 || He polished his shoes until they were ___ shiny as a mirror. || as|so|too || as + 形容詞 + as = 和…一樣。 || 他把鞋子擦到像鏡子一樣亮。
-shorten || v. || 縮短 || Can you shorten these pants? || 你可以把這條褲子改短嗎？ || shorten the time=縮短時間 || The new MRT line will shorten the travel time ___ half. || by|in|to || by + 數量 = 減少了…。 || 新捷運線將縮短一半的交通時間。
+shorten || v. || 縮短 || Can you shorten these pants? || 你可以把這條褲子改短嗎？ || shorten the time=縮短時間 || The new MRT line will shorten the travel time ___ half. || by|at|to || by + 數量 = 減少了…。 || 新捷運線將縮短一半的交通時間。
 shortly || adv. || 不久 || The train will arrive shortly. || 火車即將到站。 || shortly after=不久之後 || Shortly ___ the movie started, the power went out. || after|before|since || shortly after = 在…之後不久。 || 電影開始後不久就停電了。
 shovel || n./v. || 鏟子 || He used a shovel to dig a hole. || 他用鏟子挖洞。 || snow shovel=雪鏟 || He dug a hole in the garden ___ a shovel. || with|by|in || 用某個工具用 with。 || 他用鏟子在花園裡挖了一個洞。
 shrimp || n. || 蝦 || I love fried shrimp. || 我愛炸蝦。 || shrimp fried rice=蝦仁炒飯 || I'm allergic to shrimp, so I can't eat anything ___ shrimp in it. || with|of|by || with = 含有…。 || 我對蝦過敏，所以不能吃任何含蝦的東西。
 shrink || v. || 縮水 || Wool sweaters may shrink in hot water. || 羊毛衣在熱水中可能會縮水。 || shrink in the wash=洗後縮水 || Wool sweaters may shrink ___ you wash them in hot water. || if|unless|though || if 引導條件子句。 || 羊毛衣如果用熱水洗可能會縮水。
-sigh || v./n. || 嘆氣 || She sighed with relief. || 她鬆了一口氣。 || sigh with relief=鬆一口氣 || She sighed ___ relief when she heard the news. || with|in|by || sigh with relief = 如釋重負地嘆氣。 || 她聽到消息時鬆了一口氣。
+sigh || v./n. || 嘆氣 || She sighed with relief. || 她鬆了一口氣。 || sigh with relief=鬆一口氣 || She sighed ___ relief when she heard the news. || with|on|by || sigh with relief = 如釋重負地嘆氣。 || 她聽到消息時鬆了一口氣。
 signal || n./v. || 信號 || There is no signal here. || 這裡沒有訊號。 || phone signal=手機訊號 || There is no phone signal ___ the mountains. || in|on|at || 在山區裡用 in。 || 山區裡沒有手機訊號。
 significant || adj. || 重要的；顯著的 || There has been a significant change. || 已經有了顯著的變化。 || significant change=顯著的變化 || There has been a significant increase ___ the number of tourists. || in|of|to || an increase in = …的增加。 || 觀光客的人數顯著增加。
 silk || n. || 絲 || This scarf is made of silk. || 這條圍巾是絲做的。 || silk shirt=絲質襯衫 || Silk ___ first made in China thousands of years ago. || was|is|were || 被動語態；silk 不可數，過去用 was + p.p.。 || 絲綢在數千年前首先在中國製造。
@@ -41,11 +41,11 @@ sip || v./n. || 啜飲 || She sipped her tea slowly. || 她慢慢地啜飲著茶
 situation || n. || 情況 || The situation is getting worse. || 情況越來越糟。 || in this situation=在這種情況下 || What would you do if you ___ in my situation? || were|are|have been || 與現在事實相反的假設：If + 過去式（be 用 were）。 || 如果你處在我的情況，你會怎麼做？
 skate || v./n. || 溜冰 || Can you skate? || 你會溜冰嗎？ || ice skate=溜冰 || We went to the ice rink ___ skate last weekend. || to|for|so || 不定詞 to V 表示目的。 || 我們上週末去溜冰場溜冰。
 ski || v./n. || 滑雪 || We go to Japan to ski every winter. || 我們每年冬天去日本滑雪。 || ski resort=滑雪勝地 || It's my first time to ski, so I'm a little ___. || nervous|nervously|nerve || be 動詞後面接形容詞 nervous。 || 這是我第一次滑雪，所以有點緊張。
-skillful || adj. || 熟練的 || He is a skillful driver. || 他是個熟練的駕駛。 || be skillful at=擅長… || She is skillful ___ making cakes. || at|in|for || be skillful at = 擅長…。 || 她很擅長做蛋糕。
+skillful || adj. || 熟練的 || He is a skillful driver. || 他是個熟練的駕駛。 || be skillful at=擅長… || She is skillful ___ making cakes. || at|to|for || be skillful at = 擅長…。 || 她很擅長做蛋糕。
 skinny || adj. || 很瘦的 || The dog is very skinny. || 那隻狗非常瘦。 || skinny jeans=緊身牛仔褲 || The dog was so skinny ___ you could see its bones. || that|what|which || so + 形容詞 + that…。 || 那隻狗瘦到看得見骨頭。
 skip || v. || 跳過；略過 || Don't skip breakfast. || 不要不吃早餐。 || skip class=翹課; skip breakfast=不吃早餐 || You shouldn't skip breakfast ___ it's the most important meal of the day. || because|so|although || 後面是原因，用 because。 || 你不應該不吃早餐，因為那是一天中最重要的一餐。
-slave || n. || 奴隸 || Don't be a slave to your phone. || 別當手機的奴隸。 || slave to=…的奴隸 || Many people have become slaves ___ their phones. || to|of|for || a slave to = …的奴隸。 || 很多人已經成為手機的奴隸。
+slave || n. || 奴隸 || Don't be a slave to your phone. || 別當手機的奴隸。 || slave to=…的奴隸 || Many people have become slaves ___ their phones. || to|at|for || a slave to = …的奴隸。 || 很多人已經成為手機的奴隸。
 sleeve || n. || 袖子 || The shirt has long sleeves. || 這件襯衫是長袖的。 || long sleeves=長袖; roll up one's sleeves=捲起袖子（準備做事） || Let's roll up our sleeves and get ___ work. || to|at|for || get to work = 開始工作。 || 我們捲起袖子開始工作吧。
 slender || adj. || 苗條的 || She is tall and slender. || 她又高又苗條。 || slender figure=苗條的身材 || She is slender ___ she eats a lot. || although|because|so || although = 雖然（讓步）。 || 雖然她吃很多，她還是很苗條。
-slice || n./v. || 片 || Can I have a slice of cake? || 我可以吃一片蛋糕嗎？ || a slice of=一片… || Cut the bread ___ thin slices. || into|in|to || cut A into B = 把 A 切成 B。 || 把麵包切成薄片。
+slice || n./v. || 片 || Can I have a slice of cake? || 我可以吃一片蛋糕嗎？ || a slice of=一片… || Cut the bread ___ thin slices. || into|on|to || cut A into B = 把 A 切成 B。 || 把麵包切成薄片。
 slippery || adj. || 滑的 || The floor is slippery. || 地板很滑。 || slippery road=濕滑的道路 || Be careful. The floor is slippery ___ it's wet. || because|so|although || 後面是原因，用 because。 || 小心，地板濕了所以很滑。

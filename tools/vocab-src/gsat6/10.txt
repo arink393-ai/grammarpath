@@ -4,13 +4,13 @@ intellect || n. || 智力 || She is a woman of great intellect. || 她是一位�
 interpreter || n. || 口譯員 || She works as an interpreter. || 她擔任口譯員。 || sign language interpreter=手語翻譯員 || The president spoke ___ an interpreter. || through|across|along || through = 透過…。 || 總統透過口譯員發言。
 intersection || n. || 十字路口 || Turn left at the next intersection. || 在下一個路口左轉。 || busy intersection=繁忙的路口 || Turn right ___ the second intersection. || at|in|on || at + 地點（點）。 || 在第二個路口右轉。
 intervene || v. || 介入；干預 || The teacher intervened in the fight. || 老師介入了這場打架。 || intervene in=介入… || The police had to intervene ___ the fight. || in|on|at || intervene in = 介入…。 || 警方不得不介入這場打鬥。
-intimacy || n. || 親密 || Trust is important for intimacy. || 信任對親密關係很重要。 || emotional intimacy=情感上的親密 || Sharing secrets can build intimacy ___ friends. || between|among|along || between = 在…之間。 || 分享祕密能拉近朋友之間的距離。
+intimacy || n. || 親密 || Trust is important for intimacy. || 信任對親密關係很重要。 || emotional intimacy=情感上的親密 || Sharing secrets can build intimacy ___ friends. || between|on|at || between = 在…之間。 || 分享祕密能拉近朋友之間的距離。
 intimidate || v. || 恐嚇 || Don't let him intimidate you. || 別讓他嚇到你。 || feel intimidated=感到害怕 || New students often feel intimidated ___ older students. || by|with|of || feel intimidated by = 被…嚇到。 || 新生常常被學長姊嚇到。
-intonation || n. || 語調 || English intonation is important. || 英文語調很重要。 || rising intonation=上揚語調 || Questions often end ___ a rising intonation. || with|by|in || end with = 以…結尾。 || 疑問句常以上揚語調結尾。
+intonation || n. || 語調 || English intonation is important. || 英文語調很重要。 || rising intonation=上揚語調 || Questions often end ___ a rising intonation. || with|by|at || end with = 以…結尾。 || 疑問句常以上揚語調結尾。
 intrigue || v./n. || 引起興趣；陰謀 || The story intrigued me. || 這個故事引起我的興趣。 || be intrigued by=對…感興趣 || I was intrigued ___ the old map. || by|with|of || 被動語態中動作執行者用 by。 || 我對那張古地圖很感興趣。
 intrude || v. || 打擾；闖入 || I don't want to intrude. || 我不想打擾。 || intrude on=打擾… || I'm sorry to intrude ___ your private time. || on|in|at || intrude on = 打擾…。 || 抱歉打擾你的私人時間。
 intruder || n. || 入侵者 || The dog barked at the intruder. || 狗對入侵者吠叫。 || intruder alarm=防盜警報 || The alarm went off ___ the intruder broke in. || when|which|what || when 引導時間子句。 || 入侵者闖入時警報響了。
-invaluable || adj. || 非常寶貴的 || Your help was invaluable. || 你的幫助非常寶貴。 || invaluable experience=寶貴的經驗 || Her advice was invaluable ___ me. || to|for|with || be invaluable to = 對…極為寶貴。 || 她的建議對我來說非常寶貴。
+invaluable || adj. || 非常寶貴的 || Your help was invaluable. || 你的幫助非常寶貴。 || invaluable experience=寶貴的經驗 || Her advice was invaluable ___ me. || to|at|with || be invaluable to = 對…極為寶貴。 || 她的建議對我來說非常寶貴。
 invariably || adv. || 總是 || He is invariably late. || 他總是遲到。 || invariably=一成不變地 || She invariably ___ coffee in the morning. || drinks|drink|drinking || 主詞 She 單數，現在式動詞加 s。 || 她每天早上一定喝咖啡。
 inventory || n. || 存貨；清單 || We need to check the inventory. || 我們需要清點存貨。 || take inventory=盤點 || The store takes inventory ___ the end of each month. || at|in|on || at the end of = 在…結束時。 || 這家店每個月底盤點存貨。
 ironic || adj. || 諷刺的 || It's ironic that the fire station burned down. || 消防局燒掉了，真是諷刺。 || ironic=反諷的 || It is ironic ___ the doctor is a heavy smoker. || that|what|which || It is + 形容詞 + that 子句。 || 那位醫生是個老菸槍，真是諷刺。
@@ -18,7 +18,7 @@ irritable || adj. || 易怒的 || He gets irritable when he is tired. || 他累�
 irritate || v. || 激怒；刺激 || His jokes irritate me. || 他的笑話讓我很煩。 || irritate the skin=刺激皮膚 || This soap may irritate your skin, ___ test it first. || so|but|because || 前因後果用 so。 || 這塊肥皂可能刺激皮膚，所以先試用看看。
 isle || n. || 小島 || We visited the Isle of Skye. || 我們去了斯凱島。 || Isle of Man=曼島 || The Isle of Wight is located ___ the south coast of England. || off|of|from || off the coast = 在…外海。 || 懷特島位於英格蘭南部外海。
 itch || n./v. || 癢 || My arm itches. || 我的手臂好癢。 || itchy=癢的 || The mosquito bite itches, but don't scratch ___. || it|them|its || it 代替 bite（單數）。 || 蚊子咬的地方很癢，但不要抓。
-ivy || n. || 常春藤 || Ivy covered the old wall. || 常春藤爬滿了老牆。 || Ivy League=常春藤聯盟 || The old wall is covered ___ ivy. || with|by|of || be covered with = 覆蓋著…。 || 那面老牆爬滿了常春藤。
+ivy || n. || 常春藤 || Ivy covered the old wall. || 常春藤爬滿了老牆。 || Ivy League=常春藤聯盟 || The old wall is covered ___ ivy. || with|at|of || be covered with = 覆蓋著…。 || 那面老牆爬滿了常春藤。
 jade || n. || 玉 || She wears a jade bracelet. || 她戴著玉鐲。 || jade bracelet=玉鐲 || The museum has a famous piece of jade ___ looks like a cabbage. || that|what|who || 關係代名詞 that 修飾物並當主詞。 || 博物館有一件看起來像白菜的著名玉器。
 janitor || n. || 工友 || The janitor cleans the school. || 工友打掃學校。 || school janitor=學校工友 || The janitor ___ cleans our school is very kind. || who|which|whom || 關係代名詞修飾人並當主詞，用 who。 || 打掃我們學校的工友很親切。
 jasmine || n. || 茉莉花 || I like jasmine tea. || 我喜歡茉莉花茶。 || jasmine tea=茉莉花茶 || Would you like jasmine tea ___ green tea? || or|and|but || 二選一用 or。 || 你要茉莉花茶還是綠茶？
@@ -42,7 +42,7 @@ legislator || n. || 立法委員 || The legislator proposed a new law. || 那位
 lengthy || adj. || 冗長的 || The meeting was lengthy. || 會議很冗長。 || lengthy discussion=冗長的討論 || After a lengthy discussion, we ___ a decision. || made|make|making || 過去的事用過去式。 || 經過冗長的討論後，我們做出了決定。
 lesbian || adj./n. || 女同性戀的 || She came out as a lesbian. || 她公開了自己的女同志身分。 || lesbian couple=女同志伴侶 || The lesbian couple got married ___ 2019. || in|on|at || 年份前用 in。 || 那對女同志伴侶在 2019 年結婚。
 lessen || v. || 減輕 || The medicine lessened the pain. || 藥物減輕了疼痛。 || lessen the pain=減輕痛苦 || Exercise can help lessen stress ___ anxiety. || and|or|but || 兩者並列用 and。 || 運動有助於減輕壓力和焦慮。
-lethal || adj. || 致命的 || The snake's bite is lethal. || 那條蛇的咬傷是致命的。 || lethal dose=致死劑量 || Some mushrooms are lethal ___ humans. || to|for|with || be lethal to = 對…致命。 || 有些蘑菇對人類是致命的。
+lethal || adj. || 致命的 || The snake's bite is lethal. || 那條蛇的咬傷是致命的。 || lethal dose=致死劑量 || Some mushrooms are lethal ___ humans. || to|at|with || be lethal to = 對…致命。 || 有些蘑菇對人類是致命的。
 liable || adj. || 有責任的；易於… || You are liable for the damage. || 你要為損壞負責。 || be liable for=對…負責 || The driver is liable ___ the damage to the car. || for|to|with || be liable for = 對…負法律責任。 || 那位駕駛要為車子的損壞負責。
 liberate || v. || 解放 || The city was liberated in 1945. || 這座城市在 1945 年獲得解放。 || liberate=使自由 || The prisoners ___ liberated at the end of the war. || were|was|be || 被動語態；prisoners 複數用 were + p.p.。 || 戰爭結束時囚犯們獲得了釋放。
 liberation || n. || 解放 || They celebrated their liberation. || 他們慶祝獲得解放。 || women's liberation=婦女解放運動 || The people celebrated their liberation ___ foreign rule. || from|of|by || liberation from = 從…解放。 || 人民慶祝擺脫外國統治。

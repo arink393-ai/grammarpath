@@ -1,10 +1,10 @@
 # 九年級 01：absent – ball
 absent || adj. || 缺席的 || Tom was absent from school yesterday. || 湯姆昨天沒來上學。 || be absent from=缺席… || Tom was absent ___ school because he was sick. || from|of|at || be absent from = 缺席…。 || 湯姆因為生病沒來上學。
-accept || v. || 接受 || She accepted my invitation. || 她接受了我的邀請。 || accept a gift=收下禮物; accept an invitation=接受邀請 || The invitation ___ accepted by everyone. || was|were|is being || 被動語態；The invitation 單數，過去用 was。 || 大家都接受了這個邀請。
+accept || v. || 接受 || She accepted my invitation. || 她接受了我的邀請。 || accept a gift=收下禮物; accept an invitation=接受邀請 || The invitation ___ accepted by everyone. || was|were|be || 被動語態；The invitation 單數，過去用 was。 || 大家都接受了這個邀請。
 accident || n. || 意外；事故 || He was hurt in a car accident. || 他在車禍中受傷。 || car accident=車禍; by accident=意外地 || He was hurt ___ a car accident last year. || in|on|by || 在意外事故中用 in。 || 他去年在一場車禍中受傷。
 active || adj. || 活躍的；主動的 || She is an active student in class. || 她在課堂上是個積極的學生。 || be active in=積極參與… || She is active ___ school activities. || in|on|at || be active in = 積極參與…。 || 她積極參與學校活動。
 activity || n. || 活動 || We have many activities at school. || 我們在學校有很多活動。 || outdoor activity=戶外活動; club activity=社團活動 || Which activity ___ you like best? || do|are|does || 一般動詞 like 的疑問句，主詞 you 用 do。 || 你最喜歡哪個活動？
-add || v. || 加 || Add some sugar to the tea. || 在茶裡加點糖。 || add A to B=把 A 加到 B; add up=加總 || Add some salt ___ the soup. || to|in|with || add A to B = 把 A 加進 B。 || 在湯裡加一些鹽。
+add || v. || 加 || Add some sugar to the tea. || 在茶裡加點糖。 || add A to B=把 A 加到 B; add up=加總 || Add some salt ___ the soup. || to|of|with || add A to B = 把 A 加進 B。 || 在湯裡加一些鹽。
 address || n. || 地址 || What's your address? || 你的地址是什麼？ || e-mail address=電子郵件地址 || Can you tell me ___ your address is? || what|which|where || 間接問句：what + 主詞 + 動詞。 || 你可以告訴我你的地址是什麼嗎？
 admire || v. || 欽佩；欣賞 || I admire my father very much. || 我非常欽佩我爸爸。 || admire sb for sth=因某事欽佩某人 || I admire her ___ her courage. || for|of|to || admire sb for sth = 因某事欽佩某人。 || 我欽佩她的勇氣。
 adult || n. || 成人 || Tickets for adults are 200 dollars. || 成人票兩百元。 || become an adult=成為大人 || Children must be with ___ adult. || an|a|the more || adult 以母音開頭，用 an。 || 兒童必須有成人陪同。
@@ -29,13 +29,13 @@ among || prep. || 在…之中（三者以上） || She is the tallest among her
 amount || n. || 數量 || He spent a large amount of money. || 他花了一大筆錢。 || a large amount of=大量的 || A large amount of water ___ wasted every day. || is|are|be || a large amount of + 不可數名詞，動詞用單數；被動 is + p.p.。 || 每天有大量的水被浪費。
 ancient || adj. || 古代的 || We visited an ancient temple. || 我們參觀了一座古廟。 || ancient history=古代史; ancient times=古代 || This ancient temple ___ built more than 300 years ago. || was|is|has || 被動語態；過去用 was + p.p.。 || 這座古廟建於三百多年前。
 angel || n. || 天使 || She sings like an angel. || 她唱歌像天使一樣。 || little angel=小天使 || You are ___ angel! Thank you so much. || an|a|the || angel 以母音開頭，用 an。 || 你真是個天使！太謝謝你了。
-anger || n. || 憤怒 || He shouted in anger. || 他憤怒地大叫。 || in anger=生氣地 || He left the room ___ anger. || in|with|by || in anger = 憤怒地。 || 他憤怒地離開房間。
+anger || n. || 憤怒 || He shouted in anger. || 他憤怒地大叫。 || in anger=生氣地 || He left the room ___ anger. || in|on|by || in anger = 憤怒地。 || 他憤怒地離開房間。
 ankle || n. || 腳踝 || I hurt my ankle when I was running. || 我跑步時扭傷了腳踝。 || twist one's ankle=扭傷腳踝 || I hurt my ankle ___ I was playing basketball. || while|during|for || while + 過去進行式，表示當時正在做的事。 || 我在打籃球時扭傷了腳踝。
 anywhere || adv. || 任何地方 || I can't find my key anywhere. || 我到處都找不到我的鑰匙。 || anywhere else=其他任何地方 || You can sit anywhere you ___. || like|likes|liked it || 名詞子句 anywhere (that) you like；主詞 you 用原形。 || 你想坐哪裡都可以。
 apologize || v. || 道歉 || You should apologize to her. || 你應該向她道歉。 || apologize to sb for sth=為某事向某人道歉 || You should apologize ___ her for being late. || to|for|at || apologize to sb = 向某人道歉。 || 你應該為遲到向她道歉。
-appreciate || v. || 感激；欣賞 || I really appreciate your help. || 我真的很感激你的幫忙。 || appreciate it=感激 || I would appreciate it if you ___ help me. || could|can|will be || 禮貌的請求：I would appreciate it if you could… || 如果你能幫我，我會很感激。
+appreciate || v. || 感激；欣賞 || I really appreciate your help. || 我真的很感激你的幫忙。 || appreciate it=感激 || I would appreciate it if you ___ help me. || could|will be|are || 禮貌的請求：I would appreciate it if you could… || 如果你能幫我，我會很感激。
 argue || v. || 爭吵；爭論 || Don't argue with your sister. || 不要跟你姊姊吵架。 || argue with sb=和某人爭吵; argue about=爭論… || They often argue ___ money. || about|to|with || argue about + 事 = 為…爭吵。 || 他們常為錢吵架。
-armchair || n. || 扶手椅 || Grandpa is sitting in the armchair. || 爺爺坐在扶手椅上。 || in an armchair=坐在扶手椅上 || Grandpa is sleeping ___ the armchair. || in|on|at || 坐在有扶手的椅子裡用 in。 || 爺爺在扶手椅上睡覺。
+armchair || n. || 扶手椅 || Grandpa is sitting in the armchair. || 爺爺坐在扶手椅上。 || in an armchair=坐在扶手椅上 || Grandpa is sleeping ___ the armchair. || in|to|at || 坐在有扶手的椅子裡用 in。 || 爺爺在扶手椅上睡覺。
 army || n. || 軍隊 || My brother is in the army. || 我哥哥在當兵。 || join the army=從軍 || My cousin joined the army ___ he graduated. || after|during|while of || after + 子句 = 在…之後。 || 我表哥畢業後就從軍了。
 arrange || v. || 安排；整理 || Can you arrange a meeting for us? || 你可以幫我們安排會議嗎？ || arrange a meeting=安排會議 || The books are arranged ___ size. || by|with|in || arrange by… = 依照…排列。 || 這些書是依照大小排列的。
 artist || n. || 藝術家 || Van Gogh is a famous artist. || 梵谷是一位有名的藝術家。 || famous artist=有名的藝術家 || Van Gogh was a famous artist ___ painted Sunflowers. || who|which|what || 關係代名詞修飾「人」用 who。 || 梵谷是畫了〈向日葵〉的著名藝術家。

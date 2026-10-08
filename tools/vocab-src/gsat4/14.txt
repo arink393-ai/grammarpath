@@ -16,7 +16,7 @@ observation || n. || 觀察 || The patient is under observation. || 病人在觀
 obstacle || n. || 障礙 || Lack of money is the biggest obstacle. || 缺錢是最大的障礙。 || overcome obstacles=克服障礙 || Fear is the biggest obstacle ___ success. || to|of|for || an obstacle to = …的障礙。 || 恐懼是成功最大的障礙。
 obtain || v. || 獲得 || You need to obtain a visa. || 你需要取得簽證。 || obtain information=取得資訊 || You must obtain permission ___ you use the lab. || before|after|since || 使用「之前」取得許可，用 before。 || 使用實驗室之前必須取得許可。
 occasional || adj. || 偶爾的 || We have occasional rain in winter. || 冬天偶爾下雨。 || occasional visit=偶爾的拜訪 || Apart from occasional rain, the weather ___ nice during our trip. || was|were|is || 過去的事，主詞 the weather 用 was。 || 除了偶爾下雨之外，我們旅行期間天氣都很好。
-occupation || n. || 職業 || What is your occupation? || 你的職業是什麼？ || by occupation=職業是… || Please write your name and occupation ___ the form. || on|in|at || 寫在表格上用 on。 || 請在表格上寫下你的姓名和職業。
+occupation || n. || 職業 || What is your occupation? || 你的職業是什麼？ || by occupation=職業是… || Please write your name and occupation ___ the form. || on|of|at || 寫在表格上用 on。 || 請在表格上寫下你的姓名和職業。
 occupy || v. || 佔據 || The seat is occupied. || 這個座位有人坐。 || be occupied with=忙於… || She is occupied ___ her work right now. || with|in|by || be occupied with = 忙於…。 || 她現在正忙著工作。
 offend || v. || 冒犯 || I didn't mean to offend you. || 我無意冒犯你。 || be offended by=被…冒犯 || She was offended ___ his rude comment. || by|with|of || 被動語態中動作執行者用 by。 || 她被他無禮的評論冒犯了。
 offense || n. || 冒犯；罪行 || No offense, but I disagree. || 無意冒犯，但我不同意。 || no offense=無意冒犯; take offense=生氣 || Don't take offense ___ what he said. || at|to|with || take offense at = 對…生氣。 || 別因他說的話生氣。

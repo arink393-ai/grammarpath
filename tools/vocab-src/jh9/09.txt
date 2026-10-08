@@ -29,7 +29,7 @@ magazine || n. || 雜誌 || I read a fashion magazine. || 我看一本時尚雜�
 magician || n. || 魔術師 || The magician pulled a rabbit out of a hat. || 魔術師從帽子裡變出一隻兔子。 || famous magician=有名的魔術師 || The magician pulled a rabbit out ___ his hat. || of|from|in || out of = 從…裡面出來。 || 魔術師從他的帽子裡變出一隻兔子。
 major || adj./n. || 主要的；主修 || Traffic is a major problem in big cities. || 交通是大城市的主要問題。 || major in=主修… || My sister majors ___ English at college. || in|on|at || major in = 主修…。 || 我姊姊在大學主修英文。
 male || adj./n. || 男性（的） || There are more male students than female students. || 男學生比女學生多。 || male student=男學生 || Most of the male students ___ basketball. || play|plays|playing || Most of the male students 複數，動詞用原形。 || 大部分男學生都打籃球。
-mall || n. || 購物中心 || Let's go shopping at the mall. || 我們去購物中心逛街吧。 || shopping mall=購物中心 || Let's meet ___ the mall at two. || at|on|in || 在某個地點用 at。 || 我們兩點在購物中心碰面吧。
+mall || n. || 購物中心 || Let's go shopping at the mall. || 我們去購物中心逛街吧。 || shopping mall=購物中心 || Let's meet ___ the mall at two. || at|on|of || 在某個地點用 at。 || 我們兩點在購物中心碰面吧。
 manager || n. || 經理 || The manager is in a meeting. || 經理在開會。 || store manager=店長 || I'd like to speak ___ the manager. || to|at|for || speak to sb = 跟某人說話。 || 我想跟經理談談。
 mango || n. || 芒果 || Mango ice is popular in summer. || 芒果冰在夏天很受歡迎。 || mango ice=芒果冰 || Mango ice is very popular ___ summer. || in|on|at || 季節前面用 in。 || 芒果冰在夏天非常受歡迎。
 manner || n. || 方式；禮貌（複數） || He has good manners. || 他很有禮貌。 || table manners=餐桌禮儀; good manners=禮貌 || It's bad manners ___ talk with your mouth full. || to|for|of || It is + 名詞 + to V。 || 嘴裡塞滿東西說話是不禮貌的。
@@ -45,7 +45,7 @@ measure || v. || 測量 || Measure the length of the table. || 量一下桌子�
 mechanic || n. || 技工 || The mechanic fixed my car. || 技工修好了我的車。 || car mechanic=汽車技師 || My car ___ fixed by the mechanic yesterday. || was|is|were || 被動語態；過去用 was + p.p.。 || 我的車昨天被技工修好了。
 memory || n. || 記憶；回憶 || I have a good memory. || 我記性很好。 || happy memories=快樂的回憶 || I have many happy memories ___ my childhood. || of|for|in || memories of = …的回憶。 || 我有許多童年的快樂回憶。
 men's room || n. || 男廁 || The men's room is on the left. || 男廁在左邊。 || men's room=男廁 || Excuse me, ___ is the men's room? || where|what|which || 問地點用 where。 || 不好意思，男廁在哪裡？
-message || n. || 訊息 || I'll send you a message. || 我會傳訊息給你。 || leave a message=留言 || Can I leave a message ___ Mr. Lin? || for|to|with || leave a message for sb = 留言給某人。 || 我可以留言給林先生嗎？
-metal || n. || 金屬 || This box is made of metal. || 這個盒子是金屬做的。 || heavy metal=重金屬 || This box is made ___ metal. || of|from|by || be made of = 由…製成。 || 這個盒子是金屬做的。
+message || n. || 訊息 || I'll send you a message. || 我會傳訊息給你。 || leave a message=留言 || Can I leave a message ___ Mr. Lin? || for|to|at || leave a message for sb = 留言給某人。 || 我可以留言給林先生嗎？
+metal || n. || 金屬 || This box is made of metal. || 這個盒子是金屬做的。 || heavy metal=重金屬 || This box is made ___ metal. || of|at|by || be made of = 由…製成。 || 這個盒子是金屬做的。
 meter || n. || 公尺 || The pool is 50 meters long. || 這座泳池五十公尺長。 || 100 meters=一百公尺 || How ___ is the pool? It's 50 meters long. || long|much|many || 問長度用 How long。 || 這座泳池多長？五十公尺。
 method || n. || 方法 || This is a good method of learning English. || 這是學英文的好方法。 || teaching method=教學方法 || This is a good method ___ learning new words. || of|to|with || a method of + V-ing = …的方法。 || 這是背新單字的好方法。

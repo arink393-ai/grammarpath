@@ -3,14 +3,14 @@ control || v./n. || 控制 || You need to control your anger. || 你需要控制
 convenience store || n. || 便利商店 || There is a convenience store on every corner. || 每個街角都有便利商店。 || convenience store=便利商店 || You can pay your bills ___ a convenience store. || at|on|to || 在某個地點（店）用 at。 || 你可以在便利商店繳帳單。
 conversation || n. || 對話 || We had a long conversation. || 我們聊了很久。 || have a conversation=交談 || I had a conversation ___ a foreigner in English. || with|to|for || have a conversation with sb = 和某人交談。 || 我用英文和一位外國人交談。
 corn || n. || 玉米 || I like corn soup. || 我喜歡玉米湯。 || corn soup=玉米濃湯 || Corn ___ grown in many parts of Taiwan. || is|are|be || 被動語態；corn 不可數用 is + p.p.。 || 台灣許多地方都種玉米。
-cotton || n. || 棉花 || This shirt is made of cotton. || 這件襯衫是棉做的。 || cotton shirt=棉衫 || This T-shirt is made ___ cotton. || of|from|by || be made of = 由…製成。 || 這件 T 恤是棉做的。
+cotton || n. || 棉花 || This shirt is made of cotton. || 這件襯衫是棉做的。 || cotton shirt=棉衫 || This T-shirt is made ___ cotton. || of|at|by || be made of = 由…製成。 || 這件 T 恤是棉做的。
 cough || v./n. || 咳嗽 || He has a bad cough. || 他咳得很嚴重。 || have a cough=咳嗽 || He has been coughing ___ three days. || for|since|in || for + 一段時間，搭配現在完成進行式。 || 他已經咳了三天。
 couple || n. || 一對；夫妻 || They are a happy couple. || 他們是一對幸福的夫妻。 || a couple of=幾個; married couple=夫妻 || I'll be back in a couple ___ minutes. || of|for|with || a couple of = 幾個。 || 我幾分鐘後回來。
 courage || n. || 勇氣 || It takes courage to say sorry. || 說抱歉需要勇氣。 || have the courage to V=有勇氣做… || She had the courage ___ the truth. || to tell|telling|tell || have the courage to + 原形動詞。 || 她有勇氣說出真相。
 court || n. || 球場；法院 || We play basketball on the court. || 我們在球場上打籃球。 || basketball court=籃球場 || The students are playing basketball ___ the court. || on|in|at || 在球場上用 on the court。 || 學生們正在球場上打籃球。
-cowboy || n. || 牛仔 || The cowboy rode a horse. || 牛仔騎著一匹馬。 || cowboy hat=牛仔帽 || The cowboy ___ a big hat is my uncle. || with|in|on || with + 外表特徵 = 戴著…的。 || 戴著大帽子的那個牛仔是我叔叔。
+cowboy || n. || 牛仔 || The cowboy rode a horse. || 牛仔騎著一匹馬。 || cowboy hat=牛仔帽 || The cowboy ___ a big hat is my uncle. || with|of|on || with + 外表特徵 = 戴著…的。 || 戴著大帽子的那個牛仔是我叔叔。
 crab || n. || 螃蟹 || Crabs walk sideways. || 螃蟹橫著走。 || crab meat=蟹肉 || Crabs ___ sideways. || walk|walks|walking || Crabs 複數，動詞用原形。 || 螃蟹橫著走。
-crayon || n. || 蠟筆 || The kids are drawing with crayons. || 孩子們在用蠟筆畫畫。 || a box of crayons=一盒蠟筆 || The kids are drawing ___ crayons. || with|by|in || 用某個工具用 with。 || 孩子們正在用蠟筆畫畫。
+crayon || n. || 蠟筆 || The kids are drawing with crayons. || 孩子們在用蠟筆畫畫。 || a box of crayons=一盒蠟筆 || The kids are drawing ___ crayons. || with|by|at || 用某個工具用 with。 || 孩子們正在用蠟筆畫畫。
 cream || n. || 奶油；乳霜 || Would you like cream in your coffee? || 你的咖啡要加奶油嗎？ || ice cream=冰淇淋; sun cream=防曬乳 || Put some sun cream on ___ you go to the beach. || before|after|until || 去海邊「之前」擦防曬，用 before。 || 去海邊之前擦點防曬乳。
 create || v. || 創造 || The artist created a beautiful painting. || 那位藝術家創作了一幅美麗的畫。 || create a new style=創造新風格 || This app ___ created by a high school student. || was|is|were || 被動語態；過去用 was + p.p.。 || 這個 app 是一位高中生做的。
 credit card || n. || 信用卡 || Can I pay by credit card? || 我可以刷卡嗎？ || pay by credit card=刷卡 || Can I pay ___ credit card? || by|with|in || pay by credit card = 用信用卡付款。 || 我可以用信用卡付款嗎？
@@ -25,7 +25,7 @@ current || adj. || 目前的 || What is your current address? || 你目前的地
 curtain || n. || 窗簾 || Please close the curtains. || 請拉上窗簾。 || close the curtains=拉上窗簾 || Open the curtains ___ let the sunshine in. || and|but|or || 連接兩個動作用 and。 || 拉開窗簾，讓陽光照進來。
 curve || n. || 曲線；彎道 || Drive slowly on the curve. || 在彎道上要開慢一點。 || sharp curve=急轉彎 || There is a sharp curve ahead, so you should drive ___. || slowly|slow|slower than || 修飾動詞 drive 用副詞 slowly。 || 前面有急轉彎，所以你應該開慢一點。
 custom || n. || 習俗 || It's a custom to eat mooncakes on Moon Festival. || 中秋節吃月餅是一種習俗。 || local custom=當地習俗 || Every country has ___ own customs. || its|it's|their own || country 單數用 its。 || 每個國家都有自己的習俗。
-customer || n. || 顧客 || The customer is always right. || 顧客永遠是對的。 || regular customer=常客 || The store was full ___ customers. || of|with|by || be full of = 充滿…。 || 店裡擠滿了顧客。
+customer || n. || 顧客 || The customer is always right. || 顧客永遠是對的。 || regular customer=常客 || The store was full ___ customers. || of|to|by || be full of = 充滿…。 || 店裡擠滿了顧客。
 daily || adj./adv. || 每日的 || Exercise is part of my daily life. || 運動是我日常生活的一部分。 || daily life=日常生活 || Exercise has become part ___ my daily life. || of|for|in || part of = …的一部分。 || 運動已成為我日常生活的一部分。
 damage || v./n. || 損害 || The typhoon damaged many houses. || 颱風損壞了很多房子。 || cause damage=造成損害 || Many houses ___ damaged by the typhoon. || were|was|are || 被動語態；Many houses 複數，過去用 were。 || 很多房子被颱風損壞了。
 danger || n. || 危險 || The sign means "Danger!" || 這個標誌的意思是「危險！」 || in danger=處於危險中; out of danger=脫離險境 || Many animals are ___ danger because of pollution. || in|at|on || in danger = 處於危險中。 || 很多動物因為污染而處於危險中。
@@ -38,7 +38,7 @@ decrease || v./n. || 減少 || The number of students is decreasing. || 學生�
 deer || n. || 鹿 || There are many deer in the park. || 公園裡有很多鹿。 || a herd of deer=一群鹿 || There ___ many deer in Nara Park. || are|is|be || deer 單複數同形；many deer 是複數，用 are。 || 奈良公園裡有很多鹿。
 degree || n. || 度；學位 || It's 30 degrees today. || 今天三十度。 || degrees Celsius=攝氏度; college degree=大學學位 || The temperature dropped ___ five degrees last night. || by|in|with || drop by + 數量 = 下降了…。 || 昨晚氣溫下降了五度。
 deliver || v. || 遞送 || The mailman delivers letters every day. || 郵差每天送信。 || deliver a package=送包裹 || The package ___ delivered yesterday. || was|is|were || 被動語態；過去用 was + p.p.。 || 包裹昨天送達了。
-department || n. || 部門；系 || She works in the sales department. || 她在業務部工作。 || department store=百貨公司 || My sister studies in the English department ___ a university. || of|at|in || the department of… = …的系。 || 我姊姊在一所大學的英文系讀書。
+department || n. || 部門；系 || She works in the sales department. || 她在業務部工作。 || department store=百貨公司 || My sister studies in the English department ___ a university. || of|to|for || the department of… = …的系。 || 我姊姊在一所大學的英文系讀書。
 depend || v. || 依靠；視…而定 || It depends on the weather. || 那要看天氣而定。 || depend on=依靠、視…而定 || You can depend ___ me. || on|in|at || depend on = 依靠…。 || 你可以依靠我。
 describe || v. || 描述 || Can you describe the man? || 你能描述那個人嗎？ || describe sth to sb=向某人描述某事 || Can you describe ___ the man looked like? || what|how|which || describe what sb looked like = 描述某人長什麼樣子。 || 你能描述那個人長什麼樣子嗎？
 desert || n. || 沙漠 || Camels live in the desert. || 駱駝住在沙漠裡。 || the Sahara Desert=撒哈拉沙漠 || It is very hot and dry ___ the desert. || in|on|at || 在沙漠裡用 in。 || 沙漠裡又熱又乾。

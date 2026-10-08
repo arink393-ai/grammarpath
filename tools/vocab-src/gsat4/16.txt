@@ -12,7 +12,7 @@ prompt || adj./v. || 迅速的；促使 || Thank you for your prompt reply. || �
 pronunciation || n. || 發音 || Her English pronunciation is good. || 她的英文發音很好。 || correct pronunciation=正確的發音 || You can improve ___ pronunciation by listening to native speakers. || your|you|yours || 名詞 pronunciation 前用所有格形容詞 your。 || 你可以藉由聽母語人士說話來改善發音。
 proposal || n. || 提議；求婚 || The committee accepted my proposal. || 委員會接受了我的提案。 || make a proposal=提出提議 || She said yes ___ his marriage proposal. || to|for|with || say yes to = 答應…。 || 她答應了他的求婚。
 prosper || v. || 繁榮 || The town prospered after the railway was built. || 鐵路建成後，小鎮繁榮起來。 || prosper=興旺 || The town began to prosper ___ the railway was built. || after|before|until || 鐵路建好「之後」繁榮，用 after。 || 鐵路建成後，小鎮開始繁榮起來。
-prosperity || n. || 繁榮 || The country enjoyed years of prosperity. || 這個國家享有多年的繁榮。 || economic prosperity=經濟繁榮 || People wish each other health and prosperity ___ Chinese New Year. || at|in|on || 在節日期間用 at。 || 過年時人們互相祝福健康和興旺。
+prosperity || n. || 繁榮 || The country enjoyed years of prosperity. || 這個國家享有多年的繁榮。 || economic prosperity=經濟繁榮 || People wish each other health and prosperity ___ Chinese New Year. || at|in|to || 在節日期間用 at。 || 過年時人們互相祝福健康和興旺。
 prosperous || adj. || 繁榮的 || Taipei is a prosperous city. || 台北是一座繁榮的城市。 || prosperous economy=繁榮的經濟 || The city became ___ prosperous than ever before. || more|most|much || 多音節形容詞的比較級用 more。 || 這座城市變得比以往任何時候都更繁榮。
 protein || n. || 蛋白質 || Eggs are rich in protein. || 蛋富含蛋白質。 || high protein=高蛋白 || Eggs and milk are rich ___ protein. || in|of|with || be rich in = 富含…。 || 蛋和牛奶富含蛋白質。
 protest || n./v. || 抗議 || People protested against the new law. || 人們抗議新法律。 || protest against=抗議… || Thousands of people protested ___ the new tax. || against|for|to || protest against = 抗議…。 || 數千人抗議新稅制。
@@ -27,11 +27,11 @@ pursue || v. || 追求 || She wants to pursue her dream. || 她想追求自己�
 pursuit || n. || 追求 || The pursuit of happiness is important. || 追求幸福很重要。 || in pursuit of=追求… || He left his hometown in pursuit ___ a better life. || of|for|to || in pursuit of = 追求…。 || 他為了追求更好的生活而離開家鄉。
 quarrel || n./v. || 爭吵 || They had a quarrel about money. || 他們為錢吵了一架。 || quarrel with=和…爭吵 || She often quarrels ___ her brother about small things. || with|to|for || quarrel with sb = 和某人爭吵。 || 她常常為小事和哥哥吵架。
 quilt || n. || 被子 || My grandma made this quilt. || 這條被子是我奶奶做的。 || cotton quilt=棉被 || The quilt ___ my grandma made is very warm. || that|who|what || 關係代名詞 that 修飾物並當 made 的受詞。 || 奶奶做的被子很溫暖。
-quotation || n. || 引文；報價 || This is a quotation from Shakespeare. || 這是莎士比亞的一句名言。 || famous quotation=名言 || The speech began with a quotation ___ a famous poet. || from|of|by || a quotation from = 引自…的話。 || 演講以一位知名詩人的名言開場。
+quotation || n. || 引文；報價 || This is a quotation from Shakespeare. || 這是莎士比亞的一句名言。 || famous quotation=名言 || The speech began with a quotation ___ a famous poet. || from|of|at || a quotation from = 引自…的話。 || 演講以一位知名詩人的名言開場。
 radar || n. || 雷達 || The plane was detected by radar. || 飛機被雷達偵測到。 || radar screen=雷達螢幕 || The ship ___ detected by radar last night. || was|is|were || 被動語態；過去用 was + p.p.。 || 那艘船昨晚被雷達偵測到。
 rage || n./v. || 盛怒 || He was in a rage. || 他暴怒。 || in a rage=盛怒之下; road rage=路怒 || He shouted ___ a rage. || in|with|by || in a rage = 盛怒之下。 || 他在盛怒之下大吼。
 rainfall || n. || 降雨量 || The rainfall this year is low. || 今年的降雨量很少。 || heavy rainfall=大量降雨 || The heavy rainfall caused floods ___ many areas. || in|on|at || 在…地區用 in。 || 大雨造成許多地區淹水。
-raisin || n. || 葡萄乾 || I like raisin bread. || 我喜歡葡萄乾麵包。 || raisin bread=葡萄乾麵包 || Raisins are made ___ grapes. || from|of|by || be made from = 由…製成（看不出原料）。 || 葡萄乾是用葡萄做成的。
+raisin || n. || 葡萄乾 || I like raisin bread. || 我喜歡葡萄乾麵包。 || raisin bread=葡萄乾麵包 || Raisins are made ___ grapes. || from|at|by || be made from = 由…製成（看不出原料）。 || 葡萄乾是用葡萄做成的。
 realistic || adj. || 實際的；逼真的 || Set realistic goals. || 設定實際可行的目標。 || realistic goal=實際的目標 || It's important ___ set realistic goals. || to|for|of || It is + 形容詞 + to V。 || 設定實際可行的目標很重要。
 rebel || n./v. || 叛亂者；反抗 || Teenagers often rebel against their parents. || 青少年常反抗父母。 || rebel against=反抗… || Many teenagers rebel ___ their parents' rules. || against|to|with || rebel against = 反抗…。 || 很多青少年會反抗父母的規定。
 recall || v. || 回想 || I can't recall his name. || 我想不起他的名字。 || recall + V-ing=記得做過… || I can't recall ___ him before. || meeting|to meet|meet || recall + V-ing = 記得做過…。 || 我不記得以前見過他。
@@ -41,11 +41,11 @@ recognition || n. || 認可；表揚 || She received recognition for her work. |
 recovery || n. || 康復；恢復 || He made a quick recovery. || 他很快就康復了。 || make a recovery=康復 || We wish you a speedy recovery ___ your illness. || from|of|for || recovery from = 從…中康復。 || 祝你早日康復。
 recreation || n. || 娛樂；消遣 || Reading is my favorite recreation. || 閱讀是我最喜歡的休閒活動。 || recreation center=休閒中心 || The park provides space for recreation ___ exercise. || and|but|or || 兩者並列用 and。 || 公園提供休閒和運動的空間。
 recycle || v. || 回收 || We should recycle paper. || 我們應該回收紙張。 || recycle bottles=回收瓶子 || Paper can ___ recycled many times. || be|is|been || can 後面接 be；被動 be + p.p.。 || 紙可以被回收很多次。
-reduction || n. || 減少 || There is a reduction in prices. || 價格降低了。 || price reduction=降價 || There has been a big reduction ___ the number of students. || in|of|for || a reduction in = …的減少。 || 學生人數大幅減少。
+reduction || n. || 減少 || There is a reduction in prices. || 價格降低了。 || price reduction=降價 || There has been a big reduction ___ the number of students. || in|at|for || a reduction in = …的減少。 || 學生人數大幅減少。
 refer || v. || 提到；參考 || He referred to the book in his speech. || 他在演講中提到了那本書。 || refer to=提到；參考 || You can refer ___ the dictionary if you don't know the word. || to|for|at || refer to = 參考、查閱。 || 如果不知道這個字，可以查字典。
 reference || n. || 參考；提及 || Keep this book for reference. || 留著這本書作參考。 || for reference=以供參考 || Keep this dictionary ___ future reference. || for|to|of || for future reference = 以供日後參考。 || 留著這本字典以供日後參考。
 reflect || v. || 反射；反映 || The lake reflects the mountains. || 湖面倒映著群山。 || reflect on=反省 || The results reflect ___ hard the students worked. || how|what|which || 名詞子句 how + 形容詞/副詞 = 多麼…。 || 結果反映出學生們有多努力。
-reflection || n. || 倒影；反省 || She looked at her reflection in the mirror. || 她看著鏡中的自己。 || on reflection=經過思考 || She saw her reflection ___ the water. || in|on|at || 在水中的倒影用 in。 || 她看到自己在水中的倒影。
+reflection || n. || 倒影；反省 || She looked at her reflection in the mirror. || 她看著鏡中的自己。 || on reflection=經過思考 || She saw her reflection ___ the water. || in|of|at || 在水中的倒影用 in。 || 她看到自己在水中的倒影。
 reform || n./v. || 改革 || The government plans education reform. || 政府計畫教育改革。 || education reform=教育改革 || The education reform ___ been discussed for years. || has|have|is || 現在完成式被動；The reform 單數用 has。 || 教育改革已經討論了好幾年。
 refugee || n. || 難民 || Many refugees fled the war. || 許多難民逃離戰爭。 || refugee camp=難民營 || Thousands of refugees ___ forced to leave their homes. || were|was|are || 被動語態；refugees 複數，過去用 were。 || 數千名難民被迫離開家園。
 refund || n./v. || 退款 || Can I get a refund? || 我可以退款嗎？ || full refund=全額退款 || You can get a full refund ___ you return the item within seven days. || if|unless|though || if 引導條件子句。 || 七天內退回商品就能全額退款。

@@ -6,9 +6,9 @@ exaggerate || v. || 誇大 || Don't exaggerate. || 別誇大其詞。 || exagger
 exception || n. || 例外 || There is an exception to every rule. || 每條規則都有例外。 || with the exception of=除了…之外 || Everyone passed the test ___ the exception of Tom. || with|in|by || with the exception of = 除了…之外。 || 除了湯姆以外，每個人都通過了考試。
 exhaust || v./n. || 使筋疲力盡；廢氣 || The long hike exhausted us. || 長途健行讓我們筋疲力盡。 || car exhaust=汽車廢氣 || Car exhaust is one of the main causes ___ air pollution. || of|for|to || the cause of = …的原因。 || 汽車廢氣是空氣污染的主要原因之一。
 exhibit || n./v. || 展覽品；展出 || The museum exhibits ancient art. || 這間博物館展出古代藝術品。 || on exhibit=展出中 || The paintings ___ exhibited in the museum until next month. || will be|will|are being be || 未來被動：will be + p.p.。 || 這些畫將在博物館展出到下個月。
-expand || v. || 擴大 || The company plans to expand. || 公司打算擴張。 || expand a business=擴展事業 || The company is planning to expand its business ___ Japan next year. || to|at|in || expand to + 地點 = 擴展到…。 || 這家公司計畫明年把業務擴展到日本。
+expand || v. || 擴大 || The company plans to expand. || 公司打算擴張。 || expand a business=擴展事業 || The company is planning to expand its business ___ Japan next year. || to|at|of || expand to + 地點 = 擴展到…。 || 這家公司計畫明年把業務擴展到日本。
 expansion || n. || 擴張 || The expansion of the city is fast. || 這座城市擴張得很快。 || rapid expansion=快速擴張 || The expansion ___ the airport will take three years. || of|for|to || the expansion of = …的擴建。 || 機場的擴建工程將花三年。
-experimental || adj. || 實驗性的 || The drug is still experimental. || 這種藥仍在實驗階段。 || experimental stage=實驗階段 || The new medicine is still ___ the experimental stage. || at|in|on || at the … stage = 在…階段。 || 這種新藥仍在實驗階段。
+experimental || adj. || 實驗性的 || The drug is still experimental. || 這種藥仍在實驗階段。 || experimental stage=實驗階段 || The new medicine is still ___ the experimental stage. || at|of|on || at the … stage = 在…階段。 || 這種新藥仍在實驗階段。
 explanation || n. || 解釋 || Can you give me an explanation? || 你能給我一個解釋嗎？ || give an explanation=解釋 || The teacher gave ___ clear explanation of the rule. || a|an|the || clear 以子音開頭，用 a。 || 老師對這條規則做了清楚的解釋。
 explosion || n. || 爆炸 || There was a loud explosion. || 發生了一聲巨響的爆炸。 || gas explosion=氣爆 || The explosion ___ caused by a gas leak. || was|is|were || 被動語態；過去用 was + p.p.。 || 這場爆炸是瓦斯外洩造成的。
 explosive || adj./n. || 爆炸性的；炸藥 || The police found explosives in the car. || 警方在車內找到了炸藥。 || explosive growth=爆炸性成長 || Explosives ___ not allowed on the plane. || are|is|be || Explosives 複數，用 are。 || 飛機上禁止攜帶爆裂物。
@@ -34,7 +34,7 @@ fertile || adj. || 肥沃的 || The soil here is very fertile. || 這裡的土�
 fetch || v. || 拿來 || Can you fetch me a glass of water? || 你可以幫我拿一杯水嗎？ || play fetch=玩丟接遊戲 || The dog ran to fetch the ball ___ I threw it. || after|before|until || 丟「之後」去撿，用 after。 || 我把球丟出去之後，狗跑去把它撿回來。
 fiction || n. || 小說；虛構 || I like reading science fiction. || 我喜歡讀科幻小說。 || science fiction=科幻小說 || Truth is stranger ___ fiction. || than|then|as || 比較級 + than。 || 事實比小說更離奇。
 fierce || adj. || 兇猛的；激烈的 || The competition was fierce. || 競爭很激烈。 || fierce competition=激烈的競爭 || The competition for the job was ___ fierce that only one out of 100 applicants got it. || so|such|too || so + 形容詞 + that…。 || 這份工作的競爭激烈到一百名申請者只錄取一人。
-finance || n./v. || 財務；資助 || She works in finance. || 她在金融業工作。 || personal finance=個人理財 || The project ___ financed by the government. || was|were|is being || 被動語態；過去用 was + p.p.。 || 這個計畫由政府資助。
+finance || n./v. || 財務；資助 || She works in finance. || 她在金融業工作。 || personal finance=個人理財 || The project ___ financed by the government. || was|were|be || 被動語態；過去用 was + p.p.。 || 這個計畫由政府資助。
 financial || adj. || 財務的 || The company has financial problems. || 這家公司有財務問題。 || financial support=經濟支援 || He needs financial support ___ his studies. || for|to|of || support for = 對…的支持。 || 他需要經濟援助來完成學業。
 fireplace || n. || 壁爐 || We sat by the fireplace. || 我們坐在壁爐旁。 || by the fireplace=在壁爐旁 || The family sat ___ the fireplace on the cold night. || by|in|on || by = 在…旁邊。 || 寒冷的夜晚，一家人坐在壁爐旁。
 flatter || v. || 奉承 || You're flattering me. || 你過獎了。 || be flattered=受寵若驚 || I'm flattered ___ you remember my name. || that|what|which || be flattered that… = 對…感到受寵若驚。 || 你記得我的名字讓我受寵若驚。

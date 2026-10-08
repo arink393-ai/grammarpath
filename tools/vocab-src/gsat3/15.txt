@@ -8,7 +8,7 @@ rely || v. || 依賴 || You can rely on me. || 你可以依靠我。 || rely on=
 remain || v. || 保持；剩下 || Please remain seated. || 請保持坐著。 || remain calm=保持冷靜 || Please remain ___ until the plane stops completely. || seated|seating|to seat || remain + 過去分詞（形容詞），表示狀態。 || 飛機完全停止前請保持坐著。
 remind || v. || 提醒 || Remind me to buy milk. || 提醒我買牛奶。 || remind sb to V=提醒某人做…; remind sb of=使某人想起 || Please remind me ___ my homework tomorrow. || to bring|bringing|bring || remind sb to + 原形動詞。 || 明天請提醒我帶作業。
 remote || adj. || 遙遠的；偏遠的 || They live in a remote village. || 他們住在一個偏遠的村莊。 || remote control=遙控器; remote area=偏遠地區 || Many teachers are needed in remote areas ___ there are few schools. || where|which|that || 關係副詞 where 修飾地點名詞 areas。 || 學校很少的偏遠地區需要很多老師。
-represent || v. || 代表 || She represented our school in the contest. || 她代表我們學校參加比賽。 || represent sb=代表某人 || She represented our school ___ the speech contest last year. || in|at|for || in + 比賽 = 在…比賽中。 || 她去年代表我們學校參加演講比賽。
+represent || v. || 代表 || She represented our school in the contest. || 她代表我們學校參加比賽。 || represent sb=代表某人 || She represented our school ___ the speech contest last year. || in|on|for || in + 比賽 = 在…比賽中。 || 她去年代表我們學校參加演講比賽。
 representative || n./adj. || 代表 || He is a representative of the class. || 他是班級代表。 || class representative=班代 || Each class will send a representative ___ the meeting. || to|for|at || send sb to + 地點/活動 = 派某人去…。 || 每班都會派一名代表出席會議。
 republic || n. || 共和國 || France is a republic. || 法國是共和國。 || the Republic of China=中華民國 || The Republic of China ___ founded in 1912. || was|is|were || 被動語態；過去用 was + p.p.。 || 中華民國成立於 1912 年。
 request || n./v. || 請求 || I have a request. || 我有一個請求。 || at the request of=應…的請求; make a request=提出請求 || The meeting was canceled at the request ___ the manager. || of|for|to || at the request of = 應…的要求。 || 會議應經理的要求取消了。
@@ -45,7 +45,7 @@ salary || n. || 薪水 || She gets a good salary. || 她的薪水很好。 || hi
 satisfactory || adj. || 令人滿意的 || The result was satisfactory. || 結果令人滿意。 || satisfactory result=令人滿意的結果 || The service at the hotel was not satisfactory, ___ we complained. || so|but|or || 前面是原因、後面是結果，用 so。 || 飯店的服務令人不滿意，所以我們投訴了。
 sauce || n. || 醬汁 || Would you like some sauce? || 你要一些醬汁嗎？ || soy sauce=醬油; tomato sauce=番茄醬 || The noodles taste better ___ this sauce. || with|by|of || with = 搭配…。 || 麵搭配這個醬汁更好吃。
 saucer || n. || 茶碟 || Put the cup on the saucer. || 把杯子放在茶碟上。 || flying saucer=飛碟 || Some people claim they ___ a flying saucer. || have seen|has seen|seeing || 現在完成式表示經驗；主詞 they 用 have。 || 有些人聲稱自己看過飛碟。
-sausage || n. || 香腸 || I'd like a sausage. || 我要一根香腸。 || grilled sausage=烤香腸 || Grilled sausages are one of the most popular snacks ___ night markets. || at|on|in || at night markets = 在夜市。 || 烤香腸是夜市最受歡迎的小吃之一。
+sausage || n. || 香腸 || I'd like a sausage. || 我要一根香腸。 || grilled sausage=烤香腸 || Grilled sausages are one of the most popular snacks ___ night markets. || at|on|of || at night markets = 在夜市。 || 烤香腸是夜市最受歡迎的小吃之一。
 saving || n. || 儲蓄 || She used her savings to travel. || 她用存款去旅行。 || savings account=儲蓄帳戶 || He spent all his savings ___ a new car. || on|in|for || spend money on = 把錢花在…。 || 他把所有存款都花在一輛新車上。
 scale || n. || 規模；秤 || The project is on a large scale. || 這個計畫規模很大。 || on a large scale=大規模地 || The festival was held ___ a large scale this year. || on|in|at || on a large scale = 大規模地。 || 今年的節慶大規模舉辦。
 scarce || adj. || 稀少的 || Water is scarce in the desert. || 沙漠裡水很稀少。 || scarce resources=稀有資源 || Food was scarce ___ the war. || during|while|since || during + 名詞 = 在…期間。 || 戰爭期間食物很短缺。

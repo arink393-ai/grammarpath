@@ -5,7 +5,7 @@ minor || adj. || 較小的；次要的 || It's just a minor problem. || 這只�
 minus || prep. || 減 || Ten minus three is seven. || 十減三等於七。 || plus and minus=加減 || Ten minus three ___ seven. || is|are|be || 數學算式視為單數，用 is。 || 十減三等於七。
 mirror || n. || 鏡子 || She looked at herself in the mirror. || 她看著鏡子裡的自己。 || look in the mirror=照鏡子 || She looked at ___ in the mirror. || herself|her|she || 主詞與受詞同一人用反身代名詞 herself。 || 她看著鏡子裡的自己。
 mix || v. || 混合 || Mix the flour with the eggs. || 把麵粉和蛋混合。 || mix A with B=把 A 和 B 混合 || Mix the flour ___ the milk. || with|to|by || mix A with B = 把 A 和 B 混合。 || 把麵粉和牛奶混合。
-model || n. || 模型；模特兒 || He likes to build model planes. || 他喜歡做模型飛機。 || model plane=模型飛機; role model=榜樣 || My sister is a role model ___ me. || for|to|of || a role model for sb = 某人的榜樣。 || 我姊姊是我的榜樣。
+model || n. || 模型；模特兒 || He likes to build model planes. || 他喜歡做模型飛機。 || model plane=模型飛機; role model=榜樣 || My sister is a role model ___ me. || for|at|of || a role model for sb = 某人的榜樣。 || 我姊姊是我的榜樣。
 monster || n. || 怪物 || The kids are afraid of the monster. || 孩子們怕那個怪物。 || sea monster=海怪 || The movie is about a monster ___ lives in the sea. || that|who|what || 關係代名詞 that 修飾物（a monster）。 || 這部電影是關於一隻住在海裡的怪物。
 mosquito || n. || 蚊子 || I was bitten by a mosquito. || 我被蚊子咬了。 || mosquito bite=蚊子咬的包 || I ___ bitten by mosquitoes last night. || was|am|were || 被動語態；過去主詞 I 用 was。 || 我昨晚被蚊子咬了。
 motion || n. || 動作；運動 || The car is in motion. || 車子正在移動。 || in motion=在運動中; slow motion=慢動作 || Don't get off the bus ___ it is in motion. || while|during|since || while + 子句 = 當…的時候。 || 公車行駛時不要下車。
@@ -25,7 +25,7 @@ negative || adj. || 負面的；否定的 || Don't be so negative. || 別那麼�
 neither || adj./pron. || 兩者都不 || Neither of them came. || 他們兩個都沒來。 || neither A nor B=既不是 A 也不是 B || Neither Tom nor Amy ___ at home. || is|are|be || neither A nor B，動詞與 B（Amy）一致，用 is。 || 湯姆和艾咪都不在家。
 nephew || n. || 姪子；外甥 || My nephew is five years old. || 我的姪子五歲。 || nephew and niece=姪子和姪女 || My nephew is ___ than my niece. || younger|young|youngest || 兩者比較用比較級 younger。 || 我的姪子比我的姪女年紀小。
 nervous || adj. || 緊張的 || I'm nervous about the exam. || 我對考試感到緊張。 || be nervous about=對…感到緊張 || I'm nervous ___ the speech contest. || about|of|at || be nervous about = 對…感到緊張。 || 我對演講比賽感到緊張。
-nest || n. || 巢 || The bird built a nest in the tree. || 鳥在樹上築了一個巢。 || bird's nest=鳥巢 || The bird built a nest ___ the tree. || in|on|at || 在樹上（枝葉間）用 in。 || 鳥在樹上築了一個巢。
+nest || n. || 巢 || The bird built a nest in the tree. || 鳥在樹上築了一個巢。 || bird's nest=鳥巢 || The bird built a nest ___ the tree. || in|of|at || 在樹上（枝葉間）用 in。 || 鳥在樹上築了一個巢。
 net || n. || 網 || The fisherman caught fish with a net. || 漁夫用網捕魚。 || fishing net=漁網 || The fish ___ caught in a net. || were|was|is || 被動語態；fish 在此指多條魚，用 were。 || 魚被網子捕到了。
 nice-looking || adj. || 好看的 || He is a nice-looking young man. || 他是一位好看的年輕人。 || nice-looking=好看的 || The nice-looking man ___ is standing there is my uncle. || who|which|what || 關係代名詞修飾「人」用 who。 || 站在那裡的那位帥哥是我叔叔。
 niece || n. || 姪女；外甥女 || My niece loves drawing. || 我的姪女喜歡畫畫。 || niece=姪女 || My niece loves ___ pictures. || drawing|draw|draws || love 後面可接動名詞 V-ing。 || 我的姪女喜歡畫畫。

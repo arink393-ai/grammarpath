@@ -1,6 +1,6 @@
 # 七年級 09：pet – sea
 pet || n. || 寵物 || Do you have a pet? || 你有養寵物嗎？ || pet dog=寵物狗; pet shop=寵物店 || ___ you have any pets? || Do|Are|Does || 一般動詞 have 的疑問句，主詞 you 用 Do。 || 你有養寵物嗎？
-photo || n. || 照片 || Let's take a photo. || 我們來拍張照吧。 || take a photo=拍照; family photo=全家福 || Can you take a photo ___ us? || of|for|to || take a photo of sb = 幫某人拍照。 || 你可以幫我們拍張照嗎？
+photo || n. || 照片 || Let's take a photo. || 我們來拍張照吧。 || take a photo=拍照; family photo=全家福 || Can you take a photo ___ us? || of|at|to || take a photo of sb = 幫某人拍照。 || 你可以幫我們拍張照嗎？
 piano || n. || 鋼琴 || She plays the piano every day. || 她每天彈鋼琴。 || play the piano=彈鋼琴; piano lesson=鋼琴課 || She plays ___ piano very well. || the|a|an || 演奏樂器時，樂器前加 the。 || 她鋼琴彈得很好。
 pick || v. || 挑選；摘；撿 || Pick a card. || 選一張牌。 || pick up=撿起、接人; pick flowers=摘花 || Please pick ___ the trash. || up|on|out || pick up = 撿起來。 || 請把垃圾撿起來。
 picture || n. || 圖畫；照片 || Look at this picture. || 看這張照片。 || take a picture=拍照; draw a picture=畫畫 || Look ___ this picture. || at|to|for || look at = 看…。 || 看這張照片。
@@ -13,7 +13,7 @@ plan || n./v. || 計畫 || What are your plans for the weekend? || 你週末有�
 plant || n./v. || 植物；種植 || Water the plants every day. || 每天替植物澆水。 || water the plants=澆花; plant trees=種樹 || Don't forget ___ water the plants. || to|for|of || forget to V = 忘記要去做…。 || 別忘了替植物澆水。
 plate || n. || 盤子 || Put the cake on the plate. || 把蛋糕放在盤子上。 || a plate of=一盤 || There is some rice ___ the plate. || on|in|at || 在盤子「上」用 on。 || 盤子上有一些飯。
 play || v. || 玩；打（球）；演奏 || Let's play soccer. || 我們去踢足球吧。 || play basketball=打籃球; play the piano=彈鋼琴 || My brother is playing ___ his friends. || with|to|at || play with = 和…玩。 || 我弟弟正在和他的朋友玩。
-playground || n. || 操場；遊樂場 || The kids are on the playground. || 孩子們在操場上。 || on the playground=在操場上 || The students are playing ___ the playground. || on|in|at || 在操場上用 on the playground。 || 學生們正在操場上玩。
+playground || n. || 操場；遊樂場 || The kids are on the playground. || 孩子們在操場上。 || on the playground=在操場上 || The students are playing ___ the playground. || on|of|to || 在操場上用 on the playground。 || 學生們正在操場上玩。
 please || adv. || 請 || Please sit down. || 請坐。 || yes, please=好的，麻煩了 || Please ___ quiet. || be|are|is || Please + 原形動詞；be quiet = 安靜。 || 請安靜。
 pool || n. || 游泳池 || We swim in the pool. || 我們在游泳池游泳。 || swimming pool=游泳池 || There ___ a big pool in our school. || is|are|be || a big pool 單數，There is。 || 我們學校有一座大游泳池。
 poor || adj. || 貧窮的；可憐的 || The poor dog is hungry. || 那隻可憐的狗很餓。 || poor people=窮人; poor thing=可憐的東西 || The poor cat is cold. Let's help ___. || it|them|its || 動物單數用 it；help 後接受格 it。 || 那隻可憐的貓很冷，我們幫幫牠吧。
@@ -43,7 +43,7 @@ robot || n. || 機器人 || The robot can talk. || 這個機器人會說話。 |
 rock || n. || 岩石；搖滾樂 || He likes rock music. || 他喜歡搖滾樂。 || rock music=搖滾樂; rock band=搖滾樂團 || There are many rocks ___ the beach. || on|in|of || 在海灘上用 on the beach。 || 海灘上有很多岩石。
 room || n. || 房間 || This is my room. || 這是我的房間。 || living room=客廳; clean one's room=打掃房間 || Please clean ___ room. || your|you|yours || 名詞 room 前用所有格形容詞 your。 || 請打掃你的房間。
 rose || n. || 玫瑰 || He gave her a red rose. || 他送她一朵紅玫瑰。 || red rose=紅玫瑰 || These roses ___ beautiful. || are|is|am || These roses 複數，用 are。 || 這些玫瑰好漂亮。
-round || adj. || 圓的 || The Earth is round. || 地球是圓的。 || round table=圓桌 || The moon is round ___ the Moon Festival. || at|in|on || at（在…時候）+ 節日：at the Moon Festival。 || 中秋節的月亮是圓的。
+round || adj. || 圓的 || The Earth is round. || 地球是圓的。 || round table=圓桌 || The moon is round ___ the Moon Festival. || at|of|to || at（在…時候）+ 節日：at the Moon Festival。 || 中秋節的月亮是圓的。
 ruler || n. || 尺 || Can I borrow your ruler? || 我可以借你的尺嗎？ || use a ruler=用尺 || Draw a line ___ a ruler. || with|by|in || 用某個工具用 with。 || 用尺畫一條線。
 run || v. || 跑 || He runs every morning. || 他每天早上跑步。 || run fast=跑得快; run away=逃跑 || Don't run ___ the classroom. || in|on|at || 在教室裡面用 in。 || 不要在教室裡奔跑。
 sad || adj. || 悲傷的 || Why are you sad? || 你為什麼難過？ || feel sad=覺得難過 || Don't be sad. Everything will be ___. || fine|finely|fined || be 動詞後面接形容詞 fine。 || 別難過，一切都會沒事的。

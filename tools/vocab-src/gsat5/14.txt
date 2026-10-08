@@ -31,13 +31,13 @@ pyramid || n. || 金字塔 || The pyramids are in Egypt. || 金字塔在埃及�
 qualify || v. || 有資格；合格 || She qualified for the final. || 她取得決賽資格。 || qualify for=取得…的資格 || Our team qualified ___ the national finals. || for|to|with || qualify for = 取得…的資格。 || 我們隊取得了全國決賽的資格。
 quest || n. || 探求；追尋 || Humans are on a quest for knowledge. || 人類在追求知識。 || quest for=追求… || The scientist spent his life ___ a quest for the truth. || on|in|at || on a quest = 在追尋中。 || 那位科學家一生都在追尋真理。
 questionnaire || n. || 問卷 || Please fill out the questionnaire. || 請填寫問卷。 || fill out a questionnaire=填問卷 || Please fill ___ the questionnaire and return it to me. || out|up|off || fill out = 填寫（表格）。 || 請填寫問卷並交回給我。
-quiver || v./n. || 顫抖 || Her voice quivered. || 她的聲音在顫抖。 || quiver with=因…而顫抖 || Her lips quivered ___ fear. || with|by|in || quiver with + 情緒 = 因…而顫抖。 || 她的嘴唇因恐懼而顫抖。
+quiver || v./n. || 顫抖 || Her voice quivered. || 她的聲音在顫抖。 || quiver with=因…而顫抖 || Her lips quivered ___ fear. || with|by|on || quiver with + 情緒 = 因…而顫抖。 || 她的嘴唇因恐懼而顫抖。
 quota || n. || 配額 || Each country has a quota. || 每個國家都有配額。 || meet a quota=達到配額 || The salesman failed ___ meet his monthly quota. || to|for|of || fail to + 原形動詞。 || 那位業務員沒能達到每月業績配額。
 racism || n. || 種族歧視 || Racism is still a problem. || 種族歧視仍是個問題。 || fight racism=對抗種族歧視 || We must all stand up ___ racism. || against|to|with || stand up against = 起身對抗…。 || 我們都必須起身對抗種族歧視。
 rack || n. || 架子 || Put your bike in the bike rack. || 把你的腳踏車停在車架上。 || bike rack=腳踏車架 || Hang your coat ___ the rack by the door. || on|in|at || 掛在架子上用 on。 || 把你的外套掛在門邊的架子上。
 radiation || n. || 輻射 || Too much radiation is harmful. || 過多的輻射有害。 || radiation exposure=輻射曝露 || Workers must be protected ___ radiation. || from|of|with || protect A from B = 保護 A 免於 B。 || 工作人員必須受到保護以免受輻射傷害。
 radical || adj. || 激進的；根本的 || They made radical changes. || 他們做了徹底的改變。 || radical change=徹底的改變 || The new manager made radical changes ___ the company. || to|for|with || changes to = 對…的改變。 || 新經理對公司做了徹底的改變。
-ragged || adj. || 破爛的 || The boy wore ragged clothes. || 那個男孩穿著破爛的衣服。 || ragged clothes=破爛衣服 || The boy ___ ragged clothes was begging on the street. || in|with|on || in + 衣服 = 穿著…。 || 那個穿著破爛衣服的男孩在街上乞討。
+ragged || adj. || 破爛的 || The boy wore ragged clothes. || 那個男孩穿著破爛的衣服。 || ragged clothes=破爛衣服 || The boy ___ ragged clothes was begging on the street. || in|at|on || in + 衣服 = 穿著…。 || 那個穿著破爛衣服的男孩在街上乞討。
 raid || n./v. || 突襲 || The police raided the house. || 警方突襲了那棟房子。 || police raid=警方突襲 || The police carried out a raid ___ the building at midnight. || on|in|at || a raid on = 對…的突襲。 || 警方在午夜突襲了那棟大樓。
 rail || n. || 欄杆；鐵路 || Hold on to the rail. || 抓緊欄杆。 || by rail=搭火車 || The goods were sent ___ rail. || by|on|with || by rail = 經由鐵路。 || 貨物經由鐵路運送。
 rally || n./v. || 集會；團結 || Thousands of people joined the rally. || 數千人參加了集會。 || hold a rally=舉行集會 || Thousands of people took part ___ the rally. || in|on|at || take part in = 參加…。 || 數千人參加了這場集會。

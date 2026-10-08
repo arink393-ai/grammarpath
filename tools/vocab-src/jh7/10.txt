@@ -1,5 +1,5 @@
 # 七年級 10：see – talk
-see || v. || 看見 || I can see the mountain from here. || 我從這裡看得到那座山。 || see you=再見; see a doctor=看醫生 || Can you see the bird ___ the tree? || in|on|at || 鳥在樹「上」（樹枝間）用 in the tree。 || 你看得到樹上的鳥嗎？
+see || v. || 看見 || I can see the mountain from here. || 我從這裡看得到那座山。 || see you=再見; see a doctor=看醫生 || Can you see the bird ___ the tree? || in|of|at || 鳥在樹「上」（樹枝間）用 in the tree。 || 你看得到樹上的鳥嗎？
 sell || v. || 賣 || They sell fruit at the market. || 他們在市場賣水果。 || sell out=賣完 || Does the store sell milk? Yes, ___ does. || it|they|its || the store 用代名詞 it；用 Does 問就用 does 答。 || 那家店有賣牛奶嗎？有。
 send || v. || 寄；送 || Send me a message. || 傳訊息給我。 || send a letter=寄信; send sb sth=寄某物給某人 || Please send ___ an e-mail. || me|I|my || send 後面的人用受格 me。 || 請寄一封電子郵件給我。
 ship || n. || 船 || The ship is very big. || 那艘船非常大。 || by ship=搭船 || The ship ___ leaving the port now. || is|are|does || 現在進行式；The ship 用 is。 || 那艘船現在正要離港。
@@ -13,7 +13,7 @@ side || n. || 邊；側 || Walk on the right side of the road. || 走在路的�
 sing || v. || 唱歌 || She can sing very well. || 她很會唱歌。 || sing a song=唱歌 || Listen! Mia ___ singing in her room. || is|are|does || 現在進行式；Mia 用 is。 || 你聽！米亞正在她房間裡唱歌。
 sister || n. || 姊妹 || My sister is a nurse. || 我姊姊是護理師。 || big sister=姊姊; little sister=妹妹 || My sister and I ___ in the same school. || are|is|am || 主詞 My sister and I 複數，用 are。 || 我妹妹和我在同一所學校。
 sit || v. || 坐 || Please sit down. || 請坐下。 || sit down=坐下; sit on=坐在…上 || Can I sit ___ you? || next to|next|near of || next to = 在…旁邊。 || 我可以坐你旁邊嗎？
-size || n. || 尺寸 || What size do you wear? || 你穿什麼尺寸？ || the same size=相同尺寸; large size=大號 || Do you have this shirt in a smaller size? Yes, we ___. || do|are|have || 用 Do you 問，就用 do 回答。 || 這件襯衫有小一點的尺寸嗎？有。
+size || n. || 尺寸 || What size do you wear? || 你穿什麼尺寸？ || the same size=相同尺寸; large size=大號 || Do you have this shirt in a smaller size? Yes, we ___. || do|are|is || 用 Do you 問，就用 do 回答。 || 這件襯衫有小一點的尺寸嗎？有。
 skirt || n. || 裙子 || She is wearing a long skirt. || 她穿著一件長裙。 || long skirt=長裙 || How much ___ this skirt? || is|are|does || this skirt 單數，用 is。 || 這件裙子多少錢？
 sky || n. || 天空 || The sky is blue. || 天空是藍色的。 || in the sky=在天空中 || There are many stars ___ the sky. || in|on|at || 在天空中用 in the sky。 || 天空中有很多星星。
 sleep || v./n. || 睡覺 || I sleep eight hours a night. || 我一晚睡八小時。 || go to sleep=去睡覺; sleep well=睡得好 || Don't make noise. The baby ___ sleeping. || is|are|does || 現在進行式；The baby 用 is。 || 別吵，寶寶在睡覺。

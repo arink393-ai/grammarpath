@@ -8,13 +8,13 @@ mystery || n. || 謎；神祕 || How he escaped is still a mystery. || 他怎麼
 naked || adj. || 赤裸的 || You can see the stars with the naked eye. || 你可以用肉眼看到星星。 || the naked eye=肉眼 || Some stars can be seen ___ the naked eye. || with|by|in || with the naked eye = 用肉眼。 || 有些星星用肉眼就看得到。
 nap || n./v. || 小睡 || I take a nap after lunch. || 我午餐後小睡一下。 || take a nap=小睡 || Taking a short nap ___ help you feel more energetic. || can|cans|could to || 助動詞 can 後接原形動詞。 || 小睡片刻能讓你更有精神。
 napkin || n. || 餐巾 || Put the napkin on your lap. || 把餐巾放在腿上。 || paper napkin=紙巾 || Could you pass me a napkin? I spilled ___ juice. || my|me|mine || 名詞 juice 前用所有格形容詞 my。 || 可以遞給我一張餐巾嗎？我把果汁灑了。
-native || adj./n. || 本地的；本國的 || English is her native language. || 英文是她的母語。 || native speaker=母語人士 || She speaks English ___ a native speaker. || like|as|such as || like = 像…一樣（介系詞）。 || 她說英文就像母語人士一樣。
+native || adj./n. || 本地的；本國的 || English is her native language. || 英文是她的母語。 || native speaker=母語人士 || She speaks English ___ a native speaker. || like|such|so || like = 像…一樣（介系詞）。 || 她說英文就像母語人士一樣。
 navy || n. || 海軍 || My uncle is in the navy. || 我叔叔在海軍服役。 || navy blue=海軍藍 || He joined the navy ___ he graduated from high school. || after|before|since || 畢業「之後」加入，用 after。 || 他高中畢業後加入了海軍。
 neat || adj. || 整潔的 || Her room is always neat. || 她的房間總是很整潔。 || neat and tidy=整整齊齊 || Keep your desk neat ___ you can find things easily. || so that|such that|so as || so that = 以便…。 || 保持書桌整潔，才能輕鬆找到東西。
 necessity || n. || 必需品 || Water is a necessity of life. || 水是生活必需品。 || daily necessities=日用品 || Food, water, and shelter ___ basic necessities of life. || are|is|be || 主詞為三樣東西（複數），用 are。 || 食物、水和住所是生活的基本必需品。
 necktie || n. || 領帶 || He wore a red necktie. || 他打著紅色領帶。 || wear a necktie=打領帶 || He bought a necktie ___ his father for Father's Day. || for|to|with || 為某人買用 for。 || 他為父親節買了一條領帶給爸爸。
 neighborhood || n. || 鄰近地區 || We live in a quiet neighborhood. || 我們住在一個安靜的社區。 || in the neighborhood=在附近 || Is there a park ___ the neighborhood? || in|on|at || in the neighborhood = 在附近。 || 附近有公園嗎？
-nest || n./v. || 巢 || The bird built a nest in the tree. || 鳥在樹上築巢。 || bird's nest=鳥巢 || The birds built their nest ___ small sticks. || with|by|of || with + 材料 = 用…。 || 鳥用小樹枝築巢。
+nest || n./v. || 巢 || The bird built a nest in the tree. || 鳥在樹上築巢。 || bird's nest=鳥巢 || The birds built their nest ___ small sticks. || with|by|at || with + 材料 = 用…。 || 鳥用小樹枝築巢。
 nickname || n. || 綽號 || His nickname is "Little Tiger." || 他的綽號是「小老虎」。 || give sb a nickname=給某人取綽號 || He got the nickname "Speedy" ___ he runs so fast. || because|so|although || 後面是原因，用 because。 || 他因為跑得很快而得到「飛毛腿」的綽號。
 normal || adj. || 正常的 || It's normal to feel nervous. || 感到緊張是正常的。 || back to normal=恢復正常 || It's normal ___ feel nervous before an exam. || to|for|of || It is + 形容詞 + to V。 || 考試前感到緊張是正常的。
 novelist || n. || 小說家 || She is a famous novelist. || 她是一位知名小說家。 || best-selling novelist=暢銷小說家 || The novelist ___ books have been translated into 20 languages is from Taiwan. || whose|who|which || 所有格關係代名詞 whose + 名詞。 || 那位作品被翻譯成二十種語言的小說家來自台灣。
@@ -32,7 +32,7 @@ opportunity || n. || 機會 || This is a great opportunity for you. || 這對你
 optimistic || adj. || 樂觀的 || She is optimistic about the future. || 她對未來很樂觀。 || be optimistic about=對…樂觀 || He remains optimistic ___ the result. || about|of|with || be optimistic about = 對…樂觀。 || 他對結果仍然很樂觀。
 oral || adj. || 口頭的；口腔的 || We have an oral test tomorrow. || 我們明天有口試。 || oral test=口試; oral health=口腔健康 || Brushing your teeth twice a day is important for ___ oral health. || your|you|yours || 名詞 oral health 前用所有格形容詞 your。 || 一天刷兩次牙對口腔健康很重要。
 organic || adj. || 有機的 || She only buys organic vegetables. || 她只買有機蔬菜。 || organic food=有機食品 || Organic vegetables are grown ___ using chemicals. || without|with|within || without + V-ing = 不…。 || 有機蔬菜的種植不使用化學藥劑。
-organize || v. || 組織；籌劃 || She organized a party for her friend. || 她為朋友籌辦了一場派對。 || organize an event=籌辦活動 || The event ___ organized by the student council. || was|is being|were || 被動語態；過去用 was + p.p.。 || 這個活動是由學生會籌辦的。
+organize || v. || 組織；籌劃 || She organized a party for her friend. || 她為朋友籌辦了一場派對。 || organize an event=籌辦活動 || The event ___ organized by the student council. || was|be|were || 被動語態；過去用 was + p.p.。 || 這個活動是由學生會籌辦的。
 original || adj./n. || 原本的；原創的 || This is the original painting. || 這是原畫。 || original idea=原創點子 || The movie is not as good as the original ___. || novel|novels|novelist || 題目句中已有 original，答案為被修飾的名詞 novel。 || 這部電影沒有原著小說好看。
 outdoor || adj. || 戶外的 || I like outdoor activities. || 我喜歡戶外活動。 || outdoor activities=戶外活動 || Hiking is one of my favorite outdoor ___. || activities|activity|active || one of + 複數名詞。 || 健行是我最喜歡的戶外活動之一。
 outdoors || adv. || 在戶外 || The kids like playing outdoors. || 孩子們喜歡在戶外玩。 || play outdoors=在戶外玩 || Children should spend more time playing outdoors ___ of staying at home. || instead|because|in spite || instead of = 而不是…。 || 孩子們應該花更多時間在戶外玩，而不是待在家裡。
@@ -48,4 +48,4 @@ pad || n. || 墊子；便條本 || Write it down on the note pad. || 把它寫�
 painter || n. || 畫家 || Van Gogh was a Dutch painter. || 梵谷是荷蘭畫家。 || famous painter=知名畫家 || The painter, ___ works are now very valuable, was poor during his life. || whose|who|which || 所有格關係代名詞 whose + 名詞。 || 這位畫家的作品如今非常珍貴，但他生前很窮。
 pal || n. || 朋友 || She is my pen pal. || 她是我的筆友。 || pen pal=筆友 || I have been writing to my pen pal in Canada ___ three years. || for|since|in || for + 一段時間，搭配現在完成進行式。 || 我和加拿大的筆友通信已經三年了。
 palace || n. || 宮殿 || The king lived in a palace. || 國王住在宮殿裡。 || royal palace=皇宮 || The National Palace Museum is famous ___ its Chinese art. || for|of|with || be famous for = 以…聞名。 || 故宮博物院以中國藝術品聞名。
-palm || n. || 手掌；棕櫚 || She read my palm. || 她幫我看手相。 || palm tree=棕櫚樹 || There are many palm trees ___ the beach. || on|in|at || 在海灘上用 on the beach。 || 海灘上有很多棕櫚樹。
+palm || n. || 手掌；棕櫚 || She read my palm. || 她幫我看手相。 || palm tree=棕櫚樹 || There are many palm trees ___ the beach. || on|in|of || 在海灘上用 on the beach。 || 海灘上有很多棕櫚樹。

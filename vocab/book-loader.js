@@ -5,8 +5,8 @@
       if(books.some(b=>b.id===id))return Promise.resolve();
       if(!catalog.some(b=>b.id===id))return Promise.resolve();
       if(jobs.has(id))return jobs.get(id);
-      const job=(insert?insert('data/'+id+'.js?v=2'):new Promise((resolve,reject)=>{
-        const script=document.createElement('script');script.src='data/'+id+'.js?v=2';
+      const job=(insert?insert('data/'+id+'.js?v=3'):new Promise((resolve,reject)=>{
+        const script=document.createElement('script');script.src='data/'+id+'.js?v=3';
         script.onload=resolve;script.onerror=()=>{script.remove();reject(new Error('Book unavailable'));};
         document.head.appendChild(script);
       })).then(()=>{if(!books.some(b=>b.id===id))throw new Error('Missing book data');}).finally(()=>jobs.delete(id));

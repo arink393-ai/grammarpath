@@ -24,11 +24,11 @@ reckon || v. || 認為；估計 || I reckon it will rain. || 我想會下雨。 
 reconcile || v. || 和解；調和 || They finally reconciled. || 他們終於和好了。 || be reconciled with=與…和好 || After years of fighting, he finally reconciled ___ his father. || with|to|for || reconcile with = 與…和好。 || 爭吵多年後，他終於和父親和好了。
 recreational || adj. || 娛樂的 || The park has recreational facilities. || 公園有休閒設施。 || recreational activities=休閒活動 || The town offers many recreational activities ___ families. || for|to|of || for + 對象 = 為…。 || 這個小鎮為家庭提供許多休閒活動。
 redundancy || n. || 多餘；裁員 || Avoid redundancy in your writing. || 寫作時避免冗詞。 || redundancy=重複 || Try to avoid redundancy ___ your essays. || in|on|at || in an essay = 在文章中。 || 寫文章時盡量避免冗贅。
-reef || n. || 礁 || The coral reef is beautiful. || 珊瑚礁很美。 || coral reef=珊瑚礁 || Many colorful fish live ___ the coral reef. || around|among|between || around = 在…周圍。 || 許多彩色的魚生活在珊瑚礁周圍。
-referee || n. || 裁判 || The referee blew the whistle. || 裁判吹了哨。 || football referee=足球裁判 || The players argued ___ the referee's decision. || about|to|for || argue about = 為…爭論。 || 球員們對裁判的判決提出爭論。
-referendum || n. || 公投 || The country held a referendum. || 這個國家舉行了公投。 || hold a referendum=舉行公投 || People voted ___ the referendum last Saturday. || in|on|at || vote in a referendum = 在公投中投票。 || 人們上週六在公投中投票。
+reef || n. || 礁 || The coral reef is beautiful. || 珊瑚礁很美。 || coral reef=珊瑚礁 || Many colorful fish live ___ the coral reef. || around|onto|between || around = 在…周圍。 || 許多彩色的魚生活在珊瑚礁周圍。
+referee || n. || 裁判 || The referee blew the whistle. || 裁判吹了哨。 || football referee=足球裁判 || The players argued ___ the referee's decision. || about|to|of || argue about = 為…爭論。 || 球員們對裁判的判決提出爭論。
+referendum || n. || 公投 || The country held a referendum. || 這個國家舉行了公投。 || hold a referendum=舉行公投 || People voted ___ the referendum last Saturday. || in|to|of || vote in a referendum = 在公投中投票。 || 人們上週六在公投中投票。
 reflective || adj. || 反光的；沉思的 || Wear a reflective vest at night. || 晚上穿反光背心。 || reflective vest=反光背心 || Cyclists should wear reflective clothing ___ night. || at|in|on || at night = 在夜間。 || 騎腳踏車的人夜間應穿反光衣物。
-refreshment || n. || 茶點；提神 || Refreshments will be served. || 會提供茶點。 || light refreshments=簡單茶點 || Refreshments will be served ___ the meeting. || after|before|until || 會議「之後」提供，用 after。 || 會議結束後將提供茶點。
+refreshment || n. || 茶點；提神 || Refreshments will be served. || 會提供茶點。 || light refreshments=簡單茶點 || Refreshments will be served ___ the meeting is over. || after|unless|so || 「會議結束之後」提供，用 after（連接詞）。 || 會議結束後將提供茶點。
 refute || v. || 駁斥 || He refuted the claim. || 他駁斥了這項說法。 || refute a claim=反駁說法 || The scientist refuted the claim ___ evidence. || with|by|from || with + 工具 = 用…。 || 那位科學家用證據駁斥這項說法。
 rehabilitate || v. || 使康復；使復原 || The center rehabilitates injured animals. || 這個中心幫受傷的動物復健。 || rehabilitate=復健 || The center works to rehabilitate injured birds ___ they can fly again. || so that|such that|so as || so that = 以便…。 || 這個中心致力於讓受傷的鳥兒復原，讓牠們能再飛翔。
 rehearse || v. || 排練 || The band rehearsed for the concert. || 樂團為演唱會排練。 || rehearse a play=排練戲劇 || We rehearsed the play ___ the big night. || before|after|since || 演出「之前」排練，用 before。 || 我們在演出之夜前排練了這齣戲。
@@ -38,7 +38,7 @@ relay || n./v. || 接力；轉達 || Our team won the relay race. || 我們隊�
 relentless || adj. || 不間斷的；無情的 || The rain was relentless. || 雨下個不停。 || relentless pressure=不斷的壓力 || The relentless rain caused flooding ___ many areas. || in|on|at || in + 地區。 || 不停的雨在許多地區造成淹水。
 reliance || n. || 依賴 || Our reliance on oil is a problem. || 我們對石油的依賴是個問題。 || reliance on=對…的依賴 || We should reduce our reliance ___ plastic. || on|to|for || reliance on = 對…的依賴。 || 我們應該減少對塑膠的依賴。
 reliant || adj. || 依賴的 || The country is reliant on imports. || 這個國家依賴進口。 || be reliant on=依賴… || Taiwan is heavily reliant ___ imported energy. || on|to|for || be reliant on = 依賴…。 || 台灣高度依賴進口能源。
-relic || n. || 遺物；遺跡 || The museum has relics from ancient times. || 博物館有古代遺物。 || ancient relic=古代遺物 || The museum displays relics ___ the Tang Dynasty. || from|of|by || from + 時期 = 來自…。 || 博物館展出唐朝的文物。
+relic || n. || 遺物；遺跡 || The museum has relics from ancient times. || 博物館有古代遺物。 || ancient relic=古代遺物 || The museum displays relics ___ the Tang Dynasty. || from|at|by || from + 時期 = 來自…。 || 博物館展出唐朝的文物。
 remainder || n. || 剩餘部分 || I spent the remainder of the day reading. || 我那天剩下的時間都在讀書。 || the remainder of=…的剩餘部分 || I spent the remainder ___ the day at home. || of|for|in || the remainder of = …的剩餘部分。 || 我那天剩下的時間都待在家裡。
 reminiscent || adj. || 使人想起的 || The smell is reminiscent of my childhood. || 這味道讓我想起童年。 || be reminiscent of=使人想起… || The song is reminiscent ___ the 1980s. || of|to|for || be reminiscent of = 使人想起…。 || 這首歌讓人想起 1980 年代。
 renowned || adj. || 著名的 || She is a renowned artist. || 她是一位著名的藝術家。 || be renowned for=以…聞名 || The city is renowned ___ its night markets. || for|of|with || be renowned for = 以…聞名。 || 這座城市以夜市聞名。

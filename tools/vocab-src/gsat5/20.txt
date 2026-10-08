@@ -6,7 +6,7 @@ variation || n. || 變化 || There is a lot of variation in prices. || 價格差
 vein || n. || 靜脈 || The nurse put a needle in my vein. || 護理師把針刺入我的靜脈。 || in the same vein=同樣地 || Blood flows back ___ the heart through the veins. || to|at|from || flow back to = 流回…。 || 血液經由靜脈流回心臟。
 vendor || n. || 小販 || I bought a drink from a street vendor. || 我向街頭小販買了一杯飲料。 || street vendor=街頭小販 || I bought some fruit ___ a street vendor. || from|of|by || buy sth from sb = 向某人買某物。 || 我向一位街頭小販買了一些水果。
 venture || n./v. || 冒險事業 || The new business venture was a success. || 新的事業很成功。 || joint venture=合資企業 || Starting a business is ___ risky venture. || a|an|the || risky 以子音開頭，用 a。 || 創業是一項有風險的冒險。
-venue || n. || 場地 || The venue for the concert has changed. || 音樂會的場地改了。 || concert venue=演唱會場地 || The venue ___ the wedding is a beautiful garden. || for|of|to || the venue for = …的場地。 || 婚禮的場地是一座美麗的花園。
+venue || n. || 場地 || The venue for the concert has changed. || 音樂會的場地改了。 || concert venue=演唱會場地 || The venue ___ the wedding is a beautiful garden. || for|at|to || the venue for = …的場地。 || 婚禮的場地是一座美麗的花園。
 verbal || adj. || 口頭的；言語的 || We made a verbal agreement. || 我們做了口頭協議。 || verbal skills=語言能力 || Verbal bullying can hurt ___ much as physical bullying. || as|so|too || as much as = 和…一樣多。 || 言語霸凌和肢體霸凌一樣傷人。
 verdict || n. || 判決 || The jury reached a verdict. || 陪審團做出判決。 || reach a verdict=做出判決 || The verdict ___ announced this morning. || was|were|is || 被動語態；過去用 was + p.p.。 || 判決在今天早上宣布。
 version || n. || 版本 || I prefer the original version. || 我比較喜歡原版。 || latest version=最新版本 || Please download the latest version ___ the app. || of|for|to || a version of = …的版本。 || 請下載這個應用程式的最新版本。
@@ -32,7 +32,7 @@ warrior || n. || 戰士 || He fought like a warrior. || 他像戰士一樣奮戰
 wary || adj. || 小心的；警惕的 || Be wary of strangers. || 要提防陌生人。 || be wary of=提防… || You should be wary ___ emails asking for your password. || of|for|to || be wary of = 提防…。 || 你應該提防要求密碼的電子郵件。
 weird || adj. || 奇怪的 || That's a weird idea. || 那是個奇怪的想法。 || weird feeling=奇怪的感覺 || I heard a weird noise ___ I was sleeping. || while|during|since || while + 子句 = 當…的時候。 || 我睡覺時聽到一個奇怪的聲音。
 whatsoever || adv. || 一點也（不） || I have no idea whatsoever. || 我完全不知道。 || no…whatsoever=一點也沒有 || There is no doubt whatsoever ___ he is guilty. || that|what|which || no doubt that… = 毫無疑問…。 || 毫無疑問他是有罪的。
-wheelchair || n. || 輪椅 || She uses a wheelchair. || 她使用輪椅。 || in a wheelchair=坐輪椅 || The building has ramps for people ___ wheelchairs. || in|on|with || in a wheelchair = 坐輪椅。 || 這棟建築為坐輪椅的人設有坡道。
+wheelchair || n. || 輪椅 || She uses a wheelchair. || 她使用輪椅。 || in a wheelchair=坐輪椅 || The building has ramps for people ___ wheelchairs. || in|on|at || in a wheelchair = 坐輪椅。 || 這棟建築為坐輪椅的人設有坡道。
 whereabouts || n. || 下落 || His whereabouts are unknown. || 他的下落不明。 || whereabouts=下落 || Nobody knows the whereabouts ___ the missing girl. || of|for|to || the whereabouts of = …的下落。 || 沒有人知道失蹤女孩的下落。
 whereas || conj. || 然而 || I like tea, whereas my sister likes coffee. || 我喜歡茶，然而我姊姊喜歡咖啡。 || whereas=然而 || I enjoy reading, whereas my brother ___ playing games. || prefers|prefer|preferring || 主詞 my brother 單數，現在式動詞加 s。 || 我喜歡閱讀，而我哥哥比較喜歡打電動。
 whine || v./n. || 發牢騷；哀鳴 || Stop whining! || 別再抱怨了！ || whine about=抱怨… || Stop whining ___ your homework and just do it. || about|to|for || whine about = 抱怨…。 || 別再抱怨作業了，快去做。
@@ -47,5 +47,5 @@ workshop || n. || 工作坊；工作室 || I joined a writing workshop. || 我�
 worship || v./n. || 崇拜；禮拜 || People worship at the temple. || 人們在廟裡參拜。 || place of worship=宗教場所 || A temple is a place ___ people worship gods. || where|which|what || 關係副詞 where 修飾地點。 || 廟是人們祭拜神明的地方。
 worthwhile || adj. || 值得的 || The trip was worthwhile. || 這趟旅行很值得。 || worthwhile experience=值得的經驗 || It is worthwhile ___ visit the old street. || to|for|of || It is worthwhile + to V。 || 那條老街值得一遊。
 worthy || adj. || 值得的 || His idea is worthy of attention. || 他的點子值得關注。 || be worthy of=值得… || Her effort is worthy ___ praise. || of|for|to || be worthy of = 值得…。 || 她的努力值得讚揚。
-yacht || n. || 遊艇 || The rich man owns a yacht. || 那位富翁擁有一艘遊艇。 || luxury yacht=豪華遊艇 || They spent the weekend sailing ___ a yacht. || on|in|at || on a yacht = 在遊艇上。 || 他們週末在遊艇上航行。
+yacht || n. || 遊艇 || The rich man owns a yacht. || 那位富翁擁有一艘遊艇。 || luxury yacht=豪華遊艇 || They spent the weekend sailing ___ a yacht. || on|of|to || on a yacht = 在遊艇上。 || 他們週末在遊艇上航行。
 yield || v./n. || 產出；讓步 || The farm yields a lot of rice. || 這座農場產出大量稻米。 || yield to=讓步給… || Drivers must yield ___ pedestrians at crosswalks. || to|for|with || yield to = 讓…先行。 || 駕駛在斑馬線前必須禮讓行人。

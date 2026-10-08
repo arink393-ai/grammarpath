@@ -2,7 +2,7 @@
 princess || n. || 公主 || The princess lived in a castle. || 公主住在城堡裡。 || fairy-tale princess=童話公主 || The princess was saved ___ a brave knight. || by|with|from || 被動語態中動作執行者用 by。 || 公主被一位勇敢的騎士救了。
 principal || n. || 校長 || The principal gave a speech. || 校長發表了演說。 || school principal=校長 || The principal ___ speaking to the students now. || is|are|does || 現在進行式；The principal 用 is。 || 校長現在正在對學生說話。
 principle || n. || 原則 || He has strong principles. || 他很有原則。 || in principle=原則上 || In principle, I agree ___ you, but I have some questions. || with|to|at || agree with sb = 同意某人。 || 原則上我同意你，但我有一些問題。
-print || v. || 列印；印刷 || Please print this page. || 請印出這一頁。 || print out=印出 || The books ___ printed in Taiwan. || were|was|are being || 被動語態；The books 複數，過去用 were。 || 這些書是在台灣印的。
+print || v. || 列印；印刷 || Please print this page. || 請印出這一頁。 || print out=印出 || The books ___ printed in Taiwan. || were|was|be || 被動語態；The books 複數，過去用 were。 || 這些書是在台灣印的。
 printer || n. || 印表機 || The printer is out of paper. || 印表機沒紙了。 || printer ink=墨水匣 || The printer is out ___ paper. || of|from|with || out of = 用完…。 || 印表機沒紙了。
 private || adj. || 私人的 || This is a private room. || 這是私人房間。 || private school=私立學校 || This beach is private, ___ we can't swim here. || so|but|or || 前面是原因、後面是結果，用 so。 || 這是私人海灘，所以我們不能在這裡游泳。
 produce || v. || 生產 || This factory produces cars. || 這間工廠生產汽車。 || produce food=生產食物 || These cars ___ produced in Japan. || are|is|be || 被動語態；These cars 複數用 are + p.p.。 || 這些車是在日本生產的。

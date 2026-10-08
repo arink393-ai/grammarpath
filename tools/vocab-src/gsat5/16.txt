@@ -12,7 +12,7 @@ sentimental || adj. || 感傷的；多愁善感的 || This old photo has sentime
 sequence || n. || 順序；連續 || Put the pictures in the right sequence. || 把圖片按正確順序排列。 || in sequence=按順序 || Please put the events ___ the correct sequence. || in|on|at || in sequence = 按順序。 || 請把事件按正確順序排列。
 series || n. || 系列 || I'm watching a TV series. || 我在看一部影集。 || TV series=影集 || This TV series ___ very popular among teenagers. || is|are|be || a series 視為單數，用 is。 || 這部影集在青少年間很受歡迎。
 server || n. || 伺服器；服務生 || The server is down. || 伺服器當機了。 || web server=網頁伺服器 || The website crashed ___ the server was overloaded. || because|although|unless || 表示原因用 because。 || 因為伺服器過載，網站當機了。
-session || n. || 一段時間；會議 || We have a training session today. || 我們今天有一場訓練課程。 || training session=訓練課程 || The question-and-answer session will start ___ ten minutes. || in|after|on || in + 一段時間 = 在…之後（未來）。 || 問答時間將在十分鐘後開始。
+session || n. || 一段時間；會議 || We have a training session today. || 我們今天有一場訓練課程。 || training session=訓練課程 || The question-and-answer session will start ___ ten minutes. || in|at|on || in + 一段時間 = 在…之後（未來）。 || 問答時間將在十分鐘後開始。
 setting || n. || 背景；設定 || The story's setting is Taipei. || 這個故事的背景在台北。 || privacy settings=隱私設定 || The story takes place ___ a setting of 1950s Taiwan. || in|on|at || in a setting = 在…背景中。 || 這個故事以 1950 年代的台灣為背景。
 shareholder || n. || 股東 || The shareholders voted on the plan. || 股東們對計畫進行表決。 || major shareholder=大股東 || The shareholders ___ unhappy with the company's profits. || were|was|be || shareholders 複數，用 were。 || 股東們對公司的利潤不滿意。
 shatter || v. || 粉碎 || The glass shattered on the floor. || 玻璃在地上摔得粉碎。 || shatter into pieces=碎成片 || The vase fell and shattered ___ pieces. || into|onto|from || shatter into pieces = 碎成碎片。 || 花瓶掉下來摔成碎片。
@@ -30,7 +30,7 @@ siege || n. || 圍攻 || The city was under siege for months. || 那座城市被
 skeleton || n. || 骨骼；骷髏 || The museum has a dinosaur skeleton. || 博物館有恐龍骨骼。 || dinosaur skeleton=恐龍骨骼 || The dinosaur skeleton ___ found in 1990. || was|is|were || 被動語態；過去用 was + p.p.。 || 那副恐龍骨骼是在 1990 年被發現的。
 skull || n. || 頭骨 || The helmet protects your skull. || 安全帽保護你的頭骨。 || human skull=人類頭骨 || A helmet can protect your skull ___ you fall off your bike. || if|unless|though || if 引導條件子句。 || 如果你從腳踏車上摔下來，安全帽能保護你的頭骨。
 slam || v. || 猛力關上 || Don't slam the door! || 不要用力甩門！ || slam the door=甩門 || She was so angry ___ she slammed the door. || that|which|what || so + 形容詞 + that…。 || 她氣到甩門。
-slap || v./n. || 打耳光 || She slapped him in the face. || 她打了他一巴掌。 || slap sb in the face=打某人耳光 || She slapped him ___ the face. || in|on|at || slap sb in the face = 打某人耳光。 || 她打了他一巴掌。
+slap || v./n. || 打耳光 || She slapped him in the face. || 她打了他一巴掌。 || slap sb in the face=打某人耳光 || She slapped him ___ the face. || in|to|at || slap sb in the face = 打某人耳光。 || 她打了他一巴掌。
 slavery || n. || 奴隸制度 || Slavery was abolished long ago. || 奴隸制度很久以前就廢除了。 || abolish slavery=廢除奴隸制 || Lincoln fought ___ end slavery. || to|for|of || 不定詞 to V 表示目的。 || 林肯為終結奴隸制度而奮鬥。
 slot || n. || 投幣孔；時段 || Put a coin in the slot. || 把硬幣投進投幣孔。 || time slot=時段 || Is there a free time slot ___ Friday afternoon? || on|in|at || 特定某天的下午用 on。 || 星期五下午有空的時段嗎？
 smash || v./n. || 打碎 || He smashed the window. || 他打破了窗戶。 || smash hit=大受歡迎的作品 || The movie was a smash hit ___ over the world. || all|every|whole || all over the world = 全世界。 || 這部電影在全世界大受歡迎。

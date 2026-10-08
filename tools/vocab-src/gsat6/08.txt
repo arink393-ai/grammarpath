@@ -16,18 +16,18 @@ fume || n./v. || 煙霧；發怒 || The fumes from the factory are toxic. || 工
 fury || n. || 憤怒 || He was in a fury. || 他暴怒。 || in a fury=盛怒之下 || She left the room ___ a fury. || in|on|with || in a fury = 盛怒之下。 || 她怒氣沖沖地離開房間。
 fuse || n./v. || 保險絲；融合 || The fuse blew. || 保險絲燒斷了。 || blow a fuse=燒斷保險絲 || The music fuses jazz ___ traditional Chinese music. || with|to|for || fuse A with B = 把 A 與 B 融合。 || 這種音樂把爵士樂與傳統中國音樂融合。
 fuss || n./v. || 大驚小怪 || Don't make a fuss. || 別大驚小怪。 || make a fuss=小題大作 || Why are you making such a fuss ___ a small mistake? || about|to|with || make a fuss about = 為…小題大作。 || 你為什麼要為一個小錯誤大驚小怪？
-gallop || v./n. || 疾馳 || The horse galloped across the field. || 馬在田野上疾馳。 || at a gallop=快速地 || The horse galloped ___ the field. || across|along|among || across = 越過…。 || 那匹馬疾馳越過田野。
+gallop || v./n. || 疾馳 || The horse galloped across the field. || 馬在田野上疾馳。 || at a gallop=快速地 || The horse galloped ___ the field. || across|onto|among || across = 越過…。 || 那匹馬疾馳越過田野。
 gangster || n. || 歹徒；幫派份子 || The movie is about gangsters. || 這部電影是關於幫派份子的。 || gangster movie=黑幫電影 || The gangster ___ arrested by the police last night. || was|is|were || 被動語態；過去用 was + p.p.。 || 那名歹徒昨晚被警方逮捕。
-garment || n. || 衣服 || This garment must be washed by hand. || 這件衣服必須手洗。 || garment factory=成衣工廠 || This garment should be washed ___ cold water. || in|with|by || in water = 用水洗。 || 這件衣服應該用冷水洗。
+garment || n. || 衣服 || This garment must be washed by hand. || 這件衣服必須手洗。 || garment factory=成衣工廠 || This garment should be washed ___ cold water. || in|at|by || in water = 用水洗。 || 這件衣服應該用冷水洗。
 gauge || n./v. || 量表；評估 || Check the fuel gauge. || 看一下油表。 || fuel gauge=油表 || It's hard to gauge ___ people really feel. || how|what|which || how 引導名詞子句，表示程度／方式。 || 很難判斷人們真正的感受。
 gay || adj. || 同性戀的 || Taiwan legalized same-sex marriage, including gay couples. || 台灣將同性婚姻合法化，包含男同志伴侶。 || gay rights=同志權益 || Taiwan was the first country in Asia ___ legalize gay marriage. || to|for|of || the first + 名詞 + to V。 || 台灣是亞洲第一個將同婚合法化的國家。
-geographical || adj. || 地理的 || Taiwan has a special geographical location. || 台灣有特殊的地理位置。 || geographical location=地理位置 || Taiwan's geographical location makes it important ___ trade. || for|to|of || important for = 對…重要。 || 台灣的地理位置使它在貿易上很重要。
+geographical || adj. || 地理的 || Taiwan has a special geographical location. || 台灣有特殊的地理位置。 || geographical location=地理位置 || Taiwan's geographical location makes it important ___ trade. || for|at|of || important for = 對…重要。 || 台灣的地理位置使它在貿易上很重要。
 geometry || n. || 幾何 || I'm learning geometry. || 我在學幾何。 || geometry class=幾何課 || I'm better at geometry ___ algebra. || than|then|as || 比較級 + than。 || 我的幾何比代數好。
 glacier || n. || 冰河 || The glacier is melting. || 冰河正在融化。 || melting glacier=融化的冰河 || Glaciers are melting ___ of global warming. || because|since|due || because of = 因為…。 || 因為全球暖化，冰河正在融化。
 glamorous || adj. || 迷人的；光鮮亮麗的 || She lives a glamorous life. || 她過著光鮮亮麗的生活。 || glamorous life=光鮮亮麗的生活 || Being a movie star is not as glamorous ___ it looks. || as|than|so || not as…as = 不像…一樣。 || 當電影明星不像看起來那麼光鮮亮麗。
 glamour || n. || 魅力 || Hollywood is full of glamour. || 好萊塢充滿魅力。 || glamour=魅力 || Many young people are attracted ___ the glamour of fame. || by|with|of || 被動語態中動作執行者用 by。 || 許多年輕人被名氣的光環吸引。
 gleam || v./n. || 閃爍 || Her eyes gleamed with joy. || 她的眼睛閃爍著喜悅。 || gleam with=閃著… || The floor gleamed ___ she cleaned it. || after|before|until || 打掃「之後」閃亮，用 after。 || 她打掃之後地板閃閃發亮。
-glide || v. || 滑行 || The bird glided over the lake. || 鳥在湖面上滑翔。 || glide=滑翔 || The eagle glided ___ the valley. || over|above|on || over = 越過…上方。 || 老鷹滑翔越過山谷。
+glide || v. || 滑行 || The bird glided over the lake. || 鳥在湖面上滑翔。 || glide=滑翔 || The eagle glided ___ the valley. || over|at|on || over = 越過…上方。 || 老鷹滑翔越過山谷。
 glitter || v./n. || 閃閃發光 || All that glitters is not gold. || 閃閃發光的未必是金子。 || glitter=閃亮 || The stars glitter ___ the night sky. || in|on|at || in the sky = 在天空中。 || 星星在夜空中閃閃發光。
 gloom || n. || 陰暗；憂鬱 || A feeling of gloom filled the room. || 一股陰鬱的氣氛充滿房間。 || doom and gloom=悲觀情緒 || There was a feeling of gloom ___ the team lost. || after|before|until || 輸了「之後」，用 after。 || 球隊輸了以後，大家心情低落。
 goalkeeper || n. || 守門員 || The goalkeeper saved the ball. || 守門員擋下了球。 || goalkeeper=門將 || The goalkeeper jumped ___ catch the ball. || to|for|of || 不定詞 to V 表示目的。 || 守門員跳起來接球。
@@ -37,7 +37,7 @@ gospel || n. || 福音 || He sings gospel music. || 他唱福音歌曲。 || gos
 grapefruit || n. || 葡萄柚 || I drink grapefruit juice. || 我喝葡萄柚汁。 || grapefruit juice=葡萄柚汁 || Grapefruit is rich ___ vitamin C. || in|of|with || be rich in = 富含…。 || 葡萄柚富含維生素 C。
 graze || v. || 吃草；擦傷 || Cows are grazing in the field. || 牛在田裡吃草。 || graze=放牧 || The sheep were grazing ___ the hill. || on|in|at || on the hill = 在山坡上。 || 羊群在山坡上吃草。
 grease || n./v. || 油脂 || There is grease on the pan. || 鍋子上有油漬。 || grease=油汙 || It's hard to get grease ___ of clothes. || out|off|away || get sth out of = 把…弄掉。 || 衣服上的油漬很難弄掉。
-groan || v./n. || 呻吟；抱怨 || The students groaned at the homework. || 學生們對作業哀嚎。 || groan in pain=痛苦呻吟 || He groaned ___ pain after he fell. || in|with|by || in pain = 痛苦地。 || 他跌倒後痛苦地呻吟。
+groan || v./n. || 呻吟；抱怨 || The students groaned at the homework. || 學生們對作業哀嚎。 || groan in pain=痛苦呻吟 || He groaned ___ pain after he fell. || in|on|by || in pain = 痛苦地。 || 他跌倒後痛苦地呻吟。
 growl || v./n. || 咆哮；低吼 || The dog growled at the stranger. || 狗對陌生人低吼。 || growl at=對…咆哮 || The dog growled ___ the mail carrier. || at|to|on || growl at = 對…咆哮。 || 狗對郵差低吼。
 grumble || v. || 抱怨 || He always grumbles about the food. || 他總是抱怨食物。 || grumble about=抱怨… || Stop grumbling ___ the weather. || about|to|with || grumble about = 抱怨…。 || 別再抱怨天氣了。
 hacker || n. || 駭客 || Hackers stole the data. || 駭客偷走了資料。 || computer hacker=電腦駭客 || The company's website was attacked ___ hackers. || by|with|from || 被動語態中動作執行者用 by。 || 公司的網站遭到駭客攻擊。

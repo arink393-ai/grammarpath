@@ -16,9 +16,9 @@ solve || v. || 解決 || Can you solve this problem? || 你能解決這個問題
 soul || n. || 靈魂 || Music is food for the soul. || 音樂是靈魂的食糧。 || body and soul=全心全意 || Music is food ___ the soul. || for|of|to || food for… = …的食糧。 || 音樂是靈魂的食糧。
 sour || adj. || 酸的 || The lemon tastes sour. || 檸檬嚐起來很酸。 || sweet and sour=酸甜 || The lemons are ___ sour to eat. || too|so|very || too + 形容詞 + to V = 太…而無法…。 || 檸檬太酸了，沒辦法吃。
 soy-sauce || n. || 醬油 || Add some soy-sauce to the noodles. || 在麵裡加一點醬油。 || soy sauce=醬油 || Don't put too ___ soy-sauce in the soup. || much|many|few || soy-sauce 不可數，用 too much。 || 湯裡別加太多醬油。
-spaghetti || n. || 義大利麵 || I had spaghetti for dinner. || 我晚餐吃義大利麵。 || spaghetti with meatballs=肉丸義大利麵 || I had spaghetti ___ dinner. || for|at|in || 「晚餐吃…」用 for dinner。 || 我晚餐吃義大利麵。
+spaghetti || n. || 義大利麵 || I had spaghetti for dinner. || 我晚餐吃義大利麵。 || spaghetti with meatballs=肉丸義大利麵 || I had spaghetti ___ dinner. || for|of|in || 「晚餐吃…」用 for dinner。 || 我晚餐吃義大利麵。
 speaker || n. || 演講者；喇叭 || The speaker talked about the environment. || 演講者談到環境議題。 || native speaker=母語人士 || The speaker ___ is on stage is a famous writer. || who|which|what || 關係代名詞修飾「人」用 who。 || 台上的那位演講者是一位知名作家。
-speech || n. || 演講 || She gave a speech in English. || 她用英文發表了演講。 || give a speech=發表演講; speech contest=演講比賽 || She won first prize ___ the speech contest. || in|on|at || win a prize in + 比賽。 || 她在演講比賽中得到第一名。
+speech || n. || 演講 || She gave a speech in English. || 她用英文發表了演講。 || give a speech=發表演講; speech contest=演講比賽 || She won first prize ___ the speech contest. || in|on|of || win a prize in + 比賽。 || 她在演講比賽中得到第一名。
 speed || n. || 速度 || The car was going at high speed. || 那輛車以高速行駛。 || at high speed=高速地; speed limit=速限 || The car was going ___ high speed. || at|in|with || at high speed = 高速地。 || 那輛車以高速行駛。
 spirit || n. || 精神 || The team has a great spirit. || 這支隊伍很有團隊精神。 || team spirit=團隊精神 || We need team spirit ___ win the game. || to|for|so || 不定詞 to V 表示目的。 || 我們需要團隊精神來贏得比賽。
 spot || n./v. || 地點；斑點；發現 || This is a good spot for a picnic. || 這是野餐的好地點。 || on the spot=當場; tourist spot=觀光景點 || This is a popular tourist spot ___ Taiwan. || in|on|at || 在國家用 in。 || 這是台灣一個熱門的觀光景點。
@@ -26,7 +26,7 @@ spread || v. || 散布；傳播 || The news spread quickly. || 消息傳得很�
 state || n. || 州；狀態 || California is a state in the U.S. || 加州是美國的一個州。 || the United States=美國 || There ___ fifty states in the United States. || are|is|be || fifty states 複數，There are。 || 美國有五十個州。
 stationery || n. || 文具 || I bought some stationery. || 我買了一些文具。 || stationery store=文具店 || I bought some stationery ___ the bookstore. || at|on|to || 在某個地點（店）用 at。 || 我在書店買了一些文具。
 steal || v. || 偷 || It is wrong to steal. || 偷竊是不對的。 || steal sth from sb=從某人那裡偷某物 || It's wrong ___ steal other people's things. || to|for|of || It is + 形容詞 + to V。 || 偷別人的東西是不對的。
-steam || n. || 蒸氣 || Steam came out of the pot. || 蒸氣從鍋子冒出來。 || steamed bun=饅頭; steam engine=蒸汽機 || Steam came out ___ the pot. || of|from|to || come out of = 從…出來。 || 蒸氣從鍋子冒出來。
+steam || n. || 蒸氣 || Steam came out of the pot. || 蒸氣從鍋子冒出來。 || steamed bun=饅頭; steam engine=蒸汽機 || Steam came out ___ the pot. || of|at|to || come out of = 從…出來。 || 蒸氣從鍋子冒出來。
 step || n. || 步伐；階梯 || Watch your step. || 小心腳步。 || step by step=一步一步地 || Learn English step ___ step. || by|to|after || step by step = 一步一步地。 || 一步一步學英文。
 stingy || adj. || 小氣的 || Don't be stingy. || 別小氣。 || stingy person=小氣鬼 || He is so stingy ___ he never buys anyone a drink. || that|what|which || so + 形容詞 + that… = 如此…以致於…。 || 他小氣到從不請任何人喝飲料。
 stomachache || n. || 胃痛 || I have a stomachache. || 我胃痛。 || have a stomachache=胃痛 || I have a stomachache ___ I ate too much. || because|so|but || 後面是原因，用 because。 || 我胃痛，因為我吃太多了。

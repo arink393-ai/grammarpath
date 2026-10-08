@@ -27,7 +27,7 @@ default || n./adj. || 預設；違約 || The default language is English. || 預
 defect || n. || 缺陷 || The car has a defect. || 這輛車有瑕疵。 || birth defect=先天缺陷 || The company recalled the cars ___ of a defect. || because|since|due || because of = 因為…。 || 公司因為瑕疵而召回這批車。
 defiance || n. || 違抗 || In defiance of the rules, he left early. || 他違反規定提早離開了。 || in defiance of=不顧… || The protesters marched ___ defiance of the ban. || in|on|at || in defiance of = 不顧…。 || 抗議者不顧禁令進行遊行。
 definitive || adj. || 決定性的；權威的 || This is the definitive guide to Taipei. || 這是台北的權威指南。 || definitive answer=確定的答案 || We haven't got a definitive answer ___ the doctor yet. || from|of|by || from + 人 = 來自…。 || 我們還沒得到醫生的明確答覆。
-dental || adj. || 牙齒的 || I have a dental appointment. || 我約了看牙。 || dental care=牙齒保健 || Regular dental checkups are important ___ healthy teeth. || for|to|with || be important for = 對…很重要。 || 定期牙齒檢查對保持牙齒健康很重要。
+dental || adj. || 牙齒的 || I have a dental appointment. || 我約了看牙。 || dental care=牙齒保健 || Regular dental checkups are important ___ healthy teeth. || for|at|with || be important for = 對…很重要。 || 定期牙齒檢查對保持牙齒健康很重要。
 deplete || v. || 耗盡 || We are depleting natural resources. || 我們正在耗盡自然資源。 || deplete resources=耗盡資源 || Overfishing has depleted the number ___ fish in the sea. || of|for|in || the number of = …的數量。 || 過度捕撈使海中的魚量減少。
 deprive || v. || 剝奪 || Lack of sleep deprives you of energy. || 睡眠不足會讓你缺乏活力。 || deprive sb of=剝奪某人的… || The prisoners were deprived ___ food. || of|from|with || deprive sb of sth = 剝奪某人的某物。 || 囚犯被剝奪了食物。
 descent || n. || 下降；血統 || The plane began its descent. || 飛機開始下降。 || of … descent=…血統 || She is ___ Japanese descent. || of|from|by || of … descent = 有…血統的。 || 她有日本血統。
@@ -47,5 +47,5 @@ dictatorship || n. || 獨裁政權 || The country was under a dictatorship. || �
 diesel || n. || 柴油 || This truck runs on diesel. || 這輛卡車使用柴油。 || diesel engine=柴油引擎 || Many buses still run ___ diesel. || on|in|with || run on = 以…為燃料。 || 許多公車仍然使用柴油。
 differentiate || v. || 區別 || Can you differentiate between the twins? || 你能分辨那對雙胞胎嗎？ || differentiate between=區分… || It's hard to differentiate ___ the two colors. || between|among|with || differentiate between = 區分…。 || 很難區分這兩種顏色。
 diplomacy || n. || 外交 || The problem was solved through diplomacy. || 這個問題透過外交解決了。 || through diplomacy=透過外交 || The conflict was solved ___ diplomacy, not war. || through|across|along || through = 透過…。 || 這場衝突是透過外交而非戰爭解決的。
-directive || n. || 指示；指令 || The staff received a new directive. || 員工收到一項新指令。 || issue a directive=發布指令 || All schools must follow the new directive ___ the government. || from|of|by || from + 來源 = 來自…。 || 所有學校都必須遵照政府的新指令。
+directive || n. || 指示；指令 || The staff received a new directive. || 員工收到一項新指令。 || issue a directive=發布指令 || All schools must follow the new directive ___ the government. || from|of|at || from + 來源 = 來自…。 || 所有學校都必須遵照政府的新指令。
 disable || v. || 使失能；停用 || The accident disabled him. || 那場意外讓他失能。 || disabled people=身心障礙者 || The building has ramps for people ___ are disabled. || who|which|whose || 關係代名詞修飾人並當主詞，用 who。 || 這棟建築為身心障礙者設有坡道。

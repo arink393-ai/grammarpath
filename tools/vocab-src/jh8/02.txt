@@ -6,23 +6,23 @@ block || n. || 街區 || The bookstore is two blocks away. || 書店在兩個街
 boil || v. || 煮沸 || Water boils at 100°C. || 水在攝氏一百度沸騰。 || boil water=燒開水; boiled egg=水煮蛋 || Water boils ___ 100°C. || at|in|on || 在某個溫度用 at。 || 水在攝氏一百度沸騰。
 bookstore || n. || 書店 || I bought this book at the bookstore. || 我在書店買了這本書。 || go to the bookstore=去書店 || Is there a bookstore near here? Yes, there ___ one on Main Street. || is|are|has || 用 Is there 問，回答 there is。 || 這附近有書店嗎？有，中山路上有一家。
 boring || adj. || 無聊的 || The movie was boring. || 那部電影很無聊。 || boring job=無聊的工作 || The movie was so boring ___ I fell asleep. || that|so|because || so + 形容詞 + that… = 如此…以致於…。 || 那部電影無聊到我睡著了。
-borrow || v. || 借入 || Can I borrow your pen? || 我可以跟你借筆嗎？ || borrow sth from sb=向某人借某物 || I borrowed this book ___ the library. || from|to|at || borrow sth from… = 向…借某物。 || 我從圖書館借了這本書。
+borrow || v. || 借入 || Can I borrow your pen? || 我可以跟你借筆嗎？ || borrow sth from sb=向某人借某物 || I borrowed this book ___ the library. || from|to|of || borrow sth from… = 向…借某物。 || 我從圖書館借了這本書。
 bottle || n. || 瓶子 || I drink a bottle of water every day. || 我每天喝一瓶水。 || a bottle of=一瓶; plastic bottle=塑膠瓶 || How many bottles of water ___ you drink yesterday? || did|do|were || yesterday 是過去，一般動詞疑問句用 did。 || 你昨天喝了幾瓶水？
 bottom || n. || 底部 || The coin is at the bottom of the pool. || 硬幣在泳池底部。 || at the bottom of=在…的底部 || The answer is at the bottom ___ the page. || of|in|on || at the bottom of = 在…的底部。 || 答案在這頁的最下面。
 bow || v./n. || 鞠躬；蝴蝶結 || The students bowed to the teacher. || 學生們向老師鞠躬。 || bow to=向…鞠躬; bow tie=領結 || In Japan, people bow ___ show respect. || to|for|of || 不定詞 to V 表示目的。 || 在日本，人們鞠躬以表示尊敬。
 bridge || n. || 橋 || There is a bridge over the river. || 河上有一座橋。 || cross the bridge=過橋 || The bridge ___ built fifty years ago. || was|is|were || 過去的被動語態 was + p.p.。 || 這座橋是五十年前建造的。
 bright || adj. || 明亮的；聰明的 || The room is bright and clean. || 這房間明亮又乾淨。 || bright light=亮光; bright student=聰明的學生 || The sun is ___ brightest in the afternoon. || the|a|an || 最高級前面加 the。 || 太陽在下午最亮。
 brush || v./n. || 刷；刷子 || Brush your teeth before bed. || 睡前刷牙。 || brush one's teeth=刷牙; toothbrush=牙刷 || I brush my teeth twice ___ day. || a|the|an || 每天幾次用 a day：twice a day。 || 我一天刷兩次牙。
-bun || n. || 小圓麵包；包子 || I had a steamed bun for breakfast. || 我早餐吃了一個包子。 || steamed bun=包子、饅頭 || I had two steamed buns ___ breakfast this morning. || for|at|in || 「早餐吃…」用 for breakfast。 || 我今天早餐吃了兩個包子。
+bun || n. || 小圓麵包；包子 || I had a steamed bun for breakfast. || 我早餐吃了一個包子。 || steamed bun=包子、饅頭 || I had two steamed buns ___ breakfast this morning. || for|of|in || 「早餐吃…」用 for breakfast。 || 我今天早餐吃了兩個包子。
 burn || v. || 燃燒；燙傷 || Be careful not to burn yourself. || 小心別燙傷自己。 || burn down=燒毀; get burned=被燙傷 || Be careful. Don't burn ___. || yourself|you|your || 主詞與受詞同一人用反身代名詞 yourself。 || 小心，別燙傷自己。
-business || n. || 生意；商業 || My father has his own business. || 我爸爸自己做生意。 || do business=做生意; business trip=出差 || My uncle went to Japan ___ business last week. || on|in|for || on business = 出差。 || 我叔叔上週去日本出差。
+business || n. || 生意；商業 || My father has his own business. || 我爸爸自己做生意。 || do business=做生意; business trip=出差 || My uncle went to Japan ___ business last week. || on|in|at || on business = 出差。 || 我叔叔上週去日本出差。
 businessman || n. || 商人 || He is a successful businessman. || 他是一位成功的商人。 || successful businessman=成功的商人 || He is ___ successful businessman. || a|an|the more || successful 以子音開頭，用 a。 || 他是一位成功的商人。
 butter || n. || 奶油 || I like bread with butter. || 我喜歡麵包塗奶油。 || peanut butter=花生醬 || Don't put too ___ butter on the bread. || much|many|few || butter 不可數，用 too much。 || 麵包上別抹太多奶油。
 butterfly || n. || 蝴蝶 || The butterfly is beautiful. || 那隻蝴蝶很漂亮。 || catch butterflies=捉蝴蝶 || Look! There ___ many butterflies in the garden. || are|is|be || many butterflies 複數，There are。 || 你看！花園裡有很多蝴蝶。
 button || n. || 按鈕；鈕扣 || Push the red button. || 按紅色按鈕。 || push a button=按按鈕 || Push the button, ___ the door will open. || and|or|but || 祈使句 + and = 如果…就會…。 || 按下按鈕，門就會打開。
 camera || n. || 相機 || I took pictures with my new camera. || 我用新相機拍照。 || digital camera=數位相機 || I took some pictures ___ my new camera. || with|by|on || 用某個工具用 with。 || 我用我的新相機拍了一些照片。
 candle || n. || 蠟燭 || Blow out the candles. || 吹熄蠟燭。 || birthday candle=生日蠟燭; light a candle=點蠟燭 || There ___ twelve candles on the cake. || were|was|are been || 過去的 There be，twelve candles 複數用 were。 || 蛋糕上有十二根蠟燭。
-careful || adj. || 小心的 || Be careful when you cross the street. || 過馬路時要小心。 || be careful with=小心使用… || Be careful ___ the knife. || with|of|at || be careful with = 小心使用…。 || 使用刀子要小心。
+careful || adj. || 小心的 || Be careful when you cross the street. || 過馬路時要小心。 || be careful with=小心使用… || Be careful ___ the knife. || with|on|at || be careful with = 小心使用…。 || 使用刀子要小心。
 castle || n. || 城堡 || The king lived in a castle. || 國王住在城堡裡。 || sand castle=沙堡 || The castle ___ more than five hundred years old. || is|are|has || The castle 單數，用 is。 || 這座城堡有五百多年的歷史。
 celebrate || v. || 慶祝 || We celebrate Chinese New Year with our family. || 我們和家人一起慶祝農曆新年。 || celebrate a birthday=慶生 || We celebrated Grandma's birthday ___ a big cake. || with|by|for || 用某樣東西來慶祝用 with。 || 我們用一個大蛋糕幫奶奶慶生。
 cellphone || n. || 手機 || Please turn off your cellphone. || 請把手機關機。 || cellphone number=手機號碼 || Students are not allowed ___ cellphones in class. || to use|use|using || be allowed to + 原形動詞。 || 學生上課時不准使用手機。
@@ -32,7 +32,7 @@ centimeter || n. || 公分 || The pencil is fifteen centimeters long. || 這支�
 chalk || n. || 粉筆 || The teacher writes with chalk. || 老師用粉筆寫字。 || a piece of chalk=一支粉筆 || Can you give me two ___ of chalk? || pieces|piece|chalks || chalk 不可數，用 pieces of chalk。 || 你可以給我兩支粉筆嗎？
 chance || n. || 機會 || This is a good chance to practice English. || 這是練習英文的好機會。 || have a chance to V=有機會做…; by chance=偶然 || I had a chance ___ to Japan last year. || to go|go|going || have a chance to + 原形動詞。 || 我去年有機會去日本。
 change || v./n. || 改變；零錢 || Here is your change. || 這是找您的零錢。 || change one's mind=改變主意; keep the change=不用找了 || The city has changed a lot ___ I was a kid. || since|for|when || since + 過去時間子句，搭配現在完成式。 || 自從我小時候到現在，這座城市改變很多。
-cheat || v. || 作弊；欺騙 || Don't cheat on the test. || 考試不要作弊。 || cheat on a test=考試作弊 || He was caught cheating ___ the test. || on|at|in || cheat on a test = 考試作弊。 || 他考試作弊被抓到。
+cheat || v. || 作弊；欺騙 || Don't cheat on the test. || 考試不要作弊。 || cheat on a test=考試作弊 || He was caught cheating ___ the test. || on|at|of || cheat on a test = 考試作弊。 || 他考試作弊被抓到。
 check || v. || 檢查 || Please check your answers. || 請檢查你的答案。 || check out=退房、結帳; check in=報到 || Check your answers ___ you hand in the test. || before|after|until || 交卷「之前」檢查，用 before。 || 交卷前檢查你的答案。
 cheer || v. || 歡呼；加油 || The fans cheered for their team. || 球迷為他們的隊伍加油。 || cheer for=為…加油; cheer up=振作 || The fans cheered ___ their team loudly. || for|to|at || cheer for sb = 為某人加油。 || 球迷大聲地為他們的隊伍加油。
 cheese || n. || 起司 || I like cheese on my pizza. || 我喜歡披薩上有起司。 || a piece of cheese=一塊起司 || Would you like some cheese ___ your bread? || on|in|at || 放在麵包「上」用 on。 || 你的麵包要加些起司嗎？
@@ -42,6 +42,6 @@ chocolate || n. || 巧克力 || I love chocolate cake. || 我愛巧克力蛋糕�
 choice || n. || 選擇 || You have two choices. || 你有兩個選擇。 || make a choice=做選擇; have no choice=別無選擇 || You have to make a choice ___ these two. || between|among|in || 兩者之間用 between。 || 你必須在這兩者之間做出選擇。
 choose || v. || 選擇 || Choose one color you like. || 選一個你喜歡的顏色。 || choose from=從…中選; choose to V=選擇做… || You can choose ___ the red one or the blue one. || either|both|neither || either A or B = A 或 B 其中一個。 || 你可以選紅色或藍色的。
 chopsticks || n. || 筷子 || Can you use chopsticks? || 你會用筷子嗎？ || a pair of chopsticks=一雙筷子 || Can you eat noodles ___ chopsticks? || with|by|in || 用某個工具用 with。 || 你會用筷子吃麵嗎？
-Christmas || n. || 聖誕節 || Merry Christmas! || 聖誕快樂！ || Christmas tree=聖誕樹; on Christmas Eve=在聖誕夜 || We give gifts to each other ___ Christmas. || at|in|on || 在節日期間用 at：at Christmas。 || 我們在聖誕節互送禮物。
+Christmas || n. || 聖誕節 || Merry Christmas! || 聖誕快樂！ || Christmas tree=聖誕樹; on Christmas Eve=在聖誕夜 || We give gifts to each other ___ Christmas. || at|in|to || 在節日期間用 at：at Christmas。 || 我們在聖誕節互送禮物。
 church || n. || 教堂 || They go to church on Sundays. || 他們星期天上教堂。 || go to church=上教堂做禮拜 || They go to church ___ Sunday mornings. || on|in|at || 特定某天的早上用 on。 || 他們星期天早上上教堂。
 circle || n./v. || 圓圈；圈起來 || Draw a circle. || 畫一個圓。 || in a circle=圍成一圈; circle the answer=圈出答案 || Please sit in a circle ___ listen to the story. || and|but|or || 連接兩個動作用 and。 || 請圍成一圈坐下來聽故事。

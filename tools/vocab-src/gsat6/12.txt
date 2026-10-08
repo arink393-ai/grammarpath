@@ -1,7 +1,7 @@
 # 學測 L6 12：miraculous – offspring
 miraculous || adj. || 奇蹟般的 || He made a miraculous recovery. || 他奇蹟般地康復了。 || miraculous escape=奇蹟似的脫險 || It was miraculous ___ nobody was hurt in the crash. || that|what|which || It is + 形容詞 + that 子句。 || 撞車中沒有人受傷，真是奇蹟。
 miscellaneous || adj. || 各式各樣的 || The box is full of miscellaneous items. || 箱子裡裝滿各種雜物。 || miscellaneous items=雜物 || The drawer is full ___ miscellaneous things. || of|with|in || be full of = 充滿…。 || 抽屜裡塞滿了各種雜物。
-mischievous || adj. || 調皮的 || The mischievous boy hid his sister's shoes. || 那個調皮的男孩把姊姊的鞋藏起來。 || mischievous smile=淘氣的笑容 || The mischievous puppy chewed ___ my shoes. || up|on|over || chew up = 嚼爛。 || 那隻調皮的小狗把我的鞋子咬爛了。
+mischievous || adj. || 調皮的 || The mischievous boy hid his sister's shoes. || 那個調皮的男孩把姊姊的鞋藏起來。 || mischievous smile=淘氣的笑容 || The mischievous puppy chewed ___ my shoes. || up|down|over || chew up = 嚼爛。 || 那隻調皮的小狗把我的鞋子咬爛了。
 mistress || n. || 女主人 || She is the mistress of the house. || 她是這個家的女主人。 || mistress of ceremonies=女司儀 || She served as the mistress ___ ceremonies at the wedding. || of|for|in || mistress of ceremonies = 女司儀。 || 她在婚禮上擔任女司儀。
 mobilize || v. || 動員 || The school mobilized volunteers. || 學校動員了志工。 || mobilize support=動員支持 || The city mobilized hundreds of volunteers ___ clean the beach. || to|for|of || 不定詞 to V 表示目的。 || 市政府動員了數百名志工清理海灘。
 modernization || n. || 現代化 || The modernization of the city took years. || 城市的現代化花了好幾年。 || modernization=現代化 || The modernization ___ the train system cost billions. || of|for|to || the modernization of = …的現代化。 || 鐵路系統現代化花費了數十億。
@@ -35,7 +35,7 @@ nostril || n. || 鼻孔 || Breathe in through your nostrils. || 用鼻孔吸氣�
 notable || adj. || 值得注意的；著名的 || It was a notable achievement. || 那是一項了不起的成就。 || notable for=以…著稱 || The town is notable ___ its old temples. || for|of|with || be notable for = 以…著稱。 || 這個小鎮以古廟著稱。
 notorious || adj. || 惡名昭彰的 || The area is notorious for crime. || 這區以犯罪猖獗出名。 || be notorious for=因…惡名昭彰 || This road is notorious ___ traffic jams. || for|of|with || be notorious for = 因…惡名昭彰。 || 這條路以塞車出名。
 novice || n. || 新手 || I'm a novice at cooking. || 我是烹飪新手。 || novice=初學者 || The course is designed ___ novices. || for|to|with || be designed for = 為…設計。 || 這門課是為新手設計的。
-nucleus || n. || 核心；原子核 || The nucleus is the center of an atom. || 原子核是原子的中心。 || cell nucleus=細胞核 || The nucleus is ___ the center of the cell. || at|in|on || at the center of = 在…的中心。 || 細胞核位於細胞的中心。
+nucleus || n. || 核心；原子核 || The nucleus is the center of an atom. || 原子核是原子的中心。 || cell nucleus=細胞核 || The nucleus is ___ the center of the cell. || at|of|on || at the center of = 在…的中心。 || 細胞核位於細胞的中心。
 nude || adj./n. || 裸體的 || The museum has nude statues. || 博物館有裸體雕像。 || nude painting=裸體畫 || Many ancient Greek statues ___ nude. || are|is|be || 主詞 statues 複數，用 are。 || 許多古希臘雕像都是裸體的。
 nurture || v. || 養育；培養 || Parents nurture their children. || 父母養育孩子。 || nurture talent=培養人才 || Good teachers nurture ___ students' talents. || their|them|theirs || 名詞 talents 前用所有格形容詞。 || 好老師培養學生的天賦。
 oasis || n. || 綠洲 || They found an oasis in the desert. || 他們在沙漠中找到一片綠洲。 || oasis of calm=寧靜之地 || The park is an oasis of calm ___ the busy city. || in|on|at || in the city = 在城市裡。 || 這座公園是繁忙都市中的一片寧靜綠洲。

@@ -1,21 +1,21 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v67-safety";
+const CACHE = "eci-v68-qbank";
 const SHELL = [
   "./",
   "./index.html",
   "./daily.css?v=17",
   "./progress-sync.js?v=1",
   "./curriculum-loader.js?v=3",
-  "./offline-content.js?v=3",
+  "./offline-content.js?v=4",
   "./daily.js?v=17",
   "./vocab/books.js?v=6",
-  "./vocab-quest.js?v=13",
+  "./vocab-quest.js?v=14",
   "./manifest.webmanifest",
   "./vocab/",
   "./vocab/style.css?v=2",
   "./vocab/books.js",
   "./vocab/catalog.js?v=1",
-  "./vocab/book-loader.js?v=2",
+  "./vocab/book-loader.js?v=3",
   "./vocab/account-storage.js?v=2",
   "./vocab/app.js?v=7",
   "./icons/icon-192.png",

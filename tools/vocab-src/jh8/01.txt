@@ -15,13 +15,13 @@ airport || n. || 機場 || My dad picked me up at the airport. || 爸爸到機�
 allow || v. || 允許 || Smoking is not allowed here. || 這裡不准抽菸。 || allow sb to V=允許某人做… || My parents don't allow me ___ video games at night. || to play|play|playing || allow sb to + 原形動詞。 || 我爸媽不准我晚上玩電動。
 almost || adv. || 幾乎 || It's almost ten o'clock. || 快十點了。 || almost all=幾乎全部; almost every day=幾乎每天 || I almost ___ the bus this morning. || missed|miss|misses || this morning 已經過去，用過去式 missed。 || 我今天早上差點錯過公車。
 already || adv. || 已經 || I have already finished my homework. || 我已經寫完功課了。 || already done=已經完成 || I have already ___ my homework. || finished|finish|finishing || 現在完成式 have + p.p.。 || 我已經寫完功課了。
-always || adv. || 總是 || She always gets up early. || 她總是很早起床。 || as always=一如往常 || She is always ___ time for class. || on|in|at || on time = 準時。 || 她上課總是很準時。
+always || adv. || 總是 || She always gets up early. || 她總是很早起床。 || as always=一如往常 || She is always ___ time for class. || on|of|at || on time = 準時。 || 她上課總是很準時。
 America || n. || 美國；美洲 || My uncle lives in America. || 我叔叔住在美國。 || North America=北美洲; South America=南美洲 || Have you ___ been to America? || ever|never yet|already ever || 現在完成式問「曾經」用 Have you ever + p.p.? || 你曾經去過美國嗎？
 American || adj./n. || 美國的；美國人 || He is an American teacher. || 他是一位美國老師。 || American food=美式食物 || My English teacher is ___ American. || an|a|the || American 以母音開頭，用 an。 || 我的英文老師是美國人。
 angle || n. || 角度 || Look at it from a different angle. || 從不同的角度看它。 || right angle=直角; from another angle=從另一個角度 || How many right angles ___ a square have? || does|do|is || a square 單數，一般動詞疑問句用 does。 || 正方形有幾個直角？
 another || adj./pron. || 另一個 || Can I have another cookie? || 我可以再吃一塊餅乾嗎？ || another one=另一個; one another=互相 || Can I have another cookie? They ___ delicious. || are|is|be || They（cookies）複數，用 are。 || 我可以再吃一塊餅乾嗎？它們好好吃。
 anyone || pron. || 任何人 || Is anyone home? || 有人在家嗎？ || anyone else=其他任何人 || Does anyone ___ a pen? || have|has|having || Does 後面接原形動詞 have。 || 有人有筆嗎？
-anything || pron. || 任何事物 || Do you want anything to drink? || 你想喝點什麼嗎？ || anything else=其他東西 || I didn't eat anything ___ breakfast. || for|at|in || 「早餐吃…」用 for breakfast。 || 我早餐什麼都沒吃。
+anything || pron. || 任何事物 || Do you want anything to drink? || 你想喝點什麼嗎？ || anything else=其他東西 || I didn't eat anything ___ breakfast. || for|of|in || 「早餐吃…」用 for breakfast。 || 我早餐什麼都沒吃。
 apartment || n. || 公寓 || They live in a small apartment. || 他們住在一間小公寓。 || apartment building=公寓大樓 || We live ___ the fifth floor of an apartment building. || on|in|at || 在第幾樓用 on。 || 我們住在一棟公寓大樓的五樓。
 appear || v. || 出現；似乎 || A rainbow appeared in the sky. || 天空出現了一道彩虹。 || appear in=出現在… || A cat suddenly appeared ___ the door. || at|on|of || 出現在門口用 at the door。 || 一隻貓突然出現在門口。
 area || n. || 地區；區域 || This area is very quiet. || 這個地區很安靜。 || parking area=停車區; rural area=鄉村地區 || There ___ many shops in this area. || are|is|be || many shops 複數，There are。 || 這個地區有很多商店。

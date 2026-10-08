@@ -15,7 +15,7 @@ slide || n./v. || 溜滑梯；滑動 || The kids are playing on the slide. || �
 smart || adj. || 聰明的 || She is a smart girl. || 她是個聰明的女孩。 || smart phone=智慧型手機 || She is smart. She ___ the answers to all the questions. || knows|know|knowing || She 第三人稱單數，動詞加 s。 || 她很聰明，所有問題的答案她都知道。
 smell || v./n. || 聞起來；氣味 || The cake smells good. || 這蛋糕聞起來很香。 || smell good=聞起來很香 || The flowers smell ___. || nice|nicely|nicer than || 感官動詞 smell 後面接形容詞。 || 這些花聞起來很香。
 smoke || v./n. || 抽菸；煙 || Smoking is bad for your health. || 抽菸對你的健康有害。 || no smoking=禁止吸菸 || You ___ not smoke here. || must|should to|have || must not = 禁止、不可以。 || 你不可以在這裡抽菸。
-snack || n. || 點心；零食 || I like to eat snacks after school. || 我喜歡放學後吃點心。 || have a snack=吃點心 || Don't eat too many snacks ___ dinner. || before|after|until || 晚餐「之前」別吃太多零食，用 before。 || 晚餐前別吃太多零食。
+snack || n. || 點心；零食 || I like to eat snacks after school. || 我喜歡放學後吃點心。 || have a snack=吃點心 || Don't eat too many snacks ___ dinner, or you won't be hungry. || before|after|until || 晚餐「之前」吃太多會吃不下，用 before。 || 晚餐前別吃太多零食，否則你會吃不下。
 snowy || adj. || 下雪的 || It was snowy in Japan. || 日本那時在下雪。 || snowy day=下雪天 || It ___ snowy when we were in Hokkaido. || was|is|were || 過去的天氣，It 用 was。 || 我們在北海道時正在下雪。
 soldier || n. || 士兵 || The soldiers are very brave. || 士兵們非常勇敢。 || brave soldier=勇敢的士兵 || The soldiers ___ very brave. || are|is|am || The soldiers 複數，用 are。 || 士兵們非常勇敢。
 someone || pron. || 某人 || Someone is knocking on the door. || 有人在敲門。 || someone else=別人 || Someone ___ knocking on the door. || is|are|be || someone 視為單數，用 is。 || 有人在敲門。
@@ -26,7 +26,7 @@ sore || adj. || 痛的 || I have a sore throat. || 我喉嚨痛。 || sore throa
 sound || n./v. || 聲音；聽起來 || That sounds great! || 聽起來很棒！ || sound like=聽起來像; sound good=聽起來不錯 || Let's go to the beach. That sounds ___! || great|greatly|greatest || 感官動詞 sound 後面接形容詞。 || 我們去海邊吧。聽起來很棒！
 south || n. || 南方 || Kaohsiung is in the south of Taiwan. || 高雄在台灣南部。 || in the south=在南部 || Kaohsiung is ___ the south of Taiwan. || in|on|at || 在某地區的某方位用 in the south of。 || 高雄在台灣南部。
 space || n. || 太空；空間 || I want to travel to space. || 我想去太空旅行。 || outer space=外太空; space station=太空站 || There isn't enough space ___ my desk. || on|in|at || 在桌面上用 on。 || 我的桌上沒有足夠的空間。
-special || adj. || 特別的 || Today is a special day. || 今天是特別的日子。 || special gift=特別的禮物 || Is there anything special ___ your birthday? || about|of|for || anything special about… = …有什麼特別之處。 || 你的生日有什麼特別的嗎？
+special || adj. || 特別的 || Today is a special day. || 今天是特別的日子。 || special gift=特別的禮物 || Is there anything special ___ your birthday? || about|of|to || anything special about… = …有什麼特別之處。 || 你的生日有什麼特別的嗎？
 spell || v. || 拼寫 || How do you spell your name? || 你的名字怎麼拼？ || spell a word=拼字 || How ___ you spell this word? || do|are|does || 一般動詞疑問句，主詞 you 用 do。 || 這個字怎麼拼？
 spend || v. || 花費（時間、金錢） || I spend two hours on homework every day. || 我每天花兩小時寫功課。 || spend time on=花時間在…; spend money on=花錢在… || I spend two hours ___ my homework every day. || on|in|for || spend 時間/金錢 + on + 名詞。 || 我每天花兩個小時寫功課。
 spider || n. || 蜘蛛 || I'm afraid of spiders. || 我怕蜘蛛。 || spider web=蜘蛛網 || A spider ___ eight legs. || has|have|is || A spider 第三人稱單數，用 has。 || 蜘蛛有八隻腳。

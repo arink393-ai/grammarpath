@@ -42,7 +42,7 @@ steer || v. || 駕駛；引導 || He steered the boat to the shore. || 他把船
 stereotype || n. || 刻板印象 || It's a stereotype that girls are bad at math. || 女生數學不好是一種刻板印象。 || gender stereotype=性別刻板印象 || It is a stereotype ___ boys don't cry. || that|what|which || It is a stereotype that… = …是刻板印象。 || 男生不哭是一種刻板印象。
 stew || n./v. || 燉菜；燉 || My mom made beef stew. || 我媽做了燉牛肉。 || beef stew=燉牛肉 || Let the beef stew cook slowly ___ two hours. || for|in|since || for + 一段時間。 || 讓燉牛肉慢慢煮兩個小時。
 stimulate || v. || 刺激 || The government wants to stimulate the economy. || 政府想刺激經濟。 || stimulate growth=刺激成長 || Good teachers stimulate students ___ think for themselves. || to|for|of || stimulate sb to V = 激勵某人做…。 || 好老師激勵學生自己思考。
-stimulus || n. || 刺激（物） || The new policy was a stimulus to the economy. || 新政策刺激了經濟。 || economic stimulus=經濟刺激 || The tax cut was a stimulus ___ the economy. || to|for|of || a stimulus to = 對…的刺激。 || 減稅是對經濟的一種刺激。
+stimulus || n. || 刺激（物） || The new policy was a stimulus to the economy. || 新政策刺激了經濟。 || economic stimulus=經濟刺激 || The tax cut was a stimulus ___ the economy. || to|at|of || a stimulus to = 對…的刺激。 || 減稅是對經濟的一種刺激。
 stink || v./n. || 發臭 || The garbage stinks. || 垃圾好臭。 || stink of=有…的臭味 || The room stinks ___ old socks. || of|with|from || stink of = 有…的臭味。 || 房間裡有一股臭襪子的味道。
 stock || n./v. || 存貨；股票 || The shop has many items in stock. || 這家店有很多存貨。 || in stock=有現貨; out of stock=缺貨 || Sorry, this size is out ___ stock. || of|from|off || out of stock = 缺貨。 || 抱歉，這個尺寸缺貨。
 storage || n. || 儲存 || We need more storage space. || 我們需要更多儲存空間。 || storage space=儲存空間 || My phone doesn't have enough storage ___ more photos. || for|to|of || storage for = 容納…的空間。 || 我的手機沒有足夠的空間存更多照片。

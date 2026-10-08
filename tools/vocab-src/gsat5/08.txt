@@ -13,7 +13,7 @@ exclude || v. || 排除 || He was excluded from the team. || 他被排除在隊�
 exclusive || adj. || 獨有的；高級的 || This is an exclusive interview. || 這是獨家專訪。 || exclusive interview=獨家專訪 || This offer is exclusive ___ our members. || to|for|with || be exclusive to = 僅限…。 || 這個優惠僅限會員。
 execute || v. || 執行；處決 || The plan was executed perfectly. || 計畫被完美執行。 || execute a plan=執行計畫 || The plan ___ executed perfectly by the team. || was|is|were || 被動語態；過去用 was + p.p.。 || 這個計畫被團隊完美執行了。
 execution || n. || 執行；死刑 || The execution of the plan took a month. || 執行計畫花了一個月。 || stay of execution=緩刑 || The idea was good, ___ the execution was poor. || but|so|because || 前後語意相反，用 but。 || 這個點子很好，但執行得很差。
-executive || n./adj. || 主管；行政的 || She is a senior executive. || 她是一位高階主管。 || chief executive=執行長 || She became the youngest executive ___ the company. || in|at|to || the youngest + in + 團體。 || 她成為公司裡最年輕的主管。
+executive || n./adj. || 主管；行政的 || She is a senior executive. || 她是一位高階主管。 || chief executive=執行長 || She became the youngest executive ___ the company. || in|on|to || the youngest + in + 團體。 || 她成為公司裡最年輕的主管。
 exile || n./v. || 流放；流亡 || The king lived in exile. || 國王流亡在外。 || in exile=流亡 || The writer lived ___ exile for twenty years. || in|on|at || in exile = 流亡中。 || 那位作家流亡了二十年。
 exotic || adj. || 異國情調的 || We tried some exotic fruits. || 我們嚐了一些異國水果。 || exotic food=異國食物 || The market sells exotic fruits ___ Southeast Asia. || from|of|to || from + 地方 = 來自…。 || 這個市場販售來自東南亞的異國水果。
 expedition || n. || 遠征；探險 || They went on an expedition to the South Pole. || 他們前往南極探險。 || go on an expedition=去探險 || They went ___ an expedition to the Amazon. || on|in|at || go on an expedition = 去探險。 || 他們到亞馬遜探險。
@@ -27,7 +27,7 @@ exterior || n./adj. || 外部 || The exterior of the house is white. || 房子�
 external || adj. || 外部的 || This medicine is for external use only. || 這種藥僅供外用。 || external use=外用 || This cream is for external use only, ___ don't eat it. || so|but|or || 前因後果用 so。 || 這種乳膏僅供外用，所以不要吃。
 extinct || adj. || 絕種的 || Dinosaurs are extinct. || 恐龍已經絕種了。 || become extinct=絕種 || Many animals may become extinct ___ we do not protect them. || if|unless|though || if 引導條件子句。 || 如果我們不保護牠們，許多動物可能會絕種。
 extraordinary || adj. || 非凡的 || She has an extraordinary voice. || 她有非凡的嗓音。 || extraordinary talent=非凡的才能 || It was an extraordinary experience ___ I will never forget. || that|what|who || 關係代名詞 that 修飾物並當 forget 的受詞。 || 那是一次我永遠不會忘記的非凡經歷。
-fabric || n. || 布料；結構 || This fabric is soft. || 這塊布料很柔軟。 || cotton fabric=棉布 || This shirt is made ___ a soft cotton fabric. || of|by|with || be made of = 由…製成（看得出原料）。 || 這件襯衫是用柔軟的棉布做的。
+fabric || n. || 布料；結構 || This fabric is soft. || 這塊布料很柔軟。 || cotton fabric=棉布 || This shirt is made ___ a soft cotton fabric. || of|by|at || be made of = 由…製成（看得出原料）。 || 這件襯衫是用柔軟的棉布做的。
 fabulous || adj. || 極好的 || We had a fabulous time. || 我們玩得很開心。 || fabulous view=絕佳的景色 || What a fabulous view ___ is! || it|this|that's || What + a + 形容詞 + 名詞 + 主詞 + 動詞！ || 這景色真是太棒了！
 facilitate || v. || 促進；使容易 || Technology can facilitate learning. || 科技能促進學習。 || facilitate communication=促進溝通 || The new app was designed ___ facilitate communication between teachers and parents. || to|for|of || 不定詞 to V 表示目的。 || 這個新應用程式是為了促進師生家長溝通而設計的。
 faculty || n. || 全體教職員；能力 || The faculty met to discuss the new rules. || 教職員開會討論新規定。 || faculty member=教職員 || She is a faculty member ___ the university. || at|on|to || at + 學校 = 在…。 || 她是那所大學的教職員。
@@ -45,7 +45,7 @@ fluid || n./adj. || 液體；流暢的 || Drink plenty of fluids when you have a
 forge || v. || 建立；偽造 || The two countries forged a strong friendship. || 兩國建立了深厚的友誼。 || forge a friendship=建立友誼 || He was arrested ___ forging his boss's signature. || for|of|with || arrest sb for + 罪名。 || 他因偽造老闆的簽名被捕。
 format || n. || 格式 || Please save the file in PDF format. || 請把檔案存成 PDF 格式。 || file format=檔案格式 || Please send the report ___ PDF format. || in|on|at || in + 格式 = 以…格式。 || 請用 PDF 格式寄報告。
 forum || n. || 論壇 || The school held a forum on bullying. || 學校舉辦了一場關於霸凌的論壇。 || online forum=網路論壇 || The school held a forum ___ online safety. || on|in|at || a forum on = 關於…的論壇。 || 學校舉辦了一場關於網路安全的論壇。
-foster || v./adj. || 培養；寄養的 || Teachers should foster creativity. || 老師應該培養創造力。 || foster parents=寄養父母 || Reading can foster a love ___ learning in children. || of|for|to || a love of = 對…的熱愛。 || 閱讀能培養孩子對學習的熱愛。
+foster || v./adj. || 培養；寄養的 || Teachers should foster creativity. || 老師應該培養創造力。 || foster parents=寄養父母 || Reading can foster a love ___ learning in children. || of|at|to || a love of = 對…的熱愛。 || 閱讀能培養孩子對學習的熱愛。
 foul || adj./n. || 惡臭的；犯規 || There was a foul smell in the room. || 房間裡有一股惡臭。 || foul smell=惡臭 || The player was sent off ___ making a foul. || for|of|with || for + V-ing = 因為…。 || 那名球員因犯規被罰出場。
 fraction || n. || 一小部分；分數 || Only a fraction of the students passed. || 只有一小部分學生及格。 || a fraction of=一小部分… || The phone was sold at a fraction ___ the original price. || of|for|in || a fraction of = …的一小部分。 || 這支手機以原價的一小部分售出。
 fragment || n. || 碎片 || Fragments of glass were on the floor. || 地上有玻璃碎片。 || fragment of=…的碎片 || Fragments of glass ___ found all over the floor. || were|was|be || 被動語態；Fragments 複數用 were + p.p.。 || 地板上到處都是玻璃碎片。
@@ -53,6 +53,6 @@ framework || n. || 架構 || We need a framework for the project. || 我們需�
 franchise || n. || 加盟店；經銷權 || He owns a fast-food franchise. || 他擁有一家速食加盟店。 || franchise store=加盟店 || He opened a coffee franchise ___ his hometown. || in|on|to || in + 城鎮 = 在…。 || 他在家鄉開了一家咖啡加盟店。
 fraud || n. || 詐欺 || He was arrested for fraud. || 他因詐欺被捕。 || credit card fraud=信用卡詐欺 || Be careful ___ phone fraud. || of|for|to || be careful of = 小心…。 || 小心電話詐騙。
 freight || n. || 貨運 || The goods were sent by freight. || 貨物以貨運寄送。 || freight train=貨運列車 || The goods will be sent ___ freight train. || by|on|with || by + 交通工具（無冠詞）。 || 貨物將以貨運列車運送。
-frontier || n. || 邊界；新領域 || Space is the final frontier. || 太空是最後的疆域。 || new frontier=新領域 || Space is often called the final frontier ___ humans. || for|of|to || for + 對象 = 對…而言。 || 太空常被稱為人類最後的疆域。
+frontier || n. || 邊界；新領域 || Space is the final frontier. || 太空是最後的疆域。 || new frontier=新領域 || Space is often called the final frontier ___ humans. || for|at|to || for + 對象 = 對…而言。 || 太空常被稱為人類最後的疆域。
 galaxy || n. || 星系 || There are billions of stars in our galaxy. || 我們的星系中有數十億顆星星。 || Milky Way galaxy=銀河系 || There are billions ___ stars in our galaxy. || of|for|in || billions of = 數十億的…。 || 我們的星系中有數十億顆星星。
 gasp || v./n. || 倒抽一口氣 || She gasped in surprise. || 她驚訝地倒抽一口氣。 || gasp for breath=喘不過氣 || The runner was gasping ___ breath after the race. || for|of|with || gasp for breath = 喘不過氣。 || 賽跑後跑者上氣不接下氣。
