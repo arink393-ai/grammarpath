@@ -186,7 +186,7 @@ function vqDiff(a, b){ return Math.round((new Date(a+'T00:00:00Z') - new Date(b+
 function vqTrack(){ const t=store.data.vqTrack; if(VQ_TRACKS[t]) return t; return Object.keys(store.data.vocabQuests||{}).some(k=>!k.includes(':'))?'core':'g7'; }
 function vqSetTrack(t){ if(!VQ_TRACKS[t]) return; store.data.vqTrack=t; store.save(); renderVocabHub(); }
 /* 字庫路線（有 book 的路線）：單字資料在 vocab/data/<book>.js，選到才載入；每 5 個字一個單元，文法題存在每個字的 q。 */
-const VQ_DATA_V = 1;
+const VQ_DATA_V = 2;
 const VQ_LOADING = {};
 const vqBook = id => (typeof BUILTIN_BOOKS!=='undefined'?BUILTIN_BOOKS:[]).find(x=>x.id===id);
 function vqReady(track){ const b=VQ_TRACKS[track]&&VQ_TRACKS[track].book; return !b || !!vqBook(b); }
@@ -290,7 +290,7 @@ function vqRender(){
   const w=d.items[VQ.i];
   app.innerHTML=`<div class="view dq dq-play vq">${head}<progress max="${d.items.length*2}" value="${VQ.i}"></progress>
    <section class="card vq-word">
-    <div class="vq-w-top"><div><div class="vq-w">${esc(w.w)}</div><div class="vq-ph">${esc(w.ph||'')}</div></div><button class="vq-speak" onclick="vqSay('${esc(w.w)}')" aria-label="發音">🔊</button></div>
+    <div class="vq-w-top"><div><div class="vq-w">${esc(w.w)}</div><div class="vq-ph">${esc(w.ph||'')}</div></div><button class="vq-speak" onclick="vqSay(this.dataset.t)" data-t="${esc(w.w)}" aria-label="發音">🔊</button></div>
     <div class="vq-mean"><i>${esc(w.pos||'')}</i> ${esc(w.zh)}</div>
     ${w.ex?`<div class="vq-ex" onclick="vqSay(this.dataset.t)" data-t="${esc(w.ex)}" title="點一下聽例句" lang="en">${vqMark(w.ex,w.w)} <span>🔊</span></div><div class="vq-exzh">${esc(w.exZh||'')}</div>`:''}
     ${w.col&&w.col.length?`<div class="vq-cols"><div class="vq-colh">常見搭配 Collocations</div>${w.col.map(([en,zh])=>`<button class="vq-col" onclick="vqSay(this.dataset.t)" data-t="${esc(en.replace(/\bsb\b/g,'somebody').replace(/\bsth\b/g,'something').replace(/\bV-ing\b/g,'doing').replace(/\bV\b/g,'do').replace(/…/g,''))}"><b>${esc(en)}</b><span>${esc(zh)}</span></button>`).join('')}</div>`:''}
@@ -381,7 +381,7 @@ function vqFinish(){
  const wrongWords=d.items.filter((w,i)=>VQ.quiz[i]==='retry');
  app.innerHTML=`<div class="view dq dq-result card vq">${catSVG(130,'orange')}<div class="eyebrow">DAILY WORDS COMPLETE</div><h1 class="display">5 個字到手！📚</h1>
   <p>文法挑戰一次答對 <b>${firstTry} / ${n}</b> 題。</p><strong>${parts.length?parts.join('　·　'):'複習完成 · 今天的獎勵已領取'}</strong>
-  <div class="vq-sum">${d.items.map((w,i)=>`<button class="vq-sumw ${VQ.quiz[i]==='retry'?'miss':''}" onclick="vqSay('${esc(w.w)}')"><b>${esc(w.w)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div>
+  <div class="vq-sum">${d.items.map((w,i)=>`<button class="vq-sumw ${VQ.quiz[i]==='retry'?'miss':''}" onclick="vqSay(this.dataset.t)" data-t="${esc(w.w)}"><b>${esc(w.w)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div>
   ${wrongWords.length?`<p class="vq-note">標紅色的字文法題答錯過，已安排明天優先複習。</p>`:''}
   ${added?`<p class="vq-note">✓ 已把 ${added} 個新字加進「每日單字」的複習排程。</p>`:''}
   <div class="dq-result-actions"><a class="btn btn-primary" href="vocab/?book=${d.book}">到每日單字複習 →</a><a class="btn btn-ghost" href="#/daily">回每日任務</a><button class="btn btn-ghost" onclick="startVocabQuest('${d.date}')">再練一次</button></div></div>`;

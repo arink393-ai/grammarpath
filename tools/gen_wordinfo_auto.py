@@ -98,13 +98,22 @@ def load_ipa(f):
 
 # ---------- 中文釋義 ----------
 POSMAP = {'n': 'n.', 'v': 'v.', 'vt': 'v.', 'vi': 'v.', 'a': 'adj.', 'adj': 'adj.', 'ad': 'adv.', 'adv': 'adv.', 'prep': 'prep.', 'conj': 'conj.'}
-def gloss(tr):
-    """ECDICT translation 第一行 → (詞性, 前兩個中文意思，繁體)"""
-    for line in (tr or '').split('\\n'):
+ADJ = re.compile(r'(al|ic|ical|ous|ive|able|ible|ful|less|y|ly|ary|ent|ant)$')
+NOUN = re.compile(r'(tion|sion|ment|ness|ity|ty|ance|ence|er|or|ist|ian|ism|ship|hood|ure|ery|age)$')
+VERB = re.compile(r'(ize|ify|ate|en)$')
+def gloss(tr, word=''):
+    """ECDICT translation → (詞性, 前兩個中文意思，繁體)；依字尾優先挑對的詞性那一行"""
+    lines = [l.strip() for l in (tr or '').split('\\n')]
+    want = 'adj.' if ADJ.search(word) else 'n.' if NOUN.search(word) else 'v.' if VERB.search(word) else 'v.'
+    def pos_of(l):
+        m = re.match(r'([a-z]+)\.', l); return POSMAP.get(m.group(1), '') if m else ''
+    lines.sort(key=lambda l: pos_of(l) != want)
+    for line in lines:
         line = line.strip()
         m = re.match(r'([a-z]+)\.\s*(.+)', line)
         if not m or m.group(1) not in POSMAP: continue
-        zh = re.sub(r'\[[^\]]*\]|（[^）]*）|\([^)]*\)', '', m.group(2))
+        zh = re.sub(r'\[[^\]]*\]|（[^）]*）|\([^)]*\)|<[^>]*>|\b(?:vt|vi|n|adj|adv)\.\s*', '', m.group(2)).replace('...', '…')
+        if re.search(r'[A-Za-z]{2,}|=', zh): continue      # 殘留英文或「=另一拼法」的不要
         parts = [x.strip() for x in re.split(r'[；;,，]', zh) if x.strip()][:2]
         if parts: return POSMAP[m.group(1)], s2t('；'.join(parts))
     return '', ''
@@ -121,20 +130,47 @@ def main():
     def common(w):
         r = ec.get(w)
         if not r: return False
-        frq = int(r['frq'] or 0); bnc = int(r['bnc'] or 0)
-        return r['oxford'] == '1' or (r['collins'] or '0') not in ('', '0') or bool(r['tag']) or 0 < frq <= 30000 or 0 < bnc <= 30000
+        if w in need: return True                                   # 字庫裡的字
+        tags = set((r['tag'] or '').split())                       # zk 中考、gk 高考、cet4 四級
+        frq = int(r['frq'] or 0)
+        return bool(tags & {'zk', 'gk', 'cet4'}) or (r['oxford'] == '1' and 0 < frq <= 15000)
 
     def zh_of(w):
         if w in bank: return bank[w]
         lw = w.lower()
         for k, v in bank.items():
             if k.lower() == lw: return v
-        return gloss(ec.get(lw, {}).get('translation', ''))
+        return gloss(ec.get(lw, {}).get('translation', ''), lw)
 
     def inflections(w):
         ex = ec.get(w, {}).get('exchange', '')
         return {x.split(':', 1)[1].lower() for x in ex.split('/') if ':' in x and x[0] in 'pdi3rts'}
 
+    SUF = ('ful', 'al', 'ment', 'ness', 'tion', 'ation', 'ition', 'sion', 'ion', 'er', 'or', 'ist', 'ian', 'ity', 'ty', 'ous', 'ious', 'ive', 'ative',
+           'able', 'ible', 'ance', 'ence', 'ant', 'ent', 'ic', 'ical', 'ize', 'less', 'ship', 'hood', 'ure', 'ery', 'ism', 'ify', 'en', 'ly', 'y', 'al')
+    singles = sorted(w.lower() for w in bank if ' ' not in w and '-' not in w)
+    def stems(w):
+        out = {w}
+        if len(w) > 4:
+            for end, rep in (('e', ''), ('y', 'i'), ('y', ''), ('le', 'il'), ('ate', ''), ('ion', ''), ('ence', 'ent'), ('ance', 'ant')):
+                if w.endswith(end): out.add(w[:-len(end)] + rep)
+        return {x for x in out if len(x) >= 4}
+    def family(w):
+        res = set(); st = stems(w)
+        for o in singles:
+            if o == w or abs(len(o) - len(w)) > 6: continue
+            for a, b in ((w, o), (o, w)):                      # a 是較短的基底，b = 基底 + 字尾
+                for x in (stems(a) if a == w else stems(a)):
+                    if b.startswith(x) and b[len(x):] in SUF and len(b) > len(a):
+                        res.add(o)
+        return res
+
+    COMMON_ZH = set('的地得了人者性化使被一物事者們之於與及或和在有是為不可能')
+    BLOCK = set()
+    for l in open(os.path.join(ROOT, 'vocab-src', 'wordinfo-der-block.txt'), encoding='utf-8'):
+        l = l.strip()
+        if l and not l.startswith('#') and '>' in l:
+            a, b = (x.strip().lower() for x in l.split('>')); BLOCK |= {(a, b), (b, a)}
     POS_WN = {'n.': 'n', 'v.': 'v', 'adj.': 'as', 'adv.': 'r'}
     result, stats = {}, {'uk': 0, 'us': 0, 'der': 0}
     for w, (pos, zh) in sorted(bank.items(), key=lambda x: x[0].lower()):
@@ -159,8 +195,18 @@ def main():
                     n = d.name().lower()
                     if '_' in n or n in infl or n in [x[0] for x in der]: continue
                     if n[:3] != lw[:3] or not common(n): continue
+                    if re.search(r'is(e|ation|ing|ed)$', n) and re.sub(r'is(e|ation|ing|ed)$', r'iz\1', n) in ec: continue   # 英式 -ise 拼法
                     p, z = zh_of(n)
                     if z: der.append((n, p, z))
+            # 再從字庫裡找同字根、加常見字尾的字（WordNet 常漏：nation→national、govern→government）
+            have = {x[0] for x in der}
+            base_zh = set(re.findall(r'[\u4e00-\u9fff]', zh_of(w)[1])) - COMMON_ZH
+            for n in family(lw):
+                if n in infl or n in have or n == lw: continue
+                p, z = zh_of(n)
+                # 字尾比對可能碰巧（care→career、corn→corner），要求中文意思有共同的字才算同一家族
+                if z and base_zh & set(re.findall(r'[\u4e00-\u9fff]', z)): der.append((n, p, z)); have.add(n)
+            der = [x for x in der if (lw, x[0].lower()) not in BLOCK]
             der.sort(key=lambda x: (x[0] not in bank, len(x[0])))
             if der: info['der'] = [list(x) for x in der[:5]]; stats['der'] += 1
         result[w] = info

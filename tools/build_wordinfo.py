@@ -64,7 +64,12 @@ def main():
                         zh = B[en.lower()][2]
                     if en.lower() == k: errs.append(f'{where} {w}：同義詞不可是自己'); continue
                     out.append([en, zh])
-                if out: e['syn'] = out[:5]; n_syn += 1
+                if out:
+                    e['syn'] = out[:5]; n_syn += 1
+                    syns = {x[0].lower() for x in out}
+                    if e.get('der'):                                    # 已列為同義詞就不重複列在派生詞
+                        e['der'] = [d for d in e['der'] if d[0].lower() not in syns]
+                        if not e['der']: del e['der']
     os.makedirs(OUT, exist_ok=True)
     shards = {}
     for k, v in info.items():

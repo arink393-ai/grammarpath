@@ -1,8 +1,10 @@
 (function(root){
   const CACHE='eci-offline-v1';
-  const CORE=['index.html','daily.js?v=16','daily.css?v=17','progress-sync.js?v=1','curriculum-loader.js?v=1','offline-content.js?v=1','curriculum/basic.json?v=1','curriculum/intermediate.json?v=1','curriculum/advanced.json?v=1','vocab-quest.js?v=10','vocab/books.js?v=6','vocab/','vocab/style.css','vocab/books.js','vocab/catalog.js?v=1','vocab/book-loader.js?v=1','vocab/account-storage.js?v=2','vocab/app.js?v=3','https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'];
+  const CORE=['index.html','daily.css?v=17','progress-sync.js?v=1','curriculum-loader.js?v=3','offline-content.js?v=2','daily.js?v=17','vocab/books.js?v=6','vocab-quest.js?v=13','curriculum/basic.json?v=3','curriculum/intermediate.json?v=3','curriculum/advanced.json?v=3','vocab/','vocab/style.css?v=2','vocab/books.js','vocab/catalog.js?v=1','vocab/book-loader.js?v=2','vocab/account-storage.js?v=2','vocab/app.js?v=6','https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'];
+  // 單字補充資料（英美音標、派生、詞根、同義詞），跟著單字書一起下載
+  const INFO=['vocab/info/a.js?v=10','vocab/info/b.js?v=10','vocab/info/c.js?v=10','vocab/info/d.js?v=10','vocab/info/e.js?v=10','vocab/info/f.js?v=10','vocab/info/g.js?v=10','vocab/info/h.js?v=10','vocab/info/i.js?v=10','vocab/info/j.js?v=10','vocab/info/k.js?v=10','vocab/info/l.js?v=10','vocab/info/m.js?v=10','vocab/info/n.js?v=10','vocab/info/o.js?v=10','vocab/info/p.js?v=10','vocab/info/q.js?v=10','vocab/info/r.js?v=10','vocab/info/s.js?v=10','vocab/info/t.js?v=10','vocab/info/u.js?v=10','vocab/info/v.js?v=10','vocab/info/w.js?v=10','vocab/info/y.js?v=10','vocab/info/z.js?v=10'];
   function createManager(base,cacheStorage,request){
-    const urls=options=>[...CORE,...(options?.largeBook?['vocab/data/'+options.bookId+'.js?v=1']:[])].map(path=>new URL(path,base).href);
+    const urls=options=>[...CORE,...(options?.largeBook?['vocab/data/'+options.bookId+'.js?v=2',...INFO]:[])].map(path=>new URL(path,base).href);
     return {
       async ready(options){const cache=await cacheStorage.open(CACHE);return (await Promise.all(urls(options).map(url=>cache.match(url)))).every(Boolean);},
       async download(options,onProgress=()=>{}){
@@ -15,7 +17,7 @@
       }
     };
   }
-  if(typeof module==='object'){module.exports={createManager,CORE,CACHE};return;}
+  if(typeof module==='object'){module.exports={createManager,CORE,INFO,CACHE};return;}
   const base=new URL('.',document.currentScript.src);
   const manager=createManager(base,caches,(...args)=>fetch(...args));
   if('serviceWorker' in navigator)navigator.serviceWorker.register(new URL('sw.js',base)).catch(()=>{});

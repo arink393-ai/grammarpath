@@ -106,7 +106,7 @@ function colHTML(w) {
 
 /* ========== 單字補充：英美音標與發音、派生詞、詞根、同義詞 ========== */
 // 資料在 info/<字首>.js（tools/build_wordinfo.py 產生），點開單字時才載入那個字首的檔案
-const INFO_V = 9;   // 改了 info/*.js 就加 1
+const INFO_V = 10;   // 改了 info/*.js 就加 1
 const VOCAB_INFO = {}, infoJobs = {};
 window.VOCAB_INFO_ADD = (c, d) => Object.assign(VOCAB_INFO, d);
 const infoKey = w => String(w || '').toLowerCase();
@@ -379,6 +379,7 @@ async function route() {
   document.body.classList.toggle('focus', name === 'study' || (name === 'quiz' && quiz && !quiz.done));
   document.querySelectorAll('#tabbar a').forEach(a => a.classList.toggle('on', a.dataset.tab === (name || 'home') || (name === 'teacher' && a.dataset.tab === 'me')));
   if (window.speechSynthesis) speechSynthesis.cancel();
+  if (audio) { audio.pause(); audio = null; }   // 換頁時也停掉真人發音
   fn();
   window.scrollTo(0, 0);
 }
@@ -647,7 +648,8 @@ function quizAct(act, el) {
     document.querySelectorAll('.opt').forEach((b, j) => { if (it.opts[j].w === it.w.w) b.classList.add('right'); else if (j === k) b.classList.add('wrong'); b.disabled = true; });
     if (ok) Q.score++; else markWrong(it.w);
     if (Q.mode === 'choice' || !ok) speak(it.w.w);
-    setTimeout(() => { Q.i++; Q.answered = false; quizRender(); }, ok ? 800 : 1800);
+    // 等一下再換題；這段時間若學生離開測驗或切到別頁，就不要把題目畫回來
+    setTimeout(() => { if (quiz !== Q || !location.hash.startsWith('#quiz')) return; Q.i++; Q.answered = false; quizRender(); }, ok ? 800 : 1800);
   }
   if (act === 'check' && !Q.answered) {
     const inp = $('#spell'), v = inp.value.trim().toLowerCase();
@@ -917,7 +919,7 @@ function teacher() {
 
   const sync = () => { draft.title = $('#t-title').value; draft.desc = $('#t-desc').value; draft.raw = $('#t-raw').value; saveDraft(); };
   ['#t-title', '#t-desc'].forEach(s => $(s).addEventListener('input', sync));
-  let tm; $('#t-raw').addEventListener('input', () => { sync(); clearTimeout(tm); tm = setTimeout(() => { const y = scrollY, sel = $('#t-raw').selectionStart; teacher(); scrollTo(0, y); const r = $('#t-raw'); r.focus(); r.setSelectionRange(sel, sel); }, 900); });
+  let tm; $('#t-raw').addEventListener('input', () => { sync(); clearTimeout(tm); tm = setTimeout(() => { if (location.hash !== '#teacher') return; const y = scrollY, sel = $('#t-raw').selectionStart; teacher(); scrollTo(0, y); const r = $('#t-raw'); r.focus(); r.setSelectionRange(sel, sel); }, 900); });
   $('#t-key').addEventListener('change', e => LS.set('vr:t:gkey', e.target.value.trim()));
   $('#t-model').addEventListener('change', e => LS.set('vr:t:gmodel', e.target.value.trim()));
 }

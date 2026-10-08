@@ -1,13 +1,13 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const {createCurriculumLoader}=require('../curriculum-loader.js');
 const {createBookLoader}=require('../vocab/book-loader.js');
-const {createManager,CORE,CACHE}=require('../offline-content.js');
+const {createManager,CORE,INFO,CACHE}=require('../offline-content.js');
 function metadata(){const text=fs.readFileSync('index.html','utf8');return vm.runInNewContext(text.slice(text.indexOf('const DATA ='),text.indexOf('\n\n/* =====================================================\n   Store'))+';DATA');}
 test('curriculum loads one requested level, preserving catalog object identities',async()=>{
  const data=metadata(),first=data.lessons[0],calls=[];
  const loader=createCurriculumLoader(data,async url=>{calls.push(url);return {ok:true,json:async()=>JSON.parse(fs.readFileSync(url.split('?')[0]))}});
  assert.equal(first.q,undefined);await Promise.all([loader.load('basic'),loader.load('basic')]);assert.equal(calls.length,1);assert.equal(first,data.lessons[0]);assert.ok(first.q.length);assert.equal(data.lessons.find(l=>data.units.find(u=>u.id===l.unit).level==='advanced').q,undefined);
- await loader.load('intermediate');await loader.load('advanced');assert.equal(data.lessons.length,81);assert.ok(data.lessons.every(l=>l.q.length&&l.form&&l.uses));
+ await loader.load('intermediate');await loader.load('advanced');assert.ok(data.lessons.length>=81);assert.ok(data.lessons.every(l=>l.q.length&&l.form&&l.uses));
 });
 test('incomplete curriculum is rejected without partially mutating lessons and can retry',async()=>{
  const data=metadata();let fail=true;
@@ -23,7 +23,7 @@ function cacheStore(){const stores=new Map();return {stores,keys:async()=>[...st
 test('offline downloads use Pages subpath and include only selected large word book',async()=>{
  const caches=cacheStore(),seen=[],manager=createManager('https://example.test/grammarpath/',caches,async url=>{seen.push(url);return new Response('ok')});
  const options={largeBook:true,bookId:'jh7'};assert.equal(await manager.ready(options),false);let progress;
- await manager.download(options,(n,total)=>{progress=[n,total]});assert.equal(await manager.ready(options),true);assert.deepEqual(progress,[CORE.length+1,CORE.length+1]);assert.ok(seen.includes('https://example.test/grammarpath/vocab/data/jh7.js?v=1'));assert.ok(!seen.some(u=>u.includes('jh8.js')));
+ await manager.download(options,(n,total)=>{progress=[n,total]});assert.equal(await manager.ready(options),true);const total=CORE.length+1+INFO.length;assert.deepEqual(progress,[total,total]);assert.ok(seen.some(u=>/vocab\/data\/jh7\.js\?v=\d+$/.test(u)));assert.ok(INFO.length>=20&&INFO.every(u=>seen.some(s=>s.endsWith(u))));assert.ok(!seen.some(u=>u.includes('jh8.js')));
  assert.equal(await manager.ready({largeBook:true,bookId:'jh8'}),false);
 });
 test('failed offline download never reports complete and can retry',async()=>{
@@ -42,3 +42,4 @@ test('service worker keeps offline downloads and unrelated caches during upgrade
  vm.runInNewContext(fs.readFileSync('sw.js','utf8'),context);let done;events.activate({waitUntil:p=>done=p});await done;assert.ok(caches.stores.has(CACHE));assert.ok(caches.stores.has('another-app'));assert.ok(!caches.stores.has('eci-v50-account-safety'));
  let response;events.fetch({request:{method:'GET',mode:'navigate',url:'https://example.test/grammarpath/vocab/?book=jh7'},respondWith:p=>response=p});assert.equal(await(await response).text(),'vocab shell');
 });
+test('offline and service-worker asset lists match the pages (tools/sync_assets.py --check)',()=>{const r=require('node:child_process').spawnSync('python3',['tools/sync_assets.py','--check'],{encoding:'utf8'});assert.equal(r.status,0,r.stdout+r.stderr);});

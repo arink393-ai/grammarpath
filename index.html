@@ -1918,10 +1918,10 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="progress-sync.js?v=1"></script>
 <script src="curriculum-loader.js?v=3"></script>
-<script src="offline-content.js?v=1"></script>
+<script src="offline-content.js?v=2"></script>
 <script src="daily.js?v=17"></script>
 <script src="vocab/books.js?v=6"></script>
-<script src="vocab-quest.js?v=12"></script>
+<script src="vocab-quest.js?v=13"></script>
 <script>
 /* Supabase backend (teacher dashboard + progress sync + homework).
    The anon key is meant to be public; Row Level Security protects the data. */
@@ -12564,7 +12564,7 @@ function renderReading(id, keepScroll){
   const tabs = [["a","A1–A2","初級"],["b","B1–B2","中級"],["c","C1–C2","高級"]]
     .map(t=>`<button class="rd-lv-tab ${RD_LEVEL===t[0]?"active":""}" onclick="rdSetLevel('${t[0]}')">${t[1]}<span>${t[2]}</span></button>`).join("");
   const paras = lv.text.map((p,i)=>`<p class="rd-p"><span class="rd-pn">${i+1}</span>${rdMarkGloss(p, lv.gloss)}</p>`).join("");
-  const gloss = lv.gloss.map(g=>`<div class="rd-gl"><b>${g[0]}</b> <i>${g[1]}</i> <span>${g[2]}</span>${tts.ok?` <button class="res-audio mini" onclick="speak('${g[0]}')">🔊</button>`:""}</div>`).join("");
+  const gloss = lv.gloss.map(g=>`<div class="rd-gl"><b>${g[0]}</b> <i>${g[1]}</i> <span>${g[2]}</span>${tts.ok?` <button class="res-audio mini" onclick="speak('${String(g[0]).replace(/'/g,"\\'")}')">🔊</button>`:""}</div>`).join("");
   const LET = "ABCD";
   const qs = lv.q.map((q,qi)=>{
     const picked = RD_ANS[qi];
@@ -13612,7 +13612,7 @@ function renderUnitRead(uid, keepScroll){
   const u = UNIT_READS[uid]; if(!u){ location.hash="#/home"; return; }
   urCurId = uid;
   const unit = DATA.units.find(x=>x.id===uid), lv = levelById(unit.level);
-  const gloss = u.gloss.map(g=>`<div class="rd-gl"><b>${g[0]}</b> <i>${g[1]}</i> <span>${g[2]}</span>${tts.ok?` <button class="res-audio mini" onclick="speak('${g[0]}')">🔊</button>`:""}</div>`).join("");
+  const gloss = u.gloss.map(g=>`<div class="rd-gl"><b>${g[0]}</b> <i>${g[1]}</i> <span>${g[2]}</span>${tts.ok?` <button class="res-audio mini" onclick="speak('${String(g[0]).replace(/'/g,"\\'")}')">🔊</button>`:""}</div>`).join("");
   const LET = "ABCD";
   const qs = u.q.map((q,qi)=>{
     const picked = UR_ANS[qi];
