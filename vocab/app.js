@@ -431,6 +431,7 @@ function home() {
       </div>
     </div>
 
+    <p class="small muted">每天完成 5 個不同單字後，<a href="../#/cats">回貓島領取 10 罐</a>；每隻貓咪 50 罐，兌換不加 XP。</p>
     <h2>最近 7 天</h2>
     <div class="card">
       <div class="week">${days.map(x => `<div class="${x.v ? '' : 'zero'}" title="${x.v} 個"><span>${x.v || ''}</span><i style="height:${Math.max(3, x.v / max * 64)}px"></i>${x.d === t ? '今' : wk[new Date(x.d * 86400000).getUTCDay()]}</div>`).join('')}</div>
@@ -527,6 +528,7 @@ function complete(it, killed) {
   else r.s = it.isNew ? 2 : Math.min(r.s + 1, INTERVALS.length - 1);
   r.due = killed ? 1e9 : t + INTERVALS[r.s];
   r.u = Date.now();
+  if(!killed)r.studyDay=t;
   p[it.w.w] = r; saveProg(b.id, p);
   bump(b.id, it.isNew ? 'n' : 'r');
   S.done++;

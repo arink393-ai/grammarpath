@@ -1,15 +1,17 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v71-picturebook-companions";
+const CACHE = "eci-v72-word-checkin-cats";
 const SHELL = [
   "./",
   "./index.html",
+  "./art/cat-dex/meme-cats-atlas.png",
   "./daily.css?v=17",
   "./progress-sync.js?v=1",
+  "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=3",
-  "./offline-content.js?v=4",
+  "./offline-content.js?v=5",
   "./daily.js?v=17",
   "./vocab/books.js?v=6",
-  "./vocab-quest.js?v=14",
+  "./vocab-quest.js?v=15",
   "./manifest.webmanifest",
   "./vocab/",
   "./vocab/style.css?v=2",
@@ -17,7 +19,7 @@ const SHELL = [
   "./vocab/catalog.js?v=1",
   "./vocab/book-loader.js?v=3",
   "./vocab/account-storage.js?v=2",
-  "./vocab/app.js?v=7",
+  "./vocab/app.js?v=8",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/maskable-512.png",

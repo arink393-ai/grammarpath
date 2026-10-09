@@ -36,9 +36,10 @@ def main():
     shards = sorted(os.path.basename(f)[:-3] for f in glob.glob(os.path.join(REPO, 'vocab', 'info', '*.js')))
 
     idx, voc = page_assets('index.html'), page_assets('vocab/index.html')
-    core = ['index.html'] + idx + [f'curriculum/{l}.json?v={cur_v}' for l in ('basic', 'intermediate', 'advanced')] + ['vocab/'] + voc
+    art = ['art/cat-dex/meme-cats-atlas.png']
+    core = ['index.html'] + art + idx + [f'curriculum/{l}.json?v={cur_v}' for l in ('basic', 'intermediate', 'advanced')] + ['vocab/'] + voc
     core = list(dict.fromkeys(core)) + ['https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2']
-    shell = ['./', './index.html'] + ['./' + a for a in idx] + ['./manifest.webmanifest', './vocab/'] + ['./' + a for a in voc] + \
+    shell = ['./', './index.html'] + ['./' + a for a in art] + ['./' + a for a in idx] + ['./manifest.webmanifest', './vocab/'] + ['./' + a for a in voc] + \
             ['./icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-180.png']
     shell = list(dict.fromkeys(shell))
 

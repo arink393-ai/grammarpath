@@ -695,7 +695,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .dex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
 .dex-card{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
 .dex-card.got{background:linear-gradient(160deg,#fffdf8,#f4ead7);border-color:#e3cf9f;box-shadow:0 10px 24px -18px rgba(120,80,20,.5)}
-.dex-plate{width:92px;height:92px;display:flex;align-items:center;justify-content:center}
+.dex-plate{width:120px;height:160px;display:flex;align-items:center;justify-content:center}
+.dex-art{display:block;width:120px;height:160px;background-image:url("art/cat-dex/meme-cats-atlas.png");background-size:600% 300%;border-radius:20px}
 .dex-svg{width:92px;height:92px}
 .dex-silhouette{position:relative;width:92px;height:92px;opacity:.5}
 .dex-silhouette .dex-svg{filter:grayscale(1) brightness(.92)}
@@ -1942,7 +1943,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
     <button class="auth-close" id="authClose" type="button" aria-label="關閉 Close">✕</button>
     <div class="auth-brand"><span class="brand-mark">🐱</span> English Cat Island</div>
     <h1 class="auth-title">歡迎來到英語貓咪島 🐾</h1>
-    <p class="auth-sub" id="authSub">登入後才能使用島上的資源。每天<b>打卡</b>可以拿到 <b>10 個罐罐 🥫</b>，用來餵養貓咪、解鎖進階單元。</p>
+    <p class="auth-sub" id="authSub">登入後才能使用島上的資源。每天<b>完成 5 個不同單字後打卡</b>可以拿到 <b>10 個罐罐 🥫</b>，用來餵養貓咪、解鎖進階單元。</p>
     <div class="auth-tabs" id="authTabs">
       <button class="auth-tab active" id="tabLogin" type="button">登入 Log in</button>
       <button class="auth-tab" id="tabReg" type="button">註冊 Sign up</button>
@@ -1978,11 +1979,12 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <div class="toast" id="toast" role="status"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="progress-sync.js?v=1"></script>
+<script src="word-checkin.js?v=1"></script>
 <script src="curriculum-loader.js?v=3"></script>
-<script src="offline-content.js?v=4"></script>
+<script src="offline-content.js?v=5"></script>
 <script src="daily.js?v=17"></script>
 <script src="vocab/books.js?v=6"></script>
-<script src="vocab-quest.js?v=14"></script>
+<script src="vocab-quest.js?v=15"></script>
 <script>
 /* Supabase backend (teacher dashboard + progress sync + homework).
    The anon key is meant to be public; Row Level Security protects the data. */
@@ -2032,8 +2034,11 @@ const store = {
   /* ---- 罐罐 economy ---- */
   addCans(n){ this.data.cans = (this.data.cans||0) + n; this.save(); paintHeader(); },
   spendCans(n){ if((this.data.cans||0) < n) return false; this.data.cans -= n; this.save(); paintHeader(); return true; },
-  canCheckIn(){ return this.data.checkin.last !== todayMid(); },
-  checkIn(){ if(!this.canCheckIn()) return false; this.data.checkin.last = todayMid(); this.touchStreak(); this.addCans(CHECKIN_REWARD); return true; }
+  dailyWords(){const now=new Date();return WordCheckin.words(this.data,todayKey(),localStorage,currentUser()?.id,Math.floor((now.getTime()-now.getTimezoneOffset()*60000)/86400000));},
+  checkinClaimed(){return WordCheckin.claimed(this.data,todayKey(),todayMid());},
+  canCheckIn(){ return !this.checkinClaimed() && this.dailyWords().length>=5; },
+  recordWord(word){WordCheckin.record(this.data,todayKey(),word);this.save();paintHeader();},
+  checkIn(){if(!currentUser())return false;const words=this.dailyWords();if(!WordCheckin.claim(this.data,todayKey(),todayMid(),words,CHECKIN_REWARD))return false;words.forEach(w=>WordCheckin.record(this.data,todayKey(),w));this.touchStreak();this.save();paintHeader();return true; }
 };
 store.data = store.defaults();
 
@@ -2469,8 +2474,8 @@ function paintHeader(){
   $("#streakPill").textContent = "🔥 " + sc + "-day streak";
   const canEl = $("#canPill"); if(canEl) canEl.textContent = "🥫 " + (store.data.cans||0);
   const ci = $("#checkinPill");
-  if(ci){ const done = !store.canCheckIn(); ci.classList.toggle("done", done);
-    ci.textContent = done ? "✓ 今日已打卡" : "🐾 打卡 +" + CHECKIN_REWARD; }
+  if(ci){ const done = store.checkinClaimed(); ci.classList.toggle("done", done);
+    ci.textContent = done ? "✓ 今日已領罐罐" : store.canCheckIn()?"🥫 領取 " + CHECKIN_REWARD + " 罐":"📚 背單字 " + Math.min(5,store.dailyWords().length) + "/5"; ci.title="每天完成 5 個不同單字，領取 10 罐；每日限一次"; }
   const u = currentUser();
   const nm = $("#amName"), em = $("#amEmail"), ac = $("#amCans");
   if(u){ if(nm) nm.textContent = u.name; if(em) em.textContent = u.email; if(ac) ac.textContent = store.data.cans||0; }
@@ -12632,9 +12637,8 @@ const LX_DATA = {
 
 const ISLAND_KINDS = ["black","cow","orange","gray","cream","choco","white","calico"];
 /* ================= 🐱 貓咪搜集庫 Cat Collection (Cat Dex) =================
-   Original cute cartoon "meme-style" cats (inline SVG — no third-party images,
-   safe + instant). Unlock each with 罐罐; each unlock grants +100 XP. */
-const CATDEX_COST = 10;                 // 罐罐 to unlock one collectible cat
+   Original cute cartoon "meme-style" cats (AI-illustrated sprite atlas). Each unlock costs 50 cans and grants no XP. */
+const CATDEX_COST = 50;                 // 罐罐 to unlock one collectible cat
 function memeCatFace(fur, inner, expr){
   return `<svg viewBox="0 0 80 80" class="dex-svg" aria-hidden="true">
     <path d="M16 33 L11 8 L34 25 Z" fill="${fur}"/><path d="M64 33 L69 8 L46 25 Z" fill="${fur}"/>
@@ -12666,38 +12670,54 @@ const CAT_DEX = [
    expr:`<circle cx="30" cy="45" r="6.5" fill="#fff" stroke="#3b2f28" stroke-width="1.8"/><circle cx="31" cy="47" r="3" fill="#3b2f28"/><circle cx="50" cy="44" r="5.2" fill="#fff" stroke="#3b2f28" stroke-width="1.8"/><circle cx="49" cy="43" r="2.4" fill="#3b2f28"/><path d="M37 56 h6 v4.5 a3 3 0 0 1 -6 0z" fill="#EE8E9A"/>`},
   {id:"angry", en:"Rage", zh:"森77貓", meme:"本喵現在非常火大 😾", fur:"#D98A6C", inner:"#F2B79E",
    expr:`<path d="M26 40 l10 4" stroke="#4a3b30" stroke-width="2.6" stroke-linecap="round"/><path d="M54 40 l-10 4" stroke="#4a3b30" stroke-width="2.6" stroke-linecap="round"/><circle cx="31" cy="47" r="2.6" fill="#3b2f28"/><circle cx="49" cy="47" r="2.6" fill="#3b2f28"/><path d="M34 60 q6 -5 12 0" stroke="#5a2e2e" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M60 30 q4 3 2 8" stroke="#E86A5C" stroke-width="2" fill="none" stroke-linecap="round"/>`},
-  {id:"party", en:"Party", zh:"派對貓", meme:"YA！今天我最棒！🎉", fur:"#7FB5B5", inner:"#BFE0E0",
+  {id:"party", en:"Party King", zh:"派對國王貓", meme:"YA！今天我最棒！🎉", fur:"#7FB5B5", inner:"#BFE0E0",
    expr:`<path d="M26 47 q5 -5 10 0" stroke="#3b2f28" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M44 47 q5 -5 10 0" stroke="#3b2f28" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M33 55 q7 7 14 0z" fill="#5a2e2e"/><path d="M33 55 q7 7 14 0" fill="#E87C8A"/><path d="M50 16 l6 -10 6 10z" fill="#EEB868"/><circle cx="56" cy="8" r="2" fill="#E8637A"/>`}
 ];
+CAT_DEX.push(
+ {id:"box",en:"Box",zh:"紙箱貓",meme:"這個家剛剛好 📦"},
+ {id:"keyboard",en:"Overworked",zh:"加班貓",meme:"鍵盤是我的枕頭 💻"},
+ {id:"space",en:"Cosmic",zh:"太空貓",meme:"地球太吵，本喵先走 🚀"},
+ {id:"wizard",en:"Wizard",zh:"魔法貓",meme:"把不會的字變不見 ✨"},
+ {id:"boba",en:"Boba",zh:"珍奶貓",meme:"先喝一口，再背一個 🧋"},
+ {id:"snack",en:"Snack",zh:"罐罐貓",meme:"努力都是為了這一口 🥫"}
+);
+// Atlas frames use each illustration's actual bounds, avoiding adjacent paws or hats.
+const CAT_DEX_FRAMES=[
+ [0,0,260,340],[260,0,245,340],[505,0,262,340],[770,0,215,340],[988,0,275,340],[1263,0,273,340],
+ [0,341,257,310],[257,341,231,310],[488,341,267,310],[755,341,258,310],[1013,341,265,310],[1278,341,258,310],
+ [0,651,270,373],[270,651,268,373],[538,651,237,373],[775,651,250,373],[1025,651,256,373],[1281,651,255,373]
+];
+function catDexArt(c){const [x,y,w,h]=CAT_DEX_FRAMES[CAT_DEX.indexOf(c)],dw=Math.min(120,160*w/h);return `<span class="dex-art" role="img" aria-label="${c.zh}" style="width:${dw}px;height:${dw*h/w}px;background-size:${1536/w*100}% ${1024/h*100}%;background-position:${x/(1536-w)*100}% ${y/(1024-h)*100}%"></span>`;}
+
 const catDexOwned = id => !!(store.data.catDex && store.data.catDex[id]);
 function renderCatDex(){
   const owned = CAT_DEX.filter(c=>catDexOwned(c.id)).length, cans = store.data.cans||0;
   const cards = CAT_DEX.map(c=>{
     const got = catDexOwned(c.id);
-    if(got) return `<div class="dex-card got"><div class="dex-plate">${memeCatFace(c.fur,c.inner,c.expr)}</div>
+    if(got) return `<div class="dex-card got"><div class="dex-plate">${catDexArt(c)}</div>
       <div class="dex-name">${c.zh} <span>${c.en}</span></div><div class="dex-meme">${c.meme}</div><div class="dex-have">✓ 已收藏</div></div>`;
     const can = cans>=CATDEX_COST;
-    return `<div class="dex-card locked"><div class="dex-plate"><div class="dex-silhouette">${memeCatFace("#C9BCA8","#D8CDBB","")}<span class="dex-q">?</span></div></div>
-      <div class="dex-name">？？？</div><div class="dex-meme">神秘的貓咪…</div>
-      <button class="btn ${can?'btn-primary':'btn-ghost'} dex-unlock" ${can?'':'disabled'} onclick="dexUnlock('${c.id}')">🥫 ${CATDEX_COST} 解鎖 ·<b> +100 XP</b></button></div>`;
+    return `<div class="dex-card locked"><div class="dex-plate">${catDexArt(c)}</div>
+      <div class="dex-name">${c.zh} <span>${c.en}</span></div><div class="dex-meme">${c.meme}</div>
+      <button class="btn ${can?'btn-primary':'btn-ghost'} dex-unlock" ${can?'':'disabled'} onclick="dexUnlock('${c.id}')">🥫 ${CATDEX_COST} 解鎖</button></div>`;
   }).join("");
   app.innerHTML = `<div class="view dex">
     <div class="crumb"><a href="#/island">我的貓島</a> › 貓咪搜集庫</div>
     <div class="eyebrow">Cat Collection · 貓咪搜集庫</div>
     <h1 class="display">貓咪搜集庫<span class="zh-term-lg">Cat Dex</span></h1>
-    <p class="lede">玩「🎮 玩單字」賺 <b>罐罐 🥫</b>，再用罐罐解鎖這些可愛的迷因貓咪。每解鎖一隻就 <b>+100 XP</b>！收集全部 ${CAT_DEX.length} 隻吧。</p>
-    <div class="dex-bar"><span>已收藏 <b>${owned}</b> / ${CAT_DEX.length}</span><span>🥫 罐罐：<b>${cans}</b></span><a class="btn btn-ghost" href="#/reading">去玩單字賺罐罐 →</a></div>
+    <p class="lede">每天背完 <b>5 個不同單字</b>，打卡領 <b>10 罐 🥫</b>。每隻貓咪 <b>50 罐</b>，兌換不增加 XP。收集全部 ${CAT_DEX.length} 隻吧。</p>
+    <div class="dex-bar"><span>已收藏 <b>${owned}</b> / ${CAT_DEX.length}</span><span>🥫 罐罐：<b>${cans}</b></span><a class="btn btn-ghost" href="#/vocab/${todayKey()}">背 5 個單字領罐罐 →</a></div>
     <div class="dex-grid">${cards}</div>
-    <p class="rd-note">🐱 以上皆為原創手繪的卡通迷因貓（非網路轉載圖片，避免著作權問題、載入也更快）。想換成你自己有版權的梗圖貓，告訴我即可。</p>
+    <p class="rd-note">🐱 全新 AI 繪製的貓咪收藏插圖。原有收藏保留；新朋友每隻 50 罐，慢慢收集，不用趕。</p>
   </div>`;
 }
 function dexUnlock(id){
   const c = CAT_DEX.find(x=>x.id===id); if(!c || catDexOwned(id)) return;
-  if(!store.spendCans(CATDEX_COST)){ toast("罐罐不夠 🥫 先去「🎮 玩單字」賺一些吧！"); return; }
+  if(!store.spendCans(CATDEX_COST)){ toast("還需要更多罐罐 🥫 每天背 5 個字可以領 10 罐！"); return; }
   store.data.catDex = store.data.catDex || {};
   store.data.catDex[id] = new Date().toISOString();
-  addXPQuiet(100); store.save(); paintHeader();
-  toast(`🎉 收藏了「${c.zh}」！+100 XP　${c.meme}`);
+  store.save(); paintHeader();
+  toast(`🎉 收藏了「${c.zh}」！　${c.meme}`);
   renderCatDex();
 }
 function renderIsland(){
@@ -15192,14 +15212,14 @@ const sitShuffle = a => a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x
 const sitToday = () => { const d = new Date(); d.setHours(0,0,0,0); return d.getTime(); };
 function addXPQuiet(n){ store.data.xp += n; store.save(); paintHeader(); }
 function sitCheckin(btn){
-  if(store.data.checkin === sitToday()) return;
-  store.data.checkin = sitToday();
+  if(store.data.sitCheckin === sitToday()) return;
+  store.data.sitCheckin = sitToday();
   store.touchStreak();            // advance the daily streak (handles consecutive days)
   store.addXP(3);                 // +3 XP (saves, paints header, toasts)
   renderResources("situations");
 }
 function sitDailyHTML(){
-  const checked = store.data.checkin === sitToday();
+  const checked = store.data.sitCheckin === sitToday();
   const streak = store.streakCount(), svN = SIT_SAVED.length;
   const reviewedToday = store.data.lastReview === sitToday();
   return `<div class="sit-daily">
@@ -17128,7 +17148,8 @@ $("#resetForm").addEventListener("submit", async (e)=>{
 /* check-in */
 $("#checkinPill").addEventListener("click", ()=>{
   if(store.checkIn()) toast("🐾 今日打卡完成 +" + CHECKIN_REWARD + " 🥫");
-  else toast("今天已經打卡過囉，明天再來拿罐罐 🐾");
+  else if(store.checkinClaimed())toast("今天已領取過囉，明天背 5 個字再來 🐾");
+  else {toast("先完成 5 個不同單字，再領取 10 罐 🥫");location.hash="#/vocab/"+todayKey();}
 });
 /* account menu */
 $("#acctBtn").addEventListener("click", (e)=>{ e.stopPropagation(); const m = $("#acctMenu"); m.hidden = !m.hidden; });
@@ -17136,6 +17157,8 @@ $("#acctMenu").addEventListener("click", (e)=>e.stopPropagation());
 document.addEventListener("click", ()=>{ const m = $("#acctMenu"); if(m) m.hidden = true; });
 $("#amLogout").addEventListener("click", async ()=>{ if(CLOUD.on) await CLOUD.logout(); else AUTH.logout(); SESSION = null; store.rebind(null); $("#acctMenu").hidden = true; applyAuthUI(); updateTeacherNav(); location.hash = "#/home"; route(); toast("已登出 · 歡迎再來 🐾"); });
 
+window.addEventListener("focus",()=>{if(currentUser())paintHeader();});
+window.addEventListener("storage",e=>{if(e.key?.startsWith("vr:u:")&&currentUser())paintHeader();});
 bootApp();
 
 /* PWA: register the service worker (installable + offline) */

@@ -1,0 +1,13 @@
+# Daily word check-in and cat collection
+
+- Complete five distinct words during the local calendar day to claim 10 cans once. Correct daily-word quiz answers and completed standalone vocabulary reviews count; skipped words do not.
+- Repeated words across books or modes count once. Standalone records are read only for the signed-in account.
+- Previous check-ins today remain claimed. Existing cats, cans, and XP are preserved.
+- Each of 18 cats costs 50 cans. Cat redemption and word check-in award no XP; existing lesson/quiz XP rules remain unchanged.
+- The original `party` collection ID remains, displayed as Party King with its new crown illustration.
+- Illustration made with built-in image_gen (not CLI). Asset: `art/cat-dex/meme-cats-atlas.png`, 1536×1024. CSS frames follow actual illustration boundaries to prevent adjacent cats bleeding into each card.
+- Verification: Node regression suite, JavaScript parsing, offline asset version consistency, local browser cat redemption (100→50 cans, 3→4 cats), and visual inspection.
+
+## Generation prompt
+
+Create ONE production game sprite atlas image, landscape 3:2 ratio, EXACTLY 6 columns by 3 rows of equally sized square cells (18 cats total). Each cell contains one distinct complete full-body chibi meme cat centered with generous 15 percent empty margin, no crossing cell boundaries. Uniform plain warm ivory background #FFF8EE, no lines, no lettering, no numbers, no watermarks. Hand painted gouache and colored pencil editorial storybook art, delightfully expressive faces, fluffy dimensional fur, warm chocolate outlines, charming humorous poses, rich soft peach caramel teal palette, polished collectible sticker quality. Row1 left to right: grumpy beige cat folded arms; shocked ginger cat paws on cheeks big round eyes; cream cat shaped like a bread loaf sitting paws tucked; smug brown cat self-satisfied smirk; sleeping blue gray cat curled on tiny pillow; very round chubby orange cat sitting. Row2: teary cream kitten huge watery eyes; charcoal cat black sunglasses; rosy calico hugging pink heart; goofy golden cat tongue sticking out; furious rust cat puffed cheeks tiny steam puffs; royal white cat tiny gold crown. Row3: black and white cat peeking out cardboard box; orange cat typing on tiny laptop with exhausted stare; gray cat astronaut clear round helmet; cream cat wizard blue star hat; calico cat holding bubble tea; black cat happily hugging a sardine can. Maintain precise 6x3 grid placement, consistently scaled artwork occupying center 70 percent of each square tile. All original characters, recognizable silhouettes, clean opaque ivory ground. This single sprite atlas will be displayed as 18 cropped CSS background tiles.

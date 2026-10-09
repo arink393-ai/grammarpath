@@ -339,6 +339,7 @@ function vqPick(btn){
  const full=q[0].replace('___',q[2]);
  fb.className='dq-feedback dq-correct';
  fb.innerHTML=`✓ 答對了！${esc(q[3])}<span class="vq-full" lang="en">${vqMark(full,w.w)}</span><span class="vq-fullzh">${esc(q[4])}</span>`;
+ store.recordWord(w.w);
  VQ.quiz[VQ.i]=VQ.tries?'retry':'first';
  vqSave({quiz:VQ.quiz.slice()});
  vqSay(full);
@@ -347,15 +348,11 @@ function vqPick(btn){
 /* 把背過的字排進「每日單字」App 的複習（同網域 localStorage，App 開啟時會同步到雲端） */
 function vqToApp(d){
  try{
-  const uid=currentUser()?.id, owner=JSON.parse(localStorage.getItem('vr:owner')||'null');
-  if(uid && owner && owner!==uid){
-   const ks=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(/^vr:(p|star|bs):|^vr:(stats|books)$/.test(k)) ks.push(k); }
-   ks.forEach(k=>localStorage.removeItem(k));
-  }
-  if(uid) localStorage.setItem('vr:owner', JSON.stringify(uid));
+  const uid=currentUser()?.id;if(!uid)return 0;
+  const prefix='vr:u:'+encodeURIComponent(uid)+':';
   const now=new Date(), day=Math.floor((now.getTime()-now.getTimezoneOffset()*60000)/86400000);
-  const key='vr:p:'+d.book, p=JSON.parse(localStorage.getItem(key)||'{}');
-  const bsKey='vr:bs:'+d.book, bs=JSON.parse(localStorage.getItem(bsKey)||'{}');
+  const key=prefix+'vr:p:'+d.book, p=JSON.parse(localStorage.getItem(key)||'{}');
+  const bsKey=prefix+'vr:bs:'+d.book, bs=JSON.parse(localStorage.getItem(bsKey)||'{}');
   let added=0;
   d.items.forEach((w,i)=>{
    if(p[w.w]) return;
@@ -365,6 +362,7 @@ function vqToApp(d){
   });
   if(added){ bs[day]=bs[day]||{n:0,r:0}; bs[day].n+=added; localStorage.setItem(bsKey, JSON.stringify(bs)); }
   localStorage.setItem(key, JSON.stringify(p));
+  const dirty=new Set(JSON.parse(localStorage.getItem(prefix+'vr:dirty')||'[]'));dirty.add(d.book);localStorage.setItem(prefix+'vr:dirty',JSON.stringify([...dirty]));
   return added;
  }catch(e){ return 0; }
 }
@@ -376,6 +374,7 @@ function vqFinish(){
  if(first){ gained+=15; parts.push('完成每日背單字 +15 XP'); if(firstTry===n){ gained+=5; parts.push('全部一次答對 +5 XP'); } }
  vqSave({done:true, completedAt:rec.completedAt||new Date().toISOString(), firstTry, words:d.items.map(w=>w.w), quiz:VQ.quiz.slice()});
  if(gained){ store.data.xp=(store.data.xp||0)+gained; store.save(); }
+ if(store.checkIn())parts.push("每日 5 字打卡 +10 罐 🥫");
  store.touchStreak(); paintHeader();
  const added=vqToApp(d);
  const wrongWords=d.items.filter((w,i)=>VQ.quiz[i]==='retry');
