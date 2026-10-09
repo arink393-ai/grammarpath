@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#FBF3E8">
 <title>English Cat Island — Learn · Practice · Grow</title>
 <link rel="stylesheet" href="daily.css?v=17">
+<link rel="stylesheet" href="adventure.css?v=1">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
@@ -57,6 +58,13 @@ a{color:var(--teal);text-decoration:none}
 .nav button[data-nav]{text-align:left;width:100%;padding:11px 12px;border-radius:10px;font:500 15px var(--sans);color:var(--ink)}
 .nav button[data-nav]:hover{background:var(--bg)}
 .nav button[data-nav].active{color:var(--teal);font-weight:700;background:var(--teal-bg)}
+.nav-more{margin-top:8px;border-top:1px solid var(--line);padding-top:6px}
+.nav-more>summary{list-style:none;cursor:pointer;padding:11px 12px;border-radius:10px;font:600 13.5px var(--sans);color:var(--muted)}
+.nav-more>summary::-webkit-details-marker{display:none}
+.nav-more>summary::after{content:" ▸"}
+.nav-more[open]>summary::after{content:" ▾"}
+.nav-more>summary:hover{background:var(--bg)}
+.nav-more-list{display:flex;flex-direction:column;gap:3px}
 .nav-backdrop{position:fixed;inset:0;background:rgba(40,26,12,.34);z-index:110;opacity:0;pointer-events:none;transition:opacity .26s ease}
 .nav-backdrop.open{opacity:1;pointer-events:auto}
 body.nav-open{overflow:hidden}
@@ -991,6 +999,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 /* ---------- lesson page ---------- */
 .lesson-shell{display:grid;grid-template-columns:250px 1fr;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
 .lsb{border-right:1px solid var(--line);background:var(--bg);padding:22px 0}
+.lesson-quick{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 24px}
+.lesson-quick span{font:400 13px var(--sans);color:var(--muted)}
 .lsb-h{padding:0 22px 12px;font:600 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .lsb-item{display:flex;align-items:center;gap:10px;padding:10px 22px;font:400 13.5px var(--sans);color:var(--body);width:100%;text-align:left}
 .lsb-item:hover{background:#F6EEE3}
@@ -1910,6 +1920,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <nav class="nav" id="mainNav" aria-label="Main">
   <div class="nav-head"><span class="nav-title">選單 Menu</span><button class="nav-close" id="navClose" type="button" aria-label="關閉 Close">✕</button></div>
   <button data-nav="#/home">🏝️ 首頁 Home</button>
+  <button data-nav="#/adventure">🗺️ 小冒險 Adventure</button>
   <button data-nav="#/daily">🗓️ 每日練習 Daily</button>
   <div class="nav-group">課程 Lessons</div>
   <button data-nav="#/level/basic">📗 初級 Basic</button>
@@ -1921,15 +1932,17 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/cats">🐱 貓咪搜集庫 Cat Dex</button>
   <button data-nav="#/reading">📰 每週閱讀 Reading</button>
   <button data-nav="#/story">📖 故事時間 Stories</button>
+  <button data-nav="#/resources">🔤 資源 Resources</button>
+  <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
+  <button data-nav="#/homework" id="navHomework">📝 作業繳交 Homework</button>
+  <button data-nav="#/teacher" id="navTeacher" hidden>🧑‍🏫 老師後台 Teacher</button>
+  <details class="nav-more"><summary>🎓 進階・老師專區 More</summary><div class="nav-more-list">
   <button data-nav="#/theory">🧠 學習理論 Theory</button>
   <button data-nav="#/etymology">🔤 字源學堂 Word Origins</button>
   <button data-nav="#/lab">🔬 語言探索室 Language Lab</button>
   <button data-nav="#/present">🎤 簡報技巧 Presentation Skills</button>
   <button data-nav="#/philosophy">💭 哲學思辨 Philosophy</button>
-  <button data-nav="#/reflect">📓 反思筆記 Reflect</button>
-  <button data-nav="#/homework" id="navHomework">📝 作業繳交 Homework</button>
-  <button data-nav="#/teacher" id="navTeacher" hidden>🧑‍🏫 老師後台 Teacher</button>
-  <button data-nav="#/resources">🔤 資源 Resources</button>
+  </div></details>
 </nav>
 <div class="nav-backdrop" id="navBackdrop"></div>
 <div class="acct-menu" id="acctMenu" hidden>
@@ -1982,7 +1995,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="word-checkin.js?v=1"></script>
 <script src="curriculum-loader.js?v=3"></script>
 <script src="offline-content.js?v=5"></script>
-<script src="daily.js?v=17"></script>
+<script src="daily.js?v=18"></script>
+<script src="adventure.js?v=1"></script>
 <script src="vocab/books.js?v=6"></script>
 <script src="vocab-quest.js?v=15"></script>
 <script>
@@ -2005,6 +2019,7 @@ const STORE_BASE = "grammarpath_v1";
 let STORE_KEY = STORE_BASE;              // rebound to a per-student key on login
 const CHECKIN_REWARD = 10;               // 罐罐 per daily check-in
 const UNLOCK_COST = 5;                   // 罐罐 to feed / unlock one advanced unit
+const PRACTICE_CANS = 3;                 // 罐罐 for a lesson practice ≥70% (once per lesson per day)
 const REFLECT_REWARD = 3;                // 罐罐 for the first reflection each day
 function todayMid(){ const d = new Date(); d.setHours(0,0,0,0); return d.getTime(); }
 function todayKey(){ const d = new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
@@ -2517,6 +2532,8 @@ async function route(){
   else if(h[0]==="lesson" && lessonById(h[1])) renderLesson(h[1]);
   else if(h[0]==="practice" && lessonById(h[1])) startPractice(h[1]);
   else if(h[0]==="videoquiz" && h[1]) startVideoQuiz(h[1]);
+  else if(h[0]==="adventure" && h[1]) advStart(h[1]);
+  else if(h[0]==="adventure") renderAdventure();
   else if(h[0]==="daily" && h[1]) startDaily(h[1]);
   else if(h[0]==="daily") renderDaily();
   else if(h[0]==="vocab" && h[1]) startVocabQuest(h[1]);
@@ -2609,7 +2626,8 @@ function renderHome(){
       <p class="story-zh"><span class="sl">學英語的過程，就像你乘船來到一座島。</span><span class="sl">島上的島民，是一百多隻貓咪。</span><span class="sl">隨著相處的時間越來越多、越來越長，你漸漸懂了貓咪們想對你表達的喵喵聲——</span><span class="sl">而貓咪們，也從高冷，慢慢變得黏人……</span></p>
       <div class="hero-cta" style="justify-content:center">
         ${currentUser()
-          ? `<button class="btn btn-primary" onclick="location.hash='#/lesson/${next?next.id:'be-verb'}'">${totalDone? "Continue learning":"Start learning"} →</button>
+          ? `<button class="btn btn-primary" onclick="location.hash='#/adventure'">🗺️ 小冒險 Adventure</button>
+             <button class="btn btn-ghost" onclick="location.hash='#/lesson/${next?next.id:'be-verb'}'">${totalDone? "Continue learning":"Start learning"} →</button>
              <button class="btn btn-ghost" onclick="location.hash='#/games'">Play a game</button>`
           : `<button class="btn btn-primary btn-start" onclick="openAuthModal()">🐾 開始學習 Start learning →</button>`}
       </div>
@@ -2619,6 +2637,7 @@ function renderHome(){
       <div class="card stat"><div class="n">${store.data.xp}</div><div class="l">XP earned</div></div>
       <div class="card stat"><div class="n">${store.streakCount()}</div><div class="l">Day streak</div></div>
     </div>
+    ${typeof advHomeCard==="function"?advHomeCard():""}
     ${dailyHomeCard()}
     <h2 class="section">Choose your level</h2>
     <div class="levels">${lvCards}</div>
@@ -7758,7 +7777,8 @@ function renderLesson(id){
       <div class="lmain">
         <div class="eyebrow">${lv.name} · Lesson ${l.n}</div>
         <h1 class="display" style="font-size:32px">${l.title}<span class="zh-term-lg">${l.zh}</span></h1>
-        <p class="lede" style="margin-bottom:24px">${l.sub}</p>
+        <p class="lede" style="margin-bottom:14px">${l.sub}</p>
+        <div class="lesson-quick"><button class="btn btn-primary" onclick="location.hash='#/practice/${l.id}'">🎮 先玩再學 Play first（${(l.q||[]).length} 題・約 3 分鐘）</button><span>答錯會告訴你原因；想先看說明就往下滑 👇</span></div>
         ${lessonVideoHTML(l.id)}
         <div class="formbox"><div class="fb-l">Form</div><div class="fb-p">${l.form.p}</div>
           ${(l.form.p.includes("hl-sub")||l.form.p.includes("hl-vrb")||l.form.ex.some(e=>e.includes("hl-sub")||e.includes("hl-vrb"))) ? `<div class="hl-legend"><span class="leg-dot leg-sub"></span><b>主詞 (Subject)</b> 藍色 &nbsp;·&nbsp; <span class="leg-dot leg-vrb"></span><b>動詞 (Verb)</b> 紅色</div>` : ""}
@@ -16455,11 +16475,24 @@ function replayMissed(){
     title:"Missed questions ↻", timed:false});
   renderQuestion();
 }
+/* Timed challenge pool: multiple choice only (no typing against the clock).
+   "all" = lessons this student has completed or practised; falls back to the
+   first Basic lessons so a newcomer never gets advanced grammar on a timer. */
+function timedPool(level){
+  const mcqOf = ls => { const qs=[]; ls.forEach(l=> (l.q||[]).forEach((q,qi)=>{ if(q.t==="mcq") qs.push(Object.assign({lesson:l.title+(l.zh?"｜"+l.zh:""), ref:l.id+":"+qi}, q)); })); return qs; };
+  if(level!=="all") return shuffle(mcqOf(lessonsOf(level)));
+  const learned = new Set([...Object.keys(store.data.completed||{}), ...Object.keys(store.data.best||{}).filter(k=>lessonById(k))]);
+  let ls = DATA.lessons.filter(l=>learned.has(l.id));
+  if(mcqOf(ls).length < 10){
+    for(const l of lessonsOf("basic")){ if(!ls.includes(l)) ls.push(l); if(mcqOf(ls).length >= 20) break; }
+  }
+  return shuffle(mcqOf(ls));
+}
 function startGame(type, level){
   if(type==="review"){ startReview(); return; }
   if(type==="timed"){
-    Object.assign(S, {mode:"timed", type, level, qs:poolFor(level,"timed"), i:0, right:0, results:[], listen:false, score:0, combo:0,
-      title:"Timed challenge · "+(level==="all"?"All levels":levelById(level).name), timed:true, timeLeft:60});
+    Object.assign(S, {mode:"timed", type, level, qs:timedPool(level), i:0, right:0, results:[], listen:false, score:0, combo:0,
+      title:"Timed challenge · "+(level==="all"?"我學過的 Learned":levelById(level).name), timed:true, timeLeft:60});
     renderQuestion(); startTimer();
   } else {
     const qs = poolFor(level, type).slice(0,10);
@@ -16652,6 +16685,13 @@ function finishSession(){
     if(S.mode==="practice" && !S.videoQuiz && pct>=70){
       S.newCat = !store.data.completed[S.lessonId];
       store.complete(S.lessonId); sub += " Lesson marked complete ✓";
+      /* learning feeds the cat collection: +3 🥫 once per lesson per day */
+      const d = todayKey();
+      if(!store.data.pracCans || store.data.pracCans.d!==d) store.data.pracCans = {d, ids:{}};
+      if(!store.data.pracCans.ids[S.lessonId]){
+        store.data.pracCans.ids[S.lessonId] = 1; store.addCans(PRACTICE_CANS);
+        sub += ` <b>+${PRACTICE_CANS} 🥫</b> <a href="#/cats" style="font-size:13px">去解鎖貓咪 →</a>`;
+      }
     }
   }
   if(xp>0) store.addXP(xp);

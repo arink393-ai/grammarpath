@@ -487,7 +487,22 @@ const DQ_BADGES = [
  {id:'streak7',icon:'🌙',zh:'七日連續',en:'7-Day Streak',cond:'連續打卡 7 天',test:s=>s.streak>=7},
  {id:'xp300',icon:'⭐',zh:'貓島之星',en:'Island Star',cond:'累積 300 XP',test:s=>s.xp>=300},
  {id:'allWeeks',icon:'🏝️',zh:'貓島探險家',en:'Island Explorer',cond:'完成目前所有週任務',test:s=>s.totalWeeks>0&&s.weeksDone>=s.totalWeeks}];
-function dailyTierAuto(){ const xp=(store.data&&store.data.xp)||0; return xp>=250?'challenge':xp>=80?'core':'easy'; }
+/* Auto difficulty follows recent FIRST-TRY accuracy (last 20 answers per tier), not XP:
+   start easy; move up after ≥8 answers at ≥85%; move back down if a tier drops below 60%. */
+function dqAccList(t){ return ((store.data&&store.data.dqAcc)||{})[t]||[]; }
+function dqAccRate(t){ const a=dqAccList(t); return a.length? a.reduce((x,y)=>x+y,0)/a.length : 0; }
+function dqAccOk(t){ return dqAccList(t).length>=8 && dqAccRate(t)>=0.85; }
+function dqAccLow(t){ return dqAccList(t).length>=8 && dqAccRate(t)<0.6; }
+function dqLogAcc(t, ok){ store.data.dqAcc=store.data.dqAcc||{}; const a=(store.data.dqAcc[t]||[]).slice(); a.push(ok?1:0); while(a.length>20)a.shift(); store.data.dqAcc[t]=a; }
+function dailyTierAuto(){
+ let t='easy';
+ if(dqAccOk('easy')) t='core';
+ if(t==='core' && dqAccLow('core')) t='easy';
+ if(t==='core' && dqAccOk('core')) t='challenge';
+ if(t==='challenge' && dqAccLow('challenge')) t='core';
+ return t;
+}
+function dqAccText(t){ const a=dqAccList(t); return a.length? `最近 ${a.length} 題答對 ${Math.round(dqAccRate(t)*100)}%` : '還沒有作答紀錄'; }
 function dailyTier(){ const m=(store.data&&store.data.dailyDiff)||'auto'; return m==='auto'?dailyTierAuto():m; }
 function dailySetDiff(m){ store.data.dailyDiff=m; store.save(); renderDaily(); }
 function dailyBank(d){ const t=dailyTier(); return (d.banks&&d.banks[t])||(d.banks&&d.banks.easy)||[]; }
@@ -496,11 +511,13 @@ function dailyToday(now = new Date()) {
  return ['year','month','day'].map(k=>p.find(x=>x.type===k).value).join('-');
 }
 function dailyWeek(){ const t=dailyToday(); return DAILY_WEEKS.filter(w=>w.id<=t).at(-1)||DAILY_WEEKS[0]; }
-function dqShownWeek(){ return DAILY_WEEKS.find(w=>w.id===DQ_WEEK_VIEW) || dailyWeek(); }
+function dqShownWeek(){ return DAILY_WEEKS.find(w=>w.id===DQ_WEEK_VIEW) || DAILY_WEEKS.find(w=>w.days.includes(dailyFeatured())) || dailyWeek(); }
 function dqSetWeek(id){ DQ_WEEK_VIEW=id; renderDaily(); window.scrollTo(0,0); }
 function dailyRecords(){ return store.data.dailyQuests || {}; }
 function dailyStarted(rec){ return rec && rec.progress && Object.values(rec.progress).some(a=>a&&a.some(Boolean)); }
-function dailyFeatured(){ const w=dailyWeek(),t=dailyToday(); return w.days.find(d=>d.date===t)||w.days.find(d=>!dailyRecords()[d.date]?.done)||w.days[0]; }
+/* "Next quest" follows the student's own progress from week 1 (not the calendar),
+   so a newcomer starts at the easiest grammar instead of whatever week it is. */
+function dailyFeatured(){ const recs=dailyRecords(), all=DAILY_WEEKS.flatMap(w=>w.days); return all.find(d=>!recs[d.date]?.done) || dailyWeek().days.find(d=>d.date===dailyToday()) || all[0]; }
 function dailyHomeCard(){ const d=dailyFeatured();return `<section class="dq-home card"><div><div class="eyebrow">DAILY CAT QUEST · 每天 5–10 分鐘</div><h2>每日任務 · ${d.title}</h2><p>${d.topic} · ${d.level}　陪貓咪玩一關，學會一個句型。</p></div><a class="btn btn-primary" href="#/daily">查看每日任務 →</a></section>`; }
 /* ---- rewards: stats, titles, badges ---- */
 function dqChalDone(d){ const r=dailyRecords()[d.date]; const p=r&&r.progress&&r.progress.challenge; const b=d.banks&&d.banks.challenge; return !!(p&&b&&p.length===b.length&&p.every(Boolean)); }
@@ -531,11 +548,11 @@ function dqHonorsCard(){
  return `<section class="dq-honors card"><div class="dq-honors-top"><div><div class="eyebrow">HONORS · 榮譽殿堂</div><div class="dq-title-now">${title.zh} <span>${title.en}</span></div>${next?`<div class="dq-title-next">再完成 ${next.min-s.daysDone} 天任務 → 晉升「${next.zh}」</div>`:`<div class="dq-title-next">已達最高稱號，貓島以你為榮！🏆</div>`}</div><div class="dq-honors-stats"><div><b>${s.daysDone}</b><span>完成天數</span></div><div><b>${s.xp}</b><span>XP</span></div><div><b>${Object.keys(earned).length}/${DQ_BADGES.length}</b><span>徽章</span></div></div></div><div class="dq-badges">${badges}</div></section>`;
 }
 function renderDaily(){
- DQ=null;const w=dqShownWeek(),records=dailyRecords(),done=w.days.filter(d=>records[d.date]?.done).length,t=dailyToday(),cur=dailyWeek();
+ DQ=null;const w=dqShownWeek(),records=dailyRecords(),done=w.days.filter(d=>records[d.date]?.done).length,t=dailyToday(),feat=dailyFeatured(),cur=DAILY_WEEKS.find(x=>x.days.includes(feat))||dailyWeek();
  const diffMode=(store.data.dailyDiff)||'auto',tier=dailyTier(),xp=store.data.xp||0;
- const weekNav=DAILY_WEEKS.length>1?`<div class="dq-weeknav">${DAILY_WEEKS.map((x,i)=>`<button class="dq-week-chip ${x.id===w.id?'on':''}" onclick="dqSetWeek('${x.id}')">第 ${i+1} 週 · ${esc(x.title)}${x.id===cur.id?' 🐾本週':x.id>cur.id?' 🔒可預習':''}</button>`).join('')}</div>`:'';
- const diffCard=`<section class="dq-diff card"><div class="dq-diff-head"><b>難易度 Difficulty</b><span>三種難度是完全不同的題型與句子，不只是換皮</span></div><div class="dq-diff-btns">${[['auto','⚙️ 自動 Auto'],['easy','🌱 簡單'],['core','🐾 一般'],['challenge','🔥 挑戰']].map(([k,l])=>`<button class="dq-diff-btn ${diffMode===k?'on':''}" onclick="dailySetDiff('${k}')">${l}</button>`).join('')}</div><p class="dq-diff-now">目前難度：<b>${DQ_TIER_LABEL[tier]}</b>${diffMode==='auto'?`（依你目前 ${xp} XP 自動判斷）`:''}<br><span class="dq-diff-desc">${DQ_TIER_NOTE[tier]}</span></p></section>`;
- app.innerHTML=`<div class="view dq"><a href="#/home">← 回到首頁</a>${typeof dailyTabs==='function'?dailyTabs('quests'):''}<section class="dq-hero"><div><div class="eyebrow">DAILY CAT QUESTS</div><h1 class="display">每天一小步，<br>陪貓咪探索英語島。</h1><p>每週七個文法任務，三種難度自由挑。完成任務可獲得 XP、稱號與榮譽貓咪島徽章。</p><p class="dq-meta">${w.days[0].date.replaceAll('-', ' / ')} — ${w.days.at(-1).date.slice(5).replace('-', ' / ')} · 台灣時間每日中午建議練習</p><a class="btn btn-primary" href="#/daily/${dailyFeatured().date}">開始今日任務：${dailyFeatured().title} →</a></div><div class="dq-mascot">${catSVG(150,'calico')}<span>今天也一起進步，喵！</span></div></section>${dqHonorsCard()}${typeof vqDailyCard==='function'?vqDailyCard():''}<section class="dq-progress card"><div><b>本週探險足跡 · ${esc(w.title)}</b><span>${done} / 7 天完成</span></div><progress max="7" value="${done}" aria-label="本週任務完成進度"></progress><p>每關全部訂正後收集一枚貓掌，首次完成 +20 XP、挑戰難度再 +10、完成整週再 +50。</p></section>${diffCard}<div class="dq-heading"><h2>任務地圖</h2><span>可切換週次，提前預習或隨時複習</span></div>${weekNav}<div class="dq-grid">${w.days.map((d,i)=>`<a class="card dq-day ${d.date===t?'dq-today':''}" href="#/daily/${d.date}"><div class="dq-day-top"><span>DAY 0${i+1} · ${Number(d.date.slice(5,7))}/${Number(d.date.slice(8))} 週${'一二三四五六日'[i]}</span><b>${records[d.date]?.done?'🐾 已完成':d.date===t?'今日任務':d.date>t?'可預習':'可補做'}</b></div><span class="dq-icon" aria-hidden="true">${d.icon}</span><h3>${d.title}</h3><p>${d.topic}</p><div class="dq-day-bottom"><span>${d.level} · ${dailyBank(d).length} 題</span><span>${records[d.date]?.done?'再次練習':dailyStarted(records[d.date])?'繼續任務':'開始探索'} →</span></div></a>`).join('')}</div><p class="dq-source">改編自英語貓咪島週企劃；互動題目與難度分級為原創編寫。目前收錄 ${DAILY_WEEKS.length} 週，之後可持續新增。</p></div>`;
+ const weekNav=DAILY_WEEKS.length>1?`<div class="dq-weeknav">${DAILY_WEEKS.map((x,i)=>`<button class="dq-week-chip ${x.id===w.id?'on':''}" onclick="dqSetWeek('${x.id}')">第 ${i+1} 週 · ${esc(x.title)}${x.days.every(d=>records[d.date]?.done)?' ✅':x.id===cur.id?' 🐾進行中':''}</button>`).join('')}</div>`:'';
+ const diffCard=`<section class="dq-diff card"><div class="dq-diff-head"><b>難易度 Difficulty</b><span>三種難度是完全不同的題型與句子，不只是換皮</span></div><div class="dq-diff-btns">${[['auto','⚙️ 自動 Auto'],['easy','🌱 簡單'],['core','🐾 一般'],['challenge','🔥 挑戰']].map(([k,l])=>`<button class="dq-diff-btn ${diffMode===k?'on':''}" onclick="dailySetDiff('${k}')">${l}</button>`).join('')}</div><p class="dq-diff-now">目前難度：<b>${DQ_TIER_LABEL[tier]}</b>${diffMode==='auto'?`（依答對率自動調整：${dqAccText(tier)}）`:''}<br><span class="dq-diff-desc">${DQ_TIER_NOTE[tier]}</span></p></section>`;
+ app.innerHTML=`<div class="view dq"><a href="#/home">← 回到首頁</a>${typeof dailyTabs==='function'?dailyTabs('quests'):''}<section class="dq-hero"><div><div class="eyebrow">DAILY CAT QUESTS</div><h1 class="display">每天一小步，<br>陪貓咪探索英語島。</h1><p>每週七個文法任務，三種難度自由挑。完成任務可獲得 XP、稱號與榮譽貓咪島徽章。</p><p class="dq-meta">${w.days[0].date.replaceAll('-', ' / ')} — ${w.days.at(-1).date.slice(5).replace('-', ' / ')} · 台灣時間每日中午建議練習</p><a class="btn btn-primary" href="#/daily/${feat.date}">下一關：${feat.title} →</a></div><div class="dq-mascot">${catSVG(150,'calico')}<span>今天也一起進步，喵！</span></div></section>${dqHonorsCard()}${typeof vqDailyCard==='function'?vqDailyCard():''}<section class="dq-progress card"><div><b>本週探險足跡 · ${esc(w.title)}</b><span>${done} / 7 天完成</span></div><progress max="7" value="${done}" aria-label="本週任務完成進度"></progress><p>每關全部訂正後收集一枚貓掌，首次完成 +20 XP、挑戰難度再 +10、完成整週再 +50。</p></section>${diffCard}<div class="dq-heading"><h2>任務地圖</h2><span>可切換週次，提前預習或隨時複習</span></div>${weekNav}<div class="dq-grid">${w.days.map((d,i)=>`<a class="card dq-day ${d===feat?'dq-today':''}" href="#/daily/${d.date}"><div class="dq-day-top"><span>DAY 0${i+1} · ${Number(d.date.slice(5,7))}/${Number(d.date.slice(8))} 週${'一二三四五六日'[i]}</span><b>${records[d.date]?.done?'🐾 已完成':d===feat?'▶ 下一關':'可先玩'}</b></div><span class="dq-icon" aria-hidden="true">${d.icon}</span><h3>${d.title}</h3><p>${d.topic}</p><div class="dq-day-bottom"><span>${d.level} · ${dailyBank(d).length} 題</span><span>${records[d.date]?.done?'再次練習':dailyStarted(records[d.date])?'繼續任務':'開始探索'} →</span></div></a>`).join('')}</div><p class="dq-source">改編自英語貓咪島週企劃；互動題目與難度分級為原創編寫。目前收錄 ${DAILY_WEEKS.length} 週，之後可持續新增。</p></div>`;
 }
 function startDaily(date){
  const d=DAILY_WEEKS.flatMap(w=>w.days).find(d=>d.date===date);if(!d){renderDaily();return;}
@@ -571,6 +588,7 @@ function dailyCheck(value){
  const q=DQ.questions[DQ.index],choice=q[0]==='pick'||q[0]==='sort',answer=q[choice?3:2],explanation=q[choice?4:3];
  if(!value.trim())return;
  const alts=String(answer).split('|').map(norm),correct=alts.includes(norm(value)),feedback=document.querySelector('#dq-feedback');
+ DQ.tried=DQ.tried||{}; if(!DQ.tried[DQ.index]){ DQ.tried[DQ.index]=1; dqLogAcc(DQ.tier, correct); if(!correct) store.save(); }
  feedback.className='dq-feedback '+(correct?'dq-correct':'dq-retry');
  feedback.textContent=correct?'✓ 答對了！'+explanation:'再試一次喵！'+(q[0]==='build'?DQ.d.rule:explanation);
  if(!correct){feedback.focus();return;}
