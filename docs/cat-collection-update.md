@@ -3,7 +3,7 @@
 - Complete five distinct words during the local calendar day to claim 10 cans once. Correct daily-word quiz answers and completed standalone vocabulary reviews count; skipped words do not.
 - Repeated words across books or modes count once. Standalone records are read only for the signed-in account.
 - Previous check-ins today remain claimed. Existing cats, cans, and XP are preserved.
-- Each of 18 cats costs 50 cans. Cat redemption and word check-in award no XP; existing lesson/quiz XP rules remain unchanged.
+- Each capsule costs 50 cans and randomly selects one of the unowned cats with equal probability. No duplicates; drawing stops when all 18 are owned. Deduction and collection are saved together before the reveal animation. Cat redemption and word check-in award no XP; existing lesson/quiz XP rules remain unchanged.
 - The original `party` collection ID remains, displayed as Party King with its new crown illustration.
 - Illustration made with built-in image_gen (not CLI). Asset: `art/cat-dex/meme-cats-atlas.png`, 1536×1024. CSS frames follow actual illustration boundaries to prevent adjacent cats bleeding into each card.
 - Verification: Node regression suite, JavaScript parsing, offline asset version consistency, local browser cat redemption (100→50 cans, 3→4 cats), and visual inspection.

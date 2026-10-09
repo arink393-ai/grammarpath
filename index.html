@@ -696,6 +696,18 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .cw-len{color:var(--muted);font-size:11px}
 @media(max-width:480px){.cw-clues{grid-template-columns:1fr}}
 /* 🐱 Cat Dex collection */
+
+.dex-machine{display:flex;align-items:center;justify-content:center;gap:48px;padding:32px;margin:24px 0;background:linear-gradient(130deg,#fff0d9,#fce0d5);border:1px solid #eac6ac;border-radius:24px}
+.dex-machine-art{width:180px;flex:none;filter:drop-shadow(0 12px 10px #875b2520)}
+.dex-globe{height:140px;border:7px solid #fff8ee;border-radius:85px 85px 22px 22px;background:#fff8eebd;position:relative;overflow:hidden;text-align:center}
+.dex-globe span{font-size:70px;position:relative;z-index:1}.dex-globe i{position:absolute;font-size:70px;font-style:normal;color:#e8ac66;bottom:-24px;left:5px}.dex-globe i:nth-of-type(2){left:60px;color:#97b8af}.dex-globe i:nth-of-type(3){left:108px;color:#e69c9e}
+.dex-machine-base{background:#cb7558;border-radius:8px 8px 25px 25px;text-align:center;padding:12px;color:white}.dex-machine-base>span{font:700 10px var(--sans);letter-spacing:2px}.dex-machine-base>b{display:block;margin:10px auto;background:#fff0d4;color:#9b654c;border-radius:50%;width:52px;font-size:36px;line-height:52px}.dex-machine-base>div{background:#754d3f;width:70px;height:22px;border-radius:16px 16px 8px 8px;margin:auto}
+.dex-machine-copy{max-width:410px}.dex-machine-copy h2{margin:8px 0 12px}.dex-machine-copy p{line-height:1.8}.dex-rules{font-size:12px;color:var(--muted)}.dex-wait{font-size:12px;color:var(--muted);margin-top:4px}.dex-card.locked .dex-art{filter:saturate(.55);opacity:.65}
+.dex-reveal{position:fixed;inset:0;margin:auto;max-height:calc(100dvh - 32px);overflow:auto;border:1px solid #ead1af;border-radius:28px;padding:30px;max-width:400px;width:calc(100% - 32px);text-align:center;color:var(--ink);background:#fff8ee;box-shadow:0 24px 80px #30201655}.dex-reveal::backdrop{background:#38291c99;backdrop-filter:blur(4px)}.dex-opening{width:64px;height:64px;margin:0 auto 16px;position:relative;animation:dex-wiggle .7s ease-in-out}.dex-opening span{position:absolute;left:0;width:64px;height:32px;background:#e49b75;border:3px solid #b47458;border-radius:40px 40px 0 0;transform-origin:left bottom;animation:dex-lid .9s ease forwards}.dex-opening span+span{top:32px;background:#fff0d3;border-radius:0 0 40px 40px;animation:none}@keyframes dex-lid{0%,65%{transform:none}100%{transform:translate(-9px,-10px) rotate(-25deg)}}.dex-prize{animation:dex-reveal .9s ease both}.dex-prize-art{display:flex;justify-content:center}.dex-prize h2 small{display:block;font-size:14px;color:var(--muted);margin-top:6px}.dex-prize p{font-size:14px}.dex-reveal form{margin-top:20px}
+@keyframes dex-wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-18deg) scale(.8)}75%{transform:rotate(18deg) scale(1.2)}}
+@keyframes dex-reveal{0%,45%{opacity:0;transform:translateY(15px) scale(.85)}100%{opacity:1;transform:none}}
+@media(max-width:560px){.dex-machine{flex-direction:column;gap:20px;padding:24px 18px;text-align:center}.dex-machine-art{width:160px}.dex-machine-copy h2{font-size:23px}}
+
 .dex .lede{max-width:none}
 .dex-bar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--amber-bg);border:1.5px solid var(--amber-line);border-radius:12px;padding:10px 16px;margin:4px 0 18px;font:600 14px var(--sans);color:var(--amber)}
 .dex-bar b{color:var(--navy)}
@@ -1994,7 +2006,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="progress-sync.js?v=1"></script>
 <script src="word-checkin.js?v=1"></script>
 <script src="curriculum-loader.js?v=3"></script>
-<script src="offline-content.js?v=5"></script>
+<script src="offline-content.js?v=6"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=1"></script>
 <script src="vocab/books.js?v=6"></script>
@@ -12711,34 +12723,48 @@ function catDexArt(c){const [x,y,w,h]=CAT_DEX_FRAMES[CAT_DEX.indexOf(c)],dw=Math
 
 const catDexOwned = id => !!(store.data.catDex && store.data.catDex[id]);
 function renderCatDex(){
-  const owned = CAT_DEX.filter(c=>catDexOwned(c.id)).length, cans = store.data.cans||0;
+  const owned = CAT_DEX.filter(c=>catDexOwned(c.id)).length, cans = store.data.cans||0, left=CAT_DEX.length-owned;
   const cards = CAT_DEX.map(c=>{
     const got = catDexOwned(c.id);
-    if(got) return `<div class="dex-card got"><div class="dex-plate">${catDexArt(c)}</div>
-      <div class="dex-name">${c.zh} <span>${c.en}</span></div><div class="dex-meme">${c.meme}</div><div class="dex-have">✓ 已收藏</div></div>`;
-    const can = cans>=CATDEX_COST;
-    return `<div class="dex-card locked"><div class="dex-plate">${catDexArt(c)}</div>
+    return `<div class="dex-card ${got?'got':'locked'}"><div class="dex-plate">${catDexArt(c)}</div>
       <div class="dex-name">${c.zh} <span>${c.en}</span></div><div class="dex-meme">${c.meme}</div>
-      <button class="btn ${can?'btn-primary':'btn-ghost'} dex-unlock" ${can?'':'disabled'} onclick="dexUnlock('${c.id}')">🥫 ${CATDEX_COST} 解鎖</button></div>`;
+      <div class="${got?'dex-have':'dex-wait'}">${got?'✓ 已收藏':'🔒 等待相遇'}</div></div>`;
   }).join("");
   app.innerHTML = `<div class="view dex">
     <div class="crumb"><a href="#/island">我的貓島</a> › 貓咪搜集庫</div>
-    <div class="eyebrow">Cat Collection · 貓咪搜集庫</div>
-    <h1 class="display">貓咪搜集庫<span class="zh-term-lg">Cat Dex</span></h1>
-    <p class="lede">每天背完 <b>5 個不同單字</b>，打卡領 <b>10 罐 🥫</b>。每隻貓咪 <b>50 罐</b>，兌換不增加 XP。收集全部 ${CAT_DEX.length} 隻吧。</p>
+    <div class="eyebrow">Cat Capsule · 貓咪盲盒扭蛋</div>
+    <h1 class="display">今天會遇見誰？<span class="zh-term-lg">Cat Dex</span></h1>
+    <p class="lede">每天背完 <b>5 個不同單字</b>，打卡領 <b>10 罐 🥫</b>。存滿 <b>50 罐</b>，轉出一位新朋友。</p>
+    <section class="dex-machine" aria-label="貓咪扭蛋機">
+      <div class="dex-machine-art" aria-hidden="true"><div class="dex-globe"><span>🐱</span><i>●</i><i>●</i><i>●</i></div><div class="dex-machine-base"><span>CAT ISLAND</span><b>✚</b><div></div></div></div>
+      <div class="dex-machine-copy"><div class="eyebrow">A LITTLE SURPRISE</div><h2>${left?'把期待，轉成一隻貓。':'全員到齊，貓島好熱鬧！'}</h2>
+      <p>${left?`還有 ${left} 隻貓咪等著和你相遇。每次隨機抽出一隻未收藏的貓咪，不會重複。`:'你已集滿目前全部貓咪，謝謝你每天陪牠們一起學習。'}</p>
+      <button id="dexDraw" class="btn btn-primary" ${left&&cans>=CATDEX_COST?'':'disabled'} onclick="dexDraw()">${!left?'✓ 已集滿全部貓咪':`🥫 ${CATDEX_COST} 罐 · 轉一次扭蛋`}</button>
+      <p class="dex-rules">${left?`每隻未收藏貓咪機率相同（1 / ${left}）・不增加 EXP`:'不再扣除罐罐'}${left&&cans<CATDEX_COST?`<br>還差 ${CATDEX_COST-cans} 罐，<a href="#/vocab/${todayKey()}">去背單字 →</a>`:''}</p></div>
+    </section>
     <div class="dex-bar"><span>已收藏 <b>${owned}</b> / ${CAT_DEX.length}</span><span>🥫 罐罐：<b>${cans}</b></span><a class="btn btn-ghost" href="#/vocab/${todayKey()}">背 5 個單字領罐罐 →</a></div>
-    <div class="dex-grid">${cards}</div>
-    <p class="rd-note">🐱 全新 AI 繪製的貓咪收藏插圖。原有收藏保留；新朋友每隻 50 罐，慢慢收集，不用趕。</p>
+    <h2>貓咪圖鑑</h2><div class="dex-grid">${cards}</div>
+    <p class="rd-note">🐱 原有收藏保留。每次扭蛋 50 罐，保證遇見新朋友；慢慢收集，不用趕。</p>
   </div>`;
 }
-function dexUnlock(id){
-  const c = CAT_DEX.find(x=>x.id===id); if(!c || catDexOwned(id)) return;
-  if(!store.spendCans(CATDEX_COST)){ toast("還需要更多罐罐 🥫 每天背 5 個字可以領 10 罐！"); return; }
-  store.data.catDex = store.data.catDex || {};
-  store.data.catDex[id] = new Date().toISOString();
-  store.save(); paintHeader();
-  toast(`🎉 收藏了「${c.zh}」！　${c.meme}`);
-  renderCatDex();
+function dexDraw(){
+  if(document.getElementById('dexReveal'))return;
+  const pool=CAT_DEX.filter(c=>!catDexOwned(c.id));
+  if(!pool.length){toast("已集滿全部貓咪囉 🐱");return;}
+  if((store.data.cans||0)<CATDEX_COST){toast("罐罐不足，先背 5 個單字領取 10 罐 🥫");return;}
+  const c=pool[Math.floor(Math.random()*pool.length)];
+  // Save the deduction and collection together before the animation: closing it never loses the cat.
+  store.data.cans-=CATDEX_COST;
+  store.data.catDex=store.data.catDex||{};
+  store.data.catDex[c.id]=new Date().toISOString();
+  store.save();paintHeader();renderCatDex();dexShowPrize(c);
+}
+function dexShowPrize(c){
+  const dialog=document.createElement('dialog');dialog.id='dexReveal';dialog.className='dex-reveal';
+  dialog.setAttribute('aria-labelledby','dexPrizeTitle');
+  dialog.innerHTML=`<div class="dex-opening" aria-hidden="true"><span></span><span></span></div><div class="dex-prize"><div class="eyebrow">NEW CAT · 新朋友來了</div><div class="dex-prize-art">${catDexArt(c)}</div><h2 id="dexPrizeTitle">${c.zh} <small>${c.en}</small></h2><p>${c.meme}</p><p>已加入收藏 · 花費 50 罐 · EXP 不變</p></div><form method="dialog"><button class="btn btn-primary" autofocus>收下這位新朋友 🐾</button></form>`;
+  dialog.addEventListener('close',()=>{dialog.remove();document.getElementById('dexDraw')?.focus();},{once:true});
+  app.appendChild(dialog);dialog.showModal();
 }
 function renderIsland(){
   const done = store.data.completed, streak = store.streakCount();
