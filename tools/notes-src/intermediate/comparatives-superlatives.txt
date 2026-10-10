@@ -1,0 +1,67 @@
+# zh
+## 比較級與最高級
+比較<b>兩者</b>用比較級（…比…更），比較<b>三者以上</b>中「最」的用最高級。
+表：句型
+| 種類 | 公式 | 例句 |
+|---|---|---|
+| 比較級 | A + be + 比較級 + than + B | Tom is <b>taller than</b> Ken. |
+| 最高級 | the + 最高級 + (in / of …) | Tom is <b>the tallest</b> in the class. |
+
+## 變化規則
+表：比較級與最高級的變化
+| 規則 | 原級 | 比較級 | 最高級 |
+|---|---|---|---|
+| 單音節：加 -er / -est | tall, fast | taller, faster | tallest, fastest |
+| 字尾 e：加 -r / -st | nice, large | nicer, larger | nicest, largest |
+| 短母音＋單子音：重複字尾 | big, hot | bigger, hotter | biggest, hottest |
+| 子音＋y：y 改 i | happy, easy | happier, easier | happiest, easiest |
+| 兩音節以上：more / most | beautiful, expensive | more beautiful | most beautiful |
+| -ful, -ous, -ing, -ed 結尾 | careful, boring | more careful | most careful |
+
+表：不規則變化
+| 原級 | 比較級 | 最高級 |
+|---|---|---|
+| good / well | better | best |
+| bad / badly | worse | worst |
+| many / much | more | most |
+| little | less | least |
+| far | farther / further | farthest / furthest |
+
+## 常見錯誤
+| ✗ 錯誤 | ✓ 正確 | 原因 |
+|---|---|---|
+| more cheaper | cheaper | 不能同時用 more 和 -er |
+| taller then me | taller <b>than</b> me | than（比）≠ then（然後） |
+| the goodest | the <b>best</b> | 不規則變化 |
+| the most tallest | the tallest | 不能同時用 most 和 -est |
+
+## 加強比較級
+比較級前面可以加 <b>much, a lot, far, even, a little</b> 表示程度：<span class="en">This phone is <b>much cheaper</b> than that one.</span>（✗ very cheaper）
+> 最高級的範圍：in + 地方／團體（in my class, in the world）；of + 同類（of all the students, of the three）。
+
+# mc
+Q: Taipei 101 is ___ than this building. || 台北 101 比這棟大樓高。
+A: tall | taller* | tallest
+W: 兩者比較用比較級 + than。
+Q: This is ___ movie I have ever seen. || 這是我看過最好看的電影。
+A: the best* | the goodest | better
+W: good 的最高級是不規則的 best。
+Q: Math is ___ than English for me. || 對我來說數學比英文難。
+A: more difficult* | difficulter | most difficult
+W: 三音節的 difficult 用 more 形成比較級。
+Q: Your bag is ___ heavier than mine. || 你的包包比我的重很多。
+A: very | much* | more
+W: 加強比較級用 much，不用 very。
+
+# err
+S: My room is [more bigger|bigger] than yours. || 我的房間比你的大。
+W: 不能同時用 more 和 -er。
+S: She is the [most smart|smartest] student in our class. || 她是我們班最聰明的學生。
+W: 單音節形容詞的最高級加 -est。
+S: Today is [hoter|hotter] than yesterday. || 今天比昨天熱。
+W: hot 是短母音＋單子音，要重複 t 再加 -er。
+
+# mk
+- 不能同時用 more 和 -er，直接說 cheaper。
+- 比較用 than，then 是「然後」。
+- good 的最高級是 best。

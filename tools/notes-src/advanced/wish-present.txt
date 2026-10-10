@@ -1,0 +1,59 @@
+# zh
+## I wish：希望現在不一樣
+wish 表示對<b>現在無法實現、與事實相反</b>的願望。因為和事實相反，wish 後面的動詞要<b>往過去推一格</b>（就像第二條件句）。
+<span class="en">I <b>wish</b> I <b>had</b> more time.</span>（真希望我有更多時間——但事實上我沒有。）
+表：wish 的三種時間
+| 願望的時間 | wish 後面接 | 例句 | 事實 |
+|---|---|---|---|
+| 現在 | 過去式 | I wish I <b>were</b> taller. | 我不高 |
+| 現在（能力） | could + 原形 | I wish I <b>could</b> fly. | 我不會飛 |
+| 過去 | had + p.p. | I wish I <b>had studied</b> harder. | 我當時沒用功 |
+| 抱怨別人（希望改變） | would + 原形 | I wish you <b>would</b> stop talking. | 你一直講話 |
+註：和第二條件句一樣，be 動詞一律用 were：I wish I <b>were</b> rich.（口語也聽得到 was）
+
+## wish vs. hope
+| | wish | hope |
+|---|---|---|
+| 可能性 | 不可能、與事實相反 | 真的有可能 |
+| 時態 | 往過去推一格 | 一般時態 |
+| 例句 | I <b>wish</b> it <b>were</b> Friday.（但今天才星期一） | I <b>hope</b> it <b>is</b> sunny tomorrow. |
+| 例句 | I <b>wish</b> I <b>could</b> go.（但我不能去） | I <b>hope</b> you <b>can</b> come. |
+> 祝福語用 wish + 人 + 名詞：I <b>wish</b> you a happy birthday. / We wish you good luck.
+
+## If only：語氣更強
+If only 和 wish 用法相同，但情緒更強烈：<span class="en"><b>If only</b> I <b>knew</b> the answer!</span>（要是我知道答案就好了！）
+
+## 常見錯誤
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| I wish I have a dog. | I wish I <b>had</b> a dog. |
+| I wish I can speak French. | I wish I <b>could</b> speak French. |
+| I wish I will be rich. | I wish I <b>were</b> rich. |
+| I wish it doesn't rain tomorrow.（有可能的事） | I <b>hope</b> it doesn't rain tomorrow. |
+
+# mc
+Q: I wish I ___ a little sister. || 真希望我有個妹妹。
+A: have | had* | will have
+W: 與現在事實相反的願望，wish 後用過去式。
+Q: She wishes she ___ play the piano. || 她希望自己會彈鋼琴。
+A: can | could* | will
+W: 能力的願望，wish + could + 原形。
+Q: I ___ you have a safe trip. || 祝你旅途平安。
+A: wish | hope* | would
+W: 真的有可能的期望，用 hope。
+Q: I wish it ___ summer now. It's freezing! || 真希望現在是夏天，冷死了！
+A: is | were* | will be
+W: wish 後面的 be 動詞用 were。
+
+# err
+S: I wish I [know|knew] her phone number. || 真希望我知道她的電話號碼。
+W: wish 表示與現在事實相反，動詞要用過去式 knew。
+S: I wish I [can|could] go to the concert with you. || 真希望我能和你去演唱會。
+W: wish 後面表示能力用 could。
+S: I [wish|hope] you will pass the exam. || 我希望你考試會過。
+W: 有可能實現的期望用 hope。
+
+# mk
+- wish 後面用過去式 had。
+- wish 後面表示能力用 could。
+- 與現在事實相反，wish 後面用 were。

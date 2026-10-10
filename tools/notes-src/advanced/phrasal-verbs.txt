@@ -1,0 +1,62 @@
+# zh
+## 片語動詞：動詞＋小品詞＝新意思
+片語動詞由<b>動詞＋副詞或介系詞</b>組成，意思常常和原本動詞差很多，要整組記：<span class="en">give（給）→ give <b>up</b>（放棄）</span>。
+表：常見片語動詞
+| 片語動詞 | 意思 | 例句 |
+|---|---|---|
+| look after | 照顧 | She <b>looks after</b> her grandma. |
+| look for | 尋找 | I'm <b>looking for</b> my keys. |
+| look up | 查（字典） | <b>Look up</b> the word. |
+| give up | 放棄 | Don't <b>give up</b>! |
+| put on / take off | 穿上／脫下 | <b>Put on</b> your coat. |
+| turn on / turn off | 打開／關掉（電器） | <b>Turn off</b> the light. |
+| pick up | 撿起、接（人） | I'll <b>pick</b> you <b>up</b> at six. |
+| find out | 發現、查出 | I <b>found out</b> the truth. |
+| get up | 起床 | I <b>get up</b> at seven. |
+| run out of | 用完 | We've <b>run out of</b> milk. |
+| put off | 延期 | They <b>put off</b> the meeting. |
+| get along with | 和…相處融洽 | I <b>get along with</b> my classmates. |
+| put up with | 忍受 | I can't <b>put up with</b> the noise. |
+| come up with | 想出 | She <b>came up with</b> a great idea. |
+
+## 可分 vs. 不可分（最重要的考點）
+表：受詞放哪裡？
+| 類型 | 名詞受詞 | 代名詞受詞（it, them…） | 例子 |
+|---|---|---|---|
+| 可分（動詞＋副詞） | 中間或後面都可以 | <b>一定要放中間</b> | pick up, turn off, put on, give up, look up, throw away |
+| | pick up <b>the box</b> / pick <b>the box</b> up | pick <b>it</b> up（✗ pick up it） | |
+| 不可分（動詞＋介系詞） | 放後面 | 放後面 | look after, look for, get on, run into |
+| | look after <b>the baby</b> | look after <b>her</b> | |
+| 三字片語 | 放最後 | 放最後 | put up with, get along with, look forward to |
+註：代名詞受詞遇到可分片語動詞，一定要夾在中間：Turn <b>it</b> off. / Put <b>them</b> on.
+
+## 不及物的片語動詞
+有些片語動詞後面不接受詞：<span class="en">The plane <b>took off</b>. / My car <b>broke down</b>. / Please <b>sit down</b>. / <b>Hurry up</b>!</span>
+> 片語動詞多半比較口語。正式寫作可用單字替換：find out → discover、put off → postpone、give up → quit。
+
+# mc
+Q: This is your jacket. Please ___. || 這是你的外套，請穿上。
+A: put on it | put it on* | put on
+W: 代名詞 it 遇到可分片語動詞，要放中間。
+Q: Who will ___ your dog when you're away? || 你不在時誰會照顧你的狗？
+A: look after* | look for | look up
+W: 照顧是 look after。
+Q: We've run ___ sugar. Can you buy some? || 我們的糖用完了，你可以去買一些嗎？
+A: out of* | out | off
+W: 用完是 run out of + 名詞。
+Q: I can't ___ his rude behavior anymore. || 我再也受不了他無禮的行為了。
+A: put up | put up with* | put with up
+W: 忍受是三字片語 put up with，受詞放最後。
+
+# err
+S: The music is too loud. Please turn [down it|it down]. || 音樂太大聲了，請轉小聲。
+W: 代名詞 it 要放在可分片語動詞的中間。
+S: I'm [looking|looking for] my glasses. Have you seen them? || 我在找我的眼鏡，你有看到嗎？
+W: 「尋找」要用 look for。
+S: She came [up|up with] a smart solution. || 她想出了一個聰明的解決辦法。
+W: 「想出」是 come up with。
+
+# mk
+- 代名詞 it 要放在中間：picked it up。
+- look after 是不可分的，受詞緊接在後面，very well 放句尾。
+- 三字片語 put up with 不能拆開，受詞放最後。

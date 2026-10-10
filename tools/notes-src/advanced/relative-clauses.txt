@@ -1,0 +1,64 @@
+# zh
+## 關係子句：用一個句子修飾名詞
+關係子句像一個「長形容詞」，放在名詞<b>後面</b>，說明是哪一個人或東西。中文把修飾放前面（「修好我車的那個男人」），英文放後面：<span class="en">the man <b>who fixed my car</b></span>。
+表：關係代名詞
+| 先行詞 | 主格 | 受格 | 所有格 |
+|---|---|---|---|
+| 人 | who / that | whom / who / that | whose |
+| 事物、動物 | which / that | which / that | whose / of which |
+註：what 不能當關係代名詞修飾名詞：✗ the phone what I bought → ✓ the phone <b>that / which</b> I bought。
+
+## 主格 vs. 受格
+| 種類 | 關係代名詞後面接 | 可以省略？ | 例句 |
+|---|---|---|---|
+| 主格 | 動詞 | 不行 | The girl <b>who lives next door</b> is my classmate. |
+| 受格 | 主詞＋動詞 | 可以 | The book <b>(that) I read</b> was great. |
+| 所有格 | 名詞 | 不行 | I have a friend <b>whose father is a pilot</b>. |
+
+## 關係副詞
+| 關係副詞 | 修飾 | 例句 |
+|---|---|---|
+| where | 地點 | This is the town <b>where I grew up</b>. |
+| when | 時間 | I remember the day <b>when we met</b>. |
+| why | 原因（the reason） | That's the reason <b>why I left</b>. |
+註：where = in / at which；when = on / in which。
+
+## 限定 vs. 非限定（有沒有逗號）
+表：兩種關係子句
+| | 限定用法（無逗號） | 非限定用法（有逗號） |
+|---|---|---|
+| 功能 | 指出「哪一個」，不可少 | 補充說明，拿掉也不影響 |
+| 例句 | My brother <b>who lives in Tainan</b> is a teacher.（我有好幾個哥哥，住台南那個） | My mother<b>, who is a nurse,</b> works nights.（媽媽只有一個） |
+| 可用 that？ | 可以 | <b>不行</b>，只能用 who / which |
+| 可省略？ | 受格可以 | 不行 |
+> 專有名詞（Taipei, Mr. Lin）和獨一無二的人（my mother）後面的關係子句要加逗號。
+
+## 一定用 that 的情況
+先行詞有最高級、序數、all、the only、everything 等：<span class="en">This is <b>the best</b> movie <b>that</b> I have ever seen.</span>
+
+# mc
+Q: The woman ___ is talking to Ken is my aunt. || 正在跟肯說話的那位女士是我阿姨。
+A: which | who* | whose
+W: 先行詞是人，主格用 who。
+Q: I lost the watch ___ my dad gave me. || 我弄丟了爸爸送我的手錶。
+A: who | that* | what
+W: 先行詞是東西，受格用 that / which；不能用 what。
+Q: This is the park ___ we first met. || 這是我們第一次見面的公園。
+A: which | where* | when
+W: 修飾地點，後面是完整句子，用 where。
+Q: I have a classmate ___ mother is a famous singer. || 我有個同學，他媽媽是知名歌手。
+A: who | whose* | which
+W: 「他的」媽媽，所有格用 whose。
+
+# err
+S: The cake [who|which] you made was delicious. || 你做的蛋糕很好吃。
+W: 先行詞是東西，要用 which 或 that。
+S: Taipei[ that|, which] is the capital of Taiwan, is very crowded. || 台北是台灣的首都，非常擁擠。
+W: 專有名詞後的補充說明要用逗號＋which，不能用 that。
+S: That's the restaurant [which|where] we had dinner. || 那是我們吃晚餐的餐廳。
+W: 後面是完整句子（we had dinner），修飾地點要用 where。
+
+# mk
+- 先行詞是人，要用 who。
+- what 不能當關係代名詞，要用 that 或 which。
+- 加逗號的非限定用法不能用 that，人要用 who。

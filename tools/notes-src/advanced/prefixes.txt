@@ -1,0 +1,60 @@
+# zh
+## 字首：放在字前面，改變意思
+字首（prefix）加在單字前面，會改變單字的<b>意思</b>，但通常不改變詞性。學會常見字首，看到生字也能猜出意思。
+表：表示「不、相反」的字首
+| 字首 | 意思 | 例子 |
+|---|---|---|
+| un- | 不、相反 | happy → <b>un</b>happy, kind → <b>un</b>kind, lock → <b>un</b>lock |
+| in- | 不 | correct → <b>in</b>correct, complete → <b>in</b>complete |
+| im- | 不（接 m, p, b 開頭） | possible → <b>im</b>possible, polite → <b>im</b>polite, mature → <b>im</b>mature |
+| il- | 不（接 l 開頭） | legal → <b>il</b>legal, logical → <b>il</b>logical |
+| ir- | 不（接 r 開頭） | regular → <b>ir</b>regular, responsible → <b>ir</b>responsible |
+| dis- | 不、相反 | like → <b>dis</b>like, agree → <b>dis</b>agree, honest → <b>dis</b>honest |
+| non- | 非 | stop → <b>non</b>stop, fiction → <b>non</b>fiction |
+註：in- 的變身規則：遇 m, p, b → im-；遇 l → il-；遇 r → ir-。這是為了發音順口。
+
+表：其他常見字首
+| 字首 | 意思 | 例子 |
+|---|---|---|
+| re- | 再、重新 | write → <b>re</b>write, use → <b>re</b>use, build → <b>re</b>build |
+| pre- | 之前、預先 | view → <b>pre</b>view, pay → <b>pre</b>pay |
+| mis- | 錯誤地 | understand → <b>mis</b>understand, spell → <b>mis</b>spell |
+| over- | 過度 | eat → <b>over</b>eat, sleep → <b>over</b>sleep |
+| under- | 不足、在下 | paid → <b>under</b>paid, ground → <b>under</b>ground |
+| inter- | 互相、之間 | national → <b>inter</b>national, net → <b>Inter</b>net |
+| sub- | 下、次 | way → <b>sub</b>way, marine → <b>sub</b>marine |
+| co- | 共同 | worker → <b>co</b>worker, operate → <b>co</b>operate |
+| ex- | 前任、向外 | ex-boyfriend, <b>ex</b>port |
+| multi- | 多 | <b>multi</b>media, <b>multi</b>cultural |
+
+## 拼字：字首不改原字
+字首直接加上去，原本的字母都保留，所以會出現雙字母：
+<span class="en">un + necessary = u<b>nn</b>ecessary</span>、<span class="en">mis + spell = mi<b>ss</b>pell</span>、<span class="en">im + mature = i<b>mm</b>ature</span>、<span class="en">ir + regular = i<b>rr</b>egular</span>
+> un- 和 in- 沒有固定規則，要靠記憶：unable 但 inability；unknown 但 invisible。查字典最保險。
+
+# mc
+Q: It's ___ to finish all this work in one day. || 一天內完成所有工作是不可能的。
+A: unpossible | impossible* | inpossible
+W: possible 以 p 開頭，否定字首用 im-。
+Q: Parking here is ___. You'll get a ticket. || 在這裡停車是違法的，你會被開罰單。
+A: unlegal | illegal* | inlegal
+W: legal 以 l 開頭，否定字首用 il-。
+Q: Please ___ your essay and fix the mistakes. || 請重寫你的作文並修改錯誤。
+A: rewrite* | miswrite | prewrite
+W: re- 表示「重新」。
+Q: I think you ___ me. That's not what I meant. || 我想你誤會我了，我不是那個意思。
+A: disunderstood | misunderstood* | ununderstood
+W: mis- 表示「錯誤地」。
+
+# err
+S: He was very [unpolite|impolite] to the waiter. || 他對服務生很沒禮貌。
+W: polite 以 p 開頭，否定字首用 im-。
+S: Her handwriting is [unregular|irregular]. || 她的字跡很不規則。
+W: regular 以 r 開頭，否定字首用 ir-。
+S: I [unagree|disagree] with you. || 我不同意你。
+W: agree 的反義是 disagree。
+
+# mk
+- polite 以 p 開頭，否定字首用 im-。
+- possible 的否定是 impossible。
+- un + necessary，兩個 n 都要保留：unnecessary。

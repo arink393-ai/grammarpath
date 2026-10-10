@@ -1,0 +1,57 @@
+# zh
+## 零條件句：一定會發生的事
+零條件句說的是<b>科學事實、自然定律、一定成立的規則或習慣</b>：只要條件成立，結果就一定發生。
+公式：<b>If + 現在簡單式, 現在簡單式</b>
+<span class="en">If you <b>heat</b> ice, it <b>melts</b>.</span>（如果你加熱冰，它就會融化。）
+表：零條件句的用途
+| 用途 | 例句 |
+|---|---|
+| 科學事實 | If you <b>mix</b> red and blue, you <b>get</b> purple. |
+| 自然定律 | If water <b>reaches</b> 100°C, it <b>boils</b>. |
+| 規則、指示 | If the alarm <b>rings</b>, <b>leave</b> the building. |
+| 個人習慣 | If I <b>drink</b> coffee at night, I <b>can't</b> sleep. |
+註：兩邊都用現在式，不用 will。
+
+## if 可以換成 when
+因為零條件句的結果「一定」發生，if 常可以換成 when（每當）而意思不變：
+<span class="en"><b>When</b> you heat ice, it melts.</span>
+
+## 條件句家族一覽
+表：四種條件句比較
+| 種類 | if 子句 | 主要子句 | 用途 |
+|---|---|---|---|
+| 零條件句 | 現在式 | 現在式 | 一定成立的事實 |
+| 第一條件句 | 現在式 | will + 原形 | 未來可能發生 |
+| 第二條件句 | 過去式 | would + 原形 | 與現在事實相反 |
+| 第三條件句 | had + p.p. | would have + p.p. | 與過去事實相反 |
+
+## 逗號規則
+if 子句放前面要加逗號；放後面不加：
+<span class="en">If it rains<b>,</b> the ground gets wet.</span> ／ <span class="en">The ground gets wet if it rains.</span>
+
+# mc
+Q: If you ___ water, it turns into ice. || 如果你把水冷凍，它就會變成冰。
+A: will freeze | freeze* | froze
+W: 科學事實用零條件句，if 子句用現在式。
+Q: If plants don't get water, they ___. || 植物如果沒有水就會死。
+A: die* | will died | died
+W: 自然定律：兩邊都用現在式。
+Q: ___ I eat too much, I feel sick. || 每當我吃太多就會不舒服。
+A: When* | Will | Unless
+W: 一定成立的習慣，if 可換成 when。
+Q: If you press this button, the machine ___. || 按下這個按鈕，機器就會啟動。
+A: start | starts* | started
+W: 主詞 the machine 單數，現在式加 s。
+
+# err
+S: If you [will mix|mix] yellow and blue, you get green. || 黃色和藍色混在一起就會變成綠色。
+W: 零條件句的 if 子句用現在式，不用 will。
+S: If it [rained|rains], the streets get wet. || 下雨的話，街道就會濕。
+W: 兩邊都用現在式，時態要一致。
+S: If my cat [hear|hears] a loud noise, it hides. || 我的貓聽到大聲響就會躲起來。
+W: 主詞 my cat 單數，動詞要加 s。
+
+# mk
+- 零條件句的 if 子句用現在式，不用 will。
+- 一定成立的事實，主要子句用現在式 gets，不用 will always。
+- 零條件句兩邊都用現在式，不用過去式 heated。

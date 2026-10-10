@@ -3,7 +3,7 @@
    區塊：{h,p} 段落（p 可含 HTML）｜{t:"table",cap,head:[],rows:[[]],note}｜{t:"tip",p}
    改錯句：用 [錯|對] 標出錯處，例如 "The only thing that matters [are|is] money." */
 (function(){
-  const LN_V = 1;
+  const LN_V = 2;
   const cache = {}, jobs = {};
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   function load(level){
@@ -71,7 +71,9 @@
   function render(box, l, d){
     const mistakes = (l.mistakes || []).map((m, i) => {
       const s = / \/ /.test(m.yes) ? null : diffMark(m.no, m.yes);
-      return s && { s, why: (d.mkZh && d.mkZh[i]) || m.why };
+      const bad = s && s.match(/\[([^\]|]*)\|/)[1];
+      if(!s || bad.split(/\s+/).length > 4) return null; // 差太多就不自動標
+      return { s, why: (d.mkZh && d.mkZh[i]) || m.why };
     }).filter(Boolean);
     const errs = [...(d.err || []), ...mistakes];
     const zhBox = document.getElementById('ln-zh');

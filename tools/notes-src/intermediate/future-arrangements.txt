@@ -1,0 +1,53 @@
+# zh
+## 用現在進行式說未來
+當一件未來的事<b>已經安排好</b>（訂了票、約好時間、排進行事曆），英文常用<b>現在進行式</b>來說，而且一定要搭配未來時間詞。
+<span class="en">I<b>'m meeting</b> my friend <b>tomorrow</b>.</span>（我明天要跟朋友見面——已經約好了。）
+表：三種說未來的方式
+| 說法 | 語意 | 例句 |
+|---|---|---|
+| 現在進行式 | 已經<b>安排好</b>，有確定的時間地點 | I<b>'m flying</b> to Tokyo on Friday.（機票訂了） |
+| be going to | 心中的<b>打算</b>、計畫 | I<b>'m going to</b> learn Japanese.（有這個打算） |
+| will | 當下<b>決定</b>、預測、承諾 | OK, I<b>'ll</b> come with you. |
+| 現在簡單式 | 時刻表、課表、固定行程 | The train <b>leaves</b> at 7:30. |
+
+## 一定要有未來時間詞
+沒有時間詞時，現在進行式會被當成「現在正在做」：
+| 句子 | 意思 |
+|---|---|
+| I'm having dinner. | 我正在吃晚餐。 |
+| I'm having dinner <b>with Ken tonight</b>. | 我今晚要跟 Ken 吃晚餐。 |
+
+## 常見問法
+| 問句 | 意思 |
+|---|---|
+| What are you doing this weekend? | 你這週末要做什麼？ |
+| Are you coming to the party? | 你會來派對嗎？ |
+| When are you leaving? | 你什麼時候出發？ |
+> 公式和現在進行式完全一樣：am / is / are + V-ing。不要漏掉 be 動詞或 -ing。
+
+# mc
+Q: I can't come on Saturday. I ___ my grandparents. || 我星期六不能來，我要去看爺爺奶奶。
+A: visit | am visiting* | visited
+W: 已經安排好的未來行程，用現在進行式。
+Q: The movie ___ at 7:15 tonight. || 電影今晚 7:15 開始。
+A: is starting | starts* | will starting
+W: 時刻表、節目表用現在簡單式。
+Q: What ___ you doing after school tomorrow? || 你明天放學後要做什麼？
+A: do | are* | will
+W: 問已安排的計畫：What are you doing…?
+Q: She is ___ to London next week. || 她下週要飛去倫敦。
+A: fly | flying* | flies
+W: 現在進行式要用 V-ing。
+
+# err
+S: We [meet|are meeting] the new teacher tomorrow morning. || 我們明天早上要見新老師。
+W: 已經安排好的未來行程，用現在進行式。
+S: My cousin is [come|coming] to visit next weekend. || 我表哥下週末要來玩。
+W: 現在進行式要用 V-ing。
+S: They [having|are having] a party on Saturday. || 他們星期六要開派對。
+W: 不能少了 be 動詞 are。
+
+# mk
+- 已經約好的事，用現在進行式 I'm meeting。
+- 現在進行式要用 V-ing：is flying。
+- 現在進行式要用 V-ing：are going。

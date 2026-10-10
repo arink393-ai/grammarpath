@@ -1,0 +1,58 @@
+# zh
+## 連接詞 vs. 轉折副詞
+「雖然、但是、因此、而且」在英文裡分成兩種字，<b>標點符號規則完全不同</b>，是寫作最常扣分的地方。
+表：兩種連接方式
+| 種類 | 例字 | 功能 | 標點 |
+|---|---|---|---|
+| 連接詞 | although, because, but, so, and, while | 把兩個子句接成<b>一句</b> | 一個句子 |
+| 轉折副詞 | however, therefore, moreover, also | 連接<b>兩個獨立的句子</b> | 前面句號或分號，後面逗號 |
+
+表：同樣意思的兩種寫法
+| 意思 | 連接詞（一句） | 轉折副詞（兩句） |
+|---|---|---|
+| 讓步／轉折 | <b>Although</b> it was late, we kept talking. | It was late. <b>However,</b> we kept talking. |
+| 結果 | It rained, <b>so</b> we stayed home. | It rained. <b>Therefore,</b> we stayed home. |
+| 補充 | She is smart, <b>and</b> she is kind. | She is smart. <b>Moreover,</b> she is kind. |
+
+## however 的標點
+however 是副詞，不能像 but 一樣直接用逗號連接兩個句子：
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| It was expensive, however, I bought it. | It was expensive. <b>However,</b> I bought it. |
+| | It was expensive<b>;</b> however, I bought it. |
+| | It was expensive, <b>but</b> I bought it. |
+
+## although 和 but 不能一起用
+中文「雖然…但是…」英文只能選一個：
+<span class="en"><b>Although</b> he was tired, he finished.</span>（✗ Although he was tired, but he finished.）
+
+## however 不等於 although
+however 不能放在子句前面當「雖然」：✗ However he was tired, he finished. → ✓ <b>Although</b> he was tired, he finished.
+> however + 形容詞 = 無論多麼：However hard I try, I can't do it.（這是另一個用法）
+
+# mc
+Q: ___ it was raining, we went hiking. || 雖然在下雨，我們還是去爬山了。
+A: However | Although* | But
+W: 接一個子句表示「雖然」，用連接詞 although。
+Q: The test was hard. ___, most students passed. || 考試很難。然而，大部分學生都及格了。
+A: Although | However* | But although
+W: 句號後面開新句子，用轉折副詞 However + 逗號。
+Q: I missed the bus, ___ I was late for school. || 我錯過了公車，所以上學遲到了。
+A: therefore | so* | however
+W: 用逗號連接兩個子句時，要用連接詞 so。
+Q: He studied hard. ___, he got an A. || 他很用功，因此拿到了 A。
+A: So that | Therefore* | Although
+W: 新句子開頭表示結果，用 Therefore + 逗號。
+
+# err
+S: Although she was sick, [but she|she] came to school. || 雖然她生病了，她還是來上學。
+W: although 和 but 不能同時使用。
+S: I wanted to go. [however,|However,] I was too busy. || 我想去。然而我太忙了。
+W: however 開始新的句子，首字母要大寫。
+S: [However|Although] the food was cheap, it was delicious. || 雖然食物很便宜，但很好吃。
+W: 放在子句前表示「雖然」要用 although。
+
+# mk
+- although 和 but 不能同時使用。
+- however 不能接子句當「雖然」，要用 although。
+- however 不能用逗號接兩個句子；前面要用句號（或分號）。

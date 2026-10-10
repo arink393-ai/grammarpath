@@ -1,0 +1,57 @@
+# zh
+## 現在完成進行式：從過去一直做到現在
+公式：主詞 + <b>have / has been + V-ing</b>。強調一個動作<b>從過去開始，一直持續到現在</b>（可能還會繼續），重點在「持續了多久」。
+表：句型
+| 句型 | 例句 |
+|---|---|
+| 肯定 | I <b>have been waiting</b> for an hour. |
+| 否定 | She <b>hasn't been sleeping</b> well. |
+| 疑問 | How long <b>have</b> you <b>been learning</b> English? |
+
+## 兩種用法
+| 用法 | 例句 | 說明 |
+|---|---|---|
+| 持續到現在 | It <b>has been raining</b> since morning. | 從早上一直下到現在 |
+| 剛停止、留下痕跡 | Why are you wet? — I<b>'ve been swimming</b>. | 剛游完泳，現在身上還濕的 |
+
+## 現在完成式 vs. 現在完成進行式
+表：兩者比較
+| | 現在完成式 | 現在完成進行式 |
+|---|---|---|
+| 重點 | 結果、完成了多少 | 過程、持續了多久 |
+| 例句 | I <b>have read</b> three books. | I <b>have been reading</b> for two hours. |
+| 有數量 | 用完成式 | 不用 |
+| 狀態動詞 | 用完成式：I <b>have known</b> her for years. | ✗ have been knowing |
+註：live、work、study 這類動詞兩種都可以，意思幾乎一樣：I've lived / I've been living here for 5 years.
+
+## 不能和現在進行式混用
+中文說「我從三點就在讀書」，台灣學生常誤用現在進行式：
+✗ <span class="en">I am studying since 3.</span> → ✓ <span class="en">I <b>have been studying</b> since 3.</span>
+> 有 for / since / how long 表示「持續到現在」時，要用完成式或完成進行式，不能用現在式或現在進行式。
+
+# mc
+Q: We ___ for the bus for 30 minutes. || 我們已經等公車等了三十分鐘。
+A: are waiting | have been waiting* | waited
+W: 從過去持續到現在，有 for 30 minutes，用現在完成進行式。
+Q: How long ___ she been playing the piano? || 她彈鋼琴彈多久了？
+A: has* | have | is
+W: 主詞 she 用 has been + V-ing。
+Q: I ___ him since we were kids. || 我從小就認識他了。
+A: have been knowing | have known* | am knowing
+W: know 是狀態動詞，用現在完成式，不用進行式。
+Q: Your eyes are red. ___ you been crying? || 你的眼睛紅紅的，你剛剛在哭嗎？
+A: Have* | Are | Did
+W: 剛停止、留下痕跡，用現在完成進行式。
+
+# err
+S: I [am learning|have been learning] English since I was six. || 我從六歲就開始學英文。
+W: 有 since 表示持續到現在，要用現在完成進行式。
+S: He has been [play|playing] games all day. || 他打了一整天電動。
+W: has been 後面接 V-ing。
+S: She [has been owning|has owned] this car for ten years. || 她擁有這台車十年了。
+W: own 是狀態動詞，用現在完成式。
+
+# mk
+- 有 since 表示持續到現在，用現在完成進行式。
+- has been 後面接 V-ing。
+- know 是狀態動詞，用現在完成式 has known。

@@ -1,0 +1,65 @@
+# zh
+## 轉折訊號詞：文章的路標
+寫作時，轉折訊號詞（transition signals）告訴讀者「接下來要說什麼方向」：補充、轉折、因果、舉例或順序。用對了，文章就有條理。
+表：轉折訊號詞分類
+| 功能 | 常用訊號詞 | 中文 |
+|---|---|---|
+| 補充 | also, in addition, moreover, furthermore, besides | 而且、此外 |
+| 轉折、對比 | however, on the other hand, in contrast, nevertheless | 然而、另一方面 |
+| 原因 | because, since, as, because of, due to | 因為、由於 |
+| 結果 | so, therefore, as a result, thus, consequently | 因此、結果 |
+| 舉例 | for example, for instance, such as | 例如 |
+| 順序 | first, second, then, next, finally, after that | 首先、接著、最後 |
+| 強調 | in fact, indeed, especially | 事實上、尤其 |
+| 總結 | in conclusion, in short, to sum up, overall | 總之 |
+
+## 標點符號規則
+表：位置與標點
+| 位置 | 規則 | 例句 |
+|---|---|---|
+| 句首 | 後面加逗號 | <b>For example,</b> cats sleep 16 hours a day. |
+| 兩個句子中間 | 前面分號、後面逗號 | It's small<b>; however,</b> it's comfortable. |
+| 句中插入 | 前後都加逗號 | The plan<b>, however,</b> failed. |
+| such as | 後面直接接名詞，不加逗號 | animals <b>such as</b> dogs and cats |
+
+## 容易寫錯的片語
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| In the other hand | <b>On</b> the other hand |
+| In addition to + 子句 | In addition to + <b>名詞 / V-ing</b> |
+| Besides of | Besides（不加 of） |
+| According to me | In my opinion |
+| For example cats. | For example, cats <b>are popular pets</b>.（要寫成完整句子） |
+> on the other hand 通常和 on the one hand 搭配，用來比較同一件事的兩面。
+
+## because vs. because of
+| because + 子句 | because of + 名詞 |
+|---|---|
+| We stayed home <b>because it rained</b>. | We stayed home <b>because of the rain</b>. |
+
+# mc
+Q: I love living in the city. ___, it can be very noisy. || 我喜歡住在城市。另一方面，城市也可能很吵。
+A: In the other hand | On the other hand* | For example
+W: 對比另一面用 On the other hand。
+Q: He didn't study. ___, he failed the test. || 他沒讀書，結果考試不及格。
+A: As a result* | For example | In addition
+W: 表示結果用 As a result。
+Q: Many fruits, ___ oranges and kiwis, are rich in vitamin C. || 很多水果，例如柳橙和奇異果，富含維他命 C。
+A: such as* | for example, | because of
+W: 句中直接列舉名詞用 such as。
+Q: The game was canceled ___ the typhoon. || 比賽因為颱風取消了。
+A: because | because of* | so
+W: 後面接名詞 the typhoon，用 because of。
+
+# err
+S: [In|On] the other hand, the city has more jobs. || 另一方面，城市有比較多工作機會。
+W: 固定說法是 On the other hand。
+S: I like sports. [Besides of|Besides] that, I enjoy music. || 我喜歡運動。除此之外，我也喜歡音樂。
+W: besides 是介系詞，後面不加 of。
+S: We were late [because|because of] the heavy rain. || 我們因為大雨而遲到。
+W: 後面接名詞 the heavy rain，要用 because of。
+
+# mk
+- For example 後面要加逗號。
+- 固定說法是 On the other hand。
+- Therefore 後面要加逗號，也不要把多個轉折詞擠在同一句。

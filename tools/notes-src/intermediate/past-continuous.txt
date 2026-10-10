@@ -1,0 +1,61 @@
+# zh
+## 過去進行式：過去某一刻「正在」做
+過去進行式描述<b>過去某個時間點正在進行</b>的動作。公式：主詞 + <b>was / were</b> + V-ing。
+表：過去進行式的句型
+| 句型 | 例句 |
+|---|---|
+| 肯定 | I <b>was reading</b> at 9 p.m. last night. |
+| 否定 | They <b>weren't sleeping</b>. |
+| 疑問 | <b>Were</b> you <b>watching</b> TV? — Yes, I was. |
+| Wh- 問句 | What <b>were</b> you <b>doing</b> at that time? |
+註：I / he / she / it 配 was；you / we / they 配 were。
+
+## 三大用法
+表：過去進行式的用法
+| 用法 | 例句 |
+|---|---|
+| 過去某時刻正在做 | At 8 o'clock, I <b>was having</b> dinner. |
+| 正在做時，被另一件事打斷 | I <b>was taking</b> a shower when the phone <b>rang</b>. |
+| 兩件事同時進行 | While Mom <b>was cooking</b>, Dad <b>was cleaning</b>. |
+| 描述故事背景 | It <b>was raining</b>, and the wind <b>was blowing</b>. |
+
+## when 和 while
+| 連接詞 | 後面常接 | 例句 |
+|---|---|---|
+| when | 短動作（過去簡單式） | I was sleeping <b>when</b> he <b>called</b>. |
+| while | 持續動作（過去進行式） | He called <b>while</b> I <b>was sleeping</b>. |
+> 長的動作（背景）用進行式，短的動作（打斷）用簡單式。
+
+## 過去簡單式 vs. 過去進行式
+| 過去簡單式 | 過去進行式 |
+|---|---|
+| 動作完成了 | 動作進行中（未必完成） |
+| I <b>read</b> a book last night.（看完了） | I <b>was reading</b> a book last night.（那時在看） |
+狀態動詞（know, like, want…）不用進行式：<span class="en">I <b>knew</b> the answer.</span>
+
+# mc
+Q: What ___ you doing at ten last night? || 你昨晚十點在做什麼？
+A: was | were* | did
+W: 主詞 you 配 were，過去進行式問句。
+Q: I ___ dinner when the lights went out. || 停電的時候我正在吃晚餐。
+A: had | was having* | have
+W: 被打斷的、正在進行的動作用過去進行式。
+Q: While she was studying, her brother ___ games. || 她在讀書時，她弟弟在玩遊戲。
+A: played | was playing* | is playing
+W: 兩件事同時進行，都用過去進行式。
+Q: We were walking home ___ it started to rain. || 我們走路回家時開始下雨了。
+A: while | when* | during
+W: 後面是短動作（started），用 when。
+
+# err
+S: They [was|were] playing basketball at 4 p.m. || 他們下午四點在打籃球。
+W: They 是複數，配 were。
+S: I was [sleep|sleeping] when you called. || 你打電話來時我在睡覺。
+W: 過去進行式要用 V-ing。
+S: She [was knowing|knew] the answer. || 她知道答案。
+W: know 是狀態動詞，不用進行式。
+
+# mk
+- 過去進行式要用 V-ing：was working。
+- We 是複數，配 were。
+- Wh- 問句要把 were 移到主詞前面。

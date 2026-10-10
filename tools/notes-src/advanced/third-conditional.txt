@@ -1,0 +1,65 @@
+# zh
+## 第三條件句：與過去事實相反的假設
+第三條件句用來假設<b>過去沒有發生</b>的事，常表達後悔或遺憾。因為是過去，結果已經無法改變。
+公式：<b>If + had + p.p., would have + p.p.</b>
+<span class="en">If I <b>had studied</b> harder, I <b>would have passed</b> the test.</span>（如果我當時更用功，就會考過了——但我沒有，所以沒考過。）
+表：條件句家族
+| 種類 | if 子句 | 主要子句 | 時間 | 例句 |
+|---|---|---|---|---|
+| 第一 | 現在式 | will + V | 未來（可能） | If it rains, I'll stay home. |
+| 第二 | 過去式 | would + V | 現在（相反） | If I had money, I'd buy it. |
+| 第三 | had + p.p. | would have + p.p. | 過去（相反） | If I had known, I would have come. |
+
+## 事實是相反的
+第三條件句的肯定，事實是否定；否定，事實是肯定：
+表：假設 vs. 事實
+| 假設 | 事實 |
+|---|---|
+| If I <b>had left</b> earlier, I <b>wouldn't have missed</b> the bus. | I didn't leave early, so I missed the bus. |
+| If she <b>hadn't helped</b> me, I <b>would have failed</b>. | She helped me, so I didn't fail. |
+
+## 主要子句的變化
+| 助動詞 | 意思 | 例句 |
+|---|---|---|
+| would have p.p. | 就會… | I <b>would have called</b> you. |
+| could have p.p. | 就能… | We <b>could have won</b>. |
+| might have p.p. | 可能就會… | He <b>might have stayed</b>. |
+
+## 混合條件句
+過去的條件影響<b>現在</b>的結果：<b>If + had p.p., would + 原形</b>
+<span class="en">If I <b>had taken</b> the medicine, I <b>would feel</b> better now.</span>（如果我當時有吃藥，現在就會好一點。）
+> 倒裝寫法：<b>Had I known</b>, I would have told you.（= If I had known）
+
+## 常見錯誤
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| If I would have known | If I <b>had</b> known |
+| I would helped | I would <b>have</b> helped |
+| If we didn't miss the bus, … would have | If we <b>hadn't missed</b> the bus |
+
+# mc
+Q: If you ___ me, I would have picked you up. || 如果你有打給我，我就會去接你了。
+A: called | had called* | would call
+W: 與過去事實相反，if 子句用 had + p.p.。
+Q: If it hadn't rained, we ___ the game. || 如果沒下雨，我們就會贏得比賽了。
+A: would win | would have won* | had won
+W: 主要子句用 would have + p.p.。
+Q: ___ I known about the party, I would have gone. || 要是我早知道有派對，我就會去了。
+A: Have | Had* | If
+W: 倒裝寫法：Had I known = If I had known。
+Q: If I had slept earlier last night, I ___ so tired now. || 如果我昨晚早點睡，現在就不會那麼累了。
+A: wouldn't have been | wouldn't be* | won't be
+W: 混合條件句：過去的條件 → 現在的結果，用 would + 原形。
+
+# err
+S: If I [knew|had known] the answer, I would have told you. || 要是我當時知道答案，就會告訴你了。
+W: 與過去事實相反，if 子句要用 had known。
+S: If she had asked me, I would [helped|have helped] her. || 如果她當時有問我，我就會幫她了。
+W: 主要子句是 would have + p.p.。
+S: If they [would have left|had left] earlier, they would have caught the train. || 如果他們早點出發，就趕上火車了。
+W: if 子句不能用 would，要用 had + p.p.。
+
+# mk
+- if 子句不能用 would，要用 had known。
+- 主要子句是 would have + p.p.：would have helped。
+- 與過去事實相反，if 子句用 hadn't missed。

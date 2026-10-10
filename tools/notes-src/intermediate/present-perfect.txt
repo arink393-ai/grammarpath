@@ -1,0 +1,68 @@
+# zh
+## 現在完成式：過去和現在的連結
+現在完成式（have / has + 過去分詞）連接<b>過去和現在</b>：事情發生在過去，但重點在<b>對現在的影響或經驗</b>。中文常用「已經、過、一直」來表達。
+表：現在完成式的四大用法
+| 用法 | 中文 | 例句 | 常搭配 |
+|---|---|---|---|
+| 經驗 | …過 | I <b>have been</b> to Japan twice. | ever, never, once, twice, before |
+| 完成 | 已經… | She <b>has finished</b> her homework. | already, yet, just |
+| 持續 | 一直… | We <b>have lived</b> here for ten years. | for, since, how long |
+| 結果 | 造成現在的狀態 | I <b>have lost</b> my key.（現在還沒找到） | — |
+
+## 句型
+| 句型 | 例句 |
+|---|---|
+| 肯定 | He <b>has visited</b> Paris. |
+| 否定 | I <b>haven't seen</b> that movie. |
+| 疑問 | <b>Have</b> you ever <b>eaten</b> durian? — Yes, I have. |
+註：I / you / we / they 用 have；he / she / it 用 has。
+
+## 現在完成式 vs. 過去簡單式
+這是最重要的考點：有<b>明確的過去時間</b>就不能用現在完成式。
+表：兩者比較
+| | 過去簡單式 | 現在完成式 |
+|---|---|---|
+| 重點 | 過去什麼時候 | 對現在的影響、經驗 |
+| 時間詞 | yesterday, last week, in 2020, ago | ever, never, already, yet, since, for |
+| 例句 | I <b>saw</b> him <b>yesterday</b>. | I <b>have</b> already <b>seen</b> him. |
+> ✗ I have seen him yesterday. 有 yesterday 就要用過去式。
+
+## been to vs. gone to
+| 說法 | 意思 | 例句 |
+|---|---|---|
+| have been to | 去過（已經回來了） | I <b>have been to</b> Korea. |
+| have gone to | 去了（人還在那裡） | Dad <b>has gone to</b> work.（爸爸上班去了，不在家） |
+
+## already / yet / just 的位置
+| 字 | 用在 | 位置 | 例句 |
+|---|---|---|---|
+| already | 肯定句 | have 和 p.p. 中間 | I've <b>already</b> eaten. |
+| just | 肯定句 | have 和 p.p. 中間 | She's <b>just</b> left. |
+| yet | 否定句、疑問句 | 句尾 | Have you finished <b>yet</b>? / I haven't <b>yet</b>. |
+
+# mc
+Q: ___ you ever been to Hualien? || 你去過花蓮嗎？
+A: Did | Have* | Are
+W: 問經驗用現在完成式：Have you ever been…?
+Q: I ___ this book last month. || 我上個月讀了這本書。
+A: have read | read* | have readed
+W: last month 是明確的過去時間，要用過去簡單式。
+Q: She has ___ finished her project. || 她已經完成了她的專題。
+A: yet | already* | ever
+W: 肯定句的「已經」用 already，放在 has 和 p.p. 中間。
+Q: My mom isn't home. She has ___ to the supermarket. || 我媽不在家，她去超市了。
+A: been | gone* | went
+W: 人還在那裡、沒回來，用 has gone to。
+
+# err
+S: I [have visited|visited] Tainan in 2019. || 我 2019 年去過台南。
+W: 有明確的過去時間 in 2019，要用過去簡單式。
+S: He has [ate|eaten] lunch already. || 他已經吃過午餐了。
+W: has 後面接過去分詞 eaten。
+S: Have you finished your homework [already|yet]? || 你的功課寫完了嗎？
+W: 疑問句的「了沒」用 yet，放句尾。
+
+# mk
+- 有明確過去時間 yesterday，要用過去簡單式。
+- has 後面接過去分詞 gone，不是過去式 went。
+- 從 2019 年持續到現在，要用現在完成式 have lived。

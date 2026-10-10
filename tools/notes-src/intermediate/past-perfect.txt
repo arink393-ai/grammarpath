@@ -1,0 +1,59 @@
+# zh
+## 過去完成式：過去的過去
+當我們說過去的兩件事，要表示<b>哪一件先發生</b>時，比較早發生的用過去完成式：<b>had + 過去分詞</b>。
+<span class="en">When I arrived at the station, the train <b>had</b> already <b>left</b>.</span>（我到的時候，火車已經開走了。）
+表：時間軸
+| 先發生（更早的過去） | 後發生（過去） |
+|---|---|
+| 過去完成式 had + p.p. | 過去簡單式 |
+| the train had left | I arrived |
+| I had finished my homework | Mom came home |
+| She had never seen snow | before she went to Japan |
+
+## 句型
+| 句型 | 例句 |
+|---|---|
+| 肯定 | They <b>had eaten</b> before we came. |
+| 否定 | I <b>hadn't heard</b> the news. |
+| 疑問 | <b>Had</b> you <b>met</b> him before? |
+註：had 不分人稱，所有主詞都用 had。
+
+## 常見搭配
+表：過去完成式的常見句型
+| 句型 | 例句 |
+|---|---|
+| By the time + 過去式, … had p.p. | By the time we got there, the show <b>had started</b>. |
+| before / after | After she <b>had finished</b> her work, she went out. |
+| already / just / never | I <b>had never been</b> abroad before 2020. |
+| 間接引述（往前推一個時態） | He said he <b>had lost</b> his wallet. |
+> 用 before / after 時順序已經很清楚，口語也常直接用過去簡單式：After she finished, she went out.
+
+## 只有一件過去的事，不用過去完成式
+過去完成式一定要有「另一個過去時間」作參照。只說一件過去的事，用過去簡單式就好：<span class="en">I <b>saw</b> him yesterday.</span>（✗ I had seen him yesterday.）
+
+# mc
+Q: When we got to the cinema, the movie ___. || 我們到電影院時，電影已經開始了。
+A: already started | had already started* | has already started
+W: 電影開始比我們到達更早，用過去完成式。
+Q: She was nervous because she ___ on a plane before. || 她很緊張，因為她以前從沒搭過飛機。
+A: has never been | had never been* | never was
+W: 在「緊張」那個過去時間之前從沒有過，用 had never + p.p.。
+Q: By the time Dad came home, we ___ dinner. || 爸爸回到家時，我們已經吃完晚餐了。
+A: had finished* | finished | have finished
+W: By the time + 過去式，主要子句用過去完成式。
+Q: I ___ him at the mall yesterday. || 我昨天在商場看到他。
+A: had seen | saw* | have seen
+W: 只有一件過去的事，用過去簡單式。
+
+# err
+S: When I got home, my brother [ate|had eaten] all the cookies. || 我回到家時，弟弟已經把餅乾都吃光了。
+W: 吃光餅乾發生在我到家之前，要用 had eaten；用 ate 會變成「我到家後他才吃」。
+S: I realized I [have|had] left my phone at home. || 我發現我把手機忘在家裡了。
+W: 忘手機比「發現」更早，用 had left。
+S: She had [went|gone] to bed when I called. || 我打電話時她已經睡了。
+W: had 後面接過去分詞 gone。
+
+# mk
+- 火車開走比「我到達」更早，用過去完成式 had left。
+- had 後面接過去分詞 gone。
+- 只有一件過去的事（yesterday），用過去簡單式。

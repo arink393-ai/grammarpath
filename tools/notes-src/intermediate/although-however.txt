@@ -1,0 +1,59 @@
+# zh
+## 表示「讓步」的三種寫法
+讓步就是「雖然…（但還是）…」。英文有三種常見寫法，<b>詞性不同，後面接的東西也不同</b>：
+表：although / however / despite
+| 字 | 詞性 | 後面接 | 例句 |
+|---|---|---|---|
+| although / though / even though | 連接詞 | <b>子句</b>（主詞＋動詞） | <b>Although</b> it rained, we went out. |
+| however | 轉折副詞 | 開始<b>新的句子</b> | It rained. <b>However,</b> we went out. |
+| despite / in spite of | 介系詞 | <b>名詞或 V-ing</b> | <b>Despite</b> the rain, we went out. |
+註：三句意思都是「雖然下雨，我們還是出門了」。
+
+## 改寫練習：同一個意思
+| 寫法 | 句子 |
+|---|---|
+| although + 子句 | <b>Although he was tired</b>, he kept working. |
+| however + 新句子 | He was tired. <b>However</b>, he kept working. |
+| despite + V-ing | <b>Despite being tired</b>, he kept working. |
+| despite + 名詞 | <b>Despite his tiredness</b>, he kept working. |
+| despite the fact that + 子句 | <b>Despite the fact that he was tired</b>, he kept working. |
+
+## 常見錯誤
+| ✗ 錯誤 | 問題 | ✓ 正確 |
+|---|---|---|
+| Although it was late, but we stayed. | although + but 重複 | Although it was late, we stayed. |
+| I was tired. Although, I finished. | although 不能單獨當副詞 | I was tired. <b>However,</b> I finished. |
+| However being tired, he worked. | however 不接 V-ing | <b>Despite</b> being tired, he worked. |
+| Despite it was cold, … | despite 不接子句 | <b>Although</b> it was cold, … |
+| In spite the rain | 少了 of | In spite <b>of</b> the rain |
+
+## even though：語氣更強
+even though 比 although 更強調「即使事實如此」：<span class="en"><b>Even though</b> I studied all night, I failed.</span>
+> though 可以放句尾當副詞，口語常用：It was hard. I enjoyed it, <b>though</b>.（不過我很享受。）
+
+# mc
+Q: ___ the heavy traffic, we arrived on time. || 儘管交通壅塞，我們還是準時到了。
+A: Although | Despite* | However
+W: 後面是名詞片語 the heavy traffic，用介系詞 despite。
+Q: ___ she is rich, she lives simply. || 雖然她很有錢，卻過得很簡樸。
+A: Despite | Although* | In spite of
+W: 後面是子句（she is rich），用連接詞 although。
+Q: The plan sounds good. ___, it costs too much. || 這計畫聽起來不錯。然而，花費太高了。
+A: Although | However* | Despite
+W: 句號後開始新句子，用 However + 逗號。
+Q: In spite ___ his injury, he finished the race. || 儘管受了傷，他還是跑完了比賽。
+A: of* | 不填 | that
+W: in spite of + 名詞。
+
+# err
+S: [Despite|Although] it was raining, they played soccer. || 雖然在下雨，他們還是踢足球。
+W: 後面是子句，要用連接詞 although。
+S: Although he is young, [but he|he] is very responsible. || 雖然他很年輕，卻很負責。
+W: although 和 but 不能同時用。
+S: Despite [she was|being] busy, she helped me. || 儘管很忙，她還是幫了我。
+W: despite 後面接名詞或 V-ing，不能接子句。
+
+# mk
+- although 和 but 不能同時使用。
+- 新句子開頭的「然而」要用 However，although 不能這樣用。
+- however 不能接 V-ing；表示「儘管」用 Although + 子句（或 Despite being）。

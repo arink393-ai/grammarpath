@@ -1,0 +1,60 @@
+# zh
+## 用助動詞表達推測
+當我們根據證據推測某事時，用不同的助動詞表示<b>把握的程度</b>。
+表：現在的推測（助動詞 + 原形）
+| 把握 | 助動詞 | 意思 | 例句 |
+|---|---|---|---|
+| 約 95% 肯定 | must | 一定是 | The lights are on. Someone <b>must be</b> home. |
+| 約 50% | may / might / could | 可能是 | She <b>might be</b> in the library. |
+| 約 95% 否定 | can't / couldn't | 不可能是 | He <b>can't be</b> hungry. He just ate. |
+註：表示「一定不是」用 can't，不用 mustn't（mustn't 是「禁止」）。
+
+表：過去的推測（助動詞 + have + p.p.）
+| 把握 | 句型 | 意思 | 例句 |
+|---|---|---|---|
+| 肯定 | must have + p.p. | 當時一定… | The ground is wet. It <b>must have rained</b>. |
+| 可能 | may / might / could have + p.p. | 當時可能… | He <b>might have missed</b> the bus. |
+| 否定 | can't / couldn't have + p.p. | 當時不可能… | She <b>can't have seen</b> us. It was too dark. |
+
+## 相關句型：對過去的評論
+| 句型 | 意思 | 例句 |
+|---|---|---|
+| should have + p.p. | 當時應該（但沒有） | You <b>should have called</b> me. |
+| shouldn't have + p.p. | 當時不該（但做了） | I <b>shouldn't have eaten</b> so much. |
+| could have + p.p. | 當時本來可以（但沒有） | We <b>could have won</b>. |
+| needn't have + p.p. | 當時其實不必（但做了） | You <b>needn't have brought</b> a gift. |
+
+## 常見錯誤
+| ✗ 錯誤 | ✓ 正確 | 原因 |
+|---|---|---|
+| He must had left. | He must <b>have</b> left. | 助動詞後用原形 have |
+| You should have call me. | You should have <b>called</b> me. | have 後接 p.p. |
+| She mustn't have seen us. | She <b>can't</b> have seen us. | 否定推測用 can't |
+| It must rained. | It must <b>have rained</b>. | 過去推測要 have + p.p. |
+
+# mc
+Q: Ken has been working all day. He ___ be exhausted. || 肯工作了一整天，他一定累壞了。
+A: must* | can't | should
+W: 根據證據肯定的推測，用 must。
+Q: That ___ be Amy. She's in Japan now. || 那不可能是艾咪，她現在在日本。
+A: mustn't | can't* | might
+W: 否定的推測（不可能）用 can't。
+Q: The streets are wet. It ___ last night. || 街道濕濕的，昨晚一定下過雨。
+A: must rain | must have rained* | must rained
+W: 對過去的肯定推測：must have + p.p.。
+Q: I can't find my wallet. I ___ it on the bus. || 我找不到錢包，可能掉在公車上了。
+A: might have left* | might leave | must leave
+W: 對過去不確定的推測：might have + p.p.。
+
+# err
+S: She [mustn't|can't] be the thief. She was with me all night. || 她不可能是小偷，她整晚都和我在一起。
+W: 「不可能」的推測用 can't；mustn't 是禁止。
+S: He must have [forget|forgotten] our meeting. || 他一定是忘了我們的會議。
+W: must have 後面接過去分詞 forgotten。
+S: They [may have|may] arrived already. || 他們可能已經到了。
+W: 對過去的推測要用 may have + p.p.。
+
+# mk
+- 助動詞 must 後面要用原形 have：must have left。
+- should have 後面接過去分詞 called。
+- 否定的推測用 can't have，不用 mustn't have。

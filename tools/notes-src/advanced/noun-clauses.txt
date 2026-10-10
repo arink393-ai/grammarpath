@@ -1,0 +1,65 @@
+# zh
+## 名詞子句：一整個句子當名詞用
+名詞子句是一個<b>當作名詞使用的子句</b>，可以放在主詞、受詞、補語的位置。
+表：三種名詞子句
+| 連接詞 | 用在 | 例句 |
+|---|---|---|
+| that | 陳述事實（可省略） | I think <b>(that) he is right</b>. |
+| whether / if | 是否（原本是 Yes/No 問句） | I don't know <b>whether he will come</b>. |
+| 疑問詞 who, what, where, why, how… | 原本是 Wh- 問句 | Tell me <b>where you live</b>. |
+註：名詞子句一律用<b>直述句語序</b>（主詞＋動詞），不倒裝：✗ Tell me where do you live.
+
+## 名詞子句的位置
+| 位置 | 例句 |
+|---|---|
+| 主詞 | <b>What he said</b> is true. / <b>That she passed</b> surprised us. |
+| 受詞 | I believe <b>that you can do it</b>. |
+| 補語 | The problem is <b>that we have no time</b>. |
+| 虛主詞 it | <b>It</b> is clear <b>that he is lying</b>. |
+
+## whether vs. if
+| 情況 | whether | if |
+|---|---|---|
+| 一般受詞 | ✓ I wonder whether it's true. | ✓ I wonder if it's true. |
+| 後面接 or not | ✓ whether or not | △ 較少用 |
+| 當主詞放句首 | ✓ <b>Whether</b> he comes is unclear. | ✗ |
+| 介系詞後面 | ✓ It depends on <b>whether</b>… | ✗ |
+| 接不定詞 | ✓ I don't know <b>whether to go</b>. | ✗ |
+> 不能用 that 表示「是否」：✗ I don't know that he will come or not.
+
+## 假設語氣：suggest that + 原形動詞
+表示<b>建議、要求、命令、必要</b>的字後面的 that 子句，動詞用<b>原形</b>（省略了 should）：
+表：要接「原形動詞」的字
+| 類別 | 字 | 例句 |
+|---|---|---|
+| 動詞 | suggest, recommend, insist, demand, require, request, ask, propose | I suggested that he <b>go</b> home. |
+| 形容詞 | important, necessary, essential, vital, urgent | It is important that she <b>be</b> on time. |
+| 名詞 | suggestion, advice, demand, requirement | His advice was that we <b>leave</b> early. |
+註：主詞是第三人稱單數也不加 s；be 動詞一律用 be；否定直接加 not：I suggest that he <b>not go</b>.
+
+# mc
+Q: Do you know where ___? || 你知道車站在哪裡嗎？
+A: is the station | the station is* | does the station
+W: 名詞子句用直述句語序：the station is。
+Q: I'm not sure ___ she will come or not. || 我不確定她會不會來。
+A: that | whether* | what
+W: 「是否…或不」用 whether。
+Q: The doctor suggested that he ___ more exercise. || 醫生建議他多運動。
+A: gets | get* | got
+W: suggest that + 主詞 + 原形動詞（省略 should）。
+Q: ___ he said made everyone laugh. || 他說的話讓大家都笑了。
+A: That | What* | Which
+W: 「他所說的話」用 What 引導名詞子句當主詞。
+
+# err
+S: Can you tell me what time [does the movie start|the movie starts]? || 你可以告訴我電影幾點開始嗎？
+W: 名詞子句要用直述句語序，不加 does。
+S: It is necessary that every student [wears|wear] a uniform. || 每位學生都必須穿制服。
+W: necessary that 後面的動詞用原形。
+S: [If|Whether] we go or not depends on the weather. || 我們去不去要看天氣。
+W: 名詞子句放在句首當主詞，只能用 whether。
+
+# mk
+- suggest that 後面的動詞用原形 go。
+- 「是否」要用 whether，不能用 that。
+- important that 後面的 be 動詞用原形 be。

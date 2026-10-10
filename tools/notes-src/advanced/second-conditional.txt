@@ -1,0 +1,63 @@
+# zh
+## 第二條件句：與現在事實相反的假設
+第二條件句用來假設<b>現在或未來不太可能、或與現實相反</b>的情況。雖然用過去式，但說的是<b>現在</b>。
+公式：<b>If + 過去簡單式, would / could / might + 原形動詞</b>
+<span class="en">If I <b>had</b> a million dollars, I <b>would travel</b> around the world.</span>（如果我有一百萬，我會環遊世界——但我現在沒有。）
+表：第一 vs. 第二條件句
+| | 第一條件句 | 第二條件句 |
+|---|---|---|
+| 可能性 | 真的有可能 | 不太可能、與事實相反 |
+| if 子句 | 現在式 | <b>過去式</b> |
+| 主要子句 | will + V | <b>would</b> + V |
+| 例句 | If it <b>rains</b>, I <b>will</b> stay home. | If I <b>were</b> a bird, I <b>would</b> fly. |
+
+## be 動詞一律用 were
+在假設語氣中，be 動詞不論主詞是誰，都用 <b>were</b>（正式寫作、考試的標準用法）：
+表：were 的用法
+| 主詞 | 例句 |
+|---|---|
+| I | If I <b>were</b> you, I would apologize. |
+| he / she / it | If she <b>were</b> here, she would help us. |
+| you / we / they | If they <b>were</b> rich, they would buy a house. |
+註：If I were you（如果我是你）是給建議的常用句型。口語中 If I was 也聽得到，但考試請用 were。
+
+## 主要子句的助動詞
+| 助動詞 | 意思 | 例句 |
+|---|---|---|
+| would | 會 | If I had time, I <b>would</b> help you. |
+| could | 能夠 | If I spoke French, I <b>could</b> work in Paris. |
+| might | 可能會 | If you asked him, he <b>might</b> agree. |
+
+## if 子句不能用 would
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| If I would have money, I'd travel. | If I <b>had</b> money, I'd travel. |
+| If I won, I will quit my job. | If I won, I <b>would</b> quit my job. |
+> 倒裝寫法（較正式）：<b>Were I</b> you, I would accept the offer.
+
+# mc
+Q: If I ___ you, I would tell the truth. || 如果我是你，我會說實話。
+A: am | were* | will be
+W: 假設語氣的 be 動詞一律用 were。
+Q: If she had more time, she ___ learn to play the guitar. || 如果她有更多時間，她會學吉他。
+A: will | would* | is
+W: 第二條件句的主要子句用 would + 原形。
+Q: What would you do if you ___ the lottery? || 如果你中了樂透，你會做什麼？
+A: win | won* | will win
+W: 與現實相反的假設，if 子句用過去式。
+Q: If I could fly, I ___ to school. || 如果我會飛，我就飛去上學。
+A: will fly | would fly* | flew
+W: 主要子句用 would + 原形。
+
+# err
+S: If I [have|had] a car, I would drive you home. || 如果我有車，我會載你回家。
+W: 與現在事實相反，if 子句用過去式 had。
+S: If he [was|were] taller, he could be a basketball player. || 如果他再高一點，就能當籃球員。
+W: 假設語氣的 be 動詞用 were。
+S: If we lived near the sea, we [will|would] go swimming every day. || 如果我們住在海邊，就會天天去游泳。
+W: 第二條件句的主要子句用 would。
+
+# mk
+- if 子句不能用 would，要用過去式 had。
+- 假設語氣的 be 動詞用 were。
+- 第二條件句的主要子句用 would，不用 will。

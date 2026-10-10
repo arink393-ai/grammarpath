@@ -1,0 +1,52 @@
+# zh
+## 過去完成進行式：在過去某時之前一直在做
+公式：主詞 + <b>had been + V-ing</b>。表示一個動作在<b>過去某個時間點之前已經持續了一段時間</b>，常說明當時的狀態原因。
+<span class="en">I <b>had been waiting</b> for an hour when he finally arrived.</span>（他終於到的時候，我已經等了一個小時。）
+表：時態家族比較
+| 時態 | 公式 | 時間的參考點 | 例句 |
+|---|---|---|---|
+| 現在完成進行式 | have been V-ing | 持續到<b>現在</b> | I <b>have been studying</b> for 2 hours. |
+| 過去完成進行式 | had been V-ing | 持續到<b>過去某時</b> | I <b>had been studying</b> for 2 hours when you called. |
+| 過去完成式 | had p.p. | 在過去某時前<b>已完成</b> | I <b>had finished</b> when you called. |
+
+## 兩種用法
+| 用法 | 例句 |
+|---|---|
+| 持續了多久（for / since） | She <b>had been working</b> there for ten years before she quit. |
+| 解釋過去的狀態原因 | The ground was wet. It <b>had been raining</b>. |
+| | He was tired because he <b>had been running</b>. |
+
+## 過去完成式 vs. 過去完成進行式
+| 過去完成式 | 過去完成進行式 |
+|---|---|
+| 強調完成、結果、次數 | 強調持續的過程 |
+| She <b>had written</b> three emails. | She <b>had been writing</b> emails all morning. |
+| 狀態動詞只能用這個 | ✗ had been knowing |
+> 狀態動詞（know, believe, own, like…）不用進行式：We <b>had known</b> them for years.
+
+# mc
+Q: They ___ for two hours before they found the hotel. || 他們走了兩個小時才找到旅館。
+A: had been walking* | have been walking | were walk
+W: 在過去某時（找到旅館）之前持續的動作，用 had been V-ing。
+Q: Her eyes were red because she ___. || 她眼睛紅紅的，因為她剛剛一直在哭。
+A: has been crying | had been crying* | cries
+W: 解釋過去狀態的原因，用過去完成進行式。
+Q: We ___ each other for years before we got married. || 我們結婚前已經認識好幾年了。
+A: had been knowing | had known* | have known
+W: know 是狀態動詞，用過去完成式。
+Q: How long had you ___ when the bus came? || 公車來的時候你等了多久？
+A: been waiting* | waiting | waited been
+W: had been + V-ing。
+
+# err
+S: I [was waiting|had been waiting] for an hour before the store opened. || 店開門前我已經等了一個小時。
+W: 有 for an hour 表示到過去某時已持續多久，用 had been waiting。
+S: He had been [drive|driving] all night, so he was exhausted. || 他開了整晚的車，所以累壞了。
+W: had been 後面接 V-ing。
+S: She [had been having|had had] that bike since she was ten. || 她從十歲起就擁有那台腳踏車。
+W: have 表「擁有」是狀態動詞，用過去完成式 had had。
+
+# mk
+- 到過去某時已持續了一段時間，用 had been waiting。
+- had been 後面接 V-ing。
+- know 是狀態動詞，用過去完成式 had known。

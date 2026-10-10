@@ -1,0 +1,58 @@
+# zh
+## 選時態的關鍵：看時間線索
+選擇時態時，先找句子裡的<b>時間線索</b>，再決定用哪一個時態。
+表：時間線索 → 時態
+| 時間線索 | 時態 | 例句 |
+|---|---|---|
+| every day, usually, always, often | 現在簡單式 | She <b>walks</b> to school every day. |
+| now, right now, Look!, at the moment | 現在進行式 | Look! He <b>is running</b>. |
+| yesterday, last…, …ago, in 2010 | 過去簡單式 | I <b>saw</b> him yesterday. |
+| at 8 last night, when + 過去式 | 過去進行式 | I <b>was sleeping</b> when you called. |
+| ever, never, already, yet, just, for, since | 現在完成式 | I <b>have</b> already <b>eaten</b>. |
+| for / since + 強調持續 | 現在完成進行式 | It <b>has been raining</b> since noon. |
+| by the time + 過去式, before + 過去式 | 過去完成式 | The film <b>had started</b> when we arrived. |
+| tomorrow, next…, soon, tonight | 未來式 | I <b>will call</b> you tomorrow. |
+| by + 未來時間 | 未來完成式 | I <b>will have finished</b> by 5. |
+
+## 十二時態總表
+表：英文十二時態（以 play 為例）
+| | 簡單式 | 進行式 | 完成式 | 完成進行式 |
+|---|---|---|---|---|
+| 現在 | play / plays | am / is / are playing | have / has played | have / has been playing |
+| 過去 | played | was / were playing | had played | had been playing |
+| 未來 | will play | will be playing | will have played | will have been playing |
+註：簡單式＝事實、習慣；進行式＝正在進行；完成式＝到某時已完成；完成進行式＝到某時已持續多久。
+
+## 最常犯的三種錯
+| ✗ 錯誤 | ✓ 正確 | 規則 |
+|---|---|---|
+| I have seen him yesterday. | I <b>saw</b> him yesterday. | 明確過去時間 → 過去式 |
+| She works right now. | She<b>'s working</b> right now. | right now → 進行式 |
+| I live here since 2015. | I<b>'ve lived</b> here since 2015. | since → 完成式 |
+
+# mc
+Q: My brother ___ his homework right now. || 我弟弟現在正在寫功課。
+A: does | is doing* | has done
+W: right now 表示正在進行，用現在進行式。
+Q: We ___ to Taitung last summer. || 我們去年夏天去了台東。
+A: have gone | went* | go
+W: last summer 是明確過去時間，用過去簡單式。
+Q: She ___ in this company since 2018. || 她從 2018 年就在這家公司工作。
+A: works | has worked* | worked
+W: since 2018 表示持續到現在，用現在完成式。
+Q: When I got to school, the class ___. || 我到學校時，課已經開始了。
+A: has started | had started* | starts
+W: 比過去另一件事更早發生，用過去完成式。
+
+# err
+S: I [have met|met] her two years ago. || 我兩年前認識她的。
+W: 有 ago 這種明確過去時間，用過去簡單式。
+S: Listen! The baby [cries|is crying]. || 聽！寶寶在哭。
+W: Listen! 表示正在發生，用現在進行式。
+S: He [is knowing|has known] me for ten years. || 他認識我十年了。
+W: 有 for ten years 持續到現在，而且 know 是狀態動詞，用現在完成式。
+
+# mk
+- 有 yesterday 要用過去簡單式 saw。
+- right now 表示正在進行，用現在進行式。
+- since 2015 持續到現在，用現在完成式 I've lived。

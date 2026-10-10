@@ -1,0 +1,58 @@
+# zh
+## 未來完成進行式：到未來某時已經持續了多久
+公式：<b>will have been + V-ing</b>。表示一個動作到了<b>未來某個時間點時，已經持續了一段時間</b>（可能還會繼續）。
+<span class="en">By June, I <b>will have been working</b> here for five years.</span>（到六月，我就在這裡工作滿五年了。）
+表：完成進行式家族
+| 時態 | 公式 | 持續到 | 例句 |
+|---|---|---|---|
+| 現在完成進行式 | have been V-ing | 現在 | I <b>have been waiting</b> for 20 minutes. |
+| 過去完成進行式 | had been V-ing | 過去某時 | I <b>had been waiting</b> for 20 minutes when she came. |
+| 未來完成進行式 | will have been V-ing | 未來某時 | By 3 p.m., I <b>will have been waiting</b> for an hour. |
+
+## 必備元素
+未來完成進行式通常同時有兩個時間資訊：
+- 未來的時間點：by + 時間、by the time + 現在式、next year…
+- 持續多久：for + 一段時間
+<span class="en"><b>By the time</b> he retires, he <b>will have been teaching</b> <b>for 40 years</b>.</span>
+
+## 未來完成式 vs. 未來完成進行式
+| 未來完成式 | 未來完成進行式 |
+|---|---|
+| 強調完成、數量 | 強調持續的時間長度 |
+| By June, I <b>will have read</b> 20 books. | By June, I <b>will have been reading</b> for 6 months. |
+| 狀態動詞用這個 | ✗ will have been knowing |
+> 狀態動詞（know, own, believe）不用進行式：By then, she <b>will have known</b> him for ten years.
+
+## 常見錯誤
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| By June, I will work here for five years. | By June, I <b>will have been working</b> here for five years. |
+| They will have been drive for hours. | They will have been <b>driving</b> for hours. |
+| will has been | will <b>have</b> been（will 後一律用原形 have） |
+
+# mc
+Q: By next month, we ___ in this house for ten years. || 到下個月，我們就在這間房子住滿十年了。
+A: will live | will have been living* | have been living
+W: 到未來某時已持續多久，用 will have been V-ing。
+Q: By 5 p.m., she will have been ___ for eight hours. || 到下午五點，她就已經工作了八小時。
+A: work | working* | worked
+W: will have been 後面接 V-ing。
+Q: By the time he arrives, I ___ for two hours. || 等他到的時候，我就已經等了兩個小時。
+A: will have been waiting* | will wait | am waiting
+W: by the time + 現在式；主要子句用未來完成進行式。
+Q: By then, I ___ her for twenty years. || 到那時，我就認識她二十年了。
+A: will have been knowing | will have known* | will know
+W: know 是狀態動詞，用未來完成式。
+
+# err
+S: Next year, he [will teach|will have been teaching] here for 30 years. || 明年他就在這裡教書滿三十年了。
+W: 有 for 30 years 表示到未來某時已持續多久，要用未來完成進行式。
+S: By noon, the kids will have been [swim|swimming] for three hours. || 到中午，孩子們就已經游了三個小時。
+W: will have been 後面接 V-ing。
+S: She [will has|will have] been studying for six hours by midnight. || 到午夜她就讀了六個小時了。
+W: will 後面一律用原形 have。
+
+# mk
+- 到 June 已持續五年，用 will have been working。
+- will have been 後面接 V-ing：driving。
+- know 是狀態動詞，用未來完成式 will have known。

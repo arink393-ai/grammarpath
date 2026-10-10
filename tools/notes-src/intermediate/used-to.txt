@@ -1,0 +1,57 @@
+# zh
+## used to：以前常常、以前是
+<b>used to + 原形動詞</b> 表示<b>過去的習慣或狀態，現在已經不是了</b>。中文的「以前會…（現在不會了）」。
+<span class="en">I <b>used to</b> play video games every day.</span>（我以前每天打電動，現在不打了。）
+表：句型
+| 句型 | 公式 | 例句 |
+|---|---|---|
+| 肯定 | used to + 原形 | She <b>used to live</b> in Japan. |
+| 否定 | didn't <b>use</b> to + 原形 | I <b>didn't use to</b> like vegetables. |
+| 疑問 | Did + 主詞 + <b>use</b> to + 原形？ | <b>Did</b> you <b>use to</b> have long hair? |
+註：有 did / didn't 時，used 要變回原形 use（d 拿掉）。
+
+## 兩種用法
+| 用法 | 例句 |
+|---|---|
+| 過去的習慣動作 | We <b>used to go</b> camping every summer. |
+| 過去的狀態 | There <b>used to be</b> a park here. / He <b>used to be</b> shy. |
+
+## 三個長得很像的句型
+這是大考的經典考點，一定要分清楚：
+表：used to / be used to / be used to V
+| 句型 | 意思 | 後面接 | 例句 |
+|---|---|---|---|
+| used to + V | 以前常常 | 原形動詞 | I <b>used to get</b> up late. |
+| be / get used to + V-ing / N | 習慣於 | 動名詞或名詞 | I <b>am used to getting</b> up early. |
+| be used to + V | 被用來… | 原形動詞（被動） | Knives <b>are used to cut</b> things. |
+> be used to 的 to 是介系詞，後面接 V-ing：I'm used to <b>living</b> alone.（✗ to live）
+
+## would 也能表示過去的習慣
+<span class="en">When I was a kid, I <b>would</b> visit my grandma every weekend.</span> 但 would 只能說動作，不能說狀態：✗ I would be shy. → ✓ I <b>used to</b> be shy.
+
+# mc
+Q: My dad ___ smoke, but he quit last year. || 我爸以前抽菸，但去年戒了。
+A: use to | used to* | is used to
+W: 過去的習慣、現在不做了，用 used to + 原形。
+Q: Did you ___ walk to school? || 你以前是走路上學的嗎？
+A: used to | use to* | using to
+W: 有 Did 時，used 要變回原形 use。
+Q: I'm used to ___ in a big city now. || 我現在已經習慣住在大城市了。
+A: live | living* | lived
+W: be used to 的 to 是介系詞，後接 V-ing。
+Q: There ___ a big tree in front of my house. || 我家前面以前有一棵大樹。
+A: used to be* | was used to | used to being
+W: 過去的狀態：There used to be…。
+
+# err
+S: She [use to|used to] have long hair. || 她以前留長頭髮。
+W: 肯定句要用 used to（有 d）。
+S: I used to [played|play] the piano. || 我以前彈鋼琴。
+W: used to 後面接原形動詞。
+S: He isn't used to [eat|eating] spicy food. || 他不習慣吃辣。
+W: be used to 表示「習慣於」，後面接 V-ing。
+
+# mk
+- 肯定句要寫 used to（有 d）。
+- used to 後面接原形動詞 play。
+- 有 Did 時，used 變回原形 use。

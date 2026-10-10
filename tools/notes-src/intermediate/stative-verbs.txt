@@ -1,0 +1,54 @@
+# zh
+## 動作動詞 vs. 狀態動詞
+<b>動作動詞</b>（run, eat, write）描述有開始、有結束的動作，可以用進行式。<b>狀態動詞</b>描述想法、感受、擁有、感官等持續的狀態，<b>通常不用進行式</b>。
+<span class="en">I <b>know</b> the answer.</span>（✗ I am knowing the answer.）
+表：常見狀態動詞分類
+| 類別 | 動詞 |
+|---|---|
+| 想法、認知 | know, believe, understand, remember, forget, think（認為）, mean, realize |
+| 喜好、情感 | like, love, hate, prefer, want, need, wish |
+| 擁有 | have（擁有）, own, belong, possess |
+| 感官、外表 | see, hear, smell, taste, seem, look（看起來）, sound |
+| 其他狀態 | be, cost, weigh, contain, depend, matter, agree |
+
+## 一字兩義：狀態 vs. 動作
+有些動詞有兩種意思，當<b>動作</b>時就可以用進行式：
+表：意思不同、用法不同
+| 動詞 | 狀態（不用進行式） | 動作（可用進行式） |
+|---|---|---|
+| have | I <b>have</b> a car.（擁有） | I'm <b>having</b> lunch.（吃） |
+| think | I <b>think</b> it's good.（認為） | I'm <b>thinking</b> about it.（思考） |
+| see | I <b>see</b> what you mean.（明白） | I'm <b>seeing</b> the doctor today.（看醫生） |
+| taste | The soup <b>tastes</b> salty.（嚐起來） | He's <b>tasting</b> the soup.（試喝） |
+| look | You <b>look</b> tired.（看起來） | She's <b>looking</b> at the map.（看） |
+| be | He <b>is</b> rude.（個性） | He's <b>being</b> rude.（現在表現得很沒禮貌） |
+
+## 麥當勞的 I'm lovin' it
+廣告詞 "I'm lovin' it" 是刻意打破規則，強調「此刻正在享受」的感覺。日常口語偶爾聽得到 I'm loving this，但寫作和考試請用簡單式：<span class="en">I <b>love</b> it.</span>
+
+# mc
+Q: I ___ what you're saying. || 我懂你在說什麼。
+A: am understanding | understand* | understanding
+W: understand 是狀態動詞，用簡單式。
+Q: She ___ dinner with her family right now. || 她現在正在和家人吃晚餐。
+A: has | is having* | have
+W: have 表示「吃」是動作，可以用進行式。
+Q: This bag ___ to my sister. || 這個包包是我姐姐的。
+A: is belonging | belongs* | belong
+W: belong 是狀態動詞，主詞單數加 s。
+Q: I'm ___ about moving to Taichung. || 我正在考慮搬到台中。
+A: think | thinking* | thought
+W: think about 表示「思考、考慮」是動作，可用進行式。
+
+# err
+S: This book [is costing|costs] 300 dollars. || 這本書 300 元。
+W: cost 是狀態動詞，用簡單式。
+S: I [am needing|need] your help. || 我需要你的幫忙。
+W: need 是狀態動詞，不用進行式。
+S: The soup [is smelling|smells] delicious. || 這湯聞起來很香。
+W: smell 表「聞起來」是狀態，不用進行式。
+
+# mk
+- know 是狀態動詞，用簡單式 I know。
+- want 是狀態動詞，用 She wants。
+- like 是狀態動詞，用 I like。

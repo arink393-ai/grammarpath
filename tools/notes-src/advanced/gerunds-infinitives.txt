@@ -1,0 +1,68 @@
+# zh
+## 動名詞（V-ing）和不定詞（to V）
+動詞不能直接當名詞用，要變成<b>動名詞 V-ing</b> 或<b>不定詞 to V</b>。有些動詞後面只能接其中一種，這是大考必考重點。
+表：只接動名詞 V-ing 的動詞
+| 動詞 | 例句 |
+|---|---|
+| enjoy, finish, mind, practice | I <b>enjoy swimming</b>. |
+| avoid, deny, admit, consider | He <b>avoided answering</b>. |
+| keep, quit, give up, suggest | She <b>kept talking</b>. |
+| miss, imagine, risk, delay, postpone | I <b>miss living</b> by the sea. |
+| can't help, can't stand, feel like | I <b>can't help laughing</b>. |
+註：口訣「享受完成、介意練習、避免否認、繼續放棄」都接 V-ing。
+
+表：只接不定詞 to V 的動詞
+| 動詞 | 例句 |
+|---|---|
+| want, hope, wish, expect | She <b>wants to go</b> home. |
+| decide, plan, agree, refuse | They <b>decided to leave</b>. |
+| promise, offer, manage, fail | He <b>promised to help</b>. |
+| learn, afford, pretend, seem | I can't <b>afford to buy</b> it. |
+| need, ask, choose, prepare | You <b>need to rest</b>. |
+註：這些動詞多半有「未來、打算、目標」的意思，所以接 to V（指向未來）。
+
+## 兩者都可以，意思不變
+<span class="en">like, love, hate, prefer, start, begin, continue</span>：<span class="en">It started <b>to rain</b> / <b>raining</b>.</span>
+
+## 兩者都可以，但意思不同！
+表：意思不同的動詞
+| 動詞 | + to V | + V-ing |
+|---|---|---|
+| remember | 記得<b>要去</b>做（還沒做） | 記得<b>做過</b>（已做） |
+| | Remember <b>to lock</b> the door. | I remember <b>locking</b> the door. |
+| forget | 忘記要去做 | 忘記做過 |
+| stop | 停下來<b>去做</b>另一件事 | <b>停止</b>正在做的事 |
+| | He stopped <b>to smoke</b>.（停下來抽菸） | He stopped <b>smoking</b>.（戒菸） |
+| try | 努力、設法 | 試試看 |
+| regret | 遺憾要（告知壞消息） | 後悔做過 |
+
+## 介系詞後面一定用 V-ing
+<span class="en">I'm interested <b>in learning</b> Korean. / Thank you <b>for helping</b> me. / She is good <b>at drawing</b>.</span>
+> 特別注意 to 是介系詞的片語：look forward <b>to seeing</b>、be used <b>to getting</b> up、object <b>to working</b>。
+
+# mc
+Q: Would you mind ___ the window? || 你介意開一下窗戶嗎？
+A: to open | opening* | open
+W: mind 後面接動名詞 V-ing。
+Q: We decided ___ a taxi. || 我們決定搭計程車。
+A: taking | to take* | take
+W: decide 後面接不定詞 to V。
+Q: Don't forget ___ the lights when you leave. || 離開時別忘了關燈。
+A: turning off | to turn off* | turn off
+W: 「別忘了要去做」（還沒做），用 forget to V。
+Q: I'm looking forward to ___ you again. || 我很期待再見到你。
+A: see | seeing* | saw
+W: look forward to 的 to 是介系詞，後面接 V-ing。
+
+# err
+S: He finally finished [to write|writing] his report. || 他終於寫完報告了。
+W: finish 後面接動名詞 V-ing。
+S: They agreed [helping|to help] us. || 他們同意幫我們。
+W: agree 後面接不定詞 to V。
+S: My dad stopped [to smoke|smoking] last year. || 我爸去年戒菸了。
+W: 「停止抽菸（戒菸）」是 stop V-ing；stop to smoke 是「停下來去抽菸」。
+
+# mk
+- enjoy 後面接動名詞 swimming。
+- want 後面接不定詞 to go。
+- avoid 後面接動名詞 answering。

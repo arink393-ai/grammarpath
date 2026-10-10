@@ -1,0 +1,58 @@
+# zh
+## as … as：一樣…
+<b>as + 形容詞／副詞原級 + as</b> 表示兩者程度「一樣」。中間一定用<b>原級</b>，不能用比較級。
+<span class="en">Amy is <b>as tall as</b> her mother.</span>（艾咪和她媽媽一樣高。）
+表：同級比較的句型
+| 句型 | 意思 | 例句 |
+|---|---|---|
+| as + 形容詞 + as | 和…一樣 | This bag is <b>as heavy as</b> that one. |
+| as + 副詞 + as | 和…一樣（動作） | He runs <b>as fast as</b> a deer. |
+| not as / so + 原級 + as | 不如… | I am <b>not as tall as</b> my brother. |
+| as + many / much + 名詞 + as | 和…一樣多 | She has <b>as many books as</b> I do. |
+| 倍數 + as … as | …的幾倍 | This room is <b>twice as big as</b> mine. |
+註：not as … as = 比較級的反面：I'm not as tall as my brother. = My brother is <b>taller than</b> me.
+
+## 形容詞還是副詞？
+看中間修飾的是什麼：
+| 句子 | 修飾 | 用 |
+|---|---|---|
+| She is as ___ as her sister. | be 動詞後描述主詞 | 形容詞：beautiful |
+| She sings as ___ as her sister. | 修飾動詞 sings | 副詞：beautifully |
+
+## 常見慣用語
+| 片語 | 意思 |
+|---|---|
+| as soon as possible (ASAP) | 越快越好 |
+| as busy as a bee | 忙得像蜜蜂 |
+| as cold as ice | 冷冰冰的 |
+| as light as a feather | 輕如鴻毛 |
+| as long as | 只要 |
+| the same as | 和…一樣 |
+> 後面的比較對象常用主格＋助動詞：She's as tall as <b>I am</b>.；口語也常說 as tall as <b>me</b>。
+
+# mc
+Q: My English is not as ___ as yours. || 我的英文沒有你的好。
+A: better | good* | best
+W: as … as 中間用原級 good。
+Q: He can swim as ___ as a fish. || 他游得像魚一樣快。
+A: fast* | faster | fastly
+W: fast 是副詞也是形容詞，as … as 中間用原級。
+Q: This box is ___ as heavy as that one. || 這個箱子是那個的三倍重。
+A: three times* | three time | third
+W: 倍數放在 as … as 前面：three times as heavy as。
+Q: Please reply as soon ___ possible. || 請盡快回覆。
+A: than | as* | so
+W: 固定說法 as soon as possible。
+
+# err
+S: My bike is as [newer|new] as yours. || 我的腳踏車和你的一樣新。
+W: as … as 中間要用原級 new。
+S: She speaks English as [fluent|fluently] as a native speaker. || 她英文說得和母語人士一樣流利。
+W: 修飾動詞 speaks 要用副詞 fluently。
+S: Your phone is as expensive [than|as] mine. || 你的手機和我的一樣貴。
+W: as … as 前後都要用 as，不能用 than。
+
+# mk
+- as … as 中間用原級 tall。
+- 否定說 not as tall as，後面不能接 than。
+- as … as 的後半一樣用 as。

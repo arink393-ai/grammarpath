@@ -1,0 +1,72 @@
+# zh
+## 直接引述 vs. 間接引述
+直接引述是把原話一字不漏放在引號裡；間接引述是用自己的話轉述別人說過的話。
+<span class="en">直接：She said, "I am tired."</span><br><span class="en">間接：She said (that) she <b>was</b> tired.</span>
+轉述時通常要調整三件事：<b>人稱、時態、時間地點詞</b>。
+
+## 時態往過去推一格
+當引述動詞是過去式（said, told, asked）時，子句的時態要往過去推一格：
+表：時態轉換
+| 直接引述 | 間接引述 |
+|---|---|
+| 現在簡單式 "I <b>like</b> it." | 過去簡單式 she <b>liked</b> it |
+| 現在進行式 "I <b>am leaving</b>." | 過去進行式 she <b>was leaving</b> |
+| 過去簡單式 "I <b>saw</b> him." | 過去完成式 she <b>had seen</b> him |
+| 現在完成式 "I <b>have finished</b>." | 過去完成式 she <b>had finished</b> |
+| will "I <b>will</b> come." | would she <b>would</b> come |
+| can "I <b>can</b> swim." | could she <b>could</b> swim |
+| must "I <b>must</b> go." | had to she <b>had to</b> go |
+註：如果說的是永遠的真理或現在仍成立的事，可以不改時態：He said the earth <b>is</b> round.
+
+## 時間地點詞的轉換
+| 直接引述 | 間接引述 |
+|---|---|
+| now | then |
+| today / tonight | that day / that night |
+| tomorrow | the next day / the following day |
+| yesterday | the day before / the previous day |
+| last week | the week before |
+| here | there |
+| this / these | that / those |
+
+## say vs. tell
+| 動詞 | 用法 | 例句 |
+|---|---|---|
+| say | say (to 人) + that 子句 | She <b>said</b> (that) she was busy. |
+| tell | tell + <b>人</b> + that 子句 | She <b>told me</b> (that) she was busy. |
+> ✗ She said me… → ✓ She <b>told</b> me… / She said <b>to</b> me…
+
+## 間接問句：用直述句語序
+| 直接問句 | 間接問句 |
+|---|---|
+| "Where <b>do you work</b>?" | He asked where <b>I worked</b>. |
+| "<b>Are you</b> OK?" | She asked <b>if / whether</b> I was OK. |
+| 命令 "Sit down." | He told me <b>to sit</b> down. |
+| 否定命令 "Don't run." | She told us <b>not to run</b>. |
+
+# mc
+Q: Ken said that he ___ hungry. || 肯說他餓了。
+A: is | was* | will be
+W: said 是過去式，現在式 is 要往後推成 was。
+Q: She ___ me that she would be late. || 她告訴我她會遲到。
+A: said | told* | spoke
+W: 後面直接接人（me），用 told。
+Q: He asked me where ___. || 他問我住在哪裡。
+A: did I live | I lived* | do I live
+W: 間接問句用直述句語序，並且時態往後推。
+Q: Mom told me ___ my room. || 媽媽叫我打掃房間。
+A: clean | to clean* | cleaning
+W: 轉述命令用 tell + 人 + to V。
+
+# err
+S: She [said me|told me] the answer. || 她告訴我答案。
+W: say 不能直接接人，要用 told me。
+S: He said he [will|would] call me later. || 他說他晚點會打給我。
+W: said 是過去式，will 要轉成 would。
+S: She asked me [what was my name|what my name was]. || 她問我叫什麼名字。
+W: 間接問句要用直述句語序：what my name was。
+
+# mk
+- 後面直接接人要用 told，不能說 said me。
+- 間接問句要用直述句語序，不用 did：where I worked。
+- said 是過去式，will 要轉成 would。

@@ -1,0 +1,58 @@
+# zh
+## 兩種未來式
+英文說未來最常用 <b>will</b> 和 <b>be going to</b>，兩者常可以互換，但有些情況意思不同。
+表：will vs. be going to
+| 用途 | will | be going to |
+|---|---|---|
+| 說話當下才決定 | ✓ The phone is ringing. I<b>'ll</b> get it. | ✗ |
+| 事先計畫好的 | ✗ | ✓ I<b>'m going to</b> visit Japan next month. |
+| 有證據的預測（看得到跡象） | — | ✓ Look at the clouds! It<b>'s going to</b> rain. |
+| 個人意見的預測 | ✓ I think you<b>'ll</b> like it. | ✓ 也可以 |
+| 承諾、提議、請求 | ✓ I<b>'ll</b> help you. / <b>Will</b> you marry me? | ✗ |
+
+## 句型
+表：will 與 be going to 的句型
+| 句型 | will | be going to |
+|---|---|---|
+| 肯定 | She <b>will come</b>. | She <b>is going to come</b>. |
+| 否定 | She <b>won't come</b>. | She <b>isn't going to come</b>. |
+| 疑問 | <b>Will</b> she come? | <b>Is</b> she <b>going to</b> come? |
+註：will 後面直接接原形（不加 to）；be going to 的 be 要跟著主詞變化（am / is / are）。
+
+## 常見錯誤
+| ✗ 錯誤 | ✓ 正確 | 原因 |
+|---|---|---|
+| I will to call you. | I will <b>call</b> you. | will 後接原形 |
+| She going to move. | She <b>is</b> going to move. | 缺 be 動詞 |
+| He will goes. | He will <b>go</b>. | will 後不加 s |
+
+## 未來時間詞
+<span class="en">tomorrow, tonight, next week, soon, in two days, this weekend, someday, in the future</span>
+> 時間和條件子句（when, if, before, after）裡，即使是未來也用現在式：I'll call you when I <b>get</b> home.（✗ will get）
+
+# mc
+Q: I've bought the tickets. We ___ see a movie tonight. || 我買好票了，今晚我們要去看電影。
+A: will | are going to* | going to
+W: 已經計畫好的事，用 be going to。
+Q: You look thirsty. I ___ get you some water. || 你看起來很渴，我去幫你倒杯水。
+A: will* | am going to | going
+W: 說話當下才決定，用 will。
+Q: Look out! That glass ___ fall! || 小心！那個杯子要掉了！
+A: will | is going to* | goes
+W: 看得到跡象的預測，用 be going to。
+Q: I'll text you when I ___ home. || 我到家時會傳訊息給你。
+A: will get | get* | got
+W: when 引導的時間子句，未來也用現在式。
+
+# err
+S: She [will goes|will go] to the dentist tomorrow. || 她明天要去看牙醫。
+W: will 後面接原形動詞 go。
+S: We [going to|are going to] have a test on Friday. || 我們星期五要考試。
+W: be going to 不能少了 be 動詞。
+S: I'll call you after I [will finish|finish] my homework. || 我寫完功課後會打給你。
+W: after 引導的時間子句，用現在式表示未來。
+
+# mk
+- will 後面直接接原形動詞，不加 to。
+- be going to 要有 be 動詞：She is going to。
+- 眼前有明顯跡象的預測，用 be going to。

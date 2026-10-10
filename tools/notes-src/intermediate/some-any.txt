@@ -1,0 +1,53 @@
+# zh
+## some 和 any：一些
+some 和 any 都表示「一些」，可以接<b>複數可數名詞</b>或<b>不可數名詞</b>。選哪一個主要看句子的類型。
+表：some vs. any
+| | some | any |
+|---|---|---|
+| 肯定句 | ✓ I have <b>some</b> friends. | 「任何一個都」：<b>Any</b> child can do it. |
+| 否定句 | ✗ | ✓ I don't have <b>any</b> money. |
+| 一般疑問句 | — | ✓ Do you have <b>any</b> questions? |
+| 提供、請求 | ✓ Would you like <b>some</b> tea? / Can I have <b>some</b> water? | — |
+
+## 接什麼名詞？
+| 名詞 | 例子 | 動詞 |
+|---|---|---|
+| 複數可數 | some apples / any apples | There <b>are</b> some apples. |
+| 不可數 | some milk / any milk | There <b>is</b> some milk. |
+| 單數可數 | ✗ some apple → an apple | — |
+註：There aren't any <b>milk</b> 是錯的——milk 不可數，要說 There <b>isn't</b> any milk。
+
+## no = not any
+<span class="en">I have <b>no</b> money. = I do<b>n't</b> have <b>any</b> money.</span> no 本身就是否定，不能再加 not。
+
+## 衍生字也一樣
+some 和 any 的規則也適用在 someone / anyone、something / anything、somewhere / anywhere：
+<span class="en">I saw <b>someone</b>. / I didn't see <b>anyone</b>. / Is there <b>anything</b> to eat?</span>
+> 期待對方回答 Yes 的問句，用 some：Did you buy <b>some</b> bread?（以為對方有買）
+
+# mc
+Q: There aren't ___ chairs in the room. || 房間裡沒有椅子。
+A: some | any* | no
+W: 否定句用 any。
+Q: Would you like ___ cookies? || 要不要吃些餅乾？
+A: any | some* | a
+W: 提供東西的問句用 some。
+Q: Is there ___ juice in the fridge? || 冰箱裡有果汁嗎？
+A: some | any* | many
+W: 一般疑問句用 any；juice 不可數。
+Q: I have ___ time today. I'm too busy. || 我今天沒時間，太忙了。
+A: any | no* | some
+W: no = not any；句子裡沒有 not，用 no。
+
+# err
+S: I don't have [some|any] pets. || 我沒有養寵物。
+W: 否定句用 any。
+S: There [aren't|isn't] any water in the bottle. || 瓶子裡沒有水。
+W: water 不可數，用 isn't。
+S: Can I have [any|some] water, please? || 可以給我一些水嗎？
+W: 請求東西的問句用 some。
+
+# mk
+- 否定句用 any：don't have any money。
+- 一般疑問句用 any：Do you have any brothers?
+- milk 不可數，be 動詞用 isn't。

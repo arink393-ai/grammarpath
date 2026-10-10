@@ -1,0 +1,63 @@
+# zh
+## 分詞構句：讓句子更簡潔
+當兩個子句的<b>主詞相同</b>時，可以把其中一個子句的連接詞和主詞省略，動詞改成分詞，就成了分詞構句。
+表：分詞構句的改寫步驟
+| 步驟 | 句子 |
+|---|---|
+| 原句 | <b>When I walked</b> down the street, I saw a cat. |
+| ① 省略連接詞 When | I walked down the street, I saw a cat. |
+| ② 省略相同主詞 I | walked down the street, I saw a cat. |
+| ③ 動詞改分詞 | <b>Walking</b> down the street, I saw a cat. |
+註：主詞相同才能省略！如果主詞不同，要保留主詞（獨立分詞構句）。
+
+## 三種分詞
+表：選擇哪一種分詞
+| 分詞形式 | 意義 | 例句 |
+|---|---|---|
+| V-ing（現在分詞） | 主動、同時發生 | <b>Feeling</b> tired, she went to bed. |
+| p.p.（過去分詞） | 被動 | <b>Written</b> in simple English, the book is easy to read. |
+| Having + p.p.（完成分詞） | 主動，且<b>先</b>發生 | <b>Having finished</b> his homework, he went out. |
+| Having been + p.p. | 被動，且先發生 | <b>Having been told</b> the news, she cried. |
+| Being + adj. / N | 原因（主詞的狀態） | <b>Being</b> a doctor, he knows a lot. |
+
+## 判斷主動或被動
+問自己：主詞是「做」這個動作，還是「被」做？
+| 句子 | 主詞與動作 | 用 |
+|---|---|---|
+| ___ (see) from the hill, the city looks beautiful. | 城市「被」看 | Seen |
+| ___ (see) the dog, the boy ran away. | 男孩「看」 | Seeing |
+
+## 懸垂分詞（最常見錯誤）
+分詞構句的<b>邏輯主詞必須等於主要子句的主詞</b>，否則意思會很奇怪：
+| ✗ 錯誤 | 問題 | ✓ 正確 |
+|---|---|---|
+| Walking down the street, the trees looked beautiful. | 樹在走路？ | Walking down the street, <b>I</b> saw beautiful trees. |
+| Opening the door, the room was dark. | 房間開門？ | Opening the door, <b>I</b> found the room dark. |
+> 否定分詞構句：not 放在分詞前面：<b>Not knowing</b> what to do, I called my mom.
+
+# mc
+Q: ___ the news, she started to cry. || 一聽到這個消息，她就哭了起來。
+A: Hearing* | Heard | To hear
+W: 主詞 she 主動「聽到」，用 V-ing。
+Q: ___ in 1920, the house is over 100 years old. || 這棟房子建於 1920 年，已經超過百年了。
+A: Building | Built* | Having built
+W: 房子「被」建造，用過去分詞。
+Q: ___ dinner, we went for a walk. || 吃完晚餐後，我們去散步。
+A: Having eaten* | Eaten | Being eaten
+W: 吃完（先發生）再散步，主動用 Having + p.p.。
+Q: ___ what to say, he kept silent. || 不知道該說什麼，他保持沉默。
+A: Knowing not | Not knowing* | Don't knowing
+W: 否定分詞構句：not 放在分詞前。
+
+# err
+S: [Being|Been] sick, I stayed home from school. || 因為生病，我沒去上學。
+W: 表示主詞狀態的原因，用 Being + 形容詞。
+S: Having [finish|finished] the report, she went home. || 寫完報告後，她回家了。
+W: Having 後面接過去分詞 finished。
+S: [Seeing|Seen] from space, the earth looks blue. || 從太空看，地球是藍色的。
+W: 地球是「被」看，要用過去分詞 Seen。
+
+# mk
+- 分詞構句的主詞要和主要子句一致：是「我」在走路，不是樹。
+- 表示原因狀態用 Being + 形容詞，不是 Been。
+- Having 後面接過去分詞 finished。

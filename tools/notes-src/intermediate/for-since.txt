@@ -1,0 +1,58 @@
+# zh
+## for 和 since：持續多久？從什麼時候？
+現在完成式常搭配 for 或 since，說明一件事<b>持續到現在</b>。
+表：for vs. since
+| | for | since |
+|---|---|---|
+| 後面接 | 一段<b>時間長度</b> | 一個<b>起始時間點</b> |
+| 回答 | 多久？ | 從什麼時候？ |
+| 例子 | for two hours, for three days, for ten years, for a long time | since 8 a.m., since Monday, since 2020, since last year |
+| 例句 | I've lived here <b>for</b> five years. | I've lived here <b>since</b> 2020. |
+註：判斷法：能回答「多久」的是時間長度 → for；能回答「從何時」的是時間點 → since。
+
+## since 後面也可以接句子
+since 後面可以接<b>過去式子句</b>，表示「自從…以來」：
+<span class="en">I have known her <b>since we were kids</b>.</span><br><span class="en">She has changed a lot <b>since she moved to Taipei</b>.</span>
+> 公式：主要子句（現在完成式）+ since + 子句（過去簡單式）。
+
+## 一定要用完成式
+中文說「我住這裡五年了」，英文不能用現在式：
+表：常見錯誤
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| I live here for five years. | I <b>have lived</b> here for five years. |
+| I am here since Monday. | I <b>have been</b> here since Monday. |
+| I know him since 2018. | I <b>have known</b> him since 2018. |
+
+## 問「多久」
+<span class="en">How long have you studied English? — <b>For</b> six years. / <b>Since</b> I was seven.</span>
+
+## It has been … since
+<span class="en"><b>It has been</b> three years <b>since</b> I last saw him.</span>（自從我上次見到他已經三年了。）
+
+# mc
+Q: We have been friends ___ elementary school. || 我們從小學就是朋友了。
+A: for | since* | from
+W: elementary school 是起始時間點，用 since。
+Q: She has worked at this hospital ___ ten years. || 她在這家醫院工作十年了。
+A: for* | since | in
+W: ten years 是時間長度，用 for。
+Q: I ___ him since I was five. || 我從五歲就認識他了。
+A: know | have known* | knew
+W: 持續到現在，用現在完成式。
+Q: It has been a long time ___ we last met. || 自從我們上次見面已經很久了。
+A: for | since* | ago
+W: It has been + 時間 + since + 子句。
+
+# err
+S: I have studied here [since|for] two years. || 我在這裡念書兩年了。
+W: two years 是一段時間長度，用 for。
+S: They [are|have been] married since 2010. || 他們從 2010 年就結婚了。
+W: 持續到現在要用現在完成式 have been。
+S: He has played tennis [for|since] he was a child. || 他從小就打網球。
+W: 後面是表示起點的子句，用 since。
+
+# mk
+- three days 是時間長度，用 for。
+- Monday 是起始時間點，用 since。
+- 持續到現在要用現在完成式 I've lived。

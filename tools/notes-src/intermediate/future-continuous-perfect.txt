@@ -1,0 +1,59 @@
+# zh
+## 未來進行式：未來某時「正在」做
+公式：<b>will be + V-ing</b>。描述<b>未來某個時間點正在進行</b>的動作。
+<span class="en">This time tomorrow, I <b>will be flying</b> to Tokyo.</span>（明天這個時候，我正在飛往東京。）
+
+## 未來完成式：未來某時「已經完成」
+公式：<b>will have + 過去分詞</b>。表示到了<b>未來某個時間點之前，某事已經完成</b>。
+<span class="en">By next June, I <b>will have graduated</b>.</span>（到明年六月，我就已經畢業了。）
+表：未來進行式 vs. 未來完成式
+| | 未來進行式 | 未來完成式 |
+|---|---|---|
+| 公式 | will be + V-ing | will have + p.p. |
+| 重點 | 那時<b>正在</b>做 | 那時<b>已經做完</b> |
+| 常見時間詞 | at 8 tonight, this time next week | by + 時間, by the time…, before |
+| 例句 | At 9 p.m., I <b>will be studying</b>. | By 9 p.m., I <b>will have finished</b> studying. |
+
+## by 是未來完成式的好朋友
+by 表示「在…之前、最晚到…」，看到 by + 未來時間，通常要用未來完成式：
+表：by 的常見搭配
+| 說法 | 例句 |
+|---|---|
+| by tomorrow | I <b>will have read</b> the book by tomorrow. |
+| by the end of this year | We <b>will have saved</b> enough money by the end of this year. |
+| by the time + 現在式 | By the time you <b>arrive</b>, we <b>will have eaten</b>. |
+註：by the time 後面的子句用現在式（不用 will）。
+
+## 句型
+| | 否定 | 疑問 |
+|---|---|---|
+| 未來進行式 | I <b>won't be working</b> tomorrow. | <b>Will</b> you <b>be using</b> the car tonight? |
+| 未來完成式 | She <b>won't have finished</b> by then. | <b>Will</b> they <b>have arrived</b> by noon? |
+> Will you be using…? 是很客氣的詢問方式，問對方的安排而不是要求。
+
+# mc
+Q: Don't call me at 8. I ___ dinner then. || 八點別打給我，那時我正在吃晚餐。
+A: will have | will be having* | will had
+W: 未來某時刻正在做，用 will be + V-ing。
+Q: By the end of this month, I ___ this novel. || 到這個月底，我就會讀完這本小說。
+A: will finish | will have finished* | will be finish
+W: by + 未來時間，表示「之前已完成」，用未來完成式。
+Q: By the time you get here, the movie ___. || 等你到的時候，電影已經開始了。
+A: will have started* | will start | started
+W: by the time 後用現在式，主要子句用未來完成式。
+Q: This time next week, we ___ on the beach. || 下週這個時候，我們正躺在海灘上。
+A: will lie | will be lying* | will have lain
+W: this time next week：那時正在做，用未來進行式。
+
+# err
+S: By 2030, scientists [will find|will have found] a cure. || 到 2030 年，科學家將已找到解藥。
+W: by + 未來時間，表示之前已完成，用未來完成式。
+S: At noon tomorrow, I will be [take|taking] a test. || 明天中午我正在考試。
+W: 未來進行式是 will be + V-ing。
+S: She will have [went|gone] home by six. || 她六點前就會已經回家了。
+W: will have 後面接過去分詞 gone。
+
+# mk
+- by next year 表示之前已完成，用未來完成式 will have finished。
+- will be 後面接 V-ing：will be finishing。
+- will have 後面接過去分詞 gone。

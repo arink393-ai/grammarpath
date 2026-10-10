@@ -1,0 +1,67 @@
+# zh
+## 字尾：改變詞性
+字尾（suffix）加在單字後面，通常會<b>改變詞性</b>（動詞變名詞、名詞變形容詞…）。看字尾就能判斷一個字的詞性，對閱讀和寫作都很有幫助。
+表：名詞字尾
+| 字尾 | 意思 | 例子 |
+|---|---|---|
+| -er / -or / -ist | 做…的人 | teach → teach<b>er</b>, act → act<b>or</b>, art → art<b>ist</b> |
+| -ness | 狀態、性質 | happy → happi<b>ness</b>, kind → kind<b>ness</b> |
+| -tion / -sion | 動作、結果 | inform → informa<b>tion</b>, decide → deci<b>sion</b> |
+| -ment | 動作、結果 | develop → develop<b>ment</b>, enjoy → enjoy<b>ment</b> |
+| -ity | 性質 | able → abil<b>ity</b>, popular → popular<b>ity</b> |
+| -ance / -ence | 狀態 | important → import<b>ance</b>, differ → differ<b>ence</b> |
+
+表：形容詞字尾
+| 字尾 | 意思 | 例子 |
+|---|---|---|
+| -able / -ible | 可以…的 | comfort → comfort<b>able</b>, read → read<b>able</b>, sense → sens<b>ible</b> |
+| -ful | 充滿…的 | care → care<b>ful</b>, help → help<b>ful</b> |
+| -less | 沒有…的 | care → care<b>less</b>, home → home<b>less</b> |
+| -ous | 有…性質的 | danger → danger<b>ous</b>, fame → fam<b>ous</b> |
+| -al | 與…有關的 | nature → natur<b>al</b>, music → music<b>al</b> |
+| -ive | 有…傾向的 | act → act<b>ive</b>, create → creat<b>ive</b> |
+| -y | 有…的 | sun → sunn<b>y</b>, rain → rain<b>y</b> |
+
+表：動詞與副詞字尾
+| 字尾 | 詞性 | 例子 |
+|---|---|---|
+| -ize / -ise | 動詞（使…化） | real → real<b>ize</b>, modern → modern<b>ize</b> |
+| -en | 動詞（使變得） | short → short<b>en</b>, wide → wid<b>en</b> |
+| -ify | 動詞 | simple → simpl<b>ify</b>, beauty → beaut<b>ify</b> |
+| -ly | 副詞 | quick → quick<b>ly</b>, happy → happi<b>ly</b> |
+
+## 加字尾的拼字規則
+| 規則 | 例子 |
+|---|---|
+| 子音＋y：y 改 i | happy → happ<b>i</b>ness, easy → eas<b>i</b>ly |
+| 字尾不發音的 e，遇母音字尾去 e | create → creat<b>ive</b>, fame → fam<b>ous</b> |
+| 遇子音字尾保留 e | care → care<b>ful</b>, move → move<b>ment</b> |
+| 短母音＋單子音，遇母音字尾重複 | sun → su<b>nn</b>y, run → ru<b>nn</b>er |
+> -ful 只有一個 l：beautiful、careful（✗ beautifull）。
+
+# mc
+Q: Thank you for your ___. || 謝謝你的仁慈。
+A: kind | kindness* | kindly
+W: your 後面要接名詞，kind + -ness。
+Q: This sofa is very ___. || 這張沙發很舒服。
+A: comfort | comfortable* | comfortably
+W: be 動詞後描述主詞，用形容詞 comfortable。
+Q: Be ___ when you cross the street. || 過馬路要小心。
+A: care | careful* | carefully
+W: Be 後面接形容詞，care + -ful。
+Q: My sister wants to be a famous ___. || 我妹妹想成為知名的畫家。
+A: paint | painter* | painting
+W: 「做…的人」用 -er：painter。
+
+# err
+S: She is a [science|scientist] at a university. || 她是大學裡的科學家。
+W: 「從事科學的人」是 scientist。
+S: Health is more important than [wealthy|wealth]. || 健康比財富更重要。
+W: 和名詞 health 比較，than 後面也要用名詞 wealth；wealthy 是形容詞。
+S: The weather is [suny|sunny] today. || 今天天氣晴朗。
+W: sun 是短母音＋單子音，加 -y 要重複 n：sunny。
+
+# mk
+- 「教書的人」是 teacher，teach 是動詞。
+- happy 是子音＋y 結尾，加 -ness 要 y 改 i：happiness。
+- be 動詞後要用形容詞 comfortable；comfort 是名詞。

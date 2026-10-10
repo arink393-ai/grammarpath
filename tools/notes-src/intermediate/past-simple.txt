@@ -1,0 +1,70 @@
+# zh
+## 過去簡單式：已經結束的事
+過去簡單式用來說<b>過去某個時間發生、而且已經結束</b>的動作或狀態。和中文不同，英文的動詞本身要變成過去式，不能只靠「昨天、以前」這些時間詞。
+表：過去簡單式的用法
+| 用法 | 例句 |
+|---|---|
+| 過去某時間點發生的動作 | I <b>visited</b> my grandma last Sunday. |
+| 過去的習慣 | She <b>walked</b> to school every day when she was young. |
+| 過去連續發生的動作 | He <b>opened</b> the door, <b>turned</b> on the light, and <b>sat</b> down. |
+| 過去的狀態 | We <b>lived</b> in Tainan in 2015. |
+
+## 句型
+表：三種句型（一般動詞）
+| 句型 | 公式 | 例句 |
+|---|---|---|
+| 肯定 | 主詞 + 過去式動詞 | They <b>played</b> soccer. |
+| 否定 | 主詞 + didn't + <b>原形</b>動詞 | They <b>didn't play</b> soccer. |
+| 疑問 | Did + 主詞 + <b>原形</b>動詞？ | <b>Did</b> they <b>play</b> soccer? |
+註：did / didn't 已經表示過去，後面的動詞一定要回到原形。所有主詞都用 did，沒有人稱變化。
+
+## 規則動詞加 -ed
+| 規則 | 例子 |
+|---|---|
+| 一般加 -ed | work → worked, play → played |
+| 字尾 e 只加 -d | live → lived, like → liked |
+| 子音＋y：y 改 i 加 -ed | study → studied, cry → cried |
+| 短母音＋單子音：重複字尾 | stop → stopped, plan → planned |
+> -ed 的三種發音：/t/（worked）、/d/（played）、/ɪd/（wanted, needed）。
+
+## 常見不規則動詞
+表：一定要背的不規則過去式
+| 原形 | 過去式 | 原形 | 過去式 |
+|---|---|---|---|
+| go | went | buy | bought |
+| see | saw | think | thought |
+| eat | ate | bring | brought |
+| have | had | teach | taught |
+| make | made | catch | caught |
+| take | took | write | wrote |
+| get | got | come | came |
+| run | ran | sit | sat |
+| put | put | cut | cut |
+| read | read（念 /red/） | tell | told |
+
+# mc
+Q: We ___ a great time at the party last night. || 我們昨晚在派對上玩得很開心。
+A: have | had* | haved
+W: last night 是過去；have 的過去式是不規則的 had。
+Q: She didn't ___ her homework yesterday. || 她昨天沒寫功課。
+A: did | do* | does
+W: didn't 後面接原形動詞。
+Q: ___ you watch the game last weekend? || 你上週末有看比賽嗎？
+A: Do | Did* | Were
+W: 過去式的一般動詞問句用 Did。
+Q: The baby ___ all night. || 寶寶哭了一整晚。
+A: cryed | cried* | crys
+W: 子音＋y：y 改 i 加 -ed。
+
+# err
+S: I [goed|went] to the night market yesterday. || 我昨天去了夜市。
+W: go 的過去式是不規則的 went。
+S: Did she [called|call] you last night? || 她昨晚有打給你嗎？
+W: Did 後面接原形動詞 call。
+S: We [stoped|stopped] at a convenience store. || 我們在便利商店停了一下。
+W: stop 是短母音＋單子音，要重複 p 再加 -ed。
+
+# mk
+- didn't 後面要接原形動詞 go。
+- Did 後面要接原形動詞 see。
+- buy 的過去式是不規則的 bought。

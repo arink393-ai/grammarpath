@@ -1,0 +1,61 @@
+# zh
+## 第一條件句：未來真的可能發生
+第一條件句說的是<b>未來有可能發生的情況和它的結果</b>。
+公式：<b>If + 現在簡單式, will + 原形動詞</b>
+<span class="en">If it <b>rains</b> tomorrow, we <b>will stay</b> home.</span>（如果明天下雨，我們就待在家。）
+表：第一條件句的變化
+| 主要子句 | 例句 | 意思 |
+|---|---|---|
+| will | If you study, you <b>will pass</b>. | 預測結果 |
+| can / may / might | If you hurry, you <b>might catch</b> the bus. | 可能性、能力 |
+| should / must | If you feel sick, you <b>should</b> see a doctor. | 建議 |
+| 祈使句 | If you see Amy, <b>tell</b> her to call me. | 請求、命令 |
+
+## if 子句不能用 will
+這是第一條件句最常見的錯誤：雖然說的是未來，<b>if 子句仍用現在式</b>。
+表：對與錯
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| If it will rain, we'll cancel. | If it <b>rains</b>, we'll cancel. |
+| If you'll study, you pass. | If you <b>study</b>, you'll pass. |
+同樣的規則也適用於 when, as soon as, before, after, until 引導的時間子句：<span class="en">I'll call you <b>as soon as</b> I <b>arrive</b>.</span>
+
+## unless = if … not
+unless 表示「除非、如果不」，本身已經是否定，後面不能再加 not：
+| unless | = if … not |
+|---|---|
+| <b>Unless</b> you hurry, you'll be late. | <b>If</b> you <b>don't</b> hurry, you'll be late. |
+> ✗ Unless you don't hurry… 雙重否定，意思會相反。
+
+## 第一 vs. 第二條件句
+| 第一條件句 | 第二條件句 |
+|---|---|
+| 真的可能發生 | 不太可能／與現實相反 |
+| If I <b>have</b> time, I <b>will</b> help you. | If I <b>had</b> time, I <b>would</b> help you.（但我沒時間） |
+
+# mc
+Q: If you ___ hard, you'll pass the exam. || 如果你用功，就會通過考試。
+A: will study | study* | studied
+W: if 子句用現在式表示未來。
+Q: If it's sunny tomorrow, we ___ to the beach. || 如果明天天氣好，我們就去海邊。
+A: go | will go* | went
+W: 第一條件句的主要子句用 will + 原形。
+Q: ___ you leave now, you'll miss the train. || 除非你現在出發，不然會錯過火車。
+A: If | Unless* | When
+W: unless = if … not，「除非」。
+Q: I'll call you as soon as I ___ the results. || 我一拿到結果就打給你。
+A: will get | get* | got
+W: as soon as 引導的時間子句，用現在式表示未來。
+
+# err
+S: If you [will need|need] help, call me. || 如果你需要幫忙，打給我。
+W: if 子句用現在式，不用 will。
+S: If she studies hard, she [passes|will pass] the test. || 如果她用功，她就會通過考試。
+W: 對未來的預測，主要子句用 will + 原形。
+S: Unless you [don't wear|wear] a coat, you'll catch a cold. || 除非你穿外套，不然會感冒。
+W: unless 已經是否定，後面不能再加 don't。
+
+# mk
+- if 子句用現在式 rains，不用 will。
+- if 子句用現在式，主要子句才用 will：If you study, you'll pass。
+- unless 已經含「不」，後面不能再加 don't。

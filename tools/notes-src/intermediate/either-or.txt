@@ -1,0 +1,64 @@
+# zh
+## 成對連接詞
+either…or 和 neither…nor 是「成對」出現的連接詞，用來連接<b>兩個選項</b>。
+表：成對連接詞
+| 連接詞 | 意思 | 例句 |
+|---|---|---|
+| either A or B | 不是 A 就是 B（二選一） | You can have <b>either</b> cake <b>or</b> ice cream. |
+| neither A nor B | A 和 B 都不 | I like <b>neither</b> coffee <b>nor</b> tea. |
+| both A and B | A 和 B 都 | <b>Both</b> Tom <b>and</b> Amy are here. |
+| not only A but (also) B | 不只 A，而且 B | She is <b>not only</b> smart <b>but also</b> kind. |
+註：配對不能拆錯：either 配 or，neither 配 nor，both 配 and。
+
+## neither…nor 已經是否定
+neither…nor 本身就有「不」的意思，句子裡不能再加 not / don't：
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| I don't like neither coffee nor tea. | I like <b>neither</b> coffee <b>nor</b> tea. |
+| | I do<b>n't</b> like <b>either</b> coffee <b>or</b> tea. |
+
+## 動詞跟著誰？
+當 either…or / neither…nor 連接兩個主詞時，動詞跟著<b>靠近動詞的那個主詞</b>（就近原則）：
+表：主詞動詞一致
+| 句子 | 動詞跟著 |
+|---|---|
+| Either you or <b>he</b> <b>is</b> wrong. | he |
+| Neither my parents nor <b>my sister</b> <b>likes</b> fish. | my sister |
+| Neither my sister nor <b>my parents</b> <b>like</b> fish. | my parents |
+| <b>Both</b> Tom and Amy <b>are</b> here. | 兩個人 → 複數 |
+
+## either / neither 單獨使用
+| 用法 | 例句 |
+|---|---|
+| either / neither + 單數名詞 | <b>Neither</b> answer <b>is</b> correct. |
+| either / neither of + 複數名詞 | <b>Neither of</b> them <b>is</b> ready.（正式用單數） |
+| 句尾 either：否定的「也」 | I can't swim. — I can't <b>either</b>. |
+| Neither + 助動詞 + 主詞 | I don't like it. — <b>Neither do I</b>. |
+> 肯定的「也」用 too / so：I like it. — Me too. / So do I.
+
+# mc
+Q: You can pay ___ by cash or by card. || 你可以付現或刷卡。
+A: either* | neither | both
+W: 二選一用 either…or。
+Q: Neither Ken nor his brothers ___ to swim. || 肯和他的兄弟們都不會游泳。
+A: knows | know* | knowing
+W: 就近原則：動詞跟著 his brothers（複數）。
+Q: I don't like horror movies. — ___ do I. || 我不喜歡恐怖片。我也不喜歡。
+A: So | Neither* | Either
+W: 否定的「我也不」用 Neither do I。
+Q: She speaks not only English ___ Japanese. || 她不只會說英文，還會說日文。
+A: and also | but also* | or
+W: not only A but also B。
+
+# err
+S: You can choose either the red one [nor|or] the blue one. || 你可以選紅色的或藍色的。
+W: either 要和 or 配對。
+S: I [don't eat neither|eat neither] meat nor fish. || 我肉和魚都不吃。
+W: neither…nor 已經是否定，不能再加 don't。
+S: Neither the teacher nor the students [was|were] late. || 老師和學生都沒有遲到。
+W: 就近原則，動詞跟著 the students（複數）。
+
+# mk
+- neither…nor 已經是否定，不能再加 don't。
+- either 要和 or 配對。
+- neither of them 正式用單數動詞 is。

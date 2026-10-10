@@ -1,0 +1,60 @@
+# zh
+## 過去時間詞：讓人一看就知道是過去
+過去時間詞是選擇過去簡單式的重要線索。但每個詞的用法和位置都不太一樣。
+表：常見過去時間詞
+| 時間詞 | 用法 | 例句 |
+|---|---|---|
+| yesterday | 昨天 | I called him <b>yesterday</b>. |
+| last + 時間 | 上一個… | <b>last</b> night / week / month / year / Monday |
+| 時間長度 + ago | …以前 | three days <b>ago</b> / two years <b>ago</b> |
+| in + 過去的年份／月份 | 在… | <b>in</b> 2019 / <b>in</b> May |
+| the day before yesterday | 前天 | — |
+| when I was + 年齡 | 當我…歲時 | <b>when I was</b> ten |
+| once / in the past | 曾經、過去 | <b>In the past</b>, people walked a lot. |
+
+## 三個常見錯誤
+表：位置與介系詞
+| ✗ 錯誤 | ✓ 正確 | 規則 |
+|---|---|---|
+| ago three days | three days <b>ago</b> | ago 放在時間長度<b>後面</b> |
+| in last week / on last Monday | <b>last</b> week / <b>last</b> Monday | last 前面不加介系詞 |
+| yesterday night | <b>last</b> night | 「昨晚」固定說 last night |
+註：但「昨天早上、下午、傍晚」可以說 yesterday morning / afternoon / evening。
+
+## ago vs. before
+| 字 | 參考點 | 例句 |
+|---|---|---|
+| ago | 從<b>現在</b>往前算（用過去式） | I met her two years <b>ago</b>. |
+| before | 從<b>過去某時</b>往前算（常用過去完成式） | He said he had met her two years <b>before</b>. |
+| before（單獨用） | 以前（不特定） | I've seen this movie <b>before</b>. |
+
+## for 和 ago
+for 表示「持續多久」，ago 表示「多久以前」：
+<span class="en">I lived there <b>for</b> three years.</span>（住了三年）<br><span class="en">I moved there three years <b>ago</b>.</span>（三年前搬去）
+
+# mc
+Q: I started learning English six years ___. || 我六年前開始學英文。
+A: before | ago* | last
+W: 從現在往前算「…以前」用 ago，放在時間長度後面。
+Q: We went to Kenting ___ summer. || 我們去年夏天去了墾丁。
+A: in last | last* | on last
+W: last 前面不加介系詞。
+Q: She watched a movie ___. || 她昨晚看了一部電影。
+A: yesterday night | last night* | in last night
+W: 「昨晚」要說 last night。
+Q: My parents got married ___ 2005. || 我爸媽 2005 年結婚。
+A: in* | on | at
+W: 年份用 in。
+
+# err
+S: I visited my aunt [ago two weeks|two weeks ago]. || 我兩週前去拜訪阿姨。
+W: ago 要放在時間長度後面。
+S: The concert was [on last|last] Saturday. || 演唱會是上週六。
+W: 有 last 時，前面不加介系詞。
+S: He [has left|left] an hour ago. || 他一小時前離開了。
+W: 有 ago 這種明確的過去時間，要用過去簡單式。
+
+# mk
+- ago 放在時間長度後面：three days ago。
+- last 前面不加介系詞。
+- 「昨晚」要說 last night。

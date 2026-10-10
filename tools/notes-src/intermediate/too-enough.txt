@@ -1,0 +1,61 @@
+# zh
+## too：太…（超過了）
+<b>too + 形容詞／副詞</b> 表示「太…」，通常帶有負面的意思：超過需要、有問題。
+<span class="en">This coffee is <b>too hot</b>.</span>（咖啡太燙了。）
+
+## enough：足夠
+enough 的位置很特別，要看它修飾的是什麼：
+表：enough 的位置
+| 修飾 | 位置 | 例句 |
+|---|---|---|
+| 形容詞、副詞 | 放在<b>後面</b> | He is <b>old enough</b>. / She ran <b>fast enough</b>. |
+| 名詞 | 放在<b>前面</b> | I have <b>enough money</b>. / There isn't <b>enough time</b>. |
+註：口訣：「形副前、名詞後」——形容詞、副詞放在 enough 前面；名詞放在 enough 後面。
+
+## 搭配 to V：太…而不能／夠…可以
+表：too 和 enough 的句型
+| 句型 | 意思 | 例句 |
+|---|---|---|
+| too + adj. + to V | 太…而不能… | The box is <b>too heavy to carry</b>. |
+| too + adj. + for 人 + to V | 對某人來說太…而不能 | It's <b>too difficult for me to understand</b>. |
+| adj. + enough + to V | 夠…可以… | She is <b>old enough to drive</b>. |
+| enough + N + to V | 有足夠的…可以… | We have <b>enough time to finish</b>. |
+| not + adj. + enough | 不夠… | He is<b>n't tall enough</b> to reach it. |
+
+## too vs. very vs. too much
+| 字 | 意思 | 例句 |
+|---|---|---|
+| very | 很（中性） | It's <b>very</b> expensive, but I'll buy it. |
+| too | 太（負面，有問題） | It's <b>too</b> expensive. I can't buy it. |
+| too much / too many | 太多（修飾名詞） | <b>too much</b> sugar / <b>too many</b> people |
+> ✗ too much tall → ✓ too tall（形容詞前直接用 too）
+
+## too … to 的句子裡不要再放受詞
+<span class="en">The box is too heavy to carry.</span>（✗ to carry it——主詞 the box 就是 carry 的對象）
+
+# mc
+Q: The tea is ___ to drink. Wait a minute. || 茶太燙了不能喝，等一下。
+A: too hot* | hot enough | very hot
+W: 「太…而不能…」用 too + 形容詞 + to V。
+Q: Are you ___ to ride a roller coaster? || 你年紀夠大可以坐雲霄飛車了嗎？
+A: enough old | old enough* | too old
+W: enough 放在形容詞後面。
+Q: We don't have ___ for everyone. || 我們的椅子不夠每個人坐。
+A: chairs enough | enough chairs* | too chairs
+W: enough 放在名詞前面。
+Q: There are ___ people on the bus. I'll wait for the next one. || 公車上人太多了，我等下一班。
+A: too much | too many* | enough
+W: people 是複數可數名詞，用 too many。
+
+# err
+S: She is [enough tall|tall enough] to be a model. || 她夠高，可以當模特兒。
+W: enough 要放在形容詞後面。
+S: This question is [too much difficult|too difficult]. || 這題太難了。
+W: 形容詞前直接用 too，不加 much。
+S: The soup is too salty to eat [it|]. || 這湯太鹹了，不能喝。
+W: 主詞 the soup 就是 eat 的對象，to eat 後面不要再加 it。
+
+# mk
+- enough 要放在形容詞 hot 後面。
+- 形容詞前直接用 too，不加 much。
+- enough 要放在名詞 money 前面。
