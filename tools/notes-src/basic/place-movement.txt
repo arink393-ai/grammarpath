@@ -67,3 +67,26 @@ W: there 是副詞，前面不加 to。
 - 走進去是移動，用 into。
 - arrive 不接 to；大城市用 arrive in。
 - 「穿過」是 through；threw 是 throw 的過去式。
+
+# mc
+Q: The cat jumped ___ the table. || 貓跳到桌子上。
+A: onto* | into | through
+W: 移動到表面上用 onto。
+Q: We walked ___ the river. || 我們沿著河邊走。
+A: along* | across | among
+W: 沿著用 along。
+Q: The school is ___ the bank. || 學校在銀行對面。
+A: across from* | across to | between
+W: 在…對面用 across from。
+Q: The ball rolled ___ the sofa. || 球滾到沙發底下。
+A: under* | above | over to
+W: 在…下面用 under。
+# err
+S: The children ran [in|into] the classroom. || 孩子們跑進教室。
+W: 表示「進入」的動作用 into。
+S: She is sitting [between|among] her friends. || 她坐在一群朋友之中。
+W: 三人以上之中用 among。
+S: We drove [across|through] the tunnel. || 我們開車穿過隧道。
+W: 穿過有包圍感的空間用 through。
+S: The bank is [next|next to] the post office. || 銀行在郵局旁邊。
+W: 「在…旁邊」是 next to。

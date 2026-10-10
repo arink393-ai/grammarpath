@@ -56,3 +56,26 @@ W: will 後面一律用原形 have。
 - 到 June 已持續五年，用 will have been working。
 - will have been 後面接 V-ing：driving。
 - know 是狀態動詞，用未來完成式 will have known。
+
+# mc
+Q: By December, she ___ English for ten years. || 到十二月，她學英文就滿十年了。
+A: will have been learning* | will learn | has been learning
+W: 到未來某時已持續多久，用 will have been V-ing。
+Q: By the time you arrive, I will have been ___ for two hours. || 等你到的時候，我已經工作兩小時了。
+A: work | working* | worked
+W: will have been + V-ing。
+Q: Next month, we ___ in this town for five years. || 下個月我們就在這個鎮上住滿五年了。
+A: will live | will have been living* | are living
+W: 有 for five years，到未來某時已持續多久。
+Q: By 2030, he ___ his company for twenty years. || 到 2030 年，他就擁有這家公司二十年了。
+A: will have been owning | will have owned* | will own
+W: own 是狀態動詞，用未來完成式。
+# err
+S: By 6 p.m., they [will drive|will have been driving] for ten hours. || 到下午六點，他們就已經開了十小時的車。
+W: 有 for ten hours 表示到未來某時已持續多久，用未來完成進行式。
+S: By June, I will have been [teach|teaching] here for three years. || 到六月，我就在這裡教書滿三年了。
+W: will have been 後面接 V-ing。
+S: She [will have being|will have been] studying for hours by midnight. || 到午夜她就已經讀了好幾個小時了。
+W: will have 後面接 been。
+S: By then, we [will have been knowing|will have known] each other for a decade. || 到那時，我們就認識十年了。
+W: know 是狀態動詞，用未來完成式。

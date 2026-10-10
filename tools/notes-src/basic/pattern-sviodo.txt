@@ -59,3 +59,26 @@ W: describe 不能直接接「人」，要說 describe 物 to 人。
 - give 的兩種寫法：gave me a gift，或 gave a gift to me；人在前時不加 to。
 - explain 只能用「explain 物 to 人」。
 - introduce 只能用「introduce 人 to 人」。
+
+# mc
+Q: My grandma told ___ a funny story. || 奶奶跟我們講了一個好笑的故事。
+A: us* | to us | for us
+W: 人在前：tell + 人 + 物，中間不加介系詞。
+Q: He showed his photos ___ his friends. || 他把照片給朋友看。
+A: to* | for | of
+W: show 是「傳到對方」，物在前用 to。
+Q: Can you get a coffee ___ me? || 你可以幫我買杯咖啡嗎？
+A: to | for* | with
+W: get（為某人取得）用 for。
+Q: I'll send ___ tomorrow. || 我明天會把它寄給你。
+A: you it | it to you* | to you it
+W: 直接受詞是代名詞 it，用「物 + to + 人」。
+# err
+S: She taught English [us|to us]. || 她教我們英文。
+W: 物在前時，人前面要加 to。
+S: Dad bought a toy [to|for] my little brother. || 爸爸買了一個玩具給弟弟。
+W: buy 是「為某人買」，用 for。
+S: Please explain [me this|this to me]. || 請跟我解釋這個。
+W: explain 只能用「explain 物 to 人」。
+S: Can you pass [to me|me] the salt? || 你可以把鹽遞給我嗎？
+W: 人在前時，人和物中間不加介系詞。

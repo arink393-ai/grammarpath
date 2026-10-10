@@ -56,3 +56,26 @@ W: wasn't 已經包含 not，不能再加一次。
 - 主詞 I 的過去式 be 動詞是 was。
 - They 是複數，過去式用 were。
 - you 一律配 were：Were you at home?
+
+# mc
+Q: Where ___ you yesterday afternoon? || 你昨天下午在哪裡？
+A: was | were* | are
+W: you 一律配 were。
+Q: The movie ___ very boring. || 那部電影很無聊。
+A: was* | were | did
+W: The movie 單數，過去式用 was。
+Q: There ___ many people at the night market last night. || 昨晚夜市人很多。
+A: was | were* | are
+W: people 是複數，過去式用 were。
+Q: I ___ at school yesterday. I was sick. || 我昨天沒去學校，我生病了。
+A: wasn't* | weren't | didn't
+W: 主詞 I 的過去否定是 wasn't。
+# err
+S: She [were|was] very happy yesterday. || 她昨天很開心。
+W: She 單數，過去式用 was。
+S: [Was|Were] they at the party? || 他們有在派對上嗎？
+W: they 是複數，用 Were。
+S: We [are|were] in Japan last summer. || 我們去年夏天在日本。
+W: last summer 是過去，要用 were。
+S: There [was|were] two cats on the sofa. || 沙發上有兩隻貓。
+W: two cats 是複數，用 There were。

@@ -57,3 +57,26 @@ W: despite 後面接名詞或 V-ing，不能接子句。
 - although 和 but 不能同時使用。
 - 新句子開頭的「然而」要用 However，although 不能這樣用。
 - however 不能接 V-ing；表示「儘管」用 Although + 子句（或 Despite being）。
+
+# mc
+Q: ___ being very tired, she finished the race. || 儘管很累，她還是跑完了比賽。
+A: Although | Despite* | However
+W: 後面接 V-ing，用介系詞 despite。
+Q: ___ he studied hard, he didn't pass. || 雖然他很用功，卻沒有及格。
+A: Despite | Although* | In spite of
+W: 後面接子句，用 although。
+Q: The hotel was expensive. ___, the room was small. || 這飯店很貴。然而，房間很小。
+A: Although | However* | Despite
+W: 新句子開頭用 However + 逗號。
+Q: We went out in spite ___ the storm. || 儘管有暴風雨，我們還是出門了。
+A: of* | that | 不填
+W: in spite of + 名詞。
+# err
+S: [Despite|Although] he was hungry, he didn't eat. || 雖然他餓了，他卻沒吃東西。
+W: 後面接子句，要用 although。
+S: In spite [the|of the] rain, the game continued. || 儘管下雨，比賽還是繼續。
+W: in spite 後面要加 of。
+S: Although she was busy, [but she|she] helped me. || 雖然她很忙，還是幫了我。
+W: although 和 but 不能同時用。
+S: I wanted to go. [Although|However], I was too tired. || 我想去。然而我太累了。
+W: 新句子開頭的「然而」用 However。

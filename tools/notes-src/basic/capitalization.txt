@@ -52,3 +52,26 @@ W: 一般科目名稱不用大寫（語言科目除外）。
 - 句首 My 要大寫；國家 France 要大寫。
 - 代名詞 I 和語言 English 都要大寫。
 - 星期 Monday 要大寫，季節 winter 不用大寫。
+
+# mc
+Q: We have a holiday on ___ Day. || 我們母親節放假。
+A: mother's | Mother's* | MOTHER'S
+W: 節日名稱的主要字要大寫。
+Q: My aunt teaches ___ at a high school. || 我阿姨在高中教歷史。
+A: History | history* | the History
+W: 一般科目名稱不用大寫。
+Q: Is your teacher from ___? || 你的老師來自加拿大嗎？
+A: canada | Canada* | the canada
+W: 國家名稱要大寫。
+Q: ___ name is Leo. || 我的名字是 Leo。
+A: my | My* | MY
+W: 句子第一個字要大寫。
+# err
+S: We will meet on [saturday|Saturday]. || 我們星期六見面。
+W: 星期名稱要大寫。
+S: My best friend is [korean|Korean]. || 我最好的朋友是韓國人。
+W: 國籍、語言要大寫。
+S: I love the [Fall|fall] in Taiwan. || 我喜歡台灣的秋天。
+W: 季節不是專有名詞，不用大寫。
+S: My sister and [i|I] like cats. || 我姊姊和我喜歡貓。
+W: 代名詞 I 一律大寫。

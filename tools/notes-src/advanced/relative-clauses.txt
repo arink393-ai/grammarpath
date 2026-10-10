@@ -62,3 +62,26 @@ W: 後面是完整句子（we had dinner），修飾地點要用 where。
 - 先行詞是人，要用 who。
 - what 不能當關係代名詞，要用 that 或 which。
 - 加逗號的非限定用法不能用 that，人要用 who。
+
+# mc
+Q: The boy ___ won the race is my cousin. || 贏得比賽的男孩是我表弟。
+A: which | who* | whose
+W: 先行詞是人，主格用 who。
+Q: This is the house ___ I was born. || 這是我出生的房子。
+A: which | where* | when
+W: 修飾地點，後接完整句子，用 where。
+Q: I remember the day ___ we first met. || 我記得我們第一次見面的那天。
+A: when* | where | which
+W: 修飾時間，用 when。
+Q: She is the only person ___ understands me. || 她是唯一了解我的人。
+A: what | that* | which
+W: 先行詞有 the only，用 that。
+# err
+S: The dog [who|which] lives next door is very cute. || 住在隔壁的狗很可愛。
+W: 先行詞是動物，用 which 或 that。
+S: I have a friend [who's|whose] sister is a singer. || 我有個朋友，她姊姊是歌手。
+W: 「她的」姊姊，所有格用 whose。
+S: Mr. Lin[ that|, who] teaches us math, is very kind. || 林老師教我們數學，人很好。
+W: 專有名詞後的補充說明用逗號＋who，不能用 that。
+S: This is the best movie [what|that] I have ever seen. || 這是我看過最好的電影。
+W: what 不能當關係代名詞；最高級後面用 that。

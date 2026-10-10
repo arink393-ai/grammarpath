@@ -57,3 +57,26 @@ W: 句首「也許」要寫成一個字 Maybe。
 - might 後面直接接原形動詞，不加 to。
 - 助動詞 may 不加 -s。
 - might 後面接原形動詞 come。
+
+# mc
+Q: She ___ be at home. I'm not sure. || 她可能在家，我不確定。
+A: might* | must | mights
+W: 不確定的可能用 might。
+Q: ___ I sit here? — Of course. || 我可以坐這裡嗎？當然。
+A: May* | Might | Must
+W: 禮貌地請求許可用 May I…?
+Q: We ___ not have time to finish. || 我們可能沒時間完成。
+A: may* | are | do
+W: may not + 原形：可能不。
+Q: ___ it will rain later. || 也許等一下會下雨。
+A: Maybe* | May be | Might
+W: 句首的「也許」用 Maybe。
+# err
+S: He [may comes|may come] tomorrow. || 他明天可能會來。
+W: may 後面接原形動詞。
+S: It [maybe|may be] cold tonight. || 今晚可能會冷。
+W: 主詞後面用 may be（助動詞＋be）。
+S: You [might to|might] need an umbrella. || 你可能需要一把傘。
+W: might 後面直接接原形。
+S: [Do I may|May I] ask a question? || 我可以問個問題嗎？
+W: May 直接放句首，不加 Do。

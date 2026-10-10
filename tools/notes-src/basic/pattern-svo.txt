@@ -56,3 +56,26 @@ W: finish 後面要接動名詞 V-ing。
 - enjoy 後面要接動名詞：enjoy playing。
 - discuss 是及物動詞，不加 about。
 - enter 是及物動詞，不加 into。
+
+# mc
+Q: She plans ___ abroad next year. || 她打算明年出國念書。
+A: studying | to study* | study
+W: plan 後面接 to V。
+Q: They reached ___ before dark. || 他們在天黑前抵達山頂。
+A: the top* | to the top | at the top
+W: reach 是及物動詞，直接接受詞。
+Q: I can't ___ the answer. || 我想不起答案。
+A: remember* | remember about | remember of
+W: remember 及物，直接接受詞。
+Q: He kept ___ during the movie. || 他看電影時一直講話。
+A: talk | to talk | talking*
+W: keep 後面接 V-ing。
+# err
+S: We will discuss [about the|the] trip tomorrow. || 我們明天會討論這趟旅行。
+W: discuss 是及物動詞，不加 about。
+S: She wants [buying|to buy] a new phone. || 她想買一支新手機。
+W: want 後面接 to V。
+S: He practices [to play|playing] the piano every day. || 他每天練習彈鋼琴。
+W: practice 後面接 V-ing。
+S: My cousin will marry [with|] a teacher. || 我表姊要嫁給一位老師。
+W: marry 直接接受詞，不加 with。

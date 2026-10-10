@@ -65,3 +65,26 @@ W: hot 是短母音＋單子音，要重複 t 再加 -er。
 - 不能同時用 more 和 -er，直接說 cheaper。
 - 比較用 than，then 是「然後」。
 - good 的最高級是 best。
+
+# mc
+Q: This is the ___ day of the year. || 今天是一年中最熱的一天。
+A: hotter | hottest* | most hot
+W: 單音節的最高級：hot → hottest。
+Q: My sister is ___ than me. || 我姊姊比我聰明。
+A: smarter* | more smart | smartest
+W: 單音節加 -er。
+Q: This book is ___ interesting than that one. || 這本書比那本有趣。
+A: more* | most | much
+W: 長形容詞用 more 形成比較級。
+Q: Today is ___ than yesterday. || 今天比昨天糟糕。
+A: badder | worse* | worst
+W: bad 的比較級是 worse。
+# err
+S: Kaohsiung is [hoter|hotter] than Taipei. || 高雄比台北熱。
+W: hot 要重複 t 再加 -er。
+S: She is the [most happy|happiest] girl in the world. || 她是世界上最快樂的女孩。
+W: happy 的最高級是 happiest。
+S: This test was [more easy|easier] than the last one. || 這次考試比上次簡單。
+W: easy 的比較級是 easier。
+S: My house is [very bigger|much bigger] than yours. || 我家比你家大很多。
+W: 加強比較級用 much，不用 very。

@@ -70,3 +70,26 @@ W: 間接問句要用直述句語序：what my name was。
 - 後面直接接人要用 told，不能說 said me。
 - 間接問句要用直述句語序，不用 did：where I worked。
 - said 是過去式，will 要轉成 would。
+
+# mc
+Q: She said she ___ go to the party. || 她說她會去派對。
+A: will | would* | is
+W: said 是過去式，will 轉成 would。
+Q: He asked me ___ I liked sushi. || 他問我喜不喜歡壽司。
+A: that | if* | what
+W: Yes/No 問句轉述用 if / whether。
+Q: Tom told us ___ quiet. || 湯姆叫我們安靜。
+A: be | to be* | being
+W: 轉述命令用 tell + 人 + to V。
+Q: She said she had seen the movie the day ___. || 她說她前一天看過那部電影。
+A: before* | ago | yesterday
+W: yesterday 轉述時改成 the day before。
+# err
+S: He [said me|told me] that he was hungry. || 他告訴我他餓了。
+W: say 不能直接接人，要用 told me。
+S: She asked me where [did I live|I lived]. || 她問我住在哪裡。
+W: 間接問句用直述句語序。
+S: They said they [can|could] help us. || 他們說他們可以幫我們。
+W: said 是過去式，can 轉成 could。
+S: Mom told me [not eat|not to eat] too much candy. || 媽媽叫我別吃太多糖。
+W: 轉述否定命令用 not to V。

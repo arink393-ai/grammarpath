@@ -65,3 +65,26 @@ W: 助動詞的被動是 must be + p.p.。
 - 被動要用過去分詞 broken。
 - 被動一定要有 be 動詞：was eaten。
 - give 的過去分詞是 given。
+
+# mc
+Q: English ___ in many countries. || 很多國家都說英文。
+A: speaks | is spoken* | is speaking
+W: 英文「被」說，現在式被動 is + p.p.。
+Q: The new library will ___ next year. || 新圖書館明年會開放。
+A: open | be opened* | opened
+W: 助動詞的被動：will be + p.p.。
+Q: My wallet ___ on the bus yesterday. || 我的錢包昨天在公車上被偷了。
+A: stole | was stolen* | was stole
+W: 過去式被動：was + p.p.（steal → stolen）。
+Q: The room ___ cleaned right now. || 房間現在正在被打掃。
+A: is being* | is been | being
+W: 現在進行式被動：is being + p.p.。
+# err
+S: The letter [was wrote|was written] in English. || 這封信是用英文寫的。
+W: 被動要用過去分詞 written。
+S: The window [broke by|was broken by] a ball. || 窗戶被球打破了。
+W: 「被」打破要用被動 was broken。
+S: The homework has [finished|been finished]. || 作業已經完成了。
+W: 現在完成式被動是 has been + p.p.。
+S: The accident [was occurred|occurred] at midnight. || 事故發生在午夜。
+W: occur 是不及物動詞，不能用被動。

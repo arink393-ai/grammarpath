@@ -55,3 +55,26 @@ W: be used to 表示「習慣於」，後面接 V-ing。
 - 肯定句要寫 used to（有 d）。
 - used to 後面接原形動詞 play。
 - 有 Did 時，used 變回原形 use。
+
+# mc
+Q: I ___ be afraid of the dark. || 我以前很怕黑。
+A: use to | used to* | was used to
+W: 過去的狀態，現在不是了：used to + 原形。
+Q: She didn't ___ like coffee, but now she loves it. || 她以前不喜歡咖啡，現在卻很愛。
+A: used to | use to* | using to
+W: didn't 後面用 use to。
+Q: I'm not used to ___ up so early. || 我不習慣這麼早起床。
+A: get | getting* | got
+W: be used to + V-ing。
+Q: There ___ a cinema on this street. || 這條街以前有一家電影院。
+A: used to be* | was used to | use to be
+W: 過去的狀態：There used to be…。
+# err
+S: My grandpa [use to|used to] be a fisherman. || 我爺爺以前是漁夫。
+W: 肯定句要寫 used to。
+S: We used to [living|live] in Kaohsiung. || 我們以前住在高雄。
+W: used to 後面接原形。
+S: I'm used to [walk|walking] to school. || 我已經習慣走路上學。
+W: be used to 後面接 V-ing。
+S: Did she [used to|use to] play the violin? || 她以前拉小提琴嗎？
+W: 有 Did 時用 use to。

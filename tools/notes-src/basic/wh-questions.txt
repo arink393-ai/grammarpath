@@ -61,3 +61,26 @@ W: Who 是主詞，直接接動詞，不加 does。
 - 一般動詞的疑問句要加助動詞：Where do you live?
 - 有 does 時，動詞用原形 like。
 - be 動詞問句要倒裝：Why are you sad?
+
+# mc
+Q: ___ is your birthday? — It's on June 3. || 你的生日是什麼時候？六月三號。
+A: Where | When* | Who
+W: 問時間用 When。
+Q: ___ do you like better, tea or coffee? || 茶和咖啡你比較喜歡哪個？
+A: What | Which* | Who
+W: 有固定選項時用 Which。
+Q: Why ___ he crying? || 他為什麼在哭？
+A: does | is* | do
+W: 進行式的問句用 be 動詞 is。
+Q: How ___ is it from here to the station? || 從這裡到車站多遠？
+A: long | far* | many
+W: 問距離用 How far。
+# err
+S: What [you want|do you want] for lunch? || 你午餐想吃什麼？
+W: 一般動詞的問句要有助動詞 do。
+S: Where [does|do] your parents work? || 你爸媽在哪裡工作？
+W: your parents 是複數，用 do。
+S: How [many|much] is this jacket? || 這件外套多少錢？
+W: 問價錢用 How much。
+S: Who [does want|wants] some cake? || 誰想吃蛋糕？
+W: Who 是主詞，直接接動詞。

@@ -63,3 +63,26 @@ W: if 子句不能用 would，要用 had + p.p.。
 - if 子句不能用 would，要用 had known。
 - 主要子句是 would have + p.p.：would have helped。
 - 與過去事實相反，if 子句用 hadn't missed。
+
+# mc
+Q: If I had known, I ___ you. || 要是我早知道，我就會幫你了。
+A: would help | would have helped* | had helped
+W: 主要子句用 would have + p.p.。
+Q: If she ___ the bus, she wouldn't have been late. || 如果她沒錯過公車，就不會遲到了。
+A: didn't miss | hadn't missed* | wouldn't miss
+W: if 子句用 had + p.p.。
+Q: We could have won if we ___ harder. || 如果我們更努力，本來可以贏的。
+A: tried | had tried* | would try
+W: 與過去事實相反，if 子句用 had + p.p.。
+Q: ___ she studied, she would have passed. || 要是她有讀書，就會考過了。
+A: Had* | Has | If had
+W: 倒裝：Had she studied = If she had studied。
+# err
+S: If you [told|had told] me, I would have come. || 如果你當時告訴我，我就會來了。
+W: 與過去事實相反，if 子句用 had told。
+S: If it hadn't rained, we [would go|would have gone] to the beach. || 如果沒下雨，我們就去海邊了。
+W: 主要子句用 would have + p.p.。
+S: If I had left earlier, I would have [catch|caught] the train. || 如果我早點出發，就會趕上火車了。
+W: would have 後面接過去分詞 caught。
+S: If he [would have studied|had studied], he would have passed. || 如果他有讀書，就會考過了。
+W: if 子句不能用 would，要用 had + p.p.。

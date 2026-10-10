@@ -61,3 +61,26 @@ W: woman 的複數是不規則的 women。
 - child 的複數是不規則的 children。
 - tomato 是子音＋o 結尾，複數加 -es：tomatoes。
 - people 本身就是複數，不加 s。
+
+# mc
+Q: There are five ___ in the pond. || 池塘裡有五隻鵝。
+A: gooses | geese* | goose
+W: goose 的不規則複數是 geese。
+Q: I bought some ___ for dinner. || 我買了一些馬鈴薯當晚餐。
+A: potatos | potatoes* | potato
+W: 子音＋o 結尾，加 -es。
+Q: The ___ are playing in the garden. || 小嬰兒們在花園裡玩。
+A: babys | babies* | babyes
+W: 子音＋y：去 y 加 -ies。
+Q: I can see two ___ on the roof. || 我看到屋頂上有兩隻老鼠。
+A: mouses | mice* | mices
+W: mouse 的複數是 mice。
+# err
+S: She has two [boyes|boys]. || 她有兩個兒子。
+W: 母音＋y 結尾，直接加 -s。
+S: The [leafs|leaves] are turning red. || 葉子漸漸變紅了。
+W: f 結尾改 v 加 -es。
+S: My [foots|feet] hurt. || 我的腳好痛。
+W: foot 的複數是 feet。
+S: There are many [churchs|churches] in this city. || 這座城市有很多教堂。
+W: ch 結尾加 -es。

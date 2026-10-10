@@ -57,3 +57,26 @@ W: 單數可數名詞前要加 a/an。
 - 說身分時，單數名詞 teacher 前面要加 a。
 - They 是複數，be 動詞用 are。
 - I 的 be 動詞是 am，不能用原形 be。
+
+# mc
+Q: Ken and I ___ classmates. || 肯和我是同學。
+A: am | is | are*
+W: Ken and I 是兩個人（複數），用 are。
+Q: The weather ___ nice today. || 今天天氣很好。
+A: is* | are | am
+W: weather 是不可數名詞，用 is。
+Q: ___ your parents at home? || 你爸媽在家嗎？
+A: Is | Are* | Do
+W: your parents 是複數，問句用 Are。
+Q: I'm not a doctor. I ___ a nurse. || 我不是醫生，我是護士。
+A: am* | is | be
+W: 主詞 I 配 am。
+# err
+S: My brother and I [am|are] twins. || 我哥哥和我是雙胞胎。
+W: 主詞是兩個人，be 動詞用 are。
+S: [Are|Is] Amy your sister? || 艾咪是你妹妹嗎？
+W: Amy 是單數，用 Is。
+S: The books [is|are] on the desk. || 書在桌上。
+W: The books 是複數，用 are。
+S: Is he a student? — Yes, [he's|he is]. || 他是學生嗎？是的。
+W: 肯定的簡答不能縮寫。

@@ -57,3 +57,26 @@ W: had 後面接過去分詞 gone。
 - 火車開走比「我到達」更早，用過去完成式 had left。
 - had 後面接過去分詞 gone。
 - 只有一件過去的事（yesterday），用過去簡單式。
+
+# mc
+Q: I didn't go to the movie because I ___ it before. || 我沒去看那部電影，因為我之前看過了。
+A: have seen | had seen* | saw
+W: 比「沒去」更早發生，用過去完成式。
+Q: When I woke up, my parents ___ to work. || 我醒來時，爸媽已經去上班了。
+A: had gone* | have gone | go
+W: 比「醒來」更早，用 had + p.p.。
+Q: She told me she ___ her homework. || 她告訴我她已經寫完功課了。
+A: has finished | had finished* | finishes
+W: 間接引述，時態往前推：had finished。
+Q: By the time the firefighters arrived, the fire ___. || 消防員到的時候，火已經熄了。
+A: had gone out* | has gone out | goes out
+W: By the time + 過去式，主要子句用過去完成式。
+# err
+S: When we got to the station, the train [has left|had left]. || 我們到車站時，火車已經開走了。
+W: 比「到車站」更早發生，用 had left。
+S: I had never [saw|seen] snow before I went to Japan. || 去日本前我從沒看過雪。
+W: had 後面接過去分詞 seen。
+S: When I arrived at the party, everyone [went|had gone] home. || 我到派對時，大家都已經回家了。
+W: 大家回家發生在我到達之前，要用 had gone；用 went 會變成「我到了大家才走」。
+S: I [had met|met] Amy at the mall yesterday. || 我昨天在商場遇到艾咪。
+W: 只有一件過去的事，用過去簡單式。

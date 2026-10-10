@@ -51,3 +51,26 @@ W: 請求東西的問句用 some。
 - 否定句用 any：don't have any money。
 - 一般疑問句用 any：Do you have any brothers?
 - milk 不可數，be 動詞用 isn't。
+
+# mc
+Q: Can I have ___ sugar for my tea? || 可以給我一些糖加在茶裡嗎？
+A: any | some* | no
+W: 請求東西的問句用 some。
+Q: We don't have ___ bread left. || 我們沒有麵包了。
+A: some | any* | no
+W: 否定句用 any。
+Q: Are there ___ good restaurants near here? || 這附近有好餐廳嗎？
+A: some | any* | no
+W: 一般疑問句用 any。
+Q: There is ___ milk in the fridge. Let's buy some. || 冰箱裡沒有牛奶了，我們去買一些。
+A: any | no* | some
+W: 句子沒有 not，用 no 表示「沒有」。
+# err
+S: I didn't buy [some|any] fruit. || 我沒買水果。
+W: 否定句用 any。
+S: Would you like [any|some] cookies? || 你要吃些餅乾嗎？
+W: 提供東西的問句用 some。
+S: There [aren't|isn't] any juice in the cup. || 杯子裡沒有果汁。
+W: juice 不可數，用 isn't。
+S: I have [not any|no] idea. || 我不知道。
+W: 「沒有」可用 no；not any 要放在動詞否定後（I don't have any idea）。

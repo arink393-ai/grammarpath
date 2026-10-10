@@ -53,3 +53,26 @@ W: 有 Does 時，後面動詞用原形 have。
 # mk
 - 主詞 She 是第三人稱單數，have 要變成 has。
 - have got 的否定直接在 have 後加 not：haven't got。
+
+# mc
+Q: They ___ a big house. || 他們有一間大房子。
+A: has | have* | haves
+W: They 用 have。
+Q: She hasn't ___ any brothers. || 她沒有兄弟。
+A: get | got* | have
+W: have got 的否定：hasn't got。
+Q: ___ your brother have a car? || 你哥哥有車嗎？
+A: Do | Does* | Has
+W: 一般 have 的問句借助 does（主詞單數）。
+Q: I have a headache. = I ___ a headache. || 我頭痛。
+A: 've got* | 'm got | have get
+W: have = have got，縮寫 I've got。
+# err
+S: My cat [have|has] blue eyes. || 我的貓有藍眼睛。
+W: My cat 單數，用 has。
+S: We [hasn't|haven't] got any homework today. || 我們今天沒有功課。
+W: We 的否定用 haven't got。
+S: Do you [has|have] a pencil? || 你有鉛筆嗎？
+W: Do 後面接原形 have。
+S: [Does|Has] she got a bike? || 她有腳踏車嗎？
+W: have got 的問句用 Has 開頭，不用 Does。

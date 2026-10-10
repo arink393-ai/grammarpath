@@ -55,3 +55,26 @@ W: 主詞 my cat 單數，動詞要加 s。
 - 零條件句的 if 子句用現在式，不用 will。
 - 一定成立的事實，主要子句用現在式 gets，不用 will always。
 - 零條件句兩邊都用現在式，不用過去式 heated。
+
+# mc
+Q: If you ___ 2 and 2, you get 4. || 2 加 2 等於 4。
+A: add* | will add | added
+W: 數學事實用零條件句，if 子句用現在式。
+Q: When it ___, the roads get slippery. || 下雨時路面會變滑。
+A: rains* | will rain | rained
+W: 一定成立的情況，用現在式。
+Q: If you don't water plants, they ___. || 不澆水的話，植物會枯萎。
+A: die* | will died | dying
+W: 兩邊都用現在式。
+Q: If I ___ too much coffee, I can't sleep. || 我喝太多咖啡就會睡不著。
+A: drink* | will drink | drank
+W: 個人習慣，零條件句用現在式。
+# err
+S: If you [will heat|heat] butter, it melts. || 加熱奶油，它就會融化。
+W: 零條件句的 if 子句用現在式。
+S: If you touch fire, it [burned|burns] you. || 摸到火就會被燙傷。
+W: 零條件句兩邊都用現在式。
+S: When the baby [cry|cries], his mom feeds him. || 寶寶一哭，媽媽就餵他。
+W: 主詞 the baby 單數，加 -es。
+S: If it [snowed|snows], the school closes. || 下雪的話，學校就會停課。
+W: 零條件句兩邊時態都用現在式。

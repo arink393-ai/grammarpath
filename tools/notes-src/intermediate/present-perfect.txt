@@ -66,3 +66,26 @@ W: 疑問句的「了沒」用 yet，放句尾。
 - 有明確過去時間 yesterday，要用過去簡單式。
 - has 後面接過去分詞 gone，不是過去式 went。
 - 從 2019 年持續到現在，要用現在完成式 have lived。
+
+# mc
+Q: I have ___ this movie three times. || 這部電影我看過三次。
+A: saw | seen* | see
+W: have + 過去分詞 seen。
+Q: Have you finished your report ___? || 你的報告寫完了嗎？
+A: already | yet* | ever
+W: 疑問句的「了沒」用 yet，放句尾。
+Q: She ___ never been to Europe. || 她從沒去過歐洲。
+A: have | has* | is
+W: 主詞 she 用 has。
+Q: We ___ a great time at the beach last weekend. || 我們上週末在海邊玩得很開心。
+A: have had | had* | have
+W: last weekend 是明確過去時間，用過去簡單式。
+# err
+S: He [has broke|has broken] his leg. || 他摔斷了腿。
+W: has 後面接過去分詞 broken。
+S: I [have bought|bought] this phone two weeks ago. || 我兩週前買了這支手機。
+W: 有 ago，要用過去簡單式。
+S: Have you ever [ate|eaten] stinky tofu? || 你吃過臭豆腐嗎？
+W: have 後面接過去分詞 eaten。
+S: They haven't arrived [already|yet]. || 他們還沒到。
+W: 否定句的「還沒」用 yet。

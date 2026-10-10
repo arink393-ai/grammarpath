@@ -57,3 +57,26 @@ W: 有可能實現的期望用 hope。
 - wish 後面用過去式 had。
 - wish 後面表示能力用 could。
 - 與現在事實相反，wish 後面用 were。
+
+# mc
+Q: I wish I ___ speak five languages. || 真希望我會說五種語言。
+A: can | could* | will
+W: 能力的願望，wish + could。
+Q: I wish it ___ the weekend. || 真希望現在是週末。
+A: is | were* | will be
+W: wish 後面 be 動詞用 were。
+Q: I wish I ___ harder last year. || 真希望我去年更用功一點。
+A: studied | had studied* | study
+W: 對過去的遺憾，wish + had + p.p.。
+Q: I ___ you have a great time in Japan. || 祝你在日本玩得愉快。
+A: wish | hope* | would
+W: 有可能實現的期望用 hope。
+# err
+S: I wish I [am|were] taller. || 真希望我再高一點。
+W: wish 後面 be 動詞用 were。
+S: She wishes she [has|had] a dog. || 她希望自己有一隻狗。
+W: 與現在事實相反，wish 後用過去式。
+S: I wish I [didn't eat|hadn't eaten] so much last night. || 真希望我昨晚沒吃那麼多。
+W: 對過去的遺憾，用 had + p.p.。
+S: I [wish|hope] it doesn't rain tomorrow. || 希望明天不要下雨。
+W: 有可能發生的事用 hope。

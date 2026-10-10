@@ -59,3 +59,26 @@ W: 主詞 the soup 就是 eat 的對象，to eat 後面不要再加 it。
 - enough 要放在形容詞 hot 後面。
 - 形容詞前直接用 too，不加 much。
 - enough 要放在名詞 money 前面。
+
+# mc
+Q: He is ___ to reach the top shelf. || 他太矮了，搆不到最上層的架子。
+A: too short* | short enough | enough short
+W: 「太…而不能」用 too + 形容詞 + to V。
+Q: Is the water ___ to swim in? || 水夠暖可以游泳嗎？
+A: enough warm | warm enough* | too warm
+W: enough 放在形容詞後面。
+Q: There isn't ___ for everyone. || 食物不夠每個人吃。
+A: food enough | enough food* | too food
+W: enough 放在名詞前面。
+Q: The test was ___ difficult for me. || 這個考試對我來說太難了。
+A: too* | enough | too much
+W: 形容詞前用 too。
+# err
+S: The box is [enough light|light enough] for me to carry. || 這個箱子夠輕，我搬得動。
+W: enough 放在形容詞後面。
+S: We have [time enough|enough time] to finish. || 我們有足夠的時間完成。
+W: enough 放在名詞前面。
+S: It's [too much cold|too cold] to go out. || 太冷了不能出門。
+W: 形容詞前直接用 too，不加 much。
+S: The shoes are too small to wear [them|]. || 這雙鞋太小了，穿不下。
+W: 主詞 the shoes 就是 wear 的對象，to wear 後不要再加 them。

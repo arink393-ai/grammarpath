@@ -56,3 +56,26 @@ W: 後面是表示起點的子句，用 since。
 - three days 是時間長度，用 for。
 - Monday 是起始時間點，用 since。
 - 持續到現在要用現在完成式 I've lived。
+
+# mc
+Q: I haven't seen her ___ last summer. || 我從去年夏天就沒見過她。
+A: for | since* | ago
+W: last summer 是時間點，用 since。
+Q: He has played the guitar ___ a long time. || 他彈吉他很久了。
+A: for* | since | from
+W: a long time 是時間長度，用 for。
+Q: They ___ married for twenty years. || 他們結婚二十年了。
+A: are | have been* | were
+W: 持續到現在，用現在完成式。
+Q: It has been two years ___ we moved here. || 我們搬來這裡已經兩年了。
+A: for | since* | ago
+W: It has been + 時間 + since + 子句。
+# err
+S: I have lived here [since|for] ten years. || 我住在這裡十年了。
+W: ten years 是時間長度，用 for。
+S: She has worked here [for|since] 2019. || 她從 2019 年就在這裡工作。
+W: 2019 是時間點，用 since。
+S: We [know|have known] each other since childhood. || 我們從小就認識。
+W: 持續到現在，用現在完成式。
+S: He has been sick [since three days|for three days]. || 他已經病了三天。
+W: three days 是時間長度，用 for。

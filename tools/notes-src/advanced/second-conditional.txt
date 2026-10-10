@@ -61,3 +61,26 @@ W: 第二條件句的主要子句用 would。
 - if 子句不能用 would，要用過去式 had。
 - 假設語氣的 be 動詞用 were。
 - 第二條件句的主要子句用 would，不用 will。
+
+# mc
+Q: If I ___ a bird, I would fly to you. || 如果我是鳥，我就會飛到你身邊。
+A: am | were* | will be
+W: 假設語氣 be 動詞用 were。
+Q: If she knew the answer, she ___ tell us. || 如果她知道答案，就會告訴我們。
+A: will | would* | is
+W: 主要子句用 would + 原形。
+Q: What ___ you do if you saw a ghost? || 如果你看到鬼，你會怎麼做？
+A: will | would* | do
+W: 第二條件句的主要子句用 would。
+Q: If I ___ more money, I could buy a car. || 如果我有更多錢，就能買車。
+A: have | had* | would have
+W: if 子句用過去式。
+# err
+S: If I [would be|were] rich, I would travel the world. || 如果我很有錢，我會環遊世界。
+W: if 子句不能用 would；be 動詞用 were。
+S: If he studied harder, he [will|would] get better grades. || 如果他更用功，成績會更好。
+W: 主要子句用 would。
+S: If I [know|knew] her number, I would call her. || 如果我知道她的號碼，就會打給她。
+W: 與現在事實相反，if 子句用過去式。
+S: If we lived in Japan, we [could saw|could see] snow every winter. || 如果我們住在日本，每年冬天都能看到雪。
+W: could 後面接原形。

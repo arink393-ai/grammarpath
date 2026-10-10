@@ -54,3 +54,26 @@ W: yoga 是個人運動，用 do。
 - -ing 結尾的活動用 go：go swimming。
 - tennis 是球類，用 play。
 - yoga 是個人運動，用 do。
+
+# mc
+Q: Let's ___ camping this weekend. || 這週末去露營吧。
+A: play | go* | do
+W: -ing 結尾的活動用 go。
+Q: He ___ chess with his grandpa. || 他和爺爺下棋。
+A: plays* | goes | does
+W: 棋類用 play。
+Q: My mom ___ exercise every morning. || 我媽媽每天早上運動。
+A: plays | goes | does*
+W: do exercise。
+Q: She plays ___ violin in the school band. || 她在校樂團拉小提琴。
+A: a | the* | 不填
+W: 樂器前面加 the。
+# err
+S: We [played|went] skiing in Japan. || 我們在日本去滑雪。
+W: -ing 活動用 go。
+S: He [does|plays] badminton after school. || 他放學後打羽毛球。
+W: 球類運動用 play。
+S: They [play|do] karate on Saturdays. || 他們星期六練空手道。
+W: 武術用 do。
+S: Let's go [to fishing|fishing] at the lake. || 我們去湖邊釣魚吧。
+W: go + V-ing 不加 to。

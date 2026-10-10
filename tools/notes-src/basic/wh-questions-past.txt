@@ -52,3 +52,26 @@ W: be 動詞問句要把 were 移到主詞前面。
 - 要加 did 並倒裝：What did you do yesterday?
 - did 後面要用原形 go。
 - be 動詞問句要倒裝：Where were you?
+
+# mc
+Q: Who ___ you at the station? || 誰在車站接你？
+A: did meet | met* | did met
+W: Who 是主詞，直接用過去式。
+Q: How ___ you get to school yesterday? || 你昨天怎麼去學校的？
+A: do | did* | were
+W: 過去式的一般動詞問句用 did。
+Q: What did she ___ for her birthday? || 她生日收到什麼？
+A: got | get* | gets
+W: did 後面接原形動詞。
+Q: When ___ you born? || 你什麼時候出生的？
+A: did | were* | was
+W: be born 是 be 動詞句型；you 配 were。
+# err
+S: What time [you got|did you get] up this morning? || 你今天早上幾點起床？
+W: 一般動詞過去式的問句要用 did + 主詞 + 原形。
+S: Where did you [bought|buy] this bag? || 你在哪裡買這個包包？
+W: did 後面接原形 buy。
+S: Why [she was|was she] angry? || 她為什麼生氣？
+W: be 動詞問句要倒裝。
+S: Who [did win|won] the game? || 誰贏了比賽？
+W: Who 是主詞，直接用過去式。

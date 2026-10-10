@@ -56,3 +56,26 @@ W: 有 next 時，前面不加介系詞。
 - 星期幾用 on：on Monday。
 - 早上、下午、晚上用 in the morning。
 - at home 是固定說法。
+
+# mc
+Q: The cat is sleeping ___ the box. || 貓在箱子裡睡覺。
+A: in* | at | on
+W: 在裡面用 in。
+Q: I'll see you ___ Friday. || 星期五見。
+A: in | on* | at
+W: 星期幾用 on。
+Q: We usually have dinner ___ 6:30. || 我們通常六點半吃晚餐。
+A: on | at* | in
+W: 時刻用 at。
+Q: There is a picture ___ the wall. || 牆上有一幅畫。
+A: on* | in | at
+W: 在表面上用 on。
+# err
+S: My uncle lives [on|in] Tainan. || 我叔叔住在台南。
+W: 城市用 in。
+S: The meeting is [in|on] Monday morning. || 會議在星期一早上。
+W: 特定某天的早上用 on。
+S: Let's meet [in|at] the bus stop. || 我們在公車站見。
+W: 一個點的位置用 at。
+S: We go to the beach [on|in] summer. || 我們夏天去海邊。
+W: 季節用 in。

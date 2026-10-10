@@ -58,3 +58,26 @@ W: children 不是 s 結尾，所有格加 's。
 - 後面接名詞 book，要用所有格形容詞 my。
 - 「它的」是 its，it's 是 it is。
 - 後面沒有名詞，要用所有格代名詞 yours。
+
+# mc
+Q: This is not my umbrella. It's ___. || 這不是我的傘，是她的。
+A: her | hers* | she
+W: 後面沒有名詞，用所有格代名詞 hers。
+Q: ___ car is red. || 我們的車是紅色的。
+A: Ours | Our* | Us
+W: 後面接名詞 car，用所有格形容詞 our。
+Q: That is ___ house. || 那是陳先生的房子。
+A: Mr. Chen | Mr. Chen's* | Mr. Chens'
+W: 單數名詞的所有格加 's。
+Q: The dog is eating ___ food. || 狗在吃牠的食物。
+A: it's | its* | it
+W: 「牠的」是 its。
+# err
+S: Is this book [your|yours]? || 這本書是你的嗎？
+W: 後面沒有名詞，用所有格代名詞 yours。
+S: These are [our's|ours]. || 這些是我們的。
+W: 所有格代名詞沒有撇號。
+S: The [students's|students'] bags are in the classroom. || 學生們的書包在教室裡。
+W: s 結尾的複數名詞所有格只加 '。
+S: [Who's|Whose] phone is this? || 這是誰的手機？
+W: 問「誰的」用 Whose；Who's 是 Who is。

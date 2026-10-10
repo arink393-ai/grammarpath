@@ -64,3 +64,26 @@ W: 泛指一般的音樂，不可數名詞前不加 the。
 - 說職業要加冠詞；engineer 以母音開頭用 an。
 - hour 的 h 不發音，以母音開頭，用 an。
 - 泛指一般的「人生」，不加 the。
+
+# mc
+Q: I saw ___ elephant at the zoo. || 我在動物園看到一隻大象。
+A: a | an* | the
+W: elephant 以母音開頭，用 an。
+Q: ___ moon is very bright tonight. || 今晚的月亮很亮。
+A: A | The* | 不填
+W: 獨一無二的東西加 the。
+Q: She goes to work by ___ bus. || 她搭公車上班。
+A: a | the | 不填*
+W: by + 交通工具，不加冠詞。
+Q: He is ___ honest man. || 他是個誠實的人。
+A: a | an* | the
+W: honest 的 h 不發音，以母音開頭，用 an。
+# err
+S: I had [a|] breakfast at seven. || 我七點吃早餐。
+W: 三餐前面不加冠詞。
+S: She wants to be [a|an] artist. || 她想當藝術家。
+W: artist 以母音開頭，用 an。
+S: [Sun|The sun] rises in the east. || 太陽從東方升起。
+W: 獨一無二的 sun 要加 the。
+S: My brother plays [the|] soccer every day. || 我哥哥每天踢足球。
+W: 球類運動不加冠詞。

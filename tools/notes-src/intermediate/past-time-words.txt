@@ -58,3 +58,26 @@ W: 有 ago 這種明確的過去時間，要用過去簡單式。
 - ago 放在時間長度後面：three days ago。
 - last 前面不加介系詞。
 - 「昨晚」要說 last night。
+
+# mc
+Q: I graduated from high school ten years ___. || 我十年前高中畢業。
+A: ago* | before | last
+W: 從現在往前算用 ago。
+Q: She called me ___ morning. || 她昨天早上打給我。
+A: last | yesterday* | ago
+W: 「昨天早上」說 yesterday morning。
+Q: We moved here ___ 2018. || 我們 2018 年搬來這裡。
+A: on | in* | at
+W: 年份用 in。
+Q: I saw him ___ Monday. || 我上週一看到他。
+A: on last | last* | in last
+W: last 前面不加介系詞。
+# err
+S: They got married [before five years|five years ago]. || 他們五年前結婚。
+W: 從現在往前算「…以前」用 ago，放在時間長度後面。
+S: I went to the dentist [in last|last] month. || 我上個月去看牙醫。
+W: last 前面不加介系詞。
+S: We had a test [yesterday night|last night]. || 我們昨晚有考試。
+W: 「昨晚」要說 last night。
+S: She [has visited|visited] her aunt three days ago. || 她三天前去拜訪阿姨。
+W: 有 ago，用過去簡單式。

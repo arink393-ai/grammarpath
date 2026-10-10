@@ -74,3 +74,26 @@ W: 兩個形容詞同時出現時，有固定順序：意見／大小／新舊�
 - 要描述動詞 sings（怎麼唱），必須用副詞 beautifully，不能用形容詞 beautiful。
 - quick 修飾名詞 runner（形容詞）；quickly 修飾動詞 runs（副詞）。
 - a / an 是冠詞（限定詞）；interesting 以母音開頭，要用 an。
+
+# mc
+Q: We need more ___ about the trip. || 我們需要更多關於這趟旅行的資訊。
+A: inform | information* | informative
+W: more 後面要接<b>名詞</b>；-tion 是名詞字尾。
+Q: The test was ___ easy. || 這次考試相當簡單。
+A: real | really* | reality
+W: 修飾形容詞 easy 要用<b>副詞</b> really。
+Q: ___! I passed the exam! || 哇！我考過了！
+A: Wow* | Very | Under
+W: 表達突然的情緒用<b>感嘆詞</b> Wow。
+Q: I wanted to go, ___ it was raining. || 我想去，但是在下雨。
+A: but* | under | quickly
+W: 連接兩個意思相反的句子要用<b>連接詞</b> but。
+# err
+S: He is a [carefully|careful] driver. || 他是個小心的駕駛。
+W: 修飾名詞 driver 要用形容詞 careful。
+S: Thank you for your [kind|kindness]. || 謝謝你的好意。
+W: your 後面要接名詞，kind 是形容詞，名詞是 kindness。
+S: She [happy|is happy] today. || 她今天很開心。
+W: 英文句子一定要有動詞；形容詞 happy 前面要加 be 動詞 is。
+S: The movie was [real|really] interesting. || 這部電影真的很有趣。
+W: 修飾形容詞 interesting 要用副詞 really。

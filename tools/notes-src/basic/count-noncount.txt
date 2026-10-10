@@ -60,3 +60,26 @@ W: help 是不可數名詞，不能加 a。
 - information 不可數，沒有複數。
 - advice 不可數，不能加 an；說 some advice 或 a piece of advice。
 - apples 是可數名詞，問數量用 How many。
+
+# mc
+Q: There is ___ sand in my shoes. || 我的鞋子裡有一些沙。
+A: a | some* | many
+W: sand 不可數，用 some。
+Q: How ___ chairs do we need? || 我們需要幾張椅子？
+A: much | many* | little
+W: chairs 可數，用 How many。
+Q: We had a lot of ___ at the party. || 我們在派對上玩得很開心。
+A: funs | fun* | a fun
+W: fun 不可數，沒有複數。
+Q: She bought two ___ of milk. || 她買了兩瓶牛奶。
+A: bottle | bottles* | bottles milks
+W: 不可數名詞靠量詞數，量詞變複數。
+# err
+S: I need [a|some] help with my homework. || 我的功課需要一些幫忙。
+W: help 不可數，不能加 a。
+S: The [luggages|luggage] is very heavy. || 行李很重。
+W: luggage 不可數，沒有複數。
+S: There [are|is] some rice in the bowl. || 碗裡有一些飯。
+W: rice 不可數，用 is。
+S: He gave me [a good news|good news]. || 他告訴我一個好消息。
+W: news 不可數，不加 a；要數時說 a piece of news。

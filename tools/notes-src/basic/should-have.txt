@@ -60,3 +60,26 @@ W: do 的過去分詞是 done。
 - 寫作要寫 should have，不能寫 should of。
 - go 的過去分詞是 gone，不是過去式 went。
 - should have 後面要接過去分詞 studied。
+
+# mc
+Q: I'm wet. I should have ___ an umbrella. || 我淋濕了，早該帶傘的。
+A: brought* | bring | brang
+W: should have + p.p.；bring 的 p.p. 是 brought。
+Q: You shouldn't have ___ so late. You look tired. || 你不該熬那麼晚的，你看起來很累。
+A: stay up | stayed up* | staying up
+W: shouldn't have + p.p.。
+Q: She should have ___ the instructions. || 她早該看說明的。
+A: read* | readed | reading
+W: read 的 p.p. 還是 read。
+Q: We ___ have booked a table. The restaurant is full. || 我們早該訂位的，餐廳客滿了。
+A: should* | must | can
+W: 對過去的後悔用 should have。
+# err
+S: I should have [knew|known] the answer. || 我早該知道答案的。
+W: should have 後面接過去分詞 known。
+S: You [should of|should have] told me. || 你早該告訴我的。
+W: 寫作要寫 should have。
+S: He should have [go|gone] to the doctor. || 他早該去看醫生的。
+W: go 的過去分詞是 gone。
+S: They [should|should have] left earlier. They missed the train. || 他們應該早點出發的，結果錯過了火車。
+W: 對過去的後悔要用 should have + p.p.。

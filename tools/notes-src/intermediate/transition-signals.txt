@@ -63,3 +63,26 @@ W: 後面接名詞 the heavy rain，要用 because of。
 - For example 後面要加逗號。
 - 固定說法是 On the other hand。
 - Therefore 後面要加逗號，也不要把多個轉折詞擠在同一句。
+
+# mc
+Q: First, wash the rice. ___, put it in the cooker. || 首先洗米，接著放進電鍋。
+A: Next* | Finally first | For example
+W: 表示順序用 Next。
+Q: She is smart. ___, she works very hard. || 她很聰明。此外，她也很努力。
+A: In addition* | However | For example
+W: 補充用 In addition。
+Q: ___, reading is a great habit. || 總之，閱讀是很好的習慣。
+A: In conclusion* | For instance | On the other hand
+W: 總結用 In conclusion。
+Q: Some animals, ___ bears, sleep all winter. || 有些動物，例如熊，整個冬天都在睡覺。
+A: such as* | because of | as a result
+W: 句中列舉用 such as。
+# err
+S: He was sick. [As result|As a result], he missed school. || 他生病了，因此沒去上學。
+W: 固定說法是 As a result。
+S: [For example|For example,] dogs are loyal animals. || 例如，狗是忠誠的動物。
+W: 句首的轉折詞後面要加逗號。
+S: The flight was canceled [because|because of] the storm. || 班機因為暴風雨取消了。
+W: 後接名詞 the storm，用 because of。
+S: In [the conclusion|conclusion], exercise is good for us. || 總之，運動對我們有益。
+W: 固定說法是 In conclusion，不加 the。

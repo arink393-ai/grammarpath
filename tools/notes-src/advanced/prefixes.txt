@@ -58,3 +58,26 @@ W: agree 的反義是 disagree。
 - polite 以 p 開頭，否定字首用 im-。
 - possible 的否定是 impossible。
 - un + necessary，兩個 n 都要保留：unnecessary。
+
+# mc
+Q: It's ___ to drive without a license. || 無照駕駛是違法的。
+A: unlegal | illegal* | inlegal
+W: legal 以 l 開頭，用 il-。
+Q: Please ___ the old bottles. || 請重複使用這些舊瓶子。
+A: reuse* | misuse | unuse
+W: re- 表示「再、重新」。
+Q: I ___ with your idea. || 我不同意你的想法。
+A: unagree | disagree* | misagree
+W: agree 的反義是 disagree。
+Q: The answer is ___. Try again. || 答案不正確，再試一次。
+A: uncorrect | incorrect* | discorrect
+W: correct 的否定是 incorrect。
+# err
+S: It is [unpossible|impossible] to see the stars tonight. || 今晚不可能看到星星。
+W: possible 以 p 開頭，用 im-。
+S: He is very [unresponsible|irresponsible]. || 他很不負責任。
+W: responsible 以 r 開頭，用 ir-。
+S: Don't [disunderstand|misunderstand] me. || 別誤會我。
+W: 「誤解」用 mis-。
+S: I'm [inhappy|unhappy] with the result. || 我對結果不滿意。
+W: happy 的否定是 unhappy。

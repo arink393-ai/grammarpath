@@ -61,3 +61,26 @@ W: 地球是「被」看，要用過去分詞 Seen。
 - 分詞構句的主詞要和主要子句一致：是「我」在走路，不是樹。
 - 表示原因狀態用 Being + 形容詞，不是 Been。
 - Having 後面接過去分詞 finished。
+
+# mc
+Q: ___ by the noise, the baby started crying. || 被噪音嚇到，寶寶開始哭了。
+A: Frightening | Frightened* | Having frightened
+W: 寶寶「被」嚇到，用過去分詞。
+Q: ___ tired, she went to bed early. || 因為很累，她早早就睡了。
+A: Been | Being* | Be
+W: 表示原因狀態用 Being + 形容詞。
+Q: ___ his work, he went home. || 做完工作後，他回家了。
+A: Having finished* | Finished | Having finish
+W: 先完成再回家，用 Having + p.p.。
+Q: ___ English well, she got the job. || 因為英文說得好，她得到了這份工作。
+A: Spoken | Speaking* | Speak
+W: 主詞 she 主動說英文，用 V-ing。
+# err
+S: [Writing|Written] in 1900, the book is still popular. || 這本書寫於 1900 年，至今仍受歡迎。
+W: 書是「被」寫的，用過去分詞 Written。
+S: [Knowing not|Not knowing] the answer, he kept quiet. || 不知道答案，他保持安靜。
+W: 否定分詞構句的 not 放在分詞前面。
+S: Having [ate|eaten] lunch, we went for a walk. || 吃完午餐後，我們去散步。
+W: Having 後面接過去分詞 eaten。
+S: Opening the box, [a cat jumped out|I found a cat inside]. || 打開箱子，我發現裡面有一隻貓。
+W: 分詞構句的主詞要和主要子句一致：是「我」打開箱子，不是貓。

@@ -55,3 +55,26 @@ W: 回答 this / that 的問句，要用 it。
 - shoes 是複數，要用 these。
 - apples 是複數，遠處用 those。
 - desk 是單數，要用 This is。
+
+# mc
+Q: Can you see ___ mountains over there? || 你看得到那邊的那些山嗎？
+A: these | those* | that
+W: 遠處的複數用 those。
+Q: ___ is my friend, Lily. || 這位是我的朋友莉莉。
+A: This* | These | Those
+W: 介紹單數的人用 This is…。
+Q: I like ___ shoes I'm wearing. || 我喜歡我腳上這雙鞋。
+A: this | these* | that
+W: 近的、複數（shoes）用 these。
+Q: Is this your eraser? — Yes, ___ is. || 這是你的橡皮擦嗎？是的。
+A: this | it* | that
+W: 回答 this 的問句用 it。
+# err
+S: [These|This] book is very interesting. || 這本書很有趣。
+W: book 是單數，用 this。
+S: [That|Those] cookies smell good. || 那些餅乾聞起來很香。
+W: cookies 是複數，用 those。
+S: Are these your socks? — Yes, [these|they] are. || 這些是你的襪子嗎？是的。
+W: 回答 these 的問句用 they。
+S: This [are|is] my new bike. || 這是我的新腳踏車。
+W: This 是單數，用 is。

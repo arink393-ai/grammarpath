@@ -55,3 +55,26 @@ W: own 是狀態動詞，用現在完成式。
 - 有 since 表示持續到現在，用現在完成進行式。
 - has been 後面接 V-ing。
 - know 是狀態動詞，用現在完成式 has known。
+
+# mc
+Q: It ___ since this morning. || 從今天早上就一直在下雨。
+A: is raining | has been raining* | rained
+W: since 表示持續到現在，用現在完成進行式。
+Q: How long have you ___ for me? || 你等我多久了？
+A: wait | been waiting* | waiting
+W: have been + V-ing。
+Q: I ___ three cups of coffee today. || 我今天已經喝了三杯咖啡。
+A: have been drinking | have drunk* | am drinking
+W: 有具體數量（三杯），強調結果，用現在完成式。
+Q: She's tired because she ___ all day. || 她很累，因為她工作了一整天。
+A: has been working* | is work | works
+W: 持續到現在、造成現在的狀態，用現在完成進行式。
+# err
+S: We [are living|have been living] here since 2015. || 我們從 2015 年就住在這裡。
+W: since 表示持續到現在，用完成進行式。
+S: He has been [study|studying] for three hours. || 他已經讀了三個小時。
+W: has been 後面接 V-ing。
+S: I [have been knowing|have known] her since kindergarten. || 我從幼稚園就認識她。
+W: know 是狀態動詞，用現在完成式。
+S: They [has|have] been playing games all afternoon. || 他們打了一下午的電動。
+W: They 用 have。

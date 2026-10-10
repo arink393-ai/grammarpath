@@ -53,3 +53,26 @@ W: bread 不可數，用 There is。
 - restaurants 是複數，用 There are。
 - traffic 不可數，用 There is。
 - 某處「有」某物，要用 There is，不能用 Have。
+
+# mc
+Q: There ___ some apples on the table. || 桌上有一些蘋果。
+A: is | are* | have
+W: apples 複數，用 There are。
+Q: ___ there any questions? || 有任何問題嗎？
+A: Is | Are* | Have
+W: questions 複數，用 Are there。
+Q: There ___ any water in the bottle. || 瓶子裡沒有水。
+A: aren't | isn't* | don't
+W: water 不可數，用 isn't。
+Q: How many people ___ in your family? || 你家有幾個人？
+A: is there | are there* | there are
+W: 問句語序：How many + 名詞 + are there？
+# err
+S: There [is|are] two bathrooms in our house. || 我們家有兩間浴室。
+W: two bathrooms 複數，用 There are。
+S: There [are|is] a lot of noise outside. || 外面很吵。
+W: noise 不可數，用 There is。
+S: [Have|There are] many stores on this street. || 這條街上有很多商店。
+W: 某處「有」某物，用 There be 句型。
+S: There [was|were] many people at the concert yesterday. || 昨天演唱會有很多人。
+W: people 是複數，過去式用 were。

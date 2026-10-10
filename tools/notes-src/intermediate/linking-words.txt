@@ -56,3 +56,26 @@ W: 放在子句前表示「雖然」要用 although。
 - although 和 but 不能同時使用。
 - however 不能接子句當「雖然」，要用 although。
 - however 不能用逗號接兩個句子；前面要用句號（或分號）。
+
+# mc
+Q: ___ he is young, he is very wise. || 雖然他很年輕，卻很有智慧。
+A: However | Although* | But
+W: 接子句表示「雖然」，用 although。
+Q: It was cold. ___, we went swimming. || 天氣很冷。然而，我們還是去游泳了。
+A: Although | However* | Because
+W: 新句子開頭的「然而」用 However。
+Q: She was sick, ___ she stayed home. || 她生病了，所以待在家。
+A: therefore | so* | however
+W: 用逗號連接兩個子句，要用連接詞 so。
+Q: The bus was late. ___, I missed the meeting. || 公車遲到了，因此我錯過了會議。
+A: So that | Therefore* | Although
+W: 新句子開頭表示結果用 Therefore。
+# err
+S: Although the food was cheap, [but it|it] was delicious. || 雖然食物很便宜，卻很好吃。
+W: although 和 but 不能同時用。
+S: It was late[, however,|. However,] we kept working. || 很晚了。然而我們還是繼續工作。
+W: however 不能用逗號接兩個句子，前面要用句號。
+S: [However|Although] it rained, we had fun. || 雖然下雨，我們還是玩得很開心。
+W: 接子句表示「雖然」要用 although。
+S: I studied hard[, therefore|, so] I passed. || 我很用功，所以考過了。
+W: 用逗號連接兩個子句要用連接詞 so；therefore 前面要用句號或分號。

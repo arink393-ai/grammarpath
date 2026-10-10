@@ -57,3 +57,26 @@ W: Let's 後面接原形動詞 go。
 - 祈使句省略主詞 You，直接用原形動詞 Open 開頭。
 - Don't 後面直接接原形 be，不加 to。
 - Let's 後面接原形動詞 go。
+
+# mc
+Q: ___ the door, please. It's cold. || 請關門，好冷。
+A: Close* | Closing | You closing
+W: 祈使句用原形動詞開頭。
+Q: ___ shout in the hospital. || 在醫院不要大叫。
+A: Not | Don't* | No
+W: 否定祈使句用 Don't + 原形。
+Q: Let's ___ a break. || 我們休息一下吧。
+A: take* | taking | to take
+W: Let's + 原形動詞。
+Q: ___ kind to others. || 對別人要友善。
+A: Be* | Being | Are
+W: 形容詞前用 Be。
+# err
+S: [Don't to|Don't] forget your homework. || 別忘了你的功課。
+W: Don't 後面直接接原形動詞。
+S: [Quiet|Be quiet], please. || 請安靜。
+W: quiet 是形容詞，前面要加 Be。
+S: [Turns|Turn] left at the corner. || 在轉角左轉。
+W: 祈使句用原形動詞。
+S: Let's [not to|not] be late. || 我們不要遲到。
+W: Let's not 後面接原形動詞。

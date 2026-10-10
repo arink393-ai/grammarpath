@@ -48,3 +48,26 @@ W: 「它的」是 its，沒有撇號；it's = it is。
 - 意思是 They are going…，要寫 They're。
 - 後面接名詞 food，表示「他們的」，用 their。
 - 「有…」的句型用 There is。
+
+# mc
+Q: I put your bag over ___. || 我把你的包包放在那邊。
+A: their | there* | they're
+W: 指地點用 there。
+Q: The kids are happy because ___ on vacation. || 孩子們很開心，因為他們在放假。
+A: their | there | they're*
+W: = they are on vacation。
+Q: ___ are many stars in the sky. || 天上有很多星星。
+A: There* | Their | They're
+W: 「有…」用 There are。
+Q: Tom and Amy love ___ new puppy. || 湯姆和艾咪很愛他們的新小狗。
+A: their* | there | they're
+W: 後接名詞 puppy，表示「他們的」。
+# err
+S: Is [their|there] a bus stop near here? || 這附近有公車站嗎？
+W: 「有…」的句型要用 there。
+S: [There|They're] my cousins from Kaohsiung. || 他們是我高雄來的表親。
+W: 意思是 They are，要寫 They're。
+S: [You're|Your] phone is ringing. || 你的手機在響。
+W: 「你的」是 your；you're 是 you are。
+S: The students opened [they're|their] books. || 學生們打開他們的書。
+W: 後接名詞 books，用所有格 their。

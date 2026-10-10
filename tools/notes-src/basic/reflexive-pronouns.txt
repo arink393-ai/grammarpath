@@ -57,3 +57,26 @@ W: 主詞和受詞是同一個人，要用反身代名詞 herself。
 - 主詞 I 和受詞同一人，要用 myself。
 - he 的反身代名詞是 himself。
 - they 的反身代名詞是 themselves。
+
+# mc
+Q: I looked at ___ in the mirror. || 我看著鏡子裡的自己。
+A: me | myself* | mine
+W: 主詞和受詞是同一人，用反身代名詞。
+Q: The kids made dinner by ___. || 孩子們自己做了晚餐。
+A: themself | themselves* | theirselves
+W: they 的反身代名詞是 themselves。
+Q: Please make ___ at home. || 請別客氣，當自己家。
+A: you | yourself* | yours
+W: make oneself at home 是慣用語。
+Q: The machine turns ___ off after one hour. || 這台機器一小時後會自動關機。
+A: it | itself* | its
+W: 主詞是機器本身，用 itself。
+# err
+S: She bought [her|herself] a new dress. || 她給自己買了一件新洋裝。
+W: 主詞和受詞是同一人，用 herself。
+S: We should believe in [us|ourselves]. || 我們應該相信自己。
+W: we 的反身代名詞是 ourselves。
+S: Did you hurt [yourselfs|yourselves]? || 你們有受傷嗎？
+W: 複數的 -self 要改成 -selves。
+S: I [relaxed myself|relaxed] on the beach. || 我在海灘上放鬆。
+W: relax 一般不接反身代名詞。

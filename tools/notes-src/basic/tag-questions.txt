@@ -54,3 +54,26 @@ W: never 已經是否定，附加問句用肯定 does she。
 - 主詞 you 配 are，否定附加問句是 aren't you。
 - 附加問句的代名詞要對應主詞 She，用 she 不是 it。
 - 前面肯定，附加問句要用否定 isn't it。
+
+# mc
+Q: You can swim, ___? || 你會游泳，對吧？
+A: can you | can't you* | don't you
+W: 前肯定後否定，助動詞用 can。
+Q: They didn't come, ___? || 他們沒來，對吧？
+A: did they* | didn't they | do they
+W: 前否定後肯定。
+Q: Ken is your brother, ___? || 肯是你哥哥，對吧？
+A: isn't Ken | isn't he* | doesn't he
+W: 附加問句的主詞用代名詞 he。
+Q: There is a park near here, ___? || 這附近有公園，對吧？
+A: isn't it | isn't there* | is there
+W: There be 句型保留 there。
+# err
+S: You like coffee, [aren't you|don't you]? || 你喜歡咖啡，對吧？
+W: 一般動詞 like 的附加問句用 don't。
+S: She won't come, [won't she|will she]? || 她不會來，對吧？
+W: 前面否定，附加問句用肯定。
+S: Open the window, [do you|will you]? || 打開窗戶好嗎？
+W: 祈使句的附加問句用 will you。
+S: Your parents were at home, [wasn't it|weren't they]? || 你爸媽那時在家，對吧？
+W: 主詞是複數 parents，用 weren't they。

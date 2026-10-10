@@ -57,3 +57,26 @@ W: will have 後面接過去分詞 gone。
 - by next year 表示之前已完成，用未來完成式 will have finished。
 - will be 後面接 V-ing：will be finishing。
 - will have 後面接過去分詞 gone。
+
+# mc
+Q: At 10 a.m. tomorrow, we ___ a math test. || 明天早上十點我們正在考數學。
+A: will take | will be taking* | will have taken
+W: 未來某時刻正在做，用未來進行式。
+Q: By the time you wake up, I ___ for Taipei. || 等你醒來時，我已經出發去台北了。
+A: will leave | will have left* | will be leave
+W: by the time + 現在式，主要子句用未來完成式。
+Q: ___ you be using the computer tonight? || 你今晚會用到電腦嗎？
+A: Will* | Are | Do
+W: 禮貌詢問對方的安排：Will you be using…?
+Q: She will have ___ her degree by next June. || 到明年六月她就會拿到學位了。
+A: finish | finished* | finishing
+W: will have + p.p.。
+# err
+S: By next week, I [will read|will have read] the whole book. || 到下週，我就會讀完整本書了。
+W: by + 未來時間，表示之前已完成，用未來完成式。
+S: This time tomorrow, we will be [fly|flying] to Bangkok. || 明天這個時候，我們正在飛往曼谷。
+W: will be + V-ing。
+S: They will have [ate|eaten] dinner by eight. || 他們八點前就會吃完晚餐。
+W: will have 後面接過去分詞 eaten。
+S: Don't call at nine. I [will sleep|will be sleeping] then. || 九點別打來，那時我正在睡覺。
+W: 未來某時刻正在進行，用 will be sleeping。

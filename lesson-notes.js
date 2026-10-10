@@ -3,7 +3,7 @@
    區塊：{h,p} 段落（p 可含 HTML）｜{t:"table",cap,head:[],rows:[[]],note}｜{t:"tip",p}
    改錯句：用 [錯|對] 標出錯處，例如 "The only thing that matters [are|is] money." */
 (function(){
-  const LN_V = 2;
+  const LN_V = 3;
   const cache = {}, jobs = {};
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   function load(level){

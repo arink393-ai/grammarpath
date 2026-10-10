@@ -68,3 +68,26 @@ W: stop 是短母音＋單子音，要重複 p 再加 -ed。
 - didn't 後面要接原形動詞 go。
 - Did 後面要接原形動詞 see。
 - buy 的過去式是不規則的 bought。
+
+# mc
+Q: I ___ my keys yesterday. || 我昨天弄丟了鑰匙。
+A: lose | lost* | losed
+W: lose 的過去式是 lost。
+Q: She ___ to the party last Saturday. || 她上週六沒去派對。
+A: didn't come* | didn't came | not came
+W: didn't + 原形。
+Q: They ___ a new house in 2020. || 他們 2020 年買了新房子。
+A: buyed | bought* | buy
+W: buy 的過去式是 bought。
+Q: What time ___ you get home last night? || 你昨晚幾點到家？
+A: do | did* | were
+W: 過去的一般動詞問句用 did。
+# err
+S: We [eated|ate] dumplings for dinner. || 我們晚餐吃了水餃。
+W: eat 的過去式是 ate。
+S: He didn't [finished|finish] his homework. || 他沒寫完功課。
+W: didn't 後面接原形。
+S: I [plaied|played] basketball after school. || 我放學後打了籃球。
+W: 母音＋y 結尾，直接加 -ed。
+S: She [teached|taught] English in Japan. || 她在日本教英文。
+W: teach 的過去式是 taught。

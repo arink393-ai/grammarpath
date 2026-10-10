@@ -50,3 +50,26 @@ W: milk 不可數，用 a little。
 - books 可數，問數量用 How many。
 - people 是複數可數名詞，不能用 much；肯定句用 a lot of。
 - homework 不可數，不能加 s，也不能用 many。
+
+# mc
+Q: How ___ eggs do we need? || 我們需要幾顆蛋？
+A: much | many* | lot
+W: eggs 可數，用 How many。
+Q: There isn't ___ juice left. || 果汁剩不多了。
+A: many | much* | a few
+W: juice 不可數，否定句用 much。
+Q: She has ___ friends at school. || 她在學校有很多朋友。
+A: a lot of* | much | a little
+W: friends 可數複數，肯定句用 a lot of（或 many）。
+Q: I only have ___ money. || 我只有一點錢。
+A: a few | a little* | many
+W: money 不可數，「一點」用 a little。
+# err
+S: How [many|much] sugar do you want? || 你要多少糖？
+W: sugar 不可數，用 How much。
+S: There are [much|many] students in the hall. || 禮堂裡有很多學生。
+W: students 可數，用 many。
+S: I have [a little|a few] questions. || 我有幾個問題。
+W: questions 可數，用 a few。
+S: Don't eat too [many|much] chocolate. || 不要吃太多巧克力。
+W: chocolate 不可數，用 too much。

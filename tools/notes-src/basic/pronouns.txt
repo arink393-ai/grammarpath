@@ -56,3 +56,26 @@ W: 介系詞 for 後面要用受格 me。拿掉 my sister 試試：for me。
 - 主詞要用主格 I，而且禮貌上把自己放後面：Tom and I。
 - saw 是動詞，後面接受格 her。
 - 介系詞 between 後面要用受格：between you and me。
+
+# mc
+Q: Where are my glasses? I can't find ___. || 我的眼鏡在哪？我找不到。
+A: it | them* | they
+W: glasses 是複數；find 後面放受格 them。
+Q: Mr. Wang is our teacher. ___ is very funny. || 王老師是我們的老師，他很風趣。
+A: Him | He* | His
+W: 動詞 is 前面當主詞，用主格 He。
+Q: Please sit next to ___. || 請坐在我旁邊。
+A: I | me* | my
+W: 介系詞 to 後面用受格 me。
+Q: My friends and ___ went to the beach. || 我和朋友去了海邊。
+A: me | I* | my
+W: 主詞位置用主格 I。
+# err
+S: My mom called [I|me] last night. || 我媽昨晚打給我。
+W: called 是動詞，後面用受格 me。
+S: [Him|He] is my best friend. || 他是我最好的朋友。
+W: 主詞位置要用主格 He。
+S: This present is for [they|them]. || 這份禮物是給他們的。
+W: 介系詞 for 後面用受格 them。
+S: Amy and [me|I] are in the same class. || 艾咪和我同班。
+W: 主詞位置用主格 I。

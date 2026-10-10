@@ -63,3 +63,26 @@ W: rise 本身就是「上升」，不需要再加 up。
 - fly 是不及物動詞，接地點要加介系詞：fly in the sky。
 - arrive 不接 to；到學校用 arrive at school。
 - fall 不及物，接方向要加介系詞：fell to the ground。
+
+# mc
+Q: Many people ___ in the accident. || 很多人在意外中喪生。
+A: died* | were died | died them
+W: die 是不及物動詞，沒有被動，也不接受詞。
+Q: The guests ___ at seven. || 客人七點到。
+A: arrived* | arrived the party | were arrived
+W: arrive 是不及物動詞，S + V 就完整。
+Q: Please wait ___ me here. || 請在這裡等我。
+A: to | for* | at
+W: wait 不及物，要用 wait for + 人。
+Q: The sun ___ in the west. || 太陽從西方落下。
+A: sets* | is set | sets it
+W: set（落下）是不及物動詞。
+# err
+S: The plane [arrived to|arrived at] the airport. || 飛機抵達機場。
+W: arrive 不接 to；小地點用 arrive at。
+S: I like to [listen|listen to] music. || 我喜歡聽音樂。
+W: listen 不及物，接受詞要加 to。
+S: The problem [was disappeared|disappeared]. || 問題消失了。
+W: disappear 是不及物動詞，不能用被動。
+S: Please look [the|at the] board. || 請看黑板。
+W: look 不及物，要說 look at。

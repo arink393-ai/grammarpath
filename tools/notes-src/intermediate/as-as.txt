@@ -56,3 +56,26 @@ W: as … as 前後都要用 as，不能用 than。
 - as … as 中間用原級 tall。
 - 否定說 not as tall as，後面不能接 than。
 - as … as 的後半一樣用 as。
+
+# mc
+Q: Your bag is as ___ as mine. || 你的包包和我的一樣重。
+A: heavier | heavy* | heaviest
+W: as … as 中間用原級。
+Q: He doesn't run as ___ as his brother. || 他跑得沒有他哥哥快。
+A: fast* | faster | fastly
+W: as … as 中間用原級 fast。
+Q: She has as ___ books as a library. || 她的書跟圖書館一樣多。
+A: much | many* | more
+W: books 可數，用 as many as。
+Q: My room is half as big ___ yours. || 我的房間只有你的一半大。
+A: than | as* | so
+W: 倍數 + as … as。
+# err
+S: This box is as [bigger|big] as that one. || 這個箱子和那個一樣大。
+W: as … as 中間用原級。
+S: She sings as [beautiful|beautifully] as a bird. || 她唱得像鳥一樣好聽。
+W: 修飾動詞 sings 要用副詞。
+S: I don't have as [many|much] money as you. || 我的錢沒有你多。
+W: money 不可數，用 as much as。
+S: Tom is not as tall [than|as] Ken. || 湯姆沒有肯高。
+W: as … as 後半要用 as。

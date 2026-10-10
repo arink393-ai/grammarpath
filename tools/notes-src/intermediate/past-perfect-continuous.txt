@@ -50,3 +50,26 @@ W: have 表「擁有」是狀態動詞，用過去完成式 had had。
 - 到過去某時已持續了一段時間，用 had been waiting。
 - had been 後面接 V-ing。
 - know 是狀態動詞，用過去完成式 had known。
+
+# mc
+Q: He ___ for three hours when he finally stopped. || 他終於停下來時，已經跑了三個小時。
+A: had been running* | has been running | runs
+W: 到過去某時已持續多久，用 had been V-ing。
+Q: The road was wet because it ___. || 路是濕的，因為剛剛一直在下雨。
+A: had been raining* | has rained | rains
+W: 解釋過去狀態的原因。
+Q: We had been ___ for an hour before the bus came. || 公車來之前我們已經等了一個小時。
+A: wait | waiting* | waited
+W: had been + V-ing。
+Q: How long ___ you been living there before you moved? || 你搬家前在那裡住了多久？
+A: have | had* | did
+W: 過去完成進行式的問句用 had。
+# err
+S: She [has been|had been] working there for five years before she quit. || 她辭職前在那裡工作了五年。
+W: 持續到過去某時（辭職），用 had been。
+S: They had been [play|playing] soccer, so they were thirsty. || 他們剛一直在踢足球，所以很渴。
+W: had been 後面接 V-ing。
+S: I [had been owning|had owned] the car for ten years before I sold it. || 我賣車前已經擁有它十年了。
+W: own 是狀態動詞，用過去完成式。
+S: He [was studying|had been studying] for six hours when he fell asleep. || 他睡著時已經讀了六個小時。
+W: 有 for six hours 表示到過去某時已持續多久，用 had been studying。

@@ -62,3 +62,26 @@ W: 就近原則，動詞跟著 the students（複數）。
 - neither…nor 已經是否定，不能再加 don't。
 - either 要和 or 配對。
 - neither of them 正式用單數動詞 is。
+
+# mc
+Q: ___ my mom nor my dad can cook. || 我媽和我爸都不會煮飯。
+A: Either | Neither* | Both
+W: 「兩者都不」用 neither…nor。
+Q: You can take ___ the bus or the train. || 你可以搭公車或火車。
+A: either* | neither | both
+W: 二選一用 either…or。
+Q: I can't swim. — I can't ___. || 我不會游泳。我也不會。
+A: too | either* | neither
+W: 否定句的「也」用 either。
+Q: ___ Amy and her sister are good at math. || 艾咪和她妹妹數學都很好。
+A: Either | Neither | Both*
+W: 「兩者都」用 both…and。
+# err
+S: Neither Tom [or|nor] Ken was at school. || 湯姆和肯都沒到學校。
+W: neither 要和 nor 配對。
+S: Either you or he [are|is] going to win. || 不是你就是他會贏。
+W: 就近原則，動詞跟著 he，用 is。
+S: I don't like it. — [So|Neither] do I. || 我不喜歡。我也不喜歡。
+W: 否定的「我也不」用 Neither do I。
+S: She [doesn't speak neither|speaks neither] French nor German. || 她法文和德文都不會說。
+W: neither…nor 已經是否定，不能再加 doesn't。

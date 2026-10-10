@@ -55,3 +55,26 @@ W: 「不必」是 don't have to；mustn't 是「禁止」，意思不對。
 - must 後面直接接原形動詞，不加 to。
 - 主詞 She 單數，have to 要變 has to。
 - 「不必擔心」是 don't have to；must 不能和 don't 連用。
+
+# mc
+Q: Students ___ run in the hallway. It's against the rules. || 學生不准在走廊奔跑，這是違反規定的。
+A: mustn't* | don't have to | doesn't have to
+W: 禁止用 mustn't。
+Q: You ___ bring anything. We have everything. || 你不用帶任何東西，我們什麼都有。
+A: mustn't | don't have to* | must
+W: 「不必」用 don't have to。
+Q: He ___ wear glasses to read. || 他看書必須戴眼鏡。
+A: have to | has to* | must to
+W: 主詞 he，用 has to。
+Q: We ___ wait for an hour yesterday. || 我們昨天得等一個小時。
+A: must | had to* | have to
+W: 過去的必須用 had to。
+# err
+S: You [must not to|must not] park here. || 你不准在這裡停車。
+W: must not 後面接原形。
+S: [Does she must|Does she have to] work on Sunday? || 她星期天必須工作嗎？
+W: must 不能和 does 連用，用 Does she have to。
+S: I [must|had to] stay home yesterday because I was sick. || 我昨天生病，只好待在家。
+W: must 沒有過去式，用 had to。
+S: My dad [have to|has to] get up at five. || 我爸爸必須五點起床。
+W: 主詞 my dad 單數，用 has to。

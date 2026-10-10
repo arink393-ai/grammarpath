@@ -64,3 +64,26 @@ W: 她是「感到」尷尬的人，用 -ed。
 - 我「感到」無聊，用 -ed：bored。
 - 電影「令人」無聊，用 -ing：boring。
 - 她「感到」有興趣，用 interested in。
+
+# mc
+Q: The news was very ___. || 這個消息很令人震驚。
+A: shocked | shocking* | shock
+W: 消息「令人」震驚，用 -ing。
+Q: I'm ___ of eating the same food every day. || 我厭倦了每天吃一樣的東西。
+A: tiring | tired* | tire
+W: 人「感到」厭倦，用 tired of。
+Q: The kids were ___ about the trip. || 孩子們對這趟旅行感到很興奮。
+A: exciting | excited* | excite
+W: 人「感到」興奮，用 -ed。
+Q: It was an ___ experience. || 那是一次很尷尬的經驗。
+A: embarrassed | embarrassing* | embarrass
+W: 經驗「令人」尷尬，用 -ing。
+# err
+S: The long trip was very [tired|tiring]. || 長途旅行很累人。
+W: 旅行「令人」疲累，用 -ing。
+S: We were [amazing|amazed] by the fireworks. || 我們對煙火感到驚豔。
+W: 人「感到」驚豔，用 -ed。
+S: Are you [interesting|interested] in music? || 你對音樂有興趣嗎？
+W: 人「感到」有興趣，用 interested。
+S: The instructions are very [confused|confusing]. || 這些說明很令人困惑。
+W: 說明「令人」困惑，用 -ing。

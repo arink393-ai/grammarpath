@@ -59,3 +59,26 @@ W: know 是狀態動詞，不用進行式。
 - 過去進行式要用 V-ing：was working。
 - We 是複數，配 were。
 - Wh- 問句要把 were 移到主詞前面。
+
+# mc
+Q: It ___ when we left the house. || 我們出門時正在下雨。
+A: rained | was raining* | is raining
+W: 背景、正在進行的動作用過去進行式。
+Q: I was reading ___ my sister was watching TV. || 我在看書時，我妹妹在看電視。
+A: while* | when | during
+W: 兩個持續的動作同時進行，用 while。
+Q: ___ you sleeping when I called? || 我打給你時你在睡覺嗎？
+A: Was | Were* | Did
+W: you 配 were。
+Q: He fell while he ___. || 他在跑步時跌倒了。
+A: ran | was running* | runs
+W: while 後面接持續的動作，用過去進行式。
+# err
+S: I [was|were] cooking when the phone rang. || 電話響時我在煮飯。
+W: I 配 was。
+S: What were you [do|doing] at 9 p.m.? || 你晚上九點在做什麼？
+W: 過去進行式要用 V-ing。
+S: She was walking home [while|when] she saw an accident. || 她走路回家時看到一場車禍。
+W: 後面是短動作 saw，用 when。
+S: The kids [was|were] dancing when the music stopped. || 音樂停下時孩子們正在跳舞。
+W: The kids 是複數，用 were。

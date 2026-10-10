@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v78-lesson-notes";
+const CACHE = "eci-v79-more-practice";
 const SHELL = [
   "./",
   "./index.html",
@@ -10,7 +10,7 @@ const SHELL = [
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=3",
-  "./lesson-notes.js?v=2",
+  "./lesson-notes.js?v=3",
   "./offline-content.js?v=6",
   "./daily.js?v=18",
   "./adventure.js?v=3",

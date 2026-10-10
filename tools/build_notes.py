@@ -108,6 +108,7 @@ def parse(path, lesson, errs):
                 s, _, z = ln[2:].strip().partition('||')
                 s = s.strip()
                 if not re.search(r'\[[^\]|]*\|[^\]]*\]', s): errs.append(f'{path}:{n} 改錯句要有 [錯|對]')
+                if re.search(r'\[\s*\|', s): errs.append(f'{path}:{n} [錯|對] 的「錯」不能是空的（少字時把前一個字一起框進去）')
                 err.append({'s': s, 'zh': z.strip()})
             elif ln.startswith('W:') and err: err[-1]['why'] = inline(ln[2:].strip())
             else: errs.append(f'{path}:{n} err 區無法辨識：{ln}')

@@ -56,3 +56,26 @@ W: after 引導的時間子句，用現在式表示未來。
 - will 後面直接接原形動詞，不加 to。
 - be going to 要有 be 動詞：She is going to。
 - 眼前有明顯跡象的預測，用 be going to。
+
+# mc
+Q: I'm tired. I think I ___ go to bed. || 我累了，我想我要去睡了。
+A: will* | am going | going to
+W: 說話當下才決定，用 will。
+Q: She ___ visit her grandparents next weekend. She's already bought the tickets. || 她下週末要去看爺爺奶奶，票已經買好了。
+A: will to | is going to* | going to
+W: 事先計畫好的，用 be going to。
+Q: Look at that car! It ___ crash! || 看那輛車！要撞上了！
+A: will | is going to* | crashes
+W: 看得到跡象的預測，用 be going to。
+Q: Don't worry. I ___ tell anyone. || 別擔心，我不會告訴任何人。
+A: won't* | am not going | don't will
+W: 承諾用 will；否定是 won't。
+# err
+S: I [will to|will] call you later. || 我晚點打給你。
+W: will 後面接原形。
+S: They [is going to|are going to] build a new library. || 他們要蓋一座新圖書館。
+W: They 配 are。
+S: When I [will grow|grow] up, I want to be a pilot. || 我長大後想當飛行員。
+W: when 引導的時間子句用現在式表示未來。
+S: She [won't comes|won't come] to the party. || 她不會來派對。
+W: won't 後面接原形。

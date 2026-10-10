@@ -55,3 +55,26 @@ W: 複數變化在量詞 slices 上，pizza 不加 s。
 - 茶要用量詞：a cup of tea。
 - bread 不可數，要用量詞 loaves 或 pieces of bread。
 - 量詞後面的名詞不加 s：a piece of cake。
+
+# mc
+Q: Can I have ___ of chocolate? || 我可以吃一塊巧克力嗎？
+A: a bar* | a bowl | a pair
+W: 巧克力的「一條、一塊」用 a bar of。
+Q: Please write your name on ___ of paper. || 請在一張紙上寫你的名字。
+A: a sheet* | a cup | a loaf
+W: 一張紙用 a sheet / a piece of paper。
+Q: I bought a ___ of shoes. || 我買了一雙鞋。
+A: piece | pair* | slice
+W: 成對的東西用 a pair of。
+Q: She drank two ___ of coffee. || 她喝了兩杯咖啡。
+A: cup | cups* | cups coffees
+W: 數量變化在量詞上：two cups of coffee。
+# err
+S: I'd like a [bowl|glass] of orange juice. || 我想要一杯柳橙汁。
+W: 冷飲用 glass。
+S: He ate two [slice|slices] of pizza. || 他吃了兩片披薩。
+W: 數量是兩片，量詞用複數 slices。
+S: Can you buy a carton of [milks|milk]? || 你可以買一盒牛奶嗎？
+W: 量詞後的不可數名詞不加 s。
+S: She gave me [an advice|a piece of advice]. || 她給了我一個建議。
+W: advice 不可數，要用 a piece of。

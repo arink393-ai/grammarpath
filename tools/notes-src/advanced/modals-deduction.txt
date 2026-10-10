@@ -58,3 +58,26 @@ W: 對過去的推測要用 may have + p.p.。
 - 助動詞 must 後面要用原形 have：must have left。
 - should have 後面接過去分詞 called。
 - 否定的推測用 can't have，不用 mustn't have。
+
+# mc
+Q: She isn't answering. She ___ be busy. || 她沒接電話，她可能在忙。
+A: might* | can't | must not to
+W: 不確定的推測用 might。
+Q: He ___ have left already. His car is gone. || 他一定已經走了，他的車不見了。
+A: must* | can't | should
+W: 有證據的肯定推測：must have + p.p.。
+Q: You ___ be serious! That's crazy! || 你不可能是認真的！太扯了！
+A: must | can't* | mustn't
+W: 「不可能」用 can't。
+Q: I can't find my phone. I ___ have dropped it. || 我找不到手機，可能是弄掉了。
+A: might* | can't | must not
+W: 對過去不確定的推測用 might have + p.p.。
+# err
+S: The lights are off. They [can't|must] be asleep. || 燈都關了，他們一定在睡覺。
+W: 有證據的肯定推測用 must。
+S: He [mustn't|can't] have done it. He was with me. || 他不可能做了這件事，他當時和我在一起。
+W: 「不可能」的推測用 can't have。
+S: She must have [took|taken] the wrong bus. || 她一定是搭錯公車了。
+W: must have 後面接過去分詞 taken。
+S: They might [missed|have missed] the train. || 他們可能錯過火車了。
+W: 對過去的推測用 might have + p.p.。

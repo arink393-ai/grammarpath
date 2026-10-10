@@ -75,3 +75,26 @@ W: news 看起來像複數，其實是不可數名詞，動詞要用 is。
 - 句首第一個字母和人名、地名（Taipei）都要大寫；I 永遠大寫。
 - 語言名稱 English 是專有名詞，要大寫。
 - advice 是不可數名詞，不能加 -s；要數時說 a piece of advice。
+
+# mc
+Q: There are two ___ in the room. || 房間裡有兩張床。
+A: bed | beds* | bedes
+W: 數字 two 後面接<b>複數名詞</b>。
+Q: Every ___ is different. || 每個人都不一樣。
+A: person* | persons | people
+W: every 後面接<b>單數</b>名詞。
+Q: We visited ___ last year. || 我們去年去了東京。
+A: tokyo | Tokyo* | the Tokyo
+W: 城市名稱是專有名詞，要大寫，也不加 the。
+Q: I need some ___ for my trip. || 我旅行需要一些錢。
+A: moneys | money* | a money
+W: money 是<b>不可數名詞</b>，沒有複數也不加 a。
+# err
+S: I have three [sister|sisters]. || 我有三個姊妹。
+W: 數字三後面要用複數名詞 sisters。
+S: My birthday is in [april|April]. || 我的生日在四月。
+W: 月份名稱要大寫。
+S: He gave me a lot of [informations|information]. || 他給了我很多資訊。
+W: information 不可數，不能加 -s。
+S: Can I have some [breads|bread]? || 可以給我一些麵包嗎？
+W: bread 是不可數名詞，沒有複數形。

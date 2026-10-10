@@ -57,3 +57,26 @@ W: never 本身就是否定，不能再加 don't。
 - be 動詞句，頻率副詞放在 be 後面：is always。
 - 一般動詞句，頻率副詞放在動詞前面：never go。
 - never 已經是否定，不能再加 doesn't；主詞 He 單數，動詞加 s：helps。
+
+# mc
+Q: I ___ eat breakfast. It's important to me. || 我總是吃早餐，這對我很重要。
+A: never | always* | seldom
+W: 「很重要」所以總是吃，用 always。
+Q: He is ___ tired after work. || 他下班後通常很累。
+A: usually* | usual | use
+W: 頻率副詞 usually 放在 be 動詞後面。
+Q: They ___ play basketball on weekends. || 他們週末有時打籃球。
+A: sometimes* | are sometimes | sometime
+W: 一般動詞前放頻率副詞 sometimes；sometime 是「某個時候」。
+Q: How often ___ she go swimming? || 她多常去游泳？
+A: do | does* | is
+W: 主詞 she 單數，助動詞用 does。
+# err
+S: She [goes often|often goes] to the library. || 她常去圖書館。
+W: 頻率副詞放在一般動詞前面。
+S: I [always am|am always] busy on Mondays. || 我星期一總是很忙。
+W: 頻率副詞放在 be 動詞後面。
+S: We [don't never|never] eat fast food. || 我們從不吃速食。
+W: never 已經是否定，不能再加 don't。
+S: He can [swim never|never swim] in the sea. || 他從來不能在海裡游泳。
+W: 助動詞句，頻率副詞放在助動詞後、主要動詞前。

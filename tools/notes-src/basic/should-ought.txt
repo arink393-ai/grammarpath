@@ -55,3 +55,26 @@ W: should 的否定直接加 not：shouldn't。
 - should 後面直接接原形動詞，不加 to。
 - ought 後面一定要加 to。
 - should 本身不加 -s。
+
+# mc
+Q: You ___ wear a helmet when you ride a scooter. || 騎機車應該戴安全帽。
+A: should* | should to | shoulds
+W: should + 原形。
+Q: ___ I tell the teacher? || 我應該告訴老師嗎？
+A: Should* | Do I should | Ought
+W: 疑問句把 Should 放前面。
+Q: We ought ___ leave now. || 我們應該現在出發。
+A: to* | for | 不填
+W: ought 要接 to。
+Q: You'd better not ___ late again. || 你最好別再遲到了。
+A: be* | to be | being
+W: had better not + 原形。
+# err
+S: You [should to|should] drink more water. || 你應該多喝水。
+W: should 後面直接接原形。
+S: She [shoulds|should] go to bed early. || 她應該早點睡。
+W: should 不加 -s。
+S: You [ought|ought to] apologize to her. || 你應該向她道歉。
+W: ought 後面一定要接 to。
+S: You [had better to|had better] hurry. || 你最好快一點。
+W: had better 後面接原形動詞。

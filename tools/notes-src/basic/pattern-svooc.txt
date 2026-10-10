@@ -57,3 +57,26 @@ W: 感官動詞 see 後面的受詞補語用原形動詞（或 V-ing），不加
 - 受詞補語描述 him 的狀態，用形容詞 happy。
 - 受詞補語要用形容詞 difficult，不是名詞 difficulty。
 - name 後面直接接名字，不加 to。
+
+# mc
+Q: The teacher made us ___ the poem. || 老師要我們背這首詩。
+A: memorize* | to memorize | memorized
+W: 使役動詞 make 後接原形動詞。
+Q: We painted the wall ___. || 我們把牆漆成白色。
+A: white* | whitely | whiten
+W: 受詞補語用形容詞 white。
+Q: I found the movie ___. || 我覺得這部電影很無聊。
+A: bored | boring* | boringly
+W: 受詞補語描述「電影」（令人無聊），用 boring。
+Q: My parents want me ___ a doctor. || 我爸媽希望我當醫生。
+A: be | to be* | being
+W: want + 受詞 + to V。
+# err
+S: The cold weather made me [sickly|sick]. || 寒冷的天氣讓我生病了。
+W: 受詞補語用形容詞 sick。
+S: Please keep the door [closely|closed]. || 請讓門保持關著。
+W: 受詞補語描述門的狀態，用 closed。
+S: Mom let me [to go|go] to the party. || 媽媽讓我去派對。
+W: 使役動詞 let 後面接原形動詞。
+S: They call [as him|him] "the King." || 他們叫他「國王」。
+W: call + 受詞 + 名詞補語，中間不加 as。

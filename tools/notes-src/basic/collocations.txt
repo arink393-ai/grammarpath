@@ -73,3 +73,26 @@ W: 玩得開心是 have a great time。
 - 吃早餐用 have breakfast，不用 take。
 - 拍照是 take a photo，不用 do。
 - 洗澡是 have a shower（或美式 take a shower），不用 get。
+
+# mc
+Q: Let's ___ a break. || 我們休息一下吧。
+A: make | take* | do
+W: 休息是 take a break。
+Q: I need to ___ my best on the test. || 我考試要盡全力。
+A: make | do* | have
+W: 盡全力是 do one's best。
+Q: She ___ a lot of friends at her new school. || 她在新學校交了很多朋友。
+A: did | made* | took
+W: 交朋友是 make friends。
+Q: Don't ___ lost in the mall. || 別在商場裡迷路。
+A: get* | take | make
+W: 迷路是 get lost。
+# err
+S: Can you [make|do] me a favor? || 你可以幫我一個忙嗎？
+W: 幫忙是 do a favor。
+S: I [made|took] a lot of photos on my trip. || 我旅行時拍了很多照片。
+W: 拍照是 take photos。
+S: We [made|had] lunch at a nice restaurant. || 我們在一家不錯的餐廳吃午餐。
+W: 吃三餐用 have。
+S: Please don't [do|make] so much noise. || 請不要製造那麼多噪音。
+W: 製造噪音是 make noise。

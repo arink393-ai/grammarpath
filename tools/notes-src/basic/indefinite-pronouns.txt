@@ -57,3 +57,26 @@ W: 形容詞要放在不定代名詞後面。
 - 已有 didn't，不能再用 nobody；否定句用 anybody。
 - everybody 是單數，動詞用 is。
 - isn't 和 nothing 會變雙重否定；用 anything，或改成 There is nothing。
+
+# mc
+Q: Is ___ home? The lights are on. || 有人在家嗎？燈是亮的。
+A: anyone* | no one | everyone are
+W: 一般疑問句用 any-。
+Q: I'm hungry. I want ___ to eat. || 我餓了，我想吃點東西。
+A: anything | something* | nothing
+W: 肯定句用 some-。
+Q: ___ in my class likes music. || 我們班上每個人都喜歡音樂。
+A: Everyone* | Anyone | No one don't
+W: 「每個人」用 everyone，動詞用單數 likes。
+Q: There is ___ in the fridge. It's empty. || 冰箱裡什麼都沒有，空的。
+A: anything | nothing* | something
+W: 肯定句中表示「沒有東西」用 nothing。
+# err
+S: Someone [have|has] taken my pen. || 有人拿走了我的筆。
+W: someone 當單數，用 has。
+S: I didn't tell [nobody|anybody] about it. || 我沒有告訴任何人。
+W: 已經有 didn't，不能再用 nobody。
+S: Would you like [anything|something] to drink? || 你想喝點什麼嗎？
+W: 提供東西的問句用 some-。
+S: Let's do [different something|something different]. || 我們做點不一樣的事吧。
+W: 形容詞放在不定代名詞後面。

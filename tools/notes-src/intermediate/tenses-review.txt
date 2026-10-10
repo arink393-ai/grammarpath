@@ -56,3 +56,26 @@ W: 有 for ten years 持續到現在，而且 know 是狀態動詞，用現在�
 - 有 yesterday 要用過去簡單式 saw。
 - right now 表示正在進行，用現在進行式。
 - since 2015 持續到現在，用現在完成式 I've lived。
+
+# mc
+Q: She usually ___ the bus to school. || 她通常搭公車上學。
+A: takes* | is taking | has taken
+W: usually 表示習慣，用現在簡單式。
+Q: I ___ my homework when my friend called. || 朋友打來時我正在寫功課。
+A: do | was doing* | have done
+W: 被打斷的進行中動作，用過去進行式。
+Q: They ___ in Taipei since 2010. || 他們從 2010 年就住在台北。
+A: live | have lived* | lived
+W: since 表示持續到現在，用現在完成式。
+Q: By next year, I ___ from college. || 到明年，我就已經大學畢業了。
+A: will graduate | will have graduated* | graduated
+W: by + 未來時間，用未來完成式。
+# err
+S: Look! It [snows|is snowing]! || 看！下雪了！
+W: Look! 表示正在發生，用現在進行式。
+S: I [have gone|went] to Kenting last summer. || 我去年夏天去了墾丁。
+W: last summer 是明確過去，用過去簡單式。
+S: She [works|has worked] here for ten years. || 她在這裡工作十年了。
+W: for ten years 持續到現在，用現在完成式。
+S: When we arrived, the show [already started|had already started]. || 我們到的時候，表演已經開始了。
+W: 比「到達」更早發生，用過去完成式。

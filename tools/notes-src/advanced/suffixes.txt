@@ -65,3 +65,26 @@ W: sun 是短母音＋單子音，加 -y 要重複 n：sunny。
 - 「教書的人」是 teacher，teach 是動詞。
 - happy 是子音＋y 結尾，加 -ness 要 y 改 i：happiness。
 - be 動詞後要用形容詞 comfortable；comfort 是名詞。
+
+# mc
+Q: The ___ of the city is very beautiful. || 這座城市的美很迷人。
+A: beautiful | beauty* | beautify
+W: the … of 中間要用名詞 beauty。
+Q: Smoking is ___ to your health. || 吸菸對健康有害。
+A: harm | harmful* | harmless
+W: be 動詞後用形容詞；-ful 是「有…的」。
+Q: She wants to be a ___. || 她想當鋼琴家。
+A: pianoer | pianist* | pianoist
+W: 「演奏…的人」用 -ist：pianist。
+Q: We need to make a ___ quickly. || 我們需要快點做決定。
+A: decide | decision* | decisive
+W: a 後面要接名詞 decision。
+# err
+S: Thank you for your [help|helpful] advice. || 謝謝你有用的建議。
+W: 修飾名詞 advice 要用形容詞 helpful。
+S: The movie was very [enjoy|enjoyable]. || 這部電影很好看。
+W: be 動詞後要用形容詞 enjoyable。
+S: Her [kind|kindness] made me smile. || 她的好意讓我微笑。
+W: 所有格 Her 後面接名詞 kindness。
+S: She is a very [create|creative] student. || 她是個很有創意的學生。
+W: 修飾名詞 student 要用形容詞 creative；create 是動詞。

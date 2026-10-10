@@ -60,3 +60,26 @@ W: 「想出」是 come up with。
 - 代名詞 it 要放在中間：picked it up。
 - look after 是不可分的，受詞緊接在後面，very well 放句尾。
 - 三字片語 put up with 不能拆開，受詞放最後。
+
+# mc
+Q: Please ___ your shoes before you come in. || 進來前請脫鞋。
+A: take off* | take on | take up
+W: 脫下是 take off。
+Q: The meeting was ___ until Friday. || 會議延到星期五。
+A: put off* | put on | put up
+W: 延期是 put off。
+Q: I need to ___ this word in the dictionary. || 我要在字典裡查這個字。
+A: look after | look up* | look for
+W: 查字典是 look up。
+Q: These are your toys. Please ___. || 這些是你的玩具，請收好。
+A: put away them | put them away* | put away
+W: 代名詞要放在可分片語動詞中間。
+# err
+S: I don't get along [to|with] my neighbor. || 我和鄰居處不好。
+W: 和…相處是 get along with。
+S: She [gave up it|gave it up] after a week. || 她一週後就放棄了。
+W: 代名詞 it 要放在中間。
+S: Can you pick [up me|me up] at the station? || 你可以到車站接我嗎？
+W: 代名詞 me 要放在中間。
+S: We've run [out|out of] paper. || 我們的紙用完了。
+W: 用完是 run out of + 名詞。

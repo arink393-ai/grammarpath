@@ -62,3 +62,26 @@ W: 有 this 時，前面不加介系詞。
 - 星期幾用 on：on Monday。
 - 月份用 in：in July。
 - 早上用 in the morning。
+
+# mc
+Q: I usually go to bed ___ 11 p.m. || 我通常晚上十一點睡覺。
+A: in | on | at*
+W: 時刻用 at。
+Q: The school year starts ___ September. || 學年從九月開始。
+A: in* | on | at
+W: 月份用 in。
+Q: We had a party ___ New Year's Eve. || 我們在除夕夜開了派對。
+A: in | on* | at
+W: 特定的一天用 on。
+Q: I've been waiting ___ two hours. || 我已經等了兩個小時。
+A: since | for* | in
+W: 一段時間長度用 for。
+# err
+S: I'll call you [in|on] Sunday afternoon. || 我星期天下午會打給你。
+W: 特定某一天的下午用 on。
+S: My birthday is [in|on] August 8. || 我的生日是八月八日。
+W: 具體日期用 on。
+S: Please hand in your report [until|by] Friday. || 請在星期五前交報告。
+W: 「最晚在…之前完成」用 by。
+S: He called me [at|in] the evening. || 他晚上打電話給我。
+W: in the evening 是固定說法。

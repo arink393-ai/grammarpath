@@ -62,3 +62,26 @@ W: 兩個助動詞不能連用，will 後面用 be able to。
 - can 後面直接接原形動詞，不加 to。
 - can 本身不加 -s。
 - could 後面接原形動詞 speak。
+
+# mc
+Q: ___ I use your phone? || 我可以用你的手機嗎？
+A: Can* | Do | Am
+W: 請求許可用 Can I…?
+Q: She couldn't ___ the door. It was locked. || 她打不開門，門鎖住了。
+A: opened | open* | to open
+W: could 後面接原形。
+Q: My little brother ___ read yet. || 我弟弟還不會識字。
+A: can't* | doesn't can | can not to
+W: can 的否定是 can't。
+Q: I'm sorry, I ___ come to your party last night. || 抱歉，我昨晚沒辦法去你的派對。
+A: can't | couldn't* | can
+W: 過去的「不能」用 couldn't。
+# err
+S: [Do you can|Can you] help me? || 你可以幫我嗎？
+W: can 的問句直接把 Can 放前面，不加 Do。
+S: She [can to|can] play the violin. || 她會拉小提琴。
+W: can 後面直接接原形。
+S: He [cans|can] run very fast. || 他跑得很快。
+W: 助動詞 can 不加 -s。
+S: I hope I [can will|will be able to] visit you next year. || 我希望明年能去看你。
+W: 兩個助動詞不能連用，改用 will be able to。

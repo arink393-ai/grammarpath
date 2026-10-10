@@ -53,3 +53,26 @@ W: 時間副詞 yesterday 放句尾就好，不要放在主詞和動詞中間。
 - very much 要放在受詞 this song 的後面。
 - 形容詞 red 要放在名詞 car 前面。
 - 地點 to school 在前、時間 every day 在後。
+
+# mc
+Q: She ___. || 她每天早上在公園跑步。
+A: runs in the park every morning* | in the park runs every morning | every morning in the park runs
+W: 動詞 → 地點 → 時間。
+Q: I have ___. || 我有一隻可愛的小貓。
+A: a cute little cat* | a little cute cat | a cat cute little
+W: 意見（cute）在大小（little）前面，都放在名詞前。
+Q: They ___ soccer after school. || 他們常常放學後踢足球。
+A: play often | often play* | playing often
+W: 頻率副詞 often 放在一般動詞 play 前面。
+Q: ___ is your new teacher? || 你的新老師是誰？
+A: Who* | Who she | She who
+W: 疑問詞放句首，再接 be 動詞和主詞。
+# err
+S: I visited my grandma [last week in Tainan|in Tainan last week]. || 我上週去台南看奶奶。
+W: 英文順序是地點在前、時間在後。
+S: He bought [a bag new|a new bag]. || 他買了一個新包包。
+W: 形容詞放在名詞前面。
+S: She speaks [very well English|English very well]. || 她英文說得很好。
+W: very well 要放在受詞 English 後面。
+S: [Where you are|Where are you] from? || 你是哪裡人？
+W: Wh- 問句要把 be 動詞移到主詞前面。

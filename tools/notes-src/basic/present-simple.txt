@@ -56,3 +56,26 @@ W: 主詞 My dog 是第三人稱單數，否定用 doesn't。
 - 主詞 He 是第三人稱單數，現在式動詞要加 -s：plays。
 - 用了 doesn't，後面的動詞要回到原形 like。
 - 主詞 she 是第三人稱單數，問句要用 Does。
+
+# mc
+Q: My grandma ___ TV every evening. || 我奶奶每天晚上看電視。
+A: watch | watches* | watching
+W: 第三人稱單數；ch 結尾加 -es。
+Q: We ___ to school on Saturdays. || 我們星期六不上學。
+A: don't go* | doesn't go | not go
+W: 主詞 We 的否定用 don't + 原形。
+Q: Does your cat ___ fish? || 你的貓吃魚嗎？
+A: eats | eat* | eating
+W: Does 後面接原形動詞。
+Q: Water ___ at 0°C. || 水在攝氏零度結冰。
+A: freeze | freezes* | is freezing
+W: 科學事實用現在簡單式；主詞單數加 s。
+# err
+S: My father [go|goes] to work by MRT. || 我爸爸搭捷運上班。
+W: 第三人稱單數，go 要加 -es。
+S: They [doesn't|don't] like spicy food. || 他們不喜歡辣的食物。
+W: They 的否定用 don't。
+S: [Do|Does] he live near here? || 他住在這附近嗎？
+W: 主詞 he 是第三人稱單數，用 Does。
+S: She [studys|studies] English every day. || 她每天讀英文。
+W: 子音＋y 結尾，去 y 加 -ies。

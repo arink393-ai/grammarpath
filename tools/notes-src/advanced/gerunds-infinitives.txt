@@ -66,3 +66,26 @@ W: 「停止抽菸（戒菸）」是 stop V-ing；stop to smoke 是「停下來�
 - enjoy 後面接動名詞 swimming。
 - want 後面接不定詞 to go。
 - avoid 後面接動名詞 answering。
+
+# mc
+Q: He refused ___ the question. || 他拒絕回答這個問題。
+A: answering | to answer* | answer
+W: refuse 後面接 to V。
+Q: I can't help ___ when I watch this show. || 我看這個節目時忍不住會笑。
+A: to laugh | laughing* | laugh
+W: can't help + V-ing。
+Q: Remember ___ the door when you leave. || 離開時記得鎖門。
+A: locking | to lock* | lock
+W: 「記得要去做」用 remember to V。
+Q: She is good at ___ pictures. || 她很會畫畫。
+A: draw | drawing* | to draw
+W: 介系詞 at 後面接 V-ing。
+# err
+S: I'm thinking about [to change|changing] my job. || 我在考慮換工作。
+W: 介系詞 about 後面接 V-ing。
+S: He promised [calling|to call] me. || 他答應會打給我。
+W: promise 後面接 to V。
+S: Would you mind [to close|closing] the window? || 你介意關一下窗戶嗎？
+W: mind 後面接 V-ing。
+S: I remember [to meet|meeting] her at a party years ago. || 我記得幾年前在派對上見過她。
+W: 「記得做過」用 remember V-ing。

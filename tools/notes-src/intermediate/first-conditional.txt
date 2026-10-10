@@ -59,3 +59,26 @@ W: unless 已經是否定，後面不能再加 don't。
 - if 子句用現在式 rains，不用 will。
 - if 子句用現在式，主要子句才用 will：If you study, you'll pass。
 - unless 已經含「不」，後面不能再加 don't。
+
+# mc
+Q: If you ___ now, you'll catch the bus. || 你現在出發的話，就趕得上公車。
+A: leave* | will leave | left
+W: if 子句用現在式。
+Q: If she doesn't study, she ___ the test. || 她不讀書的話會考不過。
+A: fails | won't pass* | didn't pass
+W: 主要子句用 will（won't）+ 原形。
+Q: ___ it rains, we'll stay inside. || 如果下雨，我們就待在室內。
+A: Unless | If* | Will
+W: 表示條件「如果」用 If。
+Q: I'll text you as soon as I ___ there. || 我一到那裡就傳訊息給你。
+A: get* | will get | got
+W: as soon as 引導的時間子句用現在式。
+# err
+S: If you [will be|are] late, the teacher will be angry. || 如果你遲到，老師會生氣。
+W: if 子句用現在式。
+S: If I see Amy, I [tell|will tell] her the news. || 如果我遇到艾咪，我會告訴她這個消息。
+W: 主要子句用 will + 原形。
+S: Unless you [don't|] practice, you won't improve. || 不練習的話，你不會進步。
+W: unless 已經是否定，不能再加 don't。
+S: We'll go to the beach if the weather [will be|is] nice. || 天氣好的話我們就去海邊。
+W: if 子句用現在式。

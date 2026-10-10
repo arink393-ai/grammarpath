@@ -61,3 +61,26 @@ W: write 字尾 e 不發音，去 e 再加 -ing。
 - 進行式要用 V-ing：am studying。
 - 進行式要有 be 動詞：She is cooking。
 - know 是狀態動詞，不用進行式：I know the answer。
+
+# mc
+Q: Be quiet! The baby ___. || 安靜！寶寶在睡覺。
+A: sleeps | is sleeping* | sleep
+W: 說話當下正在發生，用現在進行式。
+Q: We ___ dinner at the moment. || 我們現在正在吃晚餐。
+A: are having* | have | are have
+W: have 表示「吃」時可以用進行式：are having。
+Q: Why ___ you laughing? || 你為什麼在笑？
+A: do | are* | is
+W: 進行式問句用 be 動詞；you 配 are。
+Q: He is ___ a letter to his friend. || 他正在寫信給朋友。
+A: writeing | writing* | write
+W: write 去 e 加 -ing。
+# err
+S: Look! The bus [comes|is coming]. || 看！公車來了。
+W: Look! 表示正在發生，用現在進行式。
+S: They are [siting|sitting] under the tree. || 他們坐在樹下。
+W: sit 是短母音＋單子音，重複 t 再加 -ing。
+S: I [am wanting|want] a glass of water. || 我想要一杯水。
+W: want 是狀態動詞，不用進行式。
+S: My sister [are|is] playing the piano now. || 我姊姊正在彈鋼琴。
+W: My sister 單數，用 is。

@@ -60,3 +60,26 @@ W: 子音＋y 結尾的動詞，第三人稱單數要去 y 加 -ies。
 - 這個句子少了動詞，要說出「去」goes。
 - 形容詞 happy 前面要有 be 動詞 am，英文句子不能沒有動詞。
 - 主詞 He 是第三人稱單數，have 要變成 has。
+
+# mc
+Q: The baby ___ every night. || 寶寶每天晚上都哭。
+A: cry | cries* | crys
+W: 子音＋y 結尾，第三人稱單數去 y 加 -ies。
+Q: My parents ___ teachers. || 我爸媽是老師。
+A: is | are* | be
+W: 主詞複數，be 動詞用 are。
+Q: The flowers ___ beautiful. || 這些花聞起來很香。
+A: smell* | smells | smelling
+W: 主詞 flowers 複數，連綴動詞 smell 不加 s。
+Q: She ___ her room every Sunday. || 她每週日打掃房間。
+A: clean | cleans* | cleaning
+W: 第三人稱單數，現在式動詞加 -s。
+# err
+S: My dog [like|likes] bones. || 我的狗喜歡骨頭。
+W: 主詞 My dog 是第三人稱單數，動詞加 -s。
+S: They [is|are] at the park. || 他們在公園。
+W: They 是複數，be 動詞用 are。
+S: Tom [fixs|fixes] bikes after school. || 湯姆放學後修腳踏車。
+W: x 結尾的動詞加 -es。
+S: The children [very noisy|are very noisy]. || 孩子們很吵。
+W: 句子沒有動詞，形容詞前要加 be 動詞 are。

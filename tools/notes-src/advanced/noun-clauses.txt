@@ -63,3 +63,26 @@ W: 名詞子句放在句首當主詞，只能用 whether。
 - suggest that 後面的動詞用原形 go。
 - 「是否」要用 whether，不能用 that。
 - important that 後面的 be 動詞用原形 be。
+
+# mc
+Q: I wonder ___ she will come. || 我想知道她會不會來。
+A: that | whether* | what
+W: 「是否」用 whether（或 if）。
+Q: Can you tell me ___? || 你可以告訴我你幾歲嗎？
+A: how old are you | how old you are* | how are you old
+W: 名詞子句用直述句語序。
+Q: The teacher insisted that he ___ the test again. || 老師堅持他要重考。
+A: takes | take* | took
+W: insist that + 主詞 + 原形動詞。
+Q: ___ she said surprised everyone. || 她所說的話讓大家都很驚訝。
+A: That | What* | Which
+W: 「她所說的」用 What 引導名詞子句。
+# err
+S: I don't know where [does he live|he lives]. || 我不知道他住在哪裡。
+W: 名詞子句用直述句語序。
+S: It is essential that he [is|be] on time. || 他準時到是非常重要的。
+W: essential that 後面用原形 be。
+S: I'm not sure [that|whether] it will rain or not. || 我不確定會不會下雨。
+W: 「是否」要用 whether。
+S: The doctor recommended that she [rests|rest] for a week. || 醫生建議她休息一週。
+W: recommend that 後面用原形動詞。

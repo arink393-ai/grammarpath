@@ -58,3 +58,26 @@ W: although 和 but 不能同時使用。
 - so 和 because 不能同時使用；表示結果用 so，並在前面加逗號。
 - because 子句不能單獨成句，要接上主要子句。
 - 生病「所以」去看醫生，是因果關係，用 so，不是 but。
+
+# mc
+Q: I like rice, ___ my brother likes noodles. || 我喜歡飯，但我弟弟喜歡麵。
+A: so | but* | because
+W: 前後對比，用 but。
+Q: The store was closed, ___ we went home. || 店關了，所以我們回家了。
+A: because | so* | but
+W: 後面是結果，用 so。
+Q: She was happy ___ she got a present. || 她很開心，因為她收到了禮物。
+A: so | because* | and
+W: 後面是原因，用 because。
+Q: Do you want milk ___ juice? || 你要牛奶還是果汁？
+A: or* | but | so
+W: 選擇用 or。
+# err
+S: [Because|] it was hot, so we went swimming. || 因為很熱，所以我們去游泳。
+W: because 和 so 不能同時使用，留一個就好。
+S: I was tired, [because|so] I went to bed early. || 我很累，所以很早就睡了。
+W: 後面是結果，用 so。
+S: He studied hard, [so|but] he failed the test. || 他很用功，但考試沒過。
+W: 前後意思相反，用 but。
+S: I don't like math [and|or] science. || 我不喜歡數學，也不喜歡自然。
+W: 否定句裡的「也不」用 or。

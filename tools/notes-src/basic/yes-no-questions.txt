@@ -52,3 +52,26 @@ W: 簡答時主詞換成代名詞 she。
 - 「你快樂嗎」用 be 動詞 Are 開頭，不用 Do。
 - 有 Does 時，動詞用原形 like。
 - 一般動詞的問句要加助動詞 Do。
+
+# mc
+Q: ___ she speak Japanese? || 她會說日文嗎？
+A: Is | Does* | Do
+W: 一般動詞，主詞單數用 Does。
+Q: ___ you hungry? || 你餓嗎？
+A: Do | Are* | Is
+W: hungry 是形容詞，用 be 動詞 Are。
+Q: Can he swim? — No, he ___. || 他會游泳嗎？不會。
+A: doesn't | can't* | isn't
+W: 用問句的助動詞 can 回答。
+Q: ___ they go to the movies last night? || 他們昨晚有去看電影嗎？
+A: Do | Did* | Were
+W: 過去的一般動詞用 Did。
+# err
+S: [Do|Is] your sister a student? || 你姊姊是學生嗎？
+W: 「是…」用 be 動詞 Is。
+S: Does your dog [bites|bite]? || 你的狗會咬人嗎？
+W: Does 後面接原形動詞。
+S: [Are|Do] you like pizza? || 你喜歡披薩嗎？
+W: like 是一般動詞，用 Do。
+S: Is he your teacher? — Yes, he [does|is]. || 他是你的老師嗎？是的。
+W: 簡答用問句裡的 be 動詞 is。

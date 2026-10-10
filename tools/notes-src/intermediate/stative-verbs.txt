@@ -52,3 +52,26 @@ W: smell 表「聞起來」是狀態，不用進行式。
 - know 是狀態動詞，用簡單式 I know。
 - want 是狀態動詞，用 She wants。
 - like 是狀態動詞，用 I like。
+
+# mc
+Q: This bag ___ too much. || 這個包包太貴了。
+A: is costing | costs* | cost
+W: cost 是狀態動詞，用簡單式。
+Q: I ___ you're right. || 我相信你是對的。
+A: am believing | believe* | believing
+W: believe 是狀態動詞。
+Q: Shh! I ___ to the radio. || 噓！我正在聽收音機。
+A: listen | am listening* | listened
+W: listen 是動作動詞，可用進行式。
+Q: He ___ a lot of money. || 他擁有很多錢。
+A: is owning | owns* | own
+W: own 是狀態動詞。
+# err
+S: I [am remembering|remember] his name now. || 我現在想起他的名字了。
+W: remember 是狀態動詞，用簡單式。
+S: This pen [is belonging|belongs] to Tom. || 這支筆是湯姆的。
+W: belong 是狀態動詞。
+S: She [is seeming|seems] tired today. || 她今天看起來很累。
+W: seem 是狀態動詞。
+S: We [are preferring|prefer] tea to coffee. || 我們比較喜歡茶而不是咖啡。
+W: prefer 是狀態動詞。

@@ -52,3 +52,26 @@ W: 進行式的動詞要加 -ing。
 - 進行式問句用 be 動詞 Are，不用 Do。
 - 要把 be 動詞移到主詞前面：What are you doing?
 - 進行式動詞要用 V-ing：playing。
+
+# mc
+Q: What ___ they talking about? || 他們在聊什麼？
+A: do | are* | is
+W: 進行式問句；they 配 are。
+Q: ___ it snowing outside? || 外面在下雪嗎？
+A: Does | Is* | Are
+W: 進行式問句用 be 動詞。
+Q: Are you listening to me? — Yes, I ___. || 你有在聽我說嗎？有。
+A: do | am* | listening
+W: 用問句的 be 動詞回答。
+Q: Where is she ___? || 她要去哪裡？
+A: go | going* | goes
+W: 進行式要用 V-ing。
+# err
+S: [Do|Are] they watching a movie? || 他們在看電影嗎？
+W: 進行式問句用 be 動詞 Are。
+S: What [is|are] you reading? || 你在讀什麼？
+W: you 配 are。
+S: Is your brother [sleep|sleeping]? || 你弟弟在睡覺嗎？
+W: 進行式要用 V-ing。
+S: Who [are|is] singing in the kitchen? || 誰在廚房唱歌？
+W: Who 當主詞時，be 動詞用 is。

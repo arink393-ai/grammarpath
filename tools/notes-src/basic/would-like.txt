@@ -58,3 +58,26 @@ W: would like 後面用 to V，不用 V-ing。
 - 這是直述句，句尾用句號，不是問號。
 - would like 後面接動詞要加 to。
 - 疑問句直接用 Would 開頭，不加 Do。
+
+# mc
+Q: What would you like to ___? || 你想喝什麼？
+A: drink* | drinking | drank
+W: would like to + 原形。
+Q: I'd like ___ a cheeseburger, please. || 我要一個起司漢堡。
+A: 不填* | to | for
+W: would like + 名詞，直接接。
+Q: Would you like ___ with us? || 你要不要跟我們一起去？
+A: come | to come* | coming
+W: would like + to V。
+Q: My parents would like you ___ for dinner. || 我爸媽想請你來吃晚餐。
+A: come | to come* | coming
+W: would like + 人 + to V。
+# err
+S: I'd like [ordering|to order] now. || 我現在想點餐。
+W: would like 後面接 to V。
+S: [Do you like|Would you like] some water? — Yes, please. || 要喝點水嗎？好，謝謝。
+W: 提供東西用 Would you like…?
+S: She [would likes|would like] a cup of tea. || 她想要一杯茶。
+W: would 後面接原形 like。
+S: Would you like to come? — Yes, [I would like|I'd love to]. || 你想來嗎？我很樂意。
+W: 接受邀請自然的說法是 I'd love to。

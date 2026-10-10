@@ -62,3 +62,26 @@ W: hard 本身就可以當副詞（努力地）；hardly 是「幾乎不」，�
 - 要描述動詞 sings（怎麼唱），必須用副詞 beautifully。
 - good 是形容詞；修飾動詞 speaks 要用副詞 well。
 - 修飾動詞 Drive 要用副詞 carefully。
+
+# mc
+Q: The dog barked ___ at the stranger. || 那隻狗對陌生人大聲吠叫。
+A: loud | loudly* | loudness
+W: 修飾動詞 barked 用副詞 loudly。
+Q: She looks ___ in that dress. || 她穿那件洋裝看起來很漂亮。
+A: beautifully | beautiful* | beauty
+W: look 是連綴動詞，後接形容詞。
+Q: He finished the test ___. || 他輕鬆地完成了考試。
+A: easy | easily* | easyly
+W: 子音＋y：去 y 加 -ily。
+Q: We walked ___ because we were late. || 我們走得很快，因為快遲到了。
+A: fast* | fastly | faster than
+W: fast 的副詞形式還是 fast，沒有 fastly。
+# err
+S: The music is too [loudly|loud]. || 音樂太大聲了。
+W: be 動詞後面描述主詞，要用形容詞 loud。
+S: She answered the question [correct|correctly]. || 她正確地回答了問題。
+W: 修飾動詞 answered 要用副詞 correctly。
+S: He runs very [fastly|fast]. || 他跑得很快。
+W: fast 本身就是副詞，沒有 fastly。
+S: I feel [badly|bad] about the mistake. || 我對這個錯誤感到很難過。
+W: feel 是連綴動詞，後面接形容詞 bad。

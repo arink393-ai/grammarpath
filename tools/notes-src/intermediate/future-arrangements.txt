@@ -51,3 +51,26 @@ W: 不能少了 be 動詞 are。
 - 已經約好的事，用現在進行式 I'm meeting。
 - 現在進行式要用 V-ing：is flying。
 - 現在進行式要用 V-ing：are going。
+
+# mc
+Q: We ___ dinner with our cousins on Sunday. || 我們星期天要和表親吃晚餐。
+A: have | are having* | had
+W: 已安排好的計畫，用現在進行式。
+Q: Our flight ___ at 6:40 a.m. || 我們的班機早上 6:40 起飛。
+A: leave | leaves* | leaving
+W: 班機時刻表用現在簡單式。
+Q: Are you ___ to Ken's party tonight? || 你今晚會去肯的派對嗎？
+A: come | coming* | came
+W: 現在進行式問未來安排：Are you coming…?
+Q: I can't meet you tomorrow. I ___ the dentist. || 我明天不能跟你見面，我要去看牙醫。
+A: see | am seeing* | saw
+W: 已約好的行程，用現在進行式。
+# err
+S: She [visits|is visiting] her grandma this weekend. || 她這週末要去看奶奶。
+W: 已安排好的計畫，用現在進行式。
+S: What [do you do|are you doing] tomorrow night? || 你明天晚上要做什麼？
+W: 問已安排的計畫：What are you doing…?
+S: They are [move|moving] to Taichung next month. || 他們下個月要搬去台中。
+W: 現在進行式要用 V-ing。
+S: My brother [arriving|is arriving] at noon. || 我哥哥中午會到。
+W: 不能少了 be 動詞 is。

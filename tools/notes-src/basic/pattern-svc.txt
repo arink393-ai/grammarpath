@@ -54,3 +54,26 @@ W: 連綴動詞 look 後面接名詞時要說 look like。
 - become 是連綴動詞，後面接形容詞 happy。
 - smell 是連綴動詞，後面接形容詞 good。
 - look 是連綴動詞，描述主詞要用形容詞 tired。
+
+# mc
+Q: The bread smells ___. || 這麵包聞起來很香。
+A: good* | well | goodly
+W: 連綴動詞後接形容詞 good。
+Q: He became ___ after many years of practice. || 經過多年練習，他成為了一位醫生。
+A: a doctor* | doctor to | as doctor
+W: become 後面可以接名詞補語 a doctor。
+Q: Your plan seems ___. || 你的計畫似乎很合理。
+A: reasonable* | reasonably | reason
+W: seem 是連綴動詞，接形容詞。
+Q: The weather is getting ___. || 天氣越來越冷了。
+A: cold* | coldly | to cold
+W: get 當連綴動詞「變得」，接形容詞。
+# err
+S: The milk tastes [sourly|sour]. || 牛奶嚐起來是酸的。
+W: taste 是連綴動詞，接形容詞 sour。
+S: You look [happily|happy] today. || 你今天看起來很開心。
+W: look 是連綴動詞，接形容詞 happy。
+S: The room stayed [quietly|quiet] all night. || 房間整晚保持安靜。
+W: stay 是連綴動詞，接形容詞 quiet。
+S: That sounds [a good idea|like a good idea]. || 聽起來是個好主意。
+W: 連綴動詞後接名詞時，用 sound like。
