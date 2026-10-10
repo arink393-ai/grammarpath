@@ -112,7 +112,7 @@
 .adv-learn{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .adv-learn-card{flex:1 1 130px;max-width:220px;border:3px solid var(--line);background:#fff;border-radius:20px;padding:14px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
 .adv-learn-e{font-size:46px;line-height:1.1}
-.adv-learn-pair{font:800 30px var(--serif);color:var(--navy)}
+.adv-learn-pair{font:800 clamp(24px,6.5vw,30px) var(--serif);color:var(--navy)}
 .adv-learn-pair i{font-style:normal}
 .adv-learn-ex{font:700 17px var(--serif);color:var(--navy)}
 .adv-learn-card small{color:var(--muted);font-size:13px}
@@ -140,3 +140,14 @@
 .adv-tile{min-width:80px;height:62px;padding:0 18px;border-radius:16px;border:3px solid #f0c98d;background:linear-gradient(160deg,#fff4dd,#ffe1ae);font:800 24px var(--serif);color:var(--navy);cursor:pointer}
 .adv-tile.no{animation:advShake .35s;border-color:#e98d6b}
 .adv-say-w.long{font-size:clamp(24px,6.5vw,32px)}
+/* World 3 · 動作小鎮 */
+.adv-verb .adv-node.done{background:linear-gradient(160deg,#dbe6ff,#a9c0f5)}
+.adv-verb .adv-node.next{background:linear-gradient(160deg,#d6e2ff,#7d9ff0)}
+.adv-learn-pair u,.adv-blank u,.adv-rule-row u{text-decoration:none;background:#ffe08a;border-radius:6px;padding:0 2px}
+.adv-rule.vb .adv-rule-row>i{width:auto;min-width:72px}
+.adv-judge{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:16px}
+.adv-bubble{position:relative;display:flex;align-items:center;gap:10px;background:#fff;border:3px solid #f0c98d;border-radius:22px;padding:12px 20px;font:800 clamp(22px,6vw,28px) var(--serif);color:var(--navy)}
+.adv-bubble::before{content:"";position:absolute;top:-14px;left:50%;transform:translateX(-50%);border:12px solid transparent;border-top:0;border-bottom:14px solid #f0c98d}
+.adv-bubble-cat{font-size:34px}
+.adv-judge-btns .adv-be-opt{font:800 24px var(--sans);min-width:120px}
+.adv-bad{color:#c0563a;text-decoration-thickness:3px}

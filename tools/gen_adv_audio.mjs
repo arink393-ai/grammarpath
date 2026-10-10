@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /*
-  gen_adv_audio.mjs — render the 小冒險 World 2 (Be 動詞森林) sentences to natural Kokoro voice.
+  gen_adv_audio.mjs — render the 小冒險 World 2–3 sentences to natural Kokoro voice.
 
   Prereq: Kokoro running (cd ~/github/Kokoro-FastAPI && ./start-gpu_mac.sh). Then from the site folder:
     node tools/gen_adv_audio.mjs          # only new sentences
     node tools/gen_adv_audio.mjs --force  # re-render everything
 
-  The sentence list comes from adventure.js itself (advBeAllSentences), so adding a feeling or
+  The sentence list comes from adventure.js itself (advAllSentences), so adding a feeling or
   an animal there and re-running this is all it takes. Saves mp3s under ./audio/adv and rewrites
   the ADV_AUDIO manifest in adventure.js. Env: KOKORO_URL, VOICE (default af_heart).
 */
@@ -36,7 +36,7 @@ async function synth(text){
 const src = fs.readFileSync(JS, "utf8");
 const ctx = { window:{ addEventListener(){} } };
 vm.createContext(ctx);
-vm.runInContext(src + "\n;globalThis.__S = advBeAllSentences();", ctx);
+vm.runInContext(src + "\n;globalThis.__S = advAllSentences();", ctx);
 const texts = ctx.__S;
 try{ const h = await fetch(KOKORO+"/health"); if(!h.ok) throw 0; }
 catch{ console.error(`✗ Cannot reach Kokoro at ${KOKORO}`); process.exit(1); }
