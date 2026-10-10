@@ -1,0 +1,63 @@
+# zh
+## 單數與複數
+英文的可數名詞要分「一個」和「兩個以上」。中文說「三本書」，「書」不用變；英文要說 <span class="en">three book<b>s</b></span>。
+表：規則複數變化
+| 規則 | 單數 → 複數 |
+|---|---|
+| 一般直接加 -s | book → books, cat → cats |
+| s, ss, sh, ch, x 結尾加 -es | bus → buses, dish → dishes, box → boxes |
+| 子音＋y：去 y 加 -ies | baby → babies, city → cities |
+| 母音＋y：直接加 -s | boy → boys, key → keys |
+| f / fe 結尾：改 v 加 -es | leaf → leaves, knife → knives, wife → wives |
+| 子音＋o 結尾：多數加 -es | tomato → tomatoes, potato → potatoes, hero → heroes |
+| 母音＋o、外來字：加 -s | radio → radios, zoo → zoos, piano → pianos, photo → photos |
+註：例外：roof → roofs, chief → chiefs（不改 v）。
+
+## 不規則複數（要背）
+表：常見不規則複數
+| 單數 | 複數 | 單數 | 複數 |
+|---|---|---|---|
+| man | men | child | children |
+| woman | women | person | people |
+| foot | feet | mouse | mice |
+| tooth | teeth | ox | oxen |
+| goose | geese | | |
+
+## 單複數同形
+| 單字 | 例句 |
+|---|---|
+| sheep 羊 | one sheep, five <b>sheep</b> |
+| fish 魚 | I caught three <b>fish</b>. |
+| deer 鹿 | many <b>deer</b> |
+| Chinese / Japanese（人） | two Japanese |
+
+## 永遠是複數的名詞
+成對的東西通常用複數：<span class="en">pants, jeans, glasses, scissors, shoes</span>。要數的時候用 <span class="en">a pair of</span>：<span class="en">two <b>pairs of</b> jeans</span>。
+> people 本身就是複數，不加 s（peoples 是「民族」，意思不同）：There <b>are</b> many people.
+
+# mc
+Q: There are three ___ on the table. || 桌上有三把刀。
+A: knifes | knives* | knife
+W: fe 結尾的名詞改 v 加 -es：knives。
+Q: The dentist checked my ___. || 牙醫檢查了我的牙齒。
+A: tooths | teeth* | teeths
+W: tooth 是不規則複數 teeth。
+Q: We saw many ___ on the farm. || 我們在農場看到很多羊。
+A: sheep* | sheeps | sheepes
+W: sheep 單複數同形。
+Q: I need a new pair of ___. || 我需要一條新牛仔褲。
+A: jean | jeans* | jeanses
+W: jeans 永遠是複數，用 a pair of 來數。
+
+# err
+S: There are five [boxs|boxes] in the room. || 房間裡有五個箱子。
+W: x 結尾的名詞加 -es。
+S: Many [familys|families] live in this building. || 很多家庭住在這棟大樓。
+W: 子音＋y 結尾，去 y 加 -ies。
+S: Two [womans|women] are talking. || 兩位女士在說話。
+W: woman 的複數是不規則的 women。
+
+# mk
+- child 的複數是不規則的 children。
+- tomato 是子音＋o 結尾，複數加 -es：tomatoes。
+- people 本身就是複數，不加 s。

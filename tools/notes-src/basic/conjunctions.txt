@@ -1,0 +1,60 @@
+# zh
+## 四個最常用的連接詞
+連接詞把兩個想法接在一起，讓句子更有邏輯。每個連接詞代表不同的關係：
+表：and / but / so / because
+| 連接詞 | 關係 | 意思 | 例句 |
+|---|---|---|---|
+| and | 補充、並列 | 而且、和 | I like cats, <b>and</b> she likes dogs. |
+| but | 相反、轉折 | 但是 | It's cheap, <b>but</b> it's not good. |
+| so | 結果 | 所以 | It was raining, <b>so</b> we stayed home. |
+| because | 原因 | 因為 | We stayed home <b>because</b> it was raining. |
+註：so 後面接<b>結果</b>；because 後面接<b>原因</b>。同一件事可以兩種說法：I was tired, <b>so</b> I slept. = I slept <b>because</b> I was tired.
+
+## 「因為…所以…」不能一起用
+中文習慣說「因為…，所以…」，英文<b>只能選一個</b>：
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| Because I was sick, so I stayed home. | <b>Because</b> I was sick, I stayed home. |
+| | I was sick, <b>so</b> I stayed home. |
+同理，「雖然…但是…」也只能選一個：<span class="en"><b>Although</b> it was late, we kept working.</span>（不加 but）
+
+## 標點符號
+| 連接詞 | 逗號規則 | 例句 |
+|---|---|---|
+| so / but | 前面通常加逗號 | I was hungry<b>,</b> so I ate. |
+| because 放中間 | 不加逗號 | I ate because I was hungry. |
+| because 放句首 | 子句後加逗號 | Because I was hungry<b>,</b> I ate. |
+
+## because 子句不能單獨成句
+<span class="en">Because I was tired.</span> 是不完整的句子（片段），要接上主要子句：<span class="en">I went to bed early <b>because I was tired</b>.</span>
+> 只有在回答 Why 問句時，口語可以單說 Because…：Why are you late? — Because I missed the bus.
+
+## or：或者
+<span class="en">Do you want tea <b>or</b> coffee?</span>；否定句裡的「也不」用 or：<span class="en">I don't like math <b>or</b> science.</span>
+
+# mc
+Q: I studied hard, ___ I passed the test. || 我很用功，所以考試及格了。
+A: because | so* | but
+W: 後面是「結果」，用 so。
+Q: She is rich, ___ she isn't happy. || 她很有錢，但不快樂。
+A: and | but* | so
+W: 前後意思相反，用 but。
+Q: We canceled the picnic ___ it rained. || 因為下雨，我們取消了野餐。
+A: so | because* | and
+W: 後面是「原因」，用 because。
+Q: ___ it was cold, he didn't wear a coat. || 雖然天氣冷，他沒穿外套。
+A: Although* | But | So
+W: 「雖然」用 although，句中不能再加 but。
+
+# err
+S: Because it was late, [so I|I] took a taxi. || 因為很晚了，我搭了計程車。
+W: because 和 so 不能同時使用，留一個就好。
+S: I like apples, [so|but] my sister doesn't. || 我喜歡蘋果，但我妹妹不喜歡。
+W: 前後意思相反，要用 but。
+S: Although he is young, [but he|he] is very wise. || 雖然他很年輕，卻很有智慧。
+W: although 和 but 不能同時使用。
+
+# mk
+- so 和 because 不能同時使用；表示結果用 so，並在前面加逗號。
+- because 子句不能單獨成句，要接上主要子句。
+- 生病「所以」去看醫生，是因果關係，用 so，不是 but。

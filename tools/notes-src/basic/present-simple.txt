@@ -1,0 +1,58 @@
+# zh
+## 什麼時候用現在簡單式？
+現在簡單式不是「現在正在做」，而是說<b>平常、經常、一直如此</b>的事。
+表：現在簡單式的三大用途
+| 用途 | 例句 | 常搭配的字 |
+|---|---|---|
+| 習慣、例行公事 | I <b>get up</b> at six every day. | every day, usually, on Sundays |
+| 不變的事實、真理 | Water <b>boils</b> at 100°C. | — |
+| 時刻表、固定行程 | The train <b>leaves</b> at 9:00. | at + 時間 |
+
+## 句型與 -s 規則
+表：現在簡單式三種句型
+| 句型 | I / you / we / they | he / she / it |
+|---|---|---|
+| 肯定 | I <b>play</b> tennis. | She <b>plays</b> tennis. |
+| 否定 | I <b>don't play</b> tennis. | She <b>doesn't play</b> tennis. |
+| 疑問 | <b>Do</b> you <b>play</b> tennis? | <b>Does</b> she <b>play</b> tennis? |
+註：用了 does / doesn't，後面的動詞就要回到<b>原形</b>，-s 已經跑到 does 身上了。
+
+## 第三人稱單數加 -s 的規則
+| 規則 | 例子 |
+|---|---|
+| 一般加 -s | work → works, like → likes |
+| s, sh, ch, x, o 結尾加 -es | wash → washes, do → does, go → goes |
+| 子音＋y：y 變 i 加 -es | cry → cries, study → studies |
+| 母音＋y：加 -s | say → says, enjoy → enjoys |
+| 不規則 | have → has |
+> 發音小提醒：-s 有三種念法 /s/（works）、/z/（plays）、/ɪz/（watches）。
+
+## 簡答
+<span class="en">Do you like cats? — Yes, I <b>do</b>. / No, I <b>don't</b>.</span><br><span class="en">Does he live here? — Yes, he <b>does</b>. / No, he <b>doesn't</b>.</span>
+
+# mc
+Q: The sun ___ in the east. || 太陽從東方升起。
+A: rise | rises* | is rising
+W: 不變的事實用現在簡單式；主詞 The sun 單數，加 -s。
+Q: My brother ___ like vegetables. || 我弟弟不喜歡蔬菜。
+A: don't | doesn't* | isn't
+W: 第三人稱單數的否定用 doesn't + 原形動詞。
+Q: ___ your mother work in a hospital? || 你媽媽在醫院工作嗎？
+A: Do | Does* | Is
+W: 主詞 your mother 單數，問句用 Does。
+Q: She ___ her homework after dinner. || 她晚餐後寫功課。
+A: do | dos | does*
+W: do 以 o 結尾，第三人稱單數加 -es：does。
+
+# err
+S: He [watch|watches] TV every evening. || 他每天晚上看電視。
+W: 第三人稱單數加 -s；watch 以 ch 結尾，要加 -es。
+S: Does she [plays|play] the piano? || 她彈鋼琴嗎？
+W: 有了 Does，後面的動詞要用原形 play。
+S: My dog [don't|doesn't] eat fish. || 我的狗不吃魚。
+W: 主詞 My dog 是第三人稱單數，否定用 doesn't。
+
+# mk
+- 主詞 He 是第三人稱單數，現在式動詞要加 -s：plays。
+- 用了 doesn't，後面的動詞要回到原形 like。
+- 主詞 she 是第三人稱單數，問句要用 Does。

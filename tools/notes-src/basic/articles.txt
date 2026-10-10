@@ -1,0 +1,66 @@
+# zh
+## 冠詞是什麼？
+冠詞是放在名詞前面的小字，只有三個：<b>a、an、the</b>。中文沒有冠詞，所以這是台灣學生最常漏掉、也最常用錯的地方。
+表：不定冠詞與定冠詞
+| 冠詞 | 名稱 | 用在 | 例句 |
+|---|---|---|---|
+| a / an | 不定冠詞 | 第一次提到、不特定的「一個」單數可數名詞 | I saw <b>a</b> dog. |
+| the | 定冠詞 | 特定的、雙方都知道是哪一個 | <b>The</b> dog was very big. |
+
+## a 還是 an？看「發音」不是看字母
+| 用 a（子音開頭的音） | 用 an（母音開頭的音） |
+|---|---|
+| a book, a cat | an apple, an egg |
+| a <b>u</b>niversity（念 /juː/） | an <b>u</b>mbrella（念 /ʌ/） |
+| a <b>o</b>ne-day trip（念 /w/） | an <b>h</b>our（h 不發音） |
+| a <b>h</b>orse（h 有發音） | an <b>h</b>onest boy（h 不發音） |
+| a <b>U</b>SB | an <b>M</b>RT station（M 念 /em/） |
+
+## 什麼時候用 the？
+表：用 the 的情況
+| 情況 | 例句 |
+|---|---|
+| 前面提過的 | I bought a shirt. <b>The</b> shirt is blue. |
+| 雙方都知道的 | Please close <b>the</b> door. |
+| 世上獨一無二的 | <b>the</b> sun, <b>the</b> moon, <b>the</b> earth |
+| 最高級、序數 | <b>the</b> best, <b>the</b> first |
+| 樂器 | play <b>the</b> piano |
+| 河流、海洋、山脈 | <b>the</b> Pacific Ocean, <b>the</b> Alps |
+
+## 什麼時候不用冠詞？
+| 情況 | 例句 |
+|---|---|
+| 泛指的複數或不可數名詞 | <b>Dogs</b> are friendly. / <b>Life</b> is beautiful. |
+| 三餐 | have <b>breakfast</b> |
+| 球類運動 | play <b>basketball</b> |
+| 學科、語言 | I like <b>math</b>. |
+| 交通工具 by… | by <b>bus</b> |
+| 去做主要用途的場所 | go to <b>school</b> / go to <b>bed</b> |
+> 說身分職業一定要加 a / an：She is <b>an</b> engineer.
+
+# mc
+Q: I waited for ___ hour. || 我等了一個小時。
+A: a | an* | the
+W: hour 的 h 不發音，以母音開頭，用 an。
+Q: She plays ___ violin very well. || 她小提琴拉得很好。
+A: a | the* | 不填
+W: 演奏樂器要加 the。
+Q: My brother studies at ___ university in Tainan. || 我哥哥在台南一所大學念書。
+A: a* | an | the
+W: university 念 /juː/，是子音開頭的音，用 a。
+Q: We play ___ basketball after school. || 我們放學後打籃球。
+A: the | a | 不填*
+W: 球類運動前面不加冠詞。
+
+# err
+S: My mother is [nurse|a nurse]. || 我媽媽是護士。
+W: 說職業身分，單數可數名詞前要加 a。
+S: There is [a|an] old man at the door. || 門口有位老人。
+W: old 以母音開頭，要用 an。
+S: [The|] Music makes me happy. || 音樂讓我快樂。
+W: 泛指一般的音樂，不可數名詞前不加 the。
+
+# mk
+- 說職業要加冠詞；engineer 以母音開頭用 an。
+- hour 的 h 不發音，以母音開頭，用 an。
+- 泛指一般的「人生」，不加 the。

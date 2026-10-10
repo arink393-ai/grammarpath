@@ -1,0 +1,54 @@
+# zh
+## Yes / No 問句：回答「是或不是」
+把助動詞或 be 動詞移到主詞前面，就變成 Yes/No 問句。句尾語調上揚 ↗。
+表：三種 Yes/No 問句
+| 句子裡有 | 怎麼問 | 例句 | 簡答 |
+|---|---|---|---|
+| be 動詞 | Be + 主詞…? | <b>Are</b> you tired? | Yes, I am. / No, I'm not. |
+| 一般動詞 | Do/Does/Did + 主詞 + 原形動詞…? | <b>Does</b> he <b>like</b> fish? | Yes, he does. / No, he doesn't. |
+| 助動詞 | Can/Will/Should + 主詞 + 原形動詞…? | <b>Can</b> you <b>swim</b>? | Yes, I can. / No, I can't. |
+註：判斷順序：先看句子有沒有 be 動詞或助動詞；都沒有，才借用 do / does / did。
+
+## do 和 be 不能一起
+一個問句只能有一個「領頭的」助動詞：
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| Do you are happy? | <b>Are</b> you happy? |
+| Does she can sing? | <b>Can</b> she sing? |
+| Is he like music? | <b>Does</b> he like music? |
+
+## 簡答規則
+- 用問句裡的助動詞回答：<span class="en">Did you go? — Yes, I <b>did</b>.</span>
+- 主詞換成代名詞：<span class="en">Is your mom home? — Yes, <b>she</b> is.</span>
+- 肯定簡答不縮寫：<span class="en">Yes, I am.</span>（✗ Yes, I'm.）
+
+## 否定問句
+否定問句常表示驚訝或希望對方同意：<span class="en"><b>Don't</b> you like it?</span>（你不喜歡嗎？）回答時看事實：喜歡就說 <span class="en">Yes, I do.</span>，不喜歡就說 <span class="en">No, I don't.</span>
+> 中文「對，我不喜歡」英文要說 No, I don't. 英文的 Yes/No 跟著後面的肯定或否定走。
+
+# mc
+Q: ___ your brother play the guitar? || 你哥哥會彈吉他嗎？
+A: Do | Does* | Is
+W: 一般動詞 play，主詞單數，用 Does。
+Q: ___ they at the library now? || 他們現在在圖書館嗎？
+A: Do | Are* | Does
+W: 句子沒有一般動詞，at the library 前用 be 動詞 Are。
+Q: Can you help me? — Yes, I ___. || 你能幫我嗎？可以。
+A: do | can* | am
+W: 用問句的助動詞 can 回答。
+Q: Don't you like spicy food? — ___. I hate it. || 你不喜歡辣的食物嗎？對，我討厭。
+A: Yes, I do | No, I don't* | Yes, I don't
+W: 事實是不喜歡，英文要用 No, I don't。
+
+# err
+S: [Do|Are] you a new student? || 你是新同學嗎？
+W: 句子是「你是…」，用 be 動詞 Are 開頭。
+S: Did she [called|call] you yesterday? || 她昨天打給你了嗎？
+W: Did 已經表示過去，後面動詞用原形 call。
+S: Is your sister a nurse? — Yes, [your sister|she] is. || 你姐姐是護士嗎？是的。
+W: 簡答時主詞換成代名詞 she。
+
+# mk
+- 「你快樂嗎」用 be 動詞 Are 開頭，不用 Do。
+- 有 Does 時，動詞用原形 like。
+- 一般動詞的問句要加助動詞 Do。

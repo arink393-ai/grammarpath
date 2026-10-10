@@ -1,0 +1,59 @@
+# zh
+## 祈使句：命令、請求、提醒
+祈使句是對眼前的人說話，叫對方去做（或不要做）某事。因為對象一定是 you，所以<b>省略主詞</b>，直接用<b>原形動詞</b>開頭。
+表：祈使句三種句型
+| 句型 | 公式 | 例句 |
+|---|---|---|
+| 肯定 | 原形動詞 … | <b>Open</b> the window. |
+| 否定 | Don't + 原形動詞 … | <b>Don't run</b> in the hall. |
+| 一起做 | Let's + 原形動詞 … | <b>Let's go</b> home. |
+| Let's 否定 | Let's not + 原形動詞 | <b>Let's not</b> wait. |
+
+## be 動詞的祈使句
+形容詞或名詞前面要用 <b>Be</b>：<span class="en"><b>Be</b> quiet! / <b>Be</b> careful! / <b>Don't be</b> late!</span>
+> 否定是 Don't be…，不是 Be not…，也不是 Don't to be…
+
+## 讓語氣更禮貌
+| 方式 | 例句 | 語氣 |
+|---|---|---|
+| 直接命令 | Sit down. | 直接（老師、緊急時） |
+| 加 please | Please sit down. / Sit down, please. | 有禮貌 |
+| 用問句 | Could you sit down, please? | 最客氣 |
+
+## 常見的祈使句
+| 用途 | 例句 |
+|---|---|
+| 指示 | Turn left at the corner. |
+| 警告 | Watch out! / Don't touch! |
+| 邀請 | Come in. / Have some cake. |
+| 祝福 | Have a nice day! / Enjoy your meal! |
+
+## Let's 的附加問句
+<span class="en">Let's go to the park, <b>shall we</b>?</span>　祈使句的附加問句：<span class="en">Close the door, <b>will you</b>?</span>
+
+# mc
+Q: ___ late for class again! || 上課不要再遲到了！
+A: Not be | Don't be* | Don't
+W: 形容詞 late 前要 be；否定祈使句是 Don't be。
+Q: Let's ___ a movie tonight. || 我們今晚去看電影吧。
+A: watch* | watching | to watch
+W: Let's 後面接原形動詞。
+Q: ___ your hands before dinner. || 晚餐前去洗手。
+A: Washing | Wash* | You washing
+W: 祈使句用原形動詞開頭。
+Q: ___ quiet in the library, please. || 在圖書館請保持安靜。
+A: Be* | Is | Do
+W: quiet 是形容詞，祈使句用 Be。
+
+# err
+S: [Doesn't|Don't] touch the paint. || 別碰油漆。
+W: 祈使句的否定一律用 Don't。
+S: [Careful|Be careful]! The floor is wet. || 小心！地板很濕。
+W: careful 是形容詞，前面要加 Be。
+S: Let's [going|go] to the beach. || 我們去海邊吧。
+W: Let's 後面接原形動詞 go。
+
+# mk
+- 祈使句省略主詞 You，直接用原形動詞 Open 開頭。
+- Don't 後面直接接原形 be，不加 to。
+- Let's 後面接原形動詞 go。

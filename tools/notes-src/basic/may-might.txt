@@ -1,0 +1,59 @@
+# zh
+## 表示「可能」：may / might / could
+當我們不確定某件事會不會發生時，用 may 或 might。兩者意思很接近，might 的把握稍微低一點。
+表：可能性的程度
+| 說法 | 把握 | 例句 |
+|---|---|---|
+| will | 約 100% | It <b>will</b> rain.（一定會） |
+| should / probably will | 約 80% | It <b>will probably</b> rain. |
+| may | 約 50% | It <b>may</b> rain.（也許會） |
+| might / could | 約 30% | It <b>might</b> rain.（說不定會） |
+| may not / might not | 可能不會 | He <b>may not</b> come. |
+| won't | 約 0% | It <b>won't</b> rain. |
+
+## may 表示許可
+may 也可以表示「可以」，比 can 更正式、更有禮貌：
+| 用法 | 例句 |
+|---|---|
+| 請求許可 | <b>May</b> I come in? / <b>May</b> I use the bathroom? |
+| 給予許可 | You <b>may</b> leave now. |
+| 拒絕 | No, you <b>may not</b>. |
+註：表示許可時一般用 may，不用 might；might 主要表示可能性。
+
+## maybe 和 may be 不一樣
+| 寫法 | 詞性 | 位置 | 例句 |
+|---|---|---|---|
+| maybe | 副詞（也許） | 通常放句首 | <b>Maybe</b> he is sick. |
+| may be | 助動詞 + be | 放主詞後面 | He <b>may be</b> sick. |
+
+## 規則同其他助動詞
+- 後接原形：<span class="en">She might <b>come</b>.</span>（✗ comes）
+- 不加 -s：<span class="en">He <b>may</b> know.</span>（✗ mays）
+- 否定直接加 not：<span class="en">may not / might not</span>（may not 一般不縮寫）
+
+# mc
+Q: Take an umbrella. It ___ rain this afternoon. || 帶把傘，今天下午可能會下雨。
+A: might* | might to | mights
+W: might 後接原形，表示可能性。
+Q: ___ I borrow your eraser? || 我可以借你的橡皮擦嗎？
+A: May* | Might | Must
+W: 禮貌地請求許可用 May I…?
+Q: ___ she is at the library. || 也許她在圖書館。
+A: May be | Maybe* | Might
+W: 句首的「也許」是一個字 Maybe。
+Q: He ___ not know the answer. || 他可能不知道答案。
+A: may* | does | mays
+W: may not + 原形動詞，表示「可能不」。
+
+# err
+S: She [mays|may] come tomorrow. || 她明天可能會來。
+W: 助動詞 may 不加 -s。
+S: It might [to snow|snow] tonight. || 今晚可能會下雪。
+W: might 後面直接接原形動詞。
+S: [May be|Maybe] you're right. || 也許你是對的。
+W: 句首「也許」要寫成一個字 Maybe。
+
+# mk
+- might 後面直接接原形動詞，不加 to。
+- 助動詞 may 不加 -s。
+- might 後面接原形動詞 come。

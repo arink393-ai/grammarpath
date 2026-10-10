@@ -1,0 +1,60 @@
+# zh
+## 表示「誰的」三種方法
+表：所有格總整理
+| 人稱 | 所有格形容詞（＋名詞） | 所有格代名詞（單獨用） |
+|---|---|---|
+| I | my book | mine |
+| you | your book | yours |
+| he | his book | his |
+| she | her book | hers |
+| it | its tail | — |
+| we | our book | ours |
+| they | their book | theirs |
+註：所有格形容詞後面<b>一定要接名詞</b>；所有格代名詞 = 所有格 + 名詞，後面<b>不能再接名詞</b>。This is <b>my</b> pen. = This pen is <b>mine</b>.
+
+## 名詞的所有格：'s
+| 情況 | 寫法 | 例子 |
+|---|---|---|
+| 單數名詞 | 加 's | John<b>'s</b> bike, my sister<b>'s</b> room |
+| 字尾 s 的複數名詞 | 只加 ' | my parents<b>'</b> car, the students<b>'</b> books |
+| 不是 s 結尾的複數 | 加 's | children<b>'s</b> toys, women<b>'s</b> shoes |
+| 兩人共有 | 最後一個加 's | Tom and Amy<b>'s</b> mother（同一位媽媽） |
+| 各自擁有 | 各自加 's | Tom<b>'s</b> and Amy<b>'s</b> bikes |
+> 東西的所有格通常用 of：the door <b>of</b> the room、the end <b>of</b> the story。
+
+## its 和 it's
+| 寫法 | 意思 | 例句 |
+|---|---|---|
+| its | 它的（所有格） | The dog wagged <b>its</b> tail. |
+| it's | it is / it has | <b>It's</b> raining. / <b>It's</b> been fun. |
+所有格代名詞都<b>沒有撇號</b>：yours、hers、ours、theirs，絕對不要寫成 your's、her's。
+
+## Whose：誰的？
+<span class="en"><b>Whose</b> bag is this? — It's <b>Lisa's</b>. / It's <b>hers</b>.</span>
+
+# mc
+Q: Is this pencil case ___? || 這是你的鉛筆盒嗎？
+A: your | yours* | you
+W: 後面沒有名詞，用所有格代名詞 yours。
+Q: The bird hurt ___ wing. || 那隻鳥弄傷了牠的翅膀。
+A: it's | its* | its'
+W: 「它的」是 its，沒有撇號。
+Q: This is my ___ room. || 這是我爸媽的房間。
+A: parent's | parents'* | parents
+W: parents 是 s 結尾的複數，所有格只加 '。
+Q: ___ shoes are these? || 這些是誰的鞋子？
+A: Who | Whose* | Who's
+W: 問「誰的」用 Whose；Who's = Who is。
+
+# err
+S: That is [her's|hers]. || 那是她的。
+W: 所有格代名詞沒有撇號，寫 hers。
+S: [Mine|My] bike is red. || 我的腳踏車是紅色的。
+W: 後面有名詞 bike，用所有格形容詞 my。
+S: These are the [childrens'|children's] toys. || 這些是孩子們的玩具。
+W: children 不是 s 結尾，所有格加 's。
+
+# mk
+- 後面接名詞 book，要用所有格形容詞 my。
+- 「它的」是 its，it's 是 it is。
+- 後面沒有名詞，要用所有格代名詞 yours。

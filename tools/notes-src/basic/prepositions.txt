@@ -1,0 +1,58 @@
+# zh
+## in / on / at 的核心概念
+這三個介系詞同時用在「地點」和「時間」，記住它們的<b>範圍大小</b>，就能判斷大部分情況：
+表：從大到小的倒三角
+| 介系詞 | 概念 | 地點 | 時間 |
+|---|---|---|---|
+| in | 大範圍、在裡面 | in Taiwan, in the box, in the room | in 2025, in July, in summer, in the morning |
+| on | 在表面上、特定的一天 | on the table, on the wall, on the bus | on Monday, on May 5, on my birthday |
+| at | 一個點、確切位置 | at the door, at the bus stop, at home | at 7:00, at noon, at night |
+
+## 地點的 in / on / at
+| at（點） | on（面） | in（空間） |
+|---|---|---|
+| at the station | on the floor | in the classroom |
+| at school / at home / at work | on the second floor | in the city |
+| at the corner | on the street（美式） | in the car |
+| at the top of | on the screen / on TV | in the picture |
+註：交通工具：大型可站立走動的用 on（on the bus / train / plane），小車用 in（in a car / taxi）。
+
+## 時間的 in / on / at
+| at（時刻） | on（日子） | in（較長期間） |
+|---|---|---|
+| at 6:30 | on Sunday | in May |
+| at noon / at midnight | on July 4 | in 2020 |
+| at night | on Christmas Day | in the morning / afternoon / evening |
+| at the weekend（英） | on the weekend（美） | in winter |
+> 特定某天的早上用 on：<b>on</b> Monday morning（不是 in Monday morning）。
+
+## 不加介系詞的情況
+時間詞前面有 this, next, last, every 時，不加 in/on/at：
+<span class="en">I'll see you <b>next Monday</b>.</span>（✗ on next Monday）<span class="en">We met <b>last year</b>.</span>
+
+# mc
+Q: My birthday is ___ October. || 我的生日在十月。
+A: on | in* | at
+W: 月份用 in。
+Q: Let's meet ___ the bus stop. || 我們在公車站見。
+A: in | on | at*
+W: 公車站是一個「點」，用 at。
+Q: There is a clock ___ the wall. || 牆上有一個時鐘。
+A: in | on* | at
+W: 貼在表面上用 on。
+Q: We have a party ___ Saturday night. || 我們星期六晚上有派對。
+A: on* | in | at
+W: 特定某一天的晚上用 on。
+
+# err
+S: The movie starts [on|at] 7:30. || 電影七點半開始。
+W: 確切時刻用 at。
+S: He lives [at|in] Japan. || 他住在日本。
+W: 國家是大範圍，用 in。
+S: I'll call you [on next|next] Friday. || 我下週五打給你。
+W: 有 next 時，前面不加介系詞。
+
+# mk
+- 星期幾用 on：on Monday。
+- 早上、下午、晚上用 in the morning。
+- at home 是固定說法。

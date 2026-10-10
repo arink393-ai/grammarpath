@@ -1,0 +1,59 @@
+# zh
+## 反身代名詞：動作回到自己身上
+當主詞和受詞是<b>同一個人</b>時，受詞要用反身代名詞（-self / -selves）。<span class="en">I cut <b>myself</b>.</span>（我割到自己）
+表：反身代名詞
+| 主詞 | 反身代名詞 | 例句 |
+|---|---|---|
+| I | myself | I taught <b>myself</b> to cook. |
+| you（單數） | yourself | Help <b>yourself</b>! |
+| he | himself | He hurt <b>himself</b>. |
+| she | herself | She looked at <b>herself</b>. |
+| it | itself | The cat cleaned <b>itself</b>. |
+| we | ourselves | We enjoyed <b>ourselves</b>. |
+| you（複數） | yourselves | Take care of <b>yourselves</b>. |
+| they | themselves | They introduced <b>themselves</b>. |
+註：單數 -self，複數 -selves。注意 himself、themselves，沒有 hisself、theirselves 這種字。
+
+## 三種用法
+| 用法 | 說明 | 例句 |
+|---|---|---|
+| 當受詞 | 主詞＝受詞 | She blamed <b>herself</b>. |
+| 強調 | 「親自」，可省略 | I made this cake <b>myself</b>. |
+| by oneself | 獨自、靠自己 | He lives <b>by himself</b>. |
+
+## 常見慣用語
+| 片語 | 意思 |
+|---|---|
+| enjoy oneself | 玩得開心 |
+| help oneself (to…) | 自己取用 |
+| teach oneself | 自學 |
+| make oneself at home | 別客氣、當自己家 |
+| talk to oneself | 自言自語 |
+> 有些動詞中文會說「自己」，英文卻不用反身：relax、feel、concentrate。I feel tired.（✗ I feel myself tired）
+
+# mc
+Q: The children enjoyed ___ at the party. || 孩子們在派對上玩得很開心。
+A: them | themselves* | theirselves
+W: 主詞是 The children（複數），用 themselves。
+Q: Be careful! Don't cut ___. || 小心！別割到你自己。
+A: you | yourself* | yourselves
+W: 對一個人說話，用 yourself。
+Q: She lives by ___. || 她一個人住。
+A: her | herself* | hers
+W: by oneself 表示「獨自」。
+Q: Please help ___ to some cake. || 請自己拿蛋糕吃。
+A: yourself* | you | your
+W: help oneself to… 是「自行取用」。
+
+# err
+S: He taught [hisself|himself] to play the guitar. || 他自學吉他。
+W: he 的反身代名詞是 himself。
+S: We made the poster [ourself|ourselves]. || 這張海報是我們自己做的。
+W: we 是複數，用 ourselves。
+S: Mary hurt [her|herself] when she fell. || 瑪莉跌倒時傷到自己。
+W: 主詞和受詞是同一個人，要用反身代名詞 herself。
+
+# mk
+- 主詞 I 和受詞同一人，要用 myself。
+- he 的反身代名詞是 himself。
+- they 的反身代名詞是 themselves。

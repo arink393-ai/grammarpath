@@ -1,0 +1,58 @@
+# zh
+## was / were：過去的「是、在」
+be 動詞的過去式只有兩個：<b>was</b> 和 <b>were</b>。用來描述過去的狀態、身分或位置。
+表：be 動詞現在式與過去式對照
+| 主詞 | 現在式 | 過去式 |
+|---|---|---|
+| I | am | <b>was</b> |
+| he / she / it / 單數名詞 | is | <b>was</b> |
+| you / we / they / 複數名詞 | are | <b>were</b> |
+註：記法：am、is → was；are → were。
+
+## 句型
+| 句型 | 例句 |
+|---|---|
+| 肯定 | I <b>was</b> tired yesterday. |
+| 否定 | They <b>weren't</b> at home last night. |
+| 疑問 | <b>Was</b> she sick? — Yes, she was. / No, she wasn't. |
+| Wh- 問句 | Where <b>were</b> you last weekend? |
+
+## 常搭配的過去時間詞
+| 時間詞 | 中文 |
+|---|---|
+| yesterday | 昨天 |
+| last night / week / year | 昨晚、上週、去年 |
+| ... ago | …以前（two days ago） |
+| in 2020 | 在 2020 年 |
+| this morning（已過去時） | 今天早上 |
+
+## There was / There were
+「過去有」用 There was（單數、不可數）／ There were（複數）：<span class="en">There <b>was</b> a cat in the garden. / There <b>were</b> many people at the party.</span>
+> you 不論單複數，都用 were：You <b>were</b> right.
+
+# mc
+Q: We ___ at the beach last Sunday. || 我們上週日在海邊。
+A: was | were* | are
+W: 主詞 We 配 were；last Sunday 是過去。
+Q: The test ___ very hard yesterday. || 昨天的考試很難。
+A: was* | were | is
+W: The test 單數，過去式用 was。
+Q: ___ you busy last night? || 你昨晚忙嗎？
+A: Was | Were* | Did
+W: you 一律配 were；問句把 Were 放前面。
+Q: There ___ two dogs in the yard this morning. || 今天早上院子裡有兩隻狗。
+A: was | were* | is
+W: two dogs 是複數，用 There were。
+
+# err
+S: My grandparents [was|were] farmers. || 我的祖父母以前是農夫。
+W: My grandparents 是複數，要用 were。
+S: [Did|Was] he at school yesterday? || 他昨天在學校嗎？
+W: 句子裡沒有一般動詞，問句直接用 be 動詞 Was。
+S: I [wasn't not|wasn't] hungry. || 我那時不餓。
+W: wasn't 已經包含 not，不能再加一次。
+
+# mk
+- 主詞 I 的過去式 be 動詞是 was。
+- They 是複數，過去式用 were。
+- you 一律配 were：Were you at home?

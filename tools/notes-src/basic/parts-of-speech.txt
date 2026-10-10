@@ -1,0 +1,76 @@
+# zh
+## 為什麼要先認識詞性？
+英文的每個字在句子裡都有一份「工作」，這份工作就叫做<b>詞性</b>（part of speech）。知道一個字的詞性，你才知道它可以放在句子的哪個位置、後面可以接什麼、要不要變化形狀。例如 <span class="en">happy</span> 是形容詞，要描述動作時就得改成副詞 <span class="en">happily</span>。
+傳統文法把英文的字分成八大類，也就是常聽到的「八大詞類」。
+
+表：英文八大詞類一覽
+| 詞類 | 英文名稱 | 功能 | 例字 |
+|---|---|---|---|
+| 名詞 | Noun (n.) | 人、地方、事物或抽象概念的名稱 | teacher, Taipei, book, love |
+| 代名詞 | Pronoun (pron.) | 代替前面提過的名詞，避免重複 | he, she, it, they, this |
+| 動詞 | Verb (v.) | 表示動作或狀態 | run, eat, is, seem |
+| 形容詞 | Adjective (adj.) | 描述、修飾名詞或代名詞 | tall, happy, red |
+| 副詞 | Adverb (adv.) | 修飾動詞、形容詞或其他副詞 | quickly, very, often |
+| 介系詞 | Preposition (prep.) | 放在名詞前面，表示位置、時間、方向等關係 | in, on, at, under |
+| 連接詞 | Conjunction (conj.) | 連接單字、片語或句子 | and, but, because |
+| 感嘆詞 | Interjection (interj.) | 表達突然的情緒或感受 | Wow!, Oh!, Ouch! |
+註：查字典時，詞性通常用括號裡的縮寫標示，例如 n.、v.、adj.。
+
+## 限定詞：第九個詞類？
+<span class="en">a, an, the, this, my, some</span> 這類字放在名詞前面，用來「限定」是哪一個、多少個、誰的。早期文法書把它們歸在形容詞裡，但現代文法書多半把它們獨立成一類，叫做<b>限定詞</b>（determiner）。
+| 種類 | 例字 | 用途 |
+|---|---|---|
+| 冠詞 | a, an, the | 一個／那個 |
+| 指示詞 | this, that, these, those | 這個、那些 |
+| 所有格 | my, your, his, their | 誰的 |
+| 數量詞 | some, many, every, two | 多少 |
+限定詞和形容詞的差別：
+- 形容詞「描述」名詞的樣子（漂亮的、大的）；限定詞「指定」範圍或數量（那個、三個、我的）。
+- 限定詞一定排在形容詞前面：<span class="en">my <b>new</b> bike</span>，不能說 <span class="en">new my bike</span>。
+- 形容詞可以一直造新字，限定詞的數量是固定的。
+
+## 同一個字，可以有不同詞性
+英文很多字會「換工作」，要看它在句子裡的位置和作用來判斷，不能只背字典第一個意思。
+表：同字不同詞性
+| 單字 | 例句 | 詞性 |
+|---|---|---|
+| water | I drink <b>water</b> every day. | 名詞（水） |
+| water | Please <b>water</b> the plants. | 動詞（澆水） |
+| fast | He is a <b>fast</b> runner. | 形容詞（快的） |
+| fast | He runs <b>fast</b>. | 副詞（快地） |
+| before | I'll call you <b>before</b> lunch. | 介系詞（後接名詞） |
+| before | Wash your hands <b>before</b> you eat. | 連接詞（後接句子） |
+
+## 判斷詞性的小技巧
+- 前面能放 <span class="en">a / the</span> 的，通常是名詞：<span class="en">a <b>dog</b></span>。
+- 放在主詞後面、會隨時態變化的，是動詞：<span class="en">She <b>walks</b> / <b>walked</b>.</span>
+- 回答「怎樣的？」是形容詞；回答「怎麼做？多常？」是副詞。
+- 字尾也是線索：-tion, -ness, -ment 多為名詞；-ful, -ous, -able 多為形容詞；-ly 多為副詞（但 friendly、lovely 是形容詞）。
+> 看到不會的字，先問自己：它在句子裡做什麼工作？這比背字義更能幫你讀懂句子。
+
+# mc
+Q: Birds ___ beautifully in the morning. || 鳥兒早上唱得很好聽。
+A: sing* | song | singer
+W: 主詞 Birds 後面需要<b>動詞</b>，sing 是動詞；song（歌）、singer（歌手）都是名詞。
+Q: She is a very ___ girl. || 她是個非常快樂的女孩。
+A: happily | happy* | happiness
+W: 修飾名詞 girl 要用<b>形容詞</b> happy。happily 是副詞，happiness 是名詞。
+Q: He finished the test ___. || 他很快就寫完考試。
+A: quick | quickly* | quickness
+W: 描述動作 finished「怎麼做」要用<b>副詞</b> quickly。
+Q: The cat is sleeping ___ the sofa. || 貓正在沙發上睡覺。
+A: on* | and | very
+W: 名詞 the sofa 前面要放<b>介系詞</b>表示位置，on 表示「在…上面」。
+
+# err
+S: She sings [beautiful|beautifully]. || 她唱得很好聽。
+W: beautiful 是形容詞，只能修飾名詞；要描述動詞 sings 怎麼唱，必須用副詞 beautifully。
+S: My brother is a [well|good] student. || 我哥哥是個好學生。
+W: 修飾名詞 student 要用形容詞 good；well 是副詞（He studies well.）。
+S: I want to buy a [blue new|new blue] bag. || 我想買一個新的藍色包包。
+W: 兩個形容詞同時出現時，有固定順序：意見／大小／新舊在前，顏色在後，所以是 new blue bag。
+
+# mk
+- 要描述動詞 sings（怎麼唱），必須用副詞 beautifully，不能用形容詞 beautiful。
+- quick 修飾名詞 runner（形容詞）；quickly 修飾動詞 runs（副詞）。
+- a / an 是冠詞（限定詞）；interesting 以母音開頭，要用 an。

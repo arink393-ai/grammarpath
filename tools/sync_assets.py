@@ -10,6 +10,7 @@
   - curriculum/*.json 的版本取自 curriculum-loader.js
   - 單字書資料版本取自 vocab/book-loader.js，並檢查 vocab-quest.js 的 VQ_DATA_V 一致
   - 單字補充資料（vocab/info/*.js）版本取自 vocab/app.js 的 INFO_V
+  - 課程詳解（curriculum/notes/*.json）版本取自 lesson-notes.js 的 LN_V
 """
 import glob, os, re, sys
 from urllib.parse import urljoin
@@ -33,11 +34,12 @@ def main():
     vq_v = re.search(r'const VQ_DATA_V = (\d+);', rd('vocab-quest.js')).group(1)
     if vq_v != data_v: errs.append(f'vocab-quest.js VQ_DATA_V={vq_v} 與 book-loader.js 的 v={data_v} 不一致')
     info_v = re.search(r'const INFO_V = (\d+);', rd('vocab/app.js')).group(1)
+    notes_v = re.search(r'const LN_V = (\d+);', rd('lesson-notes.js')).group(1)
     shards = sorted(os.path.basename(f)[:-3] for f in glob.glob(os.path.join(REPO, 'vocab', 'info', '*.js')))
 
     idx, voc = page_assets('index.html'), page_assets('vocab/index.html')
     art = ['art/cat-dex/meme-cats-atlas.png']
-    core = ['index.html'] + art + idx + [f'curriculum/{l}.json?v={cur_v}' for l in ('basic', 'intermediate', 'advanced')] + ['vocab/'] + voc
+    core = ['index.html'] + art + idx + [f'curriculum/{l}.json?v={cur_v}' for l in ('basic', 'intermediate', 'advanced')] + [f'curriculum/notes/{l}.json?v={notes_v}' for l in ('basic', 'intermediate', 'advanced')] + ['vocab/'] + voc
     core = list(dict.fromkeys(core)) + ['https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2']
     shell = ['./', './index.html'] + ['./' + a for a in art] + ['./' + a for a in idx] + ['./manifest.webmanifest', './vocab/'] + ['./' + a for a in voc] + \
             ['./icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-180.png']

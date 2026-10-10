@@ -1,0 +1,64 @@
+# zh
+## 時間介系詞的三層：at → on → in
+表：時間的 at / on / in
+| 介系詞 | 時間範圍 | 例子 |
+|---|---|---|
+| at | 精確的時間點 | at 8:00, at noon, at midnight, at night, at sunrise, at lunchtime |
+| on | 特定的某一天、日期 | on Friday, on June 1, on New Year's Day, on my birthday, on weekdays |
+| in | 較長的一段時間 | in the morning, in May, in summer, in 2024, in the 1990s, in the 21st century |
+註：口訣：「點用 at、天用 on、長的用 in」。
+
+## 容易搞錯的組合
+| 說法 | 介系詞 | 原因 |
+|---|---|---|
+| in the morning / afternoon / evening | in | 一天中的一段時間 |
+| at night | at | 固定說法 |
+| on Monday morning | on | 特定某一天的早上 |
+| on a cold morning | on | 描述特定某天 |
+| at Christmas（聖誕節期間） | at | 節日期間 |
+| on Christmas Day（聖誕節當天） | on | 特定一天 |
+| at the weekend（英）/ on the weekend（美） | — | 英美用法不同 |
+
+## 其他時間介系詞
+表：常用的時間介系詞
+| 介系詞 | 意思 | 例句 |
+|---|---|---|
+| before / after | 在…之前／之後 | before dinner, after school |
+| during | 在…期間 | during the class |
+| for | 持續多久（一段長度） | for two hours |
+| since | 從某時間點起（到現在） | since 2020 |
+| from … to / until | 從…到… | from 9 to 5 |
+| by | 最晚在…之前 | by Friday |
+| until / till | 一直到… | wait until 6 |
+| in（未來） | 在…之後 | I'll be back in ten minutes. |
+
+## 不加介系詞
+有 this, that, next, last, every, today, tomorrow, yesterday 時，前面不加 at/on/in：
+<span class="en">I saw him <b>last Sunday</b>.</span>（✗ on last Sunday）<span class="en">See you <b>tomorrow</b>.</span>
+
+# mc
+Q: The store opens ___ 9 a.m. || 這家店早上九點開門。
+A: in | on | at*
+W: 精確時刻用 at。
+Q: Children get presents ___ Christmas Day. || 孩子們在聖誕節當天收到禮物。
+A: at | on* | in
+W: 特定的一天（Christmas Day）用 on。
+Q: I have lived here ___ 2018. || 我從 2018 年起就住在這裡。
+A: for | since* | in
+W: 從某時間點到現在用 since。
+Q: Please finish the report ___ Friday. || 請在星期五之前完成報告。
+A: until | by* | at
+W: 「最晚在…之前完成」用 by。
+
+# err
+S: We usually go camping [on|in] summer. || 我們通常夏天去露營。
+W: 季節用 in。
+S: She was born [in|on] May 5. || 她在五月五日出生。
+W: 有具體日期用 on。
+S: I'm busy [on this|this] week. || 我這週很忙。
+W: 有 this 時，前面不加介系詞。
+
+# mk
+- 星期幾用 on：on Monday。
+- 月份用 in：in July。
+- 早上用 in the morning。

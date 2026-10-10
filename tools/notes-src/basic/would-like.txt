@@ -1,0 +1,60 @@
+# zh
+## would like：禮貌地說「想要」
+want 很直接，would like 比較客氣，點餐、提出請求、邀請別人時常用。
+表：want vs. would like
+| | want | would like |
+|---|---|---|
+| 語氣 | 直接 | 禮貌 |
+| 例句 | I want a coke. | I<b>'d like</b> a coke, please. |
+| 縮寫 | — | I'd like / She'd like |
+
+## 兩種句型
+表：would like 後面接什麼？
+| 後接 | 公式 | 例句 |
+|---|---|---|
+| 名詞 | would like + 名詞 | I'd like <b>a cup of tea</b>. |
+| 動詞 | would like + <b>to</b> + 原形動詞 | I'd like <b>to order</b> now. |
+| 別人做 | would like + 人 + to V | I'd like <b>you to meet</b> my mom. |
+註：would like 後面接動詞時，一定要有 to：✗ I would like go.
+
+## 疑問句：邀請與提供
+把 Would 移到主詞前面：
+| 問句 | 意思 | 回答 |
+|---|---|---|
+| Would you like some tea? | 要不要喝點茶？（提供） | Yes, please. / No, thank you. |
+| Would you like to come? | 你要不要一起來？（邀請） | I'd love to! / I'd love to, but I'm busy. |
+| What would you like? | 您想要什麼？ | I'd like the chicken, please. |
+> 回答邀請時不要只說 Yes, I would like. 自然的說法是 Yes, I'd love to. 或 Yes, please.
+
+## would like vs. like
+| 句子 | 意思 |
+|---|---|
+| Do you <b>like</b> coffee? | 你喜歡咖啡嗎？（平常的喜好） |
+| <b>Would</b> you <b>like</b> coffee? | 你要喝咖啡嗎？（現在要不要） |
+
+# mc
+Q: I'd like ___ a table for two, please. || 我想訂一張兩人桌。
+A: book | to book* | booking
+W: would like 後面接動詞要用 to V。
+Q: ___ you like some more cake? || 你要再來點蛋糕嗎？
+A: Do | Would* | Are
+W: 禮貌地提供東西用 Would you like…?
+Q: Would you like to join us? — ___ || 你要加入我們嗎？我很樂意！
+A: Yes, I like. | I'd love to!* | Yes, I would like.
+W: 接受邀請自然的說法是 I'd love to!
+Q: What would you like ___ dinner? || 你晚餐想吃什麼？
+A: for* | to | at
+W: 「當作晚餐」用 for dinner。
+
+# err
+S: I would like [go|to go] to the zoo. || 我想去動物園。
+W: would like 後面接動詞要加 to。
+S: [Do you would|Would you] like a drink? || 你想喝點東西嗎？
+W: 疑問句直接把 Would 放句首，不加 Do。
+S: She'd like [buying|to buy] a new bag. || 她想買一個新包包。
+W: would like 後面用 to V，不用 V-ing。
+
+# mk
+- 這是直述句，句尾用句號，不是問號。
+- would like 後面接動詞要加 to。
+- 疑問句直接用 Would 開頭，不加 Do。

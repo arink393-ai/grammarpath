@@ -1,0 +1,64 @@
+# zh
+## 形容詞 vs. 副詞
+<b>形容詞</b>描述名詞：「怎樣的人／東西？」<b>副詞</b>描述動作：「怎麼做？做得如何？多常做？」也可以修飾形容詞或其他副詞。
+表：形容詞與副詞比一比
+| | 形容詞 adjective | 副詞 adverb |
+|---|---|---|
+| 修飾對象 | 名詞、代名詞 | 動詞、形容詞、副詞、整個句子 |
+| 回答的問題 | 什麼樣的？ | 怎麼做？多…？多常？ |
+| 位置 | 名詞前，或 be／連綴動詞後 | 動詞後、形容詞前 |
+| 例句 | She is a <b>careful</b> driver. | She drives <b>carefully</b>. |
+
+## 形容詞放哪裡？
+- 名詞前面：<span class="en">a <b>tall</b> boy</span>
+- be 動詞和連綴動詞（look, feel, smell, taste, sound, seem, become）後面：<span class="en">You look <b>happy</b>.</span>
+> 連綴動詞後面要用形容詞，不是副詞：The cake tastes <b>good</b>（✗ well）。
+
+## 形容詞變副詞
+表：-ly 的規則
+| 規則 | 例子 |
+|---|---|
+| 大部分直接加 -ly | quick → quickly, careful → carefully |
+| 子音＋y：去 y 加 -ily | happy → happily, easy → easily |
+| 字尾 -le：去 e 加 -y | simple → simply, gentle → gently |
+| 字尾 -ic：加 -ally | basic → basically |
+| 不規則 | good → <b>well</b> |
+
+## 長得一樣的形容詞和副詞
+| 單字 | 形容詞用法 | 副詞用法 |
+|---|---|---|
+| fast | a fast car | He runs fast. |
+| hard | a hard test | She works hard. |
+| late | a late bus | He got up late. |
+| early | an early class | I woke up early. |
+註：hardly（幾乎不）、lately（最近）是不同意思的字，不是 hard、late 的副詞。
+
+## 以 -ly 結尾卻是形容詞
+<span class="en">friendly, lovely, lonely, ugly, likely</span> 都是形容詞。要當副詞用時，改說 <span class="en">in a friendly way</span>。
+
+# mc
+Q: He speaks English very ___. || 他英文說得很好。
+A: good | well* | goodly
+W: 修飾動詞 speaks 要用副詞；good 的副詞是不規則的 well。
+Q: This cake tastes ___. || 這蛋糕很好吃。
+A: wonderfully | wonderful* | wonder
+W: taste 是<b>連綴動詞</b>，後面接形容詞 wonderful。
+Q: Please close the door ___. || 請輕輕地關門。
+A: gentle | gently* | gentlely
+W: 字尾 -le 的形容詞，去 e 加 y 變副詞：gently。
+Q: She is a ___ person. || 她是個友善的人。
+A: friendly* | friendlily | friend
+W: friendly 雖然以 -ly 結尾，但它是<b>形容詞</b>，修飾名詞 person。
+
+# err
+S: Please drive [careful|carefully]. || 請小心開車。
+W: 修飾動詞 drive 要用副詞 carefully。
+S: You look [sadly|sad] today. || 你今天看起來很難過。
+W: look 是連綴動詞，後面要接形容詞 sad，說明主詞的狀態。
+S: He studied [hardly|hard] for the test. || 他為考試很用功地讀書。
+W: hard 本身就可以當副詞（努力地）；hardly 是「幾乎不」，意思完全相反。
+
+# mk
+- 要描述動詞 sings（怎麼唱），必須用副詞 beautifully。
+- good 是形容詞；修飾動詞 speaks 要用副詞 well。
+- 修飾動詞 Drive 要用副詞 carefully。

@@ -1,0 +1,54 @@
+# zh
+## 現在進行式的問句
+現在進行式本身就有 be 動詞（am / is / are），所以問句只要把 <b>be 動詞移到主詞前面</b>，不需要 do / does。
+表：現在進行式問句
+| 類型 | 公式 | 例句 |
+|---|---|---|
+| Yes/No 問句 | Am/Is/Are + 主詞 + V-ing…? | <b>Are</b> you <b>listening</b>? |
+| Wh- 問句 | Wh- + am/is/are + 主詞 + V-ing…? | What <b>are</b> you <b>doing</b>? |
+| 問主詞 | Who/What + is + V-ing…? | Who <b>is singing</b>? |
+
+## 簡答
+| 問句 | 肯定 | 否定 |
+|---|---|---|
+| Are you studying? | Yes, I am. | No, I'm not. |
+| Is she sleeping? | Yes, she is. | No, she isn't. |
+| Are they playing? | Yes, they are. | No, they aren't. |
+
+## 常見錯誤
+| ✗ 錯誤 | 問題 | ✓ 正確 |
+|---|---|---|
+| Do you working? | 進行式不用 do | <b>Are</b> you working? |
+| What you are doing? | be 動詞沒移前面 | What <b>are you</b> doing? |
+| Is he play football? | 少了 -ing | Is he <b>playing</b> football? |
+
+## 也可以問「近期的計畫」
+現在進行式可以問已經安排好的未來行程：<span class="en">What <b>are</b> you <b>doing</b> this weekend?</span>（你這週末要做什麼？）<span class="en"><b>Are</b> you <b>coming</b> to the party tonight?</span>
+> 常見問法：Where are you going?（你要去哪？）What are you looking at?（你在看什麼？）
+
+# mc
+Q: ___ your parents watching TV now? || 你爸媽現在在看電視嗎？
+A: Do | Are* | Is
+W: 進行式問句用 be 動詞；your parents 複數用 Are。
+Q: What ___ she cooking? It smells good. || 她在煮什麼？好香。
+A: does | is* | do
+W: 進行式的 Wh- 問句：What + is + 主詞 + V-ing。
+Q: Is it ___ outside? || 外面在下雨嗎？
+A: rain | raining* | rains
+W: 進行式要用 V-ing。
+Q: Who ___ on the phone? || 誰在講電話？
+A: is talking* | does talking | are talk
+W: Who 當主詞，接 is + V-ing。
+
+# err
+S: [Does|Is] he doing his homework? || 他在寫功課嗎？
+W: 進行式問句用 be 動詞，不用 does。
+S: Where [you are|are you] going? || 你要去哪裡？
+W: Wh- 問句要把 be 動詞移到主詞前面。
+S: Are they [swim|swimming] in the lake? || 他們在湖裡游泳嗎？
+W: 進行式的動詞要加 -ing。
+
+# mk
+- 進行式問句用 be 動詞 Are，不用 Do。
+- 要把 be 動詞移到主詞前面：What are you doing?
+- 進行式動詞要用 V-ing：playing。

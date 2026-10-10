@@ -1,0 +1,55 @@
+# zh
+## 英文語序的基本骨架
+英文非常依賴字的順序來表達意思。<span class="en">The dog bit the man.</span>（狗咬人）和 <span class="en">The man bit the dog.</span>（人咬狗）用的字一樣，意思完全相反。
+表：英文句子的標準順序
+| 主詞 | 動詞 | 受詞 | 地點 | 時間 |
+|---|---|---|---|---|
+| I | play | basketball | at school | every day. |
+| She | met | her friend | in the park | yesterday. |
+| We | will visit | Grandma | in Tainan | next week. |
+註：口訣「人 → 做 → 什麼 → 在哪 → 何時」。中文常把時間放前面（我昨天在公園…），英文時間通常放最後。
+
+## 形容詞放在名詞前面
+<span class="en">a <b>red</b> car</span>（✗ a car red）。多個形容詞時順序大致是：
+| 意見 | 大小 | 新舊／年齡 | 形狀 | 顏色 | 來源 | 材質 | 名詞 |
+|---|---|---|---|---|---|---|---|
+| beautiful | small | old | round | brown | Italian | wooden | table |
+> 實際上通常只用兩三個：a <b>nice big</b> house、an <b>old blue</b> bag。
+
+## 副詞的位置
+| 副詞種類 | 位置 | 例句 |
+|---|---|---|
+| very much / well / a lot | 放在受詞<b>後面</b> | I like this song <b>very much</b>. |
+| 頻率副詞 | 一般動詞前、be 動詞後 | She <b>often</b> reads. / He is <b>always</b> late. |
+| 時間副詞 | 句尾（或句首） | I saw him <b>yesterday</b>. |
+> 動詞和受詞是好朋友，中間不要插入副詞：✗ I like very much this song.
+
+## 問句的語序
+問句要把 be 動詞或助動詞移到主詞前面：<span class="en"><b>Are</b> you ready? / <b>Do</b> you like it? / Where <b>does</b> she live?</span>
+
+# mc
+Q: I ___ every weekend. || 我每個週末都去游泳池游泳。
+A: swim in the pool* | in the pool swim | swim every in the pool
+W: 順序是「動詞 → 地點 → 時間」：swim in the pool every weekend。
+Q: She bought ___. || 她買了一件漂亮的白洋裝。
+A: a white beautiful dress | a beautiful white dress* | a dress beautiful white
+W: 意見（beautiful）在顏色（white）前面，形容詞都放名詞前。
+Q: He speaks English ___. || 他英文說得很好。
+A: well* | well English | very English
+W: well 放在受詞 English 後面。
+Q: ___ do you go to bed? || 你幾點上床睡覺？
+A: What time* | Time what | What you time
+W: 疑問詞 What time 放句首，接 do + 主詞 + 動詞。
+
+# err
+S: I [like very much pizza|like pizza very much]. || 我非常喜歡披薩。
+W: very much 要放在受詞後面，不能插在動詞和受詞中間。
+S: She has [a dog black|a black dog]. || 她有一隻黑狗。
+W: 形容詞放在名詞前面。
+S: We [yesterday went|went] to the zoo yesterday. || 我們昨天去了動物園。
+W: 時間副詞 yesterday 放句尾就好，不要放在主詞和動詞中間。
+
+# mk
+- very much 要放在受詞 this song 的後面。
+- 形容詞 red 要放在名詞 car 前面。
+- 地點 to school 在前、時間 every day 在後。

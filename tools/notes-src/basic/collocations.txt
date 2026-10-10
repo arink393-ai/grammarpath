@@ -1,0 +1,75 @@
+# zh
+## 什麼是搭配詞？
+搭配詞（collocation）是英文母語者習慣放在一起的字。中文說「拍照」，英文是 <span class="en"><b>take</b> a photo</span>，不是 make 或 do。這些沒有一定的邏輯，最好整組背起來。
+表：have 的搭配
+| 類別 | 搭配詞 | 中文 |
+|---|---|---|
+| 吃喝 | have breakfast / lunch / dinner | 吃早餐／午餐／晚餐 |
+| 吃喝 | have a drink / a snack / coffee | 喝一杯／吃點心／喝咖啡 |
+| 經驗 | have fun / a good time | 玩得開心 |
+| 活動 | have a party / a meeting / a class | 開派對／開會／上課 |
+| 休息 | have a rest / a break / a nap | 休息／小睡 |
+| 清潔 | have a shower / a bath | 洗澡（英式） |
+| 其他 | have a look / a try / a chat | 看一下／試試看／聊天 |
+
+表：take 的搭配
+| 搭配詞 | 中文 |
+|---|---|
+| take a photo / picture | 拍照 |
+| take a shower / bath | 洗澡（美式） |
+| take a bus / taxi / train | 搭公車／計程車／火車 |
+| take a break / rest | 休息 |
+| take medicine | 吃藥 |
+| take a test / an exam | 參加考試 |
+| take notes | 做筆記 |
+| take care of | 照顧 |
+| take part in | 參加 |
+| take a walk | 散步 |
+| take time | 花時間 |
+
+表：get 的搭配
+| 搭配詞 | 中文 |
+|---|---|
+| get up | 起床 |
+| get dressed | 穿好衣服 |
+| get home / to school | 到家／到學校 |
+| get married | 結婚 |
+| get lost | 迷路 |
+| get sick / better / angry | 生病／好轉／生氣 |
+| get a job / a letter | 得到工作／收到信 |
+| get on / off the bus | 上／下公車 |
+註：get + 形容詞 = 「變得…」：It's getting dark.
+
+## make vs. do
+| make（製造、產生） | do（做事、工作） |
+|---|---|
+| make a cake, make a mistake | do homework, do the dishes |
+| make friends, make noise | do exercise, do your best |
+| make a decision, make money | do the laundry, do a favor |
+
+# mc
+Q: Let's ___ a photo in front of the temple. || 我們在廟前拍張照吧。
+A: do | make | take*
+W: 拍照是 take a photo。
+Q: What time do you usually ___ lunch? || 你通常幾點吃午餐？
+A: take | have* | get
+W: 吃三餐用 have。
+Q: Be careful not to ___ lost in the city. || 小心別在城裡迷路。
+A: get* | take | have
+W: 迷路是 get lost。
+Q: I always ___ my homework after dinner. || 我總是晚餐後寫功課。
+A: make | do* | take
+W: 做作業是 do homework。
+
+# err
+S: Don't forget to [eat|take] your medicine. || 別忘了吃藥。
+W: 吃藥的英文是 take medicine。
+S: I [did|made] a mistake on the test. || 我在考試中犯了一個錯。
+W: 犯錯是 make a mistake。
+S: We [made|had] a great time at the beach. || 我們在海邊玩得很開心。
+W: 玩得開心是 have a great time。
+
+# mk
+- 吃早餐用 have breakfast，不用 take。
+- 拍照是 take a photo，不用 do。
+- 洗澡是 have a shower（或美式 take a shower），不用 get。

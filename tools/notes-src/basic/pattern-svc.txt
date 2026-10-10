@@ -1,0 +1,56 @@
+# zh
+## 句型二：主詞＋連綴動詞＋補語
+連綴動詞（linking verb）不表示動作，而是把主詞和後面的<b>補語</b>「連起來」，說明主詞是什麼、怎麼樣。補語通常是<b>形容詞</b>或<b>名詞</b>。
+判斷法：連綴動詞大多可以換成 be 動詞，意思仍然通順。<span class="en">She <b>looks</b> tired. → She <b>is</b> tired.</span>
+表：常見連綴動詞
+| 類別 | 動詞 | 例句 |
+|---|---|---|
+| 是 | be | He <b>is</b> a pilot. |
+| 感官（看、聽、聞、嚐、摸） | look, sound, smell, taste, feel | The music <b>sounds</b> great. |
+| 變成 | become, get, turn, grow, go | It <b>got</b> dark. / Her face <b>turned</b> red. |
+| 似乎 | seem, appear | He <b>seems</b> nice. |
+| 保持 | keep, stay, remain | Please <b>keep</b> quiet. |
+
+## 補語用形容詞，不用副詞
+這是句型二最常考的重點：連綴動詞後面描述的是<b>主詞的狀態</b>，所以要用形容詞。
+| ✗ 錯誤 | ✓ 正確 | 說明 |
+|---|---|---|
+| The cake tastes well. | The cake tastes <b>good</b>. | 描述蛋糕的味道 |
+| She looks sadly. | She looks <b>sad</b>. | 描述她的樣子 |
+| It sounds greatly. | It sounds <b>great</b>. | 描述聽起來的感覺 |
+註：feel well 是例外，well 在這裡是形容詞「身體健康」：I don't feel <b>well</b>.
+
+## 同一個動詞，兩種身分
+| 連綴動詞（句型二） | 動作動詞（句型三） |
+|---|---|
+| The soup <b>tastes</b> salty.（湯嚐起來鹹） | She <b>tasted</b> the soup.（她嚐了湯） |
+| He <b>looks</b> angry.（他看起來生氣） | He <b>looked</b> at me.（他看著我） |
+| The flower <b>smells</b> sweet. | The dog <b>smelled</b> the food. |
+> 感官動詞要接名詞時，用 look like / sound like / smell like：It <b>looks like</b> a cat.
+
+# mc
+Q: Your idea sounds ___. || 你的主意聽起來很棒。
+A: great* | greatly | well
+W: sound 是連綴動詞，後面接形容詞 great。
+Q: The leaves ___ yellow in autumn. || 秋天葉子變黃。
+A: turn* | turn to | are turning to
+W: turn 當連綴動詞「變成」，後面直接接形容詞。
+Q: That cloud looks ___ a rabbit. || 那朵雲看起來像一隻兔子。
+A: as | like* | likely
+W: 連綴動詞後要接名詞時，用 look like。
+Q: Please keep ___ in the library. || 在圖書館請保持安靜。
+A: quiet* | quietly | quietness
+W: keep 在這裡是連綴動詞，接形容詞 quiet。
+
+# err
+S: This flower smells [sweetly|sweet]. || 這朵花聞起來很香。
+W: smell 是連綴動詞，描述主詞要用形容詞 sweet。
+S: It is getting [darkly|dark] outside. || 外面天色漸漸暗了。
+W: get 在這裡是連綴動詞「變得」，後面接形容詞 dark。
+S: She looks [a movie star|like a movie star]. || 她看起來像電影明星。
+W: 連綴動詞 look 後面接名詞時要說 look like。
+
+# mk
+- become 是連綴動詞，後面接形容詞 happy。
+- smell 是連綴動詞，後面接形容詞 good。
+- look 是連綴動詞，描述主詞要用形容詞 tired。

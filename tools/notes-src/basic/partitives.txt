@@ -1,0 +1,57 @@
+# zh
+## 量詞：數不可數的東西
+不可數名詞不能直接加數字，要靠「量詞」：<b>a / 數字 + 單位 + of + 名詞</b>。中文其實也有量詞（一杯茶、一張紙），只是英文的量詞要搭配 of。
+表：容器類量詞
+| 量詞 | 中文 | 例子 |
+|---|---|---|
+| a cup of | 一杯（熱飲） | a cup of tea / coffee |
+| a glass of | 一杯（冷飲） | a glass of water / milk / juice |
+| a bottle of | 一瓶 | a bottle of water |
+| a bowl of | 一碗 | a bowl of rice / soup |
+| a can of | 一罐 | a can of soda |
+| a box of | 一盒 | a box of chocolates |
+| a bag of | 一袋 | a bag of chips |
+| a carton of | 一紙盒 | a carton of milk |
+
+表：形狀、份量類量詞
+| 量詞 | 中文 | 例子 |
+|---|---|---|
+| a piece of | 一片、一則、一件 | a piece of cake / paper / advice / news |
+| a slice of | 一薄片 | a slice of bread / pizza |
+| a loaf of | 一條（整條麵包） | a loaf of bread |
+| a bar of | 一條、一塊 | a bar of chocolate / soap |
+| a sheet of | 一張 | a sheet of paper |
+| a spoonful of | 一匙 | a spoonful of sugar |
+| a pair of | 一雙、一副 | a pair of shoes / glasses |
+
+## 複數變化在「量詞」身上
+要說兩個以上，改的是量詞，不可數名詞本身不變：
+<span class="en">two cup<b>s</b> of tea</span>（✗ two cups of teas）、<span class="en">three slice<b>s</b> of bread</span>、<span class="en">two loa<b>ves</b> of bread</span>
+> 點餐時口語常說 a coffee / two teas，指「一杯咖啡」，但寫作和考試建議用完整量詞。
+
+# mc
+Q: Would you like ___ of soup? || 你要喝一碗湯嗎？
+A: a bowl* | a piece | a pair
+W: 湯用碗裝：a bowl of soup。
+Q: I bought two ___ of bread. || 我買了兩條麵包。
+A: loafs | loaves* | loaf
+W: loaf 是 f 結尾，複數改 v 加 -es：loaves。
+Q: Let me give you a piece of ___. || 讓我給你一個建議。
+A: advices | advice* | an advice
+W: advice 不可數；量詞後的名詞不加 s。
+Q: She drinks three ___ of milk a day. || 她一天喝三杯牛奶。
+A: glass | glasses* | glasses milks
+W: 冷飲用 glass，複數變化在量詞上：three glasses of milk。
+
+# err
+S: Can I have two [piece|pieces] of paper? || 可以給我兩張紙嗎？
+W: 數量是兩張，量詞要變複數 pieces。
+S: I need a [pair|bar] of soap. || 我需要一塊肥皂。
+W: 肥皂、巧克力的「一塊」用 a bar of。
+S: He ate three slices of [pizzas|pizza]. || 他吃了三片披薩。
+W: 複數變化在量詞 slices 上，pizza 不加 s。
+
+# mk
+- 茶要用量詞：a cup of tea。
+- bread 不可數，要用量詞 loaves 或 pieces of bread。
+- 量詞後面的名詞不加 s：a piece of cake。

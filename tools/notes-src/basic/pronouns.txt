@@ -1,0 +1,58 @@
+# zh
+## 為什麼需要代名詞？
+代名詞（pronoun）用來代替前面已經提過的名詞，讓句子不重複。例如：<span class="en">Amy is my friend. <b>She</b> lives near <b>me</b>.</span>
+英文的人稱代名詞會依照它在句子裡的位置改變形狀：放在動詞前面當主詞用<b>主格</b>，放在動詞或介系詞後面用<b>受格</b>。
+表：人稱代名詞總表
+| 人稱 | 主格（做動作的人） | 受格（接受動作的人） | 所有格形容詞 | 所有格代名詞 |
+|---|---|---|---|---|
+| 我 | I | me | my | mine |
+| 你／你們 | you | you | your | yours |
+| 他 | he | him | his | his |
+| 她 | she | her | her | hers |
+| 它／牠 | it | it | its | — |
+| 我們 | we | us | our | ours |
+| 他們 | they | them | their | theirs |
+註：you 和 it 的主格、受格同形；her 同時是受格和所有格。
+
+## 怎麼判斷要用主格還是受格？
+- 在動詞<b>前面</b>、做動作的 → 主格：<span class="en"><b>She</b> called <b>me</b>.</span>
+- 在動詞<b>後面</b>、被做動作的 → 受格：<span class="en">I called <b>her</b>.</span>
+- 在介系詞（with, for, to, between…）<b>後面</b> → 受格：<span class="en">Come with <b>us</b>. / between you and <b>me</b></span>
+> 小技巧：把另一個人拿掉再念一次。Tom and (I / me) went home → I went home，所以用 I。
+
+## 禮貌順序
+兩個以上的人一起當主詞時，英文習慣把「我」放最後：<span class="en">You and I</span>、<span class="en">Tom and I</span>，而不是 <span class="en">I and Tom</span>。
+| 情況 | 正確說法 |
+|---|---|
+| 主詞 | My sister and <b>I</b> are twins. |
+| 受詞 | Mom took my sister and <b>me</b> to the zoo. |
+
+## it 的特別用法
+it 除了代替東西和動物，還可以當「虛主詞」說天氣、時間、距離：<span class="en"><b>It</b> is raining. / <b>It</b> is 7 o'clock. / <b>It</b> is far from here.</span>
+
+# mc
+Q: Mr. Chen is nice. Everyone likes ___. || 陳老師人很好，大家都喜歡他。
+A: he | him* | his
+W: likes 是動詞，後面放受詞，用受格 him。
+Q: ___ and I are best friends. || 莉莉和我是好朋友。
+A: Lily* | Her | Me
+W: 主詞位置，Lily and I 都是主格；Her、Me 是受格，不能當主詞。
+Q: This gift is for ___. || 這份禮物是給你們的。
+A: you* | your | yours
+W: 介系詞 for 後面用受格，you 的受格還是 you。
+Q: ___ is cold today. Wear a jacket. || 今天很冷，穿件外套。
+A: It* | This weather it | He
+W: 說天氣用 it 當主詞。
+
+# err
+S: [Me|I] and my brother like soccer. || 我和我哥哥喜歡足球。
+W: 主詞要用主格 I，而且禮貌上說 My brother and I。
+S: Can you help [we|us]? || 你可以幫我們嗎？
+W: help 的受詞要用受格 us。
+S: My mom made a cake for my sister and [I|me]. || 媽媽做了個蛋糕給我和妹妹。
+W: 介系詞 for 後面要用受格 me。拿掉 my sister 試試：for me。
+
+# mk
+- 主詞要用主格 I，而且禮貌上把自己放後面：Tom and I。
+- saw 是動詞，後面接受格 her。
+- 介系詞 between 後面要用受格：between you and me。

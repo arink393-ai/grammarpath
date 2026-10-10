@@ -1,0 +1,59 @@
+# zh
+## 句型五：主詞＋動詞＋受詞＋受詞補語
+有些動詞接了受詞後，意思還不完整，要再補充說明「受詞變成什麼、是什麼、做什麼」，這個補充就是<b>受詞補語（OC）</b>。
+判斷法：受詞和受詞補語之間可以加 be 動詞變成一句話。<span class="en">They made <b>me happy</b>. → I am happy.</span>
+表：受詞補語的種類
+| 補語種類 | 常見動詞 | 例句 |
+|---|---|---|
+| 形容詞 | make, keep, find, leave, get | The news made <b>her sad</b>. |
+| 名詞 | call, name, elect, make, choose | They named <b>the baby Leo</b>. |
+| 原形動詞 | 使役動詞 make, let, have；感官動詞 see, hear, watch | Mom let <b>me go</b> out. |
+| to V | want, ask, tell, allow, expect | I want <b>you to help</b> me. |
+| V-ing | see, hear, find, keep, catch | I saw <b>him running</b>. |
+
+## 補語用形容詞，不用副詞
+受詞補語說明的是受詞的狀態，所以要用形容詞：
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| The movie made me sadly. | The movie made me <b>sad</b>. |
+| Keep the room cleanly. | Keep the room <b>clean</b>. |
+| I found the book interestingly. | I found the book <b>interesting</b>. |
+
+## 名詞補語不加介系詞
+call、name、elect 後面直接放名詞，不加 to / as：
+<span class="en">They called him <b>Superman</b>.</span>（✗ called him as Superman）<br><span class="en">We elected Amy <b>class leader</b>.</span>（職位前不加 the）
+
+## 使役動詞：make / let / have
+| 動詞 | 意思 | 結構 | 例句 |
+|---|---|---|---|
+| make | 強迫 | make + 人 + 原形V | He made me <b>wait</b>. |
+| let | 允許 | let + 人 + 原形V | Let me <b>help</b> you. |
+| have | 叫、請 | have + 人 + 原形V | I'll have him <b>call</b> you. |
+> 使役動詞後面用原形動詞，不加 to：✗ made me to wait。
+
+# mc
+Q: The long walk made us ___. || 長途步行讓我們很累。
+A: tired* | tiredly | tire
+W: 受詞補語說明 us 的狀態，用形容詞 tired。
+Q: Everyone calls him ___. || 大家都叫他「小胖」。
+A: as Fatty | Fatty* | to Fatty
+W: call 後面直接接名詞補語，不加 as / to。
+Q: My parents let me ___ up late on Saturdays. || 我爸媽星期六讓我晚睡。
+A: to stay | stay* | staying
+W: 使役動詞 let 後面用原形動詞 stay。
+Q: Please leave the door ___. || 請讓門開著。
+A: open* | opened up | openly
+W: leave + 受詞 + 形容詞：讓…保持某狀態。
+
+# err
+S: The good news made everyone [happily|happy]. || 好消息讓大家都很開心。
+W: 受詞補語要用形容詞 happy。
+S: Our teacher made us [to rewrite|rewrite] the essay. || 老師要我們重寫作文。
+W: 使役動詞 make 後面用原形動詞，不加 to。
+S: I saw him [to cross|cross] the street. || 我看到他過馬路。
+W: 感官動詞 see 後面的受詞補語用原形動詞（或 V-ing），不加 to。
+
+# mk
+- 受詞補語描述 him 的狀態，用形容詞 happy。
+- 受詞補語要用形容詞 difficult，不是名詞 difficulty。
+- name 後面直接接名字，不加 to。

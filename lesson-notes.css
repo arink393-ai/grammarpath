@@ -1,0 +1,58 @@
+/* 課程詳解（lesson-notes.js） */
+.ln-sub{font:400 13px var(--sans);color:var(--muted);margin-left:6px}
+.lnzh{margin:0 0 30px}
+.lnh{font:600 16.5px var(--sans);color:var(--navy);margin:20px 0 6px;padding-left:10px;border-left:3px solid var(--teal)}
+.lnh:first-child{margin-top:0}
+.lnp{font:400 15px/1.85 var(--sans);color:var(--ink);margin-bottom:10px}
+.lnp b,.lntable b{color:var(--teal);font-weight:600}
+.lnp .en,.lntable .en{font-family:var(--serif)}
+.lnp ul,.lnp ol{margin:6px 0 6px 22px}
+.lnp li{margin:3px 0}
+.lntip{background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:10px;padding:10px 14px;margin:10px 0 14px;font:400 14.5px/1.75 var(--sans);color:#6B4E1A}
+.lntable-wrap{margin:10px 0 18px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.lntable{border-collapse:collapse;width:100%;min-width:420px;background:var(--paper);font:400 14.5px/1.6 var(--sans);color:var(--ink);border:1px solid var(--line)}
+.lntable caption{caption-side:top;text-align:left;font:600 14px var(--sans);color:var(--navy);padding:0 2px 6px}
+.lntable th{background:var(--teal-bg);color:var(--navy);font-weight:600;text-align:left;padding:8px 12px;border:1px solid var(--teal-line);white-space:nowrap}
+.lntable td{padding:8px 12px;border:1px solid var(--line);vertical-align:top}
+.lntable tbody tr:nth-child(even) td{background:var(--bg)}
+.lntable td:first-child{font-weight:600;color:var(--navy);white-space:nowrap}
+.lntable-note{font:400 13px/1.6 var(--sans);color:var(--muted);margin-top:6px}
+
+/* 例題：滑過正確答案看解析 */
+.lnmcs{display:flex;flex-direction:column;gap:12px;margin-bottom:30px}
+.lnmc{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.lnmc-q{font:400 16px/1.6 var(--serif);color:var(--ink)}
+.lnmc-n{font:600 13px var(--sans);color:var(--muted)}
+.lnmc-blank{display:inline-block;min-width:56px;text-align:center;color:var(--muted)}
+.lnmc.done .lnmc-blank{color:var(--good);font-weight:700;border-bottom:2px solid var(--good-line)}
+.lnmc-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.lnmc-o{border:1.5px solid var(--line);background:var(--bg);border-radius:8px;padding:5px 12px;font:400 14.5px var(--serif);color:var(--ink);cursor:pointer}
+.lnmc-o:hover{border-color:var(--teal-line)}
+.lnmc-o.no{border-color:var(--bad-line);background:var(--bad-bg);color:#8F4630;text-decoration:line-through}
+.lnmc-o.ok{border-color:var(--good);background:var(--good-bg);color:#3F6236;font-weight:600}
+.lnmc-why{display:none;margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);font:400 14px/1.75 var(--sans);color:var(--body)}
+.lnmc-zh{color:var(--navy);margin-bottom:2px}
+.lnmc.done .lnmc-why{display:block;animation:lnfade .9s ease}
+
+/* 想想看，錯在哪？ */
+.lnerrs{margin:0 0 30px;padding-left:22px;display:flex;flex-direction:column;gap:12px}
+.lnerr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.lnerr::marker{font:600 13px var(--sans);color:var(--muted)}
+.lnerr-zh{font:400 13.5px var(--sans);color:var(--muted);margin-bottom:2px}
+.lnerr-s{font:400 16.5px/1.7 var(--serif);color:var(--ink)}
+.lnw{cursor:pointer;border-radius:3px;transition:background .15s}
+.lnw:hover{background:var(--teal-bg)}
+.lnw.nope{animation:lnshake .35s}
+.lnerr.done .lnw{cursor:default}
+.lnerr.done .lnw:hover{background:none}
+.lnerr.done .lnbad{color:#C0392B;text-decoration:line-through;text-decoration-thickness:2px}
+.lnfix{display:none;text-decoration:none;color:#3F7A33;font-weight:700;margin-left:4px;background:var(--good-bg);border-radius:4px;padding:0 4px}
+.lnerr.fixed .lnfix{display:inline;animation:lnfade .8s ease}
+.lnerr-why{display:none;margin-top:6px;font:400 14px/1.75 var(--sans);color:var(--body)}
+.lnerr.why .lnerr-why{display:block;animation:lnfade .9s ease}
+.lnbad:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@keyframes lnfade{from{opacity:0}to{opacity:1}}
+@keyframes lnshake{0%,100%{transform:none}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+@media (prefers-reduced-motion:reduce){.lnw.nope,.lnfix,.lnmc-why,.lnerr-why{animation:none!important}}
+@media (max-width:600px){.lnp{font-size:14.5px}.lntable{font-size:13.5px}.lnerr-s{font-size:15.5px}}
+@media print{.lnmc-why,.lnerr-why{display:block!important}.lnfix{display:inline!important}}

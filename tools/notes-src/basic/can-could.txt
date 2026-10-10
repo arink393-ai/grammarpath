@@ -1,0 +1,64 @@
+# zh
+## 助動詞的共同規則
+can、could、should、must、may、will 這類「情態助動詞」有三個共同特點，學會了所有助動詞都通用：
+表：情態助動詞三大規則
+| 規則 | ✓ 正確 | ✗ 錯誤 |
+|---|---|---|
+| 後面接原形動詞 | She can <b>swim</b>. | She can swims. / can to swim |
+| 本身不加 -s | He <b>can</b> dance. | He cans dance. |
+| 否定、疑問不用 do | I <b>can't</b> go. / <b>Can</b> you go? | I don't can go. |
+
+## can 的用法
+表：can 的三種意思
+| 用法 | 例句 | 否定 |
+|---|---|---|
+| 能力（會） | I <b>can</b> speak Japanese. | I <b>can't</b> (cannot) drive. |
+| 許可（可以） | You <b>can</b> use my phone. | You can't park here. |
+| 請求 | <b>Can</b> you help me? | — |
+註：cannot 寫成一個字；口語縮寫為 can't。
+
+## could 的用法
+| 用法 | 例句 |
+|---|---|
+| 過去的能力 | I <b>could</b> run fast when I was young. |
+| 較禮貌的請求 | <b>Could</b> you open the window, please? |
+| 可能性（不確定） | It <b>could</b> rain later. |
+
+## 請求的禮貌程度
+| 說法 | 禮貌程度 |
+|---|---|
+| Can you…? | 一般、對熟人 |
+| Could you…? | 較客氣 |
+| Could you possibly…? / Would you mind…? | 非常客氣 |
+
+## be able to：能夠
+can 只有現在式和 could 兩種形式。需要其他時態時，改用 <b>be able to</b>：
+<span class="en">I <b>will be able to</b> swim next year.</span>（✗ will can）<span class="en">She <b>has been able to</b> read since she was four.</span>
+> 過去「成功做到某件事」常用 was able to：The fire was big, but we <b>were able to</b> escape.
+
+# mc
+Q: My grandfather ___ use a smartphone. || 我爺爺會用智慧型手機。
+A: can* | cans | can to
+W: can 後接原形，本身不加 s。
+Q: ___ you pass me the salt, please? || 可以請你把鹽遞給我嗎？
+A: Could* | Do | Are
+W: 禮貌的請求用 Could you…?
+Q: When I was five, I ___ ride a bike. || 我五歲時就會騎腳踏車了。
+A: can | could* | can't to
+W: 過去的能力用 could。
+Q: After this course, you will ___ speak French. || 上完這門課，你就能說法文。
+A: can | be able to* | could
+W: will 後面不能接 can，改用 be able to。
+
+# err
+S: She [can sings|can sing] very well. || 她歌唱得很好。
+W: can 後面接原形動詞 sing。
+S: I [don't can|can't] find my keys. || 我找不到我的鑰匙。
+W: can 的否定直接加 not：can't。
+S: He will [can|be able to] come tomorrow. || 他明天能來。
+W: 兩個助動詞不能連用，will 後面用 be able to。
+
+# mk
+- can 後面直接接原形動詞，不加 to。
+- can 本身不加 -s。
+- could 後面接原形動詞 speak。

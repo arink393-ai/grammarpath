@@ -1,0 +1,62 @@
+# zh
+## 能數 vs. 不能數
+<b>可數名詞</b>可以一個一個數，有單數和複數；<b>不可數名詞</b>是一整團、一整片、或抽象的東西，沒有複數，前面不能加 a / an 或數字。
+表：可數與不可數的差別
+| | 可數名詞 | 不可數名詞 |
+|---|---|---|
+| 例子 | apple, chair, student | water, rice, money, music |
+| 複數 | apples | ✗（沒有複數） |
+| a / an | an apple | ✗ a water |
+| 數字 | three apples | ✗ three waters → three bottles of water |
+| 很多 | many apples | much water |
+| 一些 | a few apples / some apples | a little water / some water |
+| 動詞 | The apples <b>are</b>… | The water <b>is</b>… |
+
+## 常見的不可數名詞
+表：不可數名詞分類
+| 類別 | 例子 |
+|---|---|
+| 液體 | water, milk, juice, tea, coffee, oil |
+| 細小顆粒 | rice, sugar, salt, sand, flour |
+| 材料、物質 | paper, wood, glass, gold, plastic |
+| 抽象概念 | love, help, fun, luck, health, music |
+| 集合名詞 | money, furniture, luggage, homework, information, news, advice, equipment |
+| 天氣 | weather, rain, snow, wind |
+
+## 一字兩用
+有些字可數、不可數的意思不同：
+| 不可數 | 可數 |
+|---|---|
+| paper 紙 | a paper 報紙、報告 |
+| glass 玻璃 | a glass 玻璃杯；glasses 眼鏡 |
+| time 時間 | three times 三次 |
+| chicken 雞肉 | a chicken 一隻雞 |
+| hair 頭髮（全部） | a hair 一根頭髮 |
+> 中文覺得能數的「家具、行李、作業、建議」，英文都是不可數。
+
+# mc
+Q: I need some ___ about the trip. || 我需要一些關於這趟旅行的資訊。
+A: informations | information* | an information
+W: information 不可數，沒有複數。
+Q: How ___ luggage do you have? || 你有多少行李？
+A: many | much* | few
+W: luggage 不可數，用 How much。
+Q: Can I have ___ of paper? || 可以給我一張紙嗎？
+A: a piece* | a | an
+W: 紙（paper）不可數，要數時用 a piece of paper。
+Q: The weather ___ nice today. || 今天天氣很好。
+A: are | is* | were
+W: weather 不可數，動詞用單數 is。
+
+# err
+S: We bought some new [furnitures|furniture]. || 我們買了一些新家具。
+W: furniture 不可數，不能加 s。
+S: She drinks [many|a lot of] coffee. || 她喝很多咖啡。
+W: coffee 不可數，不能用 many；肯定句用 a lot of。
+S: Thank you for [a|your] help. || 謝謝你的幫忙。
+W: help 是不可數名詞，不能加 a。
+
+# mk
+- information 不可數，沒有複數。
+- advice 不可數，不能加 an；說 some advice 或 a piece of advice。
+- apples 是可數名詞，問數量用 How many。

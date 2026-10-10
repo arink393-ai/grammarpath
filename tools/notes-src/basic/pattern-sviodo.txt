@@ -1,0 +1,61 @@
+# zh
+## 句型四：主詞＋授與動詞＋間接受詞＋直接受詞
+「授與動詞」表示把東西給某人、為某人做某事，所以會有兩個受詞：
+- <b>間接受詞（IO）</b>：接受的<b>人</b>
+- <b>直接受詞（DO）</b>：給出去的<b>東西</b>
+<span class="en">She gave <b>me</b>（人） <b>a gift</b>（物）.</span>
+表：句型四的兩種寫法
+| 寫法 | 結構 | 例句 |
+|---|---|---|
+| 人在前 | V + 人 + 物 | He sent <b>me</b> <b>a letter</b>. |
+| 物在前 | V + 物 + <b>to / for</b> + 人 | He sent <b>a letter</b> <b>to me</b>. |
+註：人在前時，人和物中間不加介系詞；物在前時，人前面要加 to 或 for。
+
+## 用 to 還是 for？
+表：授與動詞與介系詞
+| 介系詞 | 意思 | 常見動詞 | 例句 |
+|---|---|---|---|
+| to | 東西「傳到」對方手上 | give, send, show, tell, teach, lend, pass, bring, write, sell, pay | Pass the salt <b>to</b> me. |
+| for | 「為了」對方而做 | buy, make, cook, get, find, sing, build, choose | Mom made a cake <b>for</b> me. |
+| of | 問問題、請求 | ask | May I ask a question <b>of</b> you?（較正式） |
+
+## 物是代名詞時
+直接受詞是 it / them 時，要用「物在前」的寫法：
+<span class="en">Give <b>it to me</b>.</span>（✗ Give me it.）
+
+## 只能用「物＋to＋人」的動詞
+有些動詞雖然翻成「對某人說明、介紹」，卻<b>不能</b>把人直接放在動詞後面：
+| 動詞 | ✗ 錯誤 | ✓ 正確 |
+|---|---|---|
+| explain | explain me the rule | explain the rule <b>to</b> me |
+| introduce | introduce me your friend | introduce your friend <b>to</b> me |
+| describe | describe me the place | describe the place <b>to</b> me |
+| suggest | suggest me a book | suggest a book <b>to</b> me |
+> 這些是「易錯動詞」，大考常考，要特別記住。
+
+# mc
+Q: Could you lend ___? || 你可以借我你的筆嗎？
+A: me your pen* | to me your pen | your pen me
+W: 人在前的寫法：lend + 人 + 物，中間不加介系詞。
+Q: Dad bought a new bike ___ my brother. || 爸爸買了一台新腳踏車給弟弟。
+A: to | for* | of
+W: buy 是「為某人買」，物在前時用 for。
+Q: Please explain this word ___. || 請跟我們解釋這個字。
+A: us | to us* | for us
+W: explain 只能用「物 + to + 人」。
+Q: Where's my phone? Please give ___. || 我的手機呢？請把它給我。
+A: me it | it to me* | to me it
+W: 直接受詞是代名詞 it 時，要說 give it to me。
+
+# err
+S: My aunt sent a postcard [me|to me]. || 我阿姨寄了一張明信片給我。
+W: 物在前時，人前面要加 to：sent a postcard to me。
+S: She cooked dinner [to|for] her family. || 她為家人煮晚餐。
+W: cook 表示「為某人做」，要用 for。
+S: Can you describe [me the man|the man to me]? || 你可以跟我描述那個男人嗎？
+W: describe 不能直接接「人」，要說 describe 物 to 人。
+
+# mk
+- give 的兩種寫法：gave me a gift，或 gave a gift to me；人在前時不加 to。
+- explain 只能用「explain 物 to 人」。
+- introduce 只能用「introduce 人 to 人」。

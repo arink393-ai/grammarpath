@@ -1,0 +1,54 @@
+# zh
+## 什麼時候要大寫？
+中文沒有大小寫，所以台灣學生寫英文時特別容易漏掉。只要記住：<b>句首</b>和<b>專有名詞</b>（特定的名字）要大寫。
+表：一定要大寫的情況
+| 情況 | 例子 |
+|---|---|
+| 句子第一個字 | <b>M</b>y cat is cute. |
+| 代名詞 I（不論在哪裡） | Tom and <b>I</b> are friends. |
+| 人名、稱謂 | <b>A</b>my, <b>M</b>r. <b>W</b>ang, <b>D</b>r. <b>L</b>ee |
+| 地名、國家、城市 | <b>T</b>aiwan, <b>T</b>ainan, <b>M</b>ount <b>J</b>ade |
+| 語言、國籍 | <b>E</b>nglish, <b>J</b>apanese, <b>K</b>orean |
+| 星期、月份 | <b>M</b>onday, <b>A</b>ugust |
+| 節日 | <b>C</b>hinese <b>N</b>ew <b>Y</b>ear, <b>M</b>other's <b>D</b>ay |
+| 書名、電影、歌名的主要字 | <b>H</b>arry <b>P</b>otter and the <b>P</b>hilosopher's <b>S</b>tone |
+| 學校、公司、組織名稱 | <b>N</b>ational <b>T</b>aiwan <b>U</b>niversity |
+
+## 不要大寫的情況
+| 情況 | 例子 | 說明 |
+|---|---|---|
+| 季節 | spring, summer, fall, winter | 季節不是專有名詞 |
+| 一般科目 | math, science, history | 但語言科目 English 要大寫 |
+| 一般稱呼 | my mom, a teacher | 當名字用時才大寫：Hi, Mom! |
+| 方位 | go north | 指地區時大寫：the North |
+
+## 標題的大寫
+標題中，名詞、動詞、形容詞、副詞等「實義字」要大寫；冠詞（a, an, the）、短介系詞（in, on, of）、連接詞（and, but）不大寫，除非放在標題第一個字。
+<span class="en">The Lion and the Mouse / Gone with the Wind</span>
+
+# mc
+Q: We have a long vacation in ___. || 我們七月放長假。
+A: july | July* | JULY
+W: 月份名稱要大寫第一個字母。
+Q: My favorite season is ___. || 我最喜歡的季節是夏天。
+A: Summer | summer* | SUMMER
+W: 季節不是專有名詞，不用大寫。
+Q: Can you speak ___? || 你會說日文嗎？
+A: japanese | Japanese* | Japan
+W: 語言名稱要大寫；Japan 是國家，語言是 Japanese。
+Q: Yesterday ___ went to the park. || 昨天我去了公園。
+A: i | I* | me
+W: 代名詞 I 不論在句子哪裡都要大寫。
+
+# err
+S: We celebrate [christmas|Christmas] in December. || 我們在十二月過聖誕節。
+W: 節日名稱要大寫。
+S: My brother lives in [kaohsiung|Kaohsiung]. || 我哥哥住在高雄。
+W: 城市名是專有名詞，第一個字母要大寫。
+S: I have [Math|math] class on Monday. || 我星期一有數學課。
+W: 一般科目名稱不用大寫（語言科目除外）。
+
+# mk
+- 句首 My 要大寫；國家 France 要大寫。
+- 代名詞 I 和語言 English 都要大寫。
+- 星期 Monday 要大寫，季節 winter 不用大寫。

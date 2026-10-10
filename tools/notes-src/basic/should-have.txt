@@ -1,0 +1,62 @@
+# zh
+## should have + p.p.：當初應該…
+用來表達對<b>過去</b>的後悔或責備：當時應該做卻沒做，或不應該做卻做了。
+公式：主詞 + should have + <b>過去分詞（p.p.）</b>
+表：should have 兩種意思
+| 句型 | 意思 | 例句 | 實際情況 |
+|---|---|---|---|
+| should have + p.p. | 當初應該做（但沒做） | I <b>should have studied</b> harder. | 我沒有用功 |
+| shouldn't have + p.p. | 當初不該做（但做了） | You <b>shouldn't have eaten</b> so much. | 你吃太多了 |
+
+## 過去分詞（p.p.）
+規則動詞的 p.p. 和過去式一樣加 -ed；不規則動詞要背第三態。
+表：常見不規則動詞三態
+| 原形 | 過去式 | 過去分詞 |
+|---|---|---|
+| go | went | <b>gone</b> |
+| eat | ate | <b>eaten</b> |
+| see | saw | <b>seen</b> |
+| take | took | <b>taken</b> |
+| tell | told | <b>told</b> |
+| bring | brought | <b>brought</b> |
+| buy | bought | <b>bought</b> |
+| leave | left | <b>left</b> |
+| do | did | <b>done</b> |
+註：最常見錯誤是用了過去式：✗ should have went → ✓ should have <b>gone</b>。
+
+## should of？
+口語中 should've（should have 的縮寫）聽起來很像 "should of"，但<b>寫作一定要寫 have</b>：✗ should of → ✓ should have / should've。
+
+## 相關句型
+| 句型 | 意思 | 例句 |
+|---|---|---|
+| could have + p.p. | 當初本來可以（但沒有） | We <b>could have won</b>. |
+| would have + p.p. | 當初就會（假設） | I <b>would have helped</b> you. |
+| must have + p.p. | 當時一定是 | He <b>must have forgotten</b>. |
+
+# mc
+Q: I'm so hungry. I should have ___ breakfast. || 我好餓，早該吃早餐的。
+A: ate | eaten* | eat
+W: should have 後面接過去分詞 eaten。
+Q: You ___ told her the secret. Now everyone knows. || 你不該告訴她那個秘密的，現在大家都知道了。
+A: shouldn't have* | should have | shouldn't
+W: 後悔做了某事：shouldn't have + p.p.。
+Q: We missed the train. We should ___ earlier. || 我們錯過火車了，應該早點出門的。
+A: leave | have left* | have leaved
+W: should have + p.p.；leave 的 p.p. 是 left。
+Q: He ___ have called you, but he forgot. || 他本來應該打給你的，但他忘了。
+A: should* | must | can
+W: 「本來應該（卻沒做）」用 should have。
+
+# err
+S: You should have [took|taken] an umbrella. || 你應該帶傘的。
+W: should have 後面要用過去分詞 taken。
+S: I [should of|should have] listened to you. || 我早該聽你的。
+W: 書寫要寫 should have，不是 should of。
+S: She [should have do|should have done] her homework. || 她早該寫完功課的。
+W: do 的過去分詞是 done。
+
+# mk
+- 寫作要寫 should have，不能寫 should of。
+- go 的過去分詞是 gone，不是過去式 went。
+- should have 後面要接過去分詞 studied。

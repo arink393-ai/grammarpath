@@ -9,6 +9,7 @@
 <title>English Cat Island — Learn · Practice · Grow</title>
 <link rel="stylesheet" href="daily.css?v=17">
 <link rel="stylesheet" href="adventure.css?v=3">
+<link rel="stylesheet" href="lesson-notes.css?v=1">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
@@ -2006,6 +2007,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="progress-sync.js?v=1"></script>
 <script src="word-checkin.js?v=1"></script>
 <script src="curriculum-loader.js?v=3"></script>
+<script src="lesson-notes.js?v=1"></script>
 <script src="offline-content.js?v=6"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=3"></script>
@@ -7796,10 +7798,11 @@ function renderLesson(id){
           ${(l.form.p.includes("hl-sub")||l.form.p.includes("hl-vrb")||l.form.ex.some(e=>e.includes("hl-sub")||e.includes("hl-vrb"))) ? `<div class="hl-legend"><span class="leg-dot leg-sub"></span><b>主詞 (Subject)</b> 藍色 &nbsp;·&nbsp; <span class="leg-dot leg-vrb"></span><b>動詞 (Verb)</b> 紅色</div>` : ""}
           <div class="fb-ex">${l.form.ex.map(e=>`<span>${e}</span>`).join("")}</div></div>
         ${timelineHTML(l.tl)}
+        <div id="ln-zh"></div>
         <h2 class="section">How to use it</h2>
         ${uses}
-        <h2 class="section">Common mistakes</h2>
-        <div class="mistakes">${mk}</div>
+        <div id="ln-box"><h2 class="section">Common mistakes</h2>
+        <div class="mistakes">${mk}</div></div>
         <div class="tipbox cat-tip"><span>${catSVG(34, CAT_OF[unitOf(l).level])}</span><span><b>Cat tip 🐾</b> &nbsp;${l.tip}</span></div>
         <div class="lesson-foot">
           <div>
@@ -7818,6 +7821,7 @@ function renderLesson(id){
       <button class="btn btn-primary" onclick="location.hash='#/practice/${l.id}'">Practice →</button>
     </div>
   </div>`;
+  if(window.LessonNotes) LessonNotes.fill(l, u.level);
 }
 
 /* =====================================================

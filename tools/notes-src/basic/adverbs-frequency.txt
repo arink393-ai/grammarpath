@@ -1,0 +1,59 @@
+# zh
+## 頻率副詞：多常做？
+頻率副詞告訴我們一件事「多常」發生，最常和現在簡單式一起用。
+表：頻率副詞量表
+| 頻率 | 副詞 | 中文 | 例句 |
+|---|---|---|---|
+| 100% | always | 總是 | I <b>always</b> brush my teeth. |
+| 約 90% | usually | 通常 | She <b>usually</b> walks to school. |
+| 約 70% | often | 常常 | We <b>often</b> eat out. |
+| 約 50% | sometimes | 有時候 | He <b>sometimes</b> plays games. |
+| 約 10% | seldom / rarely | 很少 | They <b>seldom</b> watch TV. |
+| 0% | never | 從不 | I <b>never</b> drink coffee. |
+
+## 放在哪裡？口訣「be 後、一般動詞前」
+| 句子類型 | 位置 | 例句 |
+|---|---|---|
+| 一般動詞 | 放在動詞<b>前面</b> | She <b>always gets</b> up early. |
+| be 動詞 | 放在 be <b>後面</b> | He <b>is always</b> late. |
+| 助動詞 | 放在助動詞<b>後面</b>、主要動詞前面 | I <b>can never</b> remember his name. |
+| 否定句 | 放在 don't / doesn't 後面 | I <b>don't usually</b> eat breakfast. |
+註：sometimes、usually 也可以放句首強調：<span class="en">Sometimes I walk home.</span>
+
+## never 已經是否定
+never 本身就是「從不」，句子裡不能再加 not / don't，否則變雙重否定。
+<span class="en">He <b>never</b> helps.</span>（✗ He doesn't never help.）
+
+## 問頻率：How often…?
+| 問句 | 回答 |
+|---|---|
+| How often do you exercise? | I exercise <b>three times a week</b>. |
+| How often does she call you? | She calls me <b>every day</b>. |
+> once（一次）、twice（兩次）、three times（三次）＋ a day / a week / a month。
+
+# mc
+Q: She ___ late for school. || 她上學從不遲到。
+A: never is | is never* | never
+W: be 動詞句，頻率副詞放在 be 後面：is never。
+Q: We ___ go to the movies on Saturday. || 我們通常星期六去看電影。
+A: usually* | are usually | usual
+W: 一般動詞 go，頻率副詞放在動詞前面。
+Q: I ___ eat vegetables. I hate them. || 我很少吃蔬菜，我討厭它們。
+A: always | seldom* | often
+W: 「討厭」所以很少吃，用 seldom。
+Q: ___ do you visit your grandparents? — Twice a month. || 你多久去看一次爺爺奶奶？一個月兩次。
+A: How often* | How much | When often
+W: 問「多常」用 How often。
+
+# err
+S: My dad [drives always|always drives] to work. || 我爸爸總是開車上班。
+W: 一般動詞 drives，頻率副詞要放在動詞前面。
+S: Tom [usually is|is usually] hungry after school. || 湯姆放學後通常都很餓。
+W: be 動詞句，頻率副詞放在 is 後面。
+S: I [don't never|never] eat junk food. || 我從不吃垃圾食物。
+W: never 本身就是否定，不能再加 don't。
+
+# mk
+- be 動詞句，頻率副詞放在 be 後面：is always。
+- 一般動詞句，頻率副詞放在動詞前面：never go。
+- never 已經是否定，不能再加 doesn't；主詞 He 單數，動詞加 s：helps。

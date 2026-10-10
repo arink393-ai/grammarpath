@@ -1,0 +1,59 @@
+# zh
+## 不定代名詞：不特定的人、事、地
+當我們不知道或不需要說出是誰、是什麼時，就用不定代名詞。它們由前半（some / any / every / no）加上後半（-one / -body / -thing / -where）組成。
+表：不定代名詞組合表
+| | 人 -one / -body | 事物 -thing | 地方 -where |
+|---|---|---|---|
+| some- | someone / somebody 某人 | something 某事 | somewhere 某處 |
+| any- | anyone / anybody 任何人 | anything 任何事 | anywhere 任何地方 |
+| every- | everyone / everybody 每個人 | everything 每件事 | everywhere 到處 |
+| no- | no one / nobody 沒有人 | nothing 沒有東西 | nowhere 哪裡都沒有 |
+註：-one 和 -body 意思一樣，-body 比較口語。no one 要分開寫。
+
+## some- 和 any- 怎麼選？
+| 用 some- | 用 any- |
+|---|---|
+| 肯定句 | 否定句、疑問句 |
+| I saw <b>someone</b>. | I didn't see <b>anyone</b>. / Did you see <b>anyone</b>? |
+| 請求、提議的疑問句也用 some-：Would you like <b>something</b> to drink? | 肯定句的 any- 表示「隨便哪個都」：<b>Anyone</b> can do it. |
+
+## 一律用單數動詞
+everyone、somebody、nothing 等雖然意思可能是很多人，但文法上都當<b>單數</b>：
+<span class="en">Everyone <b>is</b> here.</span>（✗ are）／ <span class="en">Nobody <b>knows</b>.</span>
+
+## 不能雙重否定
+no-、nothing、nobody 已經是否定，不能再加 not：
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| I don't know nothing. | I don't know <b>anything</b>. / I know <b>nothing</b>. |
+| There isn't nobody. | There isn't <b>anybody</b>. / There is <b>nobody</b>. |
+
+## 形容詞放後面
+修飾不定代名詞的形容詞放在<b>後面</b>：<span class="en">something <b>cold</b>, nothing <b>special</b>, somewhere <b>quiet</b></span>。
+
+# mc
+Q: Is there ___ in the box? || 箱子裡有東西嗎？
+A: something | anything* | nothing
+W: 一般疑問句用 any-：anything。
+Q: Everybody ___ the answer. || 每個人都知道答案。
+A: know | knows* | are knowing
+W: everybody 文法上是單數，動詞加 s。
+Q: I'm thirsty. I want something ___. || 我好渴，想喝點冰的。
+A: cold to drink* | to drink cold | cold drink to
+W: 形容詞放在 something 後面：something cold to drink。
+Q: I looked for my cat, but it was ___. || 我找我的貓，但到處都找不到。
+A: anywhere | nowhere* | somewhere
+W: nowhere「哪裡都沒有」，本身是否定。
+
+# err
+S: Nobody [are|is] in the classroom. || 教室裡沒有人。
+W: nobody 當單數，用 is。
+S: I didn't buy [nothing|anything] today. || 我今天什麼都沒買。
+W: 已經有 didn't，不能再用 nothing；改成 anything。
+S: Let's go [quiet somewhere|somewhere quiet]. || 我們去個安靜的地方吧。
+W: 形容詞要放在不定代名詞後面。
+
+# mk
+- 已有 didn't，不能再用 nobody；否定句用 anybody。
+- everybody 是單數，動詞用 is。
+- isn't 和 nothing 會變雙重否定；用 anything，或改成 There is nothing。

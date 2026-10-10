@@ -1,0 +1,58 @@
+# zh
+## 句型三：主詞＋及物動詞＋受詞
+及物動詞（transitive verb）的動作必須「作用在某個東西或人身上」，所以後面一定要接<b>受詞</b>，句子才完整。只說 <span class="en">I bought.</span>（我買了）會讓人想問「買了什麼？」
+受詞可以是：
+表：受詞的種類
+| 受詞種類 | 例句 |
+|---|---|
+| 名詞 | She plays <b>the piano</b>. |
+| 代名詞（受格） | I love <b>you</b>. |
+| 動名詞 V-ing | He enjoys <b>reading</b>. |
+| 不定詞 to V | I want <b>to go</b> home. |
+| 名詞子句 | I know <b>that he is right</b>. |
+
+## 後面直接接受詞、不加介系詞的動詞
+這些動詞在中文翻譯時像是要加「關於、進入、和」，但英文不需要介系詞：
+| 動詞 | ✗ 錯誤 | ✓ 正確 |
+|---|---|---|
+| discuss 討論 | discuss about the plan | discuss the plan |
+| enter 進入 | enter into the room | enter the room |
+| marry 和…結婚 | marry with him | marry him |
+| reach 到達 | reach to the top | reach the top |
+| attend 參加 | attend to the meeting | attend the meeting |
+| answer 回答 | answer to the question | answer the question |
+| approach 接近 | approach to the door | approach the door |
+
+## 接 V-ing 還是 to V？
+| 只接 V-ing | 只接 to V | 兩者皆可 |
+|---|---|---|
+| enjoy, finish, mind, practice, keep, avoid | want, hope, decide, plan, need, agree | like, love, start, begin |
+| I <b>finished doing</b> my homework. | She <b>decided to study</b> abroad. | It <b>started to rain / raining</b>. |
+> 詳細規則在進階課「Gerunds & Infinitives」。
+
+# mc
+Q: We discussed ___ in class. || 我們在課堂上討論了這個問題。
+A: about the problem | the problem* | on the problem
+W: discuss 是及物動詞，直接接受詞，不加 about。
+Q: My brother enjoys ___ video games. || 我弟弟很喜歡打電動。
+A: to play | playing* | play
+W: enjoy 後面接動名詞 V-ing。
+Q: She wants ___ a doctor. || 她想當醫生。
+A: being | to be* | be
+W: want 後面接不定詞 to V。
+Q: The teacher entered ___. || 老師走進教室。
+A: into the classroom | the classroom* | in the classroom
+W: enter 是及物動詞，直接接 the classroom。
+
+# err
+S: She married [with a|a] doctor. || 她嫁給了一位醫生。
+W: marry 直接接受詞，不加 with。
+S: Please answer [to my|my] question. || 請回答我的問題。
+W: answer 是及物動詞，後面直接接受詞。
+S: I finished [to clean|cleaning] my room. || 我打掃完房間了。
+W: finish 後面要接動名詞 V-ing。
+
+# mk
+- enjoy 後面要接動名詞：enjoy playing。
+- discuss 是及物動詞，不加 about。
+- enter 是及物動詞，不加 into。

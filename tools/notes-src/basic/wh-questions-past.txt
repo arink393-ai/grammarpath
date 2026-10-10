@@ -1,0 +1,54 @@
+# zh
+## 過去式的 Wh- 問句
+問過去發生的事，最常用的公式是：<b>疑問詞 + did + 主詞 + 原形動詞？</b> did 已經帶著「過去」的意思，所以後面的動詞要用<b>原形</b>。
+表：過去式 Wh- 問句兩種類型
+| 句子裡有 | 公式 | 例句 | 回答 |
+|---|---|---|---|
+| 一般動詞 | Wh- + did + 主詞 + 原形V? | Where <b>did</b> you <b>go</b>? | I <b>went</b> to Kenting. |
+| be 動詞 | Wh- + was/were + 主詞? | Where <b>were</b> you? | I <b>was</b> at home. |
+註：問句用原形（go），回答用過去式（went）。
+
+## 常見錯誤對照
+表：最常見的三種錯
+| ✗ 錯誤 | 問題 | ✓ 正確 |
+|---|---|---|
+| What you did? | 沒有倒裝 | What <b>did you do</b>? |
+| Where did he went? | did 後用了過去式 | Where did he <b>go</b>? |
+| Why you were late? | be 動詞沒移前面 | Why <b>were you</b> late? |
+| Who did call you? | Who 是主詞不用 did | Who <b>called</b> you? |
+
+## 問主詞 vs. 問受詞
+| 問的是 | 句子 | 例句 |
+|---|---|---|
+| 主詞（誰做的） | 不用 did，動詞用過去式 | <b>Who broke</b> the window? — Tom did. |
+| 受詞（做了誰／什麼） | 用 did + 原形 | <b>Who did</b> you <b>see</b>? — I saw Tom. |
+
+## 常搭配的過去時間詞
+<span class="en">yesterday, last night, last week, two days ago, in 2019, when you were a child</span>
+
+# mc
+Q: What ___ you eat for breakfast? || 你早餐吃了什麼？
+A: do | did* | were
+W: 問過去的一般動詞 eat，用 did。
+Q: Where did your family ___ last summer? || 你家人去年夏天去哪裡？
+A: went | go* | going
+W: did 後面接原形動詞 go。
+Q: Why ___ she absent yesterday? || 她昨天為什麼缺席？
+A: did | was* | does
+W: absent 是形容詞，用 be 動詞 was。
+Q: Who ___ this cake? It's delicious! || 誰做了這個蛋糕？好好吃！
+A: did make | made* | did made
+W: Who 是主詞，直接用過去式動詞 made。
+
+# err
+S: When [you met|did you meet] her? || 你什麼時候認識她的？
+W: 一般動詞過去式的問句要用 did + 主詞 + 原形動詞。
+S: What did you [bought|buy] at the store? || 你在店裡買了什麼？
+W: did 後面要用原形 buy。
+S: How [you were|were you] yesterday? || 你昨天還好嗎？
+W: be 動詞問句要把 were 移到主詞前面。
+
+# mk
+- 要加 did 並倒裝：What did you do yesterday?
+- did 後面要用原形 go。
+- be 動詞問句要倒裝：Where were you?

@@ -1,0 +1,63 @@
+# zh
+## 疑問詞問句：問「什麼、哪裡、誰…」
+Yes/No 問句只能回答是或不是；想問細節，就要用疑問詞（Wh- words）開頭。
+表：常用疑問詞
+| 疑問詞 | 問什麼 | 例句 | 回答範例 |
+|---|---|---|---|
+| What | 什麼 | What is your name? | My name is Ken. |
+| Who | 誰 | Who is your teacher? | Ms. Lin. |
+| Where | 哪裡 | Where do you live? | In Taichung. |
+| When | 何時 | When is your birthday? | It's in May. |
+| Why | 為什麼 | Why are you late? | Because I missed the bus. |
+| How | 如何、怎樣 | How do you go to school? | By bus. |
+| Which | 哪一個（有選項） | Which color do you like? | Blue. |
+| Whose | 誰的 | Whose bag is this? | It's Amy's. |
+
+## 公式：疑問詞放最前面，後面接問句語序
+表：兩種 Wh- 問句
+| 句子裡有 | 公式 | 例句 |
+|---|---|---|
+| be 動詞 | Wh- + am/is/are + 主詞 …? | Where <b>are</b> you? |
+| 一般動詞 | Wh- + do/does + 主詞 + 原形動詞…? | What <b>does</b> she <b>like</b>? |
+| 助動詞 | Wh- + can/will… + 主詞 + 原形動詞…? | When <b>can</b> you <b>come</b>? |
+註：用了 does，後面動詞要用原形，-s 已經到 does 身上了。
+
+## How 的家族
+| 問法 | 意思 | 例句 |
+|---|---|---|
+| How old | 幾歲 | How old are you? |
+| How many | 多少（可數） | How many brothers do you have? |
+| How much | 多少（不可數、價錢） | How much is it? |
+| How long | 多久、多長 | How long does it take? |
+| How often | 多常 | How often do you swim? |
+| How far | 多遠 | How far is the station? |
+
+## 問主詞時不用 do
+疑問詞本身就是主詞時，直接接動詞：<span class="en"><b>Who</b> lives here?</span>（✗ Who does live here?）<span class="en"><b>What</b> happened?</span>
+
+# mc
+Q: ___ do you usually have lunch? — At school. || 你通常在哪裡吃午餐？在學校。
+A: When | Where* | What
+W: 回答是地點，問「哪裡」用 Where。
+Q: What ___ your brother do on weekends? || 你哥哥週末都做什麼？
+A: do | does* | is
+W: 主詞 your brother 單數，助動詞用 does。
+Q: ___ is your favorite singer? || 你最喜歡的歌手是誰？
+A: Who* | Whose | Which
+W: 問「誰」用 Who。
+Q: ___ often do you go to the gym? || 你多常去健身房？
+A: What | How* | Why
+W: 問頻率用 How often。
+
+# err
+S: Where [you|do you] work? || 你在哪裡工作？
+W: 一般動詞的問句要有助動詞 do。
+S: What time does the movie [starts|start]? || 電影幾點開始？
+W: 有 does 時，動詞用原形 start。
+S: Who [does have|has] a pen? || 誰有筆？
+W: Who 是主詞，直接接動詞，不加 does。
+
+# mk
+- 一般動詞的疑問句要加助動詞：Where do you live?
+- 有 does 時，動詞用原形 like。
+- be 動詞問句要倒裝：Why are you sad?

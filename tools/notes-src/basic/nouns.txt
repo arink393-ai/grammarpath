@@ -1,0 +1,77 @@
+# zh
+## 名詞是什麼？
+名詞（noun）是「名稱」：人、地方、東西、動物，甚至看不見摸不到的想法和感覺，都有名字，這些名字就是名詞。句子裡的主詞和受詞，大多由名詞來擔任。
+表：名詞的四大分類
+| 分類 | 說明 | 例字 |
+|---|---|---|
+| 普通名詞 | 一般人事物的名稱，開頭小寫 | teacher, city, dog |
+| 專有名詞 | 特定人、地、事物的名字，開頭一定大寫 | Amy, Taipei, Monday, English |
+| 具體名詞 | 看得到、摸得到的東西 | desk, apple, rain |
+| 抽象名詞 | 看不到、摸不到的概念或感覺 | love, freedom, kindness, advice |
+註：一個名詞可以同時屬於兩類，例如 apple 既是普通名詞也是具體名詞。
+
+## 專有名詞要大寫
+台灣學生最常忘記大寫的有：人名、地名、國家和語言、星期與月份、節日、書名和電影名。
+| 種類 | 例子 |
+|---|---|
+| 人名、稱謂 | Mr. Lin, Grandma Chen |
+| 地名、國家 | Kaohsiung, Japan, the Pacific Ocean |
+| 語言、國籍 | English, Chinese, Japanese |
+| 星期、月份、節日 | Sunday, July, Christmas |
+| 品牌、組織 | Apple, the United Nations |
+> 季節（spring, summer…）不是專有名詞，不用大寫。
+
+## 可數與不可數
+可以一個一個數的叫<b>可數名詞</b>，有單數和複數（a book → two books）；不能直接數的叫<b>不可數名詞</b>，沒有複數形，前面也不能加 a/an。
+表：容易搞錯的不可數名詞
+| 中文意思 | 英文（不可數） | 想數的時候 |
+|---|---|---|
+| 建議 | advice | a piece of advice |
+| 資訊 | information | two pieces of information |
+| 家具 | furniture | a piece of furniture |
+| 行李 | luggage / baggage | three pieces of luggage |
+| 作業 | homework | a lot of homework |
+| 新聞 | news | a piece of news |
+註：news 字尾雖然有 s，但它是不可數名詞，動詞要用單數：The news is good.
+
+## 名詞在句子裡的位置
+- 當<b>主詞</b>：放在動詞前面 → <span class="en"><b>Dogs</b> bark.</span>
+- 當<b>受詞</b>：放在動詞或介系詞後面 → <span class="en">I like <b>music</b>. / He sat on the <b>chair</b>.</span>
+- 當<b>補語</b>：放在 be 動詞後面說明主詞 → <span class="en">She is a <b>nurse</b>.</span>
+- 前面常帶限定詞或形容詞 → <span class="en">my <b>old</b> <b>bike</b></span>
+
+## 常見名詞字尾
+| 字尾 | 原字 | 名詞 |
+|---|---|---|
+| -tion / -sion | inform, decide | information, decision |
+| -ment | move, enjoy | movement, enjoyment |
+| -ness | kind, happy | kindness, happiness |
+| -er / -or | teach, act | teacher, actor |
+| -ity | able, real | ability, reality |
+
+# mc
+Q: She gave me some useful ___. || 她給了我一些有用的建議。
+A: advice* | advices | an advice
+W: advice 是<b>不可數名詞</b>，沒有複數，也不能加 an。
+Q: My favorite subject is ___. || 我最喜歡的科目是英文。
+A: english | English* | an English
+W: 語言名稱是<b>專有名詞</b>，第一個字母要大寫。
+Q: There ___ a lot of furniture in the room. || 房間裡有很多家具。
+A: are | is* | be
+W: furniture 不可數，動詞用單數 is。
+Q: The ___ of the story made everyone cry. || 這個故事的結局讓大家都哭了。
+A: end* | ended | endly
+W: the 和 of 中間要放<b>名詞</b>，end 在這裡當名詞「結局」。
+
+# err
+S: We will visit [japan|Japan] next summer. || 我們明年夏天要去日本。
+W: 國家名稱是專有名詞，開頭一定大寫。
+S: I have a lot of [homeworks|homework] today. || 我今天有很多作業。
+W: homework 是不可數名詞，沒有 -s 的複數形。
+S: The [news are|news is] very exciting. || 這則消息非常令人興奮。
+W: news 看起來像複數，其實是不可數名詞，動詞要用 is。
+
+# mk
+- 句首第一個字母和人名、地名（Taipei）都要大寫；I 永遠大寫。
+- 語言名稱 English 是專有名詞，要大寫。
+- advice 是不可數名詞，不能加 -s；要數時說 a piece of advice。

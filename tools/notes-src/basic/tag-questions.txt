@@ -1,0 +1,56 @@
+# zh
+## 附加問句：「…，對吧？」
+附加問句加在句尾，用來確認或尋求同意，像中文的「對吧？是不是？」
+規則：<b>前肯定 → 後否定；前否定 → 後肯定</b>，而且助動詞和主詞要跟前面一致。
+表：附加問句規則
+| 前面的句子 | 附加問句 | 例句 |
+|---|---|---|
+| be 動詞肯定 | isn't / aren't + 代名詞 | You are tired, <b>aren't you</b>? |
+| be 動詞否定 | is / are + 代名詞 | She isn't here, <b>is she</b>? |
+| 一般動詞肯定 | don't / doesn't / didn't | He likes tea, <b>doesn't he</b>? |
+| 一般動詞否定 | do / does / did | You didn't go, <b>did you</b>? |
+| 助動詞 | 用同一個助動詞 | They can swim, <b>can't they</b>? |
+註：附加問句的主詞一定要用<b>代名詞</b>：Amy is nice, isn't <b>she</b>?（✗ isn't Amy）
+
+## 特殊情況
+表：要特別記的附加問句
+| 句子 | 附加問句 | 說明 |
+|---|---|---|
+| I am right, | <b>aren't I</b>? | 沒有 amn't，用 aren't I |
+| Let's go, | <b>shall we</b>? | Let's 固定配 shall we |
+| Open the door, | <b>will you</b>? | 祈使句配 will you |
+| There is a problem, | <b>isn't there</b>? | There be 句型保留 there |
+| Everyone is here, | <b>aren't they</b>? | everyone 附加問句用 they |
+| He never lies, | <b>does he</b>? | never 是否定，後面用肯定 |
+| This is yours, | <b>isn't it</b>? | this / that 用 it |
+
+## 語調
+- 語調<b>下降</b> ↘：很確定，只是想要對方同意。<span class="en">It's a nice day, isn't it? ↘</span>
+- 語調<b>上升</b> ↗：真的不確定，在問問題。<span class="en">You're coming, aren't you? ↗</span>
+
+# mc
+Q: Your sister plays the piano, ___? || 你姐姐會彈鋼琴，對吧？
+A: isn't she | doesn't she* | don't she
+W: 一般動詞 plays，主詞第三人稱單數：doesn't she。
+Q: You weren't at home, ___? || 你那時不在家，對吧？
+A: were you* | weren't you | did you
+W: 前面否定的 weren't，附加問句用肯定 were you。
+Q: Let's take a break, ___? || 我們休息一下，好嗎？
+A: shall we* | will we | don't we
+W: Let's 的附加問句固定用 shall we。
+Q: I'm late, ___? || 我遲到了，是吧？
+A: amn't I | aren't I* | am I
+W: I am 的否定附加問句用 aren't I。
+
+# err
+S: Tom can drive, [can't Tom|can't he]? || 湯姆會開車，對吧？
+W: 附加問句的主詞要用代名詞 he。
+S: They didn't come, [didn't they|did they]? || 他們沒來，對吧？
+W: 前面否定，附加問句用肯定。
+S: She never eats meat, [doesn't she|does she]? || 她從不吃肉，對吧？
+W: never 已經是否定，附加問句用肯定 does she。
+
+# mk
+- 主詞 you 配 are，否定附加問句是 aren't you。
+- 附加問句的代名詞要對應主詞 She，用 she 不是 it。
+- 前面肯定，附加問句要用否定 isn't it。

@@ -1,0 +1,59 @@
+# zh
+## Be 動詞的意思
+be 動詞（am / is / are）本身沒有動作，它像一個「等號」，把主詞和後面的說明連起來：「是」、「在」、「感覺／狀態」。
+表：be 動詞後面可以接什麼？
+| 後面接 | 意思 | 例句 |
+|---|---|---|
+| 名詞 | 是（身分） | She <b>is</b> a nurse. |
+| 形容詞 | 狀態、特質 | They <b>are</b> hungry. |
+| 地點 | 在（位置） | I <b>am</b> at home. |
+| 年齡 | 歲數 | He <b>is</b> twelve. |
+
+## 主詞配哪一個 be？
+表：現在式 be 動詞
+| 主詞 | be 動詞 | 縮寫 | 否定縮寫 |
+|---|---|---|---|
+| I | am | I'm | I'm not |
+| you / we / they | are | you're / we're / they're | aren't |
+| he / she / it | is | he's / she's / it's | isn't |
+註：複數名詞（the boys, my friends）用 are；單數名詞（the boy, my friend）用 is。
+
+## 否定句與疑問句
+- 否定：在 be 動詞後面加 <b>not</b> → <span class="en">I am <b>not</b> tired. / He <b>isn't</b> here.</span>
+- 疑問：把 be 動詞移到主詞前面 → <span class="en"><b>Are</b> you a student?</span>
+| 問句 | 肯定回答 | 否定回答 |
+|---|---|---|
+| Are you busy? | Yes, I am. | No, I'm not. |
+| Is she your sister? | Yes, she is. | No, she isn't. |
+| Are they at school? | Yes, they are. | No, they aren't. |
+> 簡答的肯定句不能縮寫：Yes, I am.（✗ Yes, I'm.）
+
+## 單數可數名詞前要有 a/an
+說身分時，單數名詞前面要加 a 或 an：<span class="en">He is <b>a</b> doctor. / She is <b>an</b> artist.</span> 中文說「他是醫生」不用「一個」，所以台灣學生常漏掉。
+
+# mc
+Q: My parents ___ teachers. || 我爸媽是老師。
+A: is | are* | am
+W: My parents 是複數，be 動詞用 are。
+Q: ___ your brother in the classroom? || 你哥哥在教室裡嗎？
+A: Are | Is* | Am
+W: 問句把 be 動詞移到前面；your brother 單數，用 Is。
+Q: I ___ not hungry now. || 我現在不餓。
+A: am* | is | are
+W: 主詞 I 一定配 am。
+Q: She is ___ English teacher. || 她是一位英文老師。
+A: a | an* | the
+W: English 以母音開頭，單數名詞前用 an。
+
+# err
+S: My cat [are|is] very cute. || 我的貓很可愛。
+W: My cat 是單數，be 動詞要用 is。
+S: Yes, [I'm|I am]. || 是的，我是。
+W: 簡答的肯定句不能縮寫，要說 Yes, I am.
+S: He is [doctor|a doctor]. || 他是醫生。
+W: 單數可數名詞前要加 a/an。
+
+# mk
+- 說身分時，單數名詞 teacher 前面要加 a。
+- They 是複數，be 動詞用 are。
+- I 的 be 動詞是 am，不能用原形 be。

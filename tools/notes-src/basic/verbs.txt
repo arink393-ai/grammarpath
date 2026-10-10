@@ -1,0 +1,62 @@
+# zh
+## 動詞是句子的心臟
+動詞（verb）表示主詞「做什麼」或「是什麼狀態」。英文每一個完整的句子都<b>一定要有動詞</b>——這和中文很不一樣。中文可以說「我很快樂」，沒有動詞；英文一定要說 <span class="en">I <b>am</b> very happy.</span>
+表：動詞的兩大類
+| 種類 | 說明 | 例字 | 例句 |
+|---|---|---|---|
+| 動作動詞 | 看得到的動作或心裡的活動 | run, eat, write, think | She <b>writes</b> a letter. |
+| 連綴動詞（狀態動詞） | 連接主詞和描述，說明「是／變得／感覺」 | be, look, feel, become, seem | He <b>looks</b> tired. |
+
+## 及物與不及物
+有些動詞後面一定要接受詞（東西或人），叫<b>及物動詞</b>；有些動詞後面不需要受詞，叫<b>不及物動詞</b>。
+| 類型 | 例子 | 說明 |
+|---|---|---|
+| 及物 vt. | I <b>bought</b> a book. | buy 後面要說「買什麼」 |
+| 不及物 vi. | The baby <b>sleeps</b>. | sleep 後面不用接受詞 |
+| 兩者皆可 | She <b>sings</b>. / She <b>sings</b> a song. | sing 可接可不接 |
+
+## 主詞決定動詞的樣子
+現在式時，動詞會跟著主詞改變，這叫<b>主詞動詞一致</b>。
+表：現在式的動詞變化
+| 主詞 | be 動詞 | have | 一般動詞（play） |
+|---|---|---|---|
+| I | am | have | play |
+| you / we / they | are | have | play |
+| he / she / it / 單數名詞 | is | has | plays |
+
+## 一般動詞＋s 的規則
+| 規則 | 例子 |
+|---|---|
+| 大部分直接加 -s | eat → eats, read → reads |
+| 字尾 s, sh, ch, x, o 加 -es | watch → watches, go → goes |
+| 子音＋y：去 y 加 -ies | study → studies, fly → flies |
+| 母音＋y：直接加 -s | play → plays, buy → buys |
+| 不規則 | have → has |
+> 一個句子通常只有一個「主要動詞」會變化。He can <b>swim</b>.（can 後面用原形，不加 s）
+
+# mc
+Q: My sister ___ to school by bus. || 我妹妹搭公車上學。
+A: go | goes* | going
+W: 主詞 My sister 是第三人稱單數，現在式動詞要加 -es：goes。
+Q: I ___ very tired today. || 我今天很累。
+A: very | am* | feel tired
+W: 英文句子一定要有動詞，形容詞 tired 前面要有 be 動詞 am。
+Q: The soup ___ delicious. || 這湯聞起來很香。
+A: smells* | smell | smelling
+W: smell 在這裡是<b>連綴動詞</b>，後接形容詞；主詞 soup 單數，所以加 s。
+Q: He ___ a new phone. || 他有一支新手機。
+A: have | has* | haves
+W: have 遇到第三人稱單數要變成 has。
+
+# err
+S: My father [watch|watches] the news every night. || 我爸爸每晚看新聞。
+W: 主詞 My father 是第三人稱單數，watch 字尾是 ch，要加 -es。
+S: She [very kind|is very kind]. || 她很親切。
+W: 句子裡沒有動詞。形容詞前要加 be 動詞 is。
+S: The baby [cry|cries] at night. || 寶寶晚上會哭。
+W: 子音＋y 結尾的動詞，第三人稱單數要去 y 加 -ies。
+
+# mk
+- 這個句子少了動詞，要說出「去」goes。
+- 形容詞 happy 前面要有 be 動詞 am，英文句子不能沒有動詞。
+- 主詞 He 是第三人稱單數，have 要變成 has。

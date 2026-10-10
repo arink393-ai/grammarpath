@@ -1,0 +1,66 @@
+# zh
+## -ed 和 -ing：誰的感覺？
+很多表示情緒的形容詞有兩種形式，台灣學生最常搞混：
+- <b>-ed</b>：描述<b>人的感覺</b>（「感到…的」）
+- <b>-ing</b>：描述<b>造成感覺的人事物</b>（「令人…的」）
+<span class="en">The movie was <b>boring</b>, so I was <b>bored</b>.</span>（電影很無聊，所以我覺得很無聊。）
+表：常見情緒形容詞對照
+| 動詞 | -ed（感到…） | -ing（令人…） |
+|---|---|---|
+| bore 使無聊 | bored 感到無聊的 | boring 令人無聊的 |
+| interest 使感興趣 | interested 感興趣的 | interesting 有趣的 |
+| excite 使興奮 | excited 感到興奮的 | exciting 令人興奮的 |
+| surprise 使驚訝 | surprised 感到驚訝的 | surprising 令人驚訝的 |
+| tire 使疲累 | tired 疲累的 | tiring 令人疲累的 |
+| confuse 使困惑 | confused 感到困惑的 | confusing 令人困惑的 |
+| disappoint 使失望 | disappointed 感到失望的 | disappointing 令人失望的 |
+| embarrass 使尷尬 | embarrassed 感到尷尬的 | embarrassing 令人尷尬的 |
+| frighten 使害怕 | frightened 感到害怕的 | frightening 嚇人的 |
+| satisfy 使滿意 | satisfied 感到滿意的 | satisfying 令人滿意的 |
+
+## 判斷小技巧
+問自己：主詞是「感受到情緒的人」，還是「讓人產生情緒的原因」？
+| 句子 | 主詞的角色 | 用 |
+|---|---|---|
+| I am ___ in history. | 我感到有興趣 | interest<b>ed</b> |
+| History is ___. | 歷史讓人有興趣 | interest<b>ing</b> |
+| The students were ___. | 學生感到困惑 | confus<b>ed</b> |
+| The question was ___. | 問題令人困惑 | confus<b>ing</b> |
+> 人也可以用 -ing，表示「這個人讓別人有某種感覺」：He is <b>boring</b>.（他是個無趣的人）— 要小心，意思完全不同！
+
+## 常見搭配介系詞
+| 片語 | 意思 |
+|---|---|
+| interested <b>in</b> | 對…有興趣 |
+| excited <b>about</b> | 對…感到興奮 |
+| surprised <b>at / by</b> | 對…感到驚訝 |
+| tired <b>of</b> | 對…厭倦 |
+| disappointed <b>with / in</b> | 對…失望 |
+| bored <b>with</b> | 對…感到無聊 |
+
+# mc
+Q: The roller coaster was really ___. || 雲霄飛車真的很刺激。
+A: excited | exciting* | excite
+W: 雲霄飛車「令人興奮」，用 -ing。
+Q: I'm ___ in learning Korean. || 我對學韓文有興趣。
+A: interesting | interested* | interest
+W: 人「感到」有興趣，用 interested in。
+Q: We were ___ by the news. || 我們對這個消息感到驚訝。
+A: surprised* | surprising | surprise
+W: 主詞 We 是感受驚訝的人，用 -ed。
+Q: This math problem is so ___. || 這道數學題好令人困惑。
+A: confused | confusing* | confuse
+W: 題目「令人困惑」，用 -ing。
+
+# err
+S: I was [boring|bored] at the meeting. || 我在會議上覺得很無聊。
+W: 我是「感到」無聊的人，用 bored；說 I was boring 是「我很無趣」。
+S: The ending of the story was [disappointed|disappointing]. || 故事的結局令人失望。
+W: 結局「令人」失望，用 -ing。
+S: She felt [embarrassing|embarrassed] when she fell. || 她跌倒時覺得很尷尬。
+W: 她是「感到」尷尬的人，用 -ed。
+
+# mk
+- 我「感到」無聊，用 -ed：bored。
+- 電影「令人」無聊，用 -ing：boring。
+- 她「感到」有興趣，用 interested in。

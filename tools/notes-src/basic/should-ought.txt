@@ -1,0 +1,57 @@
+# zh
+## 給建議：should / ought to
+should 和 ought to 都表示「應該」，用來給建議、表達什麼是對的或合理的。意思幾乎一樣，should 比較常用；ought to 稍微正式一點。
+表：should 與 ought to 句型
+| 句型 | should | ought to |
+|---|---|---|
+| 肯定 | You <b>should</b> rest. | You <b>ought to</b> rest. |
+| 否定 | You <b>shouldn't</b> worry. | You <b>ought not to</b> worry. |
+| 疑問 | <b>Should</b> I call her? | （很少用於疑問句） |
+註：should 後面直接接原形；ought 後面一定要有 to。
+
+## 建議的強弱
+表：從弱到強的建議
+| 說法 | 強度 | 例句 |
+|---|---|---|
+| You could… | 最弱，提供選項 | You <b>could</b> take a taxi. |
+| Why don't you…? | 溫和建議 | <b>Why don't you</b> ask the teacher? |
+| You should… / ought to… | 一般建議 | You <b>should</b> see a doctor. |
+| You had better… | 強烈，不做會有後果 | You<b>'d better</b> hurry, or you'll miss the bus. |
+| You must… | 義務、命令 | You <b>must</b> wear a seat belt. |
+> had better 後面也接原形動詞，否定是 had better not：You'd better not be late.
+
+## 常見用法
+| 用途 | 例句 |
+|---|---|
+| 給別人建議 | You <b>should</b> drink more water. |
+| 詢問意見 | What <b>should</b> I do? |
+| 表示預期 | The bus <b>should</b> be here soon.（照理說應該快到了） |
+| I think + should | I think you <b>should</b> apologize. |
+| I don't think + should | I <b>don't think</b> you <b>should</b> go.（否定放前面更自然） |
+
+# mc
+Q: You look tired. You ___ go to bed early. || 你看起來很累，應該早點睡。
+A: should* | should to | ought
+W: should 後面直接接原形動詞。
+Q: We ought ___ save water. || 我們應該節約用水。
+A: to* | 不填 | for
+W: ought 後面一定要接 to。
+Q: You ___ eat so much candy. It's bad for your teeth. || 你不應該吃那麼多糖。
+A: should | shouldn't* | ought
+W: 建議「不要做」用 shouldn't。
+Q: You'd better ___ now, or you'll be late. || 你最好現在就走，不然會遲到。
+A: leave* | to leave | leaving
+W: had better 後面接原形動詞。
+
+# err
+S: He [should studies|should study] harder. || 他應該更用功讀書。
+W: should 後面接原形動詞，不加 s。
+S: You [ought|ought to] see a dentist. || 你應該去看牙醫。
+W: ought 一定要搭配 to。
+S: You [don't should|shouldn't] stay up late. || 你不應該熬夜。
+W: should 的否定直接加 not：shouldn't。
+
+# mk
+- should 後面直接接原形動詞，不加 to。
+- ought 後面一定要加 to。
+- should 本身不加 -s。

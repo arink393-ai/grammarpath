@@ -1,0 +1,65 @@
+# zh
+## 五大句型總覽
+英文所有句子都可以歸納成五種基本句型，差別在於<b>動詞後面需要什麼</b>。學會判斷動詞屬於哪一型，就能寫出結構正確的句子。
+表：英文五大句型
+| 句型 | 結構 | 動詞種類 | 例句 |
+|---|---|---|---|
+| 句型一 | S + V | 完全不及物動詞 | Birds <b>fly</b>. |
+| 句型二 | S + V + C | 連綴動詞 | She <b>is</b> happy. |
+| 句型三 | S + V + O | 完全及物動詞 | I <b>like</b> music. |
+| 句型四 | S + V + IO + DO | 授與動詞 | He <b>gave</b> me a book. |
+| 句型五 | S + V + O + OC | 不完全及物動詞 | They <b>made</b> me happy. |
+註：S＝主詞 Subject、V＝動詞 Verb、O＝受詞 Object、C＝補語 Complement、IO＝間接受詞、DO＝直接受詞。
+
+## 句型一：主詞＋不及物動詞
+動詞本身意思就完整，後面<b>不需要受詞</b>。後面可以加上副詞或介系詞片語（地點、時間、方式），但那些只是「附加說明」，不是受詞。
+表：常見的不及物動詞
+| 動詞 | 例句 |
+|---|---|
+| arrive 抵達 | The bus <b>arrived</b> late. |
+| happen 發生 | What <b>happened</b>? |
+| rise 上升 | The sun <b>rises</b> in the east. |
+| fall 落下 | Leaves <b>fall</b> in autumn. |
+| cry / laugh / sleep | The baby <b>cried</b> all night. |
+| go / come / walk / run | He <b>runs</b> every morning. |
+
+## 不及物動詞＋介系詞
+不及物動詞想要接名詞時，中間要有<b>介系詞</b>：
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| arrive the station | arrive <b>at</b> the station |
+| listen music | listen <b>to</b> music |
+| look the picture | look <b>at</b> the picture |
+| wait the bus | wait <b>for</b> the bus |
+> arrive at（小地點）／arrive in（大城市、國家）：arrive <b>in</b> Tokyo。
+
+## 一個動詞可能有不同句型
+有些動詞既可以不及物，也可以及物，要看有沒有受詞：
+<span class="en">The door <b>opened</b>.</span>（句型一）／ <span class="en">She <b>opened</b> the door.</span>（句型三）
+
+# mc
+Q: The accident ___ last night. || 那場意外發生在昨晚。
+A: happened* | was happened | happened it
+W: happen 是不及物動詞，後面不接受詞，也沒有被動式。
+Q: We arrived ___ the airport at noon. || 我們中午抵達機場。
+A: to | at* | the
+W: arrive 是不及物，接地點要加介系詞；機場是小地點用 at。
+Q: Please listen ___ the teacher. || 請聽老師說。
+A: at | to* | for
+W: listen 不及物，要用 listen to + 人／東西。
+Q: The baby is ___. || 寶寶在睡覺。
+A: sleeping* | sleeping the bed | sleep
+W: sleep 是不及物動詞，句型一 S + V 就已經完整。
+
+# err
+S: We are [waiting the|waiting for the] bus. || 我們在等公車。
+W: wait 是不及物動詞，要用 wait for + 受詞。
+S: My uncle arrived [to|in] Taipei yesterday. || 我叔叔昨天抵達台北。
+W: arrive 不能接 to；大城市用 arrive in。
+S: The price of eggs [rose up|rose]. || 蛋價上漲了。
+W: rise 本身就是「上升」，不需要再加 up。
+
+# mk
+- fly 是不及物動詞，接地點要加介系詞：fly in the sky。
+- arrive 不接 to；到學校用 arrive at school。
+- fall 不及物，接方向要加介系詞：fell to the ground。

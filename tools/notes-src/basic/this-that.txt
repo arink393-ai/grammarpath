@@ -1,0 +1,57 @@
+# zh
+## 近的、遠的；一個、很多個
+this / that / these / those 用來「指出」是哪一個，判斷時要看兩件事：<b>距離</b>和<b>單複數</b>。
+表：指示詞四宮格
+| | 近（這） | 遠（那） |
+|---|---|---|
+| 單數／不可數 | <b>this</b> book | <b>that</b> book |
+| 複數 | <b>these</b> books | <b>those</b> books |
+註：記法：this、that 字短，指「一個」；these、those 字比較長，指「很多個」。
+
+## 兩種用法
+| 用法 | 說明 | 例句 |
+|---|---|---|
+| 指示形容詞 | 放在名詞前面 | <b>This</b> bag is mine. |
+| 指示代名詞 | 單獨使用，代替名詞 | <b>This</b> is my bag. |
+> 指示詞後面的動詞要跟著單複數：This <b>is</b>… / These <b>are</b>…
+
+## 常見慣用法
+| 說法 | 意思 |
+|---|---|
+| This is Amy.（介紹人） | 這位是艾咪。 |
+| This is Tom speaking.（電話） | 我是湯姆。 |
+| Who is that?（電話、門外） | 你是哪位？ |
+| these days | 最近 |
+| in those days | 在那個年代 |
+| That's right. / That's great! | 沒錯！太棒了！ |
+
+## 問答的代名詞
+問句用 this / that，回答用 <b>it</b>；問句用 these / those，回答用 <b>they</b>：
+<span class="en">Is this your pen? — Yes, <b>it</b> is.</span><br><span class="en">Are those your shoes? — No, <b>they</b> aren't.</span>
+
+# mc
+Q: ___ cookies are delicious. || 這些餅乾好好吃。
+A: This | These* | That
+W: cookies 是複數，近的用 these。
+Q: Look at ___ bird over there! || 看那邊那隻鳥！
+A: that* | those | these
+W: over there 是遠處；bird 單數，用 that。
+Q: Are these your keys? — Yes, ___ are. || 這些是你的鑰匙嗎？是的。
+A: they* | these | it
+W: 回答 these 的問句用 they。
+Q: Hello, ___ is Mary speaking. || 喂，我是瑪莉。
+A: I | this* | that
+W: 打電話介紹自己用 This is…。
+
+# err
+S: [This|These] pants are too long. || 這條褲子太長了。
+W: pants 永遠是複數，要用 these。
+S: [That|Those] are my classmates. || 那些是我的同學。
+W: classmates 是複數，遠的用 those。
+S: Is that your umbrella? — Yes, [that|it] is. || 那是你的傘嗎？是的。
+W: 回答 this / that 的問句，要用 it。
+
+# mk
+- shoes 是複數，要用 these。
+- apples 是複數，遠處用 those。
+- desk 是單數，要用 This is。
