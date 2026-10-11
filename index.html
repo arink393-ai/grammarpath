@@ -2564,6 +2564,7 @@ async function route(){
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
   else if(h[0]==="story" && (h[1]==="picture-books" || h[1]==="picturebook" || h[1]==="picture-book")) renderStoryList("picturebook");
+  else if(h[0]==="story" && (h[1]==="chapter-books" || h[1]==="chapterbook" || h[1]==="chapter-book")) renderStoryList("chapterbook");
   else if(h[0]==="story" && (h[1]==="fables" || h[1]==="fable")) renderStoryList("fable");
   else if(h[0]==="fableworksheet" && h[1]) renderFableWorksheet(h[1]);
   else if(h[0]==="rubric") renderRubric();
@@ -3167,6 +3168,173 @@ const STORIES = [
     ],
     findUrl:"https://www.youtube.com/results?search_query=Battle+Bunny+Scieszka+Barnett+read+aloud",
     note:"This is a study companion, not the book. Battle Bunny is © Jon Scieszka & Mac Barnett, illustrated by Matthew Myers (Simon & Schuster, 2013). The summary, vocabulary and questions here are original teaching material — please read the real book from your library or a bookshop."
+  },
+  {
+    id:"pigeon-drive-bus",
+    category:"picturebook",
+    companion:true,
+    title:"Don't Let the Pigeon Drive the Bus!",
+    zh:"別讓鴿子開公車！",
+    author:"Mo Willems (2003) · Caldecott Honor",
+    source:"Mo Willems (2003) · Read-Aloud Companion",
+    tag:"Read-Aloud Companion · 伴讀導讀",
+    icon:"🚌",
+    accent:"#D1902F",
+    blurb:"The bus driver steps away and asks one favour: whatever you do, don't let the Pigeon drive the bus!",
+    blurbZh:"公車司機離開前拜託你一件事：無論如何，別讓那隻鴿子開公車！",
+    summary:{
+      en:"A bus driver has to step away for a while, and he asks the reader one simple favour: whatever you do, don't let the Pigeon drive the bus! The moment he is gone, the Pigeon begs, pleads, wheedles, bargains, and finally throws a full-blown tantrum trying to convince YOU to let him drive. 'I'll be careful!' 'I have dreams too!' 'I never get to do anything!' On every page the reader gets to answer back — No! In the end the driver returns, the Pigeon never gets his turn... but then a big red truck rumbles by, and the Pigeon has a brand-new dream. A hilarious, interactive book about persuasion, saying no, and big feelings.",
+      zh:"公車司機必須暫時離開一下，他拜託讀者一件簡單的事：無論如何，千萬別讓鴿子開公車！司機一走，鴿子就開始又拜託、又懇求、又討價還價，最後甚至大發脾氣，想說服「你」讓牠開車。「我會很小心的！」「我也有夢想啊！」「都沒有人讓我做任何事！」每一頁讀者都可以回牠一句——不行！最後司機回來了，鴿子始終沒開成車……但這時一輛紅色大卡車轟隆隆經過，鴿子又有了全新的夢想。這是一本超好笑、可以互動的書，談的是「說服」、「拒絕」與各種大情緒。"
+    },
+    vocab:[
+      ["pigeon","n.","鴿子"],
+      ["beg","v.","乞求、拜託"],
+      ["plead","v.","懇求"],
+      ["bargain","v.","討價還價"],
+      ["tantrum","n.","耍脾氣、發飆"],
+      ["favour","n.","幫忙、人情"],
+      ["persuade","v.","說服"],
+      ["excuse","n.","藉口"]
+    ],
+    guideLabel:"🎙️ 朗讀小技巧 · Read-Aloud Tips",
+    readaloud:[
+      {en:"This is THE interactive read-aloud — invite the children to shout 'NO!' back at the Pigeon on every page.",zh:"這本就是「互動朗讀」的代表作——每一頁都邀小朋友一起對鴿子大喊：「不行！」"},
+      {en:"Give the Pigeon a whiny, scheming voice that keeps escalating as he gets more desperate.",zh:"鴿子用又盧又有心機的聲音，隨著牠越來越絕望，情緒也越飆越高。"},
+      {en:"Use big pauses after each plea so listeners have time to answer, and act out the tantrum.",zh:"每次拜託完都停頓一下，讓聽眾來得及回答；發飆那段用誇張動作演出來。"}
+    ],
+    discuss:[
+      {en:"The Pigeon tries many different ways to get what he wants. Which trick was the funniest? Which one almost worked?",zh:"鴿子用了好多招想達到目的。哪一招最好笑？哪一招差點成功？"},
+      {en:"Have you ever begged really hard for something the way the Pigeon does? Did it work?",zh:"你有沒有像鴿子一樣，拚命拜託想要某樣東西？後來成功了嗎？"},
+      {en:"Why do you think the author lets YOU, the reader, be the one who says no?",zh:"你覺得作者為什麼要讓「讀者你」來當說「不行」的那個人？"}
+    ],
+    findUrl:"https://www.youtube.com/results?search_query=Don%27t+Let+the+Pigeon+Drive+the+Bus+Mo+Willems+read+aloud",
+    note:"This is a study companion, not the book. Don't Let the Pigeon Drive the Bus! is © Mo Willems (Hyperion, 2003). The summary, vocabulary and questions here are original teaching material — please read the real book from your library or a bookshop."
+  },
+  {
+    id:"harry-potter-1",
+    category:"chapterbook",
+    companion:true,
+    title:"Harry Potter and the Philosopher's Stone",
+    zh:"哈利波特：神秘的魔法石",
+    author:"J. K. Rowling (1997)",
+    source:"J. K. Rowling (1997) · Reading Companion",
+    tag:"Chapter Book Companion · 章節書導讀",
+    icon:"⚡",
+    accent:"#7B5BA6",
+    blurb:"An orphan under the stairs discovers he is a wizard — and that a hidden stone could bring back a dark power.",
+    blurbZh:"樓梯下的孤兒發現自己竟是巫師——而一顆被藏起來的魔法石，可能讓黑暗勢力重生。",
+    summary:{
+      en:"Harry Potter is an orphan living a miserable life in a cupboard under the stairs with his unkind aunt and uncle. On his eleventh birthday he learns the astonishing truth: he is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. At Hogwarts, Harry makes his first real friends, Ron and Hermione, learns to fly a broomstick, plays the thrilling sport of Quidditch, and uncovers a secret: a powerful object called the Philosopher's Stone is hidden and guarded inside the castle. When Harry realises someone is trying to steal it to bring back the dark wizard who killed his parents, he and his friends set out to stop them. The beloved first book of the series — about courage, friendship, and finally finding where you belong.",
+      zh:"哈利波特是個孤兒，和冷淡的阿姨、姨丈同住，睡在樓梯下的小櫥櫃裡，日子過得很慘。十一歲生日那天，他得知一個驚人的真相：他是個巫師，而且霍格華茲魔法學校早已為他保留了一個位置。在霍格華茲，哈利交到了第一批真正的朋友——榮恩和妙麗，學會騎掃帚飛行，參加刺激的魁地奇球賽，還發現了一個秘密：一顆威力強大的「魔法石」被藏在城堡裡、重重守護著。當哈利發現有人想偷走魔法石，好讓殺害他父母的黑巫師復活時，他和朋友們決定挺身阻止。這是系列的第一本經典——關於勇氣、友誼，以及終於找到歸屬。"
+    },
+    vocab:[
+      ["wizard","n.","巫師"],
+      ["orphan","n.","孤兒"],
+      ["magic","n.","魔法"],
+      ["broomstick","n.","掃帚"],
+      ["courage","n.","勇氣"],
+      ["friendship","n.","友誼"],
+      ["protect","v.","保護"],
+      ["belong","v.","屬於、有歸屬感"]
+    ],
+    guideLabel:"📖 閱讀與書報重點 · Reading & Book-Report Tips",
+    readaloud:[
+      {en:"Keep a character list as you read (Harry, Ron, Hermione, Dumbledore, Snape, Hagrid, Voldemort) — note who you trust and who you don't.",zh:"邊讀邊列角色清單（哈利、榮恩、妙麗、鄧不利多、石內卜、海格、佛地魔），記下你信任誰、懷疑誰。"},
+      {en:"It's a mystery: write down every clue about who is after the Stone, then see if your guess was right.",zh:"這是一個懸疑故事：把「誰想偷魔法石」的線索一一記下，最後看看你猜對了沒。"},
+      {en:"For your book report, pick one favourite quote and one sentence to summarise each chapter.",zh:"準備書報時，挑一句最喜歡的句子，並用一句話摘要每一章。"}
+    ],
+    discuss:[
+      {en:"Harry grows up unloved, yet turns out brave and kind. What do you think makes someone a hero — their powers, or their choices?",zh:"哈利在不被疼愛的環境長大，卻依然勇敢又善良。你覺得「英雄」取決於能力，還是選擇？"},
+      {en:"Ron, Hermione and Harry are very different people. How do their differences make them a stronger team?",zh:"榮恩、妙麗和哈利個性很不一樣。他們的差異，如何讓這個團隊變得更強？"},
+      {en:"At Hogwarts, Harry finally feels he belongs. Where, or with whom, do you feel you truly belong?",zh:"在霍格華茲，哈利終於有了歸屬感。你在哪裡、和誰在一起時，覺得最有歸屬感？"}
+    ],
+    findUrl:"https://www.youtube.com/results?search_query=Harry+Potter+Philosopher%27s+Stone+book+trailer",
+    ctaLabel:"📺 看書籍預告／導讀 Watch a book trailer / booktalk ↗",
+    note:"This is a study companion, not the book. Harry Potter and the Philosopher's Stone is © J. K. Rowling (Bloomsbury, 1997). The summary, vocabulary and questions here are original teaching material — please read the real book from your library or a bookshop."
+  },
+  {
+    id:"holes",
+    category:"chapterbook",
+    companion:true,
+    title:"Holes",
+    zh:"洞",
+    author:"Louis Sachar (1998) · Newbery Medal",
+    source:"Louis Sachar (1998) · Reading Companion",
+    tag:"Chapter Book Companion · 章節書導讀",
+    icon:"🕳️",
+    accent:"#C08A3E",
+    blurb:"Wrongly sent to a desert camp, a boy must dig a hole a day — and slowly uncovers why.",
+    blurbZh:"被冤枉送進沙漠勞改營的男孩，每天得挖一個洞——而他漸漸挖出了背後的真相。",
+    summary:{
+      en:"Stanley Yelnats, a boy who believes his family is cursed with bad luck, is wrongly convicted of a crime he did not commit and sent to Camp Green Lake — a harsh detention camp on a dried-up desert lake. There, every boy must dig a hole exactly five feet deep and five feet wide, every single day. The warden claims it 'builds character,' but Stanley begins to suspect they are really digging to find something buried long ago. As Stanley befriends a quiet boy nicknamed Zero, two stories — one in the present, one from generations past — slowly braid together, revealing a hidden treasure, an old family curse, and the real secret of Camp Green Lake. A clever, award-winning novel about injustice, loyalty, and fate.",
+      zh:"史丹利・葉納茲一直相信他們家被壞運詛咒。他因為一件根本沒做的事被判有罪，送進了「綠湖營」——一座蓋在乾涸沙漠湖床上的嚴酷管訓營。在那裡，每個男孩每天都得挖一個深五英尺、寬五英尺的洞。營長說這能「磨練品格」，但史丹利漸漸懷疑：他們其實是在挖很久以前被埋起來的東西。當史丹利和一個綽號「零」的沉默男孩成為朋友，兩條故事線——一條在現在、一條來自好幾代以前——慢慢交織在一起，揭開了藏起來的寶藏、一個古老的家族詛咒，以及綠湖營真正的秘密。這是一部聰明又得獎無數的小說，談不公、忠誠與命運。"
+    },
+    vocab:[
+      ["curse","n.","詛咒"],
+      ["dig","v.","挖（洞）"],
+      ["desert","n.","沙漠"],
+      ["innocent","adj.","無辜的、清白的"],
+      ["fate","n.","命運"],
+      ["loyalty","n.","忠誠"],
+      ["injustice","n.","不公、冤屈"],
+      ["treasure","n.","寶藏"]
+    ],
+    guideLabel:"📖 閱讀與書報重點 · Reading & Book-Report Tips",
+    readaloud:[
+      {en:"The book has two timelines — the present and events long ago. Note how they connect as you read.",zh:"這本書有兩條時間線——「現在」和「很久以前」。邊讀邊記下它們是怎麼接上的。"},
+      {en:"Watch for details that come back: yellow-spotted lizards, onions, and the name 'Yelnats' (read it backwards!).",zh:"留意一再出現的細節：黃斑蜥蜴、洋蔥，還有「Yelnats」這個名字（倒著拼拼看！）。"},
+      {en:"Track how Stanley changes from the start to the end — body, confidence, and friendships.",zh:"追蹤史丹利從開頭到結尾的改變——體格、自信，還有友情。"}
+    ],
+    discuss:[
+      {en:"Stanley is punished for something he did not do. Have you ever been blamed unfairly? How did it feel?",zh:"史丹利因為沒做的事被處罰。你有沒有被冤枉過？那是什麼感覺？"},
+      {en:"The story weaves the present together with events from long ago. Why do you think the author tells it that way?",zh:"故事把「現在」和「很久以前」的事交織在一起。你覺得作者為什麼要這樣寫？"},
+      {en:"Stanley and Zero help each other survive. How does their friendship change them both?",zh:"史丹利和「零」互相扶持、一起活下來。他們的友情如何改變了彼此？"}
+    ],
+    findUrl:"https://www.youtube.com/results?search_query=Holes+Louis+Sachar+book+trailer",
+    ctaLabel:"📺 看書籍預告／導讀 Watch a book trailer / booktalk ↗",
+    note:"This is a study companion, not the book. Holes is © Louis Sachar (Farrar, Straus and Giroux, 1998). The summary, vocabulary and questions here are original teaching material — please read the real book from your library or a bookshop."
+  },
+  {
+    id:"princess-diaries",
+    category:"chapterbook",
+    companion:true,
+    title:"The Princess Diaries",
+    zh:"公主日記",
+    author:"Meg Cabot (2000)",
+    source:"Meg Cabot (2000) · Reading Companion",
+    tag:"Chapter Book Companion · 章節書導讀",
+    icon:"📔",
+    accent:"#C56A9B",
+    blurb:"An ordinary, awkward New York teen discovers she's the secret heir to a throne.",
+    blurbZh:"一個平凡又有點彆扭的紐約青少女，發現自己竟是某國王位的秘密繼承人。",
+    summary:{
+      en:"Mia Thermopolis is a totally ordinary (and slightly awkward) ninth-grader in New York City — until her father drops a bombshell: she is the heir to the throne of a small European country called Genovia, which makes her a real princess. Suddenly Mia must take 'princess lessons' from her strict, glamorous grandmother, dodge the sudden attention of her whole school, keep her secret safe, agonise over her crush, and still somehow survive algebra. Told entirely through Mia's funny, honest diary entries, it is a warm, laugh-out-loud story about growing up, figuring out who you are, and discovering that being yourself matters far more than being perfect.",
+      zh:"米亞・瑟莫波里斯是紐約市一個超級平凡（又有點彆扭）的九年級生——直到她爸爸投下一顆震撼彈：她是歐洲小國「吉諾維亞」的王位繼承人，也就是說，她是個如假包換的公主。米亞突然得跟嚴格又光鮮亮麗的奶奶上「公主課」，閃避全校突如其來的關注，守住自己的秘密，為暗戀的對象煩惱，還要勉強應付代數課。整本書都用米亞幽默又誠實的日記寫成，是一個溫暖又笑料十足的成長故事——關於認識自己，以及發現「做自己」遠比「當個完美公主」更重要。"
+    },
+    vocab:[
+      ["princess","n.","公主"],
+      ["heir","n.","繼承人"],
+      ["diary","n.","日記"],
+      ["royal","adj.","皇室的"],
+      ["ordinary","adj.","平凡的"],
+      ["awkward","adj.","尷尬的、彆扭的"],
+      ["identity","n.","身分、自我"],
+      ["confidence","n.","自信"]
+    ],
+    guideLabel:"📖 閱讀與書報重點 · Reading & Book-Report Tips",
+    readaloud:[
+      {en:"The whole book is Mia's diary — notice how first-person diary style lets you hear her private, honest thoughts.",zh:"整本書就是米亞的日記——留意「第一人稱日記」怎麼讓你聽見她私底下、最真實的想法。"},
+      {en:"Track how Mia's confidence changes from the first entry to the last.",zh:"追蹤米亞的自信，從第一篇日記到最後一篇有什麼轉變。"},
+      {en:"For your book report, try writing one diary entry in Mia's voice about a day in your life.",zh:"準備書報時，試著用米亞的口吻，為你自己的一天寫一篇日記。"}
+    ],
+    discuss:[
+      {en:"Mia suddenly learns she is a princess and her whole life flips upside down. Would you want that news — why or why not?",zh:"米亞突然得知自己是公主，人生整個翻轉。你會想收到這種消息嗎？為什麼？"},
+      {en:"The book is written as a diary. How is reading someone's diary different from reading a normal story?",zh:"這本書用日記寫成。讀「某人的日記」和讀一般的故事，有什麼不一樣？"},
+      {en:"Mia learns that being herself matters more than being a 'perfect princess.' When is it hard for you to just be yourself?",zh:"米亞學到「做自己」比「當完美公主」更重要。什麼時候，你覺得「做自己」很難？"}
+    ],
+    findUrl:"https://www.youtube.com/results?search_query=The+Princess+Diaries+Meg+Cabot+book+trailer",
+    ctaLabel:"📺 看書籍預告／導讀 Watch a book trailer / booktalk ↗",
+    note:"This is a study companion, not the book. The Princess Diaries is © Meg Cabot (HarperCollins, 2000). The summary, vocabulary and questions here are original teaching material — please read the real book from your library or a bookshop."
   },
   {
     id:"babel",
@@ -4803,10 +4971,11 @@ function renderStoryList(filterCat = "all"){
   const cats = [
     {id:"all", label:"全部故事 All Stories"},
     {id:"picturebook", label:"🎨 經典繪本 Picture Books"},
+    {id:"chapterbook", label:"📚 章節書 Chapter Books"},
     {id:"fable", label:"🦊 伊索寓言 Aesop's Fables"},
     {id:"lore", label:"📜 歷史與經典 Lore & History"}
   ];
-  const catHash = {picturebook:"#/story/picture-books", fable:"#/story/fables"};
+  const catHash = {picturebook:"#/story/picture-books", chapterbook:"#/story/chapter-books", fable:"#/story/fables"};
   const activeCat = cats.some(c=>c.id===filterCat) ? filterCat : "all";
   const list = activeCat==="all" ? STORIES : STORIES.filter(s=> (s.category||"lore") === activeCat);
   const tabs = `<div class="sb-tabs">
@@ -4836,14 +5005,18 @@ function renderStoryList(filterCat = "all"){
   }).join("");
 
   const hdTitle = activeCat==='picturebook' ? ['經典繪本區','Picture Books']
+    : activeCat==='chapterbook' ? ['章節書導讀','Chapter Books']
     : activeCat==='fable' ? ['伊索寓言','Aesop’s Fables']
     : ['故事時間','Story Time'];
   const hdLede = activeCat==='picturebook'
     ? '精選經典原版水彩繪本，中英雙語對照、原汁原味大師插畫、隨段語音朗讀與生詞學習。<br>Timeless illustrated picture books — read aloud, bilingual text, vocabulary and classroom discussion.'
+    : activeCat==='chapterbook'
+    ? '必讀章節書的「導讀伴讀頁」：故事大意、目標單字、閱讀與書報重點、討論題。原著版權所有，請搭配實體書或圖書館閱讀。<br>Companion guides for required novels — summary, vocabulary, reading & book-report tips, and discussion. (Guides only — read the real books.)'
     : activeCat==='fable'
     ? '短小雋永的伊索寓言，每則都有一個寓意。中英雙語、Kokoro 語音朗讀、生詞點讀翻譯。<br>Short, timeless Aesop’s fables — each with a moral. Bilingual, read aloud, tap-to-translate vocabulary.'
     : '讀故事、學英文。中英雙語、逐段對照，還有原文經典。適合課堂投影或親子共讀。<br>Illustrated bilingual stories — read aloud in class or together at home.';
   const crumbTail = activeCat==='picturebook' ? '<a href="#/story">Story Time</a> › 繪本區 Picture Books'
+    : activeCat==='chapterbook' ? '<a href="#/story">Story Time</a> › 章節書 Chapter Books'
     : activeCat==='fable' ? '<a href="#/story">Story Time</a> › 伊索寓言 Aesop’s Fables'
     : 'Story Time';
   app.innerHTML = `<div class="view storybook">
@@ -4980,8 +5153,14 @@ function renderCompanion(s){
   const vocab = (s.vocab||[]).map(v=>`<div class="sb-vocab-item"><b>${v[0]}</b> <i>${v[1]}</i><span>${v[2]}</span></div>`).join("");
   const tips = (s.readaloud||[]).map(t=>`<li><span class="en">${t.en}</span><span class="zh">${t.zh}</span></li>`).join("");
   const qs = (s.discuss||[]).map(q=>`<div class="sb-qbox"><div class="sb-qbox-h">💬 討論一下 · Let's Talk</div><p class="en">${q.en}</p><p class="zh">${q.zh}</p></div>`).join("");
+  const isChap = s.category==='chapterbook';
+  const backHash = isChap ? '#/story/chapter-books' : '#/story/picture-books';
+  const backLabel = isChap ? '← 章節書 Chapter Books' : '← 繪本區 Picture Books';
+  const crumbCat = isChap ? '<a href="#/story/chapter-books">章節書</a>' : '<a href="#/story/picture-books">繪本區</a>';
+  const guideLabel = s.guideLabel || '🎙️ 朗讀小技巧 · Read-Aloud Tips';
+  const ctaLabel = s.ctaLabel || '📺 找線上朗讀影片 Find a read-aloud (YouTube) ↗';
   app.innerHTML = `<div class="view storybook sb-companion">
-    <div class="crumb"><a href="#/home">Home</a> › <a href="#/story">Story Time</a> › <a href="#/story/picture-books">繪本區</a> › ${s.title}</div>
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/story">Story Time</a> › ${crumbCat} › ${s.title}</div>
     <header class="sb-hero">
       <div class="sb-comp-hero-ic" style="--comp-accent:${s.accent||'#5B7FB0'}">${s.icon||'📖'}</div>
       <div class="sb-hero-tag">${s.tag}</div>
@@ -4990,8 +5169,8 @@ function renderCompanion(s){
       <div class="sb-hero-author">${s.author||""}</div>
       <p class="sb-hero-blurb">${s.blurb||""}<span class="z">${s.blurbZh||""}</span></p>
     </header>
-    <div class="sb-comp-note">📖 這是老師自製的「伴讀導讀頁」，不是書本內容。原書為現代版權作品，請到圖書館或書店閱讀完整繪本。<br>This is an original read-aloud companion — not the book itself. Please enjoy the real picture book from your library or a bookshop.</div>
-    ${s.findUrl ? `<a class="sb-comp-cta" href="${s.findUrl}" target="_blank" rel="noopener">📺 找線上朗讀影片 Find a read-aloud (YouTube) ↗</a>` : ""}
+    <div class="sb-comp-note">📖 這是老師自製的「導讀伴讀頁」，不是書本內容。原書為現代版權作品，請到圖書館或書店閱讀完整原著。<br>This is an original companion guide — not the book itself. Please enjoy the real book from your library or a bookshop.</div>
+    ${s.findUrl ? `<a class="sb-comp-cta" href="${s.findUrl}" target="_blank" rel="noopener">${ctaLabel}</a>` : ""}
     <section class="sb-comp-sec"><h2>故事大意 · The Story</h2>
       <p class="en">${s.summary ? s.summary.en : ""}</p>
       <p class="zh">${s.summary ? s.summary.zh : ""}</p>
@@ -4999,13 +5178,13 @@ function renderCompanion(s){
     <section class="sb-comp-sec"><h2>🎯 目標單字 · Target Words</h2>
       <div class="sb-vocab-grid">${vocab}</div>
     </section>
-    <section class="sb-comp-sec"><h2>🎙️ 朗讀小技巧 · Read-Aloud Tips</h2>
+    <section class="sb-comp-sec"><h2>${guideLabel}</h2>
       <ul class="sb-tips">${tips}</ul>
     </section>
     <section class="sb-comp-sec"><h2>討論與分享 · Talk About It</h2>
       ${qs}
     </section>
-    <div class="sb-foot"><button class="btn btn-ghost" onclick="location.hash='#/story/picture-books'">← 繪本區 Picture Books</button></div>
+    <div class="sb-foot"><button class="btn btn-ghost" onclick="location.hash='${backHash}'">${backLabel}</button></div>
   </div>`;
   window.scrollTo(0,0);
 }
