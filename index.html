@@ -2008,7 +2008,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="word-checkin.js?v=1"></script>
 <script src="curriculum-loader.js?v=3"></script>
 <script src="lesson-notes.js?v=4"></script>
-<script src="offline-content.js?v=6"></script>
+<script src="offline-content.js?v=7"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=4"></script>
 <script src="vocab/books.js?v=6"></script>
@@ -12894,7 +12894,13 @@ CAT_DEX.push(
  {id:"space",en:"Cosmic",zh:"太空貓",meme:"地球太吵，本喵先走 🚀"},
  {id:"wizard",en:"Wizard",zh:"魔法貓",meme:"把不會的字變不見 ✨"},
  {id:"boba",en:"Boba",zh:"珍奶貓",meme:"先喝一口，再背一個 🧋"},
- {id:"snack",en:"Snack",zh:"罐罐貓",meme:"努力都是為了這一口 🥫"}
+ {id:"snack",en:"Snack",zh:"罐罐貓",meme:"努力都是為了這一口 🥫"},
+ {id:"dino",en:"Dino",zh:"恐龍貓",meme:"嗷嗚！其實只會喵 🦖",atlas2:0},
+ {id:"chef",en:"Chef",zh:"主廚貓",meme:"本日特餐：魚魚餅乾 🍪",atlas2:1},
+ {id:"detective",en:"Detective",zh:"偵探貓",meme:"罐罐失蹤案，兇手就是我 🔎",atlas2:2},
+ {id:"raincoat",en:"Rainy",zh:"雨衣貓",meme:"下雨也要踩水坑 ☔",atlas2:3},
+ {id:"scholar",en:"Bookworm",zh:"書蟲貓",meme:"再讀一頁就睡……📚",atlas2:4},
+ {id:"strawberry",en:"Strawberry",zh:"草莓貓",meme:"今天的可愛，甜度全糖 🍓",atlas2:5}
 );
 // Atlas frames use each illustration's actual bounds, avoiding adjacent paws or hats.
 const CAT_DEX_FRAMES=[
@@ -12902,7 +12908,12 @@ const CAT_DEX_FRAMES=[
  [0,341,257,310],[257,341,231,310],[488,341,267,310],[755,341,258,310],[1013,341,265,310],[1278,341,258,310],
  [0,651,270,373],[270,651,268,373],[538,651,237,373],[775,651,250,373],[1025,651,256,373],[1281,651,255,373]
 ];
-function catDexArt(c){const [x,y,w,h]=CAT_DEX_FRAMES[CAT_DEX.indexOf(c)],dw=Math.min(120,160*w/h);return `<span class="dex-art" role="img" aria-label="${c.zh}" style="width:${dw}px;height:${dw*h/w}px;background-size:${1536/w*100}% ${1024/h*100}%;background-position:${x/(1536-w)*100}% ${y/(1024-h)*100}%"></span>`;}
+function catDexArt(c){
+ if(Number.isInteger(c.atlas2)){
+  const h=c.atlas2<3?490:534,dw=Math.min(140,140*512/h);
+  return `<span class="dex-art" role="img" aria-label="${c.zh}" style="width:${dw}px;height:${dw*h/512}px;background-image:url('art/cat-dex/meme-cats-atlas-2.png');background-size:300% ${1024/h*100}%;background-position:${(c.atlas2%3)*50}% ${c.atlas2<3?0:100}%"></span>`;
+ }
+ const [x,y,w,h]=CAT_DEX_FRAMES[CAT_DEX.indexOf(c)],dw=Math.min(120,160*w/h);return `<span class="dex-art" role="img" aria-label="${c.zh}" style="width:${dw}px;height:${dw*h/w}px;background-size:${1536/w*100}% ${1024/h*100}%;background-position:${x/(1536-w)*100}% ${y/(1024-h)*100}%"></span>`;}
 
 const catDexOwned = id => !!(store.data.catDex && store.data.catDex[id]);
 function renderCatDex(){

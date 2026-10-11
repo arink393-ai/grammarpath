@@ -13,3 +13,17 @@ test('capsule draws only new cats, charges fifty once and preserves XP; empty po
  delete store.data.catDex.box;store.data.cans=49;vm.runInContext('dexDraw()',c);assert.equal(store.data.cans,49);assert.equal(store.data.catDex.box,undefined);
 });
 test('inline application scripts parse',()=>{const source=fs.readFileSync(require.resolve('../index.html'),'utf8');for(const [,script] of source.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))if(script.trim()&&!script.trim().startsWith('{'))new vm.Script(script);});
+test('expanded collection gives previous collectors six new unique draws without changing XP',()=>{
+ const source=fs.readFileSync(require.resolve('../index.html'),'utf8');
+ const data=source.slice(source.indexOf('const CATDEX_COST'),source.indexOf('const catDexOwned'));
+ const draw=source.slice(source.indexOf('function dexDraw()'),source.indexOf('function dexShowPrize('));
+ const store={data:{cans:300,xp:42,catDex:{}},save(){}};const prizes=[];
+ const ctx=vm.createContext({store,document:{getElementById:()=>null},catDexOwned:id=>!!store.data.catDex[id],paintHeader(){},renderCatDex(){},toast(){},dexShowPrize:c=>prizes.push(c.id)});
+ vm.runInContext(data+';globalThis.cats=CAT_DEX;globalThis.art=CAT_DEX.map(catDexArt);'+draw,ctx);
+ assert.equal(ctx.cats.length,24);assert.equal(new Set(ctx.cats.map(c=>c.id)).size,24);
+ for(const cat of ctx.cats.slice(0,18))store.data.catDex[cat.id]='old';
+ for(let i=0;i<7;i++)vm.runInContext('dexDraw()',ctx);
+ assert.equal(prizes.length,6);assert.equal(new Set(prizes).size,6);assert.equal(store.data.cans,0);assert.equal(store.data.xp,42);assert.equal(Object.keys(store.data.catDex).length,24);
+ for(const markup of ctx.art)assert.ok(!/undefined|NaN/.test(markup));
+ assert.equal(ctx.art.filter(s=>s.includes('meme-cats-atlas-2.png')).length,6);
+});
