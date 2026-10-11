@@ -33,7 +33,7 @@ by 表示「在…之前、最晚到…」，看到 by + 未來時間，通常�
 
 # mc
 Q: Don't call me at 8. I ___ dinner then. || 八點別打給我，那時我正在吃晚餐。
-A: will have | will be having* | will had
+A: will having | will be having* | will had
 W: 未來某時刻正在做，用 will be + V-ing。
 Q: By the end of this month, I ___ this novel. || 到這個月底，我就會讀完這本小說。
 A: will finish | will have finished* | will be finish
@@ -60,7 +60,7 @@ W: will have 後面接過去分詞 gone。
 
 # mc
 Q: At 10 a.m. tomorrow, we ___ a math test. || 明天早上十點我們正在考數學。
-A: will take | will be taking* | will have taken
+A: will be take | will be taking* | will have take
 W: 未來某時刻正在做，用未來進行式。
 Q: By the time you wake up, I ___ for Taipei. || 等你醒來時，我已經出發去台北了。
 A: will leave | will have left* | will be leave

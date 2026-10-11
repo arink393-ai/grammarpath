@@ -39,7 +39,7 @@ Q: She ___ taekwondo twice a week. || 她一週練兩次跆拳道。
 A: plays | goes | does*
 W: 武術類用 do。
 Q: Can you play ___ guitar? || 你會彈吉他嗎？
-A: a | the* | 不填
+A: a | the* | an
 W: 演奏樂器要加 the。
 
 # err
@@ -66,7 +66,7 @@ Q: My mom ___ exercise every morning. || 我媽媽每天早上運動。
 A: plays | goes | does*
 W: do exercise。
 Q: She plays ___ violin in the school band. || 她在校樂團拉小提琴。
-A: a | the* | 不填
+A: a | the* | an
 W: 樂器前面加 the。
 # err
 S: We [played|went] skiing in Japan. || 我們在日本去滑雪。

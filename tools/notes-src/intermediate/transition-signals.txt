@@ -66,7 +66,7 @@ W: 後面接名詞 the heavy rain，要用 because of。
 
 # mc
 Q: First, wash the rice. ___, put it in the cooker. || 首先洗米，接著放進電鍋。
-A: Next* | Finally first | For example
+A: Next* | In conclusion | For example
 W: 表示順序用 Next。
 Q: She is smart. ___, she works very hard. || 她很聰明。此外，她也很努力。
 A: In addition* | However | For example

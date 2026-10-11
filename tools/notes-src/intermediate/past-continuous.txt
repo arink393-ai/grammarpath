@@ -38,10 +38,10 @@ Q: What ___ you doing at ten last night? || 你昨晚十點在做什麼？
 A: was | were* | did
 W: 主詞 you 配 were，過去進行式問句。
 Q: I ___ dinner when the lights went out. || 停電的時候我正在吃晚餐。
-A: had | was having* | have
+A: was have | was having* | have
 W: 被打斷的、正在進行的動作用過去進行式。
 Q: While she was studying, her brother ___ games. || 她在讀書時，她弟弟在玩遊戲。
-A: played | was playing* | is playing
+A: was play | was playing* | is playing
 W: 兩件事同時進行，都用過去進行式。
 Q: We were walking home ___ it started to rain. || 我們走路回家時開始下雨了。
 A: while | when* | during
@@ -62,7 +62,7 @@ W: know 是狀態動詞，不用進行式。
 
 # mc
 Q: It ___ when we left the house. || 我們出門時正在下雨。
-A: rained | was raining* | is raining
+A: was rain | was raining* | is raining
 W: 背景、正在進行的動作用過去進行式。
 Q: I was reading ___ my sister was watching TV. || 我在看書時，我妹妹在看電視。
 A: while* | when | during
@@ -71,7 +71,7 @@ Q: ___ you sleeping when I called? || 我打給你時你在睡覺嗎？
 A: Was | Were* | Did
 W: you 配 were。
 Q: He fell while he ___. || 他在跑步時跌倒了。
-A: ran | was running* | runs
+A: was run | was running* | runs
 W: while 後面接持續的動作，用過去進行式。
 # err
 S: I [was|were] cooking when the phone rang. || 電話響時我在煮飯。

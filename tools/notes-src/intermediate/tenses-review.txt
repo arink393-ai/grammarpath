@@ -68,7 +68,7 @@ Q: They ___ in Taipei since 2010. || 他們從 2010 年就住在台北。
 A: live | have lived* | lived
 W: since 表示持續到現在，用現在完成式。
 Q: By next year, I ___ from college. || 到明年，我就已經大學畢業了。
-A: will graduate | will have graduated* | graduated
+A: will graduated | will have graduated* | graduated
 W: by + 未來時間，用未來完成式。
 # err
 S: Look! It [snows|is snowing]! || 看！下雪了！

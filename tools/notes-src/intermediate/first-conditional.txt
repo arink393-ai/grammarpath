@@ -41,7 +41,7 @@ Q: If it's sunny tomorrow, we ___ to the beach. || 如果明天天氣好，我�
 A: go | will go* | went
 W: 第一條件句的主要子句用 will + 原形。
 Q: ___ you leave now, you'll miss the train. || 除非你現在出發，不然會錯過火車。
-A: If | Unless* | When
+A: If not | Unless* | When
 W: unless = if … not，「除非」。
 Q: I'll call you as soon as I ___ the results. || 我一拿到結果就打給你。
 A: will get | get* | got

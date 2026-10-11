@@ -60,7 +60,7 @@ W: 形容詞要放在不定代名詞後面。
 
 # mc
 Q: Is ___ home? The lights are on. || 有人在家嗎？燈是亮的。
-A: anyone* | no one | everyone are
+A: anyone* | any | everyone are
 W: 一般疑問句用 any-。
 Q: I'm hungry. I want ___ to eat. || 我餓了，我想吃點東西。
 A: anything | something* | nothing

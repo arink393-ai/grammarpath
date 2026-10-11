@@ -36,7 +36,7 @@ Q: The children enjoyed ___ at the party. || 孩子們在派對上玩得很開�
 A: them | themselves* | theirselves
 W: 主詞是 The children（複數），用 themselves。
 Q: Be careful! Don't cut ___. || 小心！別割到你自己。
-A: you | yourself* | yourselves
+A: you | yourself* | yours
 W: 對一個人說話，用 yourself。
 Q: She lives by ___. || 她一個人住。
 A: her | herself* | hers

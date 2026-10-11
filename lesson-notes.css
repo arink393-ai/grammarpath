@@ -50,7 +50,15 @@
 .lnerr.fixed .lnfix{display:inline;animation:lnfade .8s ease}
 .lnerr-why{display:none;margin-top:6px;font:400 14px/1.75 var(--sans);color:var(--body)}
 .lnerr.why .lnerr-why{display:block;animation:lnfade .9s ease}
-.lnbad:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.lnerr{position:relative}
+.lnerr-show{position:absolute;top:8px;right:10px;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:99px;padding:2px 10px;font:500 12px var(--sans);cursor:pointer}
+.lnerr-show:hover,.lnerr-show:focus-visible{color:var(--teal);border-color:var(--teal-line)}
+.lnerr.done .lnerr-show{display:none}
+.lnerr{padding-right:84px}
+@media (max-width:600px){.lnerr{padding-right:14px}.lnerr-show{position:static;display:block;margin:6px 0 0 auto}}
+.ln-count{font:600 13px var(--sans);color:var(--teal);background:var(--teal-bg);border-radius:99px;padding:2px 9px;vertical-align:middle}
+.ln-count.full{color:#3F6236;background:var(--good-bg)}
+.ln-count.full::after{content:" ✓"}
 @keyframes lnfade{from{opacity:0}to{opacity:1}}
 @keyframes lnshake{0%,100%{transform:none}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
 @media (prefers-reduced-motion:reduce){.lnw.nope,.lnfix,.lnmc-why,.lnerr-why{animation:none!important}}

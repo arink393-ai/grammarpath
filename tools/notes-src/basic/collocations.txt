@@ -52,7 +52,7 @@ Q: Let's ___ a photo in front of the temple. || 我們在廟前拍張照吧。
 A: do | make | take*
 W: 拍照是 take a photo。
 Q: What time do you usually ___ lunch? || 你通常幾點吃午餐？
-A: take | have* | get
+A: take | have* | do
 W: 吃三餐用 have。
 Q: Be careful not to ___ lost in the city. || 小心別在城裡迷路。
 A: get* | take | have

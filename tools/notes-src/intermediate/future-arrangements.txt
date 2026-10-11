@@ -30,7 +30,7 @@ Q: I can't come on Saturday. I ___ my grandparents. || 我星期六不能來，�
 A: visit | am visiting* | visited
 W: 已經安排好的未來行程，用現在進行式。
 Q: The movie ___ at 7:15 tonight. || 電影今晚 7:15 開始。
-A: is starting | starts* | will starting
+A: start | starts* | starting
 W: 時刻表、節目表用現在簡單式。
 Q: What ___ you doing after school tomorrow? || 你明天放學後要做什麼？
 A: do | are* | will
@@ -54,7 +54,7 @@ W: 不能少了 be 動詞 are。
 
 # mc
 Q: We ___ dinner with our cousins on Sunday. || 我們星期天要和表親吃晚餐。
-A: have | are having* | had
+A: has | are having* | had
 W: 已安排好的計畫，用現在進行式。
 Q: Our flight ___ at 6:40 a.m. || 我們的班機早上 6:40 起飛。
 A: leave | leaves* | leaving

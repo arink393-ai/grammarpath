@@ -42,7 +42,7 @@ Q: I ___ not hungry now. || 我現在不餓。
 A: am* | is | are
 W: 主詞 I 一定配 am。
 Q: She is ___ English teacher. || 她是一位英文老師。
-A: a | an* | the
+A: a | an* | 不填
 W: English 以母音開頭，單數名詞前用 an。
 
 # err

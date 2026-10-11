@@ -32,13 +32,13 @@
 
 # mc
 Q: I've bought the tickets. We ___ see a movie tonight. || 我買好票了，今晚我們要去看電影。
-A: will | are going to* | going to
+A: are going to* | going to | are go to
 W: 已經計畫好的事，用 be going to。
 Q: You look thirsty. I ___ get you some water. || 你看起來很渴，我去幫你倒杯水。
 A: will* | am going to | going
 W: 說話當下才決定，用 will。
 Q: Look out! That glass ___ fall! || 小心！那個杯子要掉了！
-A: will | is going to* | goes
+A: is go to | is going to* | goes
 W: 看得到跡象的預測，用 be going to。
 Q: I'll text you when I ___ home. || 我到家時會傳訊息給你。
 A: will get | get* | got
@@ -65,7 +65,7 @@ Q: She ___ visit her grandparents next weekend. She's already bought the tickets
 A: will to | is going to* | going to
 W: 事先計畫好的，用 be going to。
 Q: Look at that car! It ___ crash! || 看那輛車！要撞上了！
-A: will | is going to* | crashes
+A: is go to | is going to* | crashes
 W: 看得到跡象的預測，用 be going to。
 Q: Don't worry. I ___ tell anyone. || 別擔心，我不會告訴任何人。
 A: won't* | am not going | don't will

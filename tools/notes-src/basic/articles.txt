@@ -43,10 +43,10 @@ Q: I waited for ___ hour. || 我等了一個小時。
 A: a | an* | the
 W: hour 的 h 不發音，以母音開頭，用 an。
 Q: She plays ___ violin very well. || 她小提琴拉得很好。
-A: a | the* | 不填
+A: a | the* | an
 W: 演奏樂器要加 the。
 Q: My brother studies at ___ university in Tainan. || 我哥哥在台南一所大學念書。
-A: a* | an | the
+A: a* | an | 不填
 W: university 念 /juː/，是子音開頭的音，用 a。
 Q: We play ___ basketball after school. || 我們放學後打籃球。
 A: the | a | 不填*

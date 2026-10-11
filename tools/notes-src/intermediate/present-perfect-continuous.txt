@@ -31,7 +31,7 @@
 
 # mc
 Q: We ___ for the bus for 30 minutes. || 我們已經等公車等了三十分鐘。
-A: are waiting | have been waiting* | waited
+A: are waiting | have been waiting* | wait
 W: 從過去持續到現在，有 for 30 minutes，用現在完成進行式。
 Q: How long ___ she been playing the piano? || 她彈鋼琴彈多久了？
 A: has* | have | is
@@ -64,7 +64,7 @@ Q: How long have you ___ for me? || 你等我多久了？
 A: wait | been waiting* | waiting
 W: have been + V-ing。
 Q: I ___ three cups of coffee today. || 我今天已經喝了三杯咖啡。
-A: have been drinking | have drunk* | am drinking
+A: has drunk | have drunk* | am drinking
 W: 有具體數量（三杯），強調結果，用現在完成式。
 Q: She's tired because she ___ all day. || 她很累，因為她工作了一整天。
 A: has been working* | is work | works

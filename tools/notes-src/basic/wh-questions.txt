@@ -43,7 +43,7 @@ Q: What ___ your brother do on weekends? || 你哥哥週末都做什麼？
 A: do | does* | is
 W: 主詞 your brother 單數，助動詞用 does。
 Q: ___ is your favorite singer? || 你最喜歡的歌手是誰？
-A: Who* | Whose | Which
+A: Who* | Whose | Where
 W: 問「誰」用 Who。
 Q: ___ often do you go to the gym? || 你多常去健身房？
 A: What | How* | Why
