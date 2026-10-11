@@ -8,6 +8,8 @@
    (BE_SUBJ, BE_FEEL, BE_ANIMAL); its sentences have Kokoro MP3s in ADV_AUDIO
    (tools/gen_adv_audio.mjs renders them and rewrites the manifest below). World 3 "動作小鎮" does the
    same for present-simple verbs (VB_EASY / VB_ES × subjects) and adds a "is the cat right?" room.
+   World 4 "位置小屋" (prepositions + There is/are) draws little scenes (plScene: SVG box / table / tree +
+   emoji animals layered in front of or behind them) and adds a "tap where the animal goes" room.
    Progress: store.data.adv = {stages:{<id>:{stars,at}}, day:{d,n}}. Loaded before the main
    script; everything here is only called after the page has booted. */
 const ADV_WORLDS = [
@@ -39,9 +41,20 @@ const ADV_WORLDS = [
   {id:"w3s4", label:"We · They 不加 s", icon:"💃", subj:["we","they","he","she"], verbs:"easy",
    tip:"兩個人以上——we（我們）、they（他們）——不加 s：They dance. 一個人才加 s：She dances."},
   {id:"w3s5", label:"加不加 s", icon:"🐲", subj:["I","you","he","she","we","they"], verbs:"all", boss:true,
-   tip:"小鎮大魔王：全部混在一起！主角是 he、she 才加 s（或 es、ies）。"}]}
+   tip:"小鎮大魔王：全部混在一起！主角是 he、she 才加 s（或 es、ies）。"}]},
+ {id:"w4", kind:"place", title:"位置小屋", en:"Where's the Cat?", sub:"in、on、under… 動物躲在哪裡？", emoji:"🏠", stages:[
+  {id:"w4s1", label:"in · on", icon:"📦", preps:["in","on"],
+   tip:"in 是「在…裡面」，on 是「在…上面」：The cat is in the box. The dog is on the table."},
+  {id:"w4s2", label:"under · next to", icon:"🪑", preps:["under","next to"],
+   tip:"under 是「在…下面」，next to 是「在…旁邊」（兩個字一起用！）"},
+  {id:"w4s3", label:"behind · in front of", icon:"🌳", preps:["behind","in front of"],
+   tip:"behind 是「在…後面」（被擋住一點點）；in front of 是「在…前面」（三個字一起用！）"},
+  {id:"w4s4", label:"There is · There are", icon:"🔢", preps:["in","on","under","next to"], there:true,
+   tip:"「有…」：一隻用 There is a cat…；兩隻以上用 There are two cats…（動物加 s）"},
+  {id:"w4s5", label:"在哪裡？", icon:"🦊", preps:["in","on","under","next to","behind","in front of"], there:"mix", boss:true,
+   tip:"小屋大魔王：全部混在一起！看清楚動物在哪裡、有幾隻。"}]}
 ];
-/*ADV_AUDIO_START*/const ADV_AUDIO={"I am happy.":"audio/adv/a_a85a5e31ada1.mp3","I am sad.":"audio/adv/a_ad010de98ce1.mp3","I am hungry.":"audio/adv/a_f20f9c38780c.mp3","I am sleepy.":"audio/adv/a_e7ef9e7a6778.mp3","I am hot.":"audio/adv/a_9c34429fa1bd.mp3","I am cold.":"audio/adv/a_429360649df6.mp3","I am angry.":"audio/adv/a_826017315c79.mp3","I am sick.":"audio/adv/a_b825a638fc72.mp3","You are happy.":"audio/adv/a_3755df596d0d.mp3","You are sad.":"audio/adv/a_46b518e37532.mp3","You are hungry.":"audio/adv/a_658a98b1b9fd.mp3","You are sleepy.":"audio/adv/a_9dacde09c6df.mp3","You are hot.":"audio/adv/a_c01f26e13c30.mp3","You are cold.":"audio/adv/a_bf0d90a42a25.mp3","You are angry.":"audio/adv/a_6a6c6b4f7d03.mp3","You are sick.":"audio/adv/a_76de963f1e41.mp3","He is happy.":"audio/adv/a_3c0d84017aa7.mp3","He is sad.":"audio/adv/a_f6dc18458732.mp3","He is hungry.":"audio/adv/a_a623704685ee.mp3","He is sleepy.":"audio/adv/a_2c1f43776814.mp3","He is hot.":"audio/adv/a_35b36f973f22.mp3","He is cold.":"audio/adv/a_73788d970df6.mp3","He is angry.":"audio/adv/a_c28793426a13.mp3","He is sick.":"audio/adv/a_a18940de3c33.mp3","She is happy.":"audio/adv/a_39196cd583b7.mp3","She is sad.":"audio/adv/a_85d1b9a6ee68.mp3","She is hungry.":"audio/adv/a_57747d138474.mp3","She is sleepy.":"audio/adv/a_0113bc32ce02.mp3","She is hot.":"audio/adv/a_8a78ec572358.mp3","She is cold.":"audio/adv/a_3c11b2b10448.mp3","She is angry.":"audio/adv/a_b9ff75381932.mp3","She is sick.":"audio/adv/a_2674c05d99f3.mp3","It is a dog.":"audio/adv/a_4803ad338863.mp3","They are dogs.":"audio/adv/a_0bbe01b727cb.mp3","It is a cat.":"audio/adv/a_94361c485925.mp3","They are cats.":"audio/adv/a_da3fe27c4ab4.mp3","It is a bird.":"audio/adv/a_33f853ee07f6.mp3","They are birds.":"audio/adv/a_27047a859f5c.mp3","It is a rabbit.":"audio/adv/a_feaf01cac562.mp3","They are rabbits.":"audio/adv/a_ba57d591eefe.mp3","It is a frog.":"audio/adv/a_70c432be5e61.mp3","They are frogs.":"audio/adv/a_9d112913c03b.mp3","It is a duck.":"audio/adv/a_78d8b8a581ab.mp3","They are ducks.":"audio/adv/a_92e5605370f6.mp3","We are happy.":"audio/adv/a_3642390e7b23.mp3","We are sad.":"audio/adv/a_b04765f9e33e.mp3","We are hungry.":"audio/adv/a_a46fa74ab81c.mp3","We are sleepy.":"audio/adv/a_32a1c2ba6cb8.mp3","We are hot.":"audio/adv/a_56691cd16786.mp3","We are cold.":"audio/adv/a_532254122d9e.mp3","We are angry.":"audio/adv/a_2707f70ba826.mp3","We are sick.":"audio/adv/a_2535806879e9.mp3","They are happy.":"audio/adv/a_51ee05b71de3.mp3","They are sad.":"audio/adv/a_a39f59e1dfb2.mp3","They are hungry.":"audio/adv/a_3884bb1e6a39.mp3","They are sleepy.":"audio/adv/a_085b969b028c.mp3","They are hot.":"audio/adv/a_d8283390293a.mp3","They are cold.":"audio/adv/a_dfd31ab8e713.mp3","They are angry.":"audio/adv/a_da392c126574.mp3","They are sick.":"audio/adv/a_b1c59711c454.mp3","I run.":"audio/adv/a_0de8919f4889.mp3","I swim.":"audio/adv/a_f93e4a1ee9c9.mp3","I sing.":"audio/adv/a_f2cea30ba86b.mp3","I dance.":"audio/adv/a_ae97c949ac28.mp3","I read.":"audio/adv/a_b519f67bba90.mp3","I cook.":"audio/adv/a_583884d50afd.mp3","I draw.":"audio/adv/a_c93a036931ea.mp3","I walk.":"audio/adv/a_2287d5387075.mp3","You run.":"audio/adv/a_27b4bd15eac2.mp3","You swim.":"audio/adv/a_05d0fd37de48.mp3","You sing.":"audio/adv/a_cbbd9894e938.mp3","You dance.":"audio/adv/a_5f38b3b1fb4a.mp3","You read.":"audio/adv/a_03c807e97ccb.mp3","You cook.":"audio/adv/a_02dac1679343.mp3","You draw.":"audio/adv/a_16cc8f2fb92e.mp3","You walk.":"audio/adv/a_1b75bad13dcb.mp3","He runs.":"audio/adv/a_66ac6ea453a5.mp3","He swims.":"audio/adv/a_842fc0a3374a.mp3","He sings.":"audio/adv/a_1e903c5f288b.mp3","He dances.":"audio/adv/a_0bce6fa305aa.mp3","He reads.":"audio/adv/a_472b813f7ab7.mp3","He cooks.":"audio/adv/a_98e918ecbeb2.mp3","He draws.":"audio/adv/a_0380dcf2fa9d.mp3","He walks.":"audio/adv/a_3a0f7b37800b.mp3","She runs.":"audio/adv/a_1b0f71d0bc3f.mp3","She swims.":"audio/adv/a_e96bdfd5c35a.mp3","She sings.":"audio/adv/a_5c09cdda2c84.mp3","She dances.":"audio/adv/a_7ea42ca0bf69.mp3","She reads.":"audio/adv/a_921b601830f9.mp3","She cooks.":"audio/adv/a_6e2982084131.mp3","She draws.":"audio/adv/a_ebef0dc995e7.mp3","She walks.":"audio/adv/a_a501b2a6bdde.mp3","He watches TV.":"audio/adv/a_0a414d2d7f87.mp3","He goes to school.":"audio/adv/a_94128ff0e0cb.mp3","He washes the dishes.":"audio/adv/a_1e3fe9661aee.mp3","He catches the ball.":"audio/adv/a_d36a6cbea77b.mp3","He does homework.":"audio/adv/a_e2d2f1424bab.mp3","He flies a kite.":"audio/adv/a_cc64e88297e6.mp3","He studies English.":"audio/adv/a_2863d3b88b32.mp3","He cries.":"audio/adv/a_ff48304cc292.mp3","She watches TV.":"audio/adv/a_6418587e75a6.mp3","She goes to school.":"audio/adv/a_23790b6c786e.mp3","She washes the dishes.":"audio/adv/a_587a24a2c338.mp3","She catches the ball.":"audio/adv/a_e9991dd1e8e1.mp3","She does homework.":"audio/adv/a_ca4ebc911356.mp3","She flies a kite.":"audio/adv/a_b91de462a5b6.mp3","She studies English.":"audio/adv/a_192d74a96b9b.mp3","She cries.":"audio/adv/a_0202835244a1.mp3","We run.":"audio/adv/a_af144a16259d.mp3","We swim.":"audio/adv/a_a0344d60b708.mp3","We sing.":"audio/adv/a_891aaa17ae7a.mp3","We dance.":"audio/adv/a_bb6d6ee21a43.mp3","We read.":"audio/adv/a_7813cc9a085c.mp3","We cook.":"audio/adv/a_a5ad99f4a683.mp3","We draw.":"audio/adv/a_d593cf84a250.mp3","We walk.":"audio/adv/a_0a1d335447b7.mp3","They run.":"audio/adv/a_46bb87314d2a.mp3","They swim.":"audio/adv/a_80a6706dda7c.mp3","They sing.":"audio/adv/a_5b0aa117ba86.mp3","They dance.":"audio/adv/a_a47e51953a1e.mp3","They read.":"audio/adv/a_60e0baed2999.mp3","They cook.":"audio/adv/a_3db275560d6d.mp3","They draw.":"audio/adv/a_a3e247b2b4c3.mp3","They walk.":"audio/adv/a_15f33b0ec402.mp3","I watch TV.":"audio/adv/a_cbfd344be4d7.mp3","I go to school.":"audio/adv/a_71312fc6f0f7.mp3","I wash the dishes.":"audio/adv/a_c5a8f117d14f.mp3","I catch the ball.":"audio/adv/a_29e6ab50af45.mp3","I do homework.":"audio/adv/a_e7036095f972.mp3","I fly a kite.":"audio/adv/a_3fff38278316.mp3","I study English.":"audio/adv/a_5cd3a04f91e1.mp3","I cry.":"audio/adv/a_aa68c21a2402.mp3","You watch TV.":"audio/adv/a_66d7d50d0afd.mp3","You go to school.":"audio/adv/a_d7c5169c6310.mp3","You wash the dishes.":"audio/adv/a_b6efca0c7e85.mp3","You catch the ball.":"audio/adv/a_d9bd8f370fea.mp3","You do homework.":"audio/adv/a_14508b66e232.mp3","You fly a kite.":"audio/adv/a_d2a9e17907ed.mp3","You study English.":"audio/adv/a_194a9f12423e.mp3","You cry.":"audio/adv/a_708808d9cb27.mp3","We watch TV.":"audio/adv/a_08c49953f6bd.mp3","We go to school.":"audio/adv/a_0f1e4f7e1e0e.mp3","We wash the dishes.":"audio/adv/a_2fa939517716.mp3","We catch the ball.":"audio/adv/a_5459337f3b5b.mp3","We do homework.":"audio/adv/a_e2f0de2fec78.mp3","We fly a kite.":"audio/adv/a_c721c7784f70.mp3","We study English.":"audio/adv/a_d214f6405e6b.mp3","We cry.":"audio/adv/a_009e2deae59e.mp3","They watch TV.":"audio/adv/a_a8a3efb8ab22.mp3","They go to school.":"audio/adv/a_1c22f9f1625b.mp3","They wash the dishes.":"audio/adv/a_65827262f7e9.mp3","They catch the ball.":"audio/adv/a_3aa5a8ea591e.mp3","They do homework.":"audio/adv/a_82f81be01bd0.mp3","They fly a kite.":"audio/adv/a_c89b79a4dc7e.mp3","They study English.":"audio/adv/a_9dc02bd27b26.mp3","They cry.":"audio/adv/a_6c2b86a95df9.mp3"};/*ADV_AUDIO_END*/
+/*ADV_AUDIO_START*/const ADV_AUDIO={"I am happy.":"audio/adv/a_a85a5e31ada1.mp3","I am sad.":"audio/adv/a_ad010de98ce1.mp3","I am hungry.":"audio/adv/a_f20f9c38780c.mp3","I am sleepy.":"audio/adv/a_e7ef9e7a6778.mp3","I am hot.":"audio/adv/a_9c34429fa1bd.mp3","I am cold.":"audio/adv/a_429360649df6.mp3","I am angry.":"audio/adv/a_826017315c79.mp3","I am sick.":"audio/adv/a_b825a638fc72.mp3","You are happy.":"audio/adv/a_3755df596d0d.mp3","You are sad.":"audio/adv/a_46b518e37532.mp3","You are hungry.":"audio/adv/a_658a98b1b9fd.mp3","You are sleepy.":"audio/adv/a_9dacde09c6df.mp3","You are hot.":"audio/adv/a_c01f26e13c30.mp3","You are cold.":"audio/adv/a_bf0d90a42a25.mp3","You are angry.":"audio/adv/a_6a6c6b4f7d03.mp3","You are sick.":"audio/adv/a_76de963f1e41.mp3","He is happy.":"audio/adv/a_3c0d84017aa7.mp3","He is sad.":"audio/adv/a_f6dc18458732.mp3","He is hungry.":"audio/adv/a_a623704685ee.mp3","He is sleepy.":"audio/adv/a_2c1f43776814.mp3","He is hot.":"audio/adv/a_35b36f973f22.mp3","He is cold.":"audio/adv/a_73788d970df6.mp3","He is angry.":"audio/adv/a_c28793426a13.mp3","He is sick.":"audio/adv/a_a18940de3c33.mp3","She is happy.":"audio/adv/a_39196cd583b7.mp3","She is sad.":"audio/adv/a_85d1b9a6ee68.mp3","She is hungry.":"audio/adv/a_57747d138474.mp3","She is sleepy.":"audio/adv/a_0113bc32ce02.mp3","She is hot.":"audio/adv/a_8a78ec572358.mp3","She is cold.":"audio/adv/a_3c11b2b10448.mp3","She is angry.":"audio/adv/a_b9ff75381932.mp3","She is sick.":"audio/adv/a_2674c05d99f3.mp3","It is a dog.":"audio/adv/a_4803ad338863.mp3","They are dogs.":"audio/adv/a_0bbe01b727cb.mp3","It is a cat.":"audio/adv/a_94361c485925.mp3","They are cats.":"audio/adv/a_da3fe27c4ab4.mp3","It is a bird.":"audio/adv/a_33f853ee07f6.mp3","They are birds.":"audio/adv/a_27047a859f5c.mp3","It is a rabbit.":"audio/adv/a_feaf01cac562.mp3","They are rabbits.":"audio/adv/a_ba57d591eefe.mp3","It is a frog.":"audio/adv/a_70c432be5e61.mp3","They are frogs.":"audio/adv/a_9d112913c03b.mp3","It is a duck.":"audio/adv/a_78d8b8a581ab.mp3","They are ducks.":"audio/adv/a_92e5605370f6.mp3","We are happy.":"audio/adv/a_3642390e7b23.mp3","We are sad.":"audio/adv/a_b04765f9e33e.mp3","We are hungry.":"audio/adv/a_a46fa74ab81c.mp3","We are sleepy.":"audio/adv/a_32a1c2ba6cb8.mp3","We are hot.":"audio/adv/a_56691cd16786.mp3","We are cold.":"audio/adv/a_532254122d9e.mp3","We are angry.":"audio/adv/a_2707f70ba826.mp3","We are sick.":"audio/adv/a_2535806879e9.mp3","They are happy.":"audio/adv/a_51ee05b71de3.mp3","They are sad.":"audio/adv/a_a39f59e1dfb2.mp3","They are hungry.":"audio/adv/a_3884bb1e6a39.mp3","They are sleepy.":"audio/adv/a_085b969b028c.mp3","They are hot.":"audio/adv/a_d8283390293a.mp3","They are cold.":"audio/adv/a_dfd31ab8e713.mp3","They are angry.":"audio/adv/a_da392c126574.mp3","They are sick.":"audio/adv/a_b1c59711c454.mp3","I run.":"audio/adv/a_0de8919f4889.mp3","I swim.":"audio/adv/a_f93e4a1ee9c9.mp3","I sing.":"audio/adv/a_f2cea30ba86b.mp3","I dance.":"audio/adv/a_ae97c949ac28.mp3","I read.":"audio/adv/a_b519f67bba90.mp3","I cook.":"audio/adv/a_583884d50afd.mp3","I draw.":"audio/adv/a_c93a036931ea.mp3","I walk.":"audio/adv/a_2287d5387075.mp3","You run.":"audio/adv/a_27b4bd15eac2.mp3","You swim.":"audio/adv/a_05d0fd37de48.mp3","You sing.":"audio/adv/a_cbbd9894e938.mp3","You dance.":"audio/adv/a_5f38b3b1fb4a.mp3","You read.":"audio/adv/a_03c807e97ccb.mp3","You cook.":"audio/adv/a_02dac1679343.mp3","You draw.":"audio/adv/a_16cc8f2fb92e.mp3","You walk.":"audio/adv/a_1b75bad13dcb.mp3","He runs.":"audio/adv/a_66ac6ea453a5.mp3","He swims.":"audio/adv/a_842fc0a3374a.mp3","He sings.":"audio/adv/a_1e903c5f288b.mp3","He dances.":"audio/adv/a_0bce6fa305aa.mp3","He reads.":"audio/adv/a_472b813f7ab7.mp3","He cooks.":"audio/adv/a_98e918ecbeb2.mp3","He draws.":"audio/adv/a_0380dcf2fa9d.mp3","He walks.":"audio/adv/a_3a0f7b37800b.mp3","She runs.":"audio/adv/a_1b0f71d0bc3f.mp3","She swims.":"audio/adv/a_e96bdfd5c35a.mp3","She sings.":"audio/adv/a_5c09cdda2c84.mp3","She dances.":"audio/adv/a_7ea42ca0bf69.mp3","She reads.":"audio/adv/a_921b601830f9.mp3","She cooks.":"audio/adv/a_6e2982084131.mp3","She draws.":"audio/adv/a_ebef0dc995e7.mp3","She walks.":"audio/adv/a_a501b2a6bdde.mp3","He watches TV.":"audio/adv/a_0a414d2d7f87.mp3","He goes to school.":"audio/adv/a_94128ff0e0cb.mp3","He washes the dishes.":"audio/adv/a_1e3fe9661aee.mp3","He catches the ball.":"audio/adv/a_d36a6cbea77b.mp3","He does homework.":"audio/adv/a_e2d2f1424bab.mp3","He flies a kite.":"audio/adv/a_cc64e88297e6.mp3","He studies English.":"audio/adv/a_2863d3b88b32.mp3","He cries.":"audio/adv/a_ff48304cc292.mp3","She watches TV.":"audio/adv/a_6418587e75a6.mp3","She goes to school.":"audio/adv/a_23790b6c786e.mp3","She washes the dishes.":"audio/adv/a_587a24a2c338.mp3","She catches the ball.":"audio/adv/a_e9991dd1e8e1.mp3","She does homework.":"audio/adv/a_ca4ebc911356.mp3","She flies a kite.":"audio/adv/a_b91de462a5b6.mp3","She studies English.":"audio/adv/a_192d74a96b9b.mp3","She cries.":"audio/adv/a_0202835244a1.mp3","We run.":"audio/adv/a_af144a16259d.mp3","We swim.":"audio/adv/a_a0344d60b708.mp3","We sing.":"audio/adv/a_891aaa17ae7a.mp3","We dance.":"audio/adv/a_bb6d6ee21a43.mp3","We read.":"audio/adv/a_7813cc9a085c.mp3","We cook.":"audio/adv/a_a5ad99f4a683.mp3","We draw.":"audio/adv/a_d593cf84a250.mp3","We walk.":"audio/adv/a_0a1d335447b7.mp3","They run.":"audio/adv/a_46bb87314d2a.mp3","They swim.":"audio/adv/a_80a6706dda7c.mp3","They sing.":"audio/adv/a_5b0aa117ba86.mp3","They dance.":"audio/adv/a_a47e51953a1e.mp3","They read.":"audio/adv/a_60e0baed2999.mp3","They cook.":"audio/adv/a_3db275560d6d.mp3","They draw.":"audio/adv/a_a3e247b2b4c3.mp3","They walk.":"audio/adv/a_15f33b0ec402.mp3","I watch TV.":"audio/adv/a_cbfd344be4d7.mp3","I go to school.":"audio/adv/a_71312fc6f0f7.mp3","I wash the dishes.":"audio/adv/a_c5a8f117d14f.mp3","I catch the ball.":"audio/adv/a_29e6ab50af45.mp3","I do homework.":"audio/adv/a_e7036095f972.mp3","I fly a kite.":"audio/adv/a_3fff38278316.mp3","I study English.":"audio/adv/a_5cd3a04f91e1.mp3","I cry.":"audio/adv/a_aa68c21a2402.mp3","You watch TV.":"audio/adv/a_66d7d50d0afd.mp3","You go to school.":"audio/adv/a_d7c5169c6310.mp3","You wash the dishes.":"audio/adv/a_b6efca0c7e85.mp3","You catch the ball.":"audio/adv/a_d9bd8f370fea.mp3","You do homework.":"audio/adv/a_14508b66e232.mp3","You fly a kite.":"audio/adv/a_d2a9e17907ed.mp3","You study English.":"audio/adv/a_194a9f12423e.mp3","You cry.":"audio/adv/a_708808d9cb27.mp3","We watch TV.":"audio/adv/a_08c49953f6bd.mp3","We go to school.":"audio/adv/a_0f1e4f7e1e0e.mp3","We wash the dishes.":"audio/adv/a_2fa939517716.mp3","We catch the ball.":"audio/adv/a_5459337f3b5b.mp3","We do homework.":"audio/adv/a_e2f0de2fec78.mp3","We fly a kite.":"audio/adv/a_c721c7784f70.mp3","We study English.":"audio/adv/a_d214f6405e6b.mp3","We cry.":"audio/adv/a_009e2deae59e.mp3","They watch TV.":"audio/adv/a_a8a3efb8ab22.mp3","They go to school.":"audio/adv/a_1c22f9f1625b.mp3","They wash the dishes.":"audio/adv/a_65827262f7e9.mp3","They catch the ball.":"audio/adv/a_3aa5a8ea591e.mp3","They do homework.":"audio/adv/a_82f81be01bd0.mp3","They fly a kite.":"audio/adv/a_c89b79a4dc7e.mp3","They study English.":"audio/adv/a_9dc02bd27b26.mp3","They cry.":"audio/adv/a_6c2b86a95df9.mp3","The cat is in the box.":"audio/adv/a_56f90dc10a2d.mp3","The dog is in the box.":"audio/adv/a_f99400b3470d.mp3","The rabbit is in the box.":"audio/adv/a_b34f8d388e79.mp3","The duck is in the box.":"audio/adv/a_6c162dff2d06.mp3","The cat is on the box.":"audio/adv/a_843453f9ac6e.mp3","The dog is on the box.":"audio/adv/a_e656a2d120ca.mp3","The rabbit is on the box.":"audio/adv/a_6f4e145a0946.mp3","The duck is on the box.":"audio/adv/a_c73c0213735b.mp3","The cat is on the table.":"audio/adv/a_ad2e171603bb.mp3","The dog is on the table.":"audio/adv/a_3179cbc26901.mp3","The rabbit is on the table.":"audio/adv/a_806e19848da0.mp3","The duck is on the table.":"audio/adv/a_b459254eb154.mp3","The cat is next to the box.":"audio/adv/a_4557a87415ed.mp3","The dog is next to the box.":"audio/adv/a_81c6fa4459d0.mp3","The rabbit is next to the box.":"audio/adv/a_d13ea44c4ec0.mp3","The duck is next to the box.":"audio/adv/a_d27f5776605b.mp3","The cat is under the table.":"audio/adv/a_095bcdbf65e1.mp3","The dog is under the table.":"audio/adv/a_4ebb8972fa37.mp3","The rabbit is under the table.":"audio/adv/a_0e3f5f103bb8.mp3","The duck is under the table.":"audio/adv/a_7918d8138da1.mp3","The cat is next to the table.":"audio/adv/a_adc57ac8c9b2.mp3","The dog is next to the table.":"audio/adv/a_6c46898b8418.mp3","The rabbit is next to the table.":"audio/adv/a_ce2a67e09b20.mp3","The duck is next to the table.":"audio/adv/a_16c809892a00.mp3","The cat is next to the tree.":"audio/adv/a_da1457cc1333.mp3","The dog is next to the tree.":"audio/adv/a_4760a7c2214f.mp3","The rabbit is next to the tree.":"audio/adv/a_de048633044f.mp3","The duck is next to the tree.":"audio/adv/a_a4b3cffce171.mp3","The cat is behind the tree.":"audio/adv/a_04d1b005504f.mp3","The dog is behind the tree.":"audio/adv/a_afcb3f749af7.mp3","The rabbit is behind the tree.":"audio/adv/a_247a0b06c836.mp3","The duck is behind the tree.":"audio/adv/a_8d2dce37e90c.mp3","The cat is in front of the tree.":"audio/adv/a_9c098fc2f768.mp3","The dog is in front of the tree.":"audio/adv/a_dd655ca34aea.mp3","The rabbit is in front of the tree.":"audio/adv/a_6f24a7da08f3.mp3","The duck is in front of the tree.":"audio/adv/a_2c2db7a627f2.mp3","There is a cat in the box.":"audio/adv/a_0577a43228cb.mp3","There are two cats in the box.":"audio/adv/a_e359ddca3dca.mp3","There is a dog in the box.":"audio/adv/a_e5f40269a171.mp3","There are two dogs in the box.":"audio/adv/a_19240d5b9d48.mp3","There is a rabbit in the box.":"audio/adv/a_e65e1fea007c.mp3","There are two rabbits in the box.":"audio/adv/a_6291ca15d962.mp3","There is a duck in the box.":"audio/adv/a_ea85934b03db.mp3","There are two ducks in the box.":"audio/adv/a_6f650abee6ed.mp3","There is a cat on the box.":"audio/adv/a_1528f84d4a28.mp3","There are two cats on the box.":"audio/adv/a_6bc328268c58.mp3","There is a dog on the box.":"audio/adv/a_39979171edcb.mp3","There are two dogs on the box.":"audio/adv/a_1aa6ebbc67b4.mp3","There is a rabbit on the box.":"audio/adv/a_d14388effbe3.mp3","There are two rabbits on the box.":"audio/adv/a_515e53fc989e.mp3","There is a duck on the box.":"audio/adv/a_46a35d1bac69.mp3","There are two ducks on the box.":"audio/adv/a_abd9d131cd43.mp3","There is a cat next to the box.":"audio/adv/a_465ad36b62b1.mp3","There are two cats next to the box.":"audio/adv/a_bd021850cee5.mp3","There is a dog next to the box.":"audio/adv/a_94ba03ea0a5f.mp3","There are two dogs next to the box.":"audio/adv/a_2c24e21dfd36.mp3","There is a rabbit next to the box.":"audio/adv/a_0ad4c4ecbc90.mp3","There are two rabbits next to the box.":"audio/adv/a_062c5765b3fa.mp3","There is a duck next to the box.":"audio/adv/a_a652f439cbae.mp3","There are two ducks next to the box.":"audio/adv/a_36da443d53d8.mp3","There is a cat on the table.":"audio/adv/a_810611a69308.mp3","There are two cats on the table.":"audio/adv/a_230c0cf7803a.mp3","There is a dog on the table.":"audio/adv/a_9e60cb86ec33.mp3","There are two dogs on the table.":"audio/adv/a_d92458e0f409.mp3","There is a rabbit on the table.":"audio/adv/a_4499c61ccdbc.mp3","There are two rabbits on the table.":"audio/adv/a_2fbd64aec466.mp3","There is a duck on the table.":"audio/adv/a_e3a71769cd6d.mp3","There are two ducks on the table.":"audio/adv/a_fed0e7011718.mp3","There is a cat under the table.":"audio/adv/a_b6606e779291.mp3","There are two cats under the table.":"audio/adv/a_b8dec70b511c.mp3","There is a dog under the table.":"audio/adv/a_c9e023c7f5ea.mp3","There are two dogs under the table.":"audio/adv/a_638d38cb2d9a.mp3","There is a rabbit under the table.":"audio/adv/a_cfc5b28d70af.mp3","There are two rabbits under the table.":"audio/adv/a_815684fd8e32.mp3","There is a duck under the table.":"audio/adv/a_9e795a9a35a2.mp3","There are two ducks under the table.":"audio/adv/a_e366b14309fd.mp3","There is a cat next to the table.":"audio/adv/a_5cdec5d15944.mp3","There are two cats next to the table.":"audio/adv/a_a7938fb858f5.mp3","There is a dog next to the table.":"audio/adv/a_ad2dd4daf631.mp3","There are two dogs next to the table.":"audio/adv/a_28b34ecceef3.mp3","There is a rabbit next to the table.":"audio/adv/a_4a4a5df5cf2f.mp3","There are two rabbits next to the table.":"audio/adv/a_7a2f10b97a09.mp3","There is a duck next to the table.":"audio/adv/a_aa46d319744d.mp3","There are two ducks next to the table.":"audio/adv/a_4bb431a6cc1d.mp3"};/*ADV_AUDIO_END*/
 const BE_SUBJ = {
  I:   {w:"I",    e:"🙋",   zh:"我",   be:"am"},
  you: {w:"You",  e:"👉",   zh:"你",   be:"are"},
@@ -58,6 +71,15 @@ const VB_EASY = [["run","runs","","🏃","跑步"],["swim","swims","","🏊","�
 const VB_ES = [["watch","watches","TV","📺","看電視"],["go","goes","to school","🏫","去上學"],["wash","washes","the dishes","🧽","洗碗"],
  ["catch","catches","the ball","⚾","接球"],["do","does","homework","📝","寫功課"],["fly","flies","a kite","🪁","放風箏"],
  ["study","studies","English","📚","讀英文"],["cry","cries","","😭","哭"]];
+/* World 4: [one, many, emoji, 中文]; objects and which places make sense for each */
+const PL_ANIMAL = [["cat","cats","🐱","貓"],["dog","dogs","🐶","狗"],["rabbit","rabbits","🐰","兔子"],["duck","ducks","🦆","鴨子"]];
+const PL_OBJ = {box:{zh:"箱子", preps:["in","on","next to"]}, table:{zh:"桌子", preps:["on","under","next to"]}, tree:{zh:"樹", preps:["behind","in front of","next to"]}};
+const PL_PREP = {"in":"裡面", "on":"上面", "under":"下面", "next to":"旁邊", "behind":"後面", "in front of":"前面"};
+/* where the animal is drawn (x, y in %, back = behind the object, s = size) and where its tap zone sits */
+const PL_POS = {
+ box:  {"in":{x:37,y:47,back:1,zx:37,zy:74}, "on":{x:37,y:38,zx:37,zy:34}, "next to":{x:82,y:73,zx:82,zy:73}},
+ table:{"on":{x:37,y:37,zx:37,zy:33}, "under":{x:37,y:76,zx:37,zy:76}, "next to":{x:83,y:74,zx:83,zy:74}},
+ tree: {"behind":{x:43,y:64,back:1,s:.85,zx:47,zy:60,zback:1}, "in front of":{x:37,y:80,s:1.1,zx:37,zy:86}, "next to":{x:82,y:76,zx:82,zy:75}}};
 const BE_ANIMAL = [["dog","🐶","狗"],["cat","🐱","貓"],["bird","🐦","鳥"],["rabbit","🐰","兔子"],["frog","🐸","青蛙"],["duck","🦆","鴨子"]];
 const ADV_DAILY_GOAL = 2;      // stages per day before the "time for a break" message
 const ADV_CLEAR_CANS = 5;      // 🥫 for a stage's first clear
@@ -78,6 +100,13 @@ const ADV_ROOMS_VERB = [   // World 3
  {k:"listen", ic:"👂", zh:"聽句子，找到對的圖片"},
  {k:"judge",  ic:"🐱", zh:"貓咪說得對不對？"},
  {k:"be",     ic:"🧩", zh:"選一選：動詞長什麼樣子？"},
+ {k:"build",  ic:"🚂", zh:"照順序點字卡，排出句子"},
+ {k:"speak",  ic:"🗣️", zh:"聽一聽，再大聲說出來"}];
+const ADV_ROOMS_PLACE = [   // World 4
+ {k:"learn",  ic:"📖", zh:"先看一看：動物在哪裡？"},
+ {k:"listen", ic:"👂", zh:"聽句子，找到對的圖片"},
+ {k:"place",  ic:"🐾", zh:"放放看：動物要放在哪裡？"},
+ {k:"be",     ic:"🧩", zh:"選一選：哪個字放進去？"},
  {k:"build",  ic:"🚂", zh:"照順序點字卡，排出句子"},
  {k:"speak",  ic:"🗣️", zh:"聽一聽，再大聲說出來"}];
 let ADV = null;
@@ -157,7 +186,45 @@ function vbItems(st){
   const vs = st.verbs==="easy" ? VB_EASY : st.verbs==="es" ? VB_ES : [...VB_EASY, ...VB_ES];
   return st.subj.flatMap(sk=>vs.map(v=>vbMake(sk, v)));
 }
-function advItems(st){ return advWorldOf(st).kind==="verb" ? vbItems(st) : beItems(st); }
+/* ---------- World 4 place data ---------- */
+/* n: 0 = "The cat is in the box."  1 = "There is a cat in the box."  2 = "There are two cats in the box." */
+function plMake(a, obj, prep, n){
+  const O = PL_OBJ[obj], where = [prep, "the", obj];
+  const base = {kind:"place", subj:a[0], key:prep+"|"+obj, prep, obj, n, a, e:"", lab:"",
+    scene:{e:a[2], n:n===2?2:1, obj, prep}};
+  if(!n) return {...base, w:`The ${a[0]} is ${prep} the ${obj}.`, words:["The",a[0],"is",...where], bi:3, ans:prep,
+    opts:shuffle(O.preps.slice()), /* the three places that make sense for this object */ zh:`${a[3]}在${O.zh}${PL_PREP[prep]}。`};
+  if(n===1) return {...base, w:`There is a ${a[0]} ${prep} the ${obj}.`, words:["There","is","a",a[0],...where], bi:1, ans:"is",
+    opts:["is","are"], zh:`${O.zh}${PL_PREP[prep]}有一隻${a[3]}。`};
+  return {...base, w:`There are two ${a[1]} ${prep} the ${obj}.`, words:["There","are","two",a[1],...where], bi:1, ans:"are",
+    opts:["is","are"], zh:`${O.zh}${PL_PREP[prep]}有兩隻${a[3]}。`};
+}
+function plItems(st){
+  const ns = st.there==="mix" ? [0,1,2] : st.there ? [1,2] : [0];
+  const out = [];
+  Object.keys(PL_OBJ).forEach(obj=>PL_OBJ[obj].preps.forEach(prep=>{
+    if(!st.preps.includes(prep)) return;
+    PL_ANIMAL.forEach(a=>ns.forEach(n=>{ if(n && obj==="tree") return; out.push(plMake(a, obj, prep, n)); }));
+  }));
+  return out;
+}
+/* a little scene: SVG object + emoji animal(s) layered behind or in front of it */
+function plObjSVG(obj){
+  const svg = {
+    box:`<rect x="11" y="52" width="52" height="5" rx="1.5" fill="#8a5a2e"/><rect x="12" y="56" width="50" height="34" rx="2" fill="#c8915a"/><path d="M12 64h50" stroke="#a8743f" stroke-width="1.6"/><path d="M33 56v34" stroke="#b17d47" stroke-width="1" opacity=".6"/>`,
+    table:`<rect x="6" y="51" width="62" height="7" rx="2" fill="#9c6b3f"/><rect x="11" y="57" width="6" height="35" fill="#86582f"/><rect x="57" y="57" width="6" height="35" fill="#86582f"/>`,
+    tree:`<circle cx="37" cy="32" r="25" fill="#6fbf73"/><circle cx="24" cy="38" r="13" fill="#5fae64"/><circle cx="51" cy="36" r="14" fill="#5fae64"/><rect x="30.5" y="50" width="13" height="44" rx="2" fill="#8b5a2b"/>`}[obj];
+  return `<svg class="pl-obj" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="94" rx="48" ry="4" fill="#000" opacity=".06"/>${svg}</svg>`;
+}
+function plAnimals(sc, prep){
+  const P = PL_POS[sc.obj][prep||sc.prep], two = sc.n===2;
+  const dx = (prep||sc.prep)==="next to" ? 9 : 11, x0 = (prep||sc.prep)==="next to" && two ? P.x-2 : P.x;
+  return [two?-1:0, ...(two?[1]:[])].map(d=>`<span class="pl-ani${P.back?" back":""}" style="left:${x0+d*dx}%;top:${P.y}%;--s:${(P.s||1)*(two?.72:1)}">${sc.e}</span>`).join("");
+}
+function plScene(sc, zones){
+  return `<span class="pl-scene">${plObjSVG(sc.obj)}${sc.hide?"":plAnimals(sc)}${zones||""}</span>`;
+}
+function advItems(st){ const k = advWorldOf(st).kind; return k==="verb" ? vbItems(st) : k==="place" ? plItems(st) : beItems(st); }
 /* the "who" distractor: same feeling / animal / action, someone else */
 function advWho(t){
   if(t.kind==="animal") return beAnimal(!t.many, BE_ANIMAL.find(a=>a[0]===t.key));
@@ -248,7 +315,7 @@ function advStart(id){
 }
 /* Worlds 2–3: one small set of sentences ("core") travels through every room */
 function advStartSent(st){
-  const verb = advWorldOf(st).kind==="verb";
+  const verb = advWorldOf(st).kind==="verb", place = advWorldOf(st).kind==="place";
   const pool = shuffle(advItems(st)), n = st.boss ? 5 : 4;
   const subs = [...new Set(pool.map(x=>x.subj))], cap = Math.ceil(n/subs.length);
   const core = [], seen = {}, per = {};
@@ -259,25 +326,34 @@ function advStartSent(st){
   }
   for(const it of pool){ if(core.length>=n) break; if(!core.includes(it)) core.push(it); }
   const all = advItems(st);
-  const pic = x => x.e+"|"+x.lab;
-  const listen = (verb ? core.slice(0, st.boss?4:3) : core).map(t=>{
+  const pic = x => x.e+"|"+x.lab+"|"+(x.scene?JSON.stringify(x.scene):"");
+  const listen = (verb||place ? core.slice(0, st.boss?4:3) : core).map(t=>{
+    /* World 4: the other pictures are the same animal + object, somewhere else (or a different count) */
+    if(place){
+      const alt = t.n ? [plMake(t.a, t.obj, t.prep, t.n===1?2:1), plMake(t.a, t.obj, shuffle(PL_OBJ[t.obj].preps.filter(p=>p!==t.prep))[0], t.n)]
+                      : PL_OBJ[t.obj].preps.filter(p=>p!==t.prep).map(p=>plMake(t.a, t.obj, p, 0));
+      return {t, opts:shuffle([t, ...alt])};
+    }
     /* one distractor changes "who", one changes "what" — both have to be heard to choose */
     const who  = advWho(t);
     const what = shuffle(all.filter(x=>x.kind===t.kind && x.key!==t.key && (t.kind==="animal" ? x.many===t.many : x.subj===t.subj)))[0];
     const opts = [t, who, what].filter((x,i,arr)=>x && arr.findIndex(y=>y && pic(y)===pic(x))===i);
     return {t, opts:shuffle(opts)};
   });
-  const be = shuffle(core).slice(0, verb ? (st.boss?4:3) : n).map(t=>({t, opts: verb ? shuffle(t.opts) : ["am","is","are"]}));
+  const be = shuffle(core).slice(0, verb||place ? (st.boss?4:3) : n).map(t=>({t, opts: verb ? shuffle(t.opts) : place ? t.opts : ["am","is","are"]}));
+  const placeQ = place ? shuffle(core).slice(0,4).map(t=>({t, zones:shuffle(PL_OBJ[t.obj].preps.slice())})) : [];
   /* half of the cat's sentences are wrong */
   const judge = verb ? shuffle(shuffle(core).slice(0,4).map((t,i)=>({t, bad: i%2===0, text: i%2===0 ? vbWrong(t) : t.w}))) : [];
-  const build = shuffle(core).slice(0,3).map(t=>{
+  const build = shuffle(core).slice(0, place?2:3).map(t=>{
     let order; do{ order = shuffle(t.words.map((_,i)=>i)); }while(order.every((v,i)=>v===i));
     return {t, order};
   });
   const speakS = shuffle(core).slice(0,3);
-  const learn = (st.boss ? ["I","she","they"] : st.subj).map(sk=>({sk, ex: core.find(x=>x.subj===sk) || pool.find(x=>x.subj===sk)}));
-  ADV = {st, rooms: verb ? ADV_ROOMS_VERB : ADV_ROOMS_BE, room:0, step:0, first:{ok:0,n:0}, tried:false, wrong:{}, locked:false,
-    learn, listen, be, judge, build, bd:{step:-1, placed:[], err:false}, speak:speakS, sp:{tries:0, state:"idle", heard:""}};
+  const learn = place
+    ? (st.there===true ? [1,2].map(k=>({ex: pool.find(x=>x.n===k)})) : st.preps.map(p=>({ex: pool.find(x=>x.prep===p && !x.n) || pool.find(x=>x.prep===p)})))
+    : (st.boss ? ["I","she","they"] : st.subj).map(sk=>({sk, ex: core.find(x=>x.subj===sk) || pool.find(x=>x.subj===sk)}));
+  ADV = {st, rooms: verb ? ADV_ROOMS_VERB : place ? ADV_ROOMS_PLACE : ADV_ROOMS_BE, room:0, step:0, first:{ok:0,n:0}, tried:false, wrong:{}, locked:false,
+    learn, listen, be, judge, place:placeQ, build, bd:{step:-1, placed:[], err:false}, speak:speakS, sp:{tries:0, state:"idle", heard:""}};
   advRender(); advAutoAudio();
 }
 function advQuit(silent){
@@ -293,7 +369,7 @@ function advRender(){
   const R = ADV.rooms[ADV.room];
   if(!R){ advChest(); return; }
   const body = {listen:advListenHTML, letter:advLetterHTML, memory:advMemoryHTML, speak:advSpeakHTML,
-    learn:advLearnHTML, be:advBeHTML, build:advBuildHTML, judge:advJudgeHTML}[R.k]();
+    learn:advLearnHTML, be:advBeHTML, build:advBuildHTML, judge:advJudgeHTML, place:advPlaceHTML}[R.k]();
   app.innerHTML = `<div class="view adv adv-play">
     <div class="adv-top"><a class="adv-x" href="#/adventure" aria-label="回地圖">✕</a>${advPaws()}<span class="adv-stagelbl">${advLabel(ADV.st)}</span></div>
     <div class="adv-room-h"><span class="adv-room-ic">${R.ic}</span><span class="adv-room-zh">${R.zh}</span>
@@ -307,6 +383,7 @@ function advAutoAudio(){
   if(R.k==="listen") say(ADV.listen[ADV.step].t.w);
   else if(R.k==="speak") say(ADV.speak[ADV.step].w);
   else if(R.k==="build") say(ADV.build[ADV.step].t.w);
+  else if(R.k==="place") say(ADV.place[ADV.step].t.w);
 }
 function advNextRoom(){ if(!ADV) return; ADV.room++; ADV.step=0; ADV.tried=false; ADV.wrong={}; ADV.locked=false; advRender(); advAutoAudio(); }
 function advStepDone(total){
@@ -316,7 +393,7 @@ function advStepDone(total){
 }
 function advFirst(ok){ if(!ADV.tried){ ADV.tried=true; ADV.first.n++; if(ok) ADV.first.ok++; } }
 function advDots(total){ return `<div class="adv-dots">${Array.from({length:total},(_,i)=>`<i class="${i<ADV.step?"on":i===ADV.step?"cur":""}"></i>`).join("")}</div>`; }
-function advPicInner(o){ return `<span class="adv-pic-e${Array.from(o.e).length>1?" duo":""}">${o.e}</span>${o.lab?`<small class="adv-pic-lab">${o.lab}</small>`:""}`; }
+function advPicInner(o){ if(o.scene) return plScene(o.scene); return `<span class="adv-pic-e${Array.from(o.e).length>1?" duo":""}">${o.e}</span>${o.lab?`<small class="adv-pic-lab">${o.lab}</small>`:""}`; }
 
 /* room 1 · listen → tap the picture */
 function advListenHTML(){
@@ -384,7 +461,7 @@ function advSpeakHTML(){
   else if(!canHear || s.tries>=2) ctl = `${s.tries>=2?`<div class="adv-hint">沒關係！跟著聲音唸一次就好 😺</div>`:`<div class="adv-hint">聽完跟著大聲唸一次 🗣️</div>`}<button class="btn btn-primary adv-done-btn" onclick="advSpeakSelf()">✓ 我唸好了</button>`;
   else ctl = `<button class="adv-mic" onclick="advListenMe()">🎤 按我，說出來</button>${s.tries?`<div class="adv-hint">很接近了！再說一次 💪${s.heard?`（我聽到「${esc(s.heard)}」）`:""}</div>`:""}`;
   return `${advDots(ADV.speak.length)}
-    <div class="adv-say-card"><span class="adv-say-e">${t.e}</span><span class="adv-say-w${t.w.includes(" ")?" long":""}">${t.w}</span><span class="adv-say-zh">${t.zh}</span></div>
+    <div class="adv-say-card"><span class="adv-say-e">${t.scene?plScene(t.scene):t.e}</span><span class="adv-say-w${t.w.includes(" ")?" long":""}">${t.w}</span><span class="adv-say-zh">${t.zh}</span></div>
     <button class="adv-big-hear" onclick="advWord(ADV.speak[ADV.step].w)">🔊 聽示範</button>
     <div class="adv-say-ctl">${ctl}</div>`;
 }
@@ -416,6 +493,7 @@ function advSpeakNext(){
 /* World 2 · room 0 · learn: who goes with am / is / are (no score) */
 function advLearnHTML(){
   if(ADV.rooms===ADV_ROOMS_VERB) return advLearnVerbHTML();
+  if(ADV.rooms===ADV_ROOMS_PLACE) return advLearnPlaceHTML();
   const groups = [["am",["I"]],["is",["he","she","it"]],["are",["you","we","they"]]];
   const inStage = sk => ADV.st.subj.includes(sk);
   const cards = ADV.learn.map((x,k)=>{ const S=BE_SUBJ[x.sk], ex=x.ex;
@@ -442,6 +520,36 @@ function advLearnVerbHTML(){
   return `<div class="adv-learn">${cards}</div>
     <p class="adv-tip">💡 ${ADV.st.tip}</p>${table}
     <button class="btn btn-primary adv-done-btn" onclick="advNextRoom()">我記住了，出發 ▶</button>`;
+}
+
+/* World 4 · learn: one card per place word (or There is / There are) */
+function advLearnPlaceHTML(){
+  const cards = ADV.learn.map((x,k)=>{ const ex=x.ex, big = ex.n ? (ex.n===1?"There is":"There are") : ex.prep;
+    return `<button class="adv-learn-card pl" onclick="advWord(ADV.learn[${k}].ex.w)">
+      <span class="adv-learn-scene">${plScene(ex.scene)}</span>
+      <span class="adv-learn-pair"><i class="be-${ex.n?(ex.n===1?"is":"are"):"pl"}">${big}</i></span>
+      <span class="adv-learn-ex">${ex.w} 🔊</span><small>${ex.n?(ex.n===1?"一隻":"兩隻以上"):PL_PREP[ex.prep]}・${ex.zh}</small></button>`; }).join("");
+  return `<div class="adv-learn${ADV.learn.length>3?" many":""}">${cards}</div>
+    <p class="adv-tip">💡 ${ADV.st.tip}</p>
+    <button class="btn btn-primary adv-done-btn" onclick="advNextRoom()">我記住了，出發 ▶</button>`;
+}
+
+/* World 4 · tap the spot where the animal goes */
+function advPlaceHTML(){
+  const r = ADV.place[ADV.step], t = r.t;
+  const zones = r.zones.map((p,k)=>{ const P = PL_POS[t.obj][p];
+    return ADV.locked && p===t.prep ? "" : `<button class="pl-zone${P.zback?" back":""} ${ADV.wrong[k]?"no":""}" style="left:${P.zx}%;top:${P.zy}%" ${ADV.wrong[k]||ADV.locked?"disabled":""} onclick="advPlacePick(${k})" aria-label="放這裡">${ADV.wrong[k]?"✗":"？"}</button>`; }).join("");
+  return `${advDots(ADV.place.length)}
+    <div class="adv-place-sent">${t.w} <button class="adv-hear-zh" onclick="advWord(ADV.place[ADV.step].t.w)" aria-label="再聽一次">🔊</button></div>
+    <div class="adv-place-box">${plScene({...t.scene, hide:!ADV.locked}, zones)}<span class="adv-place-hold">${ADV.locked?"":t.scene.e.repeat(t.scene.n)}</span></div>
+    ${ADV.locked?`<div class="adv-yay">✓ ${t.zh}</div>`:Object.keys(ADV.wrong).length?`<div class="adv-hint">再聽一次：${t.prep} 是哪裡？🔊</div>`:`<div class="adv-hint soft">點一個 ？，把${t.scene.n===2?"牠們":"牠"}放上去</div>`}`;
+}
+function advPlacePick(k){
+  if(!ADV || ADV.locked) return;
+  const r = ADV.place[ADV.step], ok = r.zones[k]===r.t.prep;
+  advFirst(ok);
+  if(ok){ advWord(r.t.w); advStepDone(ADV.place.length); }
+  else { ADV.wrong[k]=1; advRender(); setTimeout(()=>ADV && advWord(r.t.w), 250); }
 }
 
 /* World 3 · is the cat right? (half the sentences have a verb mistake) */
@@ -471,13 +579,15 @@ function advJudgePick(k){
 
 /* World 2 · room 2 · pick am / is / are (World 3: pick the verb form) */
 function advBeHTML(){
-  const r = ADV.be[ADV.step], t = r.t, ans = t.ans || t.be, rest = t.words.slice(2).join(" "), verb = t.kind==="verb";
-  const blank = ADV.locked ? `<b class="adv-blank fill be-${verb?(vbThird(t.subj)?"is":"are"):t.be}">${verb?vbMark(t.v[0], ans):ans}</b>` : `<span class="adv-blank">？</span>`;
+  const r = ADV.be[ADV.step], t = r.t, ans = t.ans || t.be, bi = t.bi || 1, verb = t.kind==="verb", place = t.kind==="place";
+  const pre = t.words.slice(0,bi).join(" "), rest = t.words.slice(bi+1).join(" ");
+  const cls = verb ? (vbThird(t.subj)?"is":"are") : place ? (ans==="is"||ans==="are" ? ans : "pl") : t.be;
+  const blank = ADV.locked ? `<b class="adv-blank fill be-${cls}">${verb?vbMark(t.v[0], ans):ans}</b>` : `<span class="adv-blank">？</span>`;
   return `${advDots(ADV.be.length)}
     <div class="adv-be-pic">${advPicInner(t)}</div>
-    <div class="adv-sent">${t.words[0]} ${blank}${rest?" "+rest:""}.</div>
+    <div class="adv-sent">${pre} ${blank}${rest?" "+rest:""}.</div>
     <div class="adv-letters">${r.opts.map((b,k)=>`<button class="adv-letter adv-be-opt be-${b} ${ADV.wrong[k]?"no":""} ${ADV.locked&&b===ans?"yes":""}" ${ADV.wrong[k]||ADV.locked?"disabled":""} onclick="advBePick(${k})">${b}</button>`).join("")}</div>
-    ${ADV.locked?`<div class="adv-yay">✓ ${t.w}　${t.zh}</div>`:Object.keys(ADV.wrong).length?`<div class="adv-hint">想一想：主角是「${t.lab||(t.many?"很多隻":"一隻")}」<br><span class="adv-hint-rule">${verb
+    ${ADV.locked?`<div class="adv-yay">✓ ${t.w}　${t.zh}</div>`:Object.keys(ADV.wrong).length&&place?`<div class="adv-hint">${t.n?"數一數：一隻用 is，兩隻以上用 are":`看圖：${t.a[3]}在${PL_OBJ[t.obj].zh}的哪裡？`}</div>`:Object.keys(ADV.wrong).length?`<div class="adv-hint">想一想：主角是「${t.lab||(t.many?"很多隻":"一隻")}」<br><span class="adv-hint-rule">${verb
       ? `<span>I / you / we / they → 原本的樣子</span><span>he / she → 加 s、es、ies</span>`
       : `<span>I → am</span><span>he / she / it → is</span><span>you / we / they → are</span>`}</span></div>`:""}`;
 }

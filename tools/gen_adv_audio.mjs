@@ -34,7 +34,7 @@ async function synth(text){
   return buf;
 }
 const src = fs.readFileSync(JS, "utf8");
-const ctx = { window:{ addEventListener(){} } };
+const ctx = { window:{ addEventListener(){} }, shuffle: a => a.slice() };
 vm.createContext(ctx);
 vm.runInContext(src + "\n;globalThis.__S = advAllSentences();", ctx);
 const texts = ctx.__S;

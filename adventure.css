@@ -48,7 +48,7 @@
 .adv-paws span{font-size:24px;opacity:.22;filter:grayscale(1);transition:all .3s}
 .adv-paws span.on{opacity:1;filter:none}
 .adv-paws span.cur{opacity:1;filter:none;animation:advBob 1.2s ease-in-out infinite}
-.adv-stagelbl{font:800 12px var(--sans);color:var(--muted);flex:0 0 auto}
+.adv-stagelbl{font:800 12px var(--sans);color:var(--muted);flex:0 1 auto;max-width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .adv-room-h{display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;margin-bottom:6px}
 .adv-room-ic{font-size:30px}
 .adv-room-zh{font:700 clamp(18px,4.5vw,22px) var(--sans);color:var(--navy)}
@@ -151,3 +151,28 @@
 .adv-bubble-cat{font-size:34px}
 .adv-judge-btns .adv-be-opt{font:800 24px var(--sans);min-width:120px}
 .adv-bad{color:#c0563a;text-decoration-thickness:3px}
+/* World 4 · 位置小屋 — scenes are drawn in % of a square box; animals scale with it (cqw) */
+.adv-place .adv-node.done{background:linear-gradient(160deg,#ffe0ec,#f6a9c4)}
+.adv-place .adv-node.next{background:linear-gradient(160deg,#ffd9e6,#ef86ad)}
+.pl-scene{position:relative;display:block;width:100%;aspect-ratio:1;container-type:inline-size;overflow:hidden;border-radius:14px;background:linear-gradient(#f3fbff 0 70%,#eef6e8 70%)}
+.pl-obj{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.pl-ani{position:absolute;z-index:2;font-size:calc(32cqw * var(--s,1));line-height:1;transform:translate(-50%,-50%)}
+.pl-ani.back{z-index:0}
+.adv-pic .pl-scene{border-radius:14px}
+.adv-pic:has(.pl-scene){padding:6px}
+.adv-be-pic .pl-scene{width:150px}
+.adv-be-pic.small .pl-scene{width:118px}
+.adv-say-e .pl-scene{width:170px}
+.adv-learn-scene{display:block;width:118px}
+.adv-learn.many .adv-learn-card{flex-basis:120px}
+.adv-learn.many .adv-learn-scene{width:92px}
+.be-pl{color:#c2477a}
+.adv-place-sent{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font:800 clamp(21px,5.8vw,28px) var(--serif);color:var(--navy);margin-bottom:12px}
+.adv-place-box{display:flex;flex-direction:column;align-items:center;gap:6px}
+.adv-place-box .pl-scene{width:min(290px,100%)}
+.adv-place-hold{min-height:44px;font-size:38px;animation:advBob 1.4s ease-in-out infinite}
+.pl-zone{position:absolute;z-index:3;width:21cqw;height:21cqw;transform:translate(-50%,-50%);border-radius:50%;border:3px dashed #e0662f;background:rgba(255,255,255,.75);font:800 7cqw var(--sans);color:#e0662f;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.pl-zone:active{transform:translate(-50%,-50%) scale(.92)}
+.pl-zone.no{border-color:#bbb;color:#999;background:rgba(240,240,240,.85);animation:advShake .35s}
+.adv-hint.soft{color:var(--muted);font-weight:500}
+.pl-zone.back{z-index:0}   /* half hidden by the trunk = "behind" */

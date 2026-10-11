@@ -1,11 +1,11 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v79-more-practice";
+const CACHE = "eci-v80-place-house";
 const SHELL = [
   "./",
   "./index.html",
   "./art/cat-dex/meme-cats-atlas.png",
   "./daily.css?v=17",
-  "./adventure.css?v=3",
+  "./adventure.css?v=4",
   "./lesson-notes.css?v=2",
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
@@ -13,7 +13,7 @@ const SHELL = [
   "./lesson-notes.js?v=3",
   "./offline-content.js?v=6",
   "./daily.js?v=18",
-  "./adventure.js?v=3",
+  "./adventure.js?v=4",
   "./vocab/books.js?v=6",
   "./vocab-quest.js?v=15",
   "./manifest.webmanifest",
