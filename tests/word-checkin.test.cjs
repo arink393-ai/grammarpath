@@ -20,10 +20,11 @@ test('expanded collection gives previous collectors six new unique draws without
  const store={data:{cans:300,xp:42,catDex:{}},save(){}};const prizes=[];
  const ctx=vm.createContext({store,document:{getElementById:()=>null},catDexOwned:id=>!!store.data.catDex[id],paintHeader(){},renderCatDex(){},toast(){},dexShowPrize:c=>prizes.push(c.id)});
  vm.runInContext(data+';globalThis.cats=CAT_DEX;globalThis.art=CAT_DEX.map(catDexArt);'+draw,ctx);
- assert.equal(ctx.cats.length,24);assert.equal(new Set(ctx.cats.map(c=>c.id)).size,24);
- for(const cat of ctx.cats.slice(0,18))store.data.catDex[cat.id]='old';
+ assert.equal(ctx.cats.length,30);assert.equal(new Set(ctx.cats.map(c=>c.id)).size,30);
+ for(const cat of ctx.cats.slice(0,24))store.data.catDex[cat.id]='old';
  for(let i=0;i<7;i++)vm.runInContext('dexDraw()',ctx);
- assert.equal(prizes.length,6);assert.equal(new Set(prizes).size,6);assert.equal(store.data.cans,0);assert.equal(store.data.xp,42);assert.equal(Object.keys(store.data.catDex).length,24);
+ assert.equal(prizes.length,6);assert.equal(new Set(prizes).size,6);assert.equal(store.data.cans,0);assert.equal(store.data.xp,42);assert.equal(Object.keys(store.data.catDex).length,30);
  for(const markup of ctx.art)assert.ok(!/undefined|NaN/.test(markup));
  assert.equal(ctx.art.filter(s=>s.includes('meme-cats-atlas-2.png')).length,6);
+ assert.equal(ctx.art.filter(s=>s.includes('meme-cats-atlas-3.png')).length,6);
 });
