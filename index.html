@@ -310,6 +310,25 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 /* ---- News reading ---- */
 .rd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:18px 0}
 .rd-actions{margin:14px 0 -2px}
+.nobel-pack{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:16px 0 2px;padding:14px 18px;border:1.5px solid #E0CE9B;border-radius:16px;background:linear-gradient(100deg,#FBF4DF,#F3E8C6)}
+.nobel-pack .np-badge{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:20px;background:radial-gradient(circle at 32% 28%,#F7E7B6,#B98A2E 80%);box-shadow:inset 0 0 0 2px #E0CE9B}
+.nobel-pack .np-body{flex:1;min-width:180px}
+.nobel-pack .np-body b{display:block;font:700 15px var(--sans);color:#6b531a}
+.nobel-pack .np-body span{display:block;font-size:12.5px;color:#876a2a;line-height:1.5;margin-top:1px}
+.nobel-pack .np-links{display:flex;gap:8px;flex-wrap:wrap}
+.nobel-pack .np-btn{font:600 13px var(--sans);color:#6b531a;background:#fff;border:1.5px solid #E0CE9B;border-radius:10px;padding:8px 14px;text-decoration:none;white-space:nowrap;transition:transform .12s ease}
+.nobel-pack .np-btn:hover{transform:translateY(-1px)}
+.nobel-pack .np-teacher{background:#6b531a;color:#fff;border-color:#6b531a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nobel-pack{background:linear-gradient(100deg,#2a2412,#211c0f);border-color:#4a411f}
+  :root:not([data-theme="light"]) .nobel-pack .np-body b{color:#e7cf87}
+  :root:not([data-theme="light"]) .nobel-pack .np-body span{color:#c3a862}
+  :root:not([data-theme="light"]) .nobel-pack .np-btn{background:#1f1c13;color:#e7cf87;border-color:#4a411f}
+  :root:not([data-theme="light"]) .nobel-pack .np-teacher{background:#e7cf87;color:#2a2412}}
+:root[data-theme="dark"] .nobel-pack{background:linear-gradient(100deg,#2a2412,#211c0f);border-color:#4a411f}
+:root[data-theme="dark"] .nobel-pack .np-body b{color:#e7cf87}
+:root[data-theme="dark"] .nobel-pack .np-body span{color:#c3a862}
+:root[data-theme="dark"] .nobel-pack .np-btn{background:#1f1c13;color:#e7cf87;border-color:#4a411f}
+:root[data-theme="dark"] .nobel-pack .np-teacher{background:#e7cf87;color:#2a2412}
 .rd-card{display:flex;gap:12px;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
 .rd-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--teal-line)}
 .rd-card.now{border-color:var(--teal);background:linear-gradient(160deg,#FFFDF9,#FCF0E8)}
@@ -13506,9 +13525,18 @@ function renderReadings(cat){
        <h1 class="display">Read the World<span class="zh-term-lg">讀懂世界</span></h1>
        <p class="lede">分成「每週新聞、歷史、自然、科學、神話、文化、旅遊、風俗民情」等專區，每篇改寫成 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度。同一主題、三個版本，全班可一起讀再討論。點下方分頁切換主題，或直接點任一篇。</p>
        <p class="rd-sources">📰 <b>資料來源 Sources</b>　本專欄選文改寫自 <span class="rd-src-list">Science、Nature、The New York Times、TIME、The Economist、The Washington Post、Taiwan News、Taipei Times、VOA、NBC</span> 等國際媒體之公開報導，並依主題保留原始出處（如 UN、UNESCO、FAO、NASA）。皆為依事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</p>`;
+  const nobelPack = !active ? `<div class="nobel-pack">
+      <div class="np-badge">🏅</div>
+      <div class="np-body"><b>2026 諾貝爾週教學包</b><span>六大獎的分級閱讀清單——重點、目標單字、討論題一次看。</span></div>
+      <div class="np-links">
+        <a class="np-btn" href="https://claude.ai/artifact/AAcMLDkzHdA1bbn1NaRq7C" target="_blank" rel="noopener">🧑‍🎓 學生版</a>
+        ${isTeacher() ? `<a class="np-btn np-teacher" href="https://claude.ai/artifact/KDQgzortxCwyHL6cxBtg1D" target="_blank" rel="noopener">👩‍🏫 老師版</a>` : ""}
+      </div>
+    </div>` : "";
   app.innerHTML = `<div class="view">
     ${head}
     ${tabs}
+    ${nobelPack}
     <div class="rd-actions"><button class="btn btn-ghost" onclick="rdPrintAll()">🖨 批次列印全部文章（三種難度）</button></div>
     <div class="rd-grid">${cards}</div>
     <div class="rd-note">📖 題型參考國中會考與大考：主旨大意、細節理解、字義推敲、推論、語氣與篇章結構。<br>
