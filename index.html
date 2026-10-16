@@ -329,6 +329,37 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 :root[data-theme="dark"] .nobel-pack .np-body span{color:#c3a862}
 :root[data-theme="dark"] .nobel-pack .np-btn{background:#1f1c13;color:#e7cf87;border-color:#4a411f}
 :root[data-theme="dark"] .nobel-pack .np-teacher{background:#e7cf87;color:#2a2412}
+.nw-sec{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font:700 1.15rem var(--serif);color:var(--navy);margin:30px 0 14px}
+.nw-sec span{font:500 12.5px var(--sans);color:var(--muted)}
+.nw-steps{display:flex;flex-wrap:wrap;gap:10px}
+.nw-step{flex:1 1 150px;min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.nw-step .nw-n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#9A781C;color:#fff;font:700 12px var(--sans);margin-bottom:6px}
+.nw-step b{display:block;font:600 14px var(--sans);color:var(--ink)}
+.nw-step p{margin:3px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5}
+.nw-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.nw-card{display:flex;flex-direction:column;min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 24px rgba(0,0,0,.05)}
+.nw-top{display:flex;gap:13px;align-items:flex-start}
+.nw-medal{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:20px;background:radial-gradient(circle at 32% 28%,#F6E6B6,#B98A2E 80%);box-shadow:inset 0 0 0 2px #E0CE9B}
+.nw-head{min-width:0;flex:1}
+.nw-prize{font:700 1.12rem var(--serif);color:var(--navy)}
+.nw-prize span{color:var(--muted);font-weight:500}
+.nw-who{font-size:12.5px;color:var(--muted);margin-top:2px}
+.nw-chip{display:inline-block;font:600 11px var(--sans);padding:4px 9px;border-radius:999px;margin-top:8px;background:color-mix(in srgb,var(--cat) 13%,transparent);color:var(--cat);border:1px solid color-mix(in srgb,var(--cat) 34%,transparent)}
+.nw-big{margin:15px 0 0;font-size:14px;line-height:1.5}
+.nw-big .z{display:block;font-weight:600;color:var(--ink)}
+.nw-big .e{display:block;color:var(--muted);font-size:12.5px;margin-top:3px}
+.nw-meta{margin-top:13px;border-top:1px dashed var(--line);padding-top:13px;display:flex;flex-direction:column;gap:10px}
+.nw-row{display:grid;grid-template-columns:54px 1fr;gap:10px;align-items:start;font-size:13px}
+.nw-k{font:600 11px var(--sans);letter-spacing:.03em;color:var(--muted)}
+.nw-v{line-height:1.5;color:var(--ink)}
+.nw-vocab{display:flex;flex-wrap:wrap;gap:6px}
+.nw-vocab span{font:500 12.5px var(--sans);background:#F1E8CF;color:#5e4a18;border:1px solid #E0CE9B;border-radius:7px;padding:3px 8px}
+.nw-go{margin-top:16px;align-self:flex-start;font:600 13px var(--sans);color:#6b531a;background:#F1E8CF;border:1px solid #E0CE9B;border-radius:10px;padding:9px 14px;text-decoration:none}
+.nw-go:hover{filter:brightness(.97)}
+.nw-note{margin-top:30px;background:var(--paper);border:1px solid var(--line);border-left:3px solid #9A781C;border-radius:0 12px 12px 0;padding:16px 18px;font-size:13.5px;line-height:1.6;color:var(--ink)}
+.nw-note b{color:#9A781C}
+.nw-src{margin-top:18px;font-size:12px;color:var(--muted)}
+@media(max-width:720px){.nw-grid{grid-template-columns:1fr}}
 .rd-card{display:flex;gap:12px;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
 .rd-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--teal-line)}
 .rd-card.now{border-color:var(--teal);background:linear-gradient(160deg,#FFFDF9,#FCF0E8)}
@@ -2580,6 +2611,7 @@ async function route(){
   else if(h[0]==="reading" && h[1]==="topic") renderReadings(h[2]);
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
+  else if(h[0]==="nobel") renderNobelWeek();
   else if(h[0]==="story" && (h[1]==="picture-books" || h[1]==="picturebook" || h[1]==="picture-book")) renderStoryList("picturebook");
   else if(h[0]==="story" && (h[1]==="chapter-books" || h[1]==="chapterbook" || h[1]==="chapter-book")) renderStoryList("chapterbook");
   else if(h[0]==="story" && (h[1]==="fables" || h[1]==="fable")) renderStoryList("fable");
@@ -13529,7 +13561,7 @@ function renderReadings(cat){
       <div class="np-badge">🏅</div>
       <div class="np-body"><b>2026 諾貝爾週教學包</b><span>六大獎的分級閱讀清單——重點、目標單字、討論題一次看。</span></div>
       <div class="np-links">
-        <a class="np-btn" href="https://claude.ai/artifact/AAcMLDkzHdA1bbn1NaRq7C" target="_blank" rel="noopener">🧑‍🎓 學生版</a>
+        <a class="np-btn" href="#/nobel">🧑‍🎓 學生版</a>
         ${isTeacher() ? `<a class="np-btn np-teacher" href="https://claude.ai/artifact/KDQgzortxCwyHL6cxBtg1D" target="_blank" rel="noopener">👩‍🏫 老師版</a>` : ""}
       </div>
     </div>` : "";
@@ -13544,6 +13576,54 @@ function renderReadings(cat){
   </div>`;
 }
 
+const NOBEL_WEEK = [
+  {medal:"🧠", prize:"醫學獎", en:"Medicine", who:"Karl Deisseroth · Peter Hegemann · Georg Nagel", cat:"🩺 健康", c:"#2E7D74",
+   zh:"用光控制大腦：光遺傳學（optogenetics）。", big:"Switching individual brain cells on and off with light.",
+   vocab:["brain","cell","signal","restore"], think:"如果能用光開關腦細胞，你覺得興奮，還是擔心？", id:"nobel-medicine-2026"},
+  {medal:"❄️", prize:"物理獎", en:"Physics", who:"Francis Halzen", cat:"🔬 科學", c:"#3A6EA5",
+   zh:"在南極冰層下捕捉來自宇宙的「幽靈粒子」微中子（IceCube）。", big:"Catching high-energy cosmic neutrinos deep in Antarctic ice.",
+   vocab:["particle","detector","universe","faint"], think:"每秒有數兆微中子穿過你的身體——知道後有什麼感覺？", id:"nobel-physics-2026"},
+  {medal:"🧪", prize:"化學獎", en:"Chemistry", who:"Henri Kagan · Kenso Soai", cat:"🔬 科學", c:"#3A6EA5",
+   zh:"分子的「左手與右手」：做出指定手性的分子（不對稱合成）。", big:"Building molecules of a chosen handedness — key to safer medicines.",
+   vocab:["molecule","mirror","medicine","catalyst"], think:"同一種分子能治病、鏡像卻可能有害——為什麼「精準」這麼重要？", id:"nobel-chemistry-2026"},
+  {medal:"📜", prize:"文學獎", en:"Literature", who:"Anne Carson", cat:"🎭 文化", c:"#8A5A8F",
+   zh:"把古希臘經典用大膽、現代的形式重新創作的加拿大詩人。", big:"A poet who renews the Greek classics in bold, modern forms.",
+   vocab:["poet","ancient","myth","translate"], think:"有沒有一個古老故事、歌或傳說，你想用現代方式重說？", id:"nobel-literature-2026"},
+  {medal:"🕊️", prize:"和平獎", en:"Peace", who:"Navi Pillay", cat:"🌐 國際", c:"#4E8A52",
+   zh:"南非人權法官，一生為人權與國際法奮鬥。", big:"A lifelong champion of human rights and international law.",
+   vocab:["judge","rights","protect","dignity"], think:"Pillay 說教育是她的「出路」。學習可以怎樣改變一個人的一生？", id:"nobel-peace-2026"},
+  {medal:"💹", prize:"經濟獎", en:"Economics", who:"Robert Hall · Michael Woodford", cat:"💹 財經", c:"#A9741B",
+   zh:"個人的小選擇如何加總成整個經濟——中央銀行怎麼穩住物價與就業。", big:"How everyday choices add up, and how central banks keep things steady.",
+   vocab:["economy","price","steady","inflation"], think:"物價漲很快的時候，你家的日常生活有什麼改變？", id:"nobel-economics-2026"}
+];
+function renderNobelWeek(){
+  const steps = [["1","看標題猜題","先看圖和標題，猜今天在講什麼。"],["2","選難度來讀","A1–A2 / B1–B2 / C1–C2，挑適合你的。"],["3","記目標單字","打開單字表，念一念、造個句。"],["4","做 5 題測驗","看懂了嗎？馬上測試自己。"],["5","想討論題","用下面的問題，試著用英文說說看。"]]
+    .map(s=>`<div class="nw-step"><span class="nw-n">${s[0]}</span><b>${s[1]}</b><p>${s[2]}</p></div>`).join("");
+  const cards = NOBEL_WEEK.map(p=>`<div class="nw-card" style="--cat:${p.c}">
+      <div class="nw-top"><div class="nw-medal">${p.medal}</div>
+        <div class="nw-head"><div class="nw-prize">${p.prize} <span>${p.en}</span></div>
+          <div class="nw-who">${p.who}</div><span class="nw-chip">${p.cat}</span></div></div>
+      <p class="nw-big"><span class="z">${p.zh}</span><span class="e">${p.big}</span></p>
+      <div class="nw-meta">
+        <div class="nw-row"><span class="nw-k">單字</span><span class="nw-vocab">${p.vocab.map(w=>`<span>${w}</span>`).join("")}</span></div>
+        <div class="nw-row"><span class="nw-k">想一想</span><span class="nw-v">${p.think}</span></div>
+      </div>
+      <a class="nw-go" href="#/reading/${p.id}">開始閱讀 →</a>
+    </div>`).join("");
+  app.innerHTML = `<div class="view nobel-week">
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/reading">每週閱讀</a> › 2026 諾貝爾週</div>
+    <div class="eyebrow" style="color:#9A781C">Nobel Week · 2026</div>
+    <h1 class="display">2026 諾貝爾週<span class="zh-term-lg" style="color:#9A781C">Read the World</span></h1>
+    <p class="lede">今年六個諾貝爾獎，每一個都是一篇英文閱讀。先讀你看得懂的難度，再挑戰難一點的。每篇都有<b>單字、小測驗和討論題</b>——一邊讀新聞，一邊練英文。</p>
+    <div class="nw-sec">怎麼讀 <span>每篇大約 15 分鐘</span></div>
+    <div class="nw-steps">${steps}</div>
+    <div class="nw-sec">六大獎・一次看懂 <span>點「開始閱讀」直接開啟該篇</span></div>
+    <div class="nw-grid">${cards}</div>
+    <div class="nw-note">💡 <b>三種難度任你挑</b>：先讀看得懂的那一版，再挑戰難一點的——同一個故事，會越讀越順。讀完一篇，試著用三個今天學到的單字，講一句話給同學或家人聽。</div>
+    <p class="nw-src">內容依據 NobelPrize.org 等公開資料，重新撰寫為分級英文教學稿（非原文轉載）。</p>
+  </div>`;
+  window.scrollTo(0,0);
+}
 function rdSetLevel(l){ RD_LEVEL = l; RD_ANS = {}; RD_SHOW = false; renderReading(rdCurId); }
 function rdPick(qi, oi){ if(RD_SHOW) return; RD_ANS[qi] = oi; renderReading(rdCurId, true); }
 function rdCheck(){ RD_SHOW = true; renderReading(rdCurId, true); }

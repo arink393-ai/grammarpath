@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v89-nobel-pack";
+const CACHE = "eci-v90-nobel-page";
 const SHELL = [
   "./",
   "./index.html",
