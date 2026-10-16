@@ -100,9 +100,10 @@ function hwMarkVisit(){
   store.data.visited[k] = new Date().toISOString().slice(0,10);
   store.save();
 }
-window.addEventListener("hashchange", hwMarkVisit);
+/* index.html 的 route() 每次換頁都會呼叫 hwMarkVisit()（含直接開連結進來的第一頁） */
 
 /* ---------- 錄音小工具（作業卡片、直接繳交共用） ---------- */
+const HW_REC_MAX = 600;   // 單段錄音最長 10 分鐘，避免忘了按停止
 const HWREC = {};   // key → {state:"idle"|"rec"|"done", rec, stream, chunks, blob, type, url, t0, dur, timer}
 function hwRecSupported(){ return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder); }
 function hwRecHTML(key){
@@ -134,7 +135,10 @@ async function hwRecStart(key){
     R.dur = (Date.now()-R.t0)/1000; R.state = "done"; hwRecPaint(key);
   };
   rec.start(1000);
-  R.timer = setInterval(()=>{ const el=document.getElementById("hwrec-t-"+key); if(el) el.textContent=raFmt((Date.now()-R.t0)/1000); }, 500);
+  R.timer = setInterval(()=>{
+    const sec=(Date.now()-R.t0)/1000, el=document.getElementById("hwrec-t-"+key); if(el) el.textContent=raFmt(sec);
+    if(sec>=HW_REC_MAX && R.rec.state!=="inactive"){ R.rec.stop(); toast("錄音最長 10 分鐘，已自動停止 ⏹"); }
+  }, 500);
   hwRecPaint(key);
 }
 function hwRecStop(key){ const R=HWREC[key]; if(R && R.rec && R.rec.state!=="inactive") R.rec.stop(); }
@@ -162,6 +166,9 @@ function hwSourceLabel(s){
 }
 
 /* ---------- 學生：作業頁 ---------- */
+let HW_LAST = [];      // 最近一次載入的作業（交作業時查範圍）
+const HW_DRAFT = {};   // 重新整理卡片時保留還沒交的打字內容
+function hwKeepDrafts(){ document.querySelectorAll('textarea[id^="hw-text-"]').forEach(t=>{ HW_DRAFT[t.id.slice(8)]=t.value; }); }
 async function renderHomework(){
   if(!CLOUD.on) return cloudNeeded("作業繳交 Homework");
   if(!currentUser()){ openAuthModal(); return; }
@@ -170,6 +177,7 @@ async function renderHomework(){
   try{ [assignments, subs] = await Promise.all([CLOUD.listAssignments(), CLOUD.mySubmissions()]); }
   catch(e){ app.innerHTML = `<div class="view"><p>載入失敗，請重新整理。 Could not load. ${esc(e.message||"")}</p></div>`; return; }
   if(!/^#\/homework/.test(location.hash)) return;
+  HW_LAST = assignments;
   const byA = {}; subs.forEach(s=>{ if(s.assignment_id) byA[s.assignment_id]=s; });
   HW_PENDING = assignments.filter(a=>a.active).map(a=>({a, st:hwStatus(a, byA[a.id])}))
     .filter(x=>x.st.state==="overdue" || x.st.state==="soon");
@@ -187,7 +195,7 @@ async function renderHomework(){
     const scope = a.scope||[];
     const sDone = scope.filter(it=>scopeDone(it,me)).length;
     const scopeBox = scope.length ? `<div class="hw-scope"><div class="hw-scope-h">📚 作業範圍（完成 ${sDone} / ${scope.length}）</div><div class="hw-chips">${scopeChips(scope, me, true)}</div>
-      <div class="tc-sub">點進去完成：文法課要做完練習、寓言要做讀後練習，其他打開讀過就算。</div></div>` : "";
+      <div class="tc-sub">點進去完成：文法課要做完練習、寓言要做讀後練習，其他打開讀過就算。全部完成後，沒有要寫的內容也可以直接按「繳交」。</div></div>` : "";
     const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${esc(s.grade||"—")}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
     const prev = s ? `<div class="hw-prev">你上次繳交：${s.text?`「${esc(s.text.slice(0,80))}${s.text.length>80?"…":""}」 `:""}${s.file_url?(isAudioPath(s.file_url)?'🎤 錄音 ':'📎 檔案 '):""}${s.link?'🔗 連結':""}</div>` : "";
     return `<div class="card hw-card ${!s&&st.state==='overdue'?'hw-card-over':''}">
@@ -196,7 +204,7 @@ async function renderHomework(){
       ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}
       ${scopeBox}${graded}${prev}
       <div class="hw-form">
-        <textarea id="hw-text-${a.id}" placeholder="在這裡打字作答（可留空）Type your answer here…">${s&&s.text?esc(s.text):""}</textarea>
+        <textarea id="hw-text-${a.id}" placeholder="在這裡打字作答（可留空）Type your answer here…">${esc(HW_DRAFT[a.id]!==undefined ? HW_DRAFT[a.id] : (s&&s.text&&!/^✅ 完成作業範圍/.test(s.text)?s.text:""))}</textarea>
         <div class="hw-row hwrec" id="hwrec-a${a.id.replace(/-/g,"")}">${hwRecHTML("a"+a.id.replace(/-/g,""))}</div>
         <div class="hw-row">
           <label class="hw-file">📎 上傳檔案 File<input type="file" id="hw-file-${a.id}" accept="image/*,audio/*,.pdf,.doc,.docx,.txt"></label>
@@ -240,11 +248,18 @@ async function hwSubmit(id){
   const recFile = hwRecFile(key, "recording-"+id.slice(0,8));
   const file = recFile || (fileEl && fileEl.files[0]);
   if(recFile && fileEl && fileEl.files[0]){ toast("錄音和上傳檔案只能擇一，這次會交出錄音。"); }
-  if(!text && !link && !file){ toast("請至少打字作答、錄音、上傳檔案或貼連結。"); return; }
+  let body = text;
+  if(!text && !link && !file){
+    const a = (HW_LAST||[]).find(x=>x.id===id), scope = (a&&a.scope)||[];
+    if(!scope.length){ toast("請至少打字作答、錄音、上傳檔案或貼連結。"); return; }
+    const done = scope.filter(it=>scopeDone(it, store.data||{})).length;
+    if(done<scope.length && !confirm(`作業範圍還有 ${scope.length-done} 項沒完成，確定要先交嗎？`)) return;
+    body = `✅ 完成作業範圍 ${done} / ${scope.length}`;
+  }
   const btn = document.getElementById("hw-btn-"+id); btn.disabled = true; btn.textContent = "繳交中… Submitting…";
-  const r = await CLOUD.submitHomework(id, { text, link, file });
+  const r = await CLOUD.submitHomework(id, { text:body, link, file });
   if(r.err){ btn.disabled=false; btn.textContent="繳交 Submit"; toast(r.err); return; }
-  hwRecClear(key);
+  hwRecClear(key); hwKeepDrafts(); delete HW_DRAFT[id];
   toast("作業已繳交，做得好 🐾");
   renderHomework();
 }
@@ -256,7 +271,7 @@ async function hwSubmitFree(){
   const btn = document.getElementById("hw-free-btn"); btn.disabled = true; btn.textContent = "上傳中… Uploading…";
   const r = await HWAPI.submitFree({ kind:"recording", source:null, text:note||`🎙️ 自主錄音 · ${raFmt(HWREC.free.dur||0)}`, file });
   if(r.err){ btn.disabled=false; btn.textContent="📤 交給老師"; toast(r.err); return; }
-  hwRecClear("free");
+  hwRecClear("free"); hwKeepDrafts();
   toast("錄音已交給老師 🐾");
   renderHomework();
 }
@@ -388,7 +403,7 @@ function tcHomeworkBody(students){
       return `<tr class="${s?"":"tc-missing"}"><td>${esc(tName(uid))}</td>${sc}<td>${tcSubCell(s)}</td>${tcGradeCells(s)}</tr>`;
     }).join("") : `<tr><td colspan="${scope.length?7:6}" style="color:var(--muted);padding:12px">這份作業目前沒有指派到任何學生。</td></tr>`;
     const nSub = targets.filter(u=>subBy[u]).length;
-    const notYet = a.start_date && a.start_date > new Date().toISOString().slice(0,10);
+    const notYet = a.start_date && a.start_date > new Date(Date.now()+8*3600e3).toISOString().slice(0,10);   // 台灣日期
     return `<div class="card tc-asgn"><div class="tc-asgn-head"><h3>${esc(a.title)} <span class="tc-count">${nSub}/${targets.length} 已繳</span></h3>
         <span class="tc-asgn-act"><button class="btn btn-ghost" onclick="tcEdit('${a.id}')">✏️ 編輯</button>
         <label class="tc-active"><input type="checkbox" ${a.active?"checked":""} onchange="tcActive('${a.id}',this.checked)"> 開放中</label></span></div>

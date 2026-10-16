@@ -2009,7 +2009,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="word-checkin.js?v=1"></script>
 <script src="curriculum-loader.js?v=3"></script>
 <script src="lesson-notes.js?v=4"></script>
-<script src="homework.js?v=1"></script>
+<script src="homework.js?v=2"></script>
 <script src="offline-content.js?v=8"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=4"></script>
@@ -2591,6 +2591,7 @@ async function route(){
   else if(h[0]==="wordle") renderWordle();
   else renderHome();
   paintHeader();
+  if(typeof hwMarkVisit==="function") hwMarkVisit();   // 記錄打開過的閱讀／故事（作業範圍用）
 }
 window.addEventListener("hashchange", route);
 function setNav(open){
@@ -2703,7 +2704,7 @@ function renderHome(){
       </div>
     </div>
   </div>`;
-  OfflineContent.mount(document.getElementById("offline-content-panel"));
+  if(typeof OfflineContent!=="undefined") OfflineContent.mount(document.getElementById("offline-content-panel"));   // 離線腳本載入失敗也不讓首頁壞掉
 }
 
 /* =====================================================
@@ -17495,6 +17496,9 @@ async function tcAudio(btn){
   const url=await CLOUD.fileLink(btn.dataset.path);
   if(!url){ btn.disabled=false; btn.textContent="▶️ 播放錄音"; toast("無法載入錄音。"); return; }
   const a=document.createElement("audio"); a.controls=true; a.preload="auto"; a.className="tc-audio"; a.src=url;
+  /* Chrome 錄的 webm 在部分 Safari 播不了：改給下載連結 */
+  a.onerror=()=>{ const d=document.createElement("a"); d.href=url; d.target="_blank"; d.rel="noopener"; d.className="btn btn-ghost";
+    d.textContent="⬇️ 這個瀏覽器無法播放，點此下載錄音"; a.replaceWith(d); };
   btn.replaceWith(a); a.play().catch(()=>{});
 }
 
