@@ -1,0 +1,49 @@
+/* 作業 2.0（homework.js） */
+.hw-pill.forme{background:#EFE7F7;color:#6A4A92}
+.hw-scope{margin:10px 0 4px;padding:10px 12px;background:#F7F3EA;border:1px solid var(--line,#E5DCC9);border-radius:10px}
+.hw-scope-h{font:600 13.5px var(--sans);color:var(--ink);margin-bottom:6px}
+.hw-chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+.hw-chip{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--line,#E5DCC9);border-radius:999px;padding:4px 11px;font:500 13px var(--sans);color:var(--ink);text-decoration:none;max-width:100%}
+a.hw-chip:hover{border-color:var(--sb-lapis,#2C5C86);color:var(--sb-lapis,#2C5C86)}
+.hw-chip.done{background:#E4F0E4;border-color:#C7DFC7;color:#3B7A3B}
+.hw-chip-zh{color:var(--muted);font-size:12px;margin-left:2px}
+.hwrec{min-height:40px}
+.hwrec-on{display:inline-flex;align-items:center;gap:8px;font:600 13.5px var(--sans);color:#B23B2E}
+.hwrec-audio{height:36px;max-width:100%}
+.hw-free{padding:18px 20px;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.hw-free h3{margin:0}
+.hw-free-note{border:1px solid var(--line,#E5DCC9);border-radius:10px;padding:9px 12px;font:14px var(--sans)}
+.hw-free .btn-navy{align-self:flex-start}
+.hw-free-h{margin:10px 0 0;font:600 14px var(--sans);color:var(--muted)}
+.hw-freelist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.hw-freelist li{border:1px solid var(--line,#E5DCC9);border-radius:10px;padding:10px 12px;background:#fff}
+
+/* 老師：出作業表單 */
+.tc-sec{border-top:1px dashed var(--line,#E5DCC9);padding-top:10px;display:flex;flex-direction:column;gap:8px}
+.tc-sec-h{font:600 14px var(--sans);color:var(--ink)}
+.tc-seg{display:inline-flex;border:1px solid var(--line,#E5DCC9);border-radius:999px;overflow:hidden;align-self:flex-start}
+.tc-seg button{border:0;background:#fff;padding:7px 14px;font:600 13px var(--sans);color:var(--muted);cursor:pointer}
+.tc-seg button.on{background:var(--sb-lapis,#2C5C86);color:#fff}
+.tc-target-pick{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tc-pick-col{border:1px solid var(--line,#E5DCC9);border-radius:10px;padding:10px 12px;max-height:260px;overflow:auto;background:#fff}
+.tc-pick{display:flex;align-items:baseline;gap:6px;padding:3px 0;font:14px var(--sans);cursor:pointer}
+.tc-pick input{flex:none}
+.tc-pick-uh{font:600 12.5px var(--sans);color:var(--muted);margin:4px 0}
+.tc-pick-wrap{display:flex;flex-direction:column;gap:6px}
+.tc-pick-grp{border:1px solid var(--line,#E5DCC9);border-radius:10px;background:#fff}
+.tc-pick-grp summary{cursor:pointer;padding:9px 12px;font:600 13.5px var(--sans)}
+.tc-pick-body{padding:4px 14px 10px;max-height:320px;overflow:auto}
+.tc-pick-unit{margin-bottom:6px}
+.tc-pick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:2px 12px;max-height:300px;overflow:auto;border:1px solid var(--line,#E5DCC9);border-radius:10px;background:#fff;padding:10px 12px}
+
+/* 老師：作業清單 */
+.tc-asgn-act{display:inline-flex;align-items:center;gap:8px}
+.tc-asgn-meta{font:13px var(--sans);color:var(--muted);margin:4px 0 6px}
+.tc-scope{display:inline-block;padding:2px 9px;border-radius:999px;background:#FBE9E4;color:#B4552F;font:600 12.5px var(--sans);cursor:help}
+.tc-scope.full{background:#E4F0E4;color:#3B7A3B}
+.tc-table tr.tc-missing td{background:#FFFBF4}
+
+@media (max-width:640px){
+  .tc-target-pick{grid-template-columns:1fr}
+  .tc-asgn-act{width:100%;justify-content:flex-end}
+}

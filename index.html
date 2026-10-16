@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="daily.css?v=17">
 <link rel="stylesheet" href="adventure.css?v=4">
 <link rel="stylesheet" href="lesson-notes.css?v=3">
+<link rel="stylesheet" href="homework.css?v=1">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
@@ -2008,6 +2009,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="word-checkin.js?v=1"></script>
 <script src="curriculum-loader.js?v=3"></script>
 <script src="lesson-notes.js?v=4"></script>
+<script src="homework.js?v=1"></script>
 <script src="offline-content.js?v=8"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=4"></script>
@@ -2294,10 +2296,6 @@ const CLOUD = {
   async allProgress(){ const { data } = await SB.from("progress").select("*"); return data||[]; },
   async allVocab(){ const { data, error } = await SB.from("vocab_progress").select("user_id,book_id,book_title,total,words,days,last_active"); if(error) throw error; return data||[]; },
   async allSubmissions(){ const { data } = await SB.from("submissions").select("*").order("submitted_at",{ascending:false}); return data||[]; },
-  async createAssignment({ title, description, due_date }){
-    const { error } = await SB.from("assignments").insert({ title, description:description||null, due_date:due_date||null, created_by:this.user.id });
-    return error ? {err:error.message} : {ok:true};
-  },
   async setAssignmentActive(id, active){ await SB.from("assignments").update({active}).eq("id",id); },
   async gradeSubmission(id, { grade, feedback }){
     const { error } = await SB.from("submissions").update({ grade:grade||null, feedback:feedback||null, status:"returned", graded_at:new Date().toISOString() }).eq("id", id);
@@ -14039,7 +14037,7 @@ function rvCrossHTML(){
 /* ================= 🎤 跟讀錄音 Read Aloud =================
    Practice: each sentence → 🔊 model (browser voice) → 🎤 record → ▶️ replay (kept on device).
    Hand-in: one guided whole-passage take (sentences shown one by one while the mic runs),
-   uploaded via the existing homework pipeline (CLOUD.submitHomework) to a teacher assignment;
+   handed in straight to the teacher (HWAPI.submitFree, no assignment needed) or to a chosen assignment;
    the teacher plays it inline in 🧑‍🏫 後台. Uses MediaRecorder (needs HTTPS + mic permission). */
 let RA = null;
 function raSentences(lv){
@@ -14172,17 +14170,15 @@ function raTakeHTML(R){
     submit = `<div class="rv-fb2 no">目前連不上作業系統，暫時無法繳交。請稍後再試。</div>`;
   } else if(!loggedIn){
     submit = `<div class="rv-fb2 no">要先登入帳號才能把錄音交給老師。<button class="btn btn-primary" style="margin-left:8px" onclick="openAuthModal()">登入 / 註冊</button></div>`;
-  } else if(R.asgErr){
-    submit = `<div class="rv-fb2 no">作業清單載入失敗：${esc(R.asgErr)} <button class="btn btn-ghost" onclick="raLoadAsg(true)">重試</button></div>`;
-  } else if(!R.asg){
-    submit = `<p class="rv-tip">載入作業清單中…</p>`;
-  } else if(!R.asg.length){
-    submit = `<div class="rv-fb2 no">老師目前沒有開放中的作業。請老師在 🧑‍🏫 後台建立一份「跟讀」作業後，再回來繳交（錄音會保留到你離開這一頁）。</div>`;
   } else {
-    const topic = rdById(R.id).topic;
-    const pick = R.asg.find(a=>/跟讀|朗讀|read/i.test(a.title)&&a.title.includes(topic)) || R.asg.find(a=>/跟讀|朗讀|read ?aloud/i.test(a.title)) || R.asg[0];
-    submit = `<div class="ra-submit"><label>交到哪份作業：<select id="ra-asg">${R.asg.map(a=>`<option value="${a.id}" ${a.id===pick.id?"selected":""}>${esc(a.title)}</option>`).join("")}</select></label>
-      <button class="btn btn-navy" id="ra-send" onclick="raSubmit()">📤 繳交給老師</button></div>`;
+    /* 不用等老師出作業：預設「直接交給老師」；有對應的跟讀作業就預選那份 */
+    const topic = rdById(R.id).topic, list = R.asg||[];
+    const pick = list.find(a=>/跟讀|朗讀|read/i.test(a.title)&&a.title.includes(topic)) || list.find(a=>/跟讀|朗讀|read ?aloud/i.test(a.title));
+    const note = R.asgErr ? `<span class="tc-sub">（作業清單載入失敗，仍可直接交給老師）</span>` : !R.asg ? `<span class="tc-sub">（載入作業清單中…）</span>` : "";
+    submit = `<div class="ra-submit"><label>交到：<select id="ra-asg">
+        <option value="">📤 直接交給老師（不指定作業）</option>
+        ${list.map(a=>`<option value="${a.id}" ${pick&&a.id===pick.id?"selected":""}>📝 作業：${esc(a.title)}</option>`).join("")}</select></label>
+      <button class="btn btn-navy" id="ra-send" onclick="raSubmit()">📤 繳交給老師</button>${note}</div>`;
   }
   return `<div class="ra-take">
     <div class="ra-done-h">🎉 錄好了！長度 ${raFmt(T.dur||0)}　先聽聽看：</div>
@@ -14229,15 +14225,17 @@ async function raLoadAsg(force){
 async function raSubmit(){
   const R=raState(), T=R.take; if(!T.blob) return;
   const sel=document.getElementById("ra-asg"); if(!sel) return;
-  const a=(R.asg||[]).find(x=>x.id===sel.value); if(!a) return;
+  const a=sel.value ? (R.asg||[]).find(x=>x.id===sel.value) : null;
+  if(sel.value && !a) return;
   const btn=document.getElementById("ra-send"); btn.disabled=true; btn.textContent="上傳中… Uploading…";
   const r=rdById(R.id), lv=r.levels[R.lvl];
   const file=new File([T.blob], `readaloud-${R.id}-${R.lvl}.${raExt(T.type)}`, {type:T.type||"audio/webm"});
   const text=`🎤 跟讀錄音：${r.topic}（${lv.cefr}）· ${R.sents.length} 句 · ${raFmt(T.dur||0)}`;
-  const res=await CLOUD.submitHomework(a.id, {text, link:null, file});
+  const res = a ? await CLOUD.submitHomework(a.id, {text, link:null, file})
+    : await HWAPI.submitFree({kind:"readaloud", source:{reading:R.id, level:R.lvl, title:r.topic}, text, file});
   if(RA!==R) return;
   if(res.err){ btn.disabled=false; btn.textContent="📤 繳交給老師"; toast(res.err); return; }
-  T.submitted=a.title; toast("錄音已交給老師，念得很好 🐾"); raRender();
+  T.submitted = a ? a.title : "老師（直接繳交）"; toast("錄音已交給老師，念得很好 🐾"); raRender();
 }
 /* space / → advances during a take; stop the mic when leaving the article */
 document.addEventListener("keydown", e=>{
@@ -17302,67 +17300,6 @@ function cloudNeeded(what){
       <p style="font-size:1.05rem">此功能需要雲端連線。<br><span style="color:var(--muted)">This feature needs the cloud backend, which isn't configured yet.</span></p>
     </div></div>`;
 }
-async function renderHomework(){
-  if(!CLOUD.on) return cloudNeeded("作業繳交 Homework");
-  if(!currentUser()){ openAuthModal(); return; }
-  app.innerHTML = `<div class="view"><p class="tc-loading">載入作業中… Loading…</p></div>`;
-  let assignments=[], subs=[];
-  try{ [assignments, subs] = await Promise.all([CLOUD.listAssignments(), CLOUD.mySubmissions()]); }
-  catch(e){ app.innerHTML = `<div class="view"><p>載入失敗，請重新整理。 Could not load. ${esc(e.message||"")}</p></div>`; return; }
-  const byA = {}; subs.forEach(s=>byA[s.assignment_id]=s);
-  // refresh the reminder badge from this fresh data
-  HW_PENDING = assignments.filter(a=>a.active).map(a=>({a, st:hwStatus(a, byA[a.id])}))
-    .filter(x=>x.st.state==="overdue" || x.st.state==="soon");
-  updateHwBadge();
-  // sort so the most urgent unsubmitted work comes first
-  const rank = { overdue:0, soon:1, open:2, upcoming:3, done:4 };
-  const active = assignments.filter(a=>a.active)
-    .sort((a,b)=> (rank[hwStatus(a,byA[a.id]).state]??2) - (rank[hwStatus(b,byA[b.id]).state]??2));
-  const cards = active.length ? active.map(a=>{
-    const s = byA[a.id];
-    const st = hwStatus(a, s);
-    const statusPill = !s ? `<span class="hw-pill todo">未繳 Not submitted</span>`
-      : s.status==="returned" ? `<span class="hw-pill done">已批改 Graded</span>`
-      : `<span class="hw-pill sent">已繳交 Submitted</span>`;
-    const duePill = (!s && (st.state==="overdue"||st.state==="soon")) ? `<span class="hw-pill ${st.state==='overdue'?'due-over':'due-soon'}">${st.state==='overdue'?'⏰ ':''}${hwStatusLabel(st)}</span>` : "";
-    const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${esc(s.grade||"—")}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
-    const prev = s ? `<div class="hw-prev">你上次繳交：${s.text?`「${esc(s.text.slice(0,80))}${s.text.length>80?"…":""}」 `:""}${s.file_url?(/\.(webm|m4a|mp4|mp3|ogg|wav|aac)$/i.test(s.file_url)?'🎤 錄音 ':'📎 檔案 '):""}${s.link?'🔗 連結':""}</div>` : "";
-    return `<div class="card hw-card ${!s&&st.state==='overdue'?'hw-card-over':''}">
-      <div class="hw-head"><h3>${esc(a.title)}</h3><span class="hw-pills">${duePill}${statusPill}</span></div>
-      ${a.due_date?`<div class="hw-due">截止 Due：${fmtDate(a.due_date)}</div>`:""}
-      ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}
-      ${graded}${prev}
-      <div class="hw-form">
-        <textarea id="hw-text-${a.id}" placeholder="在這裡打字作答（可留空）Type your answer here…">${s&&s.text?esc(s.text):""}</textarea>
-        <div class="hw-row">
-          <label class="hw-file">📎 上傳檔案 File<input type="file" id="hw-file-${a.id}" accept="image/*,audio/*,.pdf,.doc,.docx,.txt"></label>
-          <input type="url" id="hw-link-${a.id}" placeholder="🔗 貼上連結 Paste a link (Google Doc…)" value="${s&&s.link?esc(s.link):""}">
-        </div>
-        <button class="btn btn-navy" id="hw-btn-${a.id}" onclick="hwSubmit('${a.id}')">${s?"重新繳交 Re-submit":"繳交 Submit"}</button>
-      </div>
-    </div>`;
-  }).join("") : `<div class="card" style="text-align:center;padding:26px;color:var(--muted)">目前沒有作業，老師出題後會出現在這裡。<br>No homework yet — assignments will appear here.</div>`;
-  app.innerHTML = `<div class="view">
-    <div class="crumb"><a href="#/home">Home</a> › 作業繳交 Homework</div>
-    <div class="sb-hd"><div class="eyebrow" style="color:var(--sb-brick)">Homework · 作業</div>
-      <h1 class="display">作業繳交區<span class="zh-term-lg" style="color:var(--sb-lapis)">Homework</span></h1>
-      <p class="lede">打字作答、上傳照片或檔案、貼上連結都可以。<br>Answer by typing, upload a file, or paste a link.</p></div>
-    <div class="hw-list">${cards}</div>
-  </div>`;
-}
-async function hwSubmit(id){
-  const text = (document.getElementById("hw-text-"+id).value||"").trim();
-  const link = (document.getElementById("hw-link-"+id).value||"").trim();
-  const fileEl = document.getElementById("hw-file-"+id);
-  const file = fileEl && fileEl.files[0];
-  if(!text && !link && !file){ toast("請至少打字作答、上傳檔案或貼連結。"); return; }
-  const btn = document.getElementById("hw-btn-"+id); btn.disabled = true; btn.textContent = "繳交中… Submitting…";
-  const r = await CLOUD.submitHomework(id, { text, link, file });
-  if(r.err){ btn.disabled=false; btn.textContent="繳交 Submit"; toast(r.err); return; }
-  toast("作業已繳交，做得好 🐾");
-  renderHomework();
-}
-
 /* =====================================================
    Teacher dashboard
    ===================================================== */
@@ -17420,6 +17357,7 @@ async function renderTeacher(){
     let vocab = null, vocabErr = null;
     try{ vocab = await CLOUD.allVocab(); }catch(e){ vocabErr = e.message || String(e); }   // 表還沒建立時不影響其他分頁
     TDATA = { profiles, progress, assignments, submissions, vocab, vocabErr };
+    try{ Object.assign(TDATA, await HWAPI.loadGroups(), {groupsErr:null}); }catch(e){ Object.assign(TDATA, {groups:[], members:[], groupsErr:e.message||String(e)}); }
   }catch(e){ app.innerHTML = `<div class="view"><p>載入失敗：${esc(e.message||"")}</p></div>`; return; }
   paintTeacher();
 }
@@ -17427,7 +17365,7 @@ function tName(id){ const p = TDATA.profiles.find(x=>x.id===id); return p ? (p.n
 function paintTeacher(){
   const students = TDATA.profiles.filter(p=>p.role!=="teacher");
   const progById = {}; TDATA.progress.forEach(p=>progById[p.user_id]=p);
-  const tabs = [["students","👧 學生進度"],["homework","📝 作業繳交"],["fables","🦊 寓言練習"],["vocab","🧠 背單字"],["reflect","📓 反思／每日"],["stats","📊 全班統計"],["prep","📚 備課錦囊"]];
+  const tabs = [["students","👧 學生進度"],["homework","📝 作業繳交"],["groups","👥 分組"],["fables","🦊 寓言練習"],["vocab","🧠 背單字"],["reflect","📓 反思／每日"],["stats","📊 全班統計"],["prep","📚 備課錦囊"]];
   const tabBar = `<div class="tc-tabs">${tabs.map(([k,l])=>`<button class="tc-tab ${TTAB===k?'active':''}" onclick="TTAB='${k}';paintTeacher()">${l}</button>`).join("")}</div>`;
   let body = "";
 
@@ -17442,33 +17380,9 @@ function paintTeacher(){
     body = `<div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>完成單元</th><th>XP</th><th>連續</th><th>罐罐</th><th>最近登入</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
-  else if(TTAB==="homework"){
-    const subsByA = {}; TDATA.submissions.forEach(s=>{ (subsByA[s.assignment_id]=subsByA[s.assignment_id]||[]).push(s); });
-    const create = `<div class="card tc-newhw">
-      <h3>➕ 出新作業 New assignment</h3>
-      <input id="na-title" placeholder="作業標題 Title（必填）">
-      <textarea id="na-desc" placeholder="說明 Instructions（可留空）"></textarea>
-      <div class="hw-row"><label class="tc-inline">截止日 Due <input type="date" id="na-due"></label>
-      <button class="btn btn-navy" onclick="tcCreate()">建立 Create</button></div>
-    </div>`;
-    const list = TDATA.assignments.length ? TDATA.assignments.map(a=>{
-      const subs = subsByA[a.id]||[];
-      const rows = subs.length ? subs.map(s=>`<tr>
-        <td>${esc(tName(s.user_id))}</td>
-        <td>${s.text?`<div class="tc-answer">${esc(s.text)}</div>`:""}${s.link&&/^https?:\/\//i.test(s.link)?`<a href="${esc(s.link)}" target="_blank" rel="noopener">🔗 連結</a> `:s.link?`<span class="tc-sub">${esc(s.link)}</span> `:""}${s.file_url?(/\.(webm|m4a|mp4|mp3|ogg|wav|aac)$/i.test(s.file_url)?`<button class="tc-link tc-play" data-path="${esc(s.file_url)}" onclick="tcAudio(this)">▶️ 播放錄音</button>`:`<button class="tc-link" data-path="${esc(s.file_url)}" onclick="tcFile(this.dataset.path)">📎 開啟檔案</button>`):""}</td>
-        <td>${fmtDate(s.submitted_at)}</td>
-        <td><input class="tc-grade" id="gr-${s.id}" value="${esc(s.grade||"")}" placeholder="分數/評語"></td>
-        <td><input class="tc-fb" id="fb-${s.id}" value="${esc(s.feedback||"")}" placeholder="回饋"></td>
-        <td><button class="btn btn-ghost tc-savebtn" onclick="tcGrade('${s.id}')">${s.status==="returned"?"✓ 已批":"批改"}</button></td>
-      </tr>`).join("") : `<tr><td colspan="6" style="color:var(--muted);padding:12px">還沒有人繳交。No submissions yet.</td></tr>`;
-      return `<div class="card tc-asgn"><div class="tc-asgn-head"><h3>${esc(a.title)} <span class="tc-count">${subs.length}/${students.length} 已繳</span></h3>
-        <label class="tc-active"><input type="checkbox" ${a.active?"checked":""} onchange="tcActive('${a.id}',this.checked)"> 開放中</label></div>
-        ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}${a.due_date?`<div class="hw-due">截止：${fmtDate(a.due_date)}</div>`:""}
-        <div class="tc-tablewrap"><table class="tc-table sub"><thead><tr><th>學生</th><th>作答</th><th>繳交</th><th>分數</th><th>回饋</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
-      </div>`;
-    }).join("") : "";
-    body = create + list;
-  }
+  else if(TTAB==="homework"){ body = tcHomeworkBody(students); }
+
+  else if(TTAB==="groups"){ body = tcGroupsBody(students); }
 
   else if(TTAB==="reflect"){
     body = students.length ? students.map(p=>{
@@ -17565,15 +17479,6 @@ function tcVocabBody(students){
   }).join("") || `<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:20px">還沒有學生資料。</td></tr>`;
   return `<p class="tc-sub" style="margin:0 0 12px">學生在 <a href="vocab/" target="_blank" rel="noopener">每日單字</a> 登入後的背單字進度。近 7 天有背單字：<b>${activeWeek} / ${students.length}</b> 人。<br>「待複習」＝今天該複習但還沒複習的字；「常忘的字」上標是忘記次數。</p>
     <div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>單字書</th><th>已學</th><th>熟記</th><th>待複習</th><th>今日</th><th>近7天</th><th>常忘的字</th></tr></thead><tbody>${rows}</tbody></table></div>`;
-}
-async function tcCreate(){
-  const title=(document.getElementById("na-title").value||"").trim();
-  if(!title){ toast("請填作業標題。"); return; }
-  const description=(document.getElementById("na-desc").value||"").trim();
-  const due_date=document.getElementById("na-due").value||null;
-  const r=await CLOUD.createAssignment({title,description,due_date});
-  if(r.err){ toast("建立失敗："+r.err); return; }
-  toast("作業已建立 🐾"); renderTeacher();
 }
 async function tcActive(id,active){ await CLOUD.setAssignmentActive(id,active); toast(active?"已開放":"已關閉"); }
 async function tcGrade(id){
