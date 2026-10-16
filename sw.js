@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v87-hw-fixes";
+const CACHE = "eci-v88-fun-park";
 const SHELL = [
   "./",
   "./index.html",
@@ -7,7 +7,7 @@ const SHELL = [
   "./art/cat-dex/meme-cats-atlas-2.png",
   "./art/cat-dex/meme-cats-atlas-3.png",
   "./daily.css?v=17",
-  "./adventure.css?v=4",
+  "./adventure.css?v=5",
   "./lesson-notes.css?v=3",
   "./homework.css?v=1",
   "./progress-sync.js?v=1",
@@ -17,7 +17,7 @@ const SHELL = [
   "./homework.js?v=2",
   "./offline-content.js?v=8",
   "./daily.js?v=18",
-  "./adventure.js?v=4",
+  "./adventure.js?v=5",
   "./vocab/books.js?v=6",
   "./vocab-quest.js?v=15",
   "./manifest.webmanifest",

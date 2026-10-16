@@ -176,3 +176,19 @@
 .pl-zone.no{border-color:#bbb;color:#999;background:rgba(240,240,240,.85);animation:advShake .35s}
 .adv-hint.soft{color:var(--muted);font-weight:500}
 .pl-zone.back{z-index:0}   /* half hidden by the trunk = "behind" */
+/* World 5 · 遊樂園 */
+.adv-prog .adv-node.done{background:linear-gradient(160deg,#fff0c2,#ffd166)}
+.adv-prog .adv-node.next{background:linear-gradient(160deg,#ffe6b0,#ffb347)}
+.pg-tag{display:inline-block;margin-top:4px;border-radius:999px;padding:3px 10px;font:800 13px var(--sans);white-space:nowrap}
+.pg-tag.now{background:#ffe2d6;color:#c2481f;border:2px solid #f3a68a}
+.pg-tag.every{background:#e3ecff;color:#3557a8;border:2px solid #9fb6ea}
+.pg-moving{display:inline-block;animation:pgWiggle .9s ease-in-out infinite}
+@keyframes pgWiggle{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(4deg) translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.pg-moving{animation:none}}
+.adv-be-pic.pg-freeze.now{box-shadow:0 0 0 4px #f3a68a,0 8px 20px -14px rgba(60,40,20,.5)}
+.adv-be-pic.pg-freeze.every{box-shadow:0 0 0 4px #9fb6ea,0 8px 20px -14px rgba(60,40,20,.5)}
+.adv-be-pic.pg-freeze .pg-tag{font-size:15px;padding:4px 14px}
+.pg-opt{font-size:clamp(22px,6vw,30px);min-width:120px;padding:0 14px;height:auto;min-height:72px}
+.pg-time{color:#8a5a12}
+.adv-learn-pair.pg{font-size:clamp(20px,5.4vw,26px);line-height:1.25;text-align:center}
+.adv-learn-pair.pg i{font-style:normal}
