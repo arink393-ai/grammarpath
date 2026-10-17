@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v92-student-info";
+const CACHE = "eci-v94-student-prebind";
 const SHELL = [
   "./",
   "./index.html",
@@ -9,13 +9,13 @@ const SHELL = [
   "./daily.css?v=17",
   "./adventure.css?v=5",
   "./lesson-notes.css?v=3",
-  "./homework.css?v=2",
+  "./homework.css?v=3",
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=3",
   "./lesson-notes.js?v=4",
   "./homework.js?v=3",
-  "./student-info.js?v=1",
+  "./student-info.js?v=2",
   "./offline-content.js?v=9",
   "./daily.js?v=18",
   "./adventure.js?v=5",
