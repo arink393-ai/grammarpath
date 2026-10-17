@@ -329,6 +329,39 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 :root[data-theme="dark"] .nobel-pack .np-body span{color:#c3a862}
 :root[data-theme="dark"] .nobel-pack .np-btn{background:#1f1c13;color:#e7cf87;border-color:#4a411f}
 :root[data-theme="dark"] .nobel-pack .np-teacher{background:#e7cf87;color:#2a2412}
+/* ---- Echo Method Banner & Modal ---- */
+.echo-pack{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:12px 0 6px;padding:14px 18px;border:1.5px solid #BED8F4;border-radius:16px;background:linear-gradient(100deg,#EEF5FC,#E3EEFA)}
+.echo-pack .ep-badge{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:20px;background:radial-gradient(circle at 32% 28%,#D4E7FA,#3A6EA5 80%);box-shadow:inset 0 0 0 2px #BED8F4}
+.echo-pack .ep-body{flex:1;min-width:220px}
+.echo-pack .ep-body b{display:block;font:700 15px var(--sans);color:#1F497D}
+.echo-pack .ep-body span{display:block;font-size:12.5px;color:#385D8A;line-height:1.5;margin-top:1px}
+.echo-pack .ep-links{display:flex;gap:8px;flex-wrap:wrap}
+.echo-pack .ep-btn{font:600 13px var(--sans);color:#1F497D;background:#fff;border:1.5px solid #BED8F4;border-radius:10px;padding:8px 14px;cursor:pointer;white-space:nowrap;transition:transform .12s ease}
+.echo-pack .ep-btn:hover{transform:translateY(-1px)}
+.echo-pack .ep-btn-play{background:#1F497D;color:#fff;border-color:#1F497D}
+.echo-pack .ep-btn-play:hover{background:#17375E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .echo-pack{background:linear-gradient(100deg,#152233,#111B29);border-color:#2A4365}
+  :root:not([data-theme="light"]) .echo-pack .ep-body b{color:#90CDF4}
+  :root:not([data-theme="light"]) .echo-pack .ep-body span{color:#bee3f8}
+  :root:not([data-theme="light"]) .echo-pack .ep-btn{background:#1A202C;color:#90CDF4;border-color:#2A4365}
+  :root:not([data-theme="light"]) .echo-pack .ep-btn-play{background:#3182CE;color:#fff;border-color:#3182CE}}
+:root[data-theme="dark"] .echo-pack{background:linear-gradient(100deg,#152233,#111B29);border-color:#2A4365}
+:root[data-theme="dark"] .echo-pack .ep-body b{color:#90CDF4}
+:root[data-theme="dark"] .echo-pack .ep-body span{color:#bee3f8}
+:root[data-theme="dark"] .echo-pack .ep-btn{background:#1A202C;color:#90CDF4;border-color:#2A4365}
+:root[data-theme="dark"] .echo-pack .ep-btn-play{background:#3182CE;color:#fff;border-color:#3182CE}
+.echo-ov{display:none;position:fixed;inset:0;z-index:200;background:rgba(20,30,45,.72);align-items:center;justify-content:center;padding:16px}
+.echo-card{background:var(--paper);border-radius:18px;padding:18px 20px;width:min(720px,96vw);max-height:94vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.echo-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font:800 16px var(--sans);color:var(--navy);margin-bottom:12px}
+.echo-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
+.echo-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.echo-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:14px}
+.echo-step{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:12.5px;color:var(--body);line-height:1.45}
+.echo-step b{display:block;font:700 13px var(--sans);color:var(--navy);margin-bottom:2px}
+.echo-tip-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:10px;padding:9px 13px;margin:0 0 10px;font-size:13px;color:var(--body)}
+.echo-tip-bar b{color:var(--navy)}
+.echo-tip-btn{font:700 12px var(--sans);color:#fff;background:var(--teal);border:none;border-radius:99px;padding:4px 10px;cursor:pointer;white-space:nowrap}
+.echo-tip-btn:hover{background:#D3754E}
 .nw-sec{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font:700 1.15rem var(--serif);color:var(--navy);margin:30px 0 14px}
 .nw-sec span{font:500 12.5px var(--sans);color:var(--muted)}
 .nw-steps{display:flex;flex-wrap:wrap;gap:10px}
@@ -13565,15 +13598,63 @@ function renderReadings(cat){
         ${isTeacher() ? `<a class="np-btn np-teacher" href="https://claude.ai/artifact/KDQgzortxCwyHL6cxBtg1D" target="_blank" rel="noopener">👩‍🏫 老師版</a>` : ""}
       </div>
     </div>` : "";
+  const echoPack = `<div class="echo-pack">
+      <div class="ep-badge">🗣️</div>
+      <div class="ep-body"><b>史嘉琳教授「回音法 Echo Method」示範影片</b><span>台大外文系史嘉琳教授親自示範：①聽母語示範 ②腦中回放迴音 ③模仿說出。閱讀跟讀前必看！</span></div>
+      <div class="ep-links">
+        <button class="ep-btn ep-btn-play" onclick="openEchoModal()">▶️ 觀看影片教學（TEDx）</button>
+        <a class="ep-btn" href="https://www.youtube.com/watch?v=sQEWEPIHLzQ" target="_blank" rel="noopener">YouTube 開啟 ↗</a>
+      </div>
+    </div>`;
   app.innerHTML = `<div class="view">
     ${head}
     ${tabs}
+    ${echoPack}
     ${nobelPack}
     <div class="rd-actions"><button class="btn btn-ghost" onclick="rdPrintAll()">🖨 批次列印全部文章（三種難度）</button></div>
     <div class="rd-grid">${cards}</div>
     <div class="rd-note">📖 題型參考國中會考與大考：主旨大意、細節理解、字義推敲、推論、語氣與篇章結構。<br>
     ✍️ 文章由 Claude 依據各家媒體報導的<b>事實</b>重新撰寫成分級英文，非原文轉載。</div>
+    ${echoModalHTML()}
   </div>`;
+}
+
+function echoModalHTML(){
+  return `<div class="echo-ov" id="echoModal" onclick="if(event.target===this)closeEchoModal()">
+    <div class="echo-card">
+      <div class="echo-top">
+        <span>🗣️ 史嘉琳 Karen Chung 教授｜如何用「回音法」學好英文口說</span>
+        <button class="sit-vid-close" onclick="closeEchoModal()">✕ 關閉</button>
+      </div>
+      <div class="echo-frame">
+        <iframe id="echoYtIframe" src="" data-src="https://www.youtube-nocookie.com/embed/sQEWEPIHLzQ?rel=0&autoplay=1" title="如何用「回音法」學好英文口說 | 史嘉琳 Karen Chung | TEDxNTUST" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="echo-steps">
+        <div class="echo-step"><b>① 仔細聽 Listen</b>先聽母語人士或語音示範念一句，專心捕捉音調與節奏。</div>
+        <div class="echo-step"><b>② 聽回音 Echo</b>聽完後安靜 1–2 秒，在「心裡的大腦」回放剛才聲音的餘音。</div>
+        <div class="echo-step"><b>③ 模仿念 Imitate</b>像模仿剛才心裡聽到的回音一樣，大聲開口說出來！</div>
+        <div class="echo-step"><b>④ 錄音比對 Compare</b>錄下自己的發音與示範比對，逐步修正口音與語調。</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function openEchoModal(){
+  const ov = document.getElementById("echoModal");
+  const ifr = document.getElementById("echoYtIframe");
+  if(ov && ifr){
+    ifr.src = ifr.getAttribute("data-src");
+    ov.style.display = "flex";
+  }
+}
+
+function closeEchoModal(){
+  const ov = document.getElementById("echoModal");
+  const ifr = document.getElementById("echoYtIframe");
+  if(ov && ifr){
+    ifr.src = "";
+    ov.style.display = "none";
+  }
 }
 
 const NOBEL_WEEK = [
@@ -13935,6 +14016,7 @@ function renderReading(id, keepScroll){
       <ol>${r.discuss.map(d=>`<li>${d}</li>`).join("")}</ol></div>
     <div class="rd-source"><div class="rd-source-h">📰 資料來源 Source</div>
       改寫自 <b>${r.src}</b> 等媒體之公開報導（${r.date}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載；文中觀點與用字為教學改寫，著作權歸原報導媒體所有。</div>
+    ${echoModalHTML()}
   </div>`;
   rvRender();
   raRender();
@@ -14233,7 +14315,11 @@ function raPracticeHTML(R){
         <button class="ra-b" title="聽我的錄音" ${R.takes[i]?"":"disabled"} onclick="raPlayTake(${i})">▶️</button>
       </span></li>`;
   }).join("");
-  return `<p class="rv-tip" style="text-align:left;margin:0 0 10px">按 🔊 聽示範 → 按 🎤 跟著念（念完按 ⏹）→ 按 ▶️ 聽自己的錄音比一比。這些練習只存在你的裝置，不會上傳。</p>
+  return `<div class="echo-tip-bar">
+      <span>💡 推薦搭配<b>「回音法 Echo Method」</b>練習：先聽 🔊 → 心中回放餘音 1–2 秒 → 開口跟讀 🎤</span>
+      <button class="echo-tip-btn" type="button" onclick="openEchoModal()">▶️ 看史嘉琳教授示範</button>
+    </div>
+    <p class="rv-tip" style="text-align:left;margin:0 0 10px">按 🔊 聽示範 → 按 🎤 跟著念（念完按 ⏹）→ 按 ▶️ 聽自己的錄音比一比。這些練習只存在你的裝置，不會上傳。</p>
     <ol class="ra-list">${rows}</ol>`;
 }
 function raSay(i){ const R=raState(); if(R.rec) return; raStopPlayer(); tts.speak(R.sents[i], 0.88); }
