@@ -14250,10 +14250,11 @@ function renderReadings(cat, weekKey){
   app.innerHTML = `<div class="view">
     ${head}
     ${tabs}
+    ${active ? "" : rdWeekHTML(weekKey)}
     ${echoPack}
     ${nobelPack}
     <div class="rd-actions"><button class="btn btn-ghost" onclick="rdPrintAll()">🖨 批次列印全部文章（三種難度）</button></div>
-    ${active ? `<div class="rd-grid">${cards}</div>` : rdWeekHTML(weekKey)}
+    ${active ? `<div class="rd-grid">${cards}</div>` : ""}
     <div class="rd-note">📖 題型參考國中會考與大考：主旨大意、細節理解、字義推敲、推論、語氣與篇章結構。<br>
     ✍️ 文章由 Claude 依據各家媒體報導的<b>事實</b>重新撰寫成分級英文，非原文轉載。</div>
     ${echoModalHTML()}
