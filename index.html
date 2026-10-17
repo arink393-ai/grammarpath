@@ -435,6 +435,36 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rd-card-body h3{font:700 16px/1.35 var(--sans);color:var(--navy);margin:3px 0 1px}
 .rd-now-tag{display:inline-block;font:700 10px var(--sans);letter-spacing:.06em;color:#fff;background:var(--teal);border-radius:99px;padding:2.5px 9px}
 .rd-week{font:600 11px var(--mono);color:var(--muted)}
+.rdw{margin:18px 0 8px}
+.rdw-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin-bottom:14px}
+.rdw-nav>:first-child{justify-self:start}.rdw-nav>:last-child{justify-self:end}
+.rdw-nav .btn{white-space:nowrap;padding:8px 12px;font-size:13px}
+.rdw-title{text-align:center;display:flex;flex-direction:column;gap:2px}
+.rdw-title b{font:700 17px var(--sans);color:var(--navy)}
+.rdw-title small{font-size:12px;color:var(--muted)}
+.rdw-feat{position:relative;display:block;width:100%;text-align:left;border:2.5px solid #EEB868;border-radius:20px;padding:30px 18px 16px;background:linear-gradient(150deg,#FFF8E6,#FFEFD6);cursor:pointer;box-shadow:0 10px 26px -18px rgba(150,100,30,.6);margin-bottom:22px}
+.rdw-feat:hover{transform:translateY(-2px)}
+.rdw-ribbon{position:absolute;top:-1px;left:16px;background:#E8A23C;color:#fff;font:800 12.5px var(--sans);letter-spacing:.04em;padding:5px 14px;border-radius:0 0 12px 12px}
+.rdw-feat-in{display:flex;gap:14px;align-items:flex-start}
+.rdw-feat .rd-card-art{width:72px;height:72px}
+.rdw-feat h3{font-size:19px}
+.rdw-h{display:flex;align-items:baseline;gap:10px;font:700 18px var(--sans);color:var(--navy);margin:6px 0 10px}
+.rdw-h small{font:500 12.5px var(--sans);color:var(--muted)}
+.rdw-days{display:flex;flex-direction:column;gap:10px}
+.rdw-row{display:flex;gap:10px;align-items:stretch}
+.rdw-date{flex:0 0 58px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;background:var(--paper);border:1.5px solid var(--line);padding:6px 2px}
+.rdw-date b{font:700 16px var(--mono);color:var(--navy)}
+.rdw-date span{font-size:12px;color:var(--muted)}
+.rdw-date i{font-style:normal;font:800 10.5px var(--sans);color:#fff;background:#E07A4F;border-radius:99px;padding:1px 7px;margin-top:3px}
+.rdw-date.today{border-color:#E07A4F;background:#FFF1E8}
+.rdw-row.today .rdw-card{border-color:#E07A4F;box-shadow:0 0 0 2px #F8D2BE}
+.rdw-card{flex:1;min-width:0}
+.rdw-card.locked{opacity:.55;cursor:default;filter:grayscale(.4)}
+.rdw-card.locked:hover{transform:none;box-shadow:none}
+.rdw-card.ghost{display:flex;align-items:center;justify-content:center;border:1.5px dashed var(--line);border-radius:16px;color:var(--muted);font-size:13.5px;padding:18px}
+.rdw-lock{margin-top:4px;font:700 12px var(--sans);color:#A0632A}
+.rdw-feat.locked{opacity:.7;cursor:default}
+.rdw-old{color:var(--muted);font-size:14px;background:var(--paper);border:1px dashed var(--line);border-radius:14px;padding:14px;text-align:center}
 .rd-card-zh{font:500 13px var(--sans);color:var(--teal)}
 .rd-card-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
 .rd-tag{font:700 10.5px var(--sans);color:#3C7D72;background:#E4F1EE;border:1px solid #C6E2DC;border-radius:99px;padding:2px 9px}
@@ -2675,6 +2705,7 @@ async function route(){
   else if(h[0]==="worksheets") renderWorksheets();
   else if(h[0]==="resources") renderResources(h[1]);
   else if(h[0]==="reading" && h[1]==="topic") renderReadings(h[2]);
+  else if(h[0]==="reading" && h[1]==="week") renderReadings(null, h[2]);
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
   else if(h[0]==="nobel" && h[1]==="teacher") renderNobelWeek(true);
@@ -2740,7 +2771,7 @@ function dailyTabs(active){
 function renderHome(){
   const totalDone = Object.keys(store.data.completed).length;
   const next = DATA.lessons.find(l=>!store.data.completed[l.id]);
-  const week = weekArticle();
+  const week = weekArticle(), todayRd = rdTodayReading();
   const thy = THEORIES[Math.floor(Date.now()/864e5) % THEORIES.length];
   const lvCards = DATA.levels.map(lv=>{
     const p = pctDone(lv.id);
@@ -2805,11 +2836,15 @@ function renderHome(){
       <div class="card continue-card">
         <div class="cc-icon">📰</div>
         <div style="flex:1;min-width:0">
-          <span class="rd-now-tag">本週推薦 This week</span>
+          ${todayRd ? `<span class="rd-now-tag">📅 今日閱讀 Today</span>
+          <div style="font:600 15px var(--sans);color:var(--navy);margin-top:5px">${todayRd.topic}</div>
+          <div style="font-size:13px;color:var(--muted)">${todayRd.zh}</div>
+          <div style="font-size:12.5px;margin-top:4px"><a href="#/reading/${week.id}">⭐ 本週重點：${week.topic}</a>　<a href="#/reading">看整週 →</a></div>`
+          : `<span class="rd-now-tag">⭐ 本週重點 This week</span>
           <div style="font:600 15px var(--sans);color:var(--navy);margin-top:5px">${week.topic}</div>
-          <div style="font-size:13px;color:var(--muted)">${week.zh}｜${week.tag}</div>
+          <div style="font-size:13px;color:var(--muted)">${week.zh}｜${week.tag}</div>`}
         </div>
-        <button class="btn btn-navy" onclick="location.hash='#/reading/${week.id}'">Read</button>
+        <button class="btn btn-navy" onclick="location.hash='#/reading/${(todayRd||week).id}'">Read</button>
       </div>
       <div class="card continue-card">
         <div class="cc-icon">🧠</div>
@@ -9591,7 +9626,548 @@ function youglishURL(phrase){
    全文為原創英文，未複製任何原報導文字。 */
 const READINGS = [
 {
- id:"nobel-literature-2026", cat:"culture",
+ id:"sloth-day-2026", day:"2026-10-20", cat:"nature",
+ topic:"International Sloth Day", zh:"國際樹懶日：慢慢來的生存高手",
+ src:"National Geographic · WWF · Smithsonian", date:"2026-10-20",
+ tag:"Nature 自然", icon:"sloth",
+ proper:["Sloth","Day","October","Central","South","America","Colombia"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:116,
+   title:"The Slowest Animal in the Trees",
+   text:[
+    "October 20 is International Sloth Day. It is a day to learn about one of the slowest animals in the world.",
+    "Sloths live in the rainforests of Central and South America. They spend almost all their life high up in the trees.",
+    "A sloth moves very slowly. It hangs upside down from branches with its long, curved claws.",
+    "Sloths eat leaves. Leaves do not give much energy, so sloths save energy by moving slowly and sleeping a lot.",
+    "Their fur is often a little green. Tiny plants called algae grow in it! This helps sloths hide in the trees.",
+    "Today, many forests are cut down. Sloth Day reminds people to protect the forests where sloths live."],
+   gloss:[["rainforest","n.","雨林"],["upside down","adv.","上下顛倒地"],["claws","n.","爪子"],["energy","n.","能量；體力"],["algae","n.","藻類"],["protect","v.","保護"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["Sloths and why they live slowly","How to keep a sloth as a pet","A race between animals","How to cut down trees"], a:0,
+     why:"全文介紹樹懶的生活方式，以及國際樹懶日的意義。"},
+    {t:"細節 Detail", q:"Where do sloths live?",
+     opts:["In the deserts of Africa","In the rainforests of Central and South America","In cold mountains","In the sea"], a:1,
+     why:"第二段：Sloths live in the rainforests of Central and South America。"},
+    {t:"細節 Detail", q:"Why do sloths move slowly?",
+     opts:["They are always sick","Leaves give little energy, so they save energy","They are afraid of trees","They cannot see"], a:1,
+     why:"第四段：Leaves do not give much energy, so sloths save energy by moving slowly。"},
+    {t:"字義 Vocabulary", q:"In the text, “claws” are ___.",
+     opts:["the long, sharp nails on an animal's feet","a kind of leaf","a type of fur","small trees"], a:0,
+     why:"claws = 爪子；樹懶用彎彎的長爪子掛在樹枝上。"},
+    {t:"推論 Inference", q:"Why is green fur useful for a sloth?",
+     opts:["It keeps the sloth warm in snow","It helps the sloth hide among the leaves","It helps the sloth swim faster","It makes the sloth taste bad"], a:1,
+     why:"第五段：綠色的藻類讓樹懶在樹上更不容易被發現（This helps sloths hide in the trees）。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:181,
+   title:"Slow and Steady Survives",
+   text:[
+    "Every October 20, wildlife groups celebrate International Sloth Day, a date created in Colombia in 2010 to raise awareness about one of the rainforest's most unusual animals.",
+    "Sloths live in the treetops of Central and South America. There are two main groups, two-toed and three-toed sloths, and both spend nearly their whole lives hanging upside down from branches.",
+    "Their famous slowness is not laziness but a clever survival strategy. Sloths live on a diet of leaves, which contain very little energy, so their bodies run at an extremely low speed — they even digest food slowly, sometimes over several days.",
+    "Moving slowly also keeps them safe. Eagles and big cats notice movement, and a sloth that barely moves is hard to spot, especially since algae growing in its fur gives it a greenish colour.",
+    "Surprisingly, sloths are good swimmers, and they climb down to the ground only about once a week — mainly to go to the toilet.",
+    "Their biggest dangers today come from people: forests cleared for farms and roads, electric power lines, and illegal trading of babies as pets."],
+   gloss:[["awareness","n.","意識；認識"],["strategy","n.","策略"],["diet","n.","飲食"],["digest","v.","消化"],["spot","v.","發現；看見"],["illegal","adj.","非法的"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Sloths are lazy animals that should move more.","A sloth's slowness is a smart way to survive, but people now threaten its forests.","Sloths are the fastest swimmers in the world.","International Sloth Day started in Africa."], a:1,
+     why:"核心：慢是聰明的生存策略，但現在人類的開發威脅牠們。"},
+    {t:"細節 Detail", q:"Where and when did International Sloth Day begin?",
+     opts:["In Brazil in 1990","In Colombia in 2010","In Costa Rica in 2020","In the United States in 2000"], a:1,
+     why:"第一段：a date created in Colombia in 2010。"},
+    {t:"細節 Detail", q:"How often do sloths usually come down to the ground?",
+     opts:["Every hour","About once a week","Once a year","Never"], a:1,
+     why:"第五段：only about once a week — mainly to go to the toilet。"},
+    {t:"字義 Vocabulary", q:"In paragraph 4, “spot” means to ___.",
+     opts:["clean","see or notice","paint","bite"], a:1,
+     why:"spot 在這裡是動詞：發現、看見。幾乎不動的樹懶很難被發現。"},
+    {t:"推論 Inference", q:"Why does moving slowly protect a sloth from eagles?",
+     opts:["Eagles do not like leaves","Predators notice movement, so a still sloth is hard to see","Sloths are too heavy to lift","Eagles sleep during the day"], a:1,
+     why:"第四段：Eagles and big cats notice movement——不動就不容易被發現。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:207,
+   title:"The Wisdom of Slowness",
+   text:[
+    "In a culture that prizes speed, the sloth is an easy joke: the patron saint of laziness, a creature that seems to have opted out of effort altogether. International Sloth Day, held every October 20, invites us to look again.",
+    "A sloth's pace is not a flaw but an exquisitely tuned economy. Its diet of tough, low-calorie leaves would starve a more ambitious animal, so the sloth simply spends less — a slow metabolism, little muscle, and a body temperature that drifts with the air around it.",
+    "Even its stillness is strategic. Harpy eagles and jaguars hunt by detecting motion; an animal that barely moves, its fur tinted green by algae, all but disappears into the canopy.",
+    "Yet the very trait that has served sloths for millions of years leaves them helpless against modern threats. They cannot outrun a bulldozer, and as roads and power lines cut through the forest, an animal designed for patience meets a world that has run out of it.",
+    "Perhaps that is the day's quiet lesson. Success need not mean doing more, faster; sometimes it means fitting your life precisely to what your surroundings can give — and asking whether we are leaving room for creatures who live by a different clock."],
+   gloss:[["prize","v.","重視；珍視"],["exquisitely","adv.","精巧地；細膩地"],["metabolism","n.","新陳代謝"],["canopy","n.","（森林的）樹冠層"],["trait","n.","特徵；特質"],["outrun","v.","跑得比…快；逃過"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's overall point?",
+     opts:["Sloths are lazy and will soon disappear.","The sloth's slowness is a finely tuned survival design — one that now struggles in a fast, human-changed world.","Speed is always the key to success in nature.","International Sloth Day should be cancelled."], a:1,
+     why:"主旨：慢是精巧的生存設計，但在被人類加速改變的世界裡反而吃虧。"},
+    {t:"字義 Vocabulary", q:"In paragraph 2, “metabolism” refers to ___.",
+     opts:["how fast the body uses energy","the colour of the fur","the way an animal climbs","a kind of leaf"], a:0,
+     why:"metabolism = 新陳代謝；樹懶代謝慢，所以耗能少。"},
+    {t:"推論 Inference", q:"Why does the writer call the sloth's pace “an exquisitely tuned economy”?",
+     opts:["Sloths trade leaves with other animals","Its slow body carefully matches the very little energy its diet provides","Sloths are worth a lot of money","It is a joke about banks"], a:1,
+     why:"第二段：低熱量的樹葉只能支撐「省著用」的身體——像精打細算的經濟。"},
+    {t:"語氣 Tone", q:"How does the writer view the common joke that sloths are lazy?",
+     opts:["As completely true","As a misunderstanding worth correcting","As something scientists invented","As unimportant"], a:1,
+     why:"開頭先提「懶惰」的刻板印象，再邀請讀者 look again——作者認為這是誤解。"},
+    {t:"篇章 Organization", q:"How is the essay organised?",
+     opts:["A list of sloth species and their sizes","It challenges a stereotype, explains the science, notes modern threats, then draws a wider lesson","A story about one sloth's life","A comparison of sloths and jaguars"], a:1,
+     why:"結構：挑戰刻板印象 → 說明科學 → 現代威脅 → 引申人生啟示。"}]}
+ },
+ discuss:[
+  "Sloths survive by doing less, not more. Can you think of a time when going slowly was the smarter choice?",
+  "Which human activities in the text put sloths in danger? What could people change?",
+  "If an animal is famous for being 'lazy', does that change how people care about protecting it?"]
+},
+{
+ id:"alfred-nobel", day:"2026-10-21", cat:"history",
+ topic:"Alfred Nobel: The Man Behind the Prize", zh:"諾貝爾：獎項背後的那個人",
+ src:"Nobel Prize Outreach · TIME · The Economist", date:"2026-10-21",
+ tag:"History 歷史", icon:"medal",
+ proper:["Alfred","Nobel","Stockholm","Sweden","Swedish","Russia","French","October","Paris","Italy","Ludvig","December","Nobel Prize"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:112,
+   title:"The Man Who Started the Nobel Prize",
+   text:[
+    "Every year, the world talks about the Nobel Prize. But who was Nobel? His name was Alfred Nobel. He was born in Stockholm, Sweden, on October 21, 1833.",
+    "Alfred loved science and languages. When he grew up, he became an inventor.",
+    "His most famous invention was dynamite. It was very strong and helped workers build roads, tunnels and railways.",
+    "But dynamite was also used in wars. This made Alfred sad. He wanted people to remember him for something good.",
+    "So he wrote a special plan: after his death, his money would give prizes to people who help the world.",
+    "Today the Nobel Prize goes to great scientists, writers and peacemakers every year."],
+   gloss:[["inventor","n.","發明家"],["invention","n.","發明（物）"],["dynamite","n.","炸藥"],["tunnels","n.","隧道"],["prize","n.","獎項"],["peacemakers","n.","促進和平的人"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["How to make dynamite","The life of Alfred Nobel and why he created the Nobel Prize","Sweden's weather","A famous war"], a:1,
+     why:"全文介紹諾貝爾的生平，以及他為什麼設立諾貝爾獎。"},
+    {t:"細節 Detail", q:"When and where was Alfred Nobel born?",
+     opts:["In Paris in 1901","In Stockholm, Sweden, on October 21, 1833","In Italy in 1896","In London in 1850"], a:1,
+     why:"第一段：born in Stockholm, Sweden, on October 21, 1833。"},
+    {t:"細節 Detail", q:"How did dynamite help workers?",
+     opts:["It cooked their food","It helped them build roads, tunnels and railways","It made them rich","It stopped wars"], a:1,
+     why:"第三段：helped workers build roads, tunnels and railways。"},
+    {t:"字義 Vocabulary", q:"In the text, an “inventor” is a person who ___.",
+     opts:["sells houses","makes something new for the first time","writes poems","fights in wars"], a:1,
+     why:"inventor = 發明家，創造出新東西的人。"},
+    {t:"推論 Inference", q:"Why did Alfred Nobel create the prizes?",
+     opts:["He wanted more people to buy dynamite","He wanted to be remembered for something good","His king told him to","He wanted to win a prize himself"], a:1,
+     why:"第四段：He wanted people to remember him for something good。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:194,
+   title:"From Dynamite to the Nobel Prize",
+   text:[
+    "Each October the world waits for the Nobel Prize announcements. October 21 is the birthday of the man behind them: Alfred Nobel, born in Stockholm in 1833.",
+    "Nobel grew up partly in Russia, spoke several languages and became a gifted chemist. Over his life he collected 355 patents, but one invention made his fortune: dynamite, patented in 1867.",
+    "Dynamite made the dangerous liquid nitroglycerin much safer to handle, and it transformed the building of mines, tunnels and railways. Yet it was also used in weapons, and Nobel himself owned factories that made arms.",
+    "In 1888, when his brother Ludvig died, a French newspaper reportedly mixed up the brothers and printed Alfred's obituary instead, calling him a 'merchant of death'. Historians are not sure how much this shocked him, but the story is often told.",
+    "In 1895, in Paris, Nobel signed a will that left most of his huge fortune to fund prizes for those who had brought 'the greatest benefit to humankind' in physics, chemistry, medicine, literature and peace.",
+    "He died in Italy on December 10, 1896. The first prizes were awarded in 1901, and they are still presented on December 10 every year."],
+   gloss:[["gifted","adj.","有天分的"],["patents","n.","專利"],["fortune","n.","財富"],["transformed","v.","徹底改變"],["obituary","n.","訃聞"],["benefit","n.","利益；好處"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Dynamite was the safest invention ever.","Alfred Nobel, the inventor of dynamite, used his fortune to create prizes that reward benefits to humankind.","Nobel's brother started the Nobel Prize.","The Nobel Prize is only for scientists."], a:1,
+     why:"核心：發明炸藥致富的諾貝爾，用財富設立獎勵造福人類者的獎項。"},
+    {t:"細節 Detail", q:"How many patents did Nobel collect?",
+     opts:["5","35","355","3,550"], a:2,
+     why:"第二段：he collected 355 patents。"},
+    {t:"細節 Detail", q:"Why are the prizes presented on December 10?",
+     opts:["It is Nobel's birthday","It is the day Nobel died","It is the day dynamite was invented","It is Sweden's national day"], a:1,
+     why:"最後一段：He died … on December 10, 1896 … presented on December 10 every year。"},
+    {t:"字義 Vocabulary", q:"In paragraph 4, an “obituary” is ___.",
+     opts:["a birthday card","a newspaper report about someone who has died","a science prize","a kind of weapon"], a:1,
+     why:"obituary = 訃聞，報紙上報導某人過世的文章。"},
+    {t:"推論 Inference", q:"Why does the writer say the 'merchant of death' story is “reportedly” true and “often told”?",
+     opts:["Because it is definitely false","Because historians are not completely sure of the details","Because Nobel wrote it himself","Because it happened in 1901"], a:1,
+     why:"第四段：Historians are not sure——作者用 reportedly 表示這是流傳的說法，未必完全可靠。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:227,
+   title:"A Fortune in Search of a Conscience",
+   text:[
+    "Few names are as firmly attached to virtue as Nobel's — which is a curious fate for a man who made his fortune from explosives. Born in Stockholm on October 21, 1833, Alfred Nobel was a restless polyglot chemist whose 355 patents included the one that defined him: dynamite.",
+    "His invention tamed nitroglycerin, a liquid so unstable that it had killed workers, including Nobel's own younger brother in an 1864 factory blast. Packed into a safer form, it blasted open mines, canals and railways across the industrial world — and, inevitably, found its way into war.",
+    "Legend holds that in 1888 a French newspaper, mistaking his brother Ludvig's death for his own, branded him 'the merchant of death'. The anecdote is almost too neat, and historians treat it with caution; still, it captures a real tension in a man who wrote poetry, never married, and seemed uneasy with the source of his wealth.",
+    "Whatever his motives, his will of 1895 was radical. It bypassed his relatives and directed most of his estate towards prizes, regardless of nationality, for those who had conferred 'the greatest benefit to humankind'.",
+    "More than a century later, the prizes are less a monument to Nobel than a standing argument about what benefit means — and a reminder that how a fortune is spent can, in the end, redefine how it was made."],
+   gloss:[["virtue","n.","美德"],["polyglot","n.","通曉多種語言的人"],["unstable","adj.","不穩定的"],["anecdote","n.","軼事；小故事"],["radical","adj.","激進的；徹底的"],["conferred","v.","給予；授予"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the essay's central idea?",
+     opts:["Dynamite was invented by accident.","A man who grew rich from explosives used his will to tie his name to the benefit of humankind, reshaping how his fortune is remembered.","Nobel's family wanted the prizes.","The prizes have nothing to do with Nobel."], a:1,
+     why:"主旨：靠炸藥致富的人，以遺囑把名字和「造福人類」綁在一起，改寫了財富的意義。"},
+    {t:"字義 Vocabulary", q:"In paragraph 2, “unstable” describes nitroglycerin as ___.",
+     opts:["very cheap","likely to explode or change suddenly","easy to drink","completely safe"], a:1,
+     why:"unstable = 不穩定；硝化甘油容易突然爆炸。"},
+    {t:"推論 Inference", q:"Why does the writer call the 'merchant of death' story “almost too neat”?",
+     opts:["Because it was printed in a tidy newspaper","Because it fits the story so perfectly that it may have been simplified or exaggerated","Because Nobel liked neat rooms","Because it is a poem"], a:1,
+     why:"第三段：故事完美得「太剛好」，所以史學家持保留態度。"},
+    {t:"語氣 Tone", q:"What is the writer's attitude towards Nobel's motives?",
+     opts:["Certain that he was guilty","Open and careful — the motives are uncertain, but the will mattered","Mocking and angry","Uninterested"], a:1,
+     why:"Whatever his motives…——作者不下定論，但肯定遺囑的影響。"},
+    {t:"篇章 Organization", q:"How does the final paragraph relate to the opening?",
+     opts:["It repeats the list of patents","It returns to the irony of virtue and explosives, concluding that spending a fortune can redefine its origins","It describes his childhood","It introduces a new inventor"], a:1,
+     why:"首尾呼應：開頭的反差（美德 vs. 炸藥）在結尾以「怎麼花錢可以改寫錢的來歷」收束。"}]}
+ },
+ discuss:[
+  "Nobel's invention helped build railways but was also used in wars. Can one invention be both good and bad?",
+  "If you could create a prize for people who help the world, what would it reward?",
+  "Do you think how people spend their money can change how others remember them?"]
+},
+{
+ id:"machu-picchu", day:"2026-10-22", cat:"travel",
+ topic:"Machu Picchu: The Lost City of the Inca", zh:"馬丘比丘：印加的天空之城",
+ src:"UNESCO · National Geographic · The New York Times", date:"evergreen",
+ tag:"Travel 旅遊", icon:"mountain",
+ proper:["Machu","Picchu","Inca","Peru","Andes","Pachacuti","Spanish","Hiram","Bingham","UNESCO","Cusco","American","Peruvian","Empire","Trail","World","Heritage","Site"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:116,
+   title:"A City in the Clouds",
+   text:[
+    "High in the mountains of Peru, there is an old stone city. Its name is Machu Picchu.",
+    "The Inca people built it more than 500 years ago. It sits on top of a mountain, about 2,400 metres high. Clouds often float around it.",
+    "The Inca were great builders. They cut big stones so well that the stones fit together without any cement.",
+    "There are houses, temples and long steps on the mountain called terraces. People grew food on them.",
+    "Today, many visitors come to see Machu Picchu. Some walk for four days on an old path called the Inca Trail.",
+    "Only a certain number of visitors can enter each day. This helps protect the old city."],
+   gloss:[["metres","n.","公尺"],["float","v.","飄浮"],["cement","n.","水泥"],["temples","n.","神廟"],["terraces","n.","梯田"],["visitors","n.","遊客"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["An old Inca city on a mountain in Peru","How to make cement","A modern city in Spain","A famous river"], a:0,
+     why:"全文介紹秘魯山上的印加古城馬丘比丘。"},
+    {t:"細節 Detail", q:"How high is Machu Picchu?",
+     opts:["About 240 metres","About 2,400 metres","About 24,000 metres","At sea level"], a:1,
+     why:"第二段：about 2,400 metres high。"},
+    {t:"細節 Detail", q:"What did the Inca grow food on?",
+     opts:["Roofs","Terraces","Boats","Beaches"], a:1,
+     why:"第四段：long steps … called terraces. People grew food on them。"},
+    {t:"字義 Vocabulary", q:"In the text, “cement” is something used to ___.",
+     opts:["stick stones or bricks together","cook food","make clothes","paint pictures"], a:0,
+     why:"cement = 水泥，用來黏合石塊；印加人不用水泥就能讓石頭密合。"},
+    {t:"推論 Inference", q:"Why can only a certain number of visitors enter each day?",
+     opts:["The city is too small for anyone","To protect the old city from damage","Because tickets are free","Because it is always raining"], a:1,
+     why:"最後一段：This helps protect the old city——控制人數以保護古蹟。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:164,
+   title:"Peru's Citadel Above the Clouds",
+   text:[
+    "Perched on a narrow ridge in the Andes, about 2,430 metres above sea level, Machu Picchu is one of the most breathtaking places on Earth.",
+    "The Inca built it in the mid-1400s, probably as a royal estate for the emperor Pachacuti. Less than a century later the site was abandoned, around the time the Spanish conquered the Inca Empire.",
+    "Because the Spanish never found it, Machu Picchu survived largely intact. Local farmers always knew it was there, but it became world-famous after the American explorer Hiram Bingham publicised it in 1911.",
+    "Its stonework is remarkable. Builders shaped granite blocks so precisely that they fit together without mortar, and the walls have survived centuries of earthquakes.",
+    "In 1983 the site became a UNESCO World Heritage Site. Today visitors arrive by train and bus from Cusco, or hike the famous Inca Trail, which usually takes four days.",
+    "Popularity brings problems, however. To prevent damage, Peru limits daily visitor numbers and sets fixed routes through the ruins."],
+   gloss:[["ridge","n.","山脊"],["breathtaking","adj.","令人驚嘆的"],["abandoned","v.","遺棄；廢棄"],["intact","adj.","完整無損的"],["precisely","adv.","精準地"],["mortar","n.","灰泥；砂漿"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Machu Picchu was built by the Spanish.","Machu Picchu, a remarkably preserved Inca site high in the Andes, is now a protected world treasure.","Machu Picchu is a modern hotel.","Hiram Bingham built Machu Picchu in 1911."], a:1,
+     why:"核心：保存完好的印加遺址，如今是受保護的世界遺產。"},
+    {t:"細節 Detail", q:"Why did Machu Picchu survive largely intact?",
+     opts:["It was rebuilt in 1983","The Spanish never found it","It is made of plastic","Nobody ever lived there"], a:1,
+     why:"第三段：Because the Spanish never found it, Machu Picchu survived largely intact。"},
+    {t:"細節 Detail", q:"What do the builders' walls NOT use?",
+     opts:["Granite","Stone blocks","Mortar","Precise shapes"], a:2,
+     why:"第四段：fit together without mortar。"},
+    {t:"字義 Vocabulary", q:"In paragraph 2, “abandoned” means ___.",
+     opts:["left empty, no longer used","newly built","sold","painted"], a:0,
+     why:"abandoned = 被遺棄、廢棄。"},
+    {t:"推論 Inference", q:"What does the writer suggest by saying “Local farmers always knew it was there”?",
+     opts:["Bingham did not really 'discover' it; he made it famous to the outside world","Farmers built the city","The city was underground","The farmers hid it from Bingham"], a:0,
+     why:"第三段：當地人一直知道它的存在，賓漢只是讓它聞名國際（publicised）。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:214,
+   title:"The City That Was Never Lost",
+   text:[
+    "Machu Picchu is routinely called a 'lost city', a phrase that says more about the outside world than about the place itself. Set on a saddle of rock some 2,430 metres up in the Peruvian Andes, it was never truly lost to the people who farmed the slopes below.",
+    "Built in the mid-fifteenth century, most likely as an estate for the Inca ruler Pachacuti, it was occupied for less than a hundred years. When the Spanish conquest shattered the empire, the site simply fell quiet — and, crucially, it escaped the colonisers' attention, sparing it the destruction suffered by so many Inca temples.",
+    "What survives is an argument in stone. Granite blocks were shaped to fit so closely that no mortar was needed, and the slightly flexible joints have let the walls ride out earthquakes that toppled later buildings.",
+    "Hiram Bingham's 1911 expedition turned the site into an international icon, but it also reflected an era in which foreign 'discovery' erased local knowledge, and artefacts he removed were returned to Peru only in this century.",
+    "Today the danger is love rather than neglect. With crowds pressing on fragile terraces, Peru caps daily entries and fixes routes — a reminder that a place can survive centuries of isolation and still be worn away by admiration."],
+   gloss:[["routinely","adv.","慣常地"],["shattered","v.","粉碎；瓦解"],["sparing","v.","使免於（遭受）"],["expedition","n.","探險隊；遠征"],["artefacts","n.","文物；手工藝品"],["fragile","adj.","脆弱的"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's overall argument?",
+     opts:["Machu Picchu was invented by explorers.","Machu Picchu was never really 'lost'; its story reveals outside perspectives, and today its greatest threat is too much attention.","Earthquakes have destroyed Machu Picchu.","Tourists should not care about history."], a:1,
+     why:"主旨：「失落之城」反映的是外界視角；今天最大的威脅反而是過多的喜愛。"},
+    {t:"字義 Vocabulary", q:"In paragraph 5, “fragile” means ___.",
+     opts:["easily damaged","very old","made of glass","expensive"], a:0,
+     why:"fragile = 脆弱、容易損壞的；梯田承受不了大量人潮。"},
+    {t:"推論 Inference", q:"Why does the writer say the phrase 'lost city' “says more about the outside world”?",
+     opts:["Because outsiders get lost on the trail","Because only outsiders lost track of it — locals always knew it was there","Because the city moved","Because maps are wrong"], a:1,
+     why:"第一段：當地農民一直知道它，「失落」是外界的說法。"},
+    {t:"語氣 Tone", q:"How does the writer present Bingham's 'discovery'?",
+     opts:["As a simple heroic achievement","With a critical eye — it made the site famous but erased local knowledge","As a complete lie","As unimportant"], a:1,
+     why:"第四段：既讓它成為國際象徵，也反映了抹去在地知識的時代——帶批判的平衡觀點。"},
+    {t:"篇章 Organization", q:"What contrast frames the final paragraph?",
+     opts:["Rich versus poor visitors","Centuries of isolation versus damage caused by admiration","Rain versus sun","Old trains versus new buses"], a:1,
+     why:"最後一段：撐過幾世紀的孤立，卻可能被「愛」磨損——danger is love rather than neglect。"}]}
+ },
+ discuss:[
+  "Why do you think the Inca built a city on top of a mountain?",
+  "Is it fair to say an explorer 'discovered' a place that local people already knew? Why or why not?",
+  "Famous places can be damaged by too many visitors. What rules would you make to protect a site like this?"]
+},
+{
+ id:"mole-day", day:"2026-10-23", cat:"science",
+ topic:"Mole Day: Counting the Tiny", zh:"莫耳日：怎麼數數不清的原子？",
+ src:"American Chemical Society · Science · NBC", date:"2026-10-23",
+ tag:"Science 科學", icon:"flask",
+ proper:["Mole","Day","October","Amedeo","Avogadro","Italian","Avogadro's"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:98,
+   title:"A Day for a Very Big Number",
+   text:[
+    "October 23 is Mole Day. It is not about the little animal! It is a day for chemistry.",
+    "Everything is made of atoms. Atoms are so small that we cannot see them, even with a normal microscope.",
+    "Because atoms are tiny, scientists count them in big groups. One group is called a mole.",
+    "One mole is about 602,000,000,000,000,000,000,000 things. People write it as 6.02 × 10²³.",
+    "That is why Mole Day is on 10/23, from 6:02 in the morning to 6:02 in the evening.",
+    "On Mole Day, students do fun experiments, bake cakes and make puns about moles."],
+   gloss:[["chemistry","n.","化學"],["atoms","n.","原子"],["microscope","n.","顯微鏡"],["tiny","adj.","極小的"],["experiments","n.","實驗"],["puns","n.","雙關語"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["A small animal that digs holes","Mole Day, a day about counting atoms in chemistry","How to bake a cake","A famous scientist's birthday party"], a:1,
+     why:"全文介紹化學界的莫耳日與「莫耳」這個計數單位。"},
+    {t:"細節 Detail", q:"Why do scientists count atoms in big groups?",
+     opts:["Atoms are very heavy","Atoms are tiny, so there are too many to count one by one","Atoms are expensive","Atoms are animals"], a:1,
+     why:"第三段：Because atoms are tiny, scientists count them in big groups。"},
+    {t:"細節 Detail", q:"When does Mole Day start?",
+     opts:["At 6:02 in the morning on October 23","At midnight on January 1","At noon on June 2","At 10:23 at night"], a:0,
+     why:"第五段：on 10/23, from 6:02 in the morning。"},
+    {t:"字義 Vocabulary", q:"In the text, “tiny” means ___.",
+     opts:["very big","very small","very fast","very old"], a:1,
+     why:"tiny = 極小的。"},
+    {t:"推論 Inference", q:"Why is Mole Day on 10/23?",
+     opts:["It is the birthday of the animal","The date matches the number 6.02 × 10²³","Schools are closed that day","It is the start of winter"], a:1,
+     why:"日期 10/23 與時間 6:02 對應到 6.02 × 10²³。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:165,
+   title:"Why Chemists Celebrate at 6:02",
+   text:[
+    "Every year on October 23, chemistry classrooms celebrate Mole Day. The party runs from 6:02 a.m. to 6:02 p.m., and the timing is a clue to what it honours.",
+    "In chemistry, a mole is not an animal but a unit for counting particles. Just as a 'dozen' means twelve, a mole means about 6.02 × 10²³ — a six followed by twenty-three digits.",
+    "This value is known as Avogadro's number, named after the Italian scientist Amedeo Avogadro, whose ideas in the early 1800s helped explain how gases behave.",
+    "Why such an enormous number? Atoms are unimaginably small. A single sip of water — about 18 grams — contains roughly one mole of water molecules.",
+    "Using moles lets chemists connect the invisible world of atoms to amounts they can actually weigh on a scale, which is essential for medicine, cooking chemistry and industry.",
+    "Mole Day began in American schools in the 1980s, and today teachers mark it with experiments, mole-shaped cakes and plenty of terrible puns."],
+   gloss:[["unit","n.","單位"],["particles","n.","粒子"],["digits","n.","位數；數字"],["enormous","adj.","巨大的"],["molecules","n.","分子"],["essential","adj.","不可或缺的"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Moles are animals that live underground.","Mole Day celebrates the mole, a huge counting unit that links tiny atoms to amounts we can weigh.","Avogadro invented the dozen.","Water is made of one atom."], a:1,
+     why:"核心：莫耳日慶祝「莫耳」這個巨大的計數單位，它把原子世界和可秤量的份量連起來。"},
+    {t:"細節 Detail", q:"Who is Avogadro's number named after?",
+     opts:["An American teacher","An Italian scientist, Amedeo Avogadro","A French chef","A German king"], a:1,
+     why:"第三段：named after the Italian scientist Amedeo Avogadro。"},
+    {t:"細節 Detail", q:"About how much water contains one mole of water molecules?",
+     opts:["A swimming pool","About 18 grams, a single sip","A whole lake","One drop of rain"], a:1,
+     why:"第四段：A single sip of water — about 18 grams — contains roughly one mole。"},
+    {t:"字義 Vocabulary", q:"In paragraph 2, a “unit” is ___.",
+     opts:["a kind of animal","a standard amount used for measuring or counting","a classroom","a type of cake"], a:1,
+     why:"unit = 單位，例如 dozen 是「打」，mole 是「莫耳」。"},
+    {t:"推論 Inference", q:"Why does the writer compare a mole to a 'dozen'?",
+     opts:["To show both are ways of counting things in groups","Because a mole equals twelve","Because both are animals","To explain cooking times"], a:0,
+     why:"第二段：Just as a 'dozen' means twelve——用熟悉的「一打」說明莫耳也是成組計數。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:211,
+   title:"A Bridge Between Two Worlds",
+   text:[
+    "On October 23, from 6:02 in the morning until 6:02 at night, chemistry teachers indulge in a ritual of cakes, costumes and shameless puns. Mole Day is silly by design, but the number it celebrates is one of the quiet pillars of modern science.",
+    "A mole is simply a counting unit — like a dozen, only vastly larger. It stands for roughly 6.02 × 10²³ particles, a quantity named in honour of Amedeo Avogadro, the Italian scientist who proposed in 1811 that equal volumes of gas hold equal numbers of molecules.",
+    "Avogadro's idea was largely ignored in his lifetime. Only decades after his death did chemists recognise how neatly it untangled the confusion over atomic weights, and the constant bearing his name was measured with real precision only much later.",
+    "The mole's genius lies in translation. Atoms are far too small to count or weigh individually, yet a mole of any substance has a mass in grams that matches its atomic or molecular weight. A sip of water, about eighteen grams, contains a mole of water molecules — a number larger than the grains of sand on many beaches combined.",
+    "Mole Day, then, celebrates a bridge: between the invisible and the measurable, and between an overlooked idea and its eventual vindication."],
+   gloss:[["indulge","v.","沉浸於；盡情享受"],["pillars","n.","支柱"],["proposed","v.","提出（理論）"],["untangled","v.","理清；解開"],["precision","n.","精確度"],["vindication","n.","平反；證明是正確的"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the essay's main idea?",
+     opts:["Mole Day is pointless fun.","Behind a playful holiday lies the mole, a key idea that connects the invisible world of atoms to what we can measure.","Avogadro was famous in his lifetime.","Chemists should stop telling puns."], a:1,
+     why:"主旨：輕鬆節日背後，是連接原子世界與可測量世界的關鍵概念。"},
+    {t:"字義 Vocabulary", q:"In the last paragraph, “vindication” means ___.",
+     opts:["proof that an idea was right after all","a kind of punishment","a holiday","a measuring tool"], a:0,
+     why:"vindication = 被證明正確；亞佛加厥的想法最終獲得平反。"},
+    {t:"推論 Inference", q:"What does paragraph 3 suggest about how science sometimes works?",
+     opts:["Good ideas are always accepted at once","A correct idea can be ignored for years before others recognise its value","Scientists never change their minds","Only famous people have good ideas"], a:1,
+     why:"第三段：他的想法生前被忽視，死後數十年才被認可。"},
+    {t:"語氣 Tone", q:"How does the writer view the silliness of Mole Day?",
+     opts:["As embarrassing","As playful on the surface but celebrating something genuinely important","As dangerous","As a waste of class time"], a:1,
+     why:"silly by design, but … one of the quiet pillars——表面胡鬧，實則重要。"},
+    {t:"篇章 Organization", q:"What image ties the essay together?",
+     opts:["A cake recipe","The mole as a 'bridge' between the invisible and the measurable","A map of Italy","A list of gases"], a:1,
+     why:"結尾的 bridge 意象收束全文——連接看不見與可測量的世界。"}]}
+ },
+ discuss:[
+  "Why do you think scientists need special units like the mole to talk about atoms?",
+  "Avogadro's idea was ignored for years. Can you think of other ideas that were laughed at before people accepted them?",
+  "Should school subjects have 'fun days' like Mole Day? Which subject would you choose, and how would you celebrate?"]
+},
+{
+ id:"polio-day-2026", day:"2026-10-24", cat:"health",
+ topic:"World Polio Day", zh:"世界小兒麻痺日：只差最後一步",
+ src:"WHO · Rotary International · VOA", date:"2026-10-24",
+ tag:"Health 健康", icon:"vaccine",
+ proper:["Polio","Day","October","Jonas","Salk","Albert","Sabin","Rotary","International","Pakistan","Afghanistan","Taiwan","WHO","World","Health","Organization","Global","Eradication","Initiative"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:119,
+   title:"Almost Gone for Good",
+   text:[
+    "October 24 is World Polio Day. Polio is a disease caused by a virus. It mostly makes young children sick.",
+    "Polio can hurt the body's nerves. Some children cannot walk again after they get it.",
+    "In the past, polio was common all over the world. Parents were very afraid of it.",
+    "Then scientists made vaccines. One was a shot, and later one was a few drops in the mouth. The drops are cheap and easy to give.",
+    "Since then, millions of children have got the vaccine. Polio is now almost gone. Taiwan has been free of polio for many years.",
+    "But the virus is still found in a few places. World Polio Day reminds us to finish the job."],
+   gloss:[["disease","n.","疾病"],["virus","n.","病毒"],["nerves","n.","神經"],["common","adj.","常見的"],["vaccines","n.","疫苗"],["reminds","v.","提醒"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["Polio, a disease that vaccines have almost ended","How to make medicine at home","A new sport for children","Why children like drops"], a:0,
+     why:"全文介紹小兒麻痺，以及疫苗如何讓它幾乎消失。"},
+    {t:"細節 Detail", q:"Who does polio mostly make sick?",
+     opts:["Old people","Young children","Animals","Doctors"], a:1,
+     why:"第一段：It mostly makes young children sick。"},
+    {t:"細節 Detail", q:"Why are the vaccine drops useful?",
+     opts:["They are cheap and easy to give","They taste like candy","They make children taller","They last one day"], a:0,
+     why:"第四段：The drops are cheap and easy to give。"},
+    {t:"字義 Vocabulary", q:"In the text, “common” means ___.",
+     opts:["seen very often","very rare","very expensive","very new"], a:0,
+     why:"common = 常見的；過去小兒麻痺在世界各地都很常見。"},
+    {t:"推論 Inference", q:"What does “finish the job” mean in the last sentence?",
+     opts:["Finish school","Make sure polio disappears everywhere","Close all hospitals","Stop making vaccines"], a:1,
+     why:"病毒還在少數地方，「完成工作」指讓小兒麻痺在全世界徹底消失。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:194,
+   title:"The Last Mile Against Polio",
+   text:[
+    "Every October 24, health workers mark World Polio Day, an awareness day started by Rotary International to honour the fight against one of history's most feared childhood diseases.",
+    "Polio is caused by a virus that spreads mainly through contaminated water and hands. In a small number of cases it attacks the nerves and can cause lifelong paralysis.",
+    "In the early 1950s, epidemics left thousands of children unable to walk each year. In 1955 a vaccine developed by a team led by Jonas Salk was declared safe and effective, and a few years later Albert Sabin's oral vaccine — given as drops — made mass vaccination cheap and simple.",
+    "In 1988 the World Health Organization and its partners launched a global campaign to end polio. Back then, the disease paralysed an estimated 350,000 children a year. Since then, cases have fallen by more than 99 percent.",
+    "Wild poliovirus now survives in only two countries, Pakistan and Afghanistan, where conflict and distrust make it hard to reach every child.",
+    "Taiwan was certified polio-free as part of its region in 2000. Experts warn, though, that as long as the virus exists anywhere, every country must keep vaccinating."],
+   gloss:[["contaminated","adj.","受汙染的"],["paralysis","n.","癱瘓"],["epidemics","n.","流行病（爆發）"],["effective","adj.","有效的"],["campaign","n.","運動；活動"],["certified","v.","認證"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Polio has always been rare.","Vaccines have nearly wiped out polio, but the final cases are the hardest, so vaccination must continue.","Polio only exists in Taiwan.","World Polio Day is a sports event."], a:1,
+     why:"核心：疫苗讓小兒麻痺幾乎絕跡，但最後一哩最難，接種不能停。"},
+    {t:"細節 Detail", q:"How much have polio cases fallen since 1988?",
+     opts:["By about 10 percent","By about half","By more than 99 percent","They have not fallen"], a:2,
+     why:"第四段：cases have fallen by more than 99 percent。"},
+    {t:"細節 Detail", q:"Where does wild poliovirus still survive?",
+     opts:["Taiwan and Japan","Pakistan and Afghanistan","Everywhere in Europe","Nowhere"], a:1,
+     why:"第五段：only two countries, Pakistan and Afghanistan。"},
+    {t:"字義 Vocabulary", q:"In paragraph 2, “contaminated” water is water that is ___.",
+     opts:["clean and safe","dirty or carrying germs","frozen","very hot"], a:1,
+     why:"contaminated = 受汙染的，帶有病菌。"},
+    {t:"推論 Inference", q:"Why must polio-free countries keep vaccinating?",
+     opts:["Because vaccines are free","Because the virus could travel back from places where it still exists","Because doctors need jobs","Because the law has no end date"], a:1,
+     why:"最後一段：as long as the virus exists anywhere——病毒仍可能被帶回來。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:215,
+   title:"Why the Last One Percent Is the Hardest",
+   text:[
+    "There are few public-health stories as triumphant, or as unfinished, as polio's. World Polio Day, marked each October 24, celebrates a disease driven to the brink of extinction — and admits how stubbornly it clings on.",
+    "In the first half of the twentieth century, summer polio epidemics emptied swimming pools and terrified parents; the virus, usually silent, occasionally invaded the nervous system and left children paralysed. The 1955 announcement that Jonas Salk's injected vaccine worked was greeted almost like the end of a war, and Albert Sabin's oral drops later made immunisation affordable on a mass scale.",
+    "When the Global Polio Eradication Initiative began in 1988, polio paralysed an estimated 350,000 children a year in more than 125 countries. Cases have since fallen by over 99 percent, and wild virus persists in just two, Pakistan and Afghanistan.",
+    "Yet the final fraction is the most expensive and the most fragile. The remaining cases sit where conflict blocks vaccinators, where rumours breed suspicion, and where a single missed child can seed a new outbreak.",
+    "Eradication, after all, is unforgiving arithmetic: ninety-nine percent is not a near-success but an unfinished task. Only smallpox has ever been fully defeated in humans; polio's last mile will test whether the world can sustain attention long after a crisis stops feeling urgent."],
+   gloss:[["triumphant","adj.","凱旋的；大獲成功的"],["brink","n.","邊緣"],["immunisation","n.","免疫接種"],["persists","v.","持續存在"],["eradication","n.","根除"],["sustain","v.","維持"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's argument?",
+     opts:["Polio has already been completely defeated.","Polio is almost gone, but the last tiny fraction is the hardest to end and demands lasting effort.","Vaccines never worked against polio.","Polio is a new disease."], a:1,
+     why:"主旨：幾乎消滅，但最後一小部分最難，需要持續投入。"},
+    {t:"字義 Vocabulary", q:"In the final paragraph, “eradication” means ___.",
+     opts:["complete removal of something","a slight reduction","a new vaccine","a kind of virus"], a:0,
+     why:"eradication = 根除、徹底消滅。"},
+    {t:"推論 Inference", q:"Why does the writer call eradication “unforgiving arithmetic”?",
+     opts:["Because doctors must be good at maths","Because anything short of 100 percent still leaves the job unfinished","Because vaccines are expensive","Because statistics are always wrong"], a:1,
+     why:"99% 不算接近成功，而是「尚未完成」——只要有殘留，病毒就可能再起。"},
+    {t:"語氣 Tone", q:"How would you describe the writer's tone?",
+     opts:["Celebratory but cautious","Angry and hopeless","Jokey and careless","Neutral and bored"], a:0,
+     why:"既肯定 triumphant 的成果，也強調 unfinished——讚揚中帶警惕。"},
+    {t:"篇章 Organization", q:"How is the essay structured?",
+     opts:["A list of symptoms","Past fear → vaccine breakthroughs → global progress → why the last cases are hardest → a wider challenge","A biography of Salk only","A comparison of two countries' food"], a:1,
+     why:"結構：昔日恐懼 → 疫苗突破 → 全球進展 → 最後一哩的難處 → 更大的挑戰。"}]}
+ },
+ discuss:[
+  "Why do you think the last few cases of a disease are often the hardest to stop?",
+  "Polio vaccines changed millions of lives. What other inventions have protected children's health?",
+  "If a disease is almost gone, should people keep getting vaccinated? Explain your view."]
+},
+{
+ id:"picasso", day:"2026-10-25", cat:"culture",
+ topic:"Pablo Picasso: Seeing the World in Pieces", zh:"畢卡索：把世界拆開來畫的人",
+ src:"Museo Picasso · The Guardian · The New York Times", date:"2026-10-25",
+ tag:"Art 藝術", icon:"palette",
+ proper:["Pablo","Picasso","October","Málaga","Spain","Spanish","Paris","Barcelona","Basque","German","Italian","Civil","War","Georges","Braque","Cubism","Guernica","Blue","Rose","Period","Demoiselles","Avignon"],
+ levels:{
+  a:{cefr:"A1–A2", zh:"初級", w:120,
+   title:"The Painter Who Broke the Rules",
+   text:[
+    "Pablo Picasso was born on October 25, 1881, in Málaga, Spain. He became one of the most famous artists in the world.",
+    "Picasso could draw very well when he was a child. His father was an art teacher.",
+    "When Picasso was young, he felt sad, and he painted many pictures in blue. People call this his Blue Period.",
+    "Later, he and his friend Georges Braque tried a new way of painting. They showed faces and objects from many sides at the same time. This style is called Cubism.",
+    "Picasso made thousands of paintings, drawings and sculptures. He kept working until he was 91 years old.",
+    "His art shows us that there is more than one way to see the world."],
+   gloss:[["artists","n.","藝術家"],["painted","v.","畫（畫）"],["period","n.","時期"],["objects","n.","物體"],["style","n.","風格"],["sculptures","n.","雕塑"]],
+   q:[
+    {t:"主旨 Main idea", q:"What is this text mainly about?",
+     opts:["How to paint a house","The famous artist Picasso and his new ways of painting","A city in Spain","A teacher who loved blue"], a:1,
+     why:"全文介紹畫家畢卡索與他開創的新畫風。"},
+    {t:"細節 Detail", q:"What was Picasso's father's job?",
+     opts:["A doctor","An art teacher","A farmer","A singer"], a:1,
+     why:"第二段：His father was an art teacher。"},
+    {t:"細節 Detail", q:"What is Cubism?",
+     opts:["Painting only in blue","Showing faces and objects from many sides at the same time","Making cakes","Painting only animals"], a:1,
+     why:"第四段：showed faces and objects from many sides at the same time … called Cubism。"},
+    {t:"字義 Vocabulary", q:"In the text, a “style” is ___.",
+     opts:["a special way of doing something","a kind of paint","a museum","a teacher"], a:0,
+     why:"style = 風格，做事或創作的獨特方式。"},
+    {t:"推論 Inference", q:"Why do people call some of his paintings the Blue Period?",
+     opts:["He only had blue paint","He felt sad and painted many pictures in blue","He lived near the sea","Blue was his name"], a:1,
+     why:"第三段：he felt sad, and he painted many pictures in blue。"}]},
+  b:{cefr:"B1–B2", zh:"中級", w:176,
+   title:"The Artist Who Kept Reinventing Himself",
+   text:[
+    "Born in Málaga, Spain, on October 25, 1881, Pablo Picasso is often called the most influential artist of the twentieth century.",
+    "Trained by his father, an art teacher, he showed remarkable skill as a teenager. But he soon grew bored with simply copying what he saw.",
+    "In his early twenties he moved between Barcelona and Paris. After the death of a close friend, he painted poor and lonely people in cold shades of blue — the Blue Period — and later turned to warmer pinks and circus performers in his Rose Period.",
+    "Around 1907 he painted Les Demoiselles d'Avignon, a shocking picture of sharp, broken shapes. With his friend Georges Braque he then developed Cubism, a style that shows an object from several viewpoints at once.",
+    "In 1937, after German and Italian planes bombed the Spanish town of Guernica during the Spanish Civil War, Picasso painted Guernica, a huge black-and-white protest against the horror of war.",
+    "He kept experimenting with painting, sculpture and pottery until his death in 1973, leaving behind tens of thousands of works."],
+   gloss:[["influential","adj.","有影響力的"],["remarkable","adj.","非凡的"],["shades","n.","色調"],["viewpoints","n.","視角"],["protest","n.","抗議"],["experimenting","v.","嘗試；實驗"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which sentence best states the main idea?",
+     opts:["Picasso only painted in blue.","Picasso constantly changed his style and became the most influential artist of his century.","Picasso was a soldier in the Spanish Civil War.","Picasso hated his father's teaching."], a:1,
+     why:"核心：畢卡索不斷改變風格，成為二十世紀最具影響力的藝術家。"},
+    {t:"細節 Detail", q:"What did Picasso paint during his Rose Period?",
+     opts:["Sad, lonely people in blue","Warmer pinks and circus performers","Only flowers","Black-and-white war scenes"], a:1,
+     why:"第三段：warmer pinks and circus performers in his Rose Period。"},
+    {t:"細節 Detail", q:"What was the painting Guernica about?",
+     opts:["A happy festival","The horror of war after a town was bombed","A circus","His childhood home"], a:1,
+     why:"第五段：a huge black-and-white protest against the horror of war。"},
+    {t:"字義 Vocabulary", q:"In paragraph 1, “influential” means ___.",
+     opts:["having a strong effect on others","very rich","very quiet","easily forgotten"], a:0,
+     why:"influential = 有影響力的。"},
+    {t:"推論 Inference", q:"What does the title “Kept Reinventing Himself” suggest?",
+     opts:["He changed his name often","He kept changing his style and trying new ways of making art","He invented machines","He moved house every year"], a:1,
+     why:"從藍色時期、玫瑰時期到立體派，他不斷「重新塑造」自己的藝術。"}]},
+  c:{cefr:"C1–C2", zh:"高級", w:228,
+   title:"Why Picasso Painted Faces from Two Sides",
+   text:[
+    "It is a familiar complaint in galleries: 'My child could paint that.' Pablo Picasso, born in Málaga on October 25, 1881, would hardly have been offended; by his teens he could already draw with academic polish, and he spent the rest of his long life deliberately unlearning it.",
+    "His early work was melancholy and lyrical — the cold blues of beggars and outcasts, then the softer roses of acrobats. But around 1907, with Les Demoiselles d'Avignon, he broke with the idea that a painting must imitate a single, fixed view of the world.",
+    "Cubism, which he developed alongside Georges Braque, fractured objects into planes and showed them from several angles at once. A face might appear in profile and from the front simultaneously, not because Picasso could not see, but because he wanted to paint what we know about an object, not merely how it looks from one spot.",
+    "That restlessness became a method. He moved from painting to collage, sculpture and ceramics, and in Guernica (1937) he turned the bombing of a Basque town into an enduring image of civilian suffering.",
+    "Picasso's legacy is complicated, including how he treated the people closest to him. Yet his central provocation endures: that seeing is not a passive act, and that an artist's job may be to show us the world in pieces so that we look at it again."],
+   gloss:[["deliberately","adv.","刻意地"],["melancholy","adj.","憂鬱的"],["fractured","v.","使破碎；分裂"],["simultaneously","adv.","同時地"],["legacy","n.","遺產；留給後世的影響"],["provocation","n.","挑釁；激發思考之舉"]],
+   q:[
+    {t:"主旨 Main idea", q:"Which best captures the writer's main point?",
+     opts:["Picasso could not draw realistically.","Picasso deliberately broke with realistic painting to show how we know and see things, challenging viewers to look again.","Cubism was invented by accident.","Picasso's private life was perfect."], a:1,
+     why:"主旨：他刻意拋開寫實，畫出「我們所知道的」物體，挑戰觀眾重新觀看。"},
+    {t:"字義 Vocabulary", q:"In paragraph 3, “simultaneously” means ___.",
+     opts:["one after another","at the same time","very slowly","in secret"], a:1,
+     why:"simultaneously = 同時地；一張臉同時呈現側面與正面。"},
+    {t:"推論 Inference", q:"Why does the writer say Picasso “would hardly have been offended” by 'My child could paint that'?",
+     opts:["Because he had no children","Because he had mastered realistic drawing early and chose to unlearn it on purpose","Because he never visited galleries","Because children painted his works"], a:1,
+     why:"第一段：他十幾歲就畫得很學院派，之後是刻意「忘掉」這些技巧。"},
+    {t:"語氣 Tone", q:"How does the writer treat Picasso's life and legacy?",
+     opts:["As flawless and heroic","With admiration for his art, while acknowledging it is 'complicated'","With complete disapproval","With no opinion at all"], a:1,
+     why:"最後一段：legacy is complicated … Yet his central provocation endures——肯定藝術，也承認爭議。"},
+    {t:"篇章 Organization", q:"How does the essay use the opening complaint?",
+     opts:["It starts a story about a child artist","It raises a common misunderstanding that the essay then answers by explaining Picasso's purpose","It lists famous galleries","It is never mentioned again"], a:1,
+     why:"以常見質疑開場，再逐步說明畢卡索的用意，回答這個誤解。"}]}
+ },
+ discuss:[
+  "Picasso painted faces from several sides at once. Why might an artist choose not to paint things exactly as they look?",
+  "Guernica is a painting against war. Can art change how people feel about a real event?",
+  "Should we still admire an artist's work if the artist behaved badly in private life? Explain your view."]
+},
+
+{
+ id:"nobel-literature-2026", day:"2026-10-08", cat:"culture",
  topic:"A Poet Who Bridges Ancient and Modern", zh:"連結古今的詩人：2026 諾貝爾文學獎",
  src:"NobelPrize.org", date:"2026-10-08",
  tag:"Nobel Literature · 諾貝爾文學獎", icon:"ruins",
@@ -9682,7 +10258,7 @@ const READINGS = [
   "Why do you think people still read writers who lived thousands of years ago?"]
 },
 {
- id:"nobel-peace-2026", cat:"world",
+ id:"nobel-peace-2026", day:"2026-10-09", cat:"world",
  topic:"A Lifelong Fight for Human Rights", zh:"為人權奮鬥一生：2026 諾貝爾和平獎",
  src:"NobelPrize.org", date:"2026-10-09",
  tag:"Nobel Peace · 諾貝爾和平獎", icon:"globe",
@@ -9773,7 +10349,7 @@ const READINGS = [
   "What is one unfair thing in the world you would fight to change — and how might you start?"]
 },
 {
- id:"nobel-economics-2026", cat:"business",
+ id:"nobel-economics-2026", day:"2026-10-12", cat:"business",
  topic:"How to Keep a Whole Economy Steady", zh:"如何穩住整個經濟：2026 諾貝爾經濟獎",
  src:"NobelPrize.org", date:"2026-10-12",
  tag:"Nobel Economics · 諾貝爾經濟獎", icon:"book",
@@ -9864,7 +10440,7 @@ const READINGS = [
   "If you ran a central bank, would you focus more on stable prices or on more jobs? Why?"]
 },
 {
- id:"nobel-chemistry-2026", cat:"science",
+ id:"nobel-chemistry-2026", day:"2026-10-07", cat:"science",
  topic:"Molecules with a Left Hand and a Right Hand", zh:"分子的左手與右手：2026 諾貝爾化學獎",
  src:"NobelPrize.org", date:"2026-10-07",
  tag:"Nobel Chemistry · 諾貝爾化學獎", icon:"book",
@@ -9955,7 +10531,7 @@ const READINGS = [
   "Soai's reaction grows a tiny difference into a big one. Can you think of small starts in life that grow into big results?"]
 },
 {
- id:"nobel-physics-2026", cat:"science",
+ id:"nobel-physics-2026", day:"2026-10-06", cat:"science",
  topic:"Catching Ghost Particles Under the Ice", zh:"在冰層下捕捉幽靈粒子：2026 諾貝爾物理獎",
  src:"NobelPrize.org · Nature · IceCube Collaboration", date:"2026-10-06",
  tag:"Nobel Physics · 諾貝爾物理獎", icon:"aurora",
@@ -10046,7 +10622,7 @@ const READINGS = [
   "Light, sound, and now neutrinos each tell us something about the universe. What new 'sense' might science invent next?"]
 },
 {
- id:"mars-ai-drive", cat:"tech",
+ id:"mars-ai-drive", day:"2026-10-14", cat:"tech",
  topic:"A Rover Plans Its Own Path on Mars", zh:"火星車自己規劃路線：AI 開上火星",
  src:"NASA · JPL", date:"2026-01-30",
  tag:"Technology · 科技", icon:"rocket",
@@ -10137,7 +10713,7 @@ const READINGS = [
   "Where else could machines that 'plan for themselves' help people here on Earth?"]
 },
 {
- id:"mother-language-day-2026", cat:"society",
+ id:"mother-language-day-2026", day:"2026-10-28", cat:"society",
  topic:"Why Your Mother Language Matters", zh:"母語的力量：國際母語日",
  src:"UNESCO", date:"2026-02-21",
  tag:"Society · 社會", icon:"globe",
@@ -10228,7 +10804,7 @@ const READINGS = [
   "You are learning English now. How can you grow a new language without losing your first one?"]
 },
 {
- id:"nobel-medicine-2026", cat:"health",
+ id:"nobel-medicine-2026", day:"2026-10-05", cat:"health",
  topic:"A Nobel Prize for Controlling the Brain with Light", zh:"用光控制大腦：2026 諾貝爾醫學獎",
  src:"NobelPrize.org · Nature · Nature Medicine", date:"2026-10-05",
  tag:"Nobel Medicine · 諾貝爾醫學獎", icon:"book",
@@ -10319,7 +10895,7 @@ const READINGS = [
   "If doctors could one day switch neurons on and off to treat illness, where should we draw the line?"]
 },
 {
- id:"berlin-wall", cat:"history",
+ id:"berlin-wall", day:"2026-10-15", cat:"history",
  topic:"The Fall of the Berlin Wall", zh:"柏林圍牆倒塌",
  src:"The New York Times · The Economist · BBC", date:"evergreen",
  tag:"History 歷史", icon:"wall",
@@ -10409,7 +10985,7 @@ const READINGS = [
   "The wall rose in a night but took years to fall. What does that tell us about freedom?"]
 },
 {
- id:"change", cat:"myth",
+ id:"change", day:"2026-10-16", cat:"myth",
  topic:"Chang'e Flies to the Moon", zh:"嫦娥奔月",
  src:"National Geographic · Taiwan News · The New York Times", date:"evergreen",
  tag:"Myth 神話", icon:"rabbit",
@@ -10499,7 +11075,7 @@ const READINGS = [
   "Chang'e's story is tied to a festival about reunion. What makes being together precious to you?"]
 },
 {
- id:"norse-gods", cat:"myth",
+ id:"norse-gods", day:"2026-10-27", cat:"myth",
  topic:"Gods of the North", zh:"北歐諸神",
  src:"National Geographic · BBC Culture · The Economist", date:"evergreen",
  tag:"Myth 神話", icon:"hammer",
@@ -10589,7 +11165,7 @@ const READINGS = [
   "The Norse gods are flawed and mortal. Do flawed heroes feel more real to you than perfect ones?"]
 },
 {
- id:"iceland", cat:"travel",
+ id:"iceland", day:"2026-10-13", cat:"travel",
  topic:"Iceland: The Land of Fire and Ice", zh:"冰島：冰與火之地",
  src:"National Geographic · The New York Times · Nature", date:"evergreen",
  tag:"Travel 旅遊", icon:"aurora",
@@ -10679,7 +11255,7 @@ const READINGS = [
   "Would you rather travel for a place's nature or its cities? Why?"]
 },
 {
- id:"rome", cat:"travel",
+ id:"rome", day:"2026-10-17", cat:"travel",
  topic:"Rome: The Eternal City", zh:"羅馬：永恆之城",
  src:"The New York Times · National Geographic · BBC", date:"evergreen",
  tag:"Travel 旅遊", icon:"colosseum",
@@ -10769,7 +11345,7 @@ const READINGS = [
   "Throwing a coin in the Trevi Fountain is a wish to return. What wish-customs do you know from Taiwan or elsewhere?"]
 },
 {
- id:"tomatina", cat:"customs",
+ id:"tomatina", day:"2026-10-19", cat:"customs",
  topic:"La Tomatina: The Great Tomato Fight", zh:"番茄節：西班牙丟番茄大戰",
  src:"BBC · The Guardian · Reuters", date:"evergreen",
  tag:"Customs 風俗", icon:"tomato",
@@ -10859,7 +11435,7 @@ const READINGS = [
   "What festivals in Taiwan or elsewhere act as a 'safety valve' for people to let go?"]
 },
 {
- id:"day-of-dead", cat:"customs",
+ id:"day-of-dead", day:"2026-11-01", cat:"customs",
  topic:"The Day of the Dead", zh:"墨西哥亡靈節",
  src:"National Geographic · The New York Times · BBC Culture", date:"evergreen",
  tag:"Customs 風俗", icon:"skull",
@@ -10949,7 +11525,7 @@ const READINGS = [
   "What is one way you would want to be remembered by the people you love?"]
 },
 {
- id:"pompeii", cat:"history",
+ id:"pompeii", day:"2026-10-10", cat:"history",
  topic:"Pompeii: The City Frozen in Time", zh:"龐貝：凝固在時間裡的城市",
  src:"Nature · National Geographic · BBC", date:"evergreen",
  tag:"History 歷史", icon:"ruins",
@@ -11039,7 +11615,7 @@ const READINGS = [
   "If a city today were suddenly frozen in time, what everyday objects would best tell the future about us?"]
 },
 {
- id:"icarus", cat:"myth",
+ id:"icarus", day:"2026-10-18", cat:"myth",
  topic:"Icarus and the Fall", zh:"伊卡洛斯的墜落",
  src:"National Geographic · BBC Culture · The New York Times", date:"evergreen",
  tag:"Myth 神話", icon:"wings",
@@ -11129,7 +11705,7 @@ const READINGS = [
   "Is it better to aim very high and risk failing, or to choose a safe, steady path?"]
 },
 {
- id:"kyoto", cat:"travel",
+ id:"kyoto", day:"2026-10-11", cat:"travel",
  topic:"Kyoto: Japan's Ancient Capital", zh:"京都：日本的千年古都",
  src:"The New York Times · National Geographic · Taipei Times", date:"evergreen",
  tag:"Travel 旅遊", icon:"torii",
@@ -13443,6 +14019,12 @@ function resetProgress(){
 
 /* ---- 每週時事閱讀 News Reading ---- */
 const RD_ART = {
+  sloth:`<svg viewBox="0 0 64 64"><path d="M6 14 q26 -6 52 0" stroke="#8B6A4A" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M20 15 q-2 10 4 16 M44 15 q2 10 -4 16" stroke="#9C7B5B" stroke-width="3.5" fill="none" stroke-linecap="round"/><ellipse cx="32" cy="38" rx="15" ry="13" fill="#B89B7A"/><ellipse cx="32" cy="36" rx="9" ry="7.5" fill="#F1E2CC"/><path d="M25 34.5 q3 -2.5 5 0 M34 34.5 q3 -2.5 5 0" stroke="#5A4232" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="32" cy="38.5" r="1.6" fill="#5A4232"/><path d="M29 41.5 q3 2 6 0" stroke="#5A4232" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M20 46 q4 4 10 3 M44 46 q-4 4 -10 3" stroke="#7FB57F" stroke-width="2" fill="none" opacity=".7"/></svg>`,
+  medal:`<svg viewBox="0 0 64 64"><path d="M22 8h8l4 16h-8zM42 8h-8l-4 16h8z" fill="#7FB5B5"/><circle cx="32" cy="38" r="15" fill="#EEB868" stroke="#5A4232" stroke-width="2"/><circle cx="32" cy="38" r="10" fill="none" stroke="#C9A98E" stroke-width="1.6"/><path d="M27 41 q5 -9 10 0 M29 35 h6" stroke="#5A4232" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>`,
+  mountain:`<svg viewBox="0 0 64 64"><path d="M4 50 L22 20 L32 32 L42 14 L60 50z" fill="#7FA37F"/><path d="M42 14 L36 25 L40 24 L44 27 L47 22z" fill="#F5EEE4"/><rect x="18" y="38" width="7" height="6" fill="#C9A98E"/><rect x="27" y="40" width="7" height="5" fill="#C9A98E"/><rect x="36" y="38" width="6" height="7" fill="#C9A98E"/><path d="M14 46 h34 M16 43 h30" stroke="#B8946F" stroke-width="1.4"/><path d="M8 18 q6 -4 12 0 q-6 2 -12 0z M46 9 q5 -3 10 0 q-5 2 -10 0z" fill="#F5EEE4" opacity=".9"/></svg>`,
+  flask:`<svg viewBox="0 0 64 64"><path d="M26 8h12M28 8v14L15 48a5 5 0 0 0 4.5 7h25a5 5 0 0 0 4.5-7L36 22V8" fill="#F5EEE4" stroke="#5A4232" stroke-width="2" stroke-linejoin="round"/><path d="M20 40h24l5 9a3.5 3.5 0 0 1-3 5H18a3.5 3.5 0 0 1-3-5z" fill="#7FB5B5"/><circle cx="27" cy="46" r="2" fill="#F5EEE4"/><circle cx="35" cy="49" r="1.5" fill="#F5EEE4"/><text x="32" y="33" font-family="sans-serif" font-size="7" font-weight="700" fill="#5A4232" text-anchor="middle">6.02</text></svg>`,
+  vaccine:`<svg viewBox="0 0 64 64"><g transform="rotate(-40 32 32)"><rect x="24" y="14" width="16" height="30" rx="3" fill="#F5EEE4" stroke="#5A4232" stroke-width="2"/><rect x="26" y="28" width="12" height="14" fill="#7FB5B5"/><path d="M28 20h8M28 24h8" stroke="#C9A98E" stroke-width="1.4"/><rect x="30" y="6" width="4" height="8" fill="#5A4232"/><rect x="25" y="4" width="14" height="3" rx="1.5" fill="#5A4232"/><path d="M32 44v13" stroke="#5A4232" stroke-width="1.6"/></g><circle cx="49" cy="46" r="3" fill="#E8A87C"/><circle cx="54" cy="38" r="2" fill="#E8A87C" opacity=".7"/></svg>`,
+  palette:`<svg viewBox="0 0 64 64"><path d="M32 8C17 8 7 19 7 32s10 24 23 24c4 0 5-3 3-6s0-6 4-6h6c9 0 14-6 14-13C57 18 46 8 32 8z" fill="#F5E6CF" stroke="#5A4232" stroke-width="2"/><circle cx="20" cy="27" r="4" fill="#5B8DBE"/><circle cx="29" cy="18" r="4" fill="#E8A87C"/><circle cx="41" cy="19" r="4" fill="#EEB868"/><circle cx="48" cy="29" r="4" fill="#7FB57F"/><circle cx="20" cy="40" r="4" fill="#D96C6C"/><circle cx="33" cy="36" r="3" fill="#F5EEE4" stroke="#C9A98E"/></svg>`,
   ball:`<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="#FFFDF9" stroke="#5A4232" stroke-width="2"/><path d="M32 20 l7 5 -2.7 8.5h-8.6L25 25z" fill="#2E2A28"/><path d="M32 12 v8 M45 25 l7-3 M19 25 l-7-3 M27 42 l-4 7 M37 42 l4 7" stroke="#5A4232" stroke-width="1.8"/></svg>`,
   eclipse:`<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="17" fill="#EEB868"/><circle cx="32" cy="32" r="17" fill="none" stroke="#F5D9A0" stroke-width="5" opacity=".7"/><circle cx="27" cy="30" r="15" fill="#4A4038"/><circle cx="10" cy="12" r="1.6" fill="#EEB868"/><circle cx="54" cy="16" r="1.4" fill="#EEB868"/><circle cx="52" cy="50" r="1.4" fill="#EEB868"/></svg>`,
   rocket:`<svg viewBox="0 0 64 64"><path d="M32 8 q9 10 9 24 l-4 8h-10l-4-8 q0-14 9-24z" fill="#F5EEE4" stroke="#C9A98E" stroke-width="1.5"/><circle cx="32" cy="26" r="4.5" fill="#7FB5B5"/><path d="M23 32 l-6 10 6-2z M41 32 l6 10-6-2z" fill="#E8A87C"/><path d="M29 40 q3 10 3 14 q0-4 3-14z" fill="#EEB868"/></svg>`,
@@ -13489,6 +14071,22 @@ function rdToday(){ const t=(typeof dailyToday==="function")?dailyToday():new Da
    (never a future-dated preview, even when later weeks are added early) */
 function weekArticle(){ const k=rdToday(); const started=READINGS.filter(r=>rdOrder(r)<=k); const pool=started.length?started:READINGS; return pool.reduce((a,b)=> rdOrder(b)>rdOrder(a)?b:a, pool[0]); }
 function rdById(id){ return READINGS.find(r=>r.id===id) || weekArticle(); }
+/* ---- 每日閱讀 Daily schedule: one reading per day (r.day = "YYYY-MM-DD") + one ⭐ weekly highlight (r.week) ---- */
+const RD_WD = ["一","二","三","四","五","六","日"];
+function rdD(s){ const [y,m,d]=s.split("-").map(Number); return new Date(Date.UTC(y,m-1,d)); }
+function rdShift(s,n){ const d=rdD(s); d.setUTCDate(d.getUTCDate()+n); return d.toISOString().slice(0,10); }
+function rdMonday(s){ return rdShift(s, -((rdD(s).getUTCDay()+6)%7)); }
+function rdTodayStr(){ return (typeof dailyToday==="function") ? dailyToday() : new Date().toISOString().slice(0,10); }
+function rdMD(s){ const d=rdD(s); return `${d.getUTCMonth()+1}/${d.getUTCDate()}`; }
+function rdWdOf(s){ return RD_WD[(rdD(s).getUTCDay()+6)%7]; }
+/* Monday of a weekly highlight, from its label "10/12–10/18" */
+function rdFeatMonday(r){ const m=(r.week||"").match(/(\d+)\/(\d+)/); return m ? rdMonday(`2026-${m[1].padStart(2,"0")}-${m[2].padStart(2,"0")}`) : null; }
+function rdWeeks(){ const w=new Set(); READINGS.forEach(r=>{ if(r.day) w.add(rdMonday(r.day)); const f=rdFeatMonday(r); if(f) w.add(f); }); return [...w].sort(); }
+/* students see a day once it arrives; the teacher can preview ahead */
+function rdOpen(dayStr){ return dayStr <= rdTodayStr() || (typeof isTeacher==="function" && isTeacher()); }
+function rdTodayReading(){ return READINGS.find(r=>r.day===rdTodayStr()) || null; }
+/* sort key for lists: schedule day, else event date, else 0 (evergreen) */
+function rdSortKey(r){ const d=r.day || (/^\d{4}-/.test(r.date||"") ? r.date : ""); return d ? +d.replace(/-/g,"") : 0; }
 /* Reading topic zones (分區). Tabs appear only for categories that have content. */
 const RD_CATS = [
   {key:"news",    emoji:"📰", zh:"每週新聞", en:"Weekly News",    desc:"每週更新的國際重大時事，依事實改寫成三種難度，全班可讀同一主題一起討論。"},
@@ -13597,21 +14195,23 @@ function renderReadGame(id, lvl, keepScroll){
   if(keepScroll) window.scrollTo(0, y);
 }
 
-function renderReadings(cat){
-  const active = rdCatOf(cat) ? cat : null;          // null = 全部 All
+function renderReadings(cat, weekKey){
+  const active = rdCatOf(cat) ? cat : null;          // null = 每日閱讀 (all topics, by day)
   const cur = weekArticle();
-  const all = [...READINGS].sort((a,b)=> rdOrder(b)-rdOrder(a));
+  const all = [...READINGS].sort((a,b)=> rdSortKey(b)-rdSortKey(a) || rdOrder(b)-rdOrder(a));
   const counts = {}; all.forEach(r=> counts[r.cat||"news"]=(counts[r.cat||"news"]||0)+1);
   const list = active ? all.filter(r=> (r.cat||"news")===active) : all;
   const tabs = `<div class="rd-tabs">
-    <button class="rd-tab ${!active?"on":""}" onclick="location.hash='#/reading'">全部 All<span class="rd-tab-n">${all.length}</span></button>
+    <button class="rd-tab ${!active?"on":""}" onclick="location.hash='#/reading'">📅 每日閱讀 Daily<span class="rd-tab-n">${all.length}</span></button>
     ${RD_CATS.filter(c=>counts[c.key]).map(c=>`<button class="rd-tab ${active===c.key?"on":""}" onclick="location.hash='#/reading/topic/${c.key}'">${c.emoji} ${c.zh}<span class="rd-tab-n">${counts[c.key]}</span></button>`).join("")}
   </div>`;
   const cards = list.map(r=>{
     const isNow = r.id===cur.id && (!active || active==="news");
     const cm = rdCatOf(r.cat||"news");
-    const chip = isNow ? '<span class="rd-now-tag">本週選文 This week</span>'
-      : (r.week ? `<span class="rd-week">${r.week}</span>` : `<span class="rd-week rd-week-cat">${cm?cm.emoji+" "+cm.zh:""}</span>`);
+    const chip = isNow ? '<span class="rd-now-tag">⭐ 本週重點 This week</span>'
+      : r.week ? `<span class="rd-week">⭐ ${r.week}</span>`
+      : r.day ? `<span class="rd-week">📅 ${rdMD(r.day)}（${rdWdOf(r.day)}）</span>`
+      : `<span class="rd-week rd-week-cat">${cm?cm.emoji+" "+cm.zh:""}</span>`;
     return `<button class="rd-card ${isNow?"now":""}" onclick="location.hash='#/reading/${r.id}'">
       <div class="rd-card-art">${RD_ART[r.icon]||""}</div>
       <div class="rd-card-body">
@@ -13629,7 +14229,7 @@ function renderReadings(cat){
        <p class="lede">${meta.desc}　每篇皆附 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度與中英對照。</p>`
     : `<div class="eyebrow">News reading · 每週時事閱讀</div>
        <h1 class="display">Read the World<span class="zh-term-lg">讀懂世界</span></h1>
-       <p class="lede">分成「每週新聞、歷史、自然、科學、神話、文化、旅遊、風俗民情」等專區，每篇改寫成 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度。同一主題、三個版本，全班可一起讀再討論。點下方分頁切換主題，或直接點任一篇。</p>
+       <p class="lede"><b>每天一篇</b>，各種主題輪流上場——新聞、歷史、自然、科學、神話、文化、旅遊、風俗民情；每週再加一篇 <b>⭐ 本週重點閱讀</b>，全班一起讀、一起討論。每篇都有 <b>A1–A2 / B1–B2 / C1–C2</b> 三種難度。想看某一類，點下方分頁。</p>
        <p class="rd-sources">📰 <b>資料來源 Sources</b>　本專欄選文改寫自 <span class="rd-src-list">Science、Nature、The New York Times、TIME、The Economist、The Washington Post、Taiwan News、Taipei Times、VOA、NBC</span> 等國際媒體之公開報導，並依主題保留原始出處（如 UN、UNESCO、FAO、NASA）。皆為依事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</p>`;
   const nobelPack = !active ? `<div class="nobel-pack">
       <div class="np-badge">🏅</div>
@@ -13653,11 +14253,53 @@ function renderReadings(cat){
     ${echoPack}
     ${nobelPack}
     <div class="rd-actions"><button class="btn btn-ghost" onclick="rdPrintAll()">🖨 批次列印全部文章（三種難度）</button></div>
-    <div class="rd-grid">${cards}</div>
+    ${active ? `<div class="rd-grid">${cards}</div>` : rdWeekHTML(weekKey)}
     <div class="rd-note">📖 題型參考國中會考與大考：主旨大意、細節理解、字義推敲、推論、語氣與篇章結構。<br>
     ✍️ 文章由 Claude 依據各家媒體報導的<b>事實</b>重新撰寫成分級英文，非原文轉載。</div>
     ${echoModalHTML()}
   </div>`;
+}
+
+/* 📅 one week: ⭐ weekly highlight + Monday–Sunday, one reading per day */
+function rdWeekHTML(weekKey){
+  const weeks = rdWeeks(), today = rdTodayStr(), thisMon = rdMonday(today);
+  let mon = weekKey && /^\d{4}-\d{2}-\d{2}$/.test(weekKey) ? rdMonday(weekKey) : thisMon;
+  if(!weeks.includes(mon)){ const past = weeks.filter(w=>w<=mon); mon = past.length ? past.at(-1) : weeks[0]; }
+  const wi = weeks.indexOf(mon), prev = weeks[wi-1], next = weeks[wi+1], sun = rdShift(mon,6);
+  const feat = READINGS.find(r=>rdFeatMonday(r)===mon);
+  const days = Array.from({length:7},(_,i)=>rdShift(mon,i));
+  const daily = days.map(d=>READINGS.find(r=>r.day===d));
+  const hasDaily = daily.some(Boolean);
+  const label = mon===thisMon ? "本週 This week" : mon<thisMon ? "過去的週次" : "下週預告 Coming up";
+  const nav = `<div class="rdw-nav">
+      ${prev?`<button class="btn btn-ghost" onclick="location.hash='#/reading/week/${prev}'">← 上週</button>`:`<span></span>`}
+      <div class="rdw-title"><b>${rdMD(mon)}（一）– ${rdMD(sun)}（日）</b><small>${label}${mon!==thisMon?` · <a href="#/reading">回到本週</a>`:""}</small></div>
+      ${next?`<button class="btn btn-ghost" onclick="location.hash='#/reading/week/${next}'">下週 →</button>`:`<span></span>`}
+    </div>`;
+  const cm = r => { const c=rdCatOf(r.cat||"news"); return c ? `${c.emoji} ${c.zh}` : ""; };
+  const featHTML = !feat ? "" : (()=>{ const open = rdOpen(mon);
+    return `<button class="rdw-feat ${open?"":"locked"}" ${open?`onclick="location.hash='#/reading/${feat.id}'"`:"disabled"}>
+      <span class="rdw-ribbon">⭐ 本週重點閱讀 Weekly Highlight</span>
+      <div class="rdw-feat-in"><div class="rd-card-art">${RD_ART[feat.icon]||""}</div>
+      <div class="rd-card-body"><span class="rd-week">${feat.week} · ${cm(feat)}</span>
+        <h3>${feat.topic}</h3><div class="rd-card-zh">${feat.zh}</div>
+        <div class="rd-card-meta"><span class="rd-tag">${feat.tag}</span><span class="rd-src">${feat.src}</span></div>
+        ${open?`<div class="rd-card-lv">全班一起讀・附討論題　A1–A2 · B1–B2 · C1–C2</div>`:`<div class="rdw-lock">🔒 ${rdMD(mon)} 開放</div>`}</div></div></button>`; })();
+  const rows = !hasDaily
+    ? `<p class="rdw-old">這一週還是舊制：每週一篇重點閱讀，沒有每日文章。</p>`
+    : days.map((d,i)=>{ const r = daily[i], isToday = d===today, open = rdOpen(d);
+      const when = `<div class="rdw-date ${isToday?"today":""}"><b>${rdMD(d)}</b><span>週${RD_WD[i]}</span>${isToday?`<i>今天</i>`:""}</div>`;
+      if(!r) return `<div class="rdw-row empty">${when}<div class="rdw-card ghost">📝 準備中 Coming soon</div></div>`;
+      return `<div class="rdw-row ${isToday?"today":""}">${when}
+        <button class="rd-card rdw-card ${open?"":"locked"}" ${open?`onclick="location.hash='#/reading/${r.id}'"`:"disabled"}>
+          <div class="rd-card-art">${RD_ART[r.icon]||""}</div>
+          <div class="rd-card-body"><span class="rd-week rd-week-cat">${cm(r)}</span>
+            <h3>${r.topic}</h3><div class="rd-card-zh">${r.zh}</div>
+            ${!open?`<div class="rdw-lock">🔒 ${rdMD(d)}（${RD_WD[i]}）開放</div>`:d>today?`<div class="rdw-lock">👀 老師預覽・學生 ${rdMD(d)} 開放</div>`:""}</div></button></div>`;
+    }).join("");
+  return `<section class="rdw">${nav}${featHTML}
+    <h2 class="rdw-h">📅 每日閱讀 Daily Reading<small>每天一篇・主題混合</small></h2>
+    <div class="rdw-days">${rows}</div></section>`;
 }
 
 function echoModalHTML(){
@@ -13783,7 +14425,7 @@ function rdReset(){ RD_ANS = {}; RD_SHOW = false; renderReading(rdCurId); }
 function rdToggleGloss(){ RD_GLOSS = !RD_GLOSS; renderReading(rdCurId, true); }
 /* Pre-rendered Kokoro neural voice, keyed by article id → level → mp3 path.
    Generated by tools/gen_audio.mjs; empty until the first run. */
-/*RD_AUDIO_START*/const RD_AUDIO={"nobel-chemistry-2026":{"a":"audio/nobel-chemistry-2026-a.mp3","b":"audio/nobel-chemistry-2026-b.mp3","c":"audio/nobel-chemistry-2026-c.mp3"},"nobel-physics-2026":{"a":"audio/nobel-physics-2026-a.mp3","b":"audio/nobel-physics-2026-b.mp3","c":"audio/nobel-physics-2026-c.mp3"},"mars-ai-drive":{"a":"audio/mars-ai-drive-a.mp3","b":"audio/mars-ai-drive-b.mp3","c":"audio/mars-ai-drive-c.mp3"},"mother-language-day-2026":{"a":"audio/mother-language-day-2026-a.mp3","b":"audio/mother-language-day-2026-b.mp3","c":"audio/mother-language-day-2026-c.mp3"},"nobel-medicine-2026":{"a":"audio/nobel-medicine-2026-a.mp3","b":"audio/nobel-medicine-2026-b.mp3","c":"audio/nobel-medicine-2026-c.mp3"},"berlin-wall":{"a":"audio/berlin-wall-a.mp3","b":"audio/berlin-wall-b.mp3","c":"audio/berlin-wall-c.mp3"},"change":{"a":"audio/change-a.mp3","b":"audio/change-b.mp3","c":"audio/change-c.mp3"},"norse-gods":{"a":"audio/norse-gods-a.mp3","b":"audio/norse-gods-b.mp3","c":"audio/norse-gods-c.mp3"},"iceland":{"a":"audio/iceland-a.mp3","b":"audio/iceland-b.mp3","c":"audio/iceland-c.mp3"},"rome":{"a":"audio/rome-a.mp3","b":"audio/rome-b.mp3","c":"audio/rome-c.mp3"},"tomatina":{"a":"audio/tomatina-a.mp3","b":"audio/tomatina-b.mp3","c":"audio/tomatina-c.mp3"},"day-of-dead":{"a":"audio/day-of-dead-a.mp3","b":"audio/day-of-dead-b.mp3","c":"audio/day-of-dead-c.mp3"},"pompeii":{"a":"audio/pompeii-a.mp3","b":"audio/pompeii-b.mp3","c":"audio/pompeii-c.mp3"},"icarus":{"a":"audio/icarus-a.mp3","b":"audio/icarus-b.mp3","c":"audio/icarus-c.mp3"},"kyoto":{"a":"audio/kyoto-a.mp3","b":"audio/kyoto-b.mp3","c":"audio/kyoto-c.mp3"},"un-day-2026":{"a":"audio/un-day-2026-a.mp3","b":"audio/un-day-2026-b.mp3","c":"audio/un-day-2026-c.mp3"},"halloween-2026":{"a":"audio/halloween-2026-a.mp3","b":"audio/halloween-2026-b.mp3","c":"audio/halloween-2026-c.mp3"},"animal-day-2026":{"a":"audio/animal-day-2026-a.mp3","b":"audio/animal-day-2026-b.mp3","c":"audio/animal-day-2026-c.mp3"},"teachers-day-2026":{"a":"audio/teachers-day-2026-a.mp3","b":"audio/teachers-day-2026-b.mp3","c":"audio/teachers-day-2026-c.mp3"},"food-day-2026":{"a":"audio/food-day-2026-a.mp3","b":"audio/food-day-2026-b.mp3","c":"audio/food-day-2026-c.mp3"},"water-week-2026":{"a":"audio/water-week-2026-a.mp3","b":"audio/water-week-2026-b.mp3","c":"audio/water-week-2026-c.mp3"},"charity-day-2026":{"a":"audio/charity-day-2026-a.mp3","b":"audio/charity-day-2026-b.mp3","c":"audio/charity-day-2026-c.mp3"},"midautumn-2026":{"a":"audio/midautumn-2026-a.mp3","b":"audio/midautumn-2026-b.mp3","c":"audio/midautumn-2026-c.mp3"},"literacy-day-2026":{"a":"audio/literacy-day-2026-a.mp3","b":"audio/literacy-day-2026-b.mp3","c":"audio/literacy-day-2026-c.mp3"},"worldcup-final":{"a":"audio/worldcup-final-a.mp3","b":"audio/worldcup-final-b.mp3","c":"audio/worldcup-final-c.mp3"},"eclipse-2026":{"a":"audio/eclipse-2026-a.mp3","b":"audio/eclipse-2026-b.mp3","c":"audio/eclipse-2026-c.mp3"},"spacex-ipo":{"a":"audio/spacex-ipo-a.mp3","b":"audio/spacex-ipo-b.mp3","c":"audio/spacex-ipo-c.mp3"},"eala-first-title":{"a":"audio/eala-first-title-a.mp3","b":"audio/eala-first-title-b.mp3","c":"audio/eala-first-title-c.mp3"},"norway-new-king":{"a":"audio/norway-new-king-a.mp3","b":"audio/norway-new-king-b.mp3","c":"audio/norway-new-king-c.mp3"},"basketball-wwc-2026":{"a":"audio/basketball-wwc-2026-a.mp3","b":"audio/basketball-wwc-2026-b.mp3","c":"audio/basketball-wwc-2026-c.mp3"},"europe-heatwave-2026":{"a":"audio/europe-heatwave-2026-a.mp3","b":"audio/europe-heatwave-2026-b.mp3","c":"audio/europe-heatwave-2026-c.mp3"}};/*RD_AUDIO_END*/
+/*RD_AUDIO_START*/const RD_AUDIO={"sloth-day-2026":{"a":"audio/sloth-day-2026-a.mp3","b":"audio/sloth-day-2026-b.mp3","c":"audio/sloth-day-2026-c.mp3"},"alfred-nobel":{"a":"audio/alfred-nobel-a.mp3","b":"audio/alfred-nobel-b.mp3","c":"audio/alfred-nobel-c.mp3"},"machu-picchu":{"a":"audio/machu-picchu-a.mp3","b":"audio/machu-picchu-b.mp3","c":"audio/machu-picchu-c.mp3"},"mole-day":{"a":"audio/mole-day-a.mp3","b":"audio/mole-day-b.mp3","c":"audio/mole-day-c.mp3"},"polio-day-2026":{"a":"audio/polio-day-2026-a.mp3","b":"audio/polio-day-2026-b.mp3","c":"audio/polio-day-2026-c.mp3"},"picasso":{"a":"audio/picasso-a.mp3","b":"audio/picasso-b.mp3","c":"audio/picasso-c.mp3"},"nobel-literature-2026":{"a":"audio/nobel-literature-2026-a.mp3","b":"audio/nobel-literature-2026-b.mp3","c":"audio/nobel-literature-2026-c.mp3"},"nobel-peace-2026":{"a":"audio/nobel-peace-2026-a.mp3","b":"audio/nobel-peace-2026-b.mp3","c":"audio/nobel-peace-2026-c.mp3"},"nobel-economics-2026":{"a":"audio/nobel-economics-2026-a.mp3","b":"audio/nobel-economics-2026-b.mp3","c":"audio/nobel-economics-2026-c.mp3"},"nobel-chemistry-2026":{"a":"audio/nobel-chemistry-2026-a.mp3","b":"audio/nobel-chemistry-2026-b.mp3","c":"audio/nobel-chemistry-2026-c.mp3"},"nobel-physics-2026":{"a":"audio/nobel-physics-2026-a.mp3","b":"audio/nobel-physics-2026-b.mp3","c":"audio/nobel-physics-2026-c.mp3"},"mars-ai-drive":{"a":"audio/mars-ai-drive-a.mp3","b":"audio/mars-ai-drive-b.mp3","c":"audio/mars-ai-drive-c.mp3"},"mother-language-day-2026":{"a":"audio/mother-language-day-2026-a.mp3","b":"audio/mother-language-day-2026-b.mp3","c":"audio/mother-language-day-2026-c.mp3"},"nobel-medicine-2026":{"a":"audio/nobel-medicine-2026-a.mp3","b":"audio/nobel-medicine-2026-b.mp3","c":"audio/nobel-medicine-2026-c.mp3"},"berlin-wall":{"a":"audio/berlin-wall-a.mp3","b":"audio/berlin-wall-b.mp3","c":"audio/berlin-wall-c.mp3"},"change":{"a":"audio/change-a.mp3","b":"audio/change-b.mp3","c":"audio/change-c.mp3"},"norse-gods":{"a":"audio/norse-gods-a.mp3","b":"audio/norse-gods-b.mp3","c":"audio/norse-gods-c.mp3"},"iceland":{"a":"audio/iceland-a.mp3","b":"audio/iceland-b.mp3","c":"audio/iceland-c.mp3"},"rome":{"a":"audio/rome-a.mp3","b":"audio/rome-b.mp3","c":"audio/rome-c.mp3"},"tomatina":{"a":"audio/tomatina-a.mp3","b":"audio/tomatina-b.mp3","c":"audio/tomatina-c.mp3"},"day-of-dead":{"a":"audio/day-of-dead-a.mp3","b":"audio/day-of-dead-b.mp3","c":"audio/day-of-dead-c.mp3"},"pompeii":{"a":"audio/pompeii-a.mp3","b":"audio/pompeii-b.mp3","c":"audio/pompeii-c.mp3"},"icarus":{"a":"audio/icarus-a.mp3","b":"audio/icarus-b.mp3","c":"audio/icarus-c.mp3"},"kyoto":{"a":"audio/kyoto-a.mp3","b":"audio/kyoto-b.mp3","c":"audio/kyoto-c.mp3"},"un-day-2026":{"a":"audio/un-day-2026-a.mp3","b":"audio/un-day-2026-b.mp3","c":"audio/un-day-2026-c.mp3"},"halloween-2026":{"a":"audio/halloween-2026-a.mp3","b":"audio/halloween-2026-b.mp3","c":"audio/halloween-2026-c.mp3"},"animal-day-2026":{"a":"audio/animal-day-2026-a.mp3","b":"audio/animal-day-2026-b.mp3","c":"audio/animal-day-2026-c.mp3"},"teachers-day-2026":{"a":"audio/teachers-day-2026-a.mp3","b":"audio/teachers-day-2026-b.mp3","c":"audio/teachers-day-2026-c.mp3"},"food-day-2026":{"a":"audio/food-day-2026-a.mp3","b":"audio/food-day-2026-b.mp3","c":"audio/food-day-2026-c.mp3"},"water-week-2026":{"a":"audio/water-week-2026-a.mp3","b":"audio/water-week-2026-b.mp3","c":"audio/water-week-2026-c.mp3"},"charity-day-2026":{"a":"audio/charity-day-2026-a.mp3","b":"audio/charity-day-2026-b.mp3","c":"audio/charity-day-2026-c.mp3"},"midautumn-2026":{"a":"audio/midautumn-2026-a.mp3","b":"audio/midautumn-2026-b.mp3","c":"audio/midautumn-2026-c.mp3"},"literacy-day-2026":{"a":"audio/literacy-day-2026-a.mp3","b":"audio/literacy-day-2026-b.mp3","c":"audio/literacy-day-2026-c.mp3"},"worldcup-final":{"a":"audio/worldcup-final-a.mp3","b":"audio/worldcup-final-b.mp3","c":"audio/worldcup-final-c.mp3"},"eclipse-2026":{"a":"audio/eclipse-2026-a.mp3","b":"audio/eclipse-2026-b.mp3","c":"audio/eclipse-2026-c.mp3"},"spacex-ipo":{"a":"audio/spacex-ipo-a.mp3","b":"audio/spacex-ipo-b.mp3","c":"audio/spacex-ipo-c.mp3"},"eala-first-title":{"a":"audio/eala-first-title-a.mp3","b":"audio/eala-first-title-b.mp3","c":"audio/eala-first-title-c.mp3"},"norway-new-king":{"a":"audio/norway-new-king-a.mp3","b":"audio/norway-new-king-b.mp3","c":"audio/norway-new-king-c.mp3"},"basketball-wwc-2026":{"a":"audio/basketball-wwc-2026-a.mp3","b":"audio/basketball-wwc-2026-b.mp3","c":"audio/basketball-wwc-2026-c.mp3"},"europe-heatwave-2026":{"a":"audio/europe-heatwave-2026-a.mp3","b":"audio/europe-heatwave-2026-b.mp3","c":"audio/europe-heatwave-2026-c.mp3"}};/*RD_AUDIO_END*/
 let rdAudioEl = null;
 function rdStopAudio(){ if(rdAudioEl){ try{ rdAudioEl.pause(); }catch(e){} rdAudioEl.onended=null; try{ rdAudioEl.removeAttribute("src"); rdAudioEl.load(); }catch(e){} rdAudioEl=null; } }
 function rdSpeak(id, li){
