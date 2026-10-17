@@ -174,6 +174,23 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   .isl-meow{opacity:1;animation:none}
 }
 /* ---- My Cat Island ---- */
+
+/* Detailed illustrated island residents, scoped to the island page. */
+.island-view .island-welcome{display:flex;align-items:center;gap:24px;background:linear-gradient(120deg,#fff7e9,#f3e6d1);padding:28px;border:1px solid #ead9bd;border-radius:24px}
+.island-welcome>div:first-child{flex:1}.island-welcome .display{font-size:clamp(26px,4vw,42px)}
+.island-welcome-art{display:flex;align-items:flex-end;flex:none}.island-welcome-art .island-cat-art{width:120px}
+.island-cat-art{display:block;flex:none;width:132px;max-width:100%;aspect-ratio:var(--cat-ratio,1);background-repeat:no-repeat;border-radius:18px}
+.island-view .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px}
+.island-view .cat-tile{width:100%;padding:16px 10px 13px;gap:7px;border-radius:22px;background:#fffdf8;box-shadow:0 5px 14px #82562b08}
+.island-view .cat-tile.unlocked{border-color:#dfc498}.island-view .cat-tile:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.island-view .cat-tile.locked{background:#f8f2e9}.island-view .cat-tile.locked .island-cat-art{filter:saturate(.25);opacity:.4}
+.island-view .cat-tile .mystery{top:54px;font-size:28px;color:#927957;text-shadow:0 2px 8px white}
+.island-view .ct-breed{font-size:14px;line-height:1.4;min-height:0}.island-view .ct-english{font:400 11px/1.4 var(--sans);color:var(--muted)}
+.island-view .cat-tile.locked .ct-breed{color:#8b7964;letter-spacing:0}.island-view .ct-n{font-size:11px}
+.island-view .isl-sec{margin-bottom:30px}.island-view .isl-sec-h{font-size:14px;letter-spacing:.02em;padding-bottom:12px;border-bottom:1px solid #e5d4b6;gap:12px}
+.island-view .cat-tile.love::after{font-size:20px;top:8px;right:12px}
+@media(max-width:600px){.island-view .island-welcome{padding:22px;flex-direction:column;gap:8px}.island-welcome-art .island-cat-art{width:100px}.island-view .isl-board{padding:18px 12px}.island-view .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.island-view .cat-tile{padding:12px 7px}.island-view .island-cat-art{width:120px}.island-view .ct-breed{font-size:12px}}
+
 .isl-board{background:linear-gradient(180deg,#FBEED3,#F5E2BD);border:1.5px solid #EFDDBC;border-radius:24px;padding:22px 24px 26px;margin:20px 0}
 .isl-sec{margin-bottom:18px}
 .isl-sec:last-child{margin-bottom:0}
@@ -392,6 +409,22 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .nw-note{margin-top:30px;background:var(--paper);border:1px solid var(--line);border-left:3px solid #9A781C;border-radius:0 12px 12px 0;padding:16px 18px;font-size:13.5px;line-height:1.6;color:var(--ink)}
 .nw-note b{color:#9A781C}
 .nw-src{margin-top:18px;font-size:12px;color:var(--muted)}
+.nw-tip{color:#6b531a;background:#F7F0DC;border-radius:7px;padding:2px 7px}
+.nw-tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.nw-table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
+.nw-table thead th{text-align:left;font:600 11px var(--sans);letter-spacing:.05em;color:var(--muted);padding:12px 15px;border-bottom:1px solid var(--line);background:#F7F0DC}
+.nw-table td{padding:11px 15px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;color:var(--ink)}
+.nw-table tbody tr:last-child td{border-bottom:0}
+.nw-d{color:#9A781C;font:700 12px var(--sans)}
+.nw-dd{font-size:11.5px;color:var(--muted)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .nw-tip{background:#2a2412;color:#e7cf87}
+  :root:not([data-theme="light"]) .nw-table thead th{background:#2a2412}
+  :root:not([data-theme="light"]) .nw-vocab span{background:#2a2412;color:#e7cf87;border-color:#4a411f}
+  :root:not([data-theme="light"]) .nw-go{background:#2a2412;color:#e7cf87;border-color:#4a411f}}
+:root[data-theme="dark"] .nw-tip{background:#2a2412;color:#e7cf87}
+:root[data-theme="dark"] .nw-table thead th{background:#2a2412}
+:root[data-theme="dark"] .nw-vocab span{background:#2a2412;color:#e7cf87;border-color:#4a411f}
+:root[data-theme="dark"] .nw-go{background:#2a2412;color:#e7cf87;border-color:#4a411f}
 @media(max-width:720px){.nw-grid{grid-template-columns:1fr}}
 .rd-card{display:flex;gap:12px;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
 .rd-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--teal-line)}
@@ -2093,7 +2126,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="curriculum-loader.js?v=3"></script>
 <script src="lesson-notes.js?v=4"></script>
 <script src="homework.js?v=2"></script>
-<script src="offline-content.js?v=8"></script>
+<script src="offline-content.js?v=9"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=5"></script>
 <script src="vocab/books.js?v=6"></script>
@@ -2644,6 +2677,7 @@ async function route(){
   else if(h[0]==="reading" && h[1]==="topic") renderReadings(h[2]);
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
+  else if(h[0]==="nobel" && h[1]==="teacher") renderNobelWeek(true);
   else if(h[0]==="nobel") renderNobelWeek();
   else if(h[0]==="story" && (h[1]==="picture-books" || h[1]==="picturebook" || h[1]==="picture-book")) renderStoryList("picturebook");
   else if(h[0]==="story" && (h[1]==="chapter-books" || h[1]==="chapterbook" || h[1]==="chapter-book")) renderStoryList("chapterbook");
@@ -13326,6 +13360,12 @@ function dexShowPrize(c){
   dialog.addEventListener('close',()=>{dialog.remove();document.getElementById('dexDraw')?.focus();},{once:true});
   app.appendChild(dialog);dialog.showModal();
 }
+// 34 breed portraits followed by the eight feeding companions; legacy progress IDs stay unchanged.
+function islandCatArt(index,label){
+ const n=Number.isInteger(index)&&index>=0&&index<42?index:0;
+ const sheet=n<36?Math.floor(n/12)+1:4,slot=n<36?n%12:n-36,cols=sheet===4?3:4,rows=sheet===4?2:3;
+ return `<span class="island-cat-art" role="img" aria-label="${label}" style="--cat-ratio:${(3/2)/cols*rows};background-image:url('art/island/cats-${sheet}.png');background-size:${cols*100}% ${rows*100}%;background-position:${slot%cols/(cols-1)*100}% ${Math.floor(slot/cols)/(rows-1)*100}%"></span>`;
+}
 function renderIsland(){
   const done = store.data.completed, streak = store.streakCount();
   const total = DATA.lessons.length, met = DATA.lessons.filter(l=>done[l.id]).length;
@@ -13337,24 +13377,25 @@ function renderIsland(){
       const b = BREEDS[gi % BREEDS.length];
       const un = !!done[l.id];
       return `<button class="cat-tile ${un?"unlocked":"locked"}${un&&love?" love":""}" title="${un? b.en+"｜"+b.zh+" · " : ""}${l.title}｜${l.zh}${un?"":"（完成這一課就能認識牠）"}" onclick="location.hash='#/lesson/${l.id}'">
-        ${un? "" : '<span class="mystery">?</span>'}<img class="ct-img" src="${b.img}" alt="" loading="lazy">
-        <span class="ct-breed">${un? b.en : "???"}</span><span class="ct-n">${l.n}</span></button>`;
+        ${un? "" : '<span class="mystery">?</span>'}${islandCatArt(gi % BREEDS.length,b.zh)}
+        <span class="ct-breed">${b.zh}</span><span class="ct-english">${b.en}</span><span class="ct-n">${l.n} · ${un?"✓ 已認識":"完成課程解鎖"}</span></button>`;
     }).join("");
     return `<div class="isl-sec"><div class="isl-sec-h"><span>${lv.name} · ${lv.zh}</span><span>${d}/${ls.length}</span></div><div class="cat-grid">${tiles}</div></div>`;
   }).join("");
   const fed = Array.isArray(store.data.fedCats) ? store.data.fedCats : [];
   const fedTiles = fed.map(kind=>{ const c = FED_CATS.find(x=>x.kind===kind) || {en:"Cat", zh:"貓咪"};
-    return `<button class="cat-tile unlocked" title="點一下和 ${c.zh} 說說話 · tap to chat" onclick="catMeow('${kind}')">${catSVG(52,kind)}<span class="ct-breed">${c.en}</span><span class="ct-n">${c.zh}</span></button>`;
+    return `<button class="cat-tile unlocked" title="點一下和 ${c.zh} 說說話 · tap to chat" onclick="catMeow('${kind}')">${islandCatArt(34+Math.max(0,FED_CATS.findIndex(x=>x.kind===kind)),c.zh)}<span class="ct-breed">${c.zh} · ${c.en}</span><span class="ct-n">點我聊聊天 ♡</span></button>`;
   }).join("");
   const fedSec = `<div class="isl-sec"><div class="isl-sec-h"><span>🍰 餵養來的貓咪 · Fed cats</span><span>${fed.length}</span></div>`
     + (fed.length ? `<div class="cat-grid">${fedTiles}</div>`
         : `<p style="font:400 13px var(--sans);color:var(--muted);margin:2px 0 0">在「進階單元」花罐罐 🥫 餵養貓咪，就會有新貓咪來到島上住下來 🐾</p>`)
     + `</div>`;
-  app.innerHTML = `<div class="view">
-    <div class="eyebrow">My cat island · 我的貓島</div>
-    <h1 class="display">You've met ${met} of ${total} cats${met===total?" 🎉":""}</h1>
+  app.innerHTML = `<div class="view island-view">
+    <div class="island-welcome"><div><div class="eyebrow">My cat island · 我的貓島</div>
+    <h1 class="display">和 ${met} 位貓咪朋友相遇了${met===total?" 🎉":""}</h1>
     <p class="lede">每完成一課（練習達 70 分），就會有一隻貓咪願意親近你。${love? `連續學習 ${streak} 天 — 貓咪們正在對你撒嬌！❤` : "連續學習 3 天以上，貓咪們會開始對你撒嬌喔。"}</p>
-    <div class="isl-stats"><span class="isl-chip">◆ ${store.data.xp} XP</span><span class="isl-chip">🔥 ${streak}-day streak</span><span class="isl-chip">📒 ${Object.keys(store.data.mistakes||{}).length} to review</span></div>
+    </div><div class="island-welcome-art" aria-hidden="true">${islandCatArt(4,"布偶貓")}${islandCatArt(34,"橘子")}</div></div>
+    <div class="isl-stats"><span class="isl-chip">🐾 ${met} / ${total} 課程貓咪</span><span class="isl-chip">◆ ${store.data.xp} XP</span><span class="isl-chip">🔥 ${streak}-day streak</span><span class="isl-chip">📒 ${Object.keys(store.data.mistakes||{}).length} to review</span></div>
     <div class="isl-board">${fedSec}${secs}</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:8px">
       <button class="btn btn-primary" onclick="location.hash='#/cats'">🐱 貓咪搜集庫 Cat Dex（${Object.keys(store.data.catDex||{}).length}/${CAT_DEX.length}）</button>
@@ -13595,7 +13636,7 @@ function renderReadings(cat){
       <div class="np-body"><b>2026 諾貝爾週教學包</b><span>六大獎的分級閱讀清單——重點、目標單字、討論題一次看。</span></div>
       <div class="np-links">
         <a class="np-btn" href="#/nobel">🧑‍🎓 學生版</a>
-        ${isTeacher() ? `<a class="np-btn np-teacher" href="https://claude.ai/artifact/KDQgzortxCwyHL6cxBtg1D" target="_blank" rel="noopener">👩‍🏫 老師版</a>` : ""}
+        ${isTeacher() ? `<a class="np-btn np-teacher" href="#/nobel/teacher">👩‍🏫 老師版</a>` : ""}
       </div>
     </div>` : "";
   const echoPack = `<div class="echo-pack">
@@ -13660,26 +13701,38 @@ function closeEchoModal(){
 const NOBEL_WEEK = [
   {medal:"🧠", prize:"醫學獎", en:"Medicine", who:"Karl Deisseroth · Peter Hegemann · Georg Nagel", cat:"🩺 健康", c:"#2E7D74",
    zh:"用光控制大腦：光遺傳學（optogenetics）。", big:"Switching individual brain cells on and off with light.",
-   vocab:["brain","cell","signal","restore"], think:"如果能用光開關腦細胞，你覺得興奮，還是擔心？", id:"nobel-medicine-2026"},
+   vocab:["brain","cell","signal","restore"], think:"如果能用光開關腦細胞，你覺得興奮，還是擔心？", id:"nobel-medicine-2026",
+   day:"10/5 一", tip:"先玩「開燈／關燈＝開神經／關神經」的比喻切入。", how:"A/B/C 分組・比喻開場"},
   {medal:"❄️", prize:"物理獎", en:"Physics", who:"Francis Halzen", cat:"🔬 科學", c:"#3A6EA5",
    zh:"在南極冰層下捕捉來自宇宙的「幽靈粒子」微中子（IceCube）。", big:"Catching high-energy cosmic neutrinos deep in Antarctic ice.",
-   vocab:["particle","detector","universe","faint"], think:"每秒有數兆微中子穿過你的身體——知道後有什麼感覺？", id:"nobel-physics-2026"},
+   vocab:["particle","detector","universe","faint"], think:"每秒有數兆微中子穿過你的身體——知道後有什麼感覺？", id:"nobel-physics-2026",
+   day:"10/6 二", tip:"用「幽靈粒子穿過身體、穿過地球」的畫面開場最抓注意力。", how:"全班同主題・畫面開場"},
   {medal:"🧪", prize:"化學獎", en:"Chemistry", who:"Henri Kagan · Kenso Soai", cat:"🔬 科學", c:"#3A6EA5",
    zh:"分子的「左手與右手」：做出指定手性的分子（不對稱合成）。", big:"Building molecules of a chosen handedness — key to safer medicines.",
-   vocab:["molecule","mirror","medicine","catalyst"], think:"同一種分子能治病、鏡像卻可能有害——為什麼「精準」這麼重要？", id:"nobel-chemistry-2026"},
+   vocab:["molecule","mirror","medicine","catalyst"], think:"同一種分子能治病、鏡像卻可能有害——為什麼「精準」這麼重要？", id:"nobel-chemistry-2026",
+   day:"10/7 三", tip:"讓學生舉起雙手比「左右手是鏡像、疊不起來」，立刻懂手性。", how:"動手比一比・手勢示範"},
   {medal:"📜", prize:"文學獎", en:"Literature", who:"Anne Carson", cat:"🎭 文化", c:"#8A5A8F",
    zh:"把古希臘經典用大膽、現代的形式重新創作的加拿大詩人。", big:"A poet who renews the Greek classics in bold, modern forms.",
-   vocab:["poet","ancient","myth","translate"], think:"有沒有一個古老故事、歌或傳說，你想用現代方式重說？", id:"nobel-literature-2026"},
+   vocab:["poet","ancient","myth","translate"], think:"有沒有一個古老故事、歌或傳說，你想用現代方式重說？", id:"nobel-literature-2026",
+   day:"10/8 四", tip:"選一段學生熟的神話，現場示範「舊故事、新說法」。", how:"創作延伸・改寫神話"},
   {medal:"🕊️", prize:"和平獎", en:"Peace", who:"Navi Pillay", cat:"🌐 國際", c:"#4E8A52",
    zh:"南非人權法官，一生為人權與國際法奮鬥。", big:"A lifelong champion of human rights and international law.",
-   vocab:["judge","rights","protect","dignity"], think:"Pillay 說教育是她的「出路」。學習可以怎樣改變一個人的一生？", id:"nobel-peace-2026"},
+   vocab:["judge","rights","protect","dignity"], think:"Pillay 說教育是她的「出路」。學習可以怎樣改變一個人的一生？", id:"nobel-peace-2026",
+   day:"10/9 五", tip:"連結校園裡的公平，討論「保護最弱者就是保護每個人」。", how:"價值討論・連結校園"},
   {medal:"💹", prize:"經濟獎", en:"Economics", who:"Robert Hall · Michael Woodford", cat:"💹 財經", c:"#A9741B",
    zh:"個人的小選擇如何加總成整個經濟——中央銀行怎麼穩住物價與就業。", big:"How everyday choices add up, and how central banks keep things steady.",
-   vocab:["economy","price","steady","inflation"], think:"物價漲很快的時候，你家的日常生活有什麼改變？", id:"nobel-economics-2026"}
+   vocab:["economy","price","steady","inflation"], think:"物價漲很快的時候，你家的日常生活有什麼改變？", id:"nobel-economics-2026",
+   day:"10/12 一", tip:"從「最近什麼變貴了？」切入，最貼近學生生活。", how:"生活連結・什麼變貴了"}
 ];
-function renderNobelWeek(){
-  const steps = [["1","看標題猜題","先看圖和標題，猜今天在講什麼。"],["2","選難度來讀","A1–A2 / B1–B2 / C1–C2，挑適合你的。"],["3","記目標單字","打開單字表，念一念、造個句。"],["4","做 5 題測驗","看懂了嗎？馬上測試自己。"],["5","想討論題","用下面的問題，試著用英文說說看。"]]
-    .map(s=>`<div class="nw-step"><span class="nw-n">${s[0]}</span><b>${s[1]}</b><p>${s[2]}</p></div>`).join("");
+function renderNobelWeek(teacher){
+  if(teacher && !isTeacher()){
+    app.innerHTML = `<div class="view"><div class="card" style="max-width:520px;margin:30px auto;text-align:center;padding:26px">這是老師專用的備課頁。<br><span style="color:var(--muted)">Teacher-only. 學生版請看 <a href="#/nobel">2026 諾貝爾週</a>。</span></div></div>`;
+    window.scrollTo(0,0); return;
+  }
+  const steps = teacher
+    ? [["1","看圖猜題","先看標題與圖示，猜今天的主題。"],["2","讀分級文章","依程度選 A / B / C，或分組讀不同版本。"],["3","目標單字","打開單字表，朗讀、造句。"],["4","5 題測驗","主旨／細節／字義／推論即時作答。"],["5","討論題","用卡片上的討論鉤子開口說。"]]
+    : [["1","看標題猜題","先看圖和標題，猜今天在講什麼。"],["2","選難度來讀","A1–A2 / B1–B2 / C1–C2，挑適合你的。"],["3","記目標單字","打開單字表，念一念、造個句。"],["4","做 5 題測驗","看懂了嗎？馬上測試自己。"],["5","想討論題","用下面的問題，試著用英文說說看。"]];
+  const stepsHTML = steps.map(s=>`<div class="nw-step"><span class="nw-n">${s[0]}</span><b>${s[1]}</b><p>${s[2]}</p></div>`).join("");
   const cards = NOBEL_WEEK.map(p=>`<div class="nw-card" style="--cat:${p.c}">
       <div class="nw-top"><div class="nw-medal">${p.medal}</div>
         <div class="nw-head"><div class="nw-prize">${p.prize} <span>${p.en}</span></div>
@@ -13687,20 +13740,38 @@ function renderNobelWeek(){
       <p class="nw-big"><span class="z">${p.zh}</span><span class="e">${p.big}</span></p>
       <div class="nw-meta">
         <div class="nw-row"><span class="nw-k">單字</span><span class="nw-vocab">${p.vocab.map(w=>`<span>${w}</span>`).join("")}</span></div>
-        <div class="nw-row"><span class="nw-k">想一想</span><span class="nw-v">${p.think}</span></div>
+        <div class="nw-row"><span class="nw-k">${teacher?"討論":"想一想"}</span><span class="nw-v">${p.think}</span></div>
+        ${teacher?`<div class="nw-row"><span class="nw-k">提點</span><span class="nw-v nw-tip">${p.tip}</span></div>`:""}
       </div>
-      <a class="nw-go" href="#/reading/${p.id}">開始閱讀 →</a>
+      <a class="nw-go" href="#/reading/${p.id}">${teacher?"開啟這篇閱讀 →":"開始閱讀 →"}</a>
     </div>`).join("");
+  const planRows = NOBEL_WEEK.map((p,i)=>`<tr><td><b class="nw-d">Day ${i+1}</b><br><span class="nw-dd">${p.day}</span></td><td><b>${p.prize}</b> ${p.en}</td><td>${p.zh.replace(/[（(][^）)]*[）)]/g,"").replace(/。$/,"")}</td><td>${p.how}</td></tr>`).join("");
+  const teacherPlan = teacher ? `
+    <div class="nw-sec">六天課程安排 <span>對應 2026 公布日期，可自行調整</span></div>
+    <div class="nw-tablewrap"><table class="nw-table">
+      <thead><tr><th>Day</th><th>獎項 Prize</th><th>一句話重點</th><th>建議帶法</th></tr></thead>
+      <tbody>${planRows}</tbody>
+    </table></div>` : "";
+  const note = teacher
+    ? `<div class="nw-note"><b>給老師的小提醒</b>
+        <ul style="margin:8px 0 0;padding-left:18px;line-height:1.7">
+          <li>每篇都有<b>三種難度</b>（A/B/C）：同一主題、三個版本，很適合<b>分組讀、再合班討論</b>。</li>
+          <li>每篇附單字表、5 題測驗、討論題，還串接單字小遊戲，多數已有真人（Kokoro）語音。</li>
+          <li>在「每週閱讀」可依主題找到它們：🩺 健康、🔬 科學、🎭 文化、🌐 國際、💹 財經。</li>
+          <li>學生版（給學生看、無教學提點）在這裡：<a href="#/nobel">2026 諾貝爾週</a>。</li>
+        </ul></div>`
+    : `<div class="nw-note">💡 <b>三種難度任你挑</b>：先讀看得懂的那一版，再挑戰難一點的——同一個故事，會越讀越順。讀完一篇，試著用三個今天學到的單字，講一句話給同學或家人聽。</div>`;
   app.innerHTML = `<div class="view nobel-week">
-    <div class="crumb"><a href="#/home">Home</a> › <a href="#/reading">每週閱讀</a> › 2026 諾貝爾週</div>
-    <div class="eyebrow" style="color:#9A781C">Nobel Week · 2026</div>
-    <h1 class="display">2026 諾貝爾週<span class="zh-term-lg" style="color:#9A781C">Read the World</span></h1>
-    <p class="lede">今年六個諾貝爾獎，每一個都是一篇英文閱讀。先讀你看得懂的難度，再挑戰難一點的。每篇都有<b>單字、小測驗和討論題</b>——一邊讀新聞，一邊練英文。</p>
-    <div class="nw-sec">怎麼讀 <span>每篇大約 15 分鐘</span></div>
-    <div class="nw-steps">${steps}</div>
-    <div class="nw-sec">六大獎・一次看懂 <span>點「開始閱讀」直接開啟該篇</span></div>
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/reading">每週閱讀</a> › 2026 諾貝爾週${teacher?"（備課）":""}</div>
+    <div class="eyebrow" style="color:#9A781C">${teacher?"Teaching Pack · 備課包":"Nobel Week · 2026"}</div>
+    <h1 class="display">2026 諾貝爾週<span class="zh-term-lg" style="color:#9A781C">${teacher?"Teaching Pack":"Read the World"}</span></h1>
+    <p class="lede">${teacher?"六大諾貝爾獎，每個都做成一篇三難度的英文閱讀。這頁幫你一眼掌握得主、重點、目標單字、討論題與教學提點，還附六天課程安排。":"今年六個諾貝爾獎，每一個都是一篇英文閱讀。先讀你看得懂的難度，再挑戰難一點的。每篇都有<b>單字、小測驗和討論題</b>——一邊讀新聞，一邊練英文。"}</p>
+    <div class="nw-sec">${teacher?"每篇這樣帶":"怎麼讀"} <span>${teacher?"約 15 分鐘・同一主題三個版本可分組":"每篇大約 15 分鐘"}</span></div>
+    <div class="nw-steps">${stepsHTML}</div>
+    <div class="nw-sec">六大獎・一次看懂 <span>點卡片開啟該篇閱讀</span></div>
     <div class="nw-grid">${cards}</div>
-    <div class="nw-note">💡 <b>三種難度任你挑</b>：先讀看得懂的那一版，再挑戰難一點的——同一個故事，會越讀越順。讀完一篇，試著用三個今天學到的單字，講一句話給同學或家人聽。</div>
+    ${teacherPlan}
+    ${note}
     <p class="nw-src">內容依據 NobelPrize.org 等公開資料，重新撰寫為分級英文教學稿（非原文轉載）。</p>
   </div>`;
   window.scrollTo(0,0);
