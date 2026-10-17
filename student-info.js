@@ -1,6 +1,7 @@
 /* =====================================================
    學生基本資料（家教用）：年級、學校、班級、生日、家長、聯絡方式、上課時間、教材、目標、備註
-   需要 supabase/migrations/20261017090000_student_info.sql（只有老師能讀寫）
+   需要 supabase/migrations/20261017090000_student_info.sql＋20261017150000_student_info_prebind.sql（只有老師能讀寫）
+   還沒註冊的學生可以先建檔（user_id 為空），學生用登記的 email 註冊時資料庫會自動綁定
    本檔在主程式之前載入：呼叫時才用 CLOUD／SB／TDATA
    ===================================================== */
 const STUDENT_GRADES = ["幼兒園","小一","小二","小三","小四","小五","小六","國一","國二","國三","高一","高二","高三","大學","成人","其他"];
@@ -14,14 +15,32 @@ const SIAPI = {
     const { data, error } = await SB.from("student_info").select("*");
     if(error) throw error; return data||[];
   },
-  async save(userId, f){
-    const row = { user_id:userId, updated_at:new Date().toISOString() };
+  /* rec：既有檔案（有 id）／{user_id} 已註冊但還沒建檔／{} 新建「未綁帳號」檔案 */
+  async save(rec, f){
+    const row = { updated_at:new Date().toISOString() };
     SI_FIELDS.forEach(([k])=>{ const v=(f[k]==null?"":String(f[k])).trim(); row[k] = v || null; });
-    const { error } = await SB.from("student_info").upsert(row, { onConflict:"user_id" });
-    return error ? {err:error.message} : {ok:true, row};
+    if(!rec.user_id){ row.name = (f.name||"").trim() || null; row.email = (f.email||"").trim().toLowerCase() || null; }
+    const q = rec.id ? SB.from("student_info").update(row).eq("id", rec.id)
+                     : SB.from("student_info").insert({ ...row, user_id:rec.user_id||null });
+    const { data, error } = await q.select().single();
+    return error ? {err:error.message} : {ok:true, row:data};
+  },
+  async bind(id, userId){
+    const { data, error } = await SB.from("student_info").update({ user_id:userId, updated_at:new Date().toISOString() }).eq("id", id).select().single();
+    return error ? {err:/student_info_user_id_key|duplicate/i.test(error.message)?"這個帳號已經有一份資料了，請先刪除或解除那一份。":error.message} : {ok:true, row:data};
+  },
+  async unbind(id, name, email){   // 解除時一併補上姓名（資料庫規定沒帳號就要有名字）
+    const { data, error } = await SB.from("student_info").update({ user_id:null, name, email:email||null, updated_at:new Date().toISOString() }).eq("id", id).select().single();
+    return error ? {err:error.message} : {ok:true, row:data};
+  },
+  async remove(id){
+    const { error } = await SB.from("student_info").delete().eq("id", id);
+    return error ? {err:error.message} : {ok:true};
   }
 };
-function siOf(uid){ return ((typeof TDATA!=="undefined" && TDATA && TDATA.info) || []).find(x=>x.user_id===uid) || {}; }
+function siAll(){ return (typeof TDATA!=="undefined" && TDATA && TDATA.info) || []; }
+function siOf(uid){ return siAll().find(x=>x.user_id===uid) || {}; }
+function siUnbound(){ return siAll().filter(x=>!x.user_id); }
 function siGradeRank(g){ const i=STUDENT_GRADES.indexOf(g); return i<0 ? 99 : i; }
 function siGradeTag(uid){ const g=siOf(uid).grade; return g ? `<span class="si-grade">${esc(g)}</span>` : ""; }
 function siAge(b){
@@ -29,40 +48,73 @@ function siAge(b){
   const n=new Date(); let a=n.getFullYear()-d.getFullYear(); if(n<new Date(n.getFullYear(), d.getMonth(), d.getDate())) a--;
   return a>=0 && a<120 ? `${a} 歲` : "";
 }
+function siSetRow(row, removeId){
+  TDATA.info = siAll().filter(x=>x.id!==(removeId||row&&row.id));
+  if(row) TDATA.info.push(row);
+}
 
 /* ---------- 老師：學生分頁 ---------- */
 let SI_FILTER = "all";   // "all" | 年級 | "none"
-let SI_EDIT = null;      // 正在編輯的學生 id
+let SI_EDIT = null;      // {kind:"acct", uid} 已註冊學生 ｜ {kind:"rec", id} 未綁帳號的檔案 ｜ {kind:"new"}
+/* 名單＝已註冊學生＋還沒綁帳號的檔案 */
+function siRoster(students){
+  return [...students.map(p=>({kind:"acct", key:"u:"+p.id, uid:p.id, name:p.name||p.email||"", email:p.email||"", s:siOf(p.id), p})),
+          ...siUnbound().map(r=>({kind:"rec", key:"r:"+r.id, id:r.id, name:r.name||"", email:r.email||"", s:r}))];
+}
 function tcStudentsBody(students, progById){
-  const info = TDATA.info || [];
-  const grades = [...new Set(info.map(x=>x.grade).filter(Boolean))].sort((a,b)=>siGradeRank(a)-siGradeRank(b));
-  const noneN = students.filter(p=>!siOf(p.id).grade).length;
+  const roster = siRoster(students);
+  const grades = [...new Set(roster.map(x=>x.s.grade).filter(Boolean))].sort((a,b)=>siGradeRank(a)-siGradeRank(b));
+  const noneN = roster.filter(x=>!x.s.grade).length, unN = roster.filter(x=>x.kind==="rec").length;
   const chip = (k,label,n)=>`<button class="si-chip ${SI_FILTER===k?"on":""}" data-g="${esc(k)}" onclick="SI_FILTER=this.dataset.g;paintTeacher()">${esc(label)} <b>${n}</b></button>`;
-  const filters = `<div class="si-filters">${chip("all","全部",students.length)}${grades.map(g=>chip(g,g,students.filter(p=>siOf(p.id).grade===g).length)).join("")}${noneN&&grades.length?chip("none","未設年級",noneN):""}
+  const filters = `<div class="si-filters">${chip("all","全部",roster.length)}${grades.map(g=>chip(g,g,roster.filter(x=>x.s.grade===g).length)).join("")}${noneN&&grades.length?chip("none","未設年級",noneN):""}${unN?chip("unbound","未綁帳號",unN):""}
+    <button class="btn btn-navy si-add" onclick="siNew()">➕ 新增學生（先建檔）</button>
     <button class="btn btn-ghost si-export" onclick="siExport()">⬇️ 匯出名冊 CSV</button></div>`;
-  const shown = students.filter(p=>{ const g=siOf(p.id).grade; return SI_FILTER==="all" || (SI_FILTER==="none" ? !g : g===SI_FILTER); })
-    .sort((a,b)=> siGradeRank(siOf(a.id).grade)-siGradeRank(siOf(b.id).grade) || String(a.name||"").localeCompare(String(b.name||""),"zh-Hant"));
-  const rows = shown.length ? shown.map(p=>{
-    const g = progById[p.id] || {}, s = siOf(p.id);
-    const last = g.last_active ? new Date(g.last_active).toLocaleDateString() : "—";
-    return `<tr class="${SI_EDIT===p.id?"si-editing":""}"><td>${esc(p.name||"")}<div class="tc-sub">${esc(p.email||"")}</div></td>
+  const shown = roster.filter(x=>{ const g=x.s.grade; return SI_FILTER==="all" || (SI_FILTER==="unbound" ? x.kind==="rec" : SI_FILTER==="none" ? !g : g===SI_FILTER); })
+    .sort((a,b)=> siGradeRank(a.s.grade)-siGradeRank(b.s.grade) || a.name.localeCompare(b.name,"zh-Hant"));
+  const editing = x => SI_EDIT && ((SI_EDIT.kind==="acct" && x.uid===SI_EDIT.uid) || (SI_EDIT.kind==="rec" && x.id===SI_EDIT.id));
+  const rows = shown.length ? shown.map(x=>{
+    const s = x.s, g = x.kind==="acct" ? (progById[x.uid]||{}) : null;
+    const last = g && g.last_active ? new Date(g.last_active).toLocaleDateString() : "—";
+    const who = x.kind==="acct" ? `${esc(x.name)}<div class="tc-sub">${esc(x.email)}</div>`
+      : `${esc(x.name)} <span class="si-unbound">未綁帳號</span><div class="tc-sub">${x.email?`註冊用 ${esc(x.email)} 會自動綁定`:"還沒填 email，註冊後請手動綁定"}</div>`;
+    const btn = x.kind==="acct" ? `siOpen('acct','${x.uid}')` : `siOpen('rec','${x.id}')`;
+    return `<tr class="${editing(x)?"si-editing":""} ${x.kind==="rec"?"si-rec":""}"><td>${who}</td>
       <td>${s.grade?esc(s.grade):`<span class="tc-sub">—</span>`}</td>
       <td>${esc(s.school||"")}${s.class_name?`<div class="tc-sub">${esc(s.class_name)} 班</div>`:""}</td>
       <td>${esc(s.schedule||"")}</td>
-      <td class="num">${g.completed_count||0}</td><td class="num">${g.xp||0}</td><td>${last}</td>
-      <td><button class="btn btn-ghost" onclick="siOpen('${p.id}')">✏️ 資料</button></td></tr>`;
-  }).join("") : `<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:20px">${students.length?"這個年級沒有學生。":"還沒有學生註冊。No students yet."}</td></tr>`;
+      <td class="num">${g?(g.completed_count||0):"—"}</td><td class="num">${g?(g.xp||0):"—"}</td><td>${last}</td>
+      <td><button class="btn btn-ghost" onclick="${btn}">${x.kind==="rec"?"✏️ 資料／綁定":"✏️ 資料"}</button></td></tr>`;
+  }).join("") : `<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:20px">${roster.length?"這個條件下沒有學生。":"還沒有學生。可以先按「➕ 新增學生（先建檔）」，等學生註冊再綁定帳號。"}</td></tr>`;
   const warn = TDATA.infoErr ? `<div class="card" style="padding:12px 16px;margin-bottom:12px;color:#B23B2E">學生資料載入失敗：${esc(TDATA.infoErr)}</div>` : "";
-  return warn + (SI_EDIT ? siEditor(students.find(p=>p.id===SI_EDIT)) : "") + filters +
+  return warn + (SI_EDIT ? siEditor(students) : "") + filters +
     `<div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>年級</th><th>學校</th><th>上課時間</th><th class="num">完成單元</th><th class="num">XP</th><th>最近登入</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
-    <p class="tc-sub" style="margin-top:8px">🔒 這些資料只有老師看得到，學生（包括本人）都看不到。</p>`;
+    <p class="tc-sub" style="margin-top:8px">🔒 這些資料只有老師看得到，學生（包括本人）都看不到。還沒註冊的學生可以先建檔；學生用你登記的 email 註冊時會自動綁定，也可以手動綁定。</p>`;
 }
-function siEditor(p){
-  if(!p) return "";
-  const s = siOf(p.id), v = k => esc(s[k]||"");
-  const txt = (k,label,ph,max) => `<label class="si-f"><span>${label}</span><input id="si-${k}" maxlength="${max}" value="${v(k)}" placeholder="${esc(ph)}"></label>`;
+function siEditor(students){
+  const E = SI_EDIT; let s = {}, title = "", sub = "", bound = true;
+  if(E.kind==="acct"){ const p = students.find(x=>x.id===E.uid); if(!p) return ""; s = siOf(p.id); title = p.name||p.email||"學生"; sub = p.email||""; }
+  else if(E.kind==="rec"){ s = siAll().find(x=>x.id===E.id); if(!s) return ""; title = s.name||"未命名"; bound = false; }
+  else { title = "新增學生（先建檔）"; bound = false; }
+  const v = k => esc(s[k]||"");
+  const txt = (k,label,ph,max,type) => `<label class="si-f"><span>${label}</span><input id="si-${k}" ${type?`type="${type}"`:""} maxlength="${max}" value="${v(k)}" placeholder="${esc(ph)}"></label>`;
+  /* 綁定：只列還沒有資料的已註冊學生；有 email 相符的排前面 */
+  let bindBox = "";
+  if(E.kind==="rec"){
+    const free = students.filter(p=>!siOf(p.id).id);
+    const em = (s.email||"").toLowerCase();
+    free.sort((a,b)=> (String(b.email||"").toLowerCase()===em) - (String(a.email||"").toLowerCase()===em));
+    bindBox = `<div class="si-bind"><b>🔗 綁定已註冊的帳號</b>
+      ${free.length ? `<select id="si-bind-user"><option value="">選擇學生帳號…</option>${free.map(p=>`<option value="${p.id}">${esc(p.name||"")}（${esc(p.email||"")}）${em&&String(p.email||"").toLowerCase()===em?" ← email 相符":""}</option>`).join("")}</select>
+        <button class="btn btn-navy" onclick="siBind()">綁定</button>` : `<span class="tc-sub">目前沒有「已註冊但還沒建檔」的學生帳號。學生註冊後再來綁定，或請他用上面的 email 註冊會自動綁上。</span>`}</div>`;
+  }
+  const unbindBtn = E.kind==="acct" && s.id ? `<button class="btn btn-ghost" onclick="siUnbind()">解除綁定</button>` : "";
+  const delBtn = s.id ? `<button class="btn btn-ghost si-del" onclick="siDelete()">🗑 刪除這份資料</button>` : "";
   return `<div class="card si-editor">
-    <div class="si-ed-h"><h3>✏️ ${esc(p.name||p.email||"學生")} 的資料</h3><span class="tc-sub">${esc(p.email||"")}</span></div>
+    <div class="si-ed-h"><h3>${E.kind==="new"?"➕":"✏️"} ${esc(title)}${E.kind==="new"?"":" 的資料"}</h3>${sub?`<span class="tc-sub">${esc(sub)}</span>`:""}${!bound&&E.kind!=="new"?`<span class="si-unbound">未綁帳號</span>`:""}</div>
+    ${bound ? "" : `<div class="si-grid">
+      ${txt("name","學生姓名（必填）","例：王小明",40)}
+      ${txt("email","註冊用 Email（選填，用來自動綁定）","例：ming@example.com",120,"email")}
+    </div>`}
     <div class="si-grid">
       <label class="si-f"><span>年級</span><select id="si-grade"><option value="">（未設定）</option>${STUDENT_GRADES.map(g=>`<option ${s.grade===g?"selected":""}>${g}</option>`).join("")}</select></label>
       ${txt("school","學校","例：臺北市立大安國中",80)}
@@ -76,26 +128,61 @@ function siEditor(p){
     </div>
     <label class="si-f"><span>學習目標</span><textarea id="si-goals" maxlength="500" placeholder="例：會考英文 A++、英檢中級">${v("goals")}</textarea></label>
     <label class="si-f"><span>備註</span><textarea id="si-notes" maxlength="2000" placeholder="個性、弱點、家長叮嚀、請假紀錄…">${v("notes")}</textarea></label>
+    ${bindBox}
     <div class="hw-row"><button class="btn btn-navy" id="si-save" onclick="siSave()">儲存 Save</button><button class="btn btn-ghost" onclick="SI_EDIT=null;paintTeacher()">關閉</button>
-      ${s.updated_at?`<span class="tc-sub">上次更新 ${fmtDate(s.updated_at)}</span>`:""}</div>
+      ${unbindBtn}${delBtn}${s.updated_at?`<span class="tc-sub">上次更新 ${fmtDate(s.updated_at)}</span>`:""}</div>
   </div>`;
 }
-function siOpen(uid){ SI_EDIT = uid; paintTeacher(); const e=document.querySelector(".si-editor"); if(e) e.scrollIntoView({behavior:"smooth", block:"start"}); }
+function siOpen(kind, id){ SI_EDIT = kind==="acct" ? {kind, uid:id} : {kind, id}; paintTeacher(); const e=document.querySelector(".si-editor"); if(e) e.scrollIntoView({behavior:"smooth", block:"start"}); }
+function siNew(){ SI_EDIT = {kind:"new"}; paintTeacher(); const e=document.getElementById("si-name"); if(e){ e.scrollIntoView({behavior:"smooth", block:"center"}); e.focus(); } }
+function siCurrentRec(){
+  const E = SI_EDIT; if(!E) return null;
+  if(E.kind==="acct"){ const s = siOf(E.uid); return s.id ? s : {user_id:E.uid}; }
+  if(E.kind==="rec") return siAll().find(x=>x.id===E.id) || null;
+  return {};
+}
 async function siSave(){
-  const f = {}; SI_FIELDS.forEach(([k])=>{ const el=document.getElementById("si-"+k); f[k] = el ? el.value : ""; });
+  const rec = siCurrentRec(); if(!rec) return;
+  const f = {}; [...SI_FIELDS.map(([k])=>k), "name", "email"].forEach(k=>{ const el=document.getElementById("si-"+k); f[k] = el ? el.value : ""; });
+  if(!rec.user_id && !f.name.trim()){ toast("請填學生姓名。"); return; }
+  if(!rec.user_id && f.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim())){ toast("Email 格式看起來不對。"); return; }
   const btn=document.getElementById("si-save"); btn.disabled=true; btn.textContent="儲存中…";
-  const r = await SIAPI.save(SI_EDIT, f);
+  const r = await SIAPI.save(rec, f);
   if(r.err){ btn.disabled=false; btn.textContent="儲存 Save"; toast("儲存失敗："+r.err); return; }
-  TDATA.info = (TDATA.info||[]).filter(x=>x.user_id!==SI_EDIT).concat([r.row]);
-  toast("學生資料已儲存 🐾"); SI_EDIT = null; paintTeacher();
+  siSetRow(r.row);
+  toast(SI_EDIT.kind==="new" ? "已建檔，學生註冊後可以綁定帳號 🐾" : "學生資料已儲存 🐾"); SI_EDIT = null; paintTeacher();
+}
+async function siBind(){
+  const rec = siCurrentRec(); const sel = document.getElementById("si-bind-user");
+  if(!rec || !rec.id || !sel || !sel.value){ toast("請先選擇要綁定的學生帳號。"); return; }
+  const p = TDATA.profiles.find(x=>x.id===sel.value);
+  if(!confirm(`把「${rec.name||"這份資料"}」綁定到帳號「${p?(p.name||p.email):""}」？\n（目前表單上還沒儲存的修改請先按儲存）`)) return;
+  const r = await SIAPI.bind(rec.id, sel.value);
+  if(r.err){ toast("綁定失敗："+r.err); return; }
+  siSetRow(r.row); toast("已綁定帳號 🔗"); SI_EDIT = {kind:"acct", uid:sel.value}; paintTeacher();
+}
+async function siUnbind(){
+  const rec = siCurrentRec(); if(!rec || !rec.id) return;
+  if(!confirm("解除綁定後，這份資料會變成「未綁帳號」，之後可以再綁到其他帳號。確定？")) return;
+  const p = TDATA.profiles.find(x=>x.id===rec.user_id);
+  const r = await SIAPI.unbind(rec.id, rec.name || (p&&(p.name||p.email)) || "未命名", rec.email || (p&&p.email) || "");
+  if(r.err){ toast("解除失敗："+r.err); return; }
+  siSetRow(r.row); toast("已解除綁定"); SI_EDIT = {kind:"rec", id:r.row.id}; paintTeacher();
+}
+async function siDelete(){
+  const rec = siCurrentRec(); if(!rec || !rec.id) return;
+  if(!confirm(`確定刪除「${rec.name||"這位學生"}」的基本資料？（不會刪除學生帳號或學習紀錄）`)) return;
+  const r = await SIAPI.remove(rec.id);
+  if(r.err){ toast("刪除失敗："+r.err); return; }
+  siSetRow(null, rec.id); toast("已刪除資料"); SI_EDIT = null; paintTeacher();
 }
 /* 匯出名冊（Excel 開得起來的 UTF-8 CSV） */
 function siExport(){
-  const students = TDATA.profiles.filter(p=>p.role!=="teacher")
-    .sort((a,b)=> siGradeRank(siOf(a.id).grade)-siGradeRank(siOf(b.id).grade) || String(a.name||"").localeCompare(String(b.name||""),"zh-Hant"));
+  const students = TDATA.profiles.filter(p=>p.role!=="teacher");
+  const roster = siRoster(students).sort((a,b)=> siGradeRank(a.s.grade)-siGradeRank(b.s.grade) || a.name.localeCompare(b.name,"zh-Hant"));
   const cell = x => { let s = x==null ? "" : String(x); if(/^[=+\-@]/.test(s)) s = "'"+s; return /[",\n\r]/.test(s) ? `"${s.replace(/"/g,'""')}"` : s; };
-  const head = ["姓名","Email", ...SI_FIELDS.map(([,l])=>l)];
-  const lines = [head, ...students.map(p=>{ const s=siOf(p.id); return [p.name||"", p.email||"", ...SI_FIELDS.map(([k])=>s[k]||"")]; })]
+  const head = ["姓名","Email","帳號", ...SI_FIELDS.map(([,l])=>l)];
+  const lines = [head, ...roster.map(x=>[x.name, x.email, x.kind==="acct"?"已註冊":"未綁帳號", ...SI_FIELDS.map(([k])=>x.s[k]||"")])]
     .map(r=>r.map(cell).join(","));
   const blob = new Blob(["﻿"+lines.join("\r\n")], {type:"text/csv;charset=utf-8"});
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
