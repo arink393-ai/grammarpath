@@ -155,6 +155,31 @@ function hwRecAbortAll(){
 }
 window.addEventListener("hashchange", ()=>{ if(!/^#\/homework/.test(location.hash)) hwRecAbortAll(); });
 
+/* 等第制成績（百分制區間僅供參考） */
+const GRADE_SCALE = [
+  ["A+","4.3","90–100"],["A","4.0","85–89"],["A-","3.7","80–84"],
+  ["B+","3.3","77–79"],["B","3.0","73–76"],["B-","2.7","70–72"],
+  ["C+","2.3","67–69"],["C","2.0","63–66"],["C-","1.7","60–62"],
+  ["F","0","59 以下"],["X","0","0"]
+];
+function gradeSelect(id, val){
+  const known = GRADE_SCALE.some(g=>g[0]===val);
+  return `<select class="tc-grade" id="${id}" title="等第成績">
+    <option value="">— 等第 —</option>
+    ${GRADE_SCALE.map(([g,pt,rg])=>`<option value="${g}" ${g===val?"selected":""}>${g}（${pt}｜${rg}）</option>`).join("")}
+    ${val && !known ? `<option value="${esc(val)}" selected>${esc(val)}（舊的評分）</option>` : ""}
+  </select>`;
+}
+/* 學生看到的成績：等第＋績分 */
+function gradeShow(val){
+  const g = GRADE_SCALE.find(x=>x[0]===val);
+  return g ? `<span class="hw-gradechip">${esc(g[0])}</span> <span class="tc-sub">績分 ${g[1]}｜百分制 ${g[2]}</span>` : esc(val||"—");
+}
+function gradeLegend(){
+  return `<details class="tc-gradeleg"><summary>📏 等第對照表</summary><table class="tc-table"><thead><tr><th>等第</th><th class="num">績分</th><th>百分制區間（參考）</th></tr></thead><tbody>
+    ${GRADE_SCALE.map(([g,pt,rg])=>`<tr><td><b>${g}</b></td><td class="num">${pt}</td><td>${rg}</td></tr>`).join("")}</tbody></table>
+    <div class="tc-sub" style="margin-top:6px">百分制區間僅供參考，可依等第定義自行判斷。</div></details>`;
+}
 const isAudioPath = p => /\.(webm|m4a|mp4|mp3|ogg|wav|aac)$/i.test(p||"");
 function hwSourceLabel(s){
   const src = s.source || {};
@@ -196,7 +221,7 @@ async function renderHomework(){
     const sDone = scope.filter(it=>scopeDone(it,me)).length;
     const scopeBox = scope.length ? `<div class="hw-scope"><div class="hw-scope-h">📚 作業範圍（完成 ${sDone} / ${scope.length}）</div><div class="hw-chips">${scopeChips(scope, me, true)}</div>
       <div class="tc-sub">點進去完成：文法課要做完練習、寓言要做讀後練習，其他打開讀過就算。全部完成後，沒有要寫的內容也可以直接按「繳交」。</div></div>` : "";
-    const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${esc(s.grade||"—")}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
+    const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${gradeShow(s.grade)}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
     const prev = s ? `<div class="hw-prev">你上次繳交：${s.text?`「${esc(s.text.slice(0,80))}${s.text.length>80?"…":""}」 `:""}${s.file_url?(isAudioPath(s.file_url)?'🎤 錄音 ':'📎 檔案 '):""}${s.link?'🔗 連結':""}</div>` : "";
     return `<div class="card hw-card ${!s&&st.state==='overdue'?'hw-card-over':''}">
       <div class="hw-head"><h3>${esc(a.title)}</h3><span class="hw-pills">${forMe}${duePill}${statusPill}</span></div>
@@ -220,7 +245,7 @@ async function renderHomework(){
       <div><b>${hwSourceLabel(s)}</b> <span class="tc-sub">${fmtDate(s.submitted_at)}</span>
         ${s.status==="returned"?`<span class="hw-pill done">已批改</span>`:`<span class="hw-pill sent">已交</span>`}</div>
       ${s.text && s.kind!=="readaloud"?`<div class="hw-prev">「${esc(s.text.slice(0,100))}」</div>`:""}
-      ${s.status==="returned"?`<div class="hw-grade"><b>老師評分：</b>${esc(s.grade||"—")}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>`:""}
+      ${s.status==="returned"?`<div class="hw-grade"><b>老師評分：</b>${gradeShow(s.grade)}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>`:""}
     </li>`).join("")}</ul>` : `<p class="tc-sub">還沒有直接交給老師的錄音。</p>`;
 
   app.innerHTML = `<div class="view">
@@ -319,6 +344,14 @@ function tcEdit(id){
     students:[...(a.target_students||[])], groups:[...(a.target_groups||[])], scope:(a.scope||[]).map(x=>({t:x.t,id:x.id}))};
   paintTeacher(); const f=document.querySelector(".tc-newhw"); if(f) f.scrollIntoView({behavior:"smooth", block:"start"});
 }
+/* 依年級一次勾選／取消（全都勾了就取消） */
+function tcPickGrade(g){
+  tcFormSync();
+  const ids = TDATA.profiles.filter(p=>p.role!=="teacher" && siOf(p.id).grade===g).map(p=>p.id);
+  const all = ids.every(id=>TC_FORM.students.includes(id));
+  TC_FORM.students = all ? TC_FORM.students.filter(id=>!ids.includes(id)) : [...new Set([...TC_FORM.students, ...ids])];
+  paintTeacher();
+}
 function tcFormCancel(){ TC_FORM=tcFormBlank(); paintTeacher(); }
 function tcScopePicker(){
   const sel=(t,id)=>TC_FORM.scope.some(x=>x.t===t && x.id===id);
@@ -344,7 +377,8 @@ function tcHomeworkForm(students){
         ${groups.length ? groups.map(g=>`<label class="tc-pick"><input type="checkbox" ${F.groups.includes(g.id)?"checked":""} onchange="tcFormToggle('groups','${g.id}')"> ${esc(g.name)} <span class="tc-sub">${(TDATA.members||[]).filter(m=>m.group_id===g.id).length} 人</span></label>`).join("")
           : `<span class="tc-sub">還沒有分組。到「👥 分組」分頁建立。</span>`}</div>
       <div class="tc-pick-col"><div class="tc-pick-uh">個別學生（已選 <b id="na-cnt-students">${F.students.length}</b>）</div>
-        ${students.length ? students.map(p=>`<label class="tc-pick"><input type="checkbox" ${F.students.includes(p.id)?"checked":""} onchange="tcFormToggle('students','${p.id}')"> ${esc(p.name||p.email)}</label>`).join("") : `<span class="tc-sub">還沒有學生。</span>`}</div>
+        ${typeof siGradeButtons==="function"?siGradeButtons(students,"tcPickGrade"):""}
+        ${students.length ? students.map(p=>`<label class="tc-pick"><input type="checkbox" ${F.students.includes(p.id)?"checked":""} onchange="tcFormToggle('students','${p.id}')"> ${esc(p.name||p.email)}${typeof siGradeTag==="function"?siGradeTag(p.id):""}</label>`).join("") : `<span class="tc-sub">還沒有學生。</span>`}</div>
     </div>` : "";
   return `<div class="card tc-newhw">
     <h3>${F.id?"✏️ 編輯作業 Edit assignment":"➕ 出新作業 New assignment"}</h3>
@@ -383,7 +417,7 @@ function tcSubCell(s){
 function tcGradeCells(s){
   if(!s) return `<td></td><td></td><td></td><td></td>`;
   return `<td>${fmtDate(s.submitted_at)}</td>
-    <td><input class="tc-grade" id="gr-${s.id}" value="${esc(s.grade||"")}" placeholder="分數/評語"></td>
+    <td>${gradeSelect("gr-"+s.id, s.grade||"")}</td>
     <td><input class="tc-fb" id="fb-${s.id}" value="${esc(s.feedback||"")}" placeholder="回饋"></td>
     <td><button class="btn btn-ghost tc-savebtn" onclick="tcGrade('${s.id}')">${s.status==="returned"?"✓ 已批":"批改"}</button></td>`;
 }
@@ -420,7 +454,7 @@ function tcHomeworkBody(students){
     ${free.length ? free.map(s=>`<tr><td>${esc(tName(s.user_id))}</td><td>${hwSourceLabel(s)}</td><td>${tcSubCell(s)}</td>${tcGradeCells(s)}</tr>`).join("")
       : `<tr><td colspan="7" style="color:var(--muted);padding:12px">還沒有學生直接交錄音。</td></tr>`}</tbody></table></div></div>`;
   const groupsWarn = TDATA.groupsErr ? `<div class="card" style="padding:12px 16px;margin-bottom:12px;color:#B23B2E">分組資料載入失敗：${esc(TDATA.groupsErr)}</div>` : "";
-  return groupsWarn + tcHomeworkForm(students) + freeBox + list;
+  return groupsWarn + tcHomeworkForm(students) + gradeLegend() + freeBox + list;
 }
 
 /* ---------- 老師：分組分頁 ---------- */
@@ -433,7 +467,8 @@ function tcGroupsBody(students){
       <h3>${G.id?"✏️ 編輯分組":"➕ 新增分組"}</h3>
       <input id="ng-name" maxlength="60" placeholder="組名，例：A 組、進階班、補救組" value="${esc(G.name)}">
       <div class="tc-pick-uh">勾選組員（已選 <b id="ng-cnt">${G.members.length}</b>）</div>
-      <div class="tc-pick-body tc-pick-grid">${students.map(p=>`<label class="tc-pick"><input type="checkbox" ${G.members.includes(p.id)?"checked":""} onchange="tcGroupToggle('${p.id}')"> ${esc(p.name||p.email)}</label>`).join("") || `<span class="tc-sub">還沒有學生。</span>`}</div>
+      ${typeof siGradeButtons==="function"?siGradeButtons(students,"tcGroupPickGrade"):""}
+      <div class="tc-pick-body tc-pick-grid">${students.map(p=>`<label class="tc-pick"><input type="checkbox" ${G.members.includes(p.id)?"checked":""} onchange="tcGroupToggle('${p.id}')"> ${esc(p.name||p.email)}${typeof siGradeTag==="function"?siGradeTag(p.id):""}</label>`).join("") || `<span class="tc-sub">還沒有學生。</span>`}</div>
       <div class="hw-row"><button class="btn btn-navy" onclick="tcGroupSave()">儲存 Save</button><button class="btn btn-ghost" onclick="TC_GROUP=null;paintTeacher()">取消</button></div>
     </div>` : `<button class="btn btn-navy" style="margin-bottom:14px" onclick="TC_GROUP={id:null,name:'',members:[]};paintTeacher()">➕ 新增分組</button>`;
   const list = groups.length ? groups.map(g=>{
@@ -450,6 +485,13 @@ function tcGroupToggle(uid){
   const nm=document.getElementById("ng-name"); if(nm) TC_GROUP.name=nm.value;
   const a=TC_GROUP.members, i=a.indexOf(uid); if(i>=0) a.splice(i,1); else a.push(uid);
   const c=document.getElementById("ng-cnt"); if(c) c.textContent=a.length;
+}
+function tcGroupPickGrade(g){
+  const nm=document.getElementById("ng-name"); if(nm) TC_GROUP.name=nm.value;
+  const ids = TDATA.profiles.filter(p=>p.role!=="teacher" && siOf(p.id).grade===g).map(p=>p.id);
+  const all = ids.every(id=>TC_GROUP.members.includes(id));
+  TC_GROUP.members = all ? TC_GROUP.members.filter(id=>!ids.includes(id)) : [...new Set([...TC_GROUP.members, ...ids])];
+  paintTeacher();
 }
 function tcGroupEdit(id){
   const g=(TDATA.groups||[]).find(x=>x.id===id); if(!g) return;

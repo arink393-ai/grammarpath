@@ -47,3 +47,31 @@ a.hw-chip:hover{border-color:var(--sb-lapis,#2C5C86);color:var(--sb-lapis,#2C5C8
   .tc-target-pick{grid-template-columns:1fr}
   .tc-asgn-act{width:100%;justify-content:flex-end}
 }
+
+/* 學生基本資料（student-info.js） */
+.si-grade{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:#EEF3F8;color:#2C5C86;font:600 11.5px var(--sans);vertical-align:middle}
+.si-filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 12px}
+.si-chip{border:1px solid var(--line,#E5DCC9);background:#fff;border-radius:999px;padding:5px 12px;font:600 13px var(--sans);color:var(--ink);cursor:pointer}
+.si-chip b{color:var(--muted);font-weight:600;margin-left:2px}
+.si-chip.on{background:var(--sb-lapis,#2C5C86);border-color:var(--sb-lapis,#2C5C86);color:#fff}
+.si-chip.on b{color:#DCE6F0}
+.si-export{margin-left:auto}
+.si-quick{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:2px 0 6px}
+.si-quick .si-chip{padding:3px 10px;font-size:12px}
+.si-editor{padding:18px 20px;margin-bottom:16px;display:flex;flex-direction:column;gap:12px;border-color:#C9D7E6}
+.si-ed-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.si-ed-h h3{margin:0}
+.si-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px 14px}
+.si-f{display:flex;flex-direction:column;gap:4px;font:600 12.5px var(--sans);color:var(--muted)}
+.si-f input,.si-f select,.si-f textarea{border:1px solid var(--line,#E5DCC9);border-radius:10px;padding:8px 11px;font:400 14px var(--sans);color:var(--ink);background:#fff;box-sizing:border-box;width:100%}
+.si-f textarea{min-height:60px;resize:vertical}
+.si-f em{font-style:normal;font-weight:400}
+.tc-table tr.si-editing td{background:#EEF3F8}
+@media (max-width:640px){ .si-export{margin-left:0} }
+
+/* 等第制成績 */
+select.tc-grade{width:150px;background:#fff}
+.hw-gradechip{display:inline-block;min-width:28px;text-align:center;padding:1px 8px;border-radius:8px;background:#2C5C86;color:#fff;font:700 14px var(--sans)}
+.tc-gradeleg{margin:0 0 14px}
+.tc-gradeleg summary{cursor:pointer;font:600 13.5px var(--sans);color:var(--sb-lapis,#2C5C86);padding:4px 0}
+.tc-gradeleg .tc-table{max-width:420px;margin-top:6px}
