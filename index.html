@@ -14301,8 +14301,10 @@ function dexShowPrize(c){
 // 34 breed portraits followed by the eight feeding companions; legacy progress IDs stay unchanged.
 function islandCatArt(index,label){
  const n=Number.isInteger(index)&&index>=0&&index<42?index:0;
- const sheet=n<36?Math.floor(n/12)+1:4,slot=n<36?n%12:n-36,cols=sheet===4?3:4,rows=sheet===4?2:3;
- return `<span class="island-cat-art" role="img" aria-label="${label}" style="--cat-ratio:${(3/2)/cols*rows};background-image:url('art/island/cats-${sheet}.png');background-size:${cols*100}% ${rows*100}%;background-position:${slot%cols/(cols-1)*100}% ${Math.floor(slot/cols)/(rows-1)*100}%"></span>`;
+ const sheet=n<36?Math.floor(n/12)+1:4,slot=n<36?n%12:n-36,cols=sheet===4?3:4;
+ const cuts=[[0,326,655,1024],[0,330,660,1024],[0,340,667,1024],[0,490,1024]][sheet-1];
+ const row=Math.floor(slot/cols),w=1536/cols,h=cuts[row+1]-cuts[row],x=slot%cols*w,y=cuts[row];
+ return `<span class="island-cat-art" role="img" aria-label="${label}" style="--cat-ratio:${w/h};background-image:url('art/island/cats-${sheet}.png');background-size:${1536/w*100}% ${1024/h*100}%;background-position:${x/(1536-w)*100}% ${y/(1024-h)*100}%"></span>`;
 }
 function renderIsland(){
   const done = store.data.completed, streak = store.streakCount();

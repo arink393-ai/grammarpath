@@ -1,11 +1,15 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v94-student-prebind";
+const CACHE = "eci-v95-illustrated-island";
 const SHELL = [
   "./",
   "./index.html",
   "./art/cat-dex/meme-cats-atlas.png",
   "./art/cat-dex/meme-cats-atlas-2.png",
   "./art/cat-dex/meme-cats-atlas-3.png",
+  "./art/island/cats-1.png",
+  "./art/island/cats-2.png",
+  "./art/island/cats-3.png",
+  "./art/island/cats-4.png",
   "./daily.css?v=17",
   "./adventure.css?v=5",
   "./lesson-notes.css?v=3",
@@ -27,7 +31,6 @@ const SHELL = [
   "./vocab/books.js",
   "./vocab/catalog.js?v=1",
   "./vocab/book-loader.js?v=3",
-  "./offline-content.js?v=8",
   "./vocab/account-storage.js?v=2",
   "./vocab/app.js?v=8",
   "./icons/icon-192.png",
