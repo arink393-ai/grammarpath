@@ -464,6 +464,12 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rdw-card.ghost{display:flex;align-items:center;justify-content:center;border:1.5px dashed var(--line);border-radius:16px;color:var(--muted);font-size:13.5px;padding:18px}
 .rdw-lock{margin-top:4px;font:700 12px var(--sans);color:#A0632A}
 .rdw-feat.locked{opacity:.7;cursor:default}
+.rdw-print{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;background:var(--paper);border:1.5px dashed var(--line);border-radius:14px;padding:10px 14px;margin:0 0 16px}
+.rdw-print-h{font:700 14px var(--sans);color:var(--navy)}
+.rdw-print-btns{display:flex;flex-wrap:wrap;gap:6px}
+.rdw-print-btns .btn{padding:6px 12px;font-size:13px}
+.rdw-print-cb{font-size:13px;color:var(--body);display:flex;align-items:center;gap:5px;cursor:pointer}
+.rdw-print small{flex-basis:100%;color:var(--muted);font-size:12px}
 .rdw-old{color:var(--muted);font-size:14px;background:var(--paper);border:1px dashed var(--line);border-radius:14px;padding:14px;text-align:center}
 .rd-card-zh{font:500 13px var(--sans);color:var(--teal)}
 .rd-card-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
@@ -14908,7 +14914,11 @@ function rdWeekHTML(weekKey){
             <h3>${r.topic}</h3><div class="rd-card-zh">${r.zh}</div>
             ${!open?`<div class="rdw-lock">🔒 ${rdMD(d)}（${RD_WD[i]}）開放</div>`:d>today?`<div class="rdw-lock">👀 老師預覽・學生 ${rdMD(d)} 開放</div>`:""}</div></button></div>`;
     }).join("");
-  return `<section class="rdw">${nav}${featHTML}
+  const printBar = !hasDaily ? "" : `<div class="rdw-print"><span class="rdw-print-h">🖨 一鍵列印本週 7 天學習單</span>
+      <span class="rdw-print-btns">${[["a","A1–A2 初級"],["b","B1–B2 中級"],["c","C1–C2 高級"],["all","三級全印"]].map(([k,t])=>`<button class="btn btn-ghost" onclick="rdPrintWeek('${mon}','${k}')">${t}</button>`).join("")}</span>
+      ${feat?`<label class="rdw-print-cb"><input type="checkbox" id="rdw-feat-cb"> 加印 ⭐ 本週重點</label>`:""}
+      <small>每天一份：文章、單字、填字、閱讀測驗、討論題；預覽頁可切換「顯示解答」印教師版。</small></div>`;
+  return `<section class="rdw">${nav}${printBar}${featHTML}
     <h2 class="rdw-h">📅 每日閱讀 Daily Reading<small>每天一篇・主題混合</small></h2>
     <div class="rdw-days">${rows}</div></section>`;
 }
@@ -15079,7 +15089,7 @@ function cwSheetClues(cw){
   const cl=p=>`<li><b>${p.num}.</b> ${rdPlain(p.zh)} <i>(${rdPlain(p.pos)} · ${p.w.length} letters)</i></li>`;
   return `<div class="cwp-clues"><div><b>橫 Across →</b><ol>${cw.across.map(cl).join("")}</ol></div><div><b>直 Down ↓</b><ol>${cw.down.map(cl).join("")}</ol></div></div>`;
 }
-function rdSheetHTML(r, lv){
+function rdSheetHTML(r, lv, label){
   const paras   = lv.text.map(p=>`<p>${rdEsc(p)}</p>`).join("");
   const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${rdEsc(g[0])}</b> <i>${rdEsc(g[1])}</i> ${rdEsc(g[2])}</span>`).join("");
   const cw = cwForLevel(lv);
@@ -15095,7 +15105,8 @@ function rdSheetHTML(r, lv){
   const answers = (lv.q||[]).map((q,i)=>`<div class="ak"><b>${i+1}. (${RD_LET[q.a]})</b> ${rdPlain(q.why)}</div>`).join("");
   const discuss = (r.discuss||[]).map(d=>`<li>${rdEsc(d)}</li>`).join("");
   return `<section class="sheet">
-  <div class="name-row"><span>Name 姓名: ____________</span><span>Class 班級: ________</span><span>Date 日期: ________</span><span>Score 分數: ______</span></div>
+  <div class="name-row"><span>Name 姓名: ____________</span><span>Class 班級: ________</span><span>Date 日期: ${label?`<b>${rdEsc(label)}</b>`:"________"}</span><span>Score 分數: ______</span></div>
+  ${label?`<div class="day-tag">${rdEsc(label)}</div>`:""}
   <h1>${rdPlain(lv.title)}</h1>
   <div class="meta"><span class="cefr">${rdEsc(lv.cefr)}</span>${rdEsc(r.topic)} · ${rdEsc(r.zh)} · 改寫自 ${rdEsc(r.src)}</div>
   <div class="article">${paras}</div>
@@ -15145,6 +15156,7 @@ function rdOpenWorksheet(sections, docTitle){
 #rd-print-preview .sheet{max-width:760px;margin:16px auto;background:#fff;padding:40px 46px;box-shadow:0 1px 6px rgba(0,0,0,.15)}
 #rd-print-preview .name-row{font:11px system-ui,sans-serif;color:#333;border:1px solid #ccc;border-radius:6px;padding:9px 12px;margin-bottom:18px;display:flex;gap:26px;flex-wrap:wrap}
 #rd-print-preview h1{font-size:19pt;margin:0 0 5px;line-height:1.25}
+#rd-print-preview .day-tag{display:inline-block;font:700 10pt system-ui,sans-serif;color:#fff;background:#B4623B;border-radius:6px;padding:2px 10px;margin-bottom:6px}
 #rd-print-preview .meta{font:9.5pt system-ui,sans-serif;color:#555;margin-bottom:18px}
 #rd-print-preview .cefr{display:inline-block;border:1px solid #B4623B;color:#79401F;border-radius:99px;padding:1px 9px;font:700 9pt system-ui,sans-serif;margin-right:6px}
 #rd-print-preview .article p{margin:0 0 10px;text-align:justify}
@@ -15214,7 +15226,7 @@ function rdOpenWorksheet(sections, docTitle){
   <button type="button" class="sec" id="rd-print-close">關閉預覽</button>
   <span class="hint">共 ${sections.length} 份練習卷，實際頁數依內容長度而定。預設學生版不含解答；教師版解答另起一頁。彩色版保留單字底色與標籤；列印視窗請選「彩色」並開啟「背景圖形」。可按列印按鈕或 Ctrl / ⌘ + P。若內建瀏覽器未開啟列印視窗，請改用 Chrome、Edge 或 Safari 開啟。</span>
 </div>
-${sections.map(s=>rdSheetHTML(s.r, s.lv)).join("")}`;
+${sections.map(s=>rdSheetHTML(s.r, s.lv, s.label)).join("")}`;
   const state = {focus:document.activeElement, title:document.title, overflow:document.body.style.overflow,
     siblings:[...document.body.children].map(el=>[el, el.inert]), onKey:null};
   state.onKey = e=>{
@@ -15242,6 +15254,21 @@ function rdPrint(id, li){ const r = rdById(id); if(!r?.levels[li]){ toast("找�
 /* One article, all three levels; each worksheet starts on a new page. */
 function rdPrintLevels(id){ const r = rdById(id); const secs = ["a","b","c"].filter(k=>r.levels[k]).map(k=>({r, lv:r.levels[k]})); rdOpenWorksheet(secs, r.topic+"（三種難度）"); }
 /* Every reading article, all three levels — a full packet */
+/* 🖨 one click: the whole week's daily readings (+ optional ⭐ highlight) at one level, or all three */
+function rdPrintWeek(mon, lvKey){
+  const withFeat = !!document.getElementById("rdw-feat-cb")?.checked;
+  const keys = lvKey==="all" ? ["a","b","c"] : [lvKey];
+  const secs = [];
+  const add = (r, label) => keys.forEach(k=>{ if(r.levels[k]) secs.push({r, lv:r.levels[k], label}); });
+  const feat = READINGS.find(r=>rdFeatMonday(r)===mon);
+  if(withFeat && feat && rdOpen(mon)) add(feat, `⭐ 本週重點 ${feat.week}`);
+  let skipped = 0;
+  for(let i=0;i<7;i++){ const d = rdShift(mon,i), r = READINGS.find(x=>x.day===d);
+    if(!r) continue; if(!rdOpen(d)){ skipped++; continue; }
+    add(r, `📅 ${rdMD(d)}（週${RD_WD[i]}）`); }
+  if(skipped) toast(`還沒開放的 ${skipped} 天先不印`);
+  rdOpenWorksheet(secs, `本週閱讀學習單 ${rdMD(mon)}–${rdMD(rdShift(mon,6))}${lvKey==="all"?"（三級）":"（"+({a:"A1–A2",b:"B1–B2",c:"C1–C2"}[lvKey])+"）"}`);
+}
 function rdPrintAll(){ const secs = []; READINGS.forEach(r=>["a","b","c"].forEach(k=>{ if(r.levels[k]) secs.push({r, lv:r.levels[k]}); })); rdOpenWorksheet(secs, "English Cat Island — 全部時事閱讀"); }
 let rdCurId = null;
 
