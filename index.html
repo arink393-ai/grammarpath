@@ -6876,8 +6876,8 @@ function renderVerbForms(){
     <div class="vf-sec"><h2>不規則動詞 Irregular Verbs</h2><p class="vf-sub">依「三態的變化規律」分成四群，一群一群記最快。</p>${groups}</div>
     <div class="vf-sec">
       <h2>🖨 考試學習單 Test Worksheet</h2>
-      <p class="vf-sub">一鍵列印／存成 PDF：填三態表＋句子填空測驗＋解答，拿去當回家作業或小考。</p>
-      <div class="vf-print"><button class="btn btn-navy" onclick="vfPrintWorksheet()">🖨 列印考試學習單</button></div>
+      <p class="vf-sub">一鍵列印／存成 PDF：填表＋句子填空＋<b>解答表</b>，拿去當回家作業或小考。<br>三態＝V1/V2/V3；四態＝再加上<b>現在分詞 V-ing</b>。</p>
+      <div class="vf-print"><button class="btn btn-navy" onclick="vfPrintWorksheet()">🖨 動詞三態學習單</button> <button class="btn btn-navy" onclick="vfPrintWorksheet(true)">🖨 動詞四態學習單（＋V-ing）</button></div>
     </div>
     <div class="vf-sec"><h2>🎯 線上練習 Fill the Forms</h2><p class="vf-sub">輸入過去式與過去分詞，按「檢查」立刻對答案。</p><div id="vfQuiz"></div></div>
     <div class="vf-xlink">🧩 想看 V-ing 與 V3 怎麼當形容詞、組分詞片語？到 <a href="#/participles">現在分詞／過去分詞專區</a>。</div>
@@ -6885,54 +6885,64 @@ function renderVerbForms(){
   vfNewQuiz();
   window.scrollTo(0,0);
 }
-function vfPrintWorksheet(){
-  const fill=[["go","去"],["eat","吃"],["see","看見"],["buy","買"],["take","拿"],["write","寫"],["come","來"],["run","跑"],["do","做"],["give","給"],["make","製作"],["find","找到"],["think","想"],["bring","帶來"],["catch","抓住"],["break","打破"],["speak","說"],["drink","喝"],["swim","游泳"],["sing","唱"],["know","知道"],["grow","成長"],["drive","開車"],["wear","穿戴"],["choose","選擇"],["forget","忘記"],["win","贏"],["keep","保持"],["lose","遺失"],["teach","教"]];
-  const ans={go:["went","gone"],eat:["ate","eaten"],see:["saw","seen"],buy:["bought","bought"],take:["took","taken"],write:["wrote","written"],come:["came","come"],run:["ran","run"],do:["did","done"],give:["gave","given"],make:["made","made"],find:["found","found"],think:["thought","thought"],bring:["brought","brought"],catch:["caught","caught"],break:["broke","broken"],speak:["spoke","spoken"],drink:["drank","drunk"],swim:["swam","swum"],sing:["sang","sung"],know:["knew","known"],grow:["grew","grown"],drive:["drove","driven"],wear:["wore","worn"],choose:["chose","chosen"],forget:["forgot","forgotten"],win:["won","won"],keep:["kept","kept"],lose:["lost","lost"],teach:["taught","taught"]};
+/* [V1, 中文, V2 過去式, V3 過去分詞, V-ing 現在分詞] */
+const VF_SHEET=[["go","去","went","gone","going"],["eat","吃","ate","eaten","eating"],["see","看見","saw","seen","seeing"],["buy","買","bought","bought","buying"],["take","拿","took","taken","taking"],["write","寫","wrote","written","writing"],["come","來","came","come","coming"],["run","跑","ran","run","running"],["do","做","did","done","doing"],["give","給","gave","given","giving"],["make","製作","made","made","making"],["find","找到","found","found","finding"],["think","想","thought","thought","thinking"],["bring","帶來","brought","brought","bringing"],["catch","抓住","caught","caught","catching"],["break","打破","broke","broken","breaking"],["speak","說","spoke","spoken","speaking"],["drink","喝","drank","drunk","drinking"],["swim","游泳","swam","swum","swimming"],["sing","唱","sang","sung","singing"],["know","知道","knew","known","knowing"],["grow","成長","grew","grown","growing"],["drive","開車","drove","driven","driving"],["wear","穿戴","wore","worn","wearing"],["choose","選擇","chose","chosen","choosing"],["forget","忘記","forgot","forgotten","forgetting"],["win","贏","won","won","winning"],["keep","保持","kept","kept","keeping"],["lose","遺失","lost","lost","losing"],["teach","教","taught","taught","teaching"]];
+function vfPrintWorksheet(four){
+  const S=VF_SHEET, half=Math.ceil(S.length/2);
   const sents=[["Yesterday we","go","to the night market.","went"],["She has","write","three cards today.","written"],["The window was","break","by the storm.","broken"],["They","buy","a new car last month.","bought"],["Have you ever","eat","durian?","eaten"],["He","take","many photos on the trip.","took"],["My bike was","steal","last night.","stolen"],["We have","know","each other for ten years.","known"],["The children","swim","in the lake yesterday.","swam"],["This song was","sing","by a famous star.","sung"]];
-  const col=(list)=>list.map(v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td></td><td></td></tr>`).join("");
-  const half=Math.ceil(fill.length/2);
-  const sentHTML=sents.map((s,i)=>`<li>${s[0]} <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (${s[1]}) ${s[2]}</li>`).join("");
-  const keyFill=fill.map(v=>`${v[0]} – ${ans[v[0]][0]} – ${ans[v[0]][1]}`).join("； ");
-  const keySent=sents.map((s,i)=>`${i+1}. ${s[3]}`).join("　");
-  const doc=`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>動詞三態學習單 Verb Forms Worksheet</title><style>
+  const vings=[["Look! The baby is","sleep","right now.","sleeping"],["They were","run","in the park when it rained.","running"],["I am","write","a letter to my friend.","writing"],["She is","swim","in the pool.","swimming"]];
+  const head=four?`<th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th><th>現在分詞 V-ing</th>`:`<th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th>`;
+  const rBlank=v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td></td><td></td>${four?"<td></td>":""}</tr>`;
+  const rAns=v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td>${v[2]}</td><td>${v[3]}</td>${four?`<td>${v[4]}</td>`:""}</tr>`;
+  const tbl=(fn,list)=>`<table><thead><tr>${head}</tr></thead><tbody>${list.map(fn).join("")}</tbody></table>`;
+  const partA=four?`<div>${tbl(rBlank,S)}</div>`:`<div class="cols"><div>${tbl(rBlank,S.slice(0,half))}</div><div>${tbl(rBlank,S.slice(half))}</div></div>`;
+  const keyA=four?`<div>${tbl(rAns,S)}</div>`:`<div class="cols"><div>${tbl(rAns,S.slice(0,half))}</div><div>${tbl(rAns,S.slice(half))}</div></div>`;
+  const cloze=list=>list.map(s=>`<li>${s[0]} <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (${s[1]}) ${s[2]}</li>`).join("");
+  const keyLine=list=>list.map((s,i)=>`${i+1}. ${s[3]}`).join("　");
+  const n=four?"四態":"三態", forms=four?"V1 · V2 · V3 · V-ing":"V1 · V2 · V3";
+  const vingNote=four?`<h2>現在分詞 V-ing 拼字規則</h2><ul class="rule"><li>一般直接加 <b>-ing</b>：play → playing</li><li>-e 結尾去 e 加 -ing：make → making、write → writing</li><li>短母音＋單子音重複字尾：run → running、swim → swimming</li></ul>`:"";
+  const partC=four?`<h2>Part C　現在分詞 V-ing（進行式）</h2><ol>${cloze(vings)}</ol>`:"";
+  const keyC=four?`<h2>Part C</h2><p class="key"><b>${keyLine(vings)}</b></p>`:"";
+  const doc=`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>動詞${n}學習單 Verb Forms Worksheet</title><style>
    *{box-sizing:border-box} body{font-family:Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:#111;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
    .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
    .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
-   .sheet{background:#fff;max-width:780px;margin:16px auto;padding:40px 46px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
+   .sheet{background:#fff;max-width:800px;margin:16px auto;padding:40px 46px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
    .sheet:last-child{break-after:auto;page-break-after:auto}
    h1{font-size:20px;margin:0 0 3px} .sub{color:#555;font-size:12.5px;margin:0 0 14px}
    .dn{display:flex;gap:26px;font-size:13px;margin:0 0 16px} .dn u{border-bottom:1px solid #000;min-width:130px;display:inline-block}
    h2{font-size:15px;margin:18px 0 8px;border-left:4px solid #1f7a6e;padding-left:8px}
    .cols{display:flex;gap:18px} .cols>div{flex:1}
-   table{border-collapse:collapse;width:100%;table-layout:fixed} td,th{border:1px solid #333;padding:6px 8px;font-size:12.5px}
-   th{background:#eef5f3;font-size:11px} td.w{font-weight:700;width:34%} td.zh{color:#555;width:22%;font-size:11.5px}
+   table{border-collapse:collapse;width:100%} td,th{border:1px solid #333;padding:6px 8px;font-size:12.5px;text-align:left;height:24px}
+   th{background:#eef5f3;font-size:11px;white-space:nowrap} td.w{font-weight:700} td.zh{color:#555;font-size:11.5px}
    ol{margin:6px 0 0;padding-left:22px} li{font-size:13px;line-height:2.1} li u{letter-spacing:2px}
-   .key{font-size:12px;line-height:1.9;color:#222} .key b{color:#1f7a6e}
+   ul.rule{margin:4px 0 0;padding-left:20px} ul.rule li{font-size:12.5px;line-height:1.8} ul.rule b{color:#1f7a6e}
+   .key h2{margin-top:14px}
    @media print{.bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0}} @page{margin:1.3cm}
   </style></head><body>
-   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>動詞三態學習單——填表＋句子填空＋解答（最後一頁）。</span></div>
+   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>動詞${n}學習單——填表＋句子填空＋解答（最後一頁為解答表）。</span></div>
    <div class="sheet">
-     <h1>動詞三態學習單　Verb Forms (V1 · V2 · V3)</h1>
-     <p class="sub">寫出每個動詞的過去式 V2 與過去分詞 V3。</p>
+     <h1>動詞${n}學習單　Verb Forms (${forms})</h1>
+     <p class="sub">${four?"寫出每個動詞的過去式 V2、過去分詞 V3 與現在分詞 V-ing。":"寫出每個動詞的過去式 V2 與過去分詞 V3。"}</p>
      <div class="dn"><span>Name：<u></u></span><span>Date：<u></u></span><span>Score：<u></u></span></div>
-     <h2>Part A　寫出三態</h2>
-     <div class="cols">
-       <div><table><thead><tr><th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th></tr></thead><tbody>${col(fill.slice(0,half))}</tbody></table></div>
-       <div><table><thead><tr><th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th></tr></thead><tbody>${col(fill.slice(half))}</tbody></table></div>
-     </div>
+     ${vingNote}
+     <h2>Part A　寫出動詞${n}</h2>
+     ${partA}
      <h2>Part B　句子填空（用括號動詞的正確形式）</h2>
-     <ol>${sentHTML}</ol>
+     <ol>${cloze(sents)}</ol>
+     ${partC}
    </div>
-   <div class="sheet">
+   <div class="sheet key">
      <h1>解答 Answer Key</h1>
      <h2>Part A</h2>
-     <p class="key">${keyFill}</p>
+     ${keyA}
      <h2>Part B</h2>
-     <p class="key"><b>${keySent}</b></p>
+     <p class="key"><b>${keyLine(sents)}</b></p>
+     ${keyC}
      <p class="sub" style="margin-top:20px">English Cat Island · 動詞三態專區</p>
    </div>
   </body></html>`;
-  safeOpenPrintDoc(doc, "動詞三態學習單");
+  safeOpenPrintDoc(doc, "動詞"+n+"學習單");
 }
 
 /* =====================================================
