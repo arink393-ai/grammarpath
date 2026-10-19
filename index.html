@@ -2058,6 +2058,38 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rg-reset{flex:none;font:600 13px sans-serif;color:var(--lab-ink);background:#fff;border:none;border-radius:20px;padding:7px 15px;cursor:pointer}
 .rg-reset:hover{background:#f0eadd}
 @media(max-width:640px){.lab-cards3,.lab-rules{grid-template-columns:1fr}.lab-table{font-size:12.5px}}
+/* 動詞三態 / 分詞 Verb Forms & Participles */
+.vf-sec{margin-top:30px}
+.vf-sec>h2{font:700 1.3rem var(--serif);color:var(--navy);margin:0 0 6px}
+.vf-sub{color:var(--muted);font-size:13.5px;line-height:1.6;margin:0 0 14px}
+.vf-rule{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:6px 18px}
+.vf-rline{padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.6;color:var(--ink)}
+.vf-rline:last-child{border-bottom:0}
+.vf-rline b{color:var(--teal)}
+.vf-rule code,.participles code{font:600 13.5px var(--mono,monospace);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--navy);white-space:nowrap}
+.vf-group{margin-top:20px}
+.vf-group-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font:700 1.05rem var(--sans);color:var(--navy);margin:0 0 3px}
+.vf-group-h span{font:700 11px var(--mono,monospace);letter-spacing:.08em;color:#fff;background:var(--teal);border-radius:6px;padding:2px 7px}
+.vf-tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.vf-table{border-collapse:collapse;width:100%;min-width:420px;font-size:14px}
+.vf-table th{text-align:left;font:600 11.5px var(--sans);letter-spacing:.03em;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg);white-space:nowrap}
+.vf-table td{padding:9px 14px;border-bottom:1px solid var(--line);color:var(--ink);vertical-align:top}
+.vf-table tbody tr:last-child td{border-bottom:0}
+.vf-table .b1{font-weight:700;color:var(--navy)}
+.vf-zhcell{color:var(--muted);font-size:12.5px}
+.vf-base{font-weight:700;color:var(--navy);white-space:nowrap}
+.vf-base span{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+.vf-in{width:100%;max-width:160px;border:1.5px solid var(--line);border-radius:8px;padding:7px 10px;font:500 14px var(--sans);background:var(--bg);color:var(--ink)}
+.vf-in:focus{outline:none;border-color:var(--teal2,var(--teal));box-shadow:0 0 0 3px rgba(42,165,160,.15)}
+.vf-in.ok{border-color:var(--good);background:var(--good-bg)}
+.vf-in.bad{border-color:var(--bad);background:var(--bad-bg)}
+.vf-corr{display:inline-block;margin-left:6px;font:600 12.5px var(--sans);color:var(--teal)}
+.vf-qfoot{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.vf-score{font:600 14px var(--sans);color:var(--navy)}
+.vf-print{margin:14px 0}
+.vf-xlink{margin-top:26px;font-size:13.5px;line-height:1.7;color:var(--body);background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:12px 16px}
+.vf-xlink a{color:var(--teal);font-weight:600;text-decoration:none}
+.vf-xlink a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -2086,6 +2118,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/level/basic">📗 初級 Basic</button>
   <button data-nav="#/level/intermediate">📘 中級 Intermediate</button>
   <button data-nav="#/level/advanced">📕 高級 Advanced</button>
+  <button data-nav="#/verbforms">🔁 動詞三態 Verb Forms</button>
+  <button data-nav="#/participles">🧩 分詞 Participles</button>
   <button data-nav="#/games">🎮 遊戲 Games</button>
   <div class="nav-group">島上資源 Island</div>
   <button data-nav="#/island">🐾 我的貓島 My Island</button>
@@ -2722,6 +2756,8 @@ async function route(){
   else if(h[0]==="lab") renderLabList();
   else if(h[0]==="present" && h[1]) renderPresent(h[1]);
   else if(h[0]==="present") renderPresentList();
+  else if(h[0]==="verbforms") renderVerbForms();
+  else if(h[0]==="participles") renderParticiples();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
   else if(h[0]==="etymology" && h[1]) renderEtymology(h[1]);
@@ -6756,6 +6792,213 @@ function renderPresentList(){
     <div class="lab-grid">${cards}</div>
     <p class="lab-source">影片來源：國立臺灣師範大學「英語學術簡報」課程（NTNU CAL，YouTube）。影片以官方嵌入播放、未重新上傳；學習筆記與例句為原創整理。</p>
   </div>`;
+}
+
+/* =====================================================
+   動詞三態專區 Verb Forms (V1 / V2 / V3)
+   ===================================================== */
+const VF_IRREG = [
+ {t:"① 三態同形", pat:"A-A-A", note:"原形＝過去式＝過去分詞，三個長一樣，最好記。", rows:[
+   ["cut","cut","cut","切"],["put","put","put","放"],["hit","hit","hit","打；撞"],["let","let","let","讓"],
+   ["shut","shut","shut","關上"],["set","set","set","設定"],["cost","cost","cost","花費"],["hurt","hurt","hurt","使受傷"],
+   ["read","read","read","讀（過去式唸 /rɛd/）"],["quit","quit","quit","放棄；辭職"]]},
+ {t:"② 原形＝過去分詞","pat":"A-B-A", note:"只有過去式不同，過去分詞又變回原形。", rows:[
+   ["come","came","come","來"],["become","became","become","變成"],["run","ran","run","跑"]]},
+ {t:"③ 過去式＝過去分詞","pat":"A-B-B", note:"過去式與過去分詞長得一樣，是最常見的一群。", rows:[
+   ["buy","bought","bought","買"],["bring","brought","brought","帶來"],["think","thought","thought","想；認為"],
+   ["teach","taught","taught","教"],["catch","caught","caught","抓住"],["find","found","found","找到"],
+   ["make","made","made","製作"],["say","said","said","說"],["pay","paid","paid","付錢"],["have","had","had","有"],
+   ["sit","sat","sat","坐"],["win","won","won","贏"],["keep","kept","kept","保持"],["sleep","slept","slept","睡"],
+   ["feel","felt","felt","感覺"],["leave","left","left","離開；留下"],["lose","lost","lost","遺失；輸"],
+   ["meet","met","met","遇見"],["send","sent","sent","寄；送"],["spend","spent","spent","花（錢、時間）"],
+   ["build","built","built","建造"],["sell","sold","sold","賣"],["tell","told","told","告訴"],["hear","heard","heard","聽到"],
+   ["understand","understood","understood","了解"],["get","got","got/gotten","得到"],["stand","stood","stood","站"],
+   ["hold","held","held","握住；舉行"]]},
+ {t:"④ 三態皆不同","pat":"A-B-C", note:"三個形式都不一樣，考試最愛考——過去分詞要特別記。", rows:[
+   ["go","went","gone","去"],["do","did","done","做"],["see","saw","seen","看見"],["eat","ate","eaten","吃"],
+   ["give","gave","given","給"],["take","took","taken","拿；搭乘"],["write","wrote","written","寫"],
+   ["speak","spoke","spoken","說（語言）"],["break","broke","broken","打破"],["drink","drank","drunk","喝"],
+   ["swim","swam","swum","游泳"],["sing","sang","sung","唱"],["ring","rang","rung","（鈴）響"],["begin","began","begun","開始"],
+   ["drive","drove","driven","開車"],["ride","rode","ridden","騎"],["know","knew","known","知道"],["grow","grew","grown","成長；種植"],
+   ["throw","threw","thrown","丟"],["fly","flew","flown","飛"],["draw","drew","drawn","畫；拉"],["wear","wore","worn","穿戴"],
+   ["choose","chose","chosen","選擇"],["fall","fell","fallen","掉落"],["forget","forgot","forgotten","忘記"],
+   ["hide","hid","hidden","躲藏"],["show","showed","shown","展示（過去式 showed）"],["steal","stole","stolen","偷"],
+   ["wake","woke","woken","醒來"]]}
+];
+let VF = {pool:[], ans:{}, checked:false};
+function vfOk(a, correct){ a=(a||"").trim().toLowerCase(); return correct.toLowerCase().split("/").some(x=>x.trim()===a); }
+function vfSet(k,v){ VF.ans[k]=v; }
+function vfCheck(){ VF.checked=true; renderVFQuiz(); }
+function vfNewQuiz(){ const all=VF_IRREG.flatMap(g=>g.rows); VF={pool:shuffle(all.slice()).slice(0,8), ans:{}, checked:false}; renderVFQuiz(); }
+function renderVFQuiz(){
+  const box=document.getElementById("vfQuiz"); if(!box) return;
+  const rows=VF.pool.map((r,i)=>{
+    const ps=VF.checked?(vfOk(VF.ans[i+"p"],r[1])?"ok":"bad"):"", pps=VF.checked?(vfOk(VF.ans[i+"pp"],r[2])?"ok":"bad"):"";
+    const pc=VF.checked&&!vfOk(VF.ans[i+"p"],r[1])?`<span class="vf-corr">→ ${r[1]}</span>`:"";
+    const ppc=VF.checked&&!vfOk(VF.ans[i+"pp"],r[2])?`<span class="vf-corr">→ ${r[2]}</span>`:"";
+    return `<tr><td class="vf-base">${r[0]}<span>${r[3]}</span></td>
+      <td><input class="vf-in ${ps}" value="${(VF.ans[i+"p"]||"").replace(/"/g,"&quot;")}" ${VF.checked?"disabled":""} oninput="vfSet('${i}p',this.value)" placeholder="過去式" autocapitalize="off">${pc}</td>
+      <td><input class="vf-in ${pps}" value="${(VF.ans[i+"pp"]||"").replace(/"/g,"&quot;")}" ${VF.checked?"disabled":""} oninput="vfSet('${i}pp',this.value)" placeholder="過去分詞" autocapitalize="off">${ppc}</td></tr>`;
+  }).join("");
+  let foot;
+  if(!VF.checked){ foot=`<button class="btn btn-primary" onclick="vfCheck()">檢查 Check</button><button class="btn btn-ghost" onclick="vfNewQuiz()">換一組 ↻</button>`; }
+  else { let right=0; VF.pool.forEach((r,i)=>{ if(vfOk(VF.ans[i+"p"],r[1]))right++; if(vfOk(VF.ans[i+"pp"],r[2]))right++; }); const total=VF.pool.length*2;
+    foot=`<div class="vf-score">答對 ${right} / ${total}（${Math.round(right/total*100)}%）${right===total?" 🏆 全對！":right>=total*0.7?" 🐾 很棒！":" 再多練幾次～"}</div><button class="btn btn-primary" onclick="vfNewQuiz()">再來一組 ↻</button>`; }
+  box.innerHTML=`<div class="vf-tablewrap"><table class="vf-table"><thead><tr><th>原形 V1（中文）</th><th>過去式 V2</th><th>過去分詞 V3</th></tr></thead><tbody>${rows}</tbody></table></div><div class="vf-qfoot">${foot}</div>`;
+}
+function renderVerbForms(){
+  const groups=VF_IRREG.map(g=>`<div class="vf-group">
+    <div class="vf-group-h">${g.t} <span>${g.pat}</span></div>
+    <p class="vf-sub">${g.note}</p>
+    <div class="vf-tablewrap"><table class="vf-table"><thead><tr><th>原形 V1</th><th>過去式 V2</th><th>過去分詞 V3</th><th>中文</th></tr></thead><tbody>
+      ${g.rows.map(r=>`<tr><td class="b1">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="vf-zhcell">${r[3]}</td></tr>`).join("")}
+    </tbody></table></div></div>`).join("");
+  app.innerHTML=`<div class="view verb-forms">
+    <div class="crumb"><a href="#/home">Home</a> › 動詞三態</div>
+    <div class="eyebrow" style="color:var(--teal)">Verb Forms · 動詞三態</div>
+    <h1 class="display">動詞三態<span class="zh-term-lg" style="color:var(--teal)">V1 · V2 · V3</span></h1>
+    <p class="lede">一個動詞有三個樣子：<b>原形 V1</b>、<b>過去式 V2</b>、<b>過去分詞 V3</b>。V1 用在現在式與原形；V2 用在<b>過去式</b>；V3 用在<b>完成式（have + V3）</b>與<b>被動（be + V3）</b>。規則動詞加 -ed，不規則的就要記起來。</p>
+    <div class="vf-sec">
+      <h2>規則動詞 Regular Verbs</h2><p class="vf-sub">過去式與過去分詞都加 <b>-ed</b>，只要記幾條拼字規則。</p>
+      <div class="vf-rule">
+        <div class="vf-rline"><b>一般</b>直接加 -ed：<code>play → played</code>、<code>watch → watched</code></div>
+        <div class="vf-rline"><b>-e 結尾</b>只加 -d：<code>live → lived</code>、<code>like → liked</code></div>
+        <div class="vf-rline"><b>子音 + y</b>去 y 加 -ied：<code>study → studied</code>、<code>cry → cried</code></div>
+        <div class="vf-rline"><b>短母音 + 單子音</b>重複字尾再加 -ed：<code>stop → stopped</code>、<code>plan → planned</code></div>
+      </div>
+    </div>
+    <div class="vf-sec"><h2>不規則動詞 Irregular Verbs</h2><p class="vf-sub">依「三態的變化規律」分成四群，一群一群記最快。</p>${groups}</div>
+    <div class="vf-sec">
+      <h2>🖨 考試學習單 Test Worksheet</h2>
+      <p class="vf-sub">一鍵列印／存成 PDF：填三態表＋句子填空測驗＋解答，拿去當回家作業或小考。</p>
+      <div class="vf-print"><button class="btn btn-navy" onclick="vfPrintWorksheet()">🖨 列印考試學習單</button></div>
+    </div>
+    <div class="vf-sec"><h2>🎯 線上練習 Fill the Forms</h2><p class="vf-sub">輸入過去式與過去分詞，按「檢查」立刻對答案。</p><div id="vfQuiz"></div></div>
+    <div class="vf-xlink">🧩 想看 V-ing 與 V3 怎麼當形容詞、組分詞片語？到 <a href="#/participles">現在分詞／過去分詞專區</a>。</div>
+  </div>`;
+  vfNewQuiz();
+  window.scrollTo(0,0);
+}
+function vfPrintWorksheet(){
+  const fill=[["go","去"],["eat","吃"],["see","看見"],["buy","買"],["take","拿"],["write","寫"],["come","來"],["run","跑"],["do","做"],["give","給"],["make","製作"],["find","找到"],["think","想"],["bring","帶來"],["catch","抓住"],["break","打破"],["speak","說"],["drink","喝"],["swim","游泳"],["sing","唱"],["know","知道"],["grow","成長"],["drive","開車"],["wear","穿戴"],["choose","選擇"],["forget","忘記"],["win","贏"],["keep","保持"],["lose","遺失"],["teach","教"]];
+  const ans={go:["went","gone"],eat:["ate","eaten"],see:["saw","seen"],buy:["bought","bought"],take:["took","taken"],write:["wrote","written"],come:["came","come"],run:["ran","run"],do:["did","done"],give:["gave","given"],make:["made","made"],find:["found","found"],think:["thought","thought"],bring:["brought","brought"],catch:["caught","caught"],break:["broke","broken"],speak:["spoke","spoken"],drink:["drank","drunk"],swim:["swam","swum"],sing:["sang","sung"],know:["knew","known"],grow:["grew","grown"],drive:["drove","driven"],wear:["wore","worn"],choose:["chose","chosen"],forget:["forgot","forgotten"],win:["won","won"],keep:["kept","kept"],lose:["lost","lost"],teach:["taught","taught"]};
+  const sents=[["Yesterday we","go","to the night market.","went"],["She has","write","three cards today.","written"],["The window was","break","by the storm.","broken"],["They","buy","a new car last month.","bought"],["Have you ever","eat","durian?","eaten"],["He","take","many photos on the trip.","took"],["My bike was","steal","last night.","stolen"],["We have","know","each other for ten years.","known"],["The children","swim","in the lake yesterday.","swam"],["This song was","sing","by a famous star.","sung"]];
+  const col=(list)=>list.map(v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td></td><td></td></tr>`).join("");
+  const half=Math.ceil(fill.length/2);
+  const sentHTML=sents.map((s,i)=>`<li>${s[0]} <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (${s[1]}) ${s[2]}</li>`).join("");
+  const keyFill=fill.map(v=>`${v[0]} – ${ans[v[0]][0]} – ${ans[v[0]][1]}`).join("； ");
+  const keySent=sents.map((s,i)=>`${i+1}. ${s[3]}`).join("　");
+  const doc=`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>動詞三態學習單 Verb Forms Worksheet</title><style>
+   *{box-sizing:border-box} body{font-family:Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:#111;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
+   .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
+   .sheet{background:#fff;max-width:780px;margin:16px auto;padding:40px 46px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
+   .sheet:last-child{break-after:auto;page-break-after:auto}
+   h1{font-size:20px;margin:0 0 3px} .sub{color:#555;font-size:12.5px;margin:0 0 14px}
+   .dn{display:flex;gap:26px;font-size:13px;margin:0 0 16px} .dn u{border-bottom:1px solid #000;min-width:130px;display:inline-block}
+   h2{font-size:15px;margin:18px 0 8px;border-left:4px solid #1f7a6e;padding-left:8px}
+   .cols{display:flex;gap:18px} .cols>div{flex:1}
+   table{border-collapse:collapse;width:100%;table-layout:fixed} td,th{border:1px solid #333;padding:6px 8px;font-size:12.5px}
+   th{background:#eef5f3;font-size:11px} td.w{font-weight:700;width:34%} td.zh{color:#555;width:22%;font-size:11.5px}
+   ol{margin:6px 0 0;padding-left:22px} li{font-size:13px;line-height:2.1} li u{letter-spacing:2px}
+   .key{font-size:12px;line-height:1.9;color:#222} .key b{color:#1f7a6e}
+   @media print{.bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0}} @page{margin:1.3cm}
+  </style></head><body>
+   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>動詞三態學習單——填表＋句子填空＋解答（最後一頁）。</span></div>
+   <div class="sheet">
+     <h1>動詞三態學習單　Verb Forms (V1 · V2 · V3)</h1>
+     <p class="sub">寫出每個動詞的過去式 V2 與過去分詞 V3。</p>
+     <div class="dn"><span>Name：<u></u></span><span>Date：<u></u></span><span>Score：<u></u></span></div>
+     <h2>Part A　寫出三態</h2>
+     <div class="cols">
+       <div><table><thead><tr><th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th></tr></thead><tbody>${col(fill.slice(0,half))}</tbody></table></div>
+       <div><table><thead><tr><th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th></tr></thead><tbody>${col(fill.slice(half))}</tbody></table></div>
+     </div>
+     <h2>Part B　句子填空（用括號動詞的正確形式）</h2>
+     <ol>${sentHTML}</ol>
+   </div>
+   <div class="sheet">
+     <h1>解答 Answer Key</h1>
+     <h2>Part A</h2>
+     <p class="key">${keyFill}</p>
+     <h2>Part B</h2>
+     <p class="key"><b>${keySent}</b></p>
+     <p class="sub" style="margin-top:20px">English Cat Island · 動詞三態專區</p>
+   </div>
+  </body></html>`;
+  safeOpenPrintDoc(doc, "動詞三態學習單");
+}
+
+/* =====================================================
+   現在分詞／過去分詞專區 Participles
+   ===================================================== */
+const PART_ADJ = [
+  ["exciting","excited","刺激／興奮","令人興奮的","感到興奮的"],
+  ["boring","bored","無聊","令人無聊的","感到無聊的"],
+  ["interesting","interested","有趣","令人感興趣的","感興趣的"],
+  ["tiring","tired","累","令人疲累的","感到疲累的"],
+  ["surprising","surprised","驚訝","令人驚訝的","感到驚訝的"],
+  ["confusing","confused","困惑","令人困惑的","感到困惑的"],
+  ["amazing","amazed","驚奇","令人驚奇的","感到驚奇的"],
+  ["relaxing","relaxed","放鬆","令人放鬆的","感到放鬆的"],
+  ["frightening","frightened","害怕","令人害怕的","感到害怕的"],
+  ["disappointing","disappointed","失望","令人失望的","感到失望的"]
+];
+const PART_Q = [
+  {q:"The movie was so ___. I almost fell asleep.", opts:["boring","bored"], a:0, why:"電影「令人」無聊 → 用 -ing：boring。"},
+  {q:"I was really ___ when I heard the good news.", opts:["exciting","excited"], a:1, why:"人「感到」興奮 → 用 -ed：excited。"},
+  {q:"___ the door, she found a little cat outside.", opts:["Opened","Opening"], a:1, why:"主動、與主詞同時發生的分詞片語 → 現在分詞 Opening。"},
+  {q:"The temple ___ 300 years ago by local people.", opts:["was building","was built"], a:1, why:"被動語態 be + 過去分詞 → was built。"},
+  {q:"She has already ___ her homework.", opts:["finished","finishing"], a:0, why:"完成式 have + 過去分詞 → finished。"},
+  {q:"___ in 1990, the novel is still popular today.", opts:["Writing","Written"], a:1, why:"被動、過去分詞片語（它「被」寫）→ Written。"}
+];
+let PRT = {ans:{}};
+function prtPick(qi,oi){ if(PRT.ans[qi]!==undefined) return; PRT.ans[qi]=oi; renderPrtQuiz(); }
+function prtReset(){ PRT={ans:{}}; renderPrtQuiz(); }
+function renderPrtQuiz(){
+  const box=document.getElementById("prtQuiz"); if(!box) return;
+  const total=PART_Q.length, ansd=Object.keys(PRT.ans).length, right=PART_Q.filter((q,i)=>PRT.ans[i]===q.a).length;
+  const rows=PART_Q.map((q,qi)=>{
+    const picked=PRT.ans[qi], done=picked!==undefined;
+    const opts=q.opts.map((o,oi)=>{let c="rg-opt";if(done){if(oi===q.a)c+=" correct";else if(oi===picked)c+=" wrong";}return `<button class="${c}" ${done?"disabled":""} onclick="prtPick(${qi},${oi})">${o}</button>`;}).join("");
+    const fb=done?`<div class="rg-why">${picked===q.a?"✅ ":"💡 "}${q.why}</div>`:"";
+    return `<div class="rg-q"><div class="rg-prompt"><span class="rg-n">${qi+1}</span><span>${q.q}</span></div><div class="rg-opts">${opts}</div>${fb}</div>`;
+  }).join("");
+  const score=ansd?`<div class="rg-score"><span>答對 ${right} / ${total}${ansd===total?(right===total?"　完美！🏆":right>=total*0.6?"　不錯喔！🐾":"　再看一次上面的規則"):""}</span><button class="rg-reset" onclick="prtReset()">再做一次 ↻</button></div>`:"";
+  box.innerHTML=rows+score;
+}
+function renderParticiples(){
+  const adjRows=PART_ADJ.map(a=>`<tr><td class="b1">${a[0]}</td><td class="vf-zhcell">${a[3]}</td><td class="b1">${a[1]}</td><td class="vf-zhcell">${a[4]}</td></tr>`).join("");
+  app.innerHTML=`<div class="view verb-forms participles">
+    <div class="crumb"><a href="#/home">Home</a> › 現在分詞／過去分詞</div>
+    <div class="eyebrow" style="color:var(--teal)">Participles · 分詞</div>
+    <h1 class="display">現在分詞・過去分詞<span class="zh-term-lg" style="color:var(--teal)">V-ing / V3</span></h1>
+    <p class="lede">分詞是動詞的「變身」：<b>現在分詞 V-ing</b>（主動、進行）與<b>過去分詞 V3</b>（被動、完成）。它們能組時態、變被動，也能當形容詞與分詞片語。</p>
+
+    <div class="vf-sec"><h2>現在分詞 V-ing 的用法</h2>
+      <div class="vf-rule">
+        <div class="vf-rline"><b>① 進行式</b>　be + V-ing：<code>I am reading.</code>（我正在讀。）</div>
+        <div class="vf-rline"><b>② 當形容詞「令人…的」</b>：<code>The game is exciting.</code>（這遊戲令人興奮。）</div>
+        <div class="vf-rline"><b>③ 分詞片語（主動）</b>：<code>Opening the box, she smiled.</code>（她一打開盒子就笑了。）</div>
+      </div>
+    </div>
+    <div class="vf-sec"><h2>過去分詞 V3 的用法</h2>
+      <div class="vf-rule">
+        <div class="vf-rline"><b>① 完成式</b>　have + V3：<code>I have finished.</code>（我已經完成了。）</div>
+        <div class="vf-rline"><b>② 被動語態</b>　be + V3：<code>It was made in Japan.</code>（它是日本製造的。）</div>
+        <div class="vf-rline"><b>③ 當形容詞「感到…的」</b>：<code>I am excited.</code>（我感到興奮。）</div>
+        <div class="vf-rline"><b>④ 分詞片語（被動）</b>：<code>Written in 1990, the book…</code>（這本寫於 1990 年的書…）</div>
+      </div>
+    </div>
+    <div class="vf-sec"><h2>最容易混：-ing vs -ed 形容詞</h2>
+      <p class="vf-sub"><b>-ing</b>＝「<b>令人</b>…的」（形容事物）；<b>-ed</b>＝「<b>感到</b>…的」（形容人心情）。</p>
+      <div class="vf-tablewrap"><table class="vf-table"><thead><tr><th>-ing（令人…）</th><th>中文</th><th>-ed（感到…）</th><th>中文</th></tr></thead><tbody>${adjRows}</tbody></table></div>
+    </div>
+    <div class="vf-sec"><h2>🎯 小練習 Practice</h2><p class="vf-sub">選出正確的分詞形式，點選後看解析。</p><div id="prtQuiz" class="rg-wrap"></div></div>
+    <div class="vf-xlink">🔁 還不熟動詞的過去分詞（V3）？先到 <a href="#/verbforms">動詞三態專區</a> 把三態記熟，分詞就會更輕鬆。也可看課程：<a href="#/lesson/participle-adjectives">分詞形容詞</a>、<a href="#/lesson/participle-clauses">分詞構句</a>。</div>
+  </div>`;
+  PRT={ans:{}}; renderPrtQuiz();
+  window.scrollTo(0,0);
 }
 
 function renderTheoryList(){
