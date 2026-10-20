@@ -8550,8 +8550,7 @@ const WORKSHEETS = {
   {zh:"太陽從東邊升起。", en:"The sun rises in the east."}]},
 
 "present-continuous": {
- extra:["拼字：run→running（重複字尾）、make→making（去 e）、lie→lying",
-  "狀態動詞不用進行式：know, like, want, love, need（✗ I am knowing）",
+ extra:["狀態動詞不用進行式：know, like, want, love, need（✗ I am knowing）",
   "進行式也可表「最近的暫時狀態」：I am reading a great book this week."],
  mcq:[
   {q:"Look! The baby ___.", opts:["cries","is crying","cry"], a:1},
@@ -18032,6 +18031,31 @@ function wsFixSpot(q){
   const clean = a => a.join(" ").replace(/\s+([.,!?])/g, "$1");
   return {s: clean(t), fix: clean(f)};
 }
+/* Full spelling-rule blocks, injected into each tense worksheet's Exceptions box. */
+const WS_SPELL = {
+  ving:[
+    "<b>V-ing 現在分詞拼字規則</b>",
+    "① 一般動詞：直接加 <b>-ing</b>　go→going、play→playing、eat→eating",
+    "② <b>-e 結尾</b>：去 e 加 -ing　make→making、write→writing、come→coming（例外：see→seeing）",
+    "③ <b>短母音 + 單子音</b>：重複字尾再加 -ing　run→running、swim→swimming、sit→sitting、begin→beginning",
+    "④ <b>-ie 結尾</b>：改成 <b>-ying</b>　die→dying、lie→lying、tie→tying"],
+  ed:[
+    "<b>規則動詞 -ed 拼字規則（過去式 / 過去分詞）</b>",
+    "① 一般動詞：直接加 <b>-ed</b>　play→played、watch→watched",
+    "② <b>-e 結尾</b>：只加 -d　like→liked、live→lived",
+    "③ <b>子音 + y</b>：去 y 加 <b>-ied</b>　study→studied、cry→cried（但母音 + y 直接加 -ed：play→played）",
+    "④ <b>短母音 + 單子音</b>：重複字尾再加 -ed　stop→stopped、plan→planned",
+    "⑤ 不規則動詞要個別記（go→went、eat→ate…）→ 見 <a href='#/verbforms'>動詞三態專區</a>"],
+  v3:[
+    "<b>過去分詞 V3 拼字規則</b>",
+    "① 規則動詞：加 <b>-ed</b>（拼字規則同過去式）　play→played、like→liked、study→studied、stop→stopped",
+    "② 不規則動詞 V3 要個別記：go→<b>gone</b>、eat→<b>eaten</b>、write→<b>written</b>、break→<b>broken</b> → 見 <a href='#/verbforms'>動詞三態專區</a>"]
+};
+const WS_SPELL_MAP = {
+  "present-continuous":"ving","past-continuous":"ving","present-perfect-continuous":"ving",
+  "past-perfect-continuous":"ving","future-continuous-perfect":"ving","future-perfect-continuous":"ving",
+  "future-arrangements":"ving","past-simple":"ed","present-perfect":"v3","past-perfect":"v3"
+};
 function wsData(l){
   const w = WORKSHEETS[l.id] || {};
   const dedupe = (arr, key) => { const seen = new Set(); return arr.filter(x=>{
@@ -18042,7 +18066,8 @@ function wsData(l){
   const err = dedupe([...(w.err||[]), ...l.q.filter(q=>q.t==="spot").map(wsFixSpot)], x=>x.s).slice(0,9);
   const scr = l.q.filter(q=>q.t==="order").map(q=>({words:q.words.slice().sort((a,b)=>a.toLowerCase()<b.toLowerCase()?-1:1), sent:q.sent}));
   const tr = (w.tr||[]);
-  return {mcq, fill, err, scr, tr, extra:(w.extra||[])};
+  const sp = WS_SPELL[WS_SPELL_MAP[l.id]] || [];
+  return {mcq, fill, err, scr, tr, extra:[...sp, ...(w.extra||[])]};
 }
 function wsSec(letter, en, zh, instr, inner){
   return `<div class="ws-sec"><div class="ws-sec-h"><span class="ws-let">${letter}</span> ${en} <span class="ws-sec-zh">${zh}</span></div>

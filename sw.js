@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v98-present-s-rules";
+const CACHE = "eci-v99-tense-spelling";
 const SHELL = [
   "./",
   "./index.html",
