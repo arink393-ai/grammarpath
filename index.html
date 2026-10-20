@@ -9089,9 +9089,7 @@ const WORKSHEETS = {
   {zh:"如果他不來，我們就先開始。", en:"If he does not come, we will start first."}]},
 
 "comparatives-superlatives": {
- extra:["不規則：good→better→best、bad→worse→worst、far→farther→farthest",
-  "拼字：big→bigger（重複字尾）、happy→happier、nice→nicer",
-  "as…as 一樣：She is as tall as her mom.；比較級強調可加 much：much better"],
+ extra:["as…as 一樣：She is as tall as her mom.；比較級強調可加 much：much better"],
  mcq:[
   {q:"Taipei 101 is ___ than this building.", opts:["tall","taller","tallest"], a:1},
   {q:"This is ___ movie of the year.", opts:["better","good","the best"], a:2},
@@ -18049,12 +18047,21 @@ const WS_SPELL = {
   v3:[
     "<b>過去分詞 V3 拼字規則</b>",
     "① 規則動詞：加 <b>-ed</b>（拼字規則同過去式）　play→played、like→liked、study→studied、stop→stopped",
-    "② 不規則動詞 V3 要個別記：go→<b>gone</b>、eat→<b>eaten</b>、write→<b>written</b>、break→<b>broken</b> → 見 <a href='#/verbforms'>動詞三態專區</a>"]
+    "② 不規則動詞 V3 要個別記：go→<b>gone</b>、eat→<b>eaten</b>、write→<b>written</b>、break→<b>broken</b> → 見 <a href='#/verbforms'>動詞三態專區</a>"],
+  cmp:[
+    "<b>比較級 -er / 最高級 -est 拼字規則</b>",
+    "① <b>短（一音節）</b>：加 <b>-er / -est</b>　tall→taller→tallest、fast→faster→fastest",
+    "② <b>-e 結尾</b>：只加 -r / -st　nice→nicer→nicest、large→larger→largest",
+    "③ <b>子音 + y</b>：去 y 加 <b>-ier / -iest</b>　happy→happier→happiest、easy→easier→easiest",
+    "④ <b>短母音 + 單子音</b>：重複字尾再加 -er / -est　big→bigger→biggest、hot→hotter→hottest、thin→thinner→thinnest",
+    "⑤ <b>長形容詞（兩音節以上）與多數副詞</b>：用 <b>more / most</b>　beautiful→more beautiful→most beautiful、carefully→more carefully",
+    "⑥ 不規則：good/well→better→best、bad→worse→worst、many/much→more→most、little→less→least、far→farther/further→farthest/furthest"]
 };
 const WS_SPELL_MAP = {
   "present-continuous":"ving","past-continuous":"ving","present-perfect-continuous":"ving",
   "past-perfect-continuous":"ving","future-continuous-perfect":"ving","future-perfect-continuous":"ving",
-  "future-arrangements":"ving","past-simple":"ed","present-perfect":"v3","past-perfect":"v3"
+  "future-arrangements":"ving","past-simple":"ed","present-perfect":"v3","past-perfect":"v3",
+  "comparatives-superlatives":"cmp"
 };
 function wsData(l){
   const w = WORKSHEETS[l.id] || {};
