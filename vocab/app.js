@@ -75,6 +75,9 @@ function summary(book) {
 
 /* ========== 發音 ========== */
 let audio;
+// Kokoro 真人發音檔路徑（slug/shard 需與 tools/gen_vocab_audio.mjs 一致）
+const kSlug = w => String(w).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+const kShard = w => { const s = kSlug(w); return /^[a-z]/.test(s) ? s[0] : '_'; };
 function speak(text, slow, acc) {
   const accent = acc || settings.accent;
   if (!text) return;
@@ -89,10 +92,20 @@ function speak(text, slow, acc) {
     if (v) u.voice = v;
     speechSynthesis.speak(u);
   };
-  if (settings.voice !== 'youdao' && !acc) return fallback();
-  audio = new Audio('https://dict.youdao.com/dictvoice?type=' + accent + '&audio=' + encodeURIComponent(text));
-  audio.onerror = fallback;
-  audio.play().catch(fallback);
+  const youdaoOrBrowser = () => {
+    if (settings.voice !== 'youdao' && !acc) return fallback();
+    audio = new Audio('https://dict.youdao.com/dictvoice?type=' + accent + '&audio=' + encodeURIComponent(text));
+    audio.onerror = fallback;
+    audio.play().catch(fallback);
+  };
+  // 單字用 Kokoro 真人發音（美式）；口音比較或英式(accent 1) → 有道；失敗再退瀏覽器
+  if (!acc && accent !== 1) {
+    const a = new Audio('audio/' + kShard(text) + '/' + kSlug(text) + '.mp3');
+    if (slow) a.playbackRate = 0.8;
+    audio = a; a.onerror = youdaoOrBrowser; a.play().catch(youdaoOrBrowser);
+    return;
+  }
+  youdaoOrBrowser();
 }
 
 /* ========== 常見搭配詞 ========== */

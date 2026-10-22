@@ -222,8 +222,11 @@ function vqDay(date, track=vqTrack()){ const i=vqUnitIndex(date,track), u=vqUnit
 function vqRecords(){ return store.data.vocabQuests || {}; }
 function vqStatus(date, track=vqTrack()){ const r=vqRecords()[vqKey(date,track)]; return r&&r.done?'done':r&&(r.learned||r.quiz)?'started':'new'; }
 
-/* ---- 發音：有道真人發音，失敗改用瀏覽器語音；可排隊（先念單字再念例句） ---- */
+/* ---- 發音：單字用 Kokoro 真人發音，失敗退有道→瀏覽器；可排隊（先念單字再念例句） ---- */
 let vqAudio=null, vqQueue=[];
+// slug/shard 需與 tools/gen_vocab_audio.mjs 一致
+const vqSlug=w=>String(w).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+const vqShard=w=>{ const s=vqSlug(w); return /^[a-z]/.test(s)?s[0]:'_'; };
 function vqSay(list){
  vqQueue = Array.isArray(list)?list.slice():[list];
  if(vqAudio){ vqAudio.onended=null; vqAudio.pause(); }
@@ -233,8 +236,10 @@ function vqSay(list){
 function vqNext(){
  const text=vqQueue.shift(); if(!text) return;
  const fallback=()=>{ if(!window.speechSynthesis){ vqNext(); return; } const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=.95; if(typeof tts!=='undefined'&&tts.voice) u.voice=tts.voice; u.onend=vqNext; speechSynthesis.speak(u); };
- vqAudio=new Audio('https://dict.youdao.com/dictvoice?type=2&audio='+encodeURIComponent(text));
- vqAudio.onended=vqNext; vqAudio.onerror=fallback; vqAudio.play().catch(fallback);
+ const youdao=()=>{ vqAudio=new Audio('https://dict.youdao.com/dictvoice?type=2&audio='+encodeURIComponent(text)); vqAudio.onended=vqNext; vqAudio.onerror=fallback; vqAudio.play().catch(fallback); };
+ // 單字有 Kokoro 檔就用真人聲；例句等沒有檔 → 退有道
+ const a=new Audio('vocab/audio/'+vqShard(text)+'/'+vqSlug(text)+'.mp3');
+ vqAudio=a; a.onended=vqNext; a.onerror=youdao; a.play().catch(youdao);
 }
 const vqMark=(sentence,w)=>{ const root=w.length>4?w.replace(/(e|y|le)$/,''):w; return esc(sentence).replace(new RegExp('\\b('+root+'[a-z]*)','i'),'<mark>$1</mark>'); };
 
