@@ -1533,8 +1533,9 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .fable-theater{max-width:600px;margin:14px auto 0}
 .ft-stage{position:relative;border-radius:18px 18px 0 0;overflow:hidden;cursor:pointer;background:#F3ECD9;box-shadow:0 18px 44px -26px rgba(120,90,40,.6);border:1px solid var(--sb-line2);border-bottom:none}
 .ft-art{overflow:hidden}
-.ft-art svg{display:block;width:100%;height:auto;transform-origin:center;animation:ftKen 26s ease-in-out infinite alternate}
-@keyframes ftKen{0%{transform:scale(1.015)}100%{transform:scale(1.07) translateY(-1.5%)}}
+.ft-art svg{display:block;width:100%;height:auto}
+.ft-art-in{animation:ftArtIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes ftArtIn{0%{opacity:0;transform:scale(1.04)}100%{opacity:1;transform:none}}
 .ft-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.86);color:var(--sb-ink);font-size:25px;line-height:38px;text-align:center;cursor:pointer;box-shadow:0 4px 14px -4px rgba(0,0,0,.35);opacity:.55;transition:opacity .2s,transform .15s}
 .ft-stage:hover .ft-nav{opacity:1}
 .ft-nav:hover{transform:translateY(-50%) scale(1.08)}
@@ -1555,7 +1556,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .ft-dot.on{background:var(--sb-brick);transform:scale(1.35)}
 .ft-hint{font-size:12px;color:var(--sb-faint);display:flex;align-items:center;gap:4px}
 .ft-restart{background:var(--sb-brick);color:#fff;border:none;border-radius:14px;padding:4px 11px;font-size:12px;cursor:pointer}
-@media(prefers-reduced-motion:reduce){.ft-art svg{animation:none}.ft-in{animation:none}}
+@media(prefers-reduced-motion:reduce){.ft-in,.ft-art-in{animation:none}}
 .sb-plate-fable svg{width:100%;height:100%;object-fit:cover;display:block}
 @keyframes faBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @keyframes faSway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
@@ -4995,6 +4996,12 @@ const FABLES = [
 STORIES.push.apply(STORIES, FABLES);
 
 /* Original animated illustrations for each fable (flat SVG, site style — no copied art). */
+const FABLE_SCENE_ART = {
+"aesop-fox-grapes":[
+`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#F1ECDA"/><ellipse cx="200" cy="232" rx="250" ry="40" fill="#E0D6BB"/><path d="M60 30q150 26 320 10" fill="none" stroke="#6E7C3A" stroke-width="6"/><g class="fa-sway"><path d="M300 52v-14" stroke="#6E7C3A" stroke-width="3"/><g fill="#7C4DA0"><circle cx="286" cy="64" r="12"/><circle cx="306" cy="60" r="12"/><circle cx="324" cy="64" r="12"/><circle cx="296" cy="80" r="12"/><circle cx="314" cy="80" r="12"/><circle cx="306" cy="96" r="12"/></g></g><g stroke="#C9B36B" stroke-width="3" stroke-dasharray="3 7" stroke-linecap="round" fill="none" opacity="0.7"><path d="M232 120q24-18 52-30"/><path d="M226 140q30-14 60-20"/></g><g class="fa-rise"><path d="M150 150q-26 6-30 30" fill="none" stroke="#E08A3C" stroke-width="13" stroke-linecap="round"/><ellipse cx="178" cy="162" rx="34" ry="46" fill="#E08A3C"/><ellipse cx="178" cy="172" rx="20" ry="30" fill="#F0B377"/><circle cx="196" cy="104" r="22" fill="#E08A3C"/><path d="M182 88l-8-18 18 8zM210 88l10-16-16 8z" fill="#E08A3C"/><path d="M214 98l20-10-8 20z" fill="#E08A3C"/><circle cx="206" cy="100" r="3" fill="#3a2410"/><g stroke="#E08A3C" stroke-width="11" stroke-linecap="round"><path d="M196 132q24-14 44-30"/><path d="M188 138q22-8 40-20"/></g><g stroke="#b96e28" stroke-width="8" stroke-linecap="round"><path d="M166 202v18"/><path d="M190 202v18"/></g></g></svg>`,
+`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#F1ECDA"/><ellipse cx="200" cy="232" rx="250" ry="40" fill="#E0D6BB"/><path d="M60 30q150 26 320 10" fill="none" stroke="#6E7C3A" stroke-width="6"/><g class="fa-sway"><path d="M312 52v-14" stroke="#6E7C3A" stroke-width="3"/><g fill="#7C4DA0"><circle cx="298" cy="64" r="12"/><circle cx="318" cy="60" r="12"/><circle cx="336" cy="64" r="12"/><circle cx="308" cy="80" r="12"/><circle cx="326" cy="80" r="12"/><circle cx="318" cy="96" r="12"/></g></g><g class="fa-rise"><path d="M196 172q28 2 34-24" fill="none" stroke="#E08A3C" stroke-width="13" stroke-linecap="round"/><ellipse cx="150" cy="176" rx="56" ry="30" fill="#E08A3C"/><ellipse cx="142" cy="184" rx="30" ry="16" fill="#F0B377"/><circle cx="98" cy="158" r="21" fill="#E08A3C"/><path d="M86 140l-10-16 20 6zM112 140l12-16-16 6z" fill="#E08A3C"/><path d="M80 150l-22-6 16 16z" fill="#E08A3C"/><path d="M86 154q-6 3-12 1" fill="none" stroke="#3a2410" stroke-width="2.5" stroke-linecap="round"/><g stroke="#b96e28" stroke-width="8" stroke-linecap="round"><path d="M120 200v20"/><path d="M150 202v18"/><path d="M178 200v20"/></g></g><text x="150" y="118" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="20" fill="#9A7BB5" font-style="italic">“sour!”</text></svg>`
+]
+};
 const FABLE_ART = {
 "aesop-frogs-ox":`<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="240" fill="#EAF2E2"/><ellipse cx="200" cy="232" rx="250" ry="42" fill="#CDE0BD"/><ellipse cx="120" cy="205" rx="95" ry="26" fill="#AEC9E4"/><g stroke="#6E9C4E" stroke-width="4" stroke-linecap="round"><path d="M60 200v-34"/><path d="M74 202v-26"/><path d="M186 198v-30"/></g><g><ellipse cx="300" cy="150" rx="66" ry="42" fill="#8B6B4A"/><circle cx="352" cy="128" r="26" fill="#8B6B4A"/><path d="M340 112q-10-18 4-22M366 112q10-18-4-22" fill="none" stroke="#6B4F35" stroke-width="5" stroke-linecap="round"/><circle cx="358" cy="126" r="3" fill="#33261a"/><g stroke="#6B4F35" stroke-width="9" stroke-linecap="round"><path d="M270 188v22"/><path d="M320 188v22"/></g></g><g class="fa-pulse"><ellipse cx="112" cy="180" rx="30" ry="26" fill="#6FB43E"/><circle cx="102" cy="164" r="8" fill="#6FB43E"/><circle cx="122" cy="164" r="8" fill="#6FB43E"/><circle cx="102" cy="162" r="3" fill="#1f3a14"/><circle cx="122" cy="162" r="3" fill="#1f3a14"/><path d="M100 188q12 8 24 0" fill="none" stroke="#3f6b1f" stroke-width="3" stroke-linecap="round"/></g></svg>`,
 
@@ -5497,7 +5504,7 @@ function renderStory(id){
   const theaterHtml = isFable ? `
     <div class="fable-theater" id="fableTheater">
       <div class="ft-stage" onclick="ftNext()">
-        <div class="ft-art">${FABLE_ART[s.id] || ''}</div>
+        <div class="ft-art" id="ftArt"></div>
         <button class="ft-nav ft-prev" aria-label="上一段 Previous" onclick="event.stopPropagation();ftPrev()">‹</button>
         <button class="ft-nav ft-next" aria-label="下一段 Next" onclick="event.stopPropagation();ftNext()">›</button>
       </div>
@@ -5577,12 +5584,19 @@ function ftCapHTML(i){
     <p class="zh">${sc.zh||""}</p>
     <button class="sb-scene-say ft-say" title="朗讀 Read aloud" onclick="event.stopPropagation();sbStop();sbSpeakScene('${FT.id}',${i},0.9)">🔊 朗讀這一段</button>`;
 }
+function ftArtHTML(i){
+  const arts = (typeof FABLE_SCENE_ART !== "undefined") ? FABLE_SCENE_ART[FT.id] : null;
+  if(arts && arts[i]) return arts[i];
+  return (typeof FABLE_ART !== "undefined" && FABLE_ART[FT.id]) || "";
+}
 function ftShow(){
   const c = document.getElementById("ftCap");
   if(!c) return;
   c.classList.remove("ft-in"); void c.offsetWidth;
   c.innerHTML = ftCapHTML(FT.i);
   c.classList.add("ft-in");
+  const art = document.getElementById("ftArt");
+  if(art){ art.classList.remove("ft-art-in"); void art.offsetWidth; art.innerHTML = ftArtHTML(FT.i); art.classList.add("ft-art-in"); }
   document.querySelectorAll(".ft-dot").forEach((d,k)=>d.classList.toggle("on", k===FT.i));
   const prev = document.querySelector(".ft-prev");
   if(prev) prev.toggleAttribute("disabled", FT.i===0);
