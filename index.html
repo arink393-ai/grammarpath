@@ -1529,6 +1529,33 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 /* Fable illustrations (original animated SVG art) */
 .sb-fable-art{border:1px solid var(--sb-line2);border-radius:16px;overflow:hidden;max-width:520px;margin:6px auto 4px;box-shadow:0 14px 34px -22px rgba(120,90,40,.55)}
 .sb-fable-art svg{display:block;width:100%;height:auto}
+/* Fable Theater — tap-to-advance scene player */
+.fable-theater{max-width:600px;margin:14px auto 0}
+.ft-stage{position:relative;border-radius:18px 18px 0 0;overflow:hidden;cursor:pointer;background:#F3ECD9;box-shadow:0 18px 44px -26px rgba(120,90,40,.6);border:1px solid var(--sb-line2);border-bottom:none}
+.ft-art{overflow:hidden}
+.ft-art svg{display:block;width:100%;height:auto;transform-origin:center;animation:ftKen 26s ease-in-out infinite alternate}
+@keyframes ftKen{0%{transform:scale(1.015)}100%{transform:scale(1.07) translateY(-1.5%)}}
+.ft-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.86);color:var(--sb-ink);font-size:25px;line-height:38px;text-align:center;cursor:pointer;box-shadow:0 4px 14px -4px rgba(0,0,0,.35);opacity:.55;transition:opacity .2s,transform .15s}
+.ft-stage:hover .ft-nav{opacity:1}
+.ft-nav:hover{transform:translateY(-50%) scale(1.08)}
+.ft-nav:active{transform:translateY(-50%) scale(.94)}
+.ft-prev{left:10px}.ft-next{right:10px}
+.ft-nav[disabled]{opacity:0;pointer-events:none}
+.ft-caption-card{cursor:pointer;background:var(--sb-panel);border:1px solid var(--sb-line2);border-top:none;border-radius:0 0 18px 18px;padding:16px 20px 18px;min-height:132px}
+.ft-in{animation:ftIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes ftIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+.ft-num{font:600 11px var(--sb-disp);letter-spacing:.14em;color:var(--sb-faint);margin-bottom:7px}
+.ft-caption .en{font-family:var(--sb-serif);font-size:1.1rem;color:var(--sb-ink);line-height:1.6;margin:0 0 .55em}
+.ft-caption .zh{font-family:var(--sb-han);font-size:1.02rem;color:var(--sb-zh);line-height:1.9;margin:0}
+.storybook.en-only .ft-caption .zh{display:none}
+.ft-say{margin-top:12px}
+.ft-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:13px 4px 0;flex-wrap:wrap}
+.ft-dots{display:flex;gap:8px}
+.ft-dot{width:10px;height:10px;border-radius:50%;border:none;background:var(--sb-line2);cursor:pointer;padding:0;transition:transform .2s,background .2s}
+.ft-dot.on{background:var(--sb-brick);transform:scale(1.35)}
+.ft-hint{font-size:12px;color:var(--sb-faint);display:flex;align-items:center;gap:4px}
+.ft-restart{background:var(--sb-brick);color:#fff;border:none;border-radius:14px;padding:4px 11px;font-size:12px;cursor:pointer}
+@media(prefers-reduced-motion:reduce){.ft-art svg{animation:none}.ft-in{animation:none}}
 .sb-plate-fable svg{width:100%;height:100%;object-fit:cover;display:block}
 @keyframes faBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @keyframes faSway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
@@ -5467,10 +5494,24 @@ function renderStory(id){
   const idx = STORIES.indexOf(s);
   const nextS = STORIES[idx+1];
 
+  const theaterHtml = isFable ? `
+    <div class="fable-theater" id="fableTheater">
+      <div class="ft-stage" onclick="ftNext()">
+        <div class="ft-art">${FABLE_ART[s.id] || ''}</div>
+        <button class="ft-nav ft-prev" aria-label="上一段 Previous" onclick="event.stopPropagation();ftPrev()">‹</button>
+        <button class="ft-nav ft-next" aria-label="下一段 Next" onclick="event.stopPropagation();ftNext()">›</button>
+      </div>
+      <div class="ft-caption-card" onclick="ftNext()"><div class="ft-caption ft-in" id="ftCap"></div></div>
+      <div class="ft-bar">
+        <div class="ft-dots" id="ftDots"></div>
+        <div class="ft-hint" id="ftHint"></div>
+      </div>
+    </div>` : "";
+
   app.innerHTML = `<div class="view storybook${sbEnOnly ? ' en-only' : ''}">
     <div class="crumb"><a href="#/home">Home</a> › <a href="#/story">Story Time</a> › ${isPB ? '<a href="#/story/picture-books">繪本區</a> › ' : ''}${s.title}</div>
     <header class="sb-hero ${isFable ? 'sb-hero-fable' : ''}">
-      ${isFable ? (FABLE_ART[s.id] ? `<div class="sb-fable-art">${FABLE_ART[s.id]}</div>` : `<div class="sb-fable-badge">${s.emoji || "🦊"}</div>`) : ""}
+      ${isFable ? `<div class="sb-fable-badge">${s.emoji || "🦊"}</div>` : ""}
       <div class="sb-eyebrow">${s.tag}</div>
       <h1 class="sb-h1">${s.title}</h1>
       <div class="sb-h1-zh">${[...s.zh].join(" ")}</div>
@@ -5489,7 +5530,7 @@ function renderStory(id){
       <p class="en">${sbGlossify(s.intro.en, gmap)}</p>
       <p class="zh">${s.intro.zh}</p>
     </div>` : ""}
-    ${scenes}
+    ${isFable ? theaterHtml : scenes}
     ${moralHtml}
     ${quizHtml}
     ${vocabHtml}
@@ -5517,7 +5558,45 @@ function renderStory(id){
       </div>
     </div>
   </div>`;
+  if(isFable) ftInit(s);
+  window.scrollTo(0,0);
 }
+
+/* ---- Fable Theater: tap-to-advance scene player ---- */
+let FT = null;
+function ftInit(s){
+  FT = { id:s.id, i:0, scenes:(s.scenes||[]) };
+  const dots = document.getElementById("ftDots");
+  if(dots) dots.innerHTML = FT.scenes.map((_,k)=>`<button class="ft-dot ${k===0?'on':''}" aria-label="第 ${k+1} 段" onclick="event.stopPropagation();ftGo(${k})"></button>`).join("");
+  ftShow();
+}
+function ftCapHTML(i){
+  const sc = FT.scenes[i] || {};
+  return `<div class="ft-num">${i+1} / ${FT.scenes.length}</div>
+    <p class="en">${sc.en||""}</p>
+    <p class="zh">${sc.zh||""}</p>
+    <button class="sb-scene-say ft-say" title="朗讀 Read aloud" onclick="event.stopPropagation();sbStop();sbSpeakScene('${FT.id}',${i},0.9)">🔊 朗讀這一段</button>`;
+}
+function ftShow(){
+  const c = document.getElementById("ftCap");
+  if(!c) return;
+  c.classList.remove("ft-in"); void c.offsetWidth;
+  c.innerHTML = ftCapHTML(FT.i);
+  c.classList.add("ft-in");
+  document.querySelectorAll(".ft-dot").forEach((d,k)=>d.classList.toggle("on", k===FT.i));
+  const prev = document.querySelector(".ft-prev");
+  if(prev) prev.toggleAttribute("disabled", FT.i===0);
+  const atEnd = FT.i === FT.scenes.length-1;
+  const next = document.querySelector(".ft-next");
+  if(next) next.toggleAttribute("disabled", atEnd);
+  const hint = document.getElementById("ftHint");
+  if(hint) hint.innerHTML = atEnd
+    ? `✦ 讀完囉！看下面的寓意 The moral is below ↓ <button class="ft-restart" onclick="event.stopPropagation();ftGo(0)">↻ 重看 Replay</button>`
+    : `點一下畫面看下一段 ▸ Tap to continue`;
+}
+function ftGo(i){ if(!FT || i<0 || i>=FT.scenes.length) return; FT.i=i; ftShow(); }
+function ftNext(){ if(FT && FT.i < FT.scenes.length-1) ftGo(FT.i+1); }
+function ftPrev(){ if(FT && FT.i > 0) ftGo(FT.i-1); }
 
 /* =====================================================
    Views — Theory 學習理論 (encouragement for class)

@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v100-cmp-spelling";
+const CACHE = "eci-v82-fable-theater";
 const SHELL = [
   "./",
   "./index.html",
