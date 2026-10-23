@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v84-fable-art2";
+const CACHE = "eci-v85-vocab-kokoro";
 const SHELL = [
   "./",
   "./index.html",
@@ -24,7 +24,7 @@ const SHELL = [
   "./daily.js?v=18",
   "./adventure.js?v=5",
   "./vocab/books.js?v=6",
-  "./vocab-quest.js?v=15",
+  "./vocab-quest.js?v=16",
   "./manifest.webmanifest",
   "./vocab/",
   "./vocab/style.css?v=2",
@@ -32,7 +32,7 @@ const SHELL = [
   "./vocab/catalog.js?v=1",
   "./vocab/book-loader.js?v=3",
   "./vocab/account-storage.js?v=2",
-  "./vocab/app.js?v=8",
+  "./vocab/app.js?v=9",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/maskable-512.png",
