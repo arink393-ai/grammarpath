@@ -7109,21 +7109,81 @@ const PART_Q = [
   {q:"___ the door, she found a little cat outside.", opts:["Opened","Opening"], a:1, why:"主動、與主詞同時發生的分詞片語 → 現在分詞 Opening。"},
   {q:"The temple ___ 300 years ago by local people.", opts:["was building","was built"], a:1, why:"被動語態 be + 過去分詞 → was built。"},
   {q:"She has already ___ her homework.", opts:["finished","finishing"], a:0, why:"完成式 have + 過去分詞 → finished。"},
-  {q:"___ in 1990, the novel is still popular today.", opts:["Writing","Written"], a:1, why:"被動、過去分詞片語（它「被」寫）→ Written。"}
+  {q:"___ in 1990, the novel is still popular today.", opts:["Writing","Written"], a:1, why:"被動、過去分詞片語（它「被」寫）→ Written。"},
+  /* ===== -ing / -ed 形容詞 ===== */
+  {q:"The documentary was very ___.", opts:["interesting","interested"], a:0, why:"紀錄片「令人」感興趣，形容事物 → interesting。"},
+  {q:"After the marathon, the runners were ___.", opts:["tiring","tired"], a:1, why:"跑者「感到」疲累 → -ed：tired。"},
+  {q:"Climbing the mountain was ___.", opts:["tiring","tired"], a:0, why:"爬山這件事「令人」疲累 → -ing：tiring。"},
+  {q:"We were ___ by the loud noise.", opts:["surprising","surprised"], a:1, why:"人「感到」驚訝 → -ed：surprised。"},
+  {q:"The ending of the movie was ___.", opts:["surprising","surprised"], a:0, why:"結局「令人」驚訝，形容事物 → surprising。"},
+  {q:"This math problem is really ___.", opts:["confusing","confused"], a:0, why:"題目「令人」困惑，形容事物 → confusing。"},
+  {q:"I felt ___ by his directions.", opts:["confusing","confused"], a:1, why:"人「感到」困惑 → -ed：confused。"},
+  {q:"The fireworks show was ___!", opts:["amazing","amazed"], a:0, why:"煙火秀「令人」驚奇 → -ing：amazing。"},
+  {q:"Everyone was ___ at her talent.", opts:["amazing","amazed"], a:1, why:"人「感到」驚奇 → be amazed at。"},
+  {q:"A warm bath is so ___.", opts:["relaxing","relaxed"], a:0, why:"泡澡「令人」放鬆，形容事物 → relaxing。"},
+  {q:"I always feel ___ after a holiday.", opts:["relaxing","relaxed"], a:1, why:"人「感到」放鬆 → -ed：relaxed。"},
+  {q:"The thunder was ___ to the puppy.", opts:["frightening","frightened"], a:0, why:"雷聲「令人」害怕 → -ing：frightening。"},
+  {q:"The little puppy looked ___.", opts:["frightening","frightened"], a:1, why:"小狗「感到」害怕 → -ed：frightened。"},
+  {q:"The test results were ___.", opts:["disappointing","disappointed"], a:0, why:"成績「令人」失望，形容事物 → disappointing。"},
+  {q:"His parents were ___ with his grades.", opts:["disappointing","disappointed"], a:1, why:"人「感到」失望 → be disappointed with。"},
+  {q:"The news about the earthquake was ___.", opts:["shocking","shocked"], a:0, why:"消息「令人」震驚 → -ing：shocking。"},
+  {q:"We were all ___ by the news.", opts:["shocking","shocked"], a:1, why:"人「感到」震驚 → -ed：shocked。"},
+  {q:"The roller coaster ride was ___.", opts:["thrilling","thrilled"], a:0, why:"雲霄飛車「令人」興奮刺激 → -ing：thrilling。"},
+  {q:"The fans were ___ to meet the star.", opts:["thrilling","thrilled"], a:1, why:"粉絲「感到」興奮 → -ed：thrilled。"},
+  {q:"Learning grammar can be ___ sometimes.", opts:["annoying","annoyed"], a:0, why:"這件事「令人」厭煩 → -ing：annoying。"},
+  {q:"He was ___ by the loud music next door.", opts:["annoying","annoyed"], a:1, why:"人「感到」厭煩 → -ed：annoyed。"},
+  /* ===== 現在分詞 V-ing（進行式／主動分詞片語） ===== */
+  {q:"Look! The cat is ___ on the sofa.", opts:["sleeping","slept"], a:0, why:"進行式 be + V-ing → sleeping。"},
+  {q:"They were ___ TV when I called them.", opts:["watching","watched"], a:0, why:"過去進行式 were + V-ing → watching。"},
+  {q:"She is ___ a letter to her friend now.", opts:["writing","written"], a:0, why:"進行式 be + V-ing → writing。"},
+  {q:"The students are ___ hard for the exam.", opts:["studying","studied"], a:0, why:"進行式 be + V-ing → studying。"},
+  {q:"We saw a boy ___ in the river.", opts:["swimming","swum"], a:0, why:"看見某人「正在」游泳 → 現在分詞 swimming。"},
+  {q:"The man ___ over there is my teacher.", opts:["standing","stood"], a:0, why:"主動分詞片語修飾名詞（他正站著）→ standing。"},
+  {q:"___ along the street, I met an old friend.", opts:["Walking","Walked"], a:0, why:"主動、同時發生的分詞片語 → 現在分詞 Walking。"},
+  {q:"The girl ___ the red dress is my sister.", opts:["wearing","worn"], a:0, why:"主動分詞片語（她穿著）→ wearing。"},
+  {q:"Be careful with the ___ water!", opts:["boiling","boiled"], a:0, why:"「正在沸騰」的水，主動進行 → boiling water。"},
+  {q:"A ___ star fell across the night sky.", opts:["shooting","shot"], a:0, why:"主動進行（星星劃過）→ a shooting star。"},
+  /* ===== 過去分詞 V3（被動分詞片語） ===== */
+  {q:"___ in France, this wine is quite expensive.", opts:["Making","Made"], a:1, why:"被動（酒「被」製造）→ 過去分詞 Made。"},
+  {q:"The house, ___ in 1900, is still strong.", opts:["building","built"], a:1, why:"被動分詞片語（房子「被」蓋）→ built。"},
+  {q:"___ by everyone, she felt very proud.", opts:["Loving","Loved"], a:1, why:"被動（她「被」大家愛）→ 過去分詞 Loved。"},
+  {q:"The letter ___ in English was hard to read.", opts:["writing","written"], a:1, why:"被動修飾名詞（信「被」寫）→ written。"},
+  {q:"___ from the plane, the city looks tiny.", opts:["Seeing","Seen"], a:1, why:"被動（城市「被」看）→ 過去分詞 Seen。"},
+  {q:"Products ___ in Taiwan are very popular.", opts:["making","made"], a:1, why:"被動分詞片語（產品「被」製造）→ made。"},
+  {q:"The window ___ by the ball was fixed today.", opts:["breaking","broken"], a:1, why:"被動（窗戶「被」打破）→ broken。"},
+  {q:"I found my phone ___ on the floor.", opts:["dropping","dropped"], a:1, why:"被動（手機「被」掉在地上）→ dropped。"},
+  /* ===== 被動語態 be + V3 ===== */
+  {q:"The window was ___ by the storm.", opts:["breaking","broken"], a:1, why:"被動語態 be + V3 → broken。"},
+  {q:"English is ___ all over the world.", opts:["speaking","spoken"], a:1, why:"被動語態 be + V3 → spoken。"},
+  {q:"This cake was ___ by my mom.", opts:["making","made"], a:1, why:"被動語態 be + V3 → made。"},
+  {q:"The thief was ___ by the police.", opts:["catching","caught"], a:1, why:"被動語態 be + V3 → caught。"},
+  {q:"These songs are ___ by young people.", opts:["loving","loved"], a:1, why:"被動語態 be + V3 → loved。"},
+  /* ===== 完成式 have + V3 ===== */
+  {q:"I have ___ my keys again.", opts:["losing","lost"], a:1, why:"完成式 have + V3 → lost。"},
+  {q:"She has ___ to Japan twice.", opts:["been","being"], a:0, why:"完成式 have been to（去過）→ been。"},
+  {q:"They have just ___ the project.", opts:["finished","finishing"], a:0, why:"完成式 have + V3 → finished。"},
+  {q:"He has already ___ his breakfast.", opts:["eaten","eating"], a:0, why:"完成式 have + V3 → eaten。"},
+  {q:"We have ___ each other for ten years.", opts:["known","knowing"], a:0, why:"完成式 have + V3 → known。"},
+  {q:"Have you ever ___ a shooting star?", opts:["seen","seeing"], a:0, why:"完成式 have + V3 → seen。"}
 ];
-let PRT = {ans:{}};
-function prtPick(qi,oi){ if(PRT.ans[qi]!==undefined) return; PRT.ans[qi]=oi; renderPrtQuiz(); }
-function prtReset(){ PRT={ans:{}}; renderPrtQuiz(); }
+let PRT = {batch:[], ans:{}};
+const PRT_BATCH = 10;
+function prtShuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+function prtNewBatch(){ PRT={batch:prtShuffle(PART_Q.map((_,i)=>i)).slice(0,Math.min(PRT_BATCH,PART_Q.length)), ans:{}}; renderPrtQuiz(); }
+function prtPick(pos,oi){ if(PRT.ans[pos]!==undefined) return; PRT.ans[pos]=oi; renderPrtQuiz(); }
+function prtReset(){ prtNewBatch(); }
 function renderPrtQuiz(){
   const box=document.getElementById("prtQuiz"); if(!box) return;
-  const total=PART_Q.length, ansd=Object.keys(PRT.ans).length, right=PART_Q.filter((q,i)=>PRT.ans[i]===q.a).length;
-  const rows=PART_Q.map((q,qi)=>{
-    const picked=PRT.ans[qi], done=picked!==undefined;
-    const opts=q.opts.map((o,oi)=>{let c="rg-opt";if(done){if(oi===q.a)c+=" correct";else if(oi===picked)c+=" wrong";}return `<button class="${c}" ${done?"disabled":""} onclick="prtPick(${qi},${oi})">${o}</button>`;}).join("");
+  if(!PRT.batch||!PRT.batch.length){ PRT={batch:prtShuffle(PART_Q.map((_,i)=>i)).slice(0,Math.min(PRT_BATCH,PART_Q.length)), ans:{}}; }
+  const batch=PRT.batch.map(i=>PART_Q[i]);
+  const total=batch.length, ansd=Object.keys(PRT.ans).length, right=batch.filter((q,pos)=>PRT.ans[pos]===q.a).length;
+  const rows=batch.map((q,pos)=>{
+    const picked=PRT.ans[pos], done=picked!==undefined;
+    const opts=q.opts.map((o,oi)=>{let c="rg-opt";if(done){if(oi===q.a)c+=" correct";else if(oi===picked)c+=" wrong";}return `<button class="${c}" ${done?"disabled":""} onclick="prtPick(${pos},${oi})">${o}</button>`;}).join("");
     const fb=done?`<div class="rg-why">${picked===q.a?"✅ ":"💡 "}${q.why}</div>`:"";
-    return `<div class="rg-q"><div class="rg-prompt"><span class="rg-n">${qi+1}</span><span>${q.q}</span></div><div class="rg-opts">${opts}</div>${fb}</div>`;
+    return `<div class="rg-q"><div class="rg-prompt"><span class="rg-n">${pos+1}</span><span>${q.q}</span></div><div class="rg-opts">${opts}</div>${fb}</div>`;
   }).join("");
-  const score=ansd?`<div class="rg-score"><span>答對 ${right} / ${total}${ansd===total?(right===total?"　完美！🏆":right>=total*0.6?"　不錯喔！🐾":"　再看一次上面的規則"):""}</span><button class="rg-reset" onclick="prtReset()">再做一次 ↻</button></div>`:"";
+  const score=ansd?`<div class="rg-score"><span>答對 ${right} / ${total}${ansd===total?(right===total?"　完美！🏆":right>=total*0.6?"　不錯喔！🐾":"　再看一次上面的規則"):""}</span><button class="rg-reset" onclick="prtReset()">換一批 ↻</button></div>`:"";
   box.innerHTML=rows+score;
 }
 function prtPrintWorksheet(){
@@ -7209,7 +7269,7 @@ function renderParticiples(){
       <p class="vf-sub"><b>-ing</b>＝「<b>令人</b>…的」（形容事物）；<b>-ed</b>＝「<b>感到</b>…的」（形容人心情）。</p>
       <div class="vf-tablewrap"><table class="vf-table"><thead><tr><th>-ing（令人…）</th><th>中文</th><th>-ed（感到…）</th><th>中文</th></tr></thead><tbody>${adjRows}</tbody></table></div>
     </div>
-    <div class="vf-sec"><h2>🎯 小練習 Practice</h2><p class="vf-sub">選出正確的分詞形式，點選後看解析。</p><div id="prtQuiz" class="rg-wrap"></div></div>
+    <div class="vf-sec"><h2>🎯 小練習 Practice</h2><p class="vf-sub">題庫共 ${PART_Q.length} 題，每次隨機出 ${PRT_BATCH} 題；選出正確的分詞形式，點選後看解析。做完按「換一批」再練新題。</p><div id="prtQuiz" class="rg-wrap"></div></div>
     <div class="vf-sec">
       <h2>🖨 考試學習單 Test Worksheet</h2>
       <p class="vf-sub">一鍵列印／存成 PDF：<b>Part A</b> -ing/-ed 形容詞填空、<b>Part B</b> V-ing/V3 分詞填空，加上<b>解答頁</b>，拿去當回家作業或小考。</p>
@@ -7217,7 +7277,7 @@ function renderParticiples(){
     </div>
     <div class="vf-xlink">🔁 還不熟動詞的過去分詞（V3）？先到 <a href="#/verbforms">動詞三態專區</a> 把三態記熟，分詞就會更輕鬆。也可看課程：<a href="#/lesson/participle-adjectives">分詞形容詞</a>、<a href="#/lesson/participle-clauses">分詞構句</a>。</div>
   </div>`;
-  PRT={ans:{}}; renderPrtQuiz();
+  prtNewBatch();
   window.scrollTo(0,0);
 }
 
