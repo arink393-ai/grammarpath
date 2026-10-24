@@ -7126,6 +7126,62 @@ function renderPrtQuiz(){
   const score=ansd?`<div class="rg-score"><span>答對 ${right} / ${total}${ansd===total?(right===total?"　完美！🏆":right>=total*0.6?"　不錯喔！🐾":"　再看一次上面的規則"):""}</span><button class="rg-reset" onclick="prtReset()">再做一次 ↻</button></div>`:"";
   box.innerHTML=rows+score;
 }
+function prtPrintWorksheet(){
+  /* [前文, 原形動詞, 後文, 解答] —— 空白填在原形動詞處 */
+  const adjs=[
+    ["The movie was so","bore","that I almost fell asleep.","boring"],
+    ["I was very","excite","to see my old friends again.","excited"],
+    ["This science book is really","interest",".","interesting"],
+    ["The students looked","tire","after the long test.","tired"],
+    ["Wow, the magic show was","amaze","!","amazing"],
+    ["She felt","confuse","by the strange map.","confused"],
+    ["The final result was","disappoint",".","disappointing"],
+    ["We are all","interest","in Taiwan's history.","interested"],
+    ["The sudden thunder was","frighten",".","frightening"],
+    ["After a warm bath, I felt very","relax",".","relaxed"]
+  ];
+  const part=[
+    ["Look! The baby is","sleep","right now.","sleeping"],
+    ["I have already","eat","my lunch.","eaten"],
+    ["The old bridge was","build","in 1920.","built"],
+    ["","open","the box, she found a little gift.","Opening"],
+    ["This novel was","write","by a famous author.","written"],
+    ["They were","play","soccer when it started to rain.","playing"],
+    ["","make","in Taiwan, the phone sells very well.","Made"],
+    ["Be careful! He has","break","his left leg.","broken"],
+    ["The children are","swim","in the pool now.","swimming"],
+    ["The window was","break","by the ball.","broken"]
+  ];
+  const cloze=list=>list.map(s=>`<li>${s[0]} <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (${s[1]}) ${s[2]}</li>`).join("");
+  const keyLine=list=>list.map((s,i)=>`${i+1}. ${s[3]}`).join("　");
+  const nameRow=`<div class="dn"><span>Name：<u></u></span><span>Date：<u></u></span><span>Score：<u></u></span></div>`;
+  const ref=`<div class="refbox"><b>重點提示 Remember</b><ul class="rule"><li><b>-ing＝「令人…的」</b>（形容事物）；<b>-ed＝「感到…的」</b>（形容人的心情）。</li><li><b>現在分詞 V-ing</b>：進行式 be + V-ing、當形容詞、<b>主動</b>分詞片語。</li><li><b>過去分詞 V3</b>：完成式 have + V3、被動 be + V3、當形容詞、<b>被動</b>分詞片語。</li></ul></div>`;
+  const sheets=[
+    `<div class="sheet"><h1>分詞學習單　Participles Worksheet</h1><p class="sub">用括號裡動詞的正確形式（-ing 或 -ed 形容詞）填空。</p>${nameRow}${ref}<h2>Part A　-ing 還是 -ed？（形容詞）</h2><ol>${cloze(adjs)}</ol></div>`,
+    `<div class="sheet"><h1>分詞學習單　Participles Worksheet</h1><p class="sub">用括號裡動詞的正確形式（現在分詞 V-ing 或 過去分詞 V3）填空。</p><h2>Part B　現在分詞 V-ing 或 過去分詞 V3？</h2><ol>${cloze(part)}</ol></div>`,
+    `<div class="sheet key"><h1>解答 Answer Key</h1><h2>Part A　-ing / -ed 形容詞</h2><p class="key"><b>${keyLine(adjs)}</b></p><h2>Part B　V-ing / V3</h2><p class="key"><b>${keyLine(part)}</b></p><p class="sub" style="margin-top:18px">English Cat Island · 現在分詞／過去分詞專區</p></div>`
+  ];
+  const doc=`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>分詞學習單 Participles Worksheet</title><style>
+   *{box-sizing:border-box} body{font-family:Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:#111;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
+   .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
+   .sheet{background:#fff;max-width:800px;margin:16px auto;padding:38px 44px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
+   .sheet:last-child{break-after:auto;page-break-after:auto}
+   h1{font-size:19px;margin:0 0 3px} .sub{color:#555;font-size:12.5px;margin:0 0 12px}
+   .dn{display:flex;gap:24px;font-size:13px;margin:0 0 14px} .dn u{border-bottom:1px solid #000;min-width:120px;display:inline-block}
+   h2{font-size:14.5px;margin:16px 0 8px;border-left:4px solid #1f7a6e;padding-left:8px;break-after:avoid;page-break-after:avoid}
+   .refbox{background:#eef5f3;border:1px solid #cfe2dd;border-radius:8px;padding:10px 14px;margin:0 0 12px}
+   .refbox>b{font-size:12.5px;color:#1f7a6e}
+   ul.rule{margin:5px 0 0;padding-left:20px} ul.rule li{font-size:12px;line-height:1.75;page-break-inside:avoid} ul.rule b{color:#1f7a6e}
+   ol{margin:6px 0 0;padding-left:22px} li{font-size:13px;line-height:2.15;page-break-inside:avoid} li u{letter-spacing:2px}
+   .key{font-size:12.5px;line-height:2} .key b{color:#1f7a6e}
+   @media print{.bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0}} @page{margin:1.3cm}
+  </style></head><body>
+   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>分詞學習單——第 1 頁 -ing/-ed 形容詞、第 2 頁 V-ing/V3、第 3 頁解答。</span></div>
+   ${sheets.join("")}
+  </body></html>`;
+  safeOpenPrintDoc(doc, "分詞學習單");
+}
 function renderParticiples(){
   const adjRows=PART_ADJ.map(a=>`<tr><td class="b1">${a[0]}</td><td class="vf-zhcell">${a[3]}</td><td class="b1">${a[1]}</td><td class="vf-zhcell">${a[4]}</td></tr>`).join("");
   app.innerHTML=`<div class="view verb-forms participles">
@@ -7154,6 +7210,11 @@ function renderParticiples(){
       <div class="vf-tablewrap"><table class="vf-table"><thead><tr><th>-ing（令人…）</th><th>中文</th><th>-ed（感到…）</th><th>中文</th></tr></thead><tbody>${adjRows}</tbody></table></div>
     </div>
     <div class="vf-sec"><h2>🎯 小練習 Practice</h2><p class="vf-sub">選出正確的分詞形式，點選後看解析。</p><div id="prtQuiz" class="rg-wrap"></div></div>
+    <div class="vf-sec">
+      <h2>🖨 考試學習單 Test Worksheet</h2>
+      <p class="vf-sub">一鍵列印／存成 PDF：<b>Part A</b> -ing/-ed 形容詞填空、<b>Part B</b> V-ing/V3 分詞填空，加上<b>解答頁</b>，拿去當回家作業或小考。</p>
+      <div class="vf-print"><button class="btn btn-navy" onclick="prtPrintWorksheet()">🖨 分詞學習單（-ing / -ed · V-ing / V3）</button></div>
+    </div>
     <div class="vf-xlink">🔁 還不熟動詞的過去分詞（V3）？先到 <a href="#/verbforms">動詞三態專區</a> 把三態記熟，分詞就會更輕鬆。也可看課程：<a href="#/lesson/participle-adjectives">分詞形容詞</a>、<a href="#/lesson/participle-clauses">分詞構句</a>。</div>
   </div>`;
   PRT={ans:{}}; renderPrtQuiz();
