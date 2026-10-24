@@ -78,6 +78,8 @@ let audio;
 // Kokoro 真人發音檔路徑（slug/shard 需與 tools/gen_vocab_audio.mjs 一致）
 const kSlug = w => String(w).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 const kShard = w => { const s = kSlug(w); return /^[a-z]/.test(s) ? s[0] : '_'; };
+// 記憶圖像（老師字根字首風格剪影）：有圖才顯示，沒圖自動隱藏
+const vImg = w => `<div class="vpic" style="text-align:center;margin:4px 0 8px"><img src="img/${kSlug(w)}.png" alt="" loading="lazy" style="max-width:150px;max-height:150px;object-fit:contain" onerror="this.parentElement.remove()"></div>`;
 function speak(text, slow, acc) {
   const accent = acc || settings.accent;
   if (!text) return;
@@ -507,6 +509,7 @@ function study() {
     body = `${wordLine}
       ${infoBox(w, 'ph')}
       <div class="meaning"><span class="pos">${esc(w.pos || '')}</span>${esc(w.zh)}</div>
+      ${vImg(w.w)}
       ${exLine}${w.exZh ? `<div class="exzh">${esc(w.exZh)}</div>` : ''}
       ${colHTML(w)}
       ${infoBox(w, 'more')}

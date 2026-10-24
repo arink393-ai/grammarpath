@@ -227,6 +227,8 @@ let vqAudio=null, vqQueue=[];
 // slug/shard 需與 tools/gen_vocab_audio.mjs 一致
 const vqSlug=w=>String(w).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
 const vqShard=w=>{ const s=vqSlug(w); return /^[a-z]/.test(s)?s[0]:'_'; };
+// 記憶圖像（老師字根字首風格的黑色剪影）：有圖才顯示，沒圖自動隱藏
+const vqImg=w=>`<div class="vq-pic-wrap" style="text-align:center;margin:2px 0 6px"><img src="vocab/img/${vqSlug(w)}.png" alt="" loading="lazy" style="max-width:150px;max-height:150px;object-fit:contain" onerror="this.parentElement.remove()"></div>`;
 function vqSay(list){
  vqQueue = Array.isArray(list)?list.slice():[list];
  if(vqAudio){ vqAudio.onended=null; vqAudio.pause(); }
@@ -296,6 +298,7 @@ function vqRender(){
   app.innerHTML=`<div class="view dq dq-play vq">${head}<progress max="${d.items.length*2}" value="${VQ.i}"></progress>
    <section class="card vq-word">
     <div class="vq-w-top"><div><div class="vq-w">${esc(w.w)}</div><div class="vq-ph">${esc(w.ph||'')}</div></div><button class="vq-speak" onclick="vqSay(this.dataset.t)" data-t="${esc(w.w)}" aria-label="發音">🔊</button></div>
+    ${vqImg(w.w)}
     <div class="vq-mean"><i>${esc(w.pos||'')}</i> ${esc(w.zh)}</div>
     ${w.ex?`<div class="vq-ex" onclick="vqSay(this.dataset.t)" data-t="${esc(w.ex)}" title="點一下聽例句" lang="en">${vqMark(w.ex,w.w)} <span>🔊</span></div><div class="vq-exzh">${esc(w.exZh||'')}</div>`:''}
     ${w.col&&w.col.length?`<div class="vq-cols"><div class="vq-colh">常見搭配 Collocations</div>${w.col.map(([en,zh])=>`<button class="vq-col" onclick="vqSay(this.dataset.t)" data-t="${esc(en.replace(/\bsb\b/g,'somebody').replace(/\bsth\b/g,'something').replace(/\bV-ing\b/g,'doing').replace(/\bV\b/g,'do').replace(/…/g,''))}"><b>${esc(en)}</b><span>${esc(zh)}</span></button>`).join('')}</div>`:''}
@@ -347,7 +350,7 @@ function vqPick(btn){
  store.recordWord(w.w);
  VQ.quiz[VQ.i]=VQ.tries?'retry':'first';
  vqSave({quiz:VQ.quiz.slice()});
- vqSay(full);
+ vqSay(w.w);   // 答對後只唸單字（Kokoro 真人），不再連唸整句（避免每題都念一長串、且較自然）
  const nx=document.getElementById('vq-next'); nx.hidden=false; nx.focus();
 }
 /* 把背過的字排進「每日單字」App 的複習（同網域 localStorage，App 開啟時會同步到雲端） */

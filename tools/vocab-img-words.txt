@@ -1,0 +1,54 @@
+# 單字記憶圖像 批次清單（具體、好畫的常用字；都已確認在單字書裡）
+# 用法：每次生圖只做「vocab/img/<word>.png 還不存在」的。Canva 一天約 3-5 張。
+# 風格＝老師字根字首風格：airport-pictogram 黑色剪影、純白底、無字無框。
+# subject 用這個字本身（例如 "an open umbrella"）；可參考括號提示。
+umbrella        # an open umbrella   [DONE]
+mountain        # a mountain with a pointed peak   [DONE]
+elephant        # an elephant from the side
+guitar          # an acoustic guitar
+candle          # a single lit candle with a flame
+lighthouse      # a lighthouse with light beams
+volcano         # an erupting volcano
+telephone       # a classic desk telephone with a handset
+ladder          # a leaning ladder
+key             # a single old-fashioned key
+scissors        # a pair of scissors
+anchor          # a ship anchor
+rainbow         # a rainbow arc
+balloon         # a single balloon on a string
+hamburger       # a hamburger
+kite            # a kite flying on a string
+bridge          # a bridge over water
+rabbit          # a rabbit from the side
+butterfly       # a butterfly with open wings
+tiger           # a tiger from the side
+dolphin         # a leaping dolphin
+whale           # a whale
+turtle          # a turtle from the side
+snake           # a coiled snake
+spider          # a spider
+bee             # a bee
+tree            # a leafy tree
+flower          # a single flower with petals
+mushroom        # a mushroom
+cactus          # a cactus
+star            # a five-pointed star
+moon            # a crescent moon
+cloud           # a cloud
+snowman         # a snowman
+rocket          # a rocket launching
+airplane        # an airplane
+bicycle         # a bicycle
+ship            # a sailing ship
+crown           # a king's crown
+sword           # a sword
+hammer          # a hammer
+bell            # a bell
+clock           # a round wall clock
+camera          # a camera
+telescope       # a telescope on a tripod
+microscope      # a microscope
+piano           # an upright piano
+drum            # a drum
+trophy          # a trophy cup
+diamond         # a cut diamond

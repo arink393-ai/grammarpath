@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v103-participles-quiz50";
+const CACHE = "eci-v104-vocab-audio-img";
 const SHELL = [
   "./",
   "./index.html",
@@ -24,7 +24,7 @@ const SHELL = [
   "./daily.js?v=18",
   "./adventure.js?v=5",
   "./vocab/books.js?v=6",
-  "./vocab-quest.js?v=16",
+  "./vocab-quest.js?v=17",
   "./manifest.webmanifest",
   "./vocab/",
   "./vocab/style.css?v=2",
@@ -32,7 +32,7 @@ const SHELL = [
   "./vocab/catalog.js?v=1",
   "./vocab/book-loader.js?v=3",
   "./vocab/account-storage.js?v=2",
-  "./vocab/app.js?v=9",
+  "./vocab/app.js?v=10",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/maskable-512.png",
