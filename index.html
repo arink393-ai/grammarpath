@@ -7035,56 +7035,55 @@ function vfPrintWorksheet(four){
   const S=VF_SHEET, half=Math.ceil(S.length/2);
   const sents=[["Yesterday we","go","to the night market.","went"],["She has","write","three cards today.","written"],["The window was","break","by the storm.","broken"],["They","buy","a new car last month.","bought"],["Have you ever","eat","durian?","eaten"],["He","take","many photos on the trip.","took"],["My bike was","steal","last night.","stolen"],["We have","know","each other for ten years.","known"],["The children","swim","in the lake yesterday.","swam"],["This song was","sing","by a famous star.","sung"]];
   const vings=[["Look! The baby is","sleep","right now.","sleeping"],["They were","run","in the park when it rained.","running"],["I am","write","a letter to my friend.","writing"],["She is","swim","in the pool.","swimming"]];
-  const head=four?`<th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th><th>現在分詞 V-ing</th>`:`<th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th>`;
+  const headCells=four?`<th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th><th>現在分詞 V-ing</th>`:`<th>原形 V1</th><th>中文</th><th>過去式 V2</th><th>過去分詞 V3</th>`;
+  const cg=four?`<colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c3"><col class="c3"></colgroup>`:`<colgroup><col class="d1"><col class="d2"><col class="d3"><col class="d3"></colgroup>`;
   const rBlank=v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td></td><td></td>${four?"<td></td>":""}</tr>`;
   const rAns=v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td>${v[2]}</td><td>${v[3]}</td>${four?`<td>${v[4]}</td>`:""}</tr>`;
-  const tbl=(fn,list)=>`<table><thead><tr>${head}</tr></thead><tbody>${list.map(fn).join("")}</tbody></table>`;
-  const partA=four?`<div>${tbl(rBlank,S)}</div>`:`<div class="cols"><div>${tbl(rBlank,S.slice(0,half))}</div><div>${tbl(rBlank,S.slice(half))}</div></div>`;
-  const keyA=four?`<div>${tbl(rAns,S)}</div>`:`<div class="cols"><div>${tbl(rAns,S.slice(0,half))}</div><div>${tbl(rAns,S.slice(half))}</div></div>`;
+  const tbl=(fn,list)=>`<table>${cg}<thead><tr>${headCells}</tr></thead><tbody>${list.map(fn).join("")}</tbody></table>`;
+  const partA=four?tbl(rBlank,S):`<div class="cols"><div>${tbl(rBlank,S.slice(0,half))}</div><div>${tbl(rBlank,S.slice(half))}</div></div>`;
+  const keyA=four?tbl(rAns,S):`<div class="cols"><div>${tbl(rAns,S.slice(0,half))}</div><div>${tbl(rAns,S.slice(half))}</div></div>`;
   const cloze=list=>list.map(s=>`<li>${s[0]} <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (${s[1]}) ${s[2]}</li>`).join("");
   const keyLine=list=>list.map((s,i)=>`${i+1}. ${s[3]}`).join("　");
   const n=four?"四態":"三態", forms=four?"V1 · V2 · V3 · V-ing":"V1 · V2 · V3";
-  const vingNote=four?`<h2>現在分詞 V-ing 拼字規則</h2><ul class="rule"><li>一般直接加 <b>-ing</b>：play → playing</li><li>-e 結尾去 e 加 -ing：make → making、write → writing</li><li>短母音＋單子音重複字尾：run → running、swim → swimming</li></ul>`:"";
-  const partC=four?`<h2>Part C　現在分詞 V-ing（進行式）</h2><ol>${cloze(vings)}</ol>`:"";
-  const keyC=four?`<h2>Part C</h2><p class="key"><b>${keyLine(vings)}</b></p>`:"";
+  const nameRow=`<div class="dn"><span>Name：<u></u></span><span>Date：<u></u></span><span>Score：<u></u></span></div>`;
+  const vingNote=`<h2>現在分詞 V-ing 拼字規則</h2><ul class="rule"><li>一般動詞直接加 <b>-ing</b>：play → playing</li><li><b>-e</b> 結尾去 e 加 -ing：make → making、write → writing</li><li><b>短母音＋單子音</b>重複字尾：run → running、swim → swimming</li><li><b>-ie</b> 結尾改 -ying：die → dying、lie → lying</li></ul>`;
+  let sheets;
+  if(four){
+    sheets=[
+      `<div class="sheet"><h1>動詞四態學習單　Verb Forms (${forms})</h1><p class="sub">寫出每個動詞的過去式 V2、過去分詞 V3 與現在分詞 V-ing。</p>${nameRow}<h2>Part A　寫出動詞四態</h2>${partA}</div>`,
+      `<div class="sheet">${vingNote}<h2>Part B　句子填空（用括號動詞的正確形式）</h2><ol>${cloze(sents)}</ol><h2>Part C　現在分詞 V-ing（進行式）</h2><ol>${cloze(vings)}</ol></div>`,
+      `<div class="sheet key"><h1>解答 Answer Key — Part A</h1>${keyA}</div>`,
+      `<div class="sheet key"><h1>解答 Answer Key — Part B / C</h1><h2>Part B</h2><p class="key"><b>${keyLine(sents)}</b></p><h2>Part C</h2><p class="key"><b>${keyLine(vings)}</b></p><p class="sub" style="margin-top:18px">English Cat Island · 動詞三態專區</p></div>`
+    ];
+  } else {
+    sheets=[
+      `<div class="sheet"><h1>動詞三態學習單　Verb Forms (${forms})</h1><p class="sub">寫出每個動詞的過去式 V2 與過去分詞 V3。</p>${nameRow}<h2>Part A　寫出動詞三態</h2>${partA}<h2>Part B　句子填空（用括號動詞的正確形式）</h2><ol>${cloze(sents)}</ol></div>`,
+      `<div class="sheet key"><h1>解答 Answer Key</h1><h2>Part A</h2>${keyA}<h2>Part B</h2><p class="key"><b>${keyLine(sents)}</b></p><p class="sub" style="margin-top:18px">English Cat Island · 動詞三態專區</p></div>`
+    ];
+  }
   const doc=`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>動詞${n}學習單 Verb Forms Worksheet</title><style>
    *{box-sizing:border-box} body{font-family:Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:#111;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
    .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
    .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
-   .sheet{background:#fff;max-width:800px;margin:16px auto;padding:40px 46px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
+   .sheet{background:#fff;max-width:800px;margin:16px auto;padding:38px 44px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
    .sheet:last-child{break-after:auto;page-break-after:auto}
-   h1{font-size:20px;margin:0 0 3px} .sub{color:#555;font-size:12.5px;margin:0 0 14px}
-   .dn{display:flex;gap:26px;font-size:13px;margin:0 0 16px} .dn u{border-bottom:1px solid #000;min-width:130px;display:inline-block}
-   h2{font-size:15px;margin:18px 0 8px;border-left:4px solid #1f7a6e;padding-left:8px}
-   .cols{display:flex;gap:18px} .cols>div{flex:1}
-   table{border-collapse:collapse;width:100%} td,th{border:1px solid #333;padding:6px 8px;font-size:12.5px;text-align:left;height:24px}
-   th{background:#eef5f3;font-size:11px;white-space:nowrap} td.w{font-weight:700} td.zh{color:#555;font-size:11.5px}
-   ol{margin:6px 0 0;padding-left:22px} li{font-size:13px;line-height:2.1} li u{letter-spacing:2px}
-   ul.rule{margin:4px 0 0;padding-left:20px} ul.rule li{font-size:12.5px;line-height:1.8} ul.rule b{color:#1f7a6e}
-   .key h2{margin-top:14px}
+   h1{font-size:19px;margin:0 0 3px} .sub{color:#555;font-size:12.5px;margin:0 0 12px}
+   .dn{display:flex;gap:24px;font-size:13px;margin:0 0 14px} .dn u{border-bottom:1px solid #000;min-width:120px;display:inline-block}
+   h2{font-size:14.5px;margin:16px 0 8px;border-left:4px solid #1f7a6e;padding-left:8px;break-after:avoid;page-break-after:avoid}
+   .cols{display:flex;gap:16px;align-items:flex-start} .cols>div{flex:1;min-width:0}
+   table{border-collapse:collapse;width:100%;table-layout:fixed}
+   col.c1{width:16%} col.c2{width:14%} col.c3{width:23.33%} col.d1{width:26%} col.d2{width:22%} col.d3{width:26%}
+   td,th{border:1px solid #333;padding:4px 7px;font-size:12px;text-align:left;vertical-align:middle;word-break:break-word}
+   tbody td{height:0.64cm}
+   thead{display:table-header-group} tr{page-break-inside:avoid;break-inside:avoid}
+   th{background:#eef5f3;font-size:10.5px;white-space:normal;font-weight:700} td.w{font-weight:700} td.zh{color:#555;font-size:11px}
+   ol{margin:6px 0 0;padding-left:22px} li{font-size:13px;line-height:2.1;page-break-inside:avoid} li u{letter-spacing:2px}
+   ul.rule{margin:4px 0 0;padding-left:20px} ul.rule li{font-size:12.5px;line-height:1.75} ul.rule b{color:#1f7a6e}
+   .key{font-size:12.5px;line-height:1.9} .key b{color:#1f7a6e}
    @media print{.bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0}} @page{margin:1.3cm}
   </style></head><body>
-   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>動詞${n}學習單——填表＋句子填空＋解答（最後一頁為解答表）。</span></div>
-   <div class="sheet">
-     <h1>動詞${n}學習單　Verb Forms (${forms})</h1>
-     <p class="sub">${four?"寫出每個動詞的過去式 V2、過去分詞 V3 與現在分詞 V-ing。":"寫出每個動詞的過去式 V2 與過去分詞 V3。"}</p>
-     <div class="dn"><span>Name：<u></u></span><span>Date：<u></u></span><span>Score：<u></u></span></div>
-     ${vingNote}
-     <h2>Part A　寫出動詞${n}</h2>
-     ${partA}
-     <h2>Part B　句子填空（用括號動詞的正確形式）</h2>
-     <ol>${cloze(sents)}</ol>
-     ${partC}
-   </div>
-   <div class="sheet key">
-     <h1>解答 Answer Key</h1>
-     <h2>Part A</h2>
-     ${keyA}
-     <h2>Part B</h2>
-     <p class="key"><b>${keyLine(sents)}</b></p>
-     ${keyC}
-     <p class="sub" style="margin-top:20px">English Cat Island · 動詞三態專區</p>
-   </div>
+   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>動詞${n}學習單——${four?"第 1 頁填表、第 2 頁句子、後兩頁解答":"第 1 頁學習單、第 2 頁解答"}。</span></div>
+   ${sheets.join("")}
   </body></html>`;
   safeOpenPrintDoc(doc, "動詞"+n+"學習單");
 }
