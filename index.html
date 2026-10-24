@@ -7172,6 +7172,26 @@ function prtShuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.ra
 function prtNewBatch(){ PRT={batch:prtShuffle(PART_Q.map((_,i)=>i)).slice(0,Math.min(PRT_BATCH,PART_Q.length)), ans:{}}; renderPrtQuiz(); }
 function prtPick(pos,oi){ if(PRT.ans[pos]!==undefined) return; PRT.ans[pos]=oi; renderPrtQuiz(); }
 function prtReset(){ prtNewBatch(); }
+/* 做完一批一定給回饋：XP＋（每日一次）罐罐＋隨機驚喜禮物 */
+function prtAward(right,total){
+  if(PRT.rewarded) return PRT.reward;
+  PRT.rewarded=true;
+  let xp=right*2; if(right===total) xp+=6;          // 每答對 +2 XP，全對再 +6
+  let cansMsg="";
+  if(total>0 && right/total>=0.7){                   // 答對 7 成以上，每日一次罐罐
+    const d=todayKey();
+    if(!store.data.pracCans || store.data.pracCans.d!==d) store.data.pracCans={d,ids:{}};
+    if(!store.data.pracCans.ids["participles-quiz"]){
+      store.data.pracCans.ids["participles-quiz"]=1; store.addCans(PRACTICE_CANS);
+      cansMsg=`　＋${PRACTICE_CANS} 🥫`;
+    } else { cansMsg="　（今日罐罐已領 🥫）"; }
+  }
+  let surprise="";
+  if(Math.random()<0.25){ store.addCans(5); surprise="　🎁 隨機驚喜 ＋5 🥫！"; }   // 約 1/4 機率驚喜禮物
+  if(xp>0){ store.addXP(xp); } else { try{toast("練習完成，再接再厲 🐾");}catch(e){} }
+  PRT.reward=`🎉 練習完成！＋${xp} XP${cansMsg}${surprise}`;
+  return PRT.reward;
+}
 function renderPrtQuiz(){
   const box=document.getElementById("prtQuiz"); if(!box) return;
   if(!PRT.batch||!PRT.batch.length){ PRT={batch:prtShuffle(PART_Q.map((_,i)=>i)).slice(0,Math.min(PRT_BATCH,PART_Q.length)), ans:{}}; }
@@ -7183,7 +7203,9 @@ function renderPrtQuiz(){
     const fb=done?`<div class="rg-why">${picked===q.a?"✅ ":"💡 "}${q.why}</div>`:"";
     return `<div class="rg-q"><div class="rg-prompt"><span class="rg-n">${pos+1}</span><span>${q.q}</span></div><div class="rg-opts">${opts}</div>${fb}</div>`;
   }).join("");
-  const score=ansd?`<div class="rg-score"><span>答對 ${right} / ${total}${ansd===total?(right===total?"　完美！🏆":right>=total*0.6?"　不錯喔！🐾":"　再看一次上面的規則"):""}</span><button class="rg-reset" onclick="prtReset()">換一批 ↻</button></div>`:"";
+  const complete=ansd===total;
+  const rewardLine=complete?`<div class="rg-why" style="margin-top:10px;font-weight:700;color:var(--teal,#1f7a6e)">${prtAward(right,total)}</div>`:"";
+  const score=ansd?`<div class="rg-score"><span>答對 ${right} / ${total}${complete?(right===total?"　完美！🏆":right>=total*0.7?"　不錯喔！🐾":"　再看一次上面的規則"):""}</span><button class="rg-reset" onclick="prtReset()">換一批 ↻</button></div>${rewardLine}`:"";
   box.innerHTML=rows+score;
 }
 function prtPrintWorksheet(){
