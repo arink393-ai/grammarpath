@@ -470,6 +470,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rdw-print-btns .btn{padding:6px 12px;font-size:13px}
 .rdw-print-cb{font-size:13px;color:var(--body);display:flex;align-items:center;gap:5px;cursor:pointer}
 .rdw-print small{flex-basis:100%;color:var(--muted);font-size:12px}
+.rd-dw-note{margin:10px 0 0;font-size:13.5px;color:var(--body);background:var(--teal-bg);border-radius:10px;padding:8px 12px}
 .rdw-old{color:var(--muted);font-size:14px;background:var(--paper);border:1px dashed var(--line);border-radius:14px;padding:14px;text-align:center}
 .rd-card-zh{font:500 13px var(--sans);color:var(--teal)}
 .rd-card-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
@@ -15214,7 +15215,7 @@ function rdWeekHTML(weekKey){
   const printBar = !hasDaily ? "" : `<div class="rdw-print"><span class="rdw-print-h">🖨 一鍵列印本週 7 天學習單</span>
       <span class="rdw-print-btns">${[["a","A1–A2 初級"],["b","B1–B2 中級"],["c","C1–C2 高級"],["all","三級全印"]].map(([k,t])=>`<button class="btn btn-ghost" onclick="rdPrintWeek('${mon}','${k}')">${t}</button>`).join("")}</span>
       ${feat?`<label class="rdw-print-cb"><input type="checkbox" id="rdw-feat-cb"> 加印 ⭐ 本週重點</label>`:""}
-      <small>每天一份：文章、單字、填字、閱讀測驗、討論題；預覽頁可切換「顯示解答」印教師版。</small></div>`;
+      <small>每天一份：文章、單字、填字、閱讀測驗、討論與寫作（附作答格線）；預覽頁可切換「顯示解答」印教師版。</small></div>`;
   return `<section class="rdw">${nav}${printBar}${featHTML}
     <h2 class="rdw-h">📅 每日閱讀 Daily Reading<small>每天一篇・主題混合</small></h2>
     <div class="rdw-days">${rows}</div></section>`;
@@ -15400,7 +15401,14 @@ function rdSheetHTML(r, lv, label){
     return `<div class="q"><div class="qh"><span class="qn">${i+1}.</span> ${rdPlain(q.q)}<span class="qtag">${rdEsc(q.t)}</span></div><div class="rd-ws-options">${opts}</div></div>`;
   }).join("");
   const answers = (lv.q||[]).map((q,i)=>`<div class="ak"><b>${i+1}. (${RD_LET[q.a]})</b> ${rdPlain(q.why)}</div>`).join("");
-  const discuss = (r.discuss||[]).map(d=>`<li>${rdEsc(d)}</li>`).join("");
+  /* Discussion → writing: talk it over with the teacher, then answer each question in full English sentences
+     (in class or as homework). More lines and a harder sentence frame at higher levels. */
+  const lk = Object.keys(r.levels).find(k=>r.levels[k]===lv) || "a";
+  const DW = {
+    a:{lines:3, need:"每題至少寫 <b>1–2 個完整句子</b>。", frames:["I think …","I like / I don't like … because …","In Taiwan, …"]},
+    b:{lines:4, need:"每題寫 <b>2–3 個完整句子</b>，要說出理由。", frames:["I think … because …","For example, …","I agree / disagree that …"]},
+    c:{lines:5, need:"每題寫 <b>3–4 個完整句子</b>：表明立場、說明理由、舉例。", frames:["In my view, …","This is because …","For instance, …","On the other hand, …"]}}[lk] || {lines:3, need:"", frames:[]};
+  const discuss = (r.discuss||[]).map(d=>`<li><div class="dq">${rdEsc(d)}</div>${'<div class="wl"></div>'.repeat(DW.lines)}</li>`).join("");
   return `<section class="sheet">
   <div class="name-row"><span>Name 姓名: ____________</span><span>Class 班級: ________</span><span>Date 日期: ${label?`<b>${rdEsc(label)}</b>`:"________"}</span><span>Score 分數: ______</span></div>
   ${label?`<div class="day-tag">${rdEsc(label)}</div>`:""}
@@ -15411,7 +15419,11 @@ function rdSheetHTML(r, lv, label){
   ${cwSec}
   <h2>Comprehension Questions 閱讀測驗</h2>
   ${qs}
-  ${discuss?`<h2>Discussion 討論與延伸</h2><ol class="disc">${discuss}</ol>`:""}
+  ${discuss?`<div class="dw-sec"><h2>Discussion &amp; Writing 討論與寫作</h2>
+  <div class="dw-how"><span>① 先和老師、同學討論　② 用<b>完整的英文句子</b>寫下你的想法</span><span class="dw-when">☐ 課堂完成　☐ 回家作業　繳交日：________</span></div>
+  <div class="dw-tip">${DW.need}　可以這樣開頭：${DW.frames.map(f=>`<i>${f}</i>`).join("　")}</div>
+  <ol class="disc">${discuss}</ol>
+  <div class="dw-check">寫完自我檢查：☐ 大寫開頭　☐ 句尾有句號或問號　☐ 每句都有主詞和動詞　☐ 有說出理由（because / for example）</div></div>`:""}
   <div class="src-note">📰 Source 資料來源：改寫自 ${rdEsc(r.src)} 等媒體之公開報導（${rdEsc(r.date)}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</div>
   <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}${cwAns}</div>
 </section>`;
@@ -15468,7 +15480,14 @@ function rdOpenWorksheet(sections, docTitle){
 #rd-print-preview .rd-ws-options{padding-left:20px;font:11pt system-ui,sans-serif}
 #rd-print-preview .rd-ws-option{margin:3px 0}
 #rd-print-preview ol.disc{padding-left:22px}
-#rd-print-preview ol.disc li{margin:6px 0}
+#rd-print-preview ol.disc li{margin:6px 0 14px}
+#rd-print-preview .dq{margin-bottom:2px}
+#rd-print-preview .wl{height:27px;border-bottom:1px solid #9a9a9a}
+#rd-print-preview .dw-how{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;font:9.5pt system-ui,sans-serif;color:#333;margin:-4px 0 6px}
+#rd-print-preview .dw-when{white-space:nowrap}
+#rd-print-preview .dw-tip{font:9.5pt system-ui,sans-serif;color:#555;background:#F7F1E8;border-radius:6px;padding:6px 10px;margin-bottom:10px}
+#rd-print-preview .dw-tip i{font-family:Georgia,serif;color:#79401F;font-style:italic}
+#rd-print-preview .dw-check{font:9pt system-ui,sans-serif;color:#555;border-top:1px dashed #ccc;padding-top:6px;margin-top:4px}
 #rd-print-preview .src-note{font:9.5pt/1.5 system-ui,sans-serif;color:#666;border-top:1px solid #ddd;margin-top:18px;padding-top:9px}
 #rd-print-preview .answers{display:none;margin-top:22px;border-top:2px dashed #ccc;padding-top:12px}
 #rd-print-preview.show-answers .sheet .answers{display:block}
@@ -15660,8 +15679,9 @@ function renderReading(id, keepScroll){
     <h2 class="section" style="margin-top:24px">Comprehension Questions<span class="zh-term">閱讀測驗</span></h2>
     ${qs}
     <div class="rd-cta">${cta}</div>
-    <div class="rd-discuss"><h3>💬 Discussion 討論與延伸</h3>
-      <ol>${r.discuss.map(d=>`<li>${d}</li>`).join("")}</ol></div>
+    <div class="rd-discuss"><h3>💬 Discussion 討論與寫作</h3>
+      <ol>${r.discuss.map(d=>`<li>${d}</li>`).join("")}</ol>
+      <p class="rd-dw-note">✍️ 和老師討論完，用<b>完整的英文句子</b>寫下你的答案（課堂上或回家作業）。按上方「🖨 列印練習卷」會附作答格線。</p></div>
     <div class="rd-source"><div class="rd-source-h">📰 資料來源 Source</div>
       改寫自 <b>${r.src}</b> 等媒體之公開報導（${r.date}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載；文中觀點與用字為教學改寫，著作權歸原報導媒體所有。</div>
     ${echoModalHTML()}
