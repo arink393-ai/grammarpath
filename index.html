@@ -7304,6 +7304,133 @@ function renderParticiples(){
   window.scrollTo(0,0);
 }
 
+/* =====================================================
+   學生自填個人資料 My Profile（含引導說明＋個資法同意）
+   存在 store.data.profile / store.data.consent，隨進度同步到雲端，老師可見。
+   ===================================================== */
+const PROFILE_FIELDS = [
+  {k:"nickname", label:"暱稱 Nickname", hint:"想讓老師怎麼稱呼你？", ph:"例如：小明、Amy"},
+  {k:"grade", label:"年級 Grade", type:"select", hint:"你現在幾年級？"},
+  {k:"school", label:"學校 School", ph:"例如：陽光國小"},
+  {k:"class_name", label:"班級 Class", ph:"例如：五年三班"},
+  {k:"birthday", label:"生日 Birthday", type:"date", hint:"讓老師記得幫你慶生 🎂"},
+  {k:"contact", label:"聯絡方式 Contact", ph:"電話或 LINE ID，例如 0912-345-678", hint:"方便老師或系統通知你"},
+  {k:"parent_name", label:"家長姓名 Parent（選填）", ph:"例如：王大明"},
+  {k:"parent_contact", label:"家長聯絡方式 Parent contact（選填）", ph:"電話或 LINE"},
+  {k:"goals", label:"學習目標 Goals", type:"area", ph:"例如：想把文法學好、通過英檢初級、敢開口說英文", hint:"你想達到什麼？"},
+  {k:"weak", label:"想加強的地方（選填）", type:"area", ph:"例如：時態、聽力、口說"},
+  {k:"interests", label:"興趣・喜好（選填）", ph:"例如：打籃球、畫畫、看動漫", hint:"讓老師更懂你 😺"},
+  {k:"notes", label:"想告訴老師的話（選填）", type:"area", ph:"任何想讓老師知道的事都可以寫在這裡"}
+];
+const MP_CONSENT_VER = "1.0";
+function renderMyProfile(){
+  const u = currentUser();
+  if(!u){
+    app.innerHTML = `<div class="view my-profile"><div class="crumb"><a href="#/home">Home</a> › 我的資料</div>
+      <h1 class="display">我的資料<span class="zh-term-lg" style="color:var(--teal)">My Profile</span></h1>
+      <p class="lede">請先登入才能填寫並儲存你的個人資料。你的資料會跟著帳號一起保存。</p>
+      <button class="btn btn-primary" type="button" onclick="openAuthModal()">登入 / 註冊 Log in</button></div>`;
+    window.scrollTo(0,0); return;
+  }
+  const p = store.data.profile || {}, c = store.data.consent;
+  const E = s=>String(s==null?"":s).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+  const fieldHtml = f=>{
+    const v = p[f.k]||"";
+    const hint = f.hint?`<span class="mp-hint">${f.hint}</span>`:"";
+    let input;
+    if(f.type==="select"){
+      input = `<select id="mp_${f.k}"><option value="">— 請選擇 —</option>${STUDENT_GRADES.map(g=>`<option value="${E(g)}"${g===v?" selected":""}>${E(g)}</option>`).join("")}</select>`;
+    } else if(f.type==="area"){
+      input = `<textarea id="mp_${f.k}" rows="2" placeholder="${E(f.ph||"")}">${E(v)}</textarea>`;
+    } else {
+      input = `<input id="mp_${f.k}" type="${f.type==="date"?"date":"text"}" value="${E(v)}" placeholder="${E(f.ph||"")}">`;
+    }
+    return `<label class="mp-field"><span class="mp-label">${f.label}${hint}</span>${input}</label>`;
+  };
+  const consentDone = c&&c.agreed
+    ? `<div class="mp-consent-done">✅ 你已於 ${E((c.at||"").slice(0,10))} 同意本告知事項（版本 ${E(c.version||MP_CONSENT_VER)}）。如需撤回同意，請直接告訴老師。</div>` : "";
+  app.innerHTML = `<div class="view my-profile">
+    <style>
+    .my-profile .mp-guide{background:#eef5f3;border:1px solid #cfe2dd;border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:14px;color:#1f5f57}
+    .my-profile .mp-acct{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;background:#f7f7f5;border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:14px}
+    .my-profile .mp-acct span{color:#888}
+    .my-profile .mp-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+    .my-profile .mp-field{display:flex;flex-direction:column;gap:5px}
+    .my-profile .mp-field.wide{grid-column:1/-1}
+    .my-profile .mp-label{font-weight:700;font-size:14px;display:flex;flex-direction:column}
+    .my-profile .mp-hint{font-weight:400;font-size:12px;color:#9a9a93;margin-top:1px}
+    .my-profile .mp-field input,.my-profile .mp-field select,.my-profile .mp-field textarea{font:inherit;padding:9px 11px;border:1.5px solid #d7d7d2;border-radius:9px;background:#fff;width:100%;box-sizing:border-box}
+    .my-profile .mp-field input:focus,.my-profile .mp-field select:focus,.my-profile .mp-field textarea:focus{outline:none;border-color:var(--teal,#1f7a6e)}
+    .my-profile .mp-opt{color:#999;font-size:13px}
+    .my-profile .mp-privacy{border:1.5px solid #e6dcc2;background:#fcfaf3;border-radius:12px;padding:16px 18px;margin:22px 0 0}
+    .my-profile .mp-privacy h2{font-size:15px;margin:0 0 10px;color:#8a6d1f}
+    .my-profile .mp-privacy-body{font-size:13px;color:#555;line-height:1.7}
+    .my-profile .mp-privacy-body ul{margin:6px 0 0;padding-left:18px}
+    .my-profile .mp-privacy-body li{margin:3px 0}
+    .my-profile .mp-agree{display:flex;gap:9px;align-items:flex-start;margin:14px 0 0;font-size:13.5px;line-height:1.6;cursor:pointer}
+    .my-profile .mp-agree input{margin-top:3px;width:18px;height:18px;flex:none}
+    .my-profile .mp-consent-done{margin:10px 0 0;font-size:13px;color:#1f7a6e;background:#eef5f3;border-radius:8px;padding:8px 12px}
+    .my-profile .mp-err{color:#c0392b;font-weight:700;margin:14px 0 0}
+    .my-profile .mp-actions{display:flex;gap:12px;margin:20px 0 40px;flex-wrap:wrap}
+    @media(max-width:640px){.my-profile .mp-grid{grid-template-columns:1fr}.my-profile .mp-field.wide{grid-column:auto}}
+    </style>
+    <div class="crumb"><a href="#/home">Home</a> › 我的資料</div>
+    <div class="eyebrow" style="color:var(--teal)">My Profile · 我的資料</div>
+    <h1 class="display">我的資料<span class="zh-term-lg" style="color:var(--teal)">My Profile</span></h1>
+    <p class="lede">自由填寫下面的資料，讓老師更認識你、幫你安排最適合的課程。<b>只有你的老師看得到</b>，你隨時可以回來修改。標有 <span class="mp-opt">（選填）</span> 的可以不用填。</p>
+    <div class="mp-guide">💡 小提示：每一格下面的灰色小字是「填寫範例」，照著格式填就可以囉！不確定的欄位可以先空著，之後再補。</div>
+    <form id="mpForm" onsubmit="return false" autocomplete="off">
+      <div class="mp-acct"><span>登入帳號 Account</span><b>${E(u.name||"")}（${E(u.email||"")}）</b></div>
+      <div class="mp-grid">${PROFILE_FIELDS.map(f=>fieldHtml(f).replace('class="mp-field"', ['goals','weak','notes'].includes(f.k)?'class="mp-field wide"':'class="mp-field"')).join("")}</div>
+
+      <div class="mp-privacy">
+        <h2>🔒 個人資料蒐集、處理及利用告知暨同意事項</h2>
+        <div class="mp-privacy-body">
+          <p>依《個人資料保護法》第 8 條，向你（及你的家長／監護人）說明如下：</p>
+          <ul>
+            <li><b>蒐集者</b>：English Cat Island（授課老師）。</li>
+            <li><b>蒐集目的</b>：學員管理、課程安排、學習進度與成績／作業紀錄，以及與學生、家長聯繫。</li>
+            <li><b>個資類別</b>：姓名、暱稱、年級、學校、班級、生日、聯絡方式、家長資訊及學習相關紀錄。</li>
+            <li><b>利用期間</b>：自你同意之日起，至你要求刪除或停止使用本服務為止。</li>
+            <li><b>利用地區、對象及方式</b>：僅供授課老師於教學目的內，儲存於本服務及其雲端資料庫中使用；除法律另有規定外，不會提供給無關的第三人。</li>
+            <li><b>你的權利</b>：你可隨時向老師查詢、閱覽、請求複本、補充或更正，並可請求停止蒐集、處理、利用或刪除你的個人資料。</li>
+            <li><b>未成年人</b>：若你未滿 18 歲，請在取得家長／監護人同意後再填寫。</li>
+            <li><b>不提供之影響</b>：這些資料均為自願填寫；若不提供，老師可能無法完整安排課程與學習服務。</li>
+          </ul>
+        </div>
+        <label class="mp-agree"><input type="checkbox" id="mpConsent"${c&&c.agreed?" checked":""}> <span>我已閱讀並同意上述個人資料蒐集、處理與利用告知事項；若未滿 18 歲，已取得家長／監護人同意。<b style="color:var(--teal)"> ＊必須勾選才能儲存</b></span></label>
+        ${consentDone}
+      </div>
+
+      <p class="mp-err" id="mpErr" hidden></p>
+      <div class="mp-actions">
+        <button class="btn btn-primary" type="button" onclick="saveMyProfile()">💾 儲存我的資料 Save</button>
+        <button class="btn btn-ghost" type="button" onclick="location.hash='#/home'">回首頁 Home</button>
+      </div>
+    </form>
+  </div>`;
+  window.scrollTo(0,0);
+}
+function saveMyProfile(){
+  const u = currentUser(); if(!u){ openAuthModal(); return; }
+  const err = document.getElementById("mpErr");
+  const consent = document.getElementById("mpConsent");
+  if(!consent || !consent.checked){
+    if(err){ err.hidden=false; err.textContent="⚠️ 請先閱讀並勾選下方「個資法同意事項」，才能儲存你的資料。"; }
+    document.querySelector(".my-profile .mp-privacy")?.scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
+  const prof = {};
+  PROFILE_FIELDS.forEach(f=>{ const el=document.getElementById("mp_"+f.k); if(el){ const v=(el.value||"").trim(); if(v) prof[f.k]=v; } });
+  store.data.profile = prof;
+  const prev = store.data.consent;
+  store.data.consent = { agreed:true, at:(prev&&prev.agreed&&prev.at)?prev.at:new Date().toISOString(), version:MP_CONSENT_VER, by:(u.email||"") };
+  store.save();
+  if(err) err.hidden=true;
+  try{ toast("✅ 已儲存你的資料，謝謝你！老師會更認識你 🐾"); }catch(e){}
+  renderMyProfile();
+}
+
 function renderTheoryList(){
   const cards = THEORIES.map(t=>`
     <button class="th-card" onclick="location.hash='#/theory/${t.id}'">

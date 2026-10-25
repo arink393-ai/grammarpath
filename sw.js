@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v105-participles-reward";
+const CACHE = "eci-v106-student-profile";
 const SHELL = [
   "./",
   "./index.html",
