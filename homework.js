@@ -207,28 +207,32 @@ async function renderHomework(){
   HW_PENDING = assignments.filter(a=>a.active).map(a=>({a, st:hwStatus(a, byA[a.id])}))
     .filter(x=>x.st.state==="overdue" || x.st.state==="soon");
   updateHwBadge();
-  const rank = { overdue:0, soon:1, open:2, upcoming:3, done:4 };
-  const active = assignments.filter(a=>a.active)
-    .sort((a,b)=> (rank[hwStatus(a,byA[a.id]).state]??2) - (rank[hwStatus(b,byA[b.id]).state]??2));
   const me = store.data || {};
-  const cards = active.length ? active.map(a=>{
+  const rank = { overdue:0, soon:1, open:2, upcoming:3 };
+  const active = assignments.filter(a=>a.active);
+  const todo = active.filter(a=>!byA[a.id]).sort((a,b)=> (rank[hwStatus(a).state]??2) - (rank[hwStatus(b).state]??2));
+  const done = active.filter(a=>byA[a.id]).sort((a,b)=> String((byA[b.id]||{}).submitted_at||"").localeCompare(String((byA[a.id]||{}).submitted_at||"")));
+
+  const hwItem = (a, isDone)=>{
     const s = byA[a.id], st = hwStatus(a, s);
-    const statusPill = !s ? `<span class="hw-pill todo">未繳 Not submitted</span>`
-      : s.status==="returned" ? `<span class="hw-pill done">已批改 Graded</span>` : `<span class="hw-pill sent">已繳交 Submitted</span>`;
-    const duePill = (!s && (st.state==="overdue"||st.state==="soon")) ? `<span class="hw-pill ${st.state==='overdue'?'due-over':'due-soon'}">${st.state==='overdue'?'⏰ ':''}${hwStatusLabel(st)}</span>` : "";
-    const forMe = (a.target_students||[]).length || (a.target_groups||[]).length ? `<span class="hw-pill forme">👤 指定給你</span>` : "";
     const scope = a.scope||[];
     const sDone = scope.filter(it=>scopeDone(it,me)).length;
+    const overdue = !isDone && st.state==="overdue";
+    const mark = isDone ? (s.status==="returned" ? "📝" : "✅") : (overdue ? "⏰" : "⬜");
+    const tags = [
+      a.due_date ? `<span class="hw-tag ${overdue?'due-over':(st.state==='soon'?'due-soon':'')}">${overdue?'⏰ 逾期':'截止'} ${fmtDate(a.due_date)}</span>` : "",
+      ((a.target_students||[]).length||(a.target_groups||[]).length) ? `<span class="hw-tag forme">👤 指定給你</span>` : "",
+      scope.length ? `<span class="hw-tag ${sDone===scope.length?'scope-full':'scope'}">📚 範圍 ${sDone}/${scope.length}</span>` : "",
+      (isDone && s.status==="returned" && s.grade) ? `<span class="hw-gradechip">${esc(s.grade)}</span>` : ""
+    ].filter(Boolean).join("");
+    const statusPill = isDone
+      ? (s.status==="returned" ? `<span class="hw-pill done">已批改 Graded</span>` : `<span class="hw-pill sent">已繳交 Submitted</span>`)
+      : (overdue ? `<span class="hw-pill due-over">未繳 Not done</span>` : `<span class="hw-pill todo">未繳 Not done</span>`);
     const scopeBox = scope.length ? `<div class="hw-scope"><div class="hw-scope-h">📚 作業範圍（完成 ${sDone} / ${scope.length}）</div><div class="hw-chips">${scopeChips(scope, me, true)}</div>
-      <div class="tc-sub">點進去完成：文法課要做完練習、寓言要做讀後練習，其他打開讀過就算。全部完成後，沒有要寫的內容也可以直接按「繳交」。</div></div>` : "";
+      <div class="tc-sub">點進去完成：文法課做完練習、寓言做讀後練習，其他打開讀過就算。全部完成後，即使沒有要寫的內容也可以直接按「繳交」。</div></div>` : "";
     const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${gradeShow(s.grade)}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
     const prev = s ? `<div class="hw-prev">你上次繳交：${s.text?`「${esc(s.text.slice(0,80))}${s.text.length>80?"…":""}」 `:""}${s.file_url?(isAudioPath(s.file_url)?'🎤 錄音 ':'📎 檔案 '):""}${s.link?'🔗 連結':""}</div>` : "";
-    return `<div class="card hw-card ${!s&&st.state==='overdue'?'hw-card-over':''}">
-      <div class="hw-head"><h3>${esc(a.title)}</h3><span class="hw-pills">${forMe}${duePill}${statusPill}</span></div>
-      ${a.due_date?`<div class="hw-due">截止 Due：${fmtDate(a.due_date)}</div>`:""}
-      ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}
-      ${scopeBox}${graded}${prev}
-      <div class="hw-form">
+    const form = `<div class="hw-form">
         <textarea id="hw-text-${a.id}" placeholder="在這裡打字作答（可留空）Type your answer here…">${esc(HW_DRAFT[a.id]!==undefined ? HW_DRAFT[a.id] : (s&&s.text&&!/^✅ 完成作業範圍/.test(s.text)?s.text:""))}</textarea>
         <div class="hw-row hwrec" id="hwrec-a${a.id.replace(/-/g,"")}">${hwRecHTML("a"+a.id.replace(/-/g,""))}</div>
         <div class="hw-row">
@@ -236,9 +240,22 @@ async function renderHomework(){
           <input type="url" id="hw-link-${a.id}" placeholder="🔗 貼上連結 Paste a link (Google Doc…)" value="${s&&s.link?esc(s.link):""}">
         </div>
         <button class="btn btn-navy" id="hw-btn-${a.id}" onclick="hwSubmit('${a.id}')">${s?"重新繳交 Re-submit":"繳交 Submit"}</button>
+      </div>`;
+    return `<details class="hw-item ${isDone?'is-done':''} ${overdue?'is-over':''}" ${overdue?'open':''}>
+      <summary class="hw-sum">
+        <span class="hw-mark">${mark}</span>
+        <span class="hw-sum-main"><span class="hw-sum-title">${esc(a.title)}</span>${tags?`<span class="hw-sum-tags">${tags}</span>`:""}</span>
+        <span class="hw-sum-right">${statusPill}<span class="hw-caret">▸</span></span>
+      </summary>
+      <div class="hw-body">
+        ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}
+        ${scopeBox}${graded}${prev}${form}
       </div>
-    </div>`;
-  }).join("") : `<div class="card" style="text-align:center;padding:26px;color:var(--muted)">目前沒有指派給你的作業。<br>No homework yet — assignments will appear here.</div>`;
+    </details>`;
+  };
+  const todoHtml = todo.length ? todo.map(a=>hwItem(a,false)).join("")
+    : `<div class="hw-empty">🎉 太棒了，沒有待完成的作業！All caught up.</div>`;
+  const doneHtml = done.map(a=>hwItem(a,true)).join("");
 
   const free = subs.filter(s=>!s.assignment_id).sort((a,b)=>String(b.submitted_at).localeCompare(String(a.submitted_at)));
   const freeList = free.length ? `<ul class="hw-freelist">${free.map(s=>`<li>
@@ -251,9 +268,11 @@ async function renderHomework(){
   app.innerHTML = `<div class="view">
     <div class="crumb"><a href="#/home">Home</a> › 作業繳交 Homework</div>
     <div class="sb-hd"><div class="eyebrow" style="color:var(--sb-brick)">Homework · 作業</div>
-      <h1 class="display">作業繳交區<span class="zh-term-lg" style="color:var(--sb-lapis)">Homework</span></h1>
-      <p class="lede">打字作答、直接錄音、上傳照片或檔案、貼上連結都可以。<br>Type, record, upload a file, or paste a link.</p></div>
-    <div class="hw-list">${cards}</div>
+      <h1 class="display">我的作業清單<span class="zh-term-lg" style="color:var(--sb-lapis)">My To-Do</span></h1>
+      <p class="lede">點作業標題展開，就能打字、錄音、上傳或貼連結繳交。<br>Tap a task to open it, then type, record, upload, or paste a link.</p></div>
+    <div class="hw-summary"><span class="hw-count todo"><b>${todo.length}</b> 待完成 To&nbsp;do</span><span class="hw-count done"><b>${done.length}</b> 已完成 Done</span></div>
+    <section class="hw-section"><h2 class="hw-sec-h">📌 待完成 To do</h2><div class="hw-list">${todoHtml}</div></section>
+    ${done.length?`<section class="hw-section"><h2 class="hw-sec-h">✅ 已完成 Done</h2><div class="hw-list">${doneHtml}</div></section>`:""}
     <div class="card hw-free">
       <h3>🎙️ 直接錄音交給老師</h3>
       <p class="tc-sub" style="margin:0 0 10px">不用等老師出作業：想練口說、念課文、問老師問題，錄完就能交。閱讀文章的「🎤 跟讀錄音」錄完也會直接交到這裡。</p>
@@ -303,6 +322,9 @@ async function hwSubmitFree(){
 
 /* ---------- 老師：作業分頁 ---------- */
 let TC_FORM = null;   // {id|null, title, desc, start, due, mode:"all"|"pick", students:[], groups:[], scope:[]}
+let TC_OPEN = new Set();   // 展開中的作業卡片 id（批改／重繪後保持展開）
+let TC_NEWOPEN = false;    // 「出新作業／編輯」面板是否展開
+function tcToggleOpen(id, open){ if(open) TC_OPEN.add(id); else TC_OPEN.delete(id); }
 function tcFormBlank(){ return {id:null, title:"", desc:"", start:"", due:"", mode:"all", students:[], groups:[], scope:[]}; }
 function tcTargetsOf(a, students){
   const ts=a.target_students||[], tg=a.target_groups||[];
@@ -342,6 +364,7 @@ function tcEdit(id){
   TC_FORM = {id:a.id, title:a.title||"", desc:a.description||"", start:a.start_date||"", due:a.due_date||"",
     mode:(a.target_students||[]).length||(a.target_groups||[]).length?"pick":"all",
     students:[...(a.target_students||[])], groups:[...(a.target_groups||[])], scope:(a.scope||[]).map(x=>({t:x.t,id:x.id}))};
+  TC_NEWOPEN = true;
   paintTeacher(); const f=document.querySelector(".tc-newhw"); if(f) f.scrollIntoView({behavior:"smooth", block:"start"});
 }
 /* 依年級一次勾選／取消（全都勾了就取消） */
@@ -352,7 +375,7 @@ function tcPickGrade(g){
   TC_FORM.students = all ? TC_FORM.students.filter(id=>!ids.includes(id)) : [...new Set([...TC_FORM.students, ...ids])];
   paintTeacher();
 }
-function tcFormCancel(){ TC_FORM=tcFormBlank(); paintTeacher(); }
+function tcFormCancel(){ TC_FORM=tcFormBlank(); TC_NEWOPEN=false; paintTeacher(); }
 function tcScopePicker(){
   const sel=(t,id)=>TC_FORM.scope.some(x=>x.t===t && x.id===id);
   const cb=(t,id,label,zh)=>`<label class="tc-pick"><input type="checkbox" ${sel(t,id)?"checked":""} onchange="tcScopeToggle('${t}','${id}')"> ${esc(label)}${zh?` <span class="tc-sub">${esc(zh)}</span>`:""}</label>`;
@@ -381,7 +404,6 @@ function tcHomeworkForm(students){
         ${students.length ? students.map(p=>`<label class="tc-pick"><input type="checkbox" ${F.students.includes(p.id)?"checked":""} onchange="tcFormToggle('students','${p.id}')"> ${esc(p.name||p.email)}${typeof siGradeTag==="function"?siGradeTag(p.id):""}</label>`).join("") : `<span class="tc-sub">還沒有學生。</span>`}</div>
     </div>` : "";
   return `<div class="card tc-newhw">
-    <h3>${F.id?"✏️ 編輯作業 Edit assignment":"➕ 出新作業 New assignment"}</h3>
     <input id="na-title" placeholder="作業標題 Title（必填）" value="${esc(F.title)}">
     <textarea id="na-desc" placeholder="說明 Instructions（可留空）">${esc(F.desc)}</textarea>
     <div class="hw-row"><label class="tc-inline">開放日 Opens <input type="date" id="na-start" value="${esc(F.start)}"></label>
@@ -408,7 +430,7 @@ async function tcCreate(){
     target_students:F.mode==="pick"?F.students:[], target_groups:F.mode==="pick"?F.groups:[], scope:F.scope };
   const r = F.id ? await HWAPI.updateAssignment(F.id, f) : await HWAPI.createAssignment(f);
   if(r.err){ toast((F.id?"儲存":"建立")+"失敗："+r.err); return; }
-  toast(F.id?"作業已更新 🐾":"作業已建立 🐾"); TC_FORM=tcFormBlank(); renderTeacher();
+  toast(F.id?"作業已更新 🐾":"作業已建立 🐾"); TC_FORM=tcFormBlank(); TC_NEWOPEN=false; renderTeacher();
 }
 function tcSubCell(s){
   if(!s) return `<span class="hw-pill todo">未繳</span>`;
@@ -437,24 +459,49 @@ function tcHomeworkBody(students){
       return `<tr class="${s?"":"tc-missing"}"><td>${esc(tName(uid))}</td>${sc}<td>${tcSubCell(s)}</td>${tcGradeCells(s)}</tr>`;
     }).join("") : `<tr><td colspan="${scope.length?7:6}" style="color:var(--muted);padding:12px">這份作業目前沒有指派到任何學生。</td></tr>`;
     const nSub = targets.filter(u=>subBy[u]).length;
+    const nGraded = targets.filter(u=>subBy[u] && subBy[u].status==="returned").length;
+    const nToGrade = nSub - nGraded;
+    const nMiss = targets.length - nSub;
+    const pct = targets.length ? Math.round(nSub/targets.length*100) : 0;
     const notYet = a.start_date && a.start_date > new Date(Date.now()+8*3600e3).toISOString().slice(0,10);   // 台灣日期
-    return `<div class="card tc-asgn"><div class="tc-asgn-head"><h3>${esc(a.title)} <span class="tc-count">${nSub}/${targets.length} 已繳</span></h3>
-        <span class="tc-asgn-act"><button class="btn btn-ghost" onclick="tcEdit('${a.id}')">✏️ 編輯</button>
-        <label class="tc-active"><input type="checkbox" ${a.active?"checked":""} onchange="tcActive('${a.id}',this.checked)"> 開放中</label></span></div>
-      <div class="tc-asgn-meta">${tcTargetLabel(a)}${a.start_date?`　📅 ${fmtDate(a.start_date)} 開放${notYet?"（尚未開放）":""}`:""}${a.due_date?`　⏰ 截止 ${fmtDate(a.due_date)}`:""}</div>
-      ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}
-      ${scope.length?`<div class="hw-chips">${scopeChips(scope)}</div>`:""}
-      <div class="tc-tablewrap"><table class="tc-table sub"><thead><tr><th>學生</th>${scope.length?`<th class="num">範圍完成</th>`:""}<th>作答</th><th>繳交</th><th>分數</th><th>回饋</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
-    </div>`;
+    const counts = `<span class="tc-cnt ok">✅ 已繳 ${nSub}/${targets.length}</span>`
+      + (nToGrade?`<span class="tc-cnt grade">📝 待批 ${nToGrade}</span>`:"")
+      + (nMiss?`<span class="tc-cnt miss">⬜ 未繳 ${nMiss}</span>`:"");
+    return `<details class="tc-asgn-item ${nToGrade?'has-grade':''}" ontoggle="tcToggleOpen('${a.id}',this.open)" ${TC_OPEN.has(a.id)?'open':''}>
+      <summary class="tc-asgn-sum">
+        <span class="tc-asgn-title">${esc(a.title)}${a.active?"":' <span class="tc-closed">已關閉</span>'}</span>
+        <span class="tc-asgn-counts">${counts}</span>
+        <span class="tc-mini-bar" title="${pct}% 已繳"><i style="width:${pct}%"></i></span>
+        <span class="hw-caret">▸</span>
+      </summary>
+      <div class="tc-asgn-body">
+        <div class="tc-asgn-toprow">
+          <div class="tc-asgn-meta">${tcTargetLabel(a)}${a.start_date?`　📅 ${fmtDate(a.start_date)} 開放${notYet?"（尚未開放）":""}`:""}${a.due_date?`　⏰ 截止 ${fmtDate(a.due_date)}`:""}</div>
+          <span class="tc-asgn-act"><button class="btn btn-ghost" onclick="tcEdit('${a.id}')">✏️ 編輯</button>
+          <label class="tc-active"><input type="checkbox" ${a.active?"checked":""} onchange="tcActive('${a.id}',this.checked)"> 開放中</label></span>
+        </div>
+        ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}
+        ${scope.length?`<div class="hw-chips">${scopeChips(scope)}</div>`:""}
+        <div class="tc-tablewrap"><table class="tc-table sub"><thead><tr><th>學生</th>${scope.length?`<th class="num">範圍完成</th>`:""}<th>作答</th><th>繳交</th><th>分數</th><th>回饋</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+      </div>
+    </details>`;
   }).join("");
   const free = TDATA.submissions.filter(s=>!s.assignment_id);
-  const freeBox = `<div class="card tc-asgn"><div class="tc-asgn-head"><h3>🎙️ 學生直接繳交的錄音 <span class="tc-count">${free.length} 份</span></h3></div>
-    <p class="tc-sub" style="margin:0 0 8px">不用指派作業：學生在「作業」頁或閱讀文章的「🎤 跟讀錄音」錄完就直接交到這裡。</p>
-    <div class="tc-tablewrap"><table class="tc-table sub"><thead><tr><th>學生</th><th>內容</th><th>錄音／說明</th><th>繳交</th><th>分數</th><th>回饋</th><th></th></tr></thead><tbody>
-    ${free.length ? free.map(s=>`<tr><td>${esc(tName(s.user_id))}</td><td>${hwSourceLabel(s)}</td><td>${tcSubCell(s)}</td>${tcGradeCells(s)}</tr>`).join("")
-      : `<tr><td colspan="7" style="color:var(--muted);padding:12px">還沒有學生直接交錄音。</td></tr>`}</tbody></table></div></div>`;
+  const freeBox = `<details class="tc-asgn-item" ontoggle="tcToggleOpen('__free__',this.open)" ${TC_OPEN.has('__free__')?'open':''}>
+    <summary class="tc-asgn-sum"><span class="tc-asgn-title">🎙️ 學生直接繳交的錄音</span><span class="tc-asgn-counts"><span class="tc-cnt ok">${free.length} 份</span></span><span class="tc-mini-bar" style="visibility:hidden"></span><span class="hw-caret">▸</span></summary>
+    <div class="tc-asgn-body">
+      <p class="tc-sub" style="margin:0 0 8px">不用指派作業：學生在「作業」頁或閱讀文章的「🎤 跟讀錄音」錄完就直接交到這裡。</p>
+      <div class="tc-tablewrap"><table class="tc-table sub"><thead><tr><th>學生</th><th>內容</th><th>錄音／說明</th><th>繳交</th><th>分數</th><th>回饋</th><th></th></tr></thead><tbody>
+      ${free.length ? free.map(s=>`<tr><td>${esc(tName(s.user_id))}</td><td>${hwSourceLabel(s)}</td><td>${tcSubCell(s)}</td>${tcGradeCells(s)}</tr>`).join("")
+        : `<tr><td colspan="7" style="color:var(--muted);padding:12px">還沒有學生直接交錄音。</td></tr>`}</tbody></table></div>
+    </div></details>`;
   const groupsWarn = TDATA.groupsErr ? `<div class="card" style="padding:12px 16px;margin-bottom:12px;color:#B23B2E">分組資料載入失敗：${esc(TDATA.groupsErr)}</div>` : "";
-  return groupsWarn + tcHomeworkForm(students) + gradeLegend() + freeBox + list;
+  const formOpen = (TC_NEWOPEN || (TC_FORM && TC_FORM.id)) ? " open" : "";
+  const newForm = `<details class="tc-new"${formOpen} ontoggle="TC_NEWOPEN=this.open">
+    <summary class="tc-new-sum">${TC_FORM&&TC_FORM.id?"✏️ 編輯作業 Edit assignment":"➕ 出新作業 New assignment"}</summary>
+    ${tcHomeworkForm(students)}</details>`;
+  const overview = list ? `<div class="tc-overview">${list}</div>` : `<div class="hw-empty">還沒有任何作業。用上面的「➕ 出新作業」建立第一份。</div>`;
+  return groupsWarn + newForm + gradeLegend() + overview + freeBox;
 }
 
 /* ---------- 老師：分組分頁 ---------- */
