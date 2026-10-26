@@ -181,3 +181,35 @@ select.tc-grade{width:150px;background:#fff}
 .sp-l.seen{background:#FFF7E6;border-color:#F0D9A8;color:#8A6416}
 .sp-mis{font:700 11px var(--sans);color:#fff;background:#C8553D;border-radius:999px;padding:1px 6px;margin-left:3px}
 .sp-legend{margin-top:2px}
+
+/* 引導視窗：還沒完成的作業範圍 */
+.hw-guide-btn{margin-left:8px;border:1px solid #E7B4A3;background:#FFF6F2;color:#B4552F;border-radius:999px;padding:2px 10px;font:700 12px var(--sans);cursor:pointer}
+.hw-guide-bar{display:block;width:100%;margin:0 0 16px;padding:11px 14px;border:1px solid #E7B4A3;background:#FFF6F2;color:#8F3F2A;border-radius:12px;font:600 14px var(--sans);text-align:left;cursor:pointer}
+.hw-guide-bar b{font-size:16px;color:#C8553D}
+.hwg-overlay{position:fixed;inset:0;z-index:1000;background:rgba(40,30,20,.45);display:flex;align-items:center;justify-content:center;padding:16px;animation:hwgIn .18s ease}
+@keyframes hwgIn{from{opacity:0}to{opacity:1}}
+.hwg-card{position:relative;background:var(--paper,#fff);border-radius:16px;max-width:560px;width:100%;max-height:86vh;overflow:auto;padding:20px 20px 16px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.hwg-card h3{margin:0 0 6px;font:700 19px var(--sans);color:var(--ink)}
+.hwg-x{position:absolute;top:10px;right:12px;border:0;background:none;font-size:18px;color:var(--muted);cursor:pointer}
+.hwg-asg{border:1px solid var(--line,#E5DCC9);border-radius:12px;padding:10px 12px;margin:10px 0}
+.hwg-ah{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font:13px var(--sans);color:var(--muted);margin-bottom:6px}
+.hwg-ah b{font-size:15px;color:var(--ink)}
+.hwg-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:hwg}
+.hwg-list li{display:flex;align-items:center;gap:10px;padding:8px 10px;background:#FBF8F2;border-radius:10px}
+.hwg-ic{font-size:20px;flex:none}
+.hwg-txt{flex:1;min-width:0;font:14px/1.45 var(--sans);color:var(--ink)}
+.hwg-txt i{font-style:normal;font-size:12px;color:var(--muted)}
+.hwg-hint{display:block;font-size:12.5px;color:#9A6B12}
+.hwg-go{flex:none;white-space:nowrap;padding:6px 12px;font-size:13px}
+.hwg-foot{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:8px}
+@media (max-width:520px){ .hwg-list li{flex-wrap:wrap} .hwg-go{margin-left:30px} }
+
+/* 老師：範圍完成可展開 */
+button.tc-scope{border:0;cursor:pointer;font-variant-numeric:tabular-nums}
+button.tc-scope .si-caret{display:inline-block;font-size:10px;transition:transform .2s}
+button.tc-scope.on .si-caret{transform:rotate(90deg)}
+.tc-table tr.tc-scope-row>td{background:#FAFBFD;padding:8px 14px 12px}
+.tc-scope-list{display:flex;flex-direction:column;gap:4px;font:13.5px var(--sans)}
+.tc-scope-list .nd{color:#8F3F2A}
+.tc-scope-list .dn{color:#3B7A3B}
+.tc-scope-list i{font-style:normal;font-size:12px;color:var(--muted)}

@@ -211,6 +211,7 @@ async function renderHomework(){
   catch(e){ app.innerHTML = `<div class="view"><p>載入失敗，請重新整理。 Could not load. ${esc(e.message||"")}</p></div>`; return; }
   if(!/^#\/homework/.test(location.hash)) return;
   HW_LAST = assignments;
+  HW_SUBBED = new Set(subs.filter(s=>s.assignment_id).map(s=>s.assignment_id));
   const byA = {}; subs.forEach(s=>{ if(s.assignment_id) byA[s.assignment_id]=s; });
   HW_PENDING = assignments.filter(a=>a.active).map(a=>({a, st:hwStatus(a, byA[a.id])}))
     .filter(x=>x.st.state==="overdue" || x.st.state==="soon");
@@ -236,7 +237,7 @@ async function renderHomework(){
     const statusPill = isDone
       ? (s.status==="returned" ? `<span class="hw-pill done">已批改 Graded</span>` : `<span class="hw-pill sent">已繳交 Submitted</span>`)
       : (overdue ? `<span class="hw-pill due-over">未繳 Not done</span>` : `<span class="hw-pill todo">未繳 Not done</span>`);
-    const scopeBox = scope.length ? `<div class="hw-scope"><div class="hw-scope-h">📚 作業範圍（完成 ${sDone} / ${scope.length}）</div><div class="hw-chips">${scopeChips(scope, me, true, a.id)}</div>
+    const scopeBox = scope.length ? `<div class="hw-scope"><div class="hw-scope-h">📚 作業範圍（完成 ${sDone} / ${scope.length}）${!isDone&&sDone<scope.length?`<button type="button" class="hw-guide-btn" onclick="hwGuide('${a.id}')">📋 還差哪些？</button>`:""}</div><div class="hw-chips">${scopeChips(scope, me, true, a.id)}</div>
       <div class="tc-sub">點進去完成：文法課做完練習、寓言做讀後練習、🎤 跟讀錄音錄完交出，其他打開讀過就算。全部完成後，即使沒有要寫的內容也可以直接按「繳交」。</div></div>` : "";
     const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${gradeShow(s.grade)}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
     const prev = s ? `<div class="hw-prev">你上次繳交：${s.text?`「${esc(s.text.slice(0,80))}${s.text.length>80?"…":""}」 `:""}${s.file_url?(isAudioPath(s.file_url)?'🎤 錄音 ':'📎 檔案 '):""}${s.link?'🔗 連結':""}</div>` : "";
@@ -279,6 +280,7 @@ async function renderHomework(){
       <h1 class="display">我的作業清單<span class="zh-term-lg" style="color:var(--sb-lapis)">My To-Do</span></h1>
       <p class="lede">點作業標題展開，就能打字、錄音、上傳或貼連結繳交。<br>Tap a task to open it, then type, record, upload, or paste a link.</p></div>
     <div class="hw-summary"><span class="hw-count todo"><b>${todo.length}</b> 待完成 To&nbsp;do</span><span class="hw-count done"><b>${done.length}</b> 已完成 Done</span></div>
+    ${hwPendingItems().length?`<button type="button" class="hw-guide-bar" onclick="hwGuide()">📋 還有 <b>${hwPendingItems().length}</b> 項作業範圍沒完成，點我看要做哪些 →</button>`:""}
     <section class="hw-section"><h2 class="hw-sec-h">📌 待完成 To do</h2><div class="hw-list">${todoHtml}</div></section>
     ${done.length?`<section class="hw-section"><h2 class="hw-sec-h">✅ 已完成 Done</h2><div class="hw-list">${doneHtml}</div></section>`:""}
     <div class="card hw-free">
@@ -290,8 +292,9 @@ async function renderHomework(){
       <h4 class="hw-free-h">我交過的錄音</h4>${freeList}
     </div>
   </div>`;
+  hwGuideAuto();
 }
-async function hwSubmit(id){
+async function hwSubmit(id, force){
   const key = "a"+id.replace(/-/g,"");
   if(HWREC[key] && HWREC[key].state==="rec"){ toast("請先按 ⏹ 停止錄音"); return; }
   const text = (document.getElementById("hw-text-"+id).value||"").trim();
@@ -301,13 +304,12 @@ async function hwSubmit(id){
   const file = recFile || (fileEl && fileEl.files[0]);
   if(recFile && fileEl && fileEl.files[0]){ toast("錄音和上傳檔案只能擇一，這次會交出錄音。"); }
   let body = text;
-  if(!text && !link && !file){
-    const a = (HW_LAST||[]).find(x=>x.id===id), scope = (a&&a.scope)||[];
-    if(!scope.length){ toast("請至少打字作答、錄音、上傳檔案或貼連結。"); return; }
-    const done = scope.filter(it=>scopeDone(it, store.data||{})).length;
-    if(done<scope.length && !confirm(`作業範圍還有 ${scope.length-done} 項沒完成，確定要先交嗎？`)) return;
-    body = `✅ 完成作業範圍 ${done} / ${scope.length}`;
-  }
+  const a = (HW_LAST||[]).find(x=>x.id===id), scope = (a&&a.scope)||[];
+  const done = scope.filter(it=>scopeDone(it, store.data||{})).length;
+  if(!text && !link && !file && !scope.length){ toast("請至少打字作答、錄音、上傳檔案或貼連結。"); return; }
+  /* 範圍還沒做完：跳出引導視窗，帶學生去完成（也可以選「還是先交出」） */
+  if(scope.length && done<scope.length && !force){ hwKeepDrafts(); hwGuide(id, true); return; }
+  if(!text && !link && !file) body = `✅ 完成作業範圍 ${done} / ${scope.length}`;
   const btn = document.getElementById("hw-btn-"+id); btn.disabled = true; btn.textContent = "繳交中… Submitting…";
   const r = await CLOUD.submitHomework(id, { text:body, link, file });
   if(r.err){ btn.disabled=false; btn.textContent="繳交 Submit"; toast(r.err); return; }
@@ -326,6 +328,62 @@ async function hwSubmitFree(){
   hwRecClear("free"); hwKeepDrafts();
   toast("錄音已交給老師 🐾");
   renderHomework();
+}
+
+/* ---------- 引導視窗：還沒完成的作業範圍，一項一項帶學生去完成 ---------- */
+function hwScopeHint(it, d){
+  if(it.t==="lesson") return (d.visited||{})["lesson:"+it.id] ? "已經打開過，還要把練習做完 🎮" : "進去看說明，再把練習做完 🎮";
+  if(it.t==="readaloud") return `錄一段整篇跟讀並交出${it.lv&&RA_LV[it.lv]?`（指定 ${RA_LV[it.lv]}）`:""} 🎤`;
+  if(it.t==="story"){ const st=(typeof STORIES!=="undefined"?STORIES:[]).find(x=>x.id===it.id); return st&&st.category==="fable" ? "讀完後做「讀後練習」🦊" : "打開讀完就算 📖"; }
+  return "打開讀完就算 📰";
+}
+/* 所有「還沒交、範圍還沒做完」的作業項目；aid 指定時只看那一份 */
+function hwPendingItems(aid){
+  const d = store.data||{}, out = [];
+  (HW_LAST||[]).filter(a=>a.active && (!aid || a.id===aid)).forEach(a=>{
+    if(!aid && HW_SUBBED && HW_SUBBED.has(a.id)) return;
+    (a.scope||[]).forEach(it=>{ if(!scopeDone(it,d) && scopeInfo(it)) out.push({a, it}); });
+  });
+  return out;
+}
+let HW_SUBBED = null;   // 已交過的作業 id（引導視窗略過）
+function hwGuide(aid, fromSubmit){
+  hwGuideClose();
+  const items = hwPendingItems(aid);
+  if(!items.length){ if(!fromSubmit) toast("範圍都完成了，可以交作業了 🎉"); return; }
+  const d = store.data||{}, groups = {};
+  items.forEach(x=>{ (groups[x.a.id]=groups[x.a.id]||{a:x.a, list:[]}).list.push(x.it); });
+  const body = Object.values(groups).map(({a,list})=>{
+    const total=(a.scope||[]).length, left=list.length;
+    return `<div class="hwg-asg"><div class="hwg-ah"><b>${esc(a.title)}</b><span>${a.due_date?`截止 ${fmtDate(a.due_date)}　`:""}還差 ${left} / ${total} 項</span></div>
+      <ol class="hwg-list">${list.map(it=>{ const inf=scopeInfo(it);
+        const href = inf.rec ? `#/reading/${it.id}/rec/${a.id}${it.lv?"/"+it.lv:""}` : inf.href;
+        return `<li><span class="hwg-ic">${inf.icon}</span><span class="hwg-txt"><b>${esc(inf.label)}</b>${inf.zh?` <i>${esc(inf.zh)}</i>`:""}<span class="hwg-hint">${hwScopeHint(it,d)}</span></span>
+          <a class="btn btn-primary hwg-go" href="${href}" onclick="hwGuideClose()">去完成 →</a></li>`; }).join("")}</ol></div>`;
+  }).join("");
+  const el = document.createElement("div");
+  el.className = "hwg-overlay"; el.id = "hwg";
+  el.innerHTML = `<div class="hwg-card" role="dialog" aria-modal="true" aria-labelledby="hwg-t">
+    <button class="hwg-x" onclick="hwGuideClose()" aria-label="關閉">✕</button>
+    <h3 id="hwg-t">📋 ${fromSubmit?"先完成這些再交作業吧！":"還差這些就完成了！"}</h3>
+    <p class="tc-sub" style="margin:0 0 10px">一項一項點「去完成」，做完回到「作業」頁就會打勾 ✅。</p>
+    ${body}
+    <div class="hwg-foot">${fromSubmit?`<button class="btn btn-ghost" onclick="hwGuideClose();hwSubmit('${aid}',true)">還是先交出</button>`:""}
+      <button class="btn btn-ghost" onclick="hwGuideClose()">${fromSubmit?"好，我先去完成":"稍後再說"}</button></div>
+  </div>`;
+  el.addEventListener("click", e=>{ if(e.target===el) hwGuideClose(); });
+  document.body.appendChild(el);
+  const go = el.querySelector(".hwg-go"); if(go) go.focus();
+}
+function hwGuideClose(){ const el=document.getElementById("hwg"); if(el) el.remove(); }
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") hwGuideClose(); });
+window.addEventListener("hashchange", hwGuideClose);
+/* 打開作業頁時，一天自動提醒一次 */
+function hwGuideAuto(){
+  if(!hwPendingItems().length) return;
+  const key = "hwGuide:"+((currentUser()||{}).id||"")+":"+new Date().toISOString().slice(0,10);
+  try{ if(localStorage.getItem(key)) return; localStorage.setItem(key,"1"); }catch(e){}
+  setTimeout(()=>{ if(/^#\/homework/.test(location.hash)) hwGuide(); }, 400);
 }
 
 /* ---------- 從作業跳到指定文章錄音（#/reading/<id>/rec/<作業id>/<程度>） ---------- */
@@ -377,6 +435,8 @@ async function hwRaSubmit(R, a, file, text){
 }
 
 /* ---------- 老師：作業分頁 ---------- */
+const TC_SCOPE_OPEN = new Set();   // 展開中的「作業:學生」範圍明細
+function tcScopeOpen(aid, uid){ const k=aid+":"+uid; if(TC_SCOPE_OPEN.has(k)) TC_SCOPE_OPEN.delete(k); else TC_SCOPE_OPEN.add(k); TC_OPEN.add(aid); paintTeacher(); }
 let TC_FORM = null;   // {id|null, title, desc, start, due, mode:"all"|"pick", students:[], groups:[], scope:[]}
 let TC_OPEN = new Set();   // 展開中的作業卡片 id（批改／重繪後保持展開）
 let TC_TOUCHED = new Set();// 老師手動開關過的卡片（之後就尊重老師的選擇，不再自動展開）
@@ -518,10 +578,13 @@ function tcHomeworkBody(students){
     const rows = rowIds.length ? rowIds.map(uid=>{
       const s=subBy[uid], d=(progById[uid]&&progById[uid].data)||{};
       const done=scope.filter(it=>scopeDone(it,d)).length;
-      const sc = scope.length ? `<td class="num"><span class="tc-scope ${done===scope.length?"full":""}" title="${esc(scope.map(it=>{const i=scopeInfo(it);return (scopeDone(it,d)?"✅ ":"⬜ ")+(i?i.label:"");}).join("\n"))}">${done} / ${scope.length}</span></td>` : "";
+      const ok = TC_SCOPE_OPEN.has(a.id+":"+uid);
+      const sc = scope.length ? `<td class="num"><button class="tc-scope ${done===scope.length?"full":""} ${ok?"on":""}" onclick="tcScopeOpen('${a.id}','${uid}')" title="點開看哪幾項還沒完成">${done} / ${scope.length} <span class="si-caret">▸</span></button></td>` : "";
+      const detail = scope.length && ok ? `<tr class="tc-scope-row"><td colspan="7"><div class="tc-scope-list">${scope.map(it=>{ const inf=scopeInfo(it); if(!inf) return ""; const dn=scopeDone(it,d);
+          return `<div class="${dn?"dn":"nd"}">${dn?"✅":"⬜"} ${inf.icon} ${esc(inf.label)}${inf.zh?` <i>${esc(inf.zh)}</i>`:""}${dn?"":`<span class="tc-sub">　${hwScopeHint(it,d).replace(/[🎮🎤🦊📖📰]/g,"").trim()}</span>`}</div>`; }).join("")}</div></td></tr>` : "";
       const recs = TDATA.submissions.filter(x=>!x.assignment_id && x.user_id===uid && x.source && x.source.assignment===a.id);
       const recCell = recs.length ? `<div class="tc-recs">${recs.map(x=>`<div>${hwSourceLabel(x,true)} ${x.file_url?`<button class="btn btn-ghost tc-audiobtn" data-path="${esc(x.file_url)}" onclick="tcAudio(this)">▶️</button>`:""}${x.status==="returned"?` <span class="hw-gradechip">${esc(x.grade||"✓")}</span>`:""}</div>`).join("")}</div>` : "";
-      return `<tr class="${s||recs.length?"":"tc-missing"}"><td>${esc(tName(uid))}</td>${sc}<td>${s?tcSubCell(s):(recs.length?"":tcSubCell(s))}${recCell}</td>${tcGradeCells(s)}</tr>`;
+      return `<tr class="${s||recs.length?"":"tc-missing"}"><td>${esc(tName(uid))}</td>${sc}<td>${s?tcSubCell(s):(recs.length?"":tcSubCell(s))}${recCell}</td>${tcGradeCells(s)}</tr>${detail}`;
     }).join("") : `<tr><td colspan="${scope.length?7:6}" style="color:var(--muted);padding:12px">這份作業目前沒有指派到任何學生。</td></tr>`;
     const nSub = targets.filter(u=>subBy[u]).length;
     const nGraded = targets.filter(u=>subBy[u] && subBy[u].status==="returned").length;
