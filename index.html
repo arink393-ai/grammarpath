@@ -823,6 +823,13 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .ra-b:disabled{opacity:.3;cursor:default}
 .ra-b.stop{background:#e05a5a;border-color:#e05a5a;animation:raPulse 1.1s infinite}
 @keyframes raPulse{0%,100%{box-shadow:0 0 0 0 rgba(224,90,90,.45)}50%{box-shadow:0 0 0 6px rgba(224,90,90,0)}}
+.ra-b.rachk{width:auto;padding:0 11px;font:700 13px var(--sans);color:var(--teal,#2C7A7A);gap:3px}
+.ra-b.rachk.live{background:#e05a5a;border-color:#e05a5a;color:#fff;animation:raPulse 1.1s infinite}
+.ra-row{flex-wrap:wrap}
+.ra-row.chk{border-color:var(--teal-line,#B7D9D9);background:#F5FAFA}
+.ra-fb{flex-basis:100%;width:100%;margin-top:8px;border-top:1px dashed var(--line);padding-top:10px}
+.ra-fb .rd-why{margin:0}
+.ra-fb .spk-weak{margin:10px 0 0}
 .ra-take{text-align:center}
 .ra-preview{text-align:left;max-height:150px;overflow:auto;font:400 13.5px/1.7 var(--serif);color:var(--muted);background:#fff;border:1.5px dashed var(--line);border-radius:12px;padding:10px 14px;margin-bottom:14px}
 .ra-big{font-size:15.5px;padding:13px 24px}
@@ -16747,21 +16754,54 @@ function raView(v){ const R=raState(); if(R.rec) return; R.view=v; raRender(); i
 function raPracticeHTML(R){
   const rows = R.sents.map((s,i)=>{
     const recNow = R.recIdx===i;
-    return `<li class="ra-row ${recNow?"rec":""}">
+    const chkNow = R.chk && R.chk.i===i && R.chk.state==="listening";
+    return `<li class="ra-row ${recNow?"rec":""} ${chkNow?"chk":""}">
       <span class="ra-n">${i+1}</span>
       <span class="ra-s" lang="en">${esc(s)}</span>
       <span class="ra-btns">
-        <button class="ra-b" title="聽示範" onclick="raSay(${i})">🔊</button>
-        <button class="ra-b ${recNow?"stop":"mic"}" title="${recNow?"停止錄音":"錄我的聲音"}" onclick="raPracticeRec(${i})">${recNow?"⏹":"🎤"}</button>
+        <button class="ra-b" title="聽真人示範" onclick="raSay(${i})">🔊</button>
+        <button class="ra-b ${recNow?"stop":"mic"}" title="${recNow?"停止錄音":"錄我的聲音（錄起來比對）"}" onclick="raPracticeRec(${i})">${recNow?"⏹":"🎤"}</button>
         <button class="ra-b" title="聽我的錄音" ${R.takes[i]?"":"disabled"} onclick="raPlayTake(${i})">▶️</button>
-      </span></li>`;
+        ${sr.ok?`<button class="ra-b rachk ${chkNow?"live":""}" title="發音檢查：念一次，找出要加強的字" onclick="raCheck(${i})">${chkNow?"🎙️…":"✓ 發音"}</button>`:""}
+      </span>
+      ${raCheckFb(i)}</li>`;
   }).join("");
   return `<div class="echo-tip-bar">
       <span>💡 推薦搭配<b>「回音法 Echo Method」</b>練習：先聽 🔊 → 心中回放餘音 1–2 秒 → 開口跟讀 🎤</span>
       <button class="echo-tip-btn" type="button" onclick="openEchoModal()">▶️ 看史嘉琳教授示範</button>
     </div>
-    <p class="rv-tip" style="text-align:left;margin:0 0 10px">按 🔊 聽示範 → 按 🎤 跟著念（念完按 ⏹）→ 按 ▶️ 聽自己的錄音比一比。這些練習只存在你的裝置，不會上傳。</p>
+    <p class="rv-tip" style="text-align:left;margin:0 0 10px">🔊 聽真人示範 → 🎤 錄起來比對（可選）→ <b>✓ 發音</b>讓系統聽你念、自動標出<b>要加強的字</b>（點那些字可再聽示範）。${sr.ok?"":"<b>（此瀏覽器不支援語音辨識，請用 Chrome／Edge／Safari 才有「✓ 發音」）</b>"}這些練習只存在你的裝置，不會上傳。</p>
     <ol class="ra-list">${rows}</ol>`;
+}
+/* 發音檢查：用瀏覽器語音辨識，比對這句的每個字，列出要加強的字 */
+function raCheckFb(i){
+  const R=raState(), c=R.chk;
+  if(!c || c.i!==i) return "";
+  if(c.state==="listening") return `<div class="ra-fb"><span class="spk-listening">🎙️ 請念出這一句…</span></div>`;
+  if(c.state==="error") return `<div class="ra-fb"><div class="rd-why no">⚠ 沒收到聲音（${esc(c.err||"error")}）。請確認已允許麥克風，再按一次「✓ 發音」。</div></div>`;
+  const tw=srNorm(R.sents[i]).split(" "), hits=c.hits||[], esc1=w=>w.replace(/'/g,"\\'");
+  const words=tw.map((w,k)=>`<button class="spk-w ${hits[k]?"hit":"miss"}" onclick="spkSayWord('${esc1(w)}')" title="點一下聽示範">${w}</button>`).join(" ");
+  const STOP=new Set("a an the is are was were am be been being to of in on at by and or but it he she i you we they my your his her their this that these those do does did not no so as for with".split(" "));
+  const weak=[...new Set(tw.filter((w,k)=>!hits[k] && w.length>=3 && !STOP.has(w)))];
+  const weakBox=weak.length
+    ? `<div class="spk-weak"><b>💡 要再加強的字：</b> ${weak.map(w=>`<button class="spk-w miss" onclick="spkSayWord('${esc1(w)}')">${w} 🔊</button>`).join(" ")}</div>`
+    : `<div class="spk-weak all-good">🎉 這句每個字都念到了！</div>`;
+  return `<div class="ra-fb"><div class="rd-why ${c.hitRate>=80?"ok":"no"}">命中率 ${c.hitRate}%：綠色念對了，橘色再練（點字可聽示範）<div class="spk-words" style="justify-content:flex-start">${words}</div>${weakBox}</div></div>`;
+}
+function raCheck(i){
+  const R=raState(); if(R.rec) return;
+  if(!sr.ok){ toast("此瀏覽器不支援語音辨識，請改用 Chrome／Edge／Safari。"); return; }
+  if(sr.busy){ sr.stop(); return; }
+  raStopPlayer(); tts.stop();
+  R.chk={i, state:"listening"}; raRender();
+  sr.start(alts=>{
+    const heard=srNorm(alts[0]||"").split(" ");
+    const tw=srNorm(R.sents[i]).split(" ");
+    const hits=tw.map(w=>heard.includes(w));
+    const hit=hits.filter(Boolean).length;
+    if(RA) RA.chk={i, state:"done", hits, hitRate:Math.round(hit/tw.length*100), heard:alts[0]||""};
+    raRender();
+  }, err=>{ if(RA && RA.chk && RA.chk.state==="listening"){ RA.chk={i, state:err?"error":"done", err}; raRender(); } });
 }
 function raSay(i){ const R=raState(); if(R.rec) return; raStopPlayer(); tts.speak(R.sents[i], 0.88); }
 function raPlayTake(i){ const R=raState(); if(R.rec||!R.takes[i]) return; raPlayUrl(R.takes[i]); }
