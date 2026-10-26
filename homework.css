@@ -144,3 +144,13 @@ select.tc-grade{width:150px;background:#fff}
 .tc-asgn-toprow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:4px}
 .tc-asgn-toprow .tc-asgn-meta{margin:0}
 @media(max-width:640px){ .tc-asgn-sum{gap:8px} .tc-mini-bar{width:52px} }
+
+/* 跟讀錄音作業：跳到指定文章錄音 */
+.hw-chip.rec{border-color:#E7B4A3;background:#FFF6F2}
+.hw-chip.rec.done{background:#E4F0E4;border-color:#C7DFC7}
+.hw-chip-go{margin-left:6px;font:700 12px var(--sans);color:#fff;background:#C8553D;border-radius:999px;padding:2px 9px}
+.ra-hwbanner{margin:0 0 12px;padding:10px 14px;border:1px solid #E7B4A3;background:#FFF6F2;border-radius:10px;font:500 14px/1.6 var(--sans);color:var(--ink)}
+.ra-hwwarn{margin-top:6px;color:#9A6B12;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ra-hwback{display:inline-block;margin-top:4px;font:600 13px var(--sans);color:var(--sb-lapis,#2C5C86)}
+.tc-recs{display:flex;flex-direction:column;gap:4px;margin-top:6px;font-size:13px}
+.tc-recs .tc-audiobtn{padding:2px 8px}

@@ -64,16 +64,20 @@ function hwRow(f){
 }
 
 /* ---------- 範圍（scope） ---------- */
-/* 項目：{t:"lesson",id} 文法課 · {t:"reading",id} 閱讀文章 · {t:"story",id} 故事／寓言 */
+/* 項目：{t:"lesson",id} 文法課 · {t:"reading",id} 閱讀文章 · {t:"story",id} 故事／寓言
+        · {t:"readaloud",id,lv} 指定文章的跟讀錄音（lv＝a/b/c 指定程度，空＝不限） */
+const RA_LV = {a:"A 初級", b:"B 中級", c:"C 高級"};
 function scopeInfo(it){
   if(it.t==="lesson"){ const l=lessonById(it.id); return l && {icon:"📘", label:l.title, zh:l.zh, href:"#/lesson/"+l.id}; }
   if(it.t==="reading"){ const r=(typeof READINGS!=="undefined"?READINGS:[]).find(x=>x.id===it.id); return r && {icon:"📰", label:r.topic, zh:r.zh, href:"#/reading/"+r.id}; }
   if(it.t==="story"){ const s=(typeof STORIES!=="undefined"?STORIES:[]).find(x=>x.id===it.id); return s && {icon:s.category==="fable"?"🦊":"📖", label:s.title, zh:s.zh||"", href:"#/story/"+s.id}; }
+  if(it.t==="readaloud"){ const r=(typeof READINGS!=="undefined"?READINGS:[]).find(x=>x.id===it.id); return r && {icon:"🎤", label:"跟讀錄音："+r.topic, zh:it.lv&&RA_LV[it.lv]?"指定 "+RA_LV[it.lv]:"程度不限", href:"#/reading/"+r.id, rec:true}; }
   return null;
 }
 /* 完成判定：文法課＝練習完成；寓言＝做過讀後練習；其他＝打開看過 */
 function scopeDone(it, d){
   d = d || {};
+  if(it.t==="readaloud"){ const ra=d.readaloud||{}; return !!(it.lv ? ra[it.id+":"+it.lv] : ra[it.id]); }
   if(it.t==="lesson") return !!(d.completed && d.completed[it.id]);
   if(it.t==="story"){
     const s=(typeof STORIES!=="undefined"?STORIES:[]).find(x=>x.id===it.id);
@@ -81,12 +85,15 @@ function scopeDone(it, d){
   }
   return !!(d.visited && d.visited[it.t+":"+it.id]);
 }
-function scopeChips(scope, d, linkable){
+function scopeChips(scope, d, linkable, aid){
   return (scope||[]).map(it=>{
     const inf=scopeInfo(it); if(!inf) return "";
     const done=d!==undefined && scopeDone(it,d);
     const inner=`${done?"✅":inf.icon} ${esc(inf.label)}${inf.zh?`<span class="hw-chip-zh">${esc(inf.zh)}</span>`:""}`;
-    return linkable ? `<a class="hw-chip ${done?"done":""}" href="${inf.href}">${inner}</a>` : `<span class="hw-chip ${done?"done":""}">${inner}</span>`;
+    /* 跟讀錄音：直接跳到那篇文章的錄音區，並預選這份作業 */
+    const href = inf.rec && aid ? `#/reading/${it.id}/rec/${aid}${it.lv?"/"+it.lv:""}` : inf.href;
+    const label = inf.rec && linkable && !done ? `${inner}<span class="hw-chip-go">去錄音 →</span>` : inner;
+    return linkable ? `<a class="hw-chip ${done?"done":""} ${inf.rec?"rec":""}" href="${href}">${label}</a>` : `<span class="hw-chip ${done?"done":""} ${inf.rec?"rec":""}">${inner}</span>`;
   }).join("");
 }
 /* 記錄學生打開過的閱讀／故事／課程，讓老師看得到「範圍」完成度 */
@@ -181,11 +188,12 @@ function gradeLegend(){
     <div class="tc-sub" style="margin-top:6px">百分制區間僅供參考，可依等第定義自行判斷。</div></details>`;
 }
 const isAudioPath = p => /\.(webm|m4a|mp4|mp3|ogg|wav|aac)$/i.test(p||"");
-function hwSourceLabel(s){
+function hwSourceLabel(s, short){
   const src = s.source || {};
   if(s.kind==="readaloud"){
     const r=(typeof READINGS!=="undefined"?READINGS:[]).find(x=>x.id===src.reading);
-    return `🎤 跟讀：${esc((r&&r.topic)||src.title||"閱讀文章")}${src.level?`（${esc(String(src.level).toUpperCase())}）`:""}`;
+    const asg = !short && src.assignment && ((typeof HW_LAST!=="undefined"&&HW_LAST||[]).concat((typeof TDATA!=="undefined"&&TDATA&&TDATA.assignments)||[])).find(x=>x.id===src.assignment);
+    return `🎤 跟讀：${esc((r&&r.topic)||src.title||"閱讀文章")}${src.level?`（${esc(String(src.level).toUpperCase())}）`:""}${asg?`<span class="tc-sub">　📝 作業：${esc(asg.title)}</span>`:""}`;
   }
   return "🎙️ 自主錄音";
 }
@@ -228,8 +236,8 @@ async function renderHomework(){
     const statusPill = isDone
       ? (s.status==="returned" ? `<span class="hw-pill done">已批改 Graded</span>` : `<span class="hw-pill sent">已繳交 Submitted</span>`)
       : (overdue ? `<span class="hw-pill due-over">未繳 Not done</span>` : `<span class="hw-pill todo">未繳 Not done</span>`);
-    const scopeBox = scope.length ? `<div class="hw-scope"><div class="hw-scope-h">📚 作業範圍（完成 ${sDone} / ${scope.length}）</div><div class="hw-chips">${scopeChips(scope, me, true)}</div>
-      <div class="tc-sub">點進去完成：文法課做完練習、寓言做讀後練習，其他打開讀過就算。全部完成後，即使沒有要寫的內容也可以直接按「繳交」。</div></div>` : "";
+    const scopeBox = scope.length ? `<div class="hw-scope"><div class="hw-scope-h">📚 作業範圍（完成 ${sDone} / ${scope.length}）</div><div class="hw-chips">${scopeChips(scope, me, true, a.id)}</div>
+      <div class="tc-sub">點進去完成：文法課做完練習、寓言做讀後練習、🎤 跟讀錄音錄完交出，其他打開讀過就算。全部完成後，即使沒有要寫的內容也可以直接按「繳交」。</div></div>` : "";
     const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${gradeShow(s.grade)}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
     const prev = s ? `<div class="hw-prev">你上次繳交：${s.text?`「${esc(s.text.slice(0,80))}${s.text.length>80?"…":""}」 `:""}${s.file_url?(isAudioPath(s.file_url)?'🎤 錄音 ':'📎 檔案 '):""}${s.link?'🔗 連結':""}</div>` : "";
     const form = `<div class="hw-form">
@@ -320,6 +328,54 @@ async function hwSubmitFree(){
   renderHomework();
 }
 
+/* ---------- 從作業跳到指定文章錄音（#/reading/<id>/rec/<作業id>/<程度>） ---------- */
+let HW_RA_TARGET = null;   // {id, aid, lv}：換程度時錄音區會重置，靠這個記住是哪份作業
+function hwOpenReadAloud(id, aid, lv){
+  HW_RA_TARGET = aid ? {id, aid, lv:lv||""} : null;
+  if(!rdById(id)){ location.hash="#/reading"; return; }
+  if(lv && RA_LV[lv] && RD_LEVEL!==lv){ RD_LEVEL=lv; RD_ANS={}; RD_SHOW=false; }
+  renderReading(id);
+  const R = raState(); R.hwTarget = aid || null; R.hwLv = lv || "";
+  if(!R.rec) R.view = "take";
+  raRender(); raLoadAsg();
+  const sec = document.querySelector(".rv.ra"); if(sec) setTimeout(()=>sec.scrollIntoView({behavior:"smooth", block:"start"}), 60);
+}
+/* 錄音區上方的作業提示（程度不符時提醒換） */
+function hwRaBanner(R){
+  if(!R.hwTarget && HW_RA_TARGET && HW_RA_TARGET.id===R.id){ R.hwTarget = HW_RA_TARGET.aid; R.hwLv = HW_RA_TARGET.lv; }
+  if(!R.hwTarget) return "";
+  const a = (R.asg||[]).find(x=>x.id===R.hwTarget) || (HW_LAST||[]).find(x=>x.id===R.hwTarget);
+  const wrongLv = R.hwLv && R.hwLv!==R.lvl;
+  return `<div class="ra-hwbanner">📝 這是作業${a?`「${esc(a.title)}」`:""}的錄音：錄完按「繳交給老師」就會交到這份作業。
+    ${wrongLv?`<div class="ra-hwwarn">⚠️ 老師指定 <b>${RA_LV[R.hwLv]}</b>，你現在是 ${RA_LV[R.lvl]||R.lvl}。<button class="btn btn-ghost" onclick="hwOpenReadAloud('${R.id}','${R.hwTarget}','${R.hwLv}')">換到指定程度</button></div>`:""}
+    <a class="ra-hwback" href="#/homework">← 回作業清單</a></div>`;
+}
+/* 跟讀錄音繳交：作業範圍裡有這篇的「跟讀錄音」→ 存成連到該作業的錄音（可交多篇、不會蓋掉作業本身的作答）；
+   錄完若範圍全部完成且這份作業還沒交，就自動幫學生交出 */
+async function hwRaSubmit(R, a, file, text){
+  const r = rdById(R.id);
+  const linked = a && (a.scope||[]).some(it=>it.t==="readaloud" && it.id===R.id);
+  const res = (a && !linked) ? await CLOUD.submitHomework(a.id, {text, link:null, file})
+    : await HWAPI.submitFree({kind:"readaloud", source:{reading:R.id, level:R.lvl, title:r.topic, ...(linked?{assignment:a.id}:{})}, text, file});
+  if(res.err) return res;
+  store.data.readaloud = store.data.readaloud || {};
+  const today = new Date().toISOString().slice(0,10);
+  store.data.readaloud[R.id] = today; store.data.readaloud[R.id+":"+R.lvl] = today; store.save();
+  if(linked){
+    const scope = a.scope||[], d = store.data||{};
+    if(scope.every(it=>scopeDone(it,d))){
+      try{
+        const mine = await CLOUD.mySubmissions();
+        if(!mine.some(s=>s.assignment_id===a.id)){
+          const r2 = await CLOUD.submitHomework(a.id, {text:`✅ 完成作業範圍 ${scope.length} / ${scope.length}（含跟讀錄音）`, link:null, file:null});
+          if(!r2.err) res.autoDone = true;
+        }
+      }catch(e){}
+    }
+  }
+  return res;
+}
+
 /* ---------- 老師：作業分頁 ---------- */
 let TC_FORM = null;   // {id|null, title, desc, start, due, mode:"all"|"pick", students:[], groups:[], scope:[]}
 let TC_OPEN = new Set();   // 展開中的作業卡片 id（批改／重繪後保持展開）
@@ -356,7 +412,7 @@ function tcFormToggle(list, id){
 function tcScopeToggle(t, id){
   tcFormSync();
   const i=TC_FORM.scope.findIndex(x=>x.t===t && x.id===id);
-  if(i>=0) TC_FORM.scope.splice(i,1); else TC_FORM.scope.push({t,id});
+  if(i>=0) TC_FORM.scope.splice(i,1); else TC_FORM.scope.push(t==="readaloud" ? {t,id,lv:TC_FORM.raLv||""} : {t,id});
   const c=document.getElementById("na-cnt-scope"); if(c) c.textContent=TC_FORM.scope.length;
   const box=document.getElementById("na-scope-chips"); if(box) box.innerHTML=TC_FORM.scope.length?scopeChips(TC_FORM.scope):`<span class="tc-sub">還沒選。可不選（純打字／錄音作業）。</span>`;
 }
@@ -364,7 +420,7 @@ function tcEdit(id){
   const a=TDATA.assignments.find(x=>x.id===id); if(!a) return;
   TC_FORM = {id:a.id, title:a.title||"", desc:a.description||"", start:a.start_date||"", due:a.due_date||"",
     mode:(a.target_students||[]).length||(a.target_groups||[]).length?"pick":"all",
-    students:[...(a.target_students||[])], groups:[...(a.target_groups||[])], scope:(a.scope||[]).map(x=>({t:x.t,id:x.id}))};
+    students:[...(a.target_students||[])], groups:[...(a.target_groups||[])], scope:(a.scope||[]).map(x=>x.t==="readaloud"?{t:x.t,id:x.id,lv:x.lv||""}:{t:x.t,id:x.id})};
   TC_NEWOPEN = true;
   paintTeacher(); const f=document.querySelector(".tc-newhw"); if(f) f.scrollIntoView({behavior:"smooth", block:"start"});
 }
@@ -389,9 +445,15 @@ function tcScopePicker(){
   }).join("");
   const rds = (typeof READINGS!=="undefined"?READINGS:[]).slice().sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
   const readings = `<details class="tc-pick-grp"><summary>📰 閱讀文章（${rds.length}）</summary><div class="tc-pick-body">${rds.map(r=>cb("reading",r.id,r.topic,r.zh)).join("")}</div></details>`;
+  const raLv = TC_FORM.raLv||"";
+  const recs = `<details class="tc-pick-grp"><summary>🎤 跟讀錄音（指定文章錄音）</summary><div class="tc-pick-body">
+    <div class="hw-row" style="margin:4px 0 8px"><label class="tc-inline">勾選時指定程度
+      <select onchange="TC_FORM.raLv=this.value"><option value="" ${raLv===""?"selected":""}>不限（學生自選）</option>${Object.entries(RA_LV).map(([k,l])=>`<option value="${k}" ${raLv===k?"selected":""}>${l}</option>`).join("")}</select></label></div>
+    <div class="tc-sub" style="margin-bottom:6px">學生的作業會出現「去錄音 →」，點了直接跳到那篇文章的錄音區，錄完交出就算完成。</div>
+    ${rds.map(r=>cb("readaloud",r.id,r.topic,r.zh)).join("")}</div></details>`;
   const sts = typeof STORIES!=="undefined"?STORIES:[];
   const stories = `<details class="tc-pick-grp"><summary>📖 故事／寓言（${sts.length}）</summary><div class="tc-pick-body">${sts.map(s=>cb("story",s.id,s.title,s.category==="fable"?"寓言":"繪本")).join("")}</div></details>`;
-  return lessons + readings + stories;
+  return lessons + readings + recs + stories;
 }
 function tcHomeworkForm(students){
   if(!TC_FORM) TC_FORM=tcFormBlank();
@@ -457,7 +519,9 @@ function tcHomeworkBody(students){
       const s=subBy[uid], d=(progById[uid]&&progById[uid].data)||{};
       const done=scope.filter(it=>scopeDone(it,d)).length;
       const sc = scope.length ? `<td class="num"><span class="tc-scope ${done===scope.length?"full":""}" title="${esc(scope.map(it=>{const i=scopeInfo(it);return (scopeDone(it,d)?"✅ ":"⬜ ")+(i?i.label:"");}).join("\n"))}">${done} / ${scope.length}</span></td>` : "";
-      return `<tr class="${s?"":"tc-missing"}"><td>${esc(tName(uid))}</td>${sc}<td>${tcSubCell(s)}</td>${tcGradeCells(s)}</tr>`;
+      const recs = TDATA.submissions.filter(x=>!x.assignment_id && x.user_id===uid && x.source && x.source.assignment===a.id);
+      const recCell = recs.length ? `<div class="tc-recs">${recs.map(x=>`<div>${hwSourceLabel(x,true)} ${x.file_url?`<button class="btn btn-ghost tc-audiobtn" data-path="${esc(x.file_url)}" onclick="tcAudio(this)">▶️</button>`:""}${x.status==="returned"?` <span class="hw-gradechip">${esc(x.grade||"✓")}</span>`:""}</div>`).join("")}</div>` : "";
+      return `<tr class="${s||recs.length?"":"tc-missing"}"><td>${esc(tName(uid))}</td>${sc}<td>${s?tcSubCell(s):(recs.length?"":tcSubCell(s))}${recCell}</td>${tcGradeCells(s)}</tr>`;
     }).join("") : `<tr><td colspan="${scope.length?7:6}" style="color:var(--muted);padding:12px">這份作業目前沒有指派到任何學生。</td></tr>`;
     const nSub = targets.filter(u=>subBy[u]).length;
     const nGraded = targets.filter(u=>subBy[u] && subBy[u].status==="returned").length;
