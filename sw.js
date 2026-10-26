@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v108-consent-column";
+const CACHE = "eci-v109-consent-column-fix";
 const SHELL = [
   "./",
   "./index.html",
@@ -19,7 +19,7 @@ const SHELL = [
   "./curriculum-loader.js?v=3",
   "./lesson-notes.js?v=4",
   "./homework.js?v=5",
-  "./student-info.js?v=4",
+  "./student-info.js?v=5",
   "./offline-content.js?v=9",
   "./daily.js?v=18",
   "./adventure.js?v=5",

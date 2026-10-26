@@ -2225,7 +2225,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="curriculum-loader.js?v=3"></script>
 <script src="lesson-notes.js?v=4"></script>
 <script src="homework.js?v=5"></script>
-<script src="student-info.js?v=4"></script>
+<script src="student-info.js?v=5"></script>
 <script src="offline-content.js?v=9"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=5"></script>
@@ -2776,6 +2776,7 @@ async function route(){
   else if(h[0]==="resources") renderResources(h[1]);
   else if(h[0]==="reading" && h[1]==="topic") renderReadings(h[2]);
   else if(h[0]==="reading" && h[1]==="week") renderReadings(null, h[2]);
+  else if(h[0]==="reading" && h[1] && h[2]==="rec" && typeof hwOpenReadAloud==="function") hwOpenReadAloud(h[1], h[3], h[4]);   // 從作業跳到指定文章錄音
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
   else if(h[0]==="nobel" && h[1]==="teacher") renderNobelWeek(true);
@@ -16731,7 +16732,7 @@ function raRender(){
   const tabs = `<div class="ra-tabs">
     <button class="ra-tab ${R.view==="practice"?"on":""}" ${busy?"disabled":""} onclick="raView('practice')">① 逐句跟讀練習</button>
     <button class="ra-tab ${R.view==="take"?"on":""}" ${busy?"disabled":""} onclick="raView('take')">② 整篇錄音繳交</button></div>`;
-  stage.innerHTML = tabs + (R.view==="practice" ? raPracticeHTML(R) : raTakeHTML(R));
+  stage.innerHTML = tabs + (R.view==="practice" ? raPracticeHTML(R) : (typeof hwRaBanner==="function"?hwRaBanner(R):"") + raTakeHTML(R));
 }
 function raView(v){ const R=raState(); if(R.rec) return; R.view=v; raRender(); if(v==="take" && R.take.state==="done") raLoadAsg(); }
 
@@ -16801,7 +16802,9 @@ function raTakeHTML(R){
   } else {
     /* 不用等老師出作業：預設「直接交給老師」；有對應的跟讀作業就預選那份 */
     const topic = rdById(R.id).topic, list = R.asg||[];
-    const pick = list.find(a=>/跟讀|朗讀|read/i.test(a.title)&&a.title.includes(topic)) || list.find(a=>/跟讀|朗讀|read ?aloud/i.test(a.title));
+    const pick = (R.hwTarget && list.find(a=>a.id===R.hwTarget))
+      || list.find(a=>(a.scope||[]).some(it=>it.t==="readaloud" && it.id===R.id))
+      || list.find(a=>/跟讀|朗讀|read/i.test(a.title)&&a.title.includes(topic)) || list.find(a=>/跟讀|朗讀|read ?aloud/i.test(a.title));
     const note = R.asgErr ? `<span class="tc-sub">（作業清單載入失敗，仍可直接交給老師）</span>` : !R.asg ? `<span class="tc-sub">（載入作業清單中…）</span>` : "";
     submit = `<div class="ra-submit"><label>交到：<select id="ra-asg">
         <option value="">📤 直接交給老師（不指定作業）</option>
@@ -16859,11 +16862,11 @@ async function raSubmit(){
   const r=rdById(R.id), lv=r.levels[R.lvl];
   const file=new File([T.blob], `readaloud-${R.id}-${R.lvl}.${raExt(T.type)}`, {type:T.type||"audio/webm"});
   const text=`🎤 跟讀錄音：${r.topic}（${lv.cefr}）· ${R.sents.length} 句 · ${raFmt(T.dur||0)}`;
-  const res = a ? await CLOUD.submitHomework(a.id, {text, link:null, file})
-    : await HWAPI.submitFree({kind:"readaloud", source:{reading:R.id, level:R.lvl, title:r.topic}, text, file});
+  const res = await hwRaSubmit(R, a, file, text);
   if(RA!==R) return;
   if(res.err){ btn.disabled=false; btn.textContent="📤 繳交給老師"; toast(res.err); return; }
-  T.submitted = a ? a.title : "老師（直接繳交）"; toast("錄音已交給老師，念得很好 🐾"); raRender();
+  T.submitted = a ? a.title : "老師（直接繳交）";
+  toast(res.autoDone ? `錄音已交出，「${a.title}」的範圍全部完成，作業已自動繳交 🎉` : "錄音已交給老師，念得很好 🐾"); raRender();
 }
 /* space / → advances during a take; stop the mic when leaving the article */
 document.addEventListener("keydown", e=>{
