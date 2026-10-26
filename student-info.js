@@ -57,6 +57,40 @@ function siSetRow(row, removeId){
 let SI_FILTER = "all";   // "all" | 年級 | "none"
 let SI_EDIT = null;      // {kind:"acct", uid} 已註冊學生 ｜ {kind:"rec", id} 未綁帳號的檔案 ｜ {kind:"new"}
 /* 名單＝已註冊學生＋還沒綁帳號的檔案 */
+/* 學生在「我的資料」自填的資料（存在各自 progress.data.profile / .consent） */
+function siSelfProfile(uid){
+  const g = (typeof TDATA!=="undefined" && TDATA && TDATA.progress) ? TDATA.progress.find(x=>x.user_id===uid) : null;
+  const d = (g && g.data) || {};
+  return { profile: d.profile || {}, consent: d.consent || null };
+}
+function siSelfKeys(uid){ const p=siSelfProfile(uid).profile||{}; return Object.keys(p).filter(k=>p[k]); }
+/* 把學生自填內容帶入上方老師表單的「空白」欄位 */
+function siFillFromSelf(uid){
+  const pr = siSelfProfile(uid).profile || {};
+  const map = {grade:"si-grade",school:"si-school",class_name:"si-class_name",birthday:"si-birthday",contact:"si-contact",parent_name:"si-parent_name",goals:"si-goals",notes:"si-notes"};
+  let n=0;
+  Object.keys(map).forEach(k=>{ const el=document.getElementById(map[k]); if(el && pr[k] && !String(el.value||"").trim()){ el.value=pr[k]; n++; } });
+  const extras=[["nickname","暱稱"],["parent_contact","家長聯絡"],["weak","想加強"],["interests","興趣"]].filter(([k])=>pr[k]).map(([k,l])=>`${l}：${pr[k]}`);
+  if(extras.length){ const nt=document.getElementById("si-notes"); if(nt){ nt.value=(String(nt.value||"").trim()?nt.value+"\n":"")+extras.join("；"); n++; } }
+  const age=document.getElementById("si-age"); if(age && pr.birthday) age.textContent=siAge(pr.birthday);
+  try{ toast(n?`已帶入 ${n} 個欄位，記得按「儲存」存進名冊 🐾`:"沒有可帶入的空欄（上方欄位已有內容）"); }catch(e){}
+}
+function siSelfBox(uid){
+  const sp = siSelfProfile(uid), pr = sp.profile||{}, cs = sp.consent;
+  const keys = Object.keys(pr).filter(k=>pr[k]);
+  const LAB = {nickname:"暱稱",grade:"年級",school:"學校",class_name:"班級",birthday:"生日",contact:"聯絡方式",parent_name:"家長姓名",parent_contact:"家長聯絡",goals:"學習目標",weak:"想加強的地方",interests:"興趣喜好",notes:"想告訴老師的話"};
+  const order = ["nickname","grade","school","class_name","birthday","contact","parent_name","parent_contact","goals","weak","interests","notes"];
+  const consentLine = cs&&cs.agreed
+    ? `<span style="color:#1f7a6e;font-size:12.5px;font-weight:700">✅ 已同意個資告知（${esc((cs.at||"").slice(0,10))}・v${esc(cs.version||"1.0")}）</span>`
+    : `<span style="color:#c0392b;font-size:12.5px;font-weight:700">⚠️ 尚未勾選同意</span>`;
+  const list = keys.length
+    ? `<div style="display:grid;gap:3px 16px;grid-template-columns:1fr">${order.filter(k=>pr[k]).map(k=>`<div style="font-size:13.5px;line-height:1.7"><b>${esc(LAB[k]||k)}</b>：${esc(pr[k]).replace(/\n/g,"<br>")}</div>`).join("")}</div>`
+    : `<div class="tc-sub">這位學生還沒有自己填寫「我的資料」。</div>`;
+  return `<div style="margin:14px 0;padding:12px 14px;border:1px solid #cfe2dd;background:#f3f9f7;border-radius:10px">
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px"><b style="color:#1f7a6e">🧑‍🎓 學生自填資料 Self-reported</b> ${consentLine} ${keys.length?`<button class="btn btn-ghost" type="button" style="margin-left:auto;padding:4px 10px" onclick="siFillFromSelf('${uid}')">↧ 帶入上方空欄</button>`:""}</div>
+    ${list}
+    <p class="tc-sub" style="margin:8px 0 0">這是學生在「我的資料」頁自己填的，僅供參考；要存進正式名冊請用上方欄位（可先按「帶入」再儲存）。</p></div>`;
+}
 function siRoster(students){
   return [...students.map(p=>({kind:"acct", key:"u:"+p.id, uid:p.id, name:p.name||p.email||"", email:p.email||"", s:siOf(p.id), p})),
           ...siUnbound().map(r=>({kind:"rec", key:"r:"+r.id, id:r.id, name:r.name||"", email:r.email||"", s:r}))];
@@ -75,7 +109,8 @@ function tcStudentsBody(students, progById){
   const rows = shown.length ? shown.map(x=>{
     const s = x.s, g = x.kind==="acct" ? (progById[x.uid]||{}) : null;
     const last = g && g.last_active ? new Date(g.last_active).toLocaleDateString() : "—";
-    const who = x.kind==="acct" ? `${esc(x.name)}<div class="tc-sub">${esc(x.email)}</div>`
+    const selfBadge = x.kind==="acct" && siSelfKeys(x.uid).length ? ` <span style="display:inline-block;font-size:11px;color:#1f7a6e;background:#e3f1ee;border-radius:6px;padding:1px 6px" title="學生已在「我的資料」自填">📝 自填</span>` : "";
+    const who = x.kind==="acct" ? `${esc(x.name)}${selfBadge}<div class="tc-sub">${esc(x.email)}</div>`
       : `${esc(x.name)} <span class="si-unbound">未綁帳號</span><div class="tc-sub">${x.email?`註冊用 ${esc(x.email)} 會自動綁定`:"還沒填 email，註冊後請手動綁定"}</div>`;
     const btn = x.kind==="acct" ? `siOpen('acct','${x.uid}')` : `siOpen('rec','${x.id}')`;
     return `<tr class="${editing(x)?"si-editing":""} ${x.kind==="rec"?"si-rec":""}"><td>${who}</td>
@@ -128,6 +163,7 @@ function siEditor(students){
     </div>
     <label class="si-f"><span>學習目標</span><textarea id="si-goals" maxlength="500" placeholder="例：會考英文 A++、英檢中級">${v("goals")}</textarea></label>
     <label class="si-f"><span>備註</span><textarea id="si-notes" maxlength="2000" placeholder="個性、弱點、家長叮嚀、請假紀錄…">${v("notes")}</textarea></label>
+    ${E.kind==="acct" ? siSelfBox(E.uid) : ""}
     ${bindBox}
     <div class="hw-row"><button class="btn btn-navy" id="si-save" onclick="siSave()">儲存 Save</button><button class="btn btn-ghost" onclick="SI_EDIT=null;paintTeacher()">關閉</button>
       ${unbindBtn}${delBtn}${s.updated_at?`<span class="tc-sub">上次更新 ${fmtDate(s.updated_at)}</span>`:""}</div>
