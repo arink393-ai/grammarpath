@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v107-hw-autoopen";
+const CACHE = "eci-v108-consent-column";
 const SHELL = [
   "./",
   "./index.html",
