@@ -388,3 +388,6 @@ create trigger bind_student_info after insert on public.profiles
   for each row when (new.role = 'student') execute function grammarpath_private.bind_student_info();
 
 commit;
+
+-- homework bucket: 單檔上限 30 MB（2026-10-27 設定）
+update storage.buckets set file_size_limit = 31457280 where id = 'homework';

@@ -110,6 +110,7 @@ function hwMarkVisit(){
 /* index.html 的 route() 每次換頁都會呼叫 hwMarkVisit()（含直接開連結進來的第一頁） */
 
 /* ---------- 錄音小工具（作業卡片、直接繳交共用） ---------- */
+const HW_MAX_BYTES = 30*1024*1024;   // 與 Supabase homework bucket 的 file_size_limit 一致
 const HW_REC_MAX = 600;   // 單段錄音最長 10 分鐘，避免忘了按停止
 const HWREC = {};   // key → {state:"idle"|"rec"|"done", rec, stream, chunks, blob, type, url, t0, dur, timer}
 function hwRecSupported(){ return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder); }
@@ -303,6 +304,7 @@ async function hwSubmit(id, force){
   const recFile = hwRecFile(key, "recording-"+id.slice(0,8));
   const file = recFile || (fileEl && fileEl.files[0]);
   if(recFile && fileEl && fileEl.files[0]){ toast("錄音和上傳檔案只能擇一，這次會交出錄音。"); }
+  if(file && file.size > HW_MAX_BYTES){ toast(`檔案太大（${(file.size/1048576).toFixed(1)} MB），上限 30 MB。照片可以先縮小，或改貼雲端連結。`); return; }
   let body = text;
   const a = (HW_LAST||[]).find(x=>x.id===id), scope = (a&&a.scope)||[];
   const done = scope.filter(it=>scopeDone(it, store.data||{})).length;

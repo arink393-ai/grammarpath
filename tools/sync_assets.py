@@ -39,6 +39,8 @@ def main():
 
     idx, voc = page_assets('index.html'), page_assets('vocab/index.html')
     art = ['art/cat-dex/meme-cats-atlas.png', 'art/cat-dex/meme-cats-atlas-2.png', 'art/cat-dex/meme-cats-atlas-3.png'] + [f'art/island/cats-{i}.png' for i in range(1,5)]
+    # 課程貓咪圖（原本 base64 內嵌在 index.html，2026-10-27 抽成檔案，index 改版時不必重下載）
+    art += sorted('art/breeds/'+os.path.basename(f) for f in glob.glob(os.path.join(REPO, 'art', 'breeds', '*.webp')))
     core = ['index.html'] + art + idx + [f'curriculum/{l}.json?v={cur_v}' for l in ('basic', 'intermediate', 'advanced')] + [f'curriculum/notes/{l}.json?v={notes_v}' for l in ('basic', 'intermediate', 'advanced')] + ['vocab/'] + voc
     core = list(dict.fromkeys(core)) + ['https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2']
     shell = ['./', './index.html'] + ['./' + a for a in art] + ['./' + a for a in idx] + ['./manifest.webmanifest', './vocab/'] + ['./' + a for a in voc] + \
