@@ -313,9 +313,16 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 @keyframes micPulse{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,.45)}50%{box-shadow:0 0 0 16px rgba(192,57,43,0)}}
 .spk-listening{font:600 13px var(--sans);color:#C0392B}
 .spk-words{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin:8px 0}
-.spk-w{font:600 14px var(--mono);border-radius:7px;padding:3px 8px}
+.spk-w{font:600 14px var(--mono);border-radius:7px;padding:3px 8px;cursor:pointer;transition:transform .12s}
+.spk-w:hover{transform:translateY(-1px)}
 .spk-w.hit{background:#EDF4EA;color:#4C6B43;border:1px solid #CFE3C6}
 .spk-w.miss{background:#FBEDE8;color:#8C4B33;border:1px solid #F2D2C3}
+.spk-weak{margin:12px auto 2px;max-width:560px;text-align:left;font-size:14px;background:#FFF7EF;border:1px solid #F0DDB4;border-radius:12px;padding:12px 14px}
+.spk-weak b{color:#8C4B33}
+.spk-weak .spk-w{margin:4px 4px 0 0;display:inline-block}
+.spk-weak-tip{color:var(--muted);font-size:12.5px;margin-top:8px}
+.spk-weak.all-good{color:#4C6B43;font-weight:600;background:#EDF4EA;border-color:#CFE3C6;text-align:center}
+.spk-heard{color:var(--muted);font-size:12.5px;margin-top:8px}
 .spk-mouth-link{display:inline-block;font:600 13px var(--sans);color:var(--teal);margin-top:10px;text-decoration:none;border-bottom:1.5px dashed var(--teal-line)}
 .spk-mouth-link:hover{border-bottom-style:solid}
 @media (max-width:640px){
@@ -17838,6 +17845,7 @@ function spkNew(mode){
   rerenderSpeaking();
 }
 function spkListen(){ speak(SPK.item.text, SPK.mode==="word"?0.8:0.9); }
+function spkSayWord(w){ if(w) speak(w, 0.8); }   // 點單字聽真人（Kokoro，退瀏覽器）示範發音
 function spkRecord(){
   if(!sr.ok || sr.busy) return;
   SPK.state = "listening"; rerenderSpeaking();
@@ -17874,14 +17882,22 @@ function spkHTML(){
     if(SPK.mode === "word"){
       result = `<div class="rd-why ${SPK.ok?"ok":"no"}">${SPK.ok?"✓ 發音正確！":"✗ 再試一次"}　辨識結果：「${SPK.heard||"(聽不清楚)"}」${!SPK.ok?"　💡 "+(SPK.item.tip||"對照口型動畫再念一次"):""}</div>`;
     } else {
-      const words = srNorm(SPK.item.text).split(" ").map((w,i)=>`<span class="spk-w ${SPK.wordHits&&SPK.wordHits[i]?"hit":"miss"}">${w}</span>`).join(" ");
-      result = `<div class="rd-why ${SPK.ok?"ok":"no"}">${SPK.ok?`✓ 很棒！命中率 ${SPK.hitRate}%`:`✗ 命中率 ${SPK.hitRate}%，綠色是有念對的字`}<div class="spk-words">${words}</div>辨識結果：「${SPK.heard||"(聽不清楚)"}」</div>`;
+      const tw = srNorm(SPK.item.text).split(" ");
+      const hits = SPK.wordHits||[];
+      const esc1 = w => w.replace(/'/g,"\\'");
+      const words = tw.map((w,i)=>`<button class="spk-w ${hits[i]?"hit":"miss"}" onclick="spkSayWord('${esc1(w)}')" title="點一下聽真人示範 Tap to hear">${w}</button>`).join(" ");
+      const STOP = new Set("a an the is are was were am be been being to of in on at by and or but it he she i you we they my your his her their this that these those do does did not no so as for with".split(" "));
+      const weak = [...new Set(tw.filter((w,i)=>!hits[i] && w.length>=3 && !STOP.has(w)))];
+      const weakBox = weak.length
+        ? `<div class="spk-weak"><b>💡 要再加強的字 Practice these:</b> ${weak.map(w=>`<button class="spk-w miss" onclick="spkSayWord('${esc1(w)}')">${w} 🔊</button>`).join(" ")}<div class="spk-weak-tip">點每個字聽真人示範，多念幾次再按 🎤 重錄。</div></div>`
+        : `<div class="spk-weak all-good">🎉 每個字都念到了，發音很清楚！</div>`;
+      result = `<div class="rd-why ${SPK.ok?"ok":"no"}">${SPK.ok?`✓ 很棒！命中率 ${SPK.hitRate}%`:`命中率 ${SPK.hitRate}%：綠色念對了，橘色再練一下`}<div class="spk-words">${words}</div>${weakBox}<div class="spk-heard">辨識結果：「${SPK.heard||"(聽不清楚)"}」</div></div>`;
     }
   }
   const mouthLink = SPK.mode==="word" && SPK.item.sym ? `<a class="spk-mouth-link" href="#/resources/phonics" onclick="PH_FILTER='all';PH_OPEN='${SPK.item.gi}-${SPK.item.ii}'">👄 看「${SPK.item.sym}」的口型動畫 →</a>` : "";
   return `<div class="spk-box">
     ${tabs}
-    <p class="lede" style="margin:10px 0 6px">先按 🔊 聽示範，再按 🎤 跟著念。${sr.ok?"":"<b>⚠ 此瀏覽器不支援語音辨識，請改用 Chrome 或 Safari。</b>"}</p>
+    <p class="lede" style="margin:10px 0 6px">先按 🔊 聽真人示範，再按 🎤 跟著念；系統會自動比對、告訴你<b>哪些字要再加強</b>，點那些字還能再聽一次正確發音——自己就能練，不用等老師改。${sr.ok?"":"<b>⚠ 此瀏覽器不支援語音辨識，請改用 Chrome 或 Safari。</b>"}</p>
     <div class="spk-card">
       <div class="spk-target">${SPK.item.text}</div>
       ${SPK.mode==="word"?`<div class="spk-sub">${SPK.item.sym||""}</div>`:`<div class="spk-sub">出自：${SPK.item.lesson||""}</div>`}
