@@ -109,7 +109,13 @@ function tcStudentsBody(students, progById){
   const rows = shown.length ? shown.map(x=>{
     const s = x.s, g = x.kind==="acct" ? (progById[x.uid]||{}) : null;
     const last = g && g.last_active ? new Date(g.last_active).toLocaleDateString() : "—";
-    const selfBadge = x.kind==="acct" && siSelfKeys(x.uid).length ? ` <span style="display:inline-block;font-size:11px;color:#1f7a6e;background:#e3f1ee;border-radius:6px;padding:1px 6px" title="學生已在「我的資料」自填">📝 自填</span>` : "";
+    const selfN = x.kind==="acct" ? siSelfKeys(x.uid).length : 0;
+    const cs = x.kind==="acct" ? siSelfProfile(x.uid).consent : null;
+    const selfBadge = selfN ? ` <span style="display:inline-block;font-size:11px;color:#1f7a6e;background:#e3f1ee;border-radius:6px;padding:1px 6px" title="學生已在「我的資料」自填">📝 自填</span>` : "";
+    const consentCell = x.kind!=="acct" ? `<span class="tc-sub">—</span>`
+      : (cs&&cs.agreed) ? `<span style="color:#1f7a6e;font-weight:700" title="同意於 ${esc((cs.at||"").slice(0,10))}（v${esc(cs.version||"1.0")}）">✅ 已同意</span><div class="tc-sub">${esc((cs.at||"").slice(0,10))}</div>`
+      : selfN ? `<span style="color:#c0392b;font-weight:700">⚠️ 未同意</span>`
+      : `<span class="tc-sub">未填</span>`;
     const who = x.kind==="acct" ? `${esc(x.name)}${selfBadge}<div class="tc-sub">${esc(x.email)}</div>`
       : `${esc(x.name)} <span class="si-unbound">未綁帳號</span><div class="tc-sub">${x.email?`註冊用 ${esc(x.email)} 會自動綁定`:"還沒填 email，註冊後請手動綁定"}</div>`;
     const btn = x.kind==="acct" ? `siOpen('acct','${x.uid}')` : `siOpen('rec','${x.id}')`;
@@ -118,8 +124,9 @@ function tcStudentsBody(students, progById){
       <td>${esc(s.school||"")}${s.class_name?`<div class="tc-sub">${esc(s.class_name)} 班</div>`:""}</td>
       <td>${esc(s.schedule||"")}</td>
       <td class="num">${g?(g.completed_count||0):"—"}</td><td class="num">${g?(g.xp||0):"—"}</td><td>${last}</td>
+      <td>${consentCell}</td>
       <td><button class="btn btn-ghost" onclick="${btn}">${x.kind==="rec"?"✏️ 資料／綁定":"✏️ 資料"}</button></td></tr>`;
-  }).join("") : `<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:20px">${roster.length?"這個條件下沒有學生。":"還沒有學生。可以先按「➕ 新增學生（先建檔）」，等學生註冊再綁定帳號。"}</td></tr>`;
+  }).join("") : `<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:20px">${roster.length?"這個條件下沒有學生。":"還沒有學生。可以先按「➕ 新增學生（先建檔）」，等學生註冊再綁定帳號。"}</td></tr>`;
   const warn = TDATA.infoErr ? `<div class="card" style="padding:12px 16px;margin-bottom:12px;color:#B23B2E">學生資料載入失敗：${esc(TDATA.infoErr)}</div>` : "";
   return warn + (SI_EDIT ? siEditor(students) : "") + filters +
     `<div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>年級</th><th>學校</th><th>上課時間</th><th class="num">完成單元</th><th class="num">XP</th><th>最近登入</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>

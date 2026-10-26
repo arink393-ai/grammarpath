@@ -323,8 +323,9 @@ async function hwSubmitFree(){
 /* ---------- 老師：作業分頁 ---------- */
 let TC_FORM = null;   // {id|null, title, desc, start, due, mode:"all"|"pick", students:[], groups:[], scope:[]}
 let TC_OPEN = new Set();   // 展開中的作業卡片 id（批改／重繪後保持展開）
+let TC_TOUCHED = new Set();// 老師手動開關過的卡片（之後就尊重老師的選擇，不再自動展開）
 let TC_NEWOPEN = false;    // 「出新作業／編輯」面板是否展開
-function tcToggleOpen(id, open){ if(open) TC_OPEN.add(id); else TC_OPEN.delete(id); }
+function tcToggleOpen(id, open){ TC_TOUCHED.add(id); if(open) TC_OPEN.add(id); else TC_OPEN.delete(id); }
 function tcFormBlank(){ return {id:null, title:"", desc:"", start:"", due:"", mode:"all", students:[], groups:[], scope:[]}; }
 function tcTargetsOf(a, students){
   const ts=a.target_students||[], tg=a.target_groups||[];
@@ -467,7 +468,8 @@ function tcHomeworkBody(students){
     const counts = `<span class="tc-cnt ok">✅ 已繳 ${nSub}/${targets.length}</span>`
       + (nToGrade?`<span class="tc-cnt grade">📝 待批 ${nToGrade}</span>`:"")
       + (nMiss?`<span class="tc-cnt miss">⬜ 未繳 ${nMiss}</span>`:"");
-    return `<details class="tc-asgn-item ${nToGrade?'has-grade':''}" ontoggle="tcToggleOpen('${a.id}',this.open)" ${TC_OPEN.has(a.id)?'open':''}>
+    const autoOpen = TC_OPEN.has(a.id) || (nToGrade>0 && !TC_TOUCHED.has(a.id));
+    return `<details class="tc-asgn-item ${nToGrade?'has-grade':''}" ontoggle="tcToggleOpen('${a.id}',this.open)" ${autoOpen?'open':''}>
       <summary class="tc-asgn-sum">
         <span class="tc-asgn-title">${esc(a.title)}${a.active?"":' <span class="tc-closed">已關閉</span>'}</span>
         <span class="tc-asgn-counts">${counts}</span>
