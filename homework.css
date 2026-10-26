@@ -154,3 +154,30 @@ select.tc-grade{width:150px;background:#fff}
 .ra-hwback{display:inline-block;margin-top:4px;font:600 13px var(--sans);color:var(--sb-lapis,#2C5C86)}
 .tc-recs{display:flex;flex-direction:column;gap:4px;margin-top:6px;font-size:13px}
 .tc-recs .tc-audiobtn{padding:2px 8px}
+
+/* 學生進度展開（student-info.js siProgressPanel） */
+.si-progbtn{border:1px solid var(--line,#E5DCC9);background:#fff;border-radius:999px;padding:3px 10px;font:600 13px var(--sans);color:var(--sb-lapis,#2C5C86);cursor:pointer;font-variant-numeric:tabular-nums}
+.si-progbtn .si-caret{display:inline-block;transition:transform .2s;font-size:11px}
+.si-progbtn.on{background:#EEF3F8;border-color:#C9D7E6}
+.si-progbtn.on .si-caret{transform:rotate(90deg)}
+.tc-table tr.si-prog-row>td{background:#FAFBFD;padding:12px 14px 16px}
+.sp-panel{display:flex;flex-direction:column;gap:10px}
+.sp-extra{display:flex;flex-wrap:wrap;gap:6px 14px;font:500 13px var(--sans);color:var(--muted)}
+.sp-extra b{color:var(--ink)}
+.sp-lv{background:#fff;border:1px solid var(--line,#E5DCC9);border-radius:10px}
+.sp-lv summary{cursor:pointer;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:9px 12px;font:600 14px var(--sans)}
+.sp-lvn{min-width:150px}
+.sp-bar{flex:1;min-width:80px;max-width:260px;height:8px;border-radius:999px;background:#EDE6D7;overflow:hidden}
+.sp-bar i{display:block;height:100%;background:#4E8D5B;border-radius:999px}
+.sp-cnt{font:600 12.5px var(--sans);color:var(--muted);font-variant-numeric:tabular-nums}
+.sp-unit{padding:6px 12px 10px;border-top:1px dashed var(--line,#E5DCC9)}
+.sp-uh{font:600 12.5px var(--sans);color:var(--muted);margin-bottom:6px}
+.sp-uh span{margin-left:6px;padding:1px 7px;border-radius:999px;background:#F3EFE6}
+.sp-uh span.full{background:#E4F0E4;color:#3B7A3B}
+.sp-ls{display:flex;flex-wrap:wrap;gap:6px}
+.sp-l{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line,#E5DCC9);border-radius:999px;padding:3px 10px;font:500 12.5px var(--sans);color:var(--muted);background:#fff}
+.sp-l i{font-style:normal;font-size:11px;opacity:.8;margin-left:2px}
+.sp-l.done{background:#E4F0E4;border-color:#C7DFC7;color:#2F6A2F}
+.sp-l.seen{background:#FFF7E6;border-color:#F0D9A8;color:#8A6416}
+.sp-mis{font:700 11px var(--sans);color:#fff;background:#C8553D;border-radius:999px;padding:1px 6px;margin-left:3px}
+.sp-legend{margin-top:2px}

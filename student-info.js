@@ -123,14 +123,54 @@ function tcStudentsBody(students, progById){
       <td>${s.grade?esc(s.grade):`<span class="tc-sub">—</span>`}</td>
       <td>${esc(s.school||"")}${s.class_name?`<div class="tc-sub">${esc(s.class_name)} 班</div>`:""}</td>
       <td>${esc(s.schedule||"")}</td>
-      <td class="num">${g?(g.completed_count||0):"—"}</td><td class="num">${g?(g.xp||0):"—"}</td><td>${last}</td>
+      <td class="num">${g?`<button class="si-progbtn ${SI_OPEN.has(x.uid)?"on":""}" onclick="siToggleProg('${x.uid}')" title="展開看做完哪些單元">${g.completed_count||0} <span class="si-caret">▸</span></button>`:"—"}</td><td class="num">${g?(g.xp||0):"—"}</td><td>${last}</td>
       <td>${consentCell}</td>
-      <td><button class="btn btn-ghost" onclick="${btn}">${x.kind==="rec"?"✏️ 資料／綁定":"✏️ 資料"}</button></td></tr>`;
+      <td><button class="btn btn-ghost" onclick="${btn}">${x.kind==="rec"?"✏️ 資料／綁定":"✏️ 資料"}</button></td></tr>`
+      + (x.kind==="acct" && SI_OPEN.has(x.uid) ? `<tr class="si-prog-row"><td colspan="9">${siProgressPanel((g&&g.data)||{})}</td></tr>` : "");
   }).join("") : `<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:20px">${roster.length?"這個條件下沒有學生。":"還沒有學生。可以先按「➕ 新增學生（先建檔）」，等學生註冊再綁定帳號。"}</td></tr>`;
   const warn = TDATA.infoErr ? `<div class="card" style="padding:12px 16px;margin-bottom:12px;color:#B23B2E">學生資料載入失敗：${esc(TDATA.infoErr)}</div>` : "";
   return warn + (SI_EDIT ? siEditor(students) : "") + filters +
     `<div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>年級</th><th>學校</th><th>上課時間</th><th class="num">完成單元</th><th class="num">XP</th><th>最近登入</th><th>個資同意</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
     <p class="tc-sub" style="margin-top:8px">🔒 這些資料只有老師看得到，學生（包括本人）都看不到。還沒註冊的學生可以先建檔；學生用你登記的 email 註冊時會自動綁定，也可以手動綁定。</p>`;
+}
+/* ---------- 展開看學生進度：做完哪些單元、哪些課還有錯題 ---------- */
+const SI_OPEN = new Set();   // 展開中的學生 id
+function siToggleProg(uid){ if(SI_OPEN.has(uid)) SI_OPEN.delete(uid); else SI_OPEN.add(uid); paintTeacher(); }
+function siProgressPanel(d){
+  const done = d.completed || {}, mis = {};
+  Object.keys(d.mistakes||{}).forEach(k=>{ const id=k.split(":")[0]; if(k.startsWith("vq:")) return; mis[id]=(mis[id]||0)+1; });
+  const opened = d.visited || {};
+  const levels = DATA.levels.map(lv=>{
+    const units = DATA.units.filter(u=>u.level===lv.id);
+    const ls = DATA.lessons.filter(l=>units.some(u=>u.id===l.unit));
+    const n = ls.filter(l=>done[l.id]).length, pct = ls.length ? Math.round(n/ls.length*100) : 0;
+    const touched = n || ls.some(l=>mis[l.id] || opened["lesson:"+l.id]);
+    const body = units.map(u=>{
+      const ul = DATA.lessons.filter(l=>l.unit===u.id), un = ul.filter(l=>done[l.id]).length;
+      return `<div class="sp-unit"><div class="sp-uh">${esc(u.n)} · ${esc(u.name)} <span class="${un===ul.length?"full":""}">${un}/${ul.length}</span></div>
+        <div class="sp-ls">${ul.map(l=>{
+          const st = done[l.id] ? "done" : opened["lesson:"+l.id] ? "seen" : "todo";
+          const mk = st==="done" ? "✅" : st==="seen" ? "👀" : "⬜";
+          const tip = st==="done" ? "已完成練習" : st==="seen" ? `打開過（${opened["lesson:"+l.id]}），還沒做完練習` : "還沒開始";
+          return `<span class="sp-l ${st}" title="${esc(tip)}">${mk} ${esc(l.title)}<i>${esc(l.zh||"")}</i>${mis[l.id]?`<b class="sp-mis" title="還有 ${mis[l.id]} 題錯題待複習">錯 ${mis[l.id]}</b>`:""}</span>`;
+        }).join("")}</div></div>`;
+    }).join("");
+    return `<details class="sp-lv" ${touched?"open":""}><summary><span class="sp-lvn">${esc(lv.name)}｜${esc(lv.zh)}</span>
+      <span class="sp-bar"><i style="width:${pct}%"></i></span><span class="sp-cnt">${n} / ${ls.length}（${pct}%）</span></summary>${body}</details>`;
+  }).join("");
+  const misTotal = Object.values(mis).reduce((a,b)=>a+b,0);
+  const fq = d.fableQuiz||{}, fqN = Object.keys(fq).length;
+  const ra = Object.keys(d.readaloud||{}).filter(k=>!k.includes(":")).length;
+  const rdN = Object.keys(opened).filter(k=>k.startsWith("reading:")).length;
+  const extra = [
+    `📌 錯題待複習 <b>${misTotal}</b> 題`,
+    `🦊 寓言讀後練習 <b>${fqN}</b> 則`,
+    `📰 打開過的閱讀 <b>${rdN}</b> 篇`,
+    `🎤 交過跟讀錄音 <b>${ra}</b> 篇`,
+    `🔥 連續 <b>${(d.streak&&d.streak.count)||0}</b> 天`
+  ].map(t=>`<span>${t}</span>`).join("");
+  return `<div class="sp-panel"><div class="sp-extra">${extra}</div>${levels}
+    <div class="tc-sub sp-legend">✅ 做完練習　👀 打開過但還沒做完　⬜ 還沒開始　<b class="sp-mis">錯 n</b> 這課還有 n 題錯題沒複習對</div></div>`;
 }
 function siEditor(students){
   const E = SI_EDIT; let s = {}, title = "", sub = "", bound = true;
