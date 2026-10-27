@@ -9,7 +9,8 @@
 #     2. Run this script.  It generates the Kokoro voice for the new article, then
 #        commits and pushes.  GitHub Pages redeploys in ~1 minute.
 #
-#   Usage:  cd ~/github/grammarpath && ./update.sh
+#   Usage:  cd ~/github/grammarpath && ./update.sh          （只發佈音檔與音檔清單）
+#           cd ~/github/grammarpath && ./update.sh --all    （連同資料夾裡所有修改一起發佈）
 set -e
 
 SITE="$HOME/github/grammarpath"
@@ -36,7 +37,15 @@ echo "③ Generating real-voice audio for new / changed articles…"
 node tools/gen_audio.mjs
 
 echo "④ Publishing…"
-git add -A
+# 只提交這支腳本自己產生的東西：audio/ 的 MP3 與 .hashes.json，以及 index.html 裡的 RD_AUDIO 音檔清單。
+# 不用 git add -A —— 別的工作階段放在資料夾裡、還沒做完的修改不會被一起送上線。
+# 想照舊把所有修改一起發佈（例如你手動在 index.html 加了新文章）：./update.sh --all
+if [ "$1" = "--all" ]; then
+  git add -A
+else
+  git add audio
+  python3 tools/stage_rd_audio.py
+fi
 if git diff --cached --quiet; then
   echo "   Nothing changed — already up to date."
 else
