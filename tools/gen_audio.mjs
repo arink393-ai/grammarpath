@@ -3,7 +3,8 @@
   gen_audio.mjs — render the weekly reading articles to natural Kokoro voice.
 
   What it does:
-    1. reads index.html and pulls out the READINGS data
+    1. reads the READINGS data from readings/<YYYY-MM>.json (the source files since 2026-10-27;
+       index.html only keeps a light table of contents, see tools/build_readings.py)
     2. for each article × level (A1-A2 / B1-B2 / C1-C2) sends the text to a local
        Kokoro-FastAPI server and saves an mp3 under ./audio
     3. injects the id→level→file manifest back into index.html (RD_AUDIO)
@@ -75,7 +76,10 @@ async function main() {
   }
 
   const html = fs.readFileSync(HTML, "utf8");
-  const READINGS = eval(extractArrayLiteral(html, "const READINGS = ["));
+  const RDIR = path.join(ROOT, "readings");
+  const READINGS = fs.existsSync(RDIR)
+    ? fs.readdirSync(RDIR).filter(f => /^\d{4}-\d{2}\.json$/.test(f)).sort().flatMap(f => JSON.parse(fs.readFileSync(path.join(RDIR, f), "utf8")))
+    : eval(extractArrayLiteral(html, "const READINGS = ["));   // 舊版：內文還在 index.html
   fs.mkdirSync(AUDIODIR, { recursive: true });
   const hashes = fs.existsSync(HASHES) ? JSON.parse(fs.readFileSync(HASHES, "utf8")) : {};
 

@@ -49,3 +49,4 @@ test('lesson notes mark the wrong words from a ✗/✓ pair',()=>{const w={};con
   assert.equal(d('Where you live?','Where do you live?'),'[Where|Where do] you live?');
   assert.equal(d('He runs quick.','He runs quickly.'),'He runs [quick|quickly].');
   assert.equal(d('Same.','Same.'),null);});
+test('reading table of contents in index.html matches readings/*.json (tools/build_readings.py --check)',()=>{const r=require('node:child_process').spawnSync('python3',['tools/build_readings.py','--check'],{encoding:'utf8'});assert.equal(r.status,0,r.stdout+r.stderr);});

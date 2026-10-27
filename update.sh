@@ -1,13 +1,14 @@
 #!/bin/bash
 # One-click weekly news update for English Cat Island.
 #
-#   Weekly flow:
-#     1. Add the new article to the `const READINGS = [ ... ]` array in index.html
-#        (id / topic / zh / src / date / week / tag / icon + levels.{a,b,c} + discuss).
-#        Give it the newest `week:` label (e.g. "9/14–9/20") — that alone makes it the
-#        featured "本週選文 / 本週推薦" and puts it at the top of the list, automatically.
+#   Weekly flow (since 2026-10-27 the readings live in readings/<YYYY-MM>.json, not in index.html):
+#     1. Add the new article to readings/<YYYY-MM>.json (month of its `day` / `date`), same fields as before
+#        (id / cat / topic / zh / src / date / day / week / tag / icon + levels.{a,b,c} + discuss).
+#        Then run  python3 tools/build_readings.py  — it validates the data and refreshes the light
+#        READINGS table of contents in index.html (article bodies are downloaded only when opened).
+#        Then  python3 tools/sync_assets.py  and bump the CACHE name in sw.js, and commit those files.
 #     2. Run this script.  It generates the Kokoro voice for the new article, then
-#        commits and pushes.  GitHub Pages redeploys in ~1 minute.
+#        commits and pushes the audio.  GitHub Pages redeploys in ~1 minute.
 #
 #   Usage:  cd ~/github/grammarpath && ./update.sh          （只發佈音檔與音檔清單）
 #           cd ~/github/grammarpath && ./update.sh --all    （連同資料夾裡所有修改一起發佈）

@@ -42,6 +42,10 @@ def main():
     # 課程貓咪圖（原本 base64 內嵌在 index.html，2026-10-27 抽成檔案，index 改版時不必重下載）
     art += sorted('art/breeds/'+os.path.basename(f) for f in glob.glob(os.path.join(REPO, 'art', 'breeds', '*.webp')))
     core = ['index.html'] + art + idx + [f'curriculum/{l}.json?v={cur_v}' for l in ('basic', 'intermediate', 'advanced')] + [f'curriculum/notes/{l}.json?v={notes_v}' for l in ('basic', 'intermediate', 'advanced')] + ['vocab/'] + voc
+    # 閱讀文章內文（readings/<YYYY-MM>.json，打開文章才下載）也要能離線
+    m = re.search(r'const READINGS_FILES = (\{[^}]*\});', rd('index.html'))
+    if m: core += list(__import__('json').loads(m.group(1)).values())
+    else: errs.append('index.html 找不到 READINGS_FILES（請執行 python3 tools/build_readings.py）')
     core = list(dict.fromkeys(core)) + ['https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2']
     shell = ['./', './index.html'] + ['./' + a for a in art] + ['./' + a for a in idx] + ['./manifest.webmanifest', './vocab/'] + ['./' + a for a in voc] + \
             ['./icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-180.png']

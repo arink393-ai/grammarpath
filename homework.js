@@ -393,6 +393,7 @@ let HW_RA_TARGET = null;   // {id, aid, lv}：換程度時錄音區會重置，�
 function hwOpenReadAloud(id, aid, lv){
   HW_RA_TARGET = aid ? {id, aid, lv:lv||""} : null;
   if(!rdById(id)){ location.hash="#/reading"; return; }
+  if(!rdById(id).levels) return rdNeed(rdById(id), ()=>hwOpenReadAloud(id, aid, lv));   // 內文還沒下載
   if(lv && RA_LV[lv] && RD_LEVEL!==lv){ RD_LEVEL=lv; RD_ANS={}; RD_SHOW=false; }
   renderReading(id);
   const R = raState(); R.hwTarget = aid || null; R.hwLv = lv || "";
