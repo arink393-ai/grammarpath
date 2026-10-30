@@ -828,6 +828,21 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .ra-row{flex-wrap:wrap}
 .ra-row.chk{border-color:var(--teal-line,#B7D9D9);background:#F5FAFA}
 .ra-fb{flex-basis:100%;width:100%;margin-top:8px;border-top:1px dashed var(--line);padding-top:10px}
+.ra-n.done{background:#4C9A5E;color:#fff}
+.ra-score{flex:0 0 auto;font:700 12px var(--sans);border-radius:999px;padding:2px 8px;background:#EDF4EA;color:#4C6B43}
+.ra-score.mid{background:#FCEFD6;color:#9A6B12}
+.ra-score.low{background:#FBEDE8;color:#8C4B33}
+.ra-summary{background:linear-gradient(180deg,#F6FAFA,#fff);border:1.5px solid var(--teal-line,#B7D9D9);border-radius:14px;padding:13px 16px;margin:0 0 12px}
+.ra-sum-top{font:700 15px var(--sans);color:var(--navy);display:flex;align-items:baseline;flex-wrap:wrap}
+.ra-sum-best{font:700 12.5px var(--sans);color:#B07A2A}
+.ra-sum-stat{font:14px var(--sans);color:var(--ink);margin:4px 0 7px}
+.ra-sum-stat b{color:var(--teal,#2C7A7A)}
+.ra-sum-bar{height:8px;border-radius:999px;background:#E6EEEE;overflow:hidden}
+.ra-sum-bar i{display:block;height:100%;background:#4C9A5E;border-radius:999px;transition:width .3s}
+.ra-hist{font:600 12.5px var(--sans);color:var(--muted);margin-top:9px;line-height:1.9}
+.ra-hist-i b{color:var(--teal,#2C7A7A)}
+.ra-sum-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.ra-savebtn:disabled{opacity:.45;cursor:default}
 .ra-fb .rd-why{margin:0}
 .ra-fb .spk-weak{margin:10px 0 0}
 .ra-take{text-align:center}
@@ -12181,7 +12196,7 @@ function raSentences(lv){
 function raState(){
   const key = rdCurId+"|"+RD_LEVEL;
   if(RA && RA.srcId!==key) raAbort();
-  if(!RA){ const lv=rdById(rdCurId).levels[RD_LEVEL]; RA={srcId:key, id:rdCurId, lvl:RD_LEVEL, sents:raSentences(lv), view:"practice", takes:{}, recIdx:null, rec:null, stream:null, take:{state:"idle", step:0}, asg:null, asgErr:null}; }
+  if(!RA){ const lv=rdById(rdCurId).levels[RD_LEVEL]; RA={srcId:key, id:rdCurId, lvl:RD_LEVEL, sents:raSentences(lv), view:"practice", takes:{}, recIdx:null, rec:null, stream:null, take:{state:"idle", step:0}, asg:null, asgErr:null, pass:{}}; }
   return RA;
 }
 function raSupported(){ return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder); }
@@ -12246,9 +12261,12 @@ function raPracticeHTML(R){
   const rows = R.sents.map((s,i)=>{
     const recNow = R.recIdx===i;
     const chkNow = R.chk && R.chk.i===i && R.chk.state==="listening";
+    const pct = R.pass[i];
+    const badge = (pct!==undefined) ? `<span class="ra-score ${pct>=80?'good':pct>=50?'mid':'low'}" title="這句最佳命中率">${pct}%</span>` : "";
     return `<li class="ra-row ${recNow?"rec":""} ${chkNow?"chk":""}">
-      <span class="ra-n">${i+1}</span>
+      <span class="ra-n ${pct!==undefined?'done':''}">${pct!==undefined?'✓':i+1}</span>
       <span class="ra-s" lang="en">${esc(s)}</span>
+      ${badge}
       <span class="ra-btns">
         <button class="ra-b" title="聽真人示範" onclick="raSay(${i})">🔊</button>
         <button class="ra-b ${recNow?"stop":"mic"}" title="${recNow?"停止錄音":"錄我的聲音（錄起來比對）"}" onclick="raPracticeRec(${i})">${recNow?"⏹":"🎤"}</button>
@@ -12257,7 +12275,7 @@ function raPracticeHTML(R){
       </span>
       ${raCheckFb(i)}</li>`;
   }).join("");
-  return `<div class="echo-tip-bar">
+  return `${sr.ok?raSummaryHTML(R):""}<div class="echo-tip-bar">
       <span>💡 推薦搭配<b>「回音法 Echo Method」</b>練習：先聽 🔊 → 心中回放餘音 1–2 秒 → 開口跟讀 🎤</span>
       <button class="echo-tip-btn" type="button" onclick="openEchoModal()">▶️ 看史嘉琳教授示範</button>
     </div>
@@ -12290,11 +12308,43 @@ function raCheck(i){
     const tw=srNorm(R.sents[i]).split(" ");
     const hits=tw.map(w=>heard.includes(w));
     const hit=hits.filter(Boolean).length;
-    if(RA) RA.chk={i, state:"done", hits, hitRate:Math.round(hit/tw.length*100), heard:alts[0]||""};
+    const pct=Math.round(hit/tw.length*100);
+    if(RA){ RA.chk={i, state:"done", hits, hitRate:pct, heard:alts[0]||""};
+      RA.pass[i] = Math.max(RA.pass[i]||0, pct); }
     raRender();
   }, err=>{ if(RA && RA.chk && RA.chk.state==="listening"){ RA.chk={i, state:err?"error":"done", err}; raRender(); } });
 }
 function raSay(i){ const R=raState(); if(R.rec) return; raStopPlayer(); tts.speak(R.sents[i], 0.88); }
+/* 發音檢查成績：逐句命中率 → 本篇平均，存到裝置看進步 */
+function raScoreGet(){ const m=(store.data&&store.data.raScores)||{}; return (m[rdCurId]&&m[rdCurId][RD_LEVEL]) || {best:0, attempts:[]}; }
+function raScoreStore(){ store.data.raScores=store.data.raScores||{}; const m=store.data.raScores; m[rdCurId]=m[rdCurId]||{}; m[rdCurId][RD_LEVEL]=m[rdCurId][RD_LEVEL]||{best:0, attempts:[]}; return m[rdCurId][RD_LEVEL]; }
+function raSummaryHTML(R){
+  const n=R.sents.length, vals=Object.values(R.pass||{}), practiced=vals.length;
+  const avg=practiced?Math.round(vals.reduce((a,b)=>a+b,0)/practiced):0;
+  const S=raScoreGet();
+  const bestLine=S.best?`　<span class="ra-sum-best">🏆 最佳 ${S.best}%</span>`:"";
+  const atts=(S.attempts||[]).slice(-5);
+  const hist=atts.length?`<div class="ra-hist">📈 進步：${atts.map(a=>`<span class="ra-hist-i">${esc(a.d.slice(5))} <b>${a.avg}%</b></span>`).join(" → ")}</div>`:"";
+  const barPct=n?Math.round(practiced/n*100):0;
+  return `<div class="ra-summary">
+    <div class="ra-sum-top"><b>📊 本篇發音檢查</b>${bestLine}</div>
+    <div class="ra-sum-stat">這次已練 <b>${practiced}/${n}</b> 句${practiced?`　平均命中率 <b>${avg}%</b>`:"　（按每句的「✓ 發音」開始）"}</div>
+    <div class="ra-sum-bar"><i style="width:${barPct}%"></i></div>
+    ${hist}
+    <div class="ra-sum-act"><button class="btn btn-ghost ra-savebtn" ${practiced?"":"disabled"} onclick="raSaveAttempt()">📌 記錄這次成績</button>${practiced?`<button class="btn btn-ghost" onclick="raResetPass()">清空重練 ↻</button>`:""}</div>
+  </div>`;
+}
+function raSaveAttempt(){
+  const R=raState(), vals=Object.values(R.pass||{});
+  if(!vals.length){ toast("先按句子的「✓ 發音」練幾句，再記錄成績。"); return; }
+  const avg=Math.round(vals.reduce((a,b)=>a+b,0)/vals.length);
+  const S=raScoreStore(); S.attempts=S.attempts||[];
+  S.attempts.push({d:new Date().toISOString().slice(0,10), avg, practiced:vals.length, n:R.sents.length});
+  if(S.attempts.length>12) S.attempts=S.attempts.slice(-12);
+  if(avg>(S.best||0)) S.best=avg;
+  store.save(); toast(`已記錄：這次平均 ${avg}% 🐾`); raRender();
+}
+function raResetPass(){ const R=raState(); R.pass={}; R.chk=null; raRender(); }
 function raPlayTake(i){ const R=raState(); if(R.rec||!R.takes[i]) return; raPlayUrl(R.takes[i]); }
 async function raPracticeRec(i){
   const R=raState();
