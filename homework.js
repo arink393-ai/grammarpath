@@ -22,6 +22,18 @@ const HWAPI = {
     if(sub.file_url) await HWAPI.removeFiles([sub.file_url]);
     return {ok:true};
   },
+  /* 一次刪多筆繳交（分批；回傳實際刪掉的 id，讓前端只更新真的刪掉的） */
+  async deleteSubmissions(list){
+    const gone = [];
+    for(let i=0;i<list.length;i+=100){
+      const chunk = list.slice(i,i+100);
+      const { data, error } = await SB.from("submissions").delete().in("id", chunk.map(x=>x.id)).select("id");
+      if(error) return {err:error.message, gone};
+      const ok = new Set((data||[]).map(x=>x.id)); gone.push(...chunk.filter(x=>ok.has(x.id)));
+    }
+    await HWAPI.removeFiles(gone.map(x=>x.file_url).filter(Boolean));
+    return {ok:true, gone};
+  },
   async deleteAssignment(a, subs){
     const { data, error } = await SB.from("assignments").delete().eq("id", a.id).select("id");   // 該作業的繳交會跟著刪（資料庫 cascade）
     if(error) return {err:error.message};
@@ -481,6 +493,32 @@ async function tcDelAsg(id){
   TC_OPEN.delete(id); toast("已刪除這份作業"); paintTeacher();
 }
 
+/* 一鍵清除：只針對「已關閉」作業裡「已批改」的繳交。還開放中的作業、還沒批改的繳交完全不動。 */
+function tcClosedGraded(){
+  const closed = new Map(TDATA.assignments.filter(a=>!a.active).map(a=>[a.id,a]));
+  return TDATA.submissions.filter(s=>s.assignment_id && closed.has(s.assignment_id) && s.status==="returned");
+}
+function tcClearClosedBar(){
+  const list = tcClosedGraded(); if(!list.length) return "";
+  const nA = new Set(list.map(s=>s.assignment_id)).size;
+  return `<div class="tc-bulk"><button class="btn btn-ghost tc-danger" onclick="tcClearClosed()">🧹 一鍵清除已關閉作業的已批改繳交（${list.length} 份・${nA} 份作業）</button>
+    <span class="tc-sub">只清「已關閉」且「已批改」的；還開放中的作業、還沒批改的都不會動。</span></div>`;
+}
+async function tcClearClosed(){
+  const list = tcClosedGraded(); if(!list.length){ toast("沒有可以清除的項目。"); return; }
+  const by = {}; list.forEach(s=>{ by[s.assignment_id]=(by[s.assignment_id]||0)+1; });
+  const lines = Object.entries(by).map(([id,n])=>`• ${(TDATA.assignments.find(a=>a.id===id)||{}).title||"（作業）"}：${n} 份`).join("\n");
+  const files = list.filter(s=>s.file_url).length;
+  const left = TDATA.submissions.filter(s=>s.assignment_id && !list.includes(s) && TDATA.assignments.some(a=>a.id===s.assignment_id && !a.active)).length;
+  const t = prompt(`清除「已關閉作業」裡 ${list.length} 份已批改的繳交？\n\n${lines}\n\n• 作答內容${files?`、${files} 個錄音／檔案`:""}、分數和回饋都會刪除，無法還原\n• 作業本身保留（已關閉），學生看不到、也不受影響\n• 還沒批改的繳交${left?`（${left} 份）`:""}、還開放中的作業都不會動\n\n確定要清除，請輸入「清除」：`);
+  if(t===null) return; if(t.trim()!=="清除"){ toast("沒有輸入「清除」，已取消。"); return; }
+  const r = await HWAPI.deleteSubmissions(list);
+  if(r.gone.length){ const ids = new Set(r.gone.map(x=>x.id)); TDATA.submissions = TDATA.submissions.filter(x=>!ids.has(x.id)); }
+  if(r.err){ toast(`清除到一半失敗（已清 ${r.gone.length} 份）：${r.err}`); paintTeacher(); return; }
+  const missed = list.length - r.gone.length;
+  toast(missed ? `已清除 ${r.gone.length} 份；有 ${missed} 份沒有權限或已不存在，請重新整理後再看` : `已清除 ${r.gone.length} 份已批改的繳交 🧹`); paintTeacher();
+}
+
 /* ---------- 老師：作業分頁 ---------- */
 const TC_SCOPE_OPEN = new Set();   // 展開中的「作業:學生」範圍明細
 function tcScopeOpen(aid, uid){ const k=aid+":"+uid; if(TC_SCOPE_OPEN.has(k)) TC_SCOPE_OPEN.delete(k); else TC_SCOPE_OPEN.add(k); TC_OPEN.add(aid); paintTeacher(); }
@@ -678,7 +716,7 @@ function tcHomeworkBody(students){
     <summary class="tc-new-sum">${TC_FORM&&TC_FORM.id?"✏️ 編輯作業 Edit assignment":"➕ 出新作業 New assignment"}</summary>
     ${tcHomeworkForm(students)}</details>`;
   const overview = list ? `<div class="tc-overview">${list}</div>` : `<div class="hw-empty">還沒有任何作業。用上面的「➕ 出新作業」建立第一份。</div>`;
-  return groupsWarn + newForm + gradeLegend() + overview + freeBox;
+  return groupsWarn + newForm + gradeLegend() + tcClearClosedBar() + overview + freeBox;
 }
 
 /* ---------- 老師：分組分頁 ---------- */

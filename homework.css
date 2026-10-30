@@ -228,3 +228,4 @@ button.tc-scope.on .si-caret{transform:rotate(90deg)}
 .si-danger-body{display:flex;flex-direction:column;gap:14px;padding:4px 14px 14px}
 .si-danger-body .tc-sub{margin:2px 0 6px}
 .si-red{color:#B23B2E}
+.tc-bulk{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:0 0 14px;padding:10px 12px;border:1px dashed #E7B4A3;border-radius:10px;background:#FFFBFA}
