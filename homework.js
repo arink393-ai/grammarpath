@@ -14,6 +14,22 @@ const HWAPI = {
     const { error } = await SB.from("assignments").update(hwRow(f)).eq("id", id);
     return error ? {err:error.message} : {ok:true};
   },
+  /* ---- 刪除（老師）：RLS 沒權限時 Supabase 不會報錯、只是刪 0 筆，所以要檢查回傳 ---- */
+  async deleteSubmission(sub){
+    const { data, error } = await SB.from("submissions").delete().eq("id", sub.id).select("id");
+    if(error) return {err:error.message};
+    if(!data || !data.length) return {err:"沒有刪除成功（可能沒有權限或已被刪除），請重新整理後再試。"};
+    if(sub.file_url) await HWAPI.removeFiles([sub.file_url]);
+    return {ok:true};
+  },
+  async deleteAssignment(a, subs){
+    const { data, error } = await SB.from("assignments").delete().eq("id", a.id).select("id");   // 該作業的繳交會跟著刪（資料庫 cascade）
+    if(error) return {err:error.message};
+    if(!data || !data.length) return {err:"沒有刪除成功（可能沒有權限或已被刪除），請重新整理後再試。"};
+    await HWAPI.removeFiles((subs||[]).map(s=>s.file_url).filter(Boolean));
+    return {ok:true};
+  },
+  async removeFiles(paths){ try{ if(paths && paths.length) await SB.storage.from("homework").remove(paths); }catch(e){} },   // 盡力清掉檔案；失敗不影響資料已刪
   async loadGroups(){
     const [g, m] = await Promise.all([
       SB.from("student_groups").select("*").order("created_at",{ascending:true}),
@@ -437,6 +453,34 @@ async function hwRaSubmit(R, a, file, text){
   return res;
 }
 
+/* ---------- 老師：刪除繳交／作業 ---------- */
+async function tcDelSub(id){
+  const s = TDATA.submissions.find(x=>x.id===id); if(!s) return;
+  const a = s.assignment_id ? TDATA.assignments.find(x=>x.id===s.assignment_id) : null;
+  const msg = `刪除「${tName(s.user_id)}」${a?`在「${a.title}」的繳交`:"直接繳交的錄音／作答"}${s.status==="returned"?`（已批改：${s.grade||"無分數"}）`:""}？\n\n• 作答內容${s.file_url?"、錄音／檔案":""}、分數和回饋都會刪除，無法還原${a&&a.active?"\n• 這份作業還在開放中，學生會看到它回到「待完成」，可以重新繳交":""}`;
+  if(!confirm(msg)) return;
+  const r = await HWAPI.deleteSubmission(s);
+  if(r.err){ toast("刪除失敗："+r.err); return; }
+  TDATA.submissions = TDATA.submissions.filter(x=>x.id!==id);
+  toast("已刪除這份繳交"); paintTeacher();
+}
+async function tcDelAsg(id){
+  const a = TDATA.assignments.find(x=>x.id===id); if(!a) return;
+  const subs = TDATA.submissions.filter(x=>x.assignment_id===id);
+  const graded = subs.filter(x=>x.status==="returned").length;
+  const linked = TDATA.submissions.filter(x=>!x.assignment_id && x.source && x.source.assignment===id).length;
+  const msg = `刪除整份作業「${a.title}」？\n\n• 作業本身${subs.length?`，加上學生的 ${subs.length} 份繳交（其中 ${graded} 份已批改）的作答、錄音／檔案、分數與回饋，`:"，"}全部刪除，無法還原${linked?`\n• 學生為這份作業直接交的 ${linked} 段跟讀錄音會保留在「學生直接繳交的錄音」`:""}\n• 學生的學習進度不受影響\n\n只是不想讓學生再看到它？請取消，把「開放中」的勾取消就好（可以隨時重新開放）。`;
+  if(subs.length){
+    const t = prompt(msg + `\n\n這份作業已有學生繳交，確定要刪除請輸入「刪除」：`);
+    if(t===null) return; if(t.trim()!=="刪除"){ toast("沒有輸入「刪除」，已取消。"); return; }
+  } else if(!confirm(msg)) return;
+  const r = await HWAPI.deleteAssignment(a, subs);
+  if(r.err){ toast("刪除失敗："+r.err); return; }
+  TDATA.assignments = TDATA.assignments.filter(x=>x.id!==id);
+  TDATA.submissions = TDATA.submissions.filter(x=>x.assignment_id!==id);
+  TC_OPEN.delete(id); toast("已刪除這份作業"); paintTeacher();
+}
+
 /* ---------- 老師：作業分頁 ---------- */
 const TC_SCOPE_OPEN = new Set();   // 展開中的「作業:學生」範圍明細
 function tcScopeOpen(aid, uid){ const k=aid+":"+uid; if(TC_SCOPE_OPEN.has(k)) TC_SCOPE_OPEN.delete(k); else TC_SCOPE_OPEN.add(k); TC_OPEN.add(aid); paintTeacher(); }
@@ -490,7 +534,7 @@ function tcEdit(id){
 /* 依年級一次勾選／取消（全都勾了就取消） */
 function tcPickGrade(g){
   tcFormSync();
-  const ids = TDATA.profiles.filter(p=>p.role!=="teacher" && siOf(p.id).grade===g).map(p=>p.id);
+  const ids = TDATA.profiles.filter(p=>p.role!=="teacher" && !siArchived(p.id) && siOf(p.id).grade===g).map(p=>p.id);
   const all = ids.every(id=>TC_FORM.students.includes(id));
   TC_FORM.students = all ? TC_FORM.students.filter(id=>!ids.includes(id)) : [...new Set([...TC_FORM.students, ...ids])];
   paintTeacher();
@@ -567,7 +611,7 @@ function tcGradeCells(s){
   return `<td>${fmtDate(s.submitted_at)}</td>
     <td>${gradeSelect("gr-"+s.id, s.grade||"")}</td>
     <td><input class="tc-fb" id="fb-${s.id}" value="${esc(s.feedback||"")}" placeholder="回饋"></td>
-    <td><button class="btn btn-ghost tc-savebtn" onclick="tcGrade('${s.id}')">${s.status==="returned"?"✓ 已批":"批改"}</button></td>`;
+    <td class="tc-actcell"><button class="btn btn-ghost tc-savebtn" onclick="tcGrade('${s.id}')">${s.status==="returned"?"✓ 已批":"批改"}</button><button class="btn btn-ghost tc-delbtn" onclick="tcDelSub('${s.id}')" title="刪除這份繳交" aria-label="刪除這份繳交">🗑</button></td>`;
 }
 function tcHomeworkBody(students){
   const progById = {}; TDATA.progress.forEach(p=>progById[p.user_id]=p);
@@ -586,7 +630,7 @@ function tcHomeworkBody(students){
       const detail = scope.length && ok ? `<tr class="tc-scope-row"><td colspan="7"><div class="tc-scope-list">${scope.map(it=>{ const inf=scopeInfo(it); if(!inf) return ""; const dn=scopeDone(it,d);
           return `<div class="${dn?"dn":"nd"}">${dn?"✅":"⬜"} ${inf.icon} ${esc(inf.label)}${inf.zh?` <i>${esc(inf.zh)}</i>`:""}${dn?"":`<span class="tc-sub">　${hwScopeHint(it,d).replace(/[🎮🎤🦊📖📰]/g,"").trim()}</span>`}</div>`; }).join("")}</div></td></tr>` : "";
       const recs = TDATA.submissions.filter(x=>!x.assignment_id && x.user_id===uid && x.source && x.source.assignment===a.id);
-      const recCell = recs.length ? `<div class="tc-recs">${recs.map(x=>`<div>${hwSourceLabel(x,true)} ${x.file_url?`<button class="btn btn-ghost tc-audiobtn" data-path="${esc(x.file_url)}" onclick="tcAudio(this)">▶️</button>`:""}${x.status==="returned"?` <span class="hw-gradechip">${esc(x.grade||"✓")}</span>`:""}</div>`).join("")}</div>` : "";
+      const recCell = recs.length ? `<div class="tc-recs">${recs.map(x=>`<div>${hwSourceLabel(x,true)} ${x.file_url?`<button class="btn btn-ghost tc-audiobtn" data-path="${esc(x.file_url)}" onclick="tcAudio(this)">▶️</button>`:""}${x.status==="returned"?` <span class="hw-gradechip">${esc(x.grade||"✓")}</span>`:""} <button class="btn btn-ghost tc-delmini" onclick="tcDelSub('${x.id}')" title="刪除這段錄音" aria-label="刪除這段錄音">🗑</button></div>`).join("")}</div>` : "";
       return `<tr class="${s||recs.length?"":"tc-missing"}"><td>${esc(tName(uid))}</td>${sc}<td>${s?tcSubCell(s):(recs.length?"":tcSubCell(s))}${recCell}</td>${tcGradeCells(s)}</tr>${detail}`;
     }).join("") : `<tr><td colspan="${scope.length?7:6}" style="color:var(--muted);padding:12px">這份作業目前沒有指派到任何學生。</td></tr>`;
     const nSub = targets.filter(u=>subBy[u]).length;
@@ -610,7 +654,8 @@ function tcHomeworkBody(students){
         <div class="tc-asgn-toprow">
           <div class="tc-asgn-meta">${tcTargetLabel(a)}${a.start_date?`　📅 ${fmtDate(a.start_date)} 開放${notYet?"（尚未開放）":""}`:""}${a.due_date?`　⏰ 截止 ${fmtDate(a.due_date)}`:""}</div>
           <span class="tc-asgn-act"><button class="btn btn-ghost" onclick="tcEdit('${a.id}')">✏️ 編輯</button>
-          <label class="tc-active"><input type="checkbox" ${a.active?"checked":""} onchange="tcActive('${a.id}',this.checked)"> 開放中</label></span>
+          <label class="tc-active"><input type="checkbox" ${a.active?"checked":""} onchange="tcActive('${a.id}',this.checked)"> 開放中</label>
+          <button class="btn btn-ghost tc-danger" onclick="tcDelAsg('${a.id}')" title="刪除整份作業">🗑 刪除作業</button></span>
         </div>
         ${a.description?`<p class="hw-desc">${esc(a.description)}</p>`:""}
         ${scope.length?`<div class="hw-chips">${scopeChips(scope)}</div>`:""}
@@ -667,7 +712,7 @@ function tcGroupToggle(uid){
 }
 function tcGroupPickGrade(g){
   const nm=document.getElementById("ng-name"); if(nm) TC_GROUP.name=nm.value;
-  const ids = TDATA.profiles.filter(p=>p.role!=="teacher" && siOf(p.id).grade===g).map(p=>p.id);
+  const ids = TDATA.profiles.filter(p=>p.role!=="teacher" && !siArchived(p.id) && siOf(p.id).grade===g).map(p=>p.id);
   const all = ids.every(id=>TC_GROUP.members.includes(id));
   TC_GROUP.members = all ? TC_GROUP.members.filter(id=>!ids.includes(id)) : [...new Set([...TC_GROUP.members, ...ids])];
   paintTeacher();

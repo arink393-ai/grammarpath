@@ -213,3 +213,18 @@ button.tc-scope.on .si-caret{transform:rotate(90deg)}
 .tc-scope-list .nd{color:#8F3F2A}
 .tc-scope-list .dn{color:#3B7A3B}
 .tc-scope-list i{font-style:normal;font-size:12px;color:var(--muted)}
+
+/* 刪除／封存（老師） */
+.tc-actcell{white-space:nowrap}
+.tc-actcell .btn{margin-right:4px}
+.tc-delbtn,.tc-delmini{color:#B23B2E}
+.tc-delbtn:hover,.tc-delmini:hover,.tc-danger:hover{background:#FBE1DA;border-color:#E7B4A3}
+.tc-delmini{padding:0 6px;font-size:12px;line-height:1.6}
+.tc-danger{color:#B23B2E}
+.si-rowact{display:flex;gap:6px;flex-wrap:wrap}
+.si-arch{display:inline-block;margin-left:4px;padding:1px 8px;border-radius:999px;background:#ECE7DD;color:#6B6358;font:600 11.5px var(--sans);vertical-align:middle}
+.si-danger{border:1px solid #F0D2CB;border-radius:10px;background:#FFFBFA}
+.si-danger>summary{cursor:pointer;padding:9px 12px;font:600 13.5px var(--sans);color:#8F3F2A}
+.si-danger-body{display:flex;flex-direction:column;gap:14px;padding:4px 14px 14px}
+.si-danger-body .tc-sub{margin:2px 0 6px}
+.si-red{color:#B23B2E}

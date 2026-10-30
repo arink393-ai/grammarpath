@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="daily.css?v=17">
 <link rel="stylesheet" href="adventure.css?v=5">
 <link rel="stylesheet" href="lesson-notes.css?v=3">
-<link rel="stylesheet" href="homework.css?v=7">
+<link rel="stylesheet" href="homework.css?v=8">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
@@ -2238,8 +2238,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="word-checkin.js?v=1"></script>
 <script src="curriculum-loader.js?v=3"></script>
 <script src="lesson-notes.js?v=4"></script>
-<script src="homework.js?v=9"></script>
-<script src="student-info.js?v=6"></script>
+<script src="homework.js?v=10"></script>
+<script src="student-info.js?v=7"></script>
 <script src="offline-content.js?v=9"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=5"></script>
@@ -15577,7 +15577,7 @@ async function renderTeacher(){
 }
 function tName(id){ const p = TDATA.profiles.find(x=>x.id===id); return p ? (p.name||p.email) : "（未知）"; }
 function paintTeacher(){
-  const students = TDATA.profiles.filter(p=>p.role!=="teacher");
+  const students = TDATA.profiles.filter(p=>p.role!=="teacher" && !(typeof siArchived==="function" && siArchived(p.id)));   // 已封存的學生不列入（「學生進度」分頁自己另外顯示）
   const progById = {}; TDATA.progress.forEach(p=>progById[p.user_id]=p);
   const tabs = [["students","👧 學生進度"],["homework","📝 作業繳交"],["groups","👥 分組"],["fables","🦊 寓言練習"],["vocab","🧠 背單字"],["reflect","📓 反思／每日"],["stats","📊 全班統計"],["prep","📚 備課錦囊"]];
   const tabBar = `<div class="tc-tabs">${tabs.map(([k,l])=>`<button class="tc-tab ${TTAB===k?'active':''}" onclick="TTAB='${k}';paintTeacher()">${l}</button>`).join("")}</div>`;
