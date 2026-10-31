@@ -7451,13 +7451,37 @@ const NICON={
   yogurt:`<svg viewBox="0 0 48 48"><path d="M14 18h20l-2 20a2 2 0 0 1-2 2H18a2 2 0 0 1-2-2z" fill="#fff" stroke="#e0e0e0" stroke-width="1.1"/><rect x="12" y="13" width="24" height="6" rx="2" fill="#f06292"/><circle cx="24" cy="29" r="3.6" fill="#ec407a"/><path d="M21 25c0-1.5 6-1.5 6 0z" fill="#66bb6a"/></svg>`,
   chocolate:`<svg viewBox="0 0 48 48"><g transform="rotate(-8 24 24)"><rect x="13" y="11" width="22" height="26" rx="2" fill="#6d4c2f"/><path d="M13 13l22-2-1.5 4z" fill="#8d6e4f"/><g fill="none" stroke="#4e342e" stroke-width="1.3"><path d="M24 11v26M13 20h22M13 28h22"/></g></g></svg>`,
   cereal:`<svg viewBox="0 0 48 48"><path d="M8 22h32c0 9-7 15-16 15S8 31 8 22z" fill="#e3f2fd" stroke="#bbdefb" stroke-width="1.1"/><path d="M11 24h26c-1 6-6 11-13 11S12 30 11 24z" fill="#fff3e0"/><g fill="#ffb74d"><circle cx="18" cy="27" r="2"/><circle cx="24" cy="25.5" r="2"/><circle cx="30" cy="27" r="2"/><circle cx="21" cy="31" r="2"/><circle cx="27" cy="31" r="2"/></g></svg>`,
-  meat:`<svg viewBox="0 0 48 48"><path d="M10 25c0-9 10-14 18-12 9 2 12 10 9 16-3 7-13 9-20 5-4-2-7-5-7-9z" fill="#ef9a9a" stroke="#e57373" stroke-width="1.1"/><path d="M15 25c0-5 7-8 12-6 5 1 7 6 5 10" fill="#c62828" opacity=".5"/><circle cx="16" cy="31" r="3" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/></svg>`
+  meat:`<svg viewBox="0 0 48 48"><path d="M10 25c0-9 10-14 18-12 9 2 12 10 9 16-3 7-13 9-20 5-4-2-7-5-7-9z" fill="#ef9a9a" stroke="#e57373" stroke-width="1.1"/><path d="M15 25c0-5 7-8 12-6 5 1 7 6 5 10" fill="#c62828" opacity=".5"/><circle cx="16" cy="31" r="3" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/></svg>`,
+  vegetables:`<svg viewBox="0 0 48 48"><path d="M20 24h8v12a4 4 0 0 1-8 0z" fill="#c5e1a5"/><g fill="#43a047"><circle cx="18" cy="18" r="6"/><circle cx="24" cy="14" r="6.5"/><circle cx="30" cy="18" r="6"/><circle cx="21" cy="22" r="5"/><circle cx="27" cy="22" r="5"/></g><g fill="#66bb6a"><circle cx="20" cy="16" r="2"/><circle cx="26" cy="15" r="2"/><circle cx="29" cy="19" r="2"/></g></svg>`,
+  seafood:`<svg viewBox="0 0 48 48"><path d="M31 10c-9 0-17 7-19 17-1 6 3 11 9 11 5 0 8-3 8-7 0-3-2-5-5-5-2 0-4 1-4 3" fill="none" stroke="#fb8c00" stroke-width="5.5" stroke-linecap="round"/><path d="M13 36l-4 4M17 38l-3 4" stroke="#fb8c00" stroke-width="2.4" stroke-linecap="round"/><path d="M31 10l6-3-1 5z" fill="#fb8c00"/><circle cx="30" cy="12" r="1.4" fill="#5b2d2d"/></svg>`,
+  ketchup:`<svg viewBox="0 0 48 48"><rect x="20" y="7" width="8" height="5" rx="1.5" fill="#b71c1c"/><path d="M18 12h12l2 6v20a2 2 0 0 1-2 2H18a2 2 0 0 1-2-2V18z" fill="#e53935" stroke="#c62828" stroke-width="1.1"/><rect x="19" y="22" width="10" height="11" rx="1.5" fill="#fff"/><path d="M24 25l-2 5h4z" fill="#e53935"/></svg>`,
+  mustard:`<svg viewBox="0 0 48 48"><rect x="20" y="7" width="8" height="5" rx="1.5" fill="#f9a825"/><path d="M18 12h12l2 6v20a2 2 0 0 1-2 2H18a2 2 0 0 1-2-2V18z" fill="#fdd835" stroke="#f9a825" stroke-width="1.1"/><rect x="19" y="22" width="10" height="11" rx="1.5" fill="#fff"/><path d="M24 25l-2 5h4z" fill="#fbc02d"/></svg>`
 };
 /* 圖卡（本區展示用） */
 const NOUN_CHART={
-  c:[["apple","apple"],["banana","banana"],["orange","orange"],["lemon","lemon"],["pear","pear"],["grapes","grapes"],["strawberry","strawberry"],["watermelon","watermelon"],["tomato","tomato"],["carrot","carrot"],["egg","egg"],["burger","burger"],["hotdog","hot dog"],["fries","fries"],["pizza","pizza"],["sandwich","sandwich"],["cookie","cookie"],["cake","cake"],["candy","candy"],["book","book"]],
-  u:[["water","water"],["milk","milk"],["juice","juice"],["tea","tea"],["coffee","coffee"],["bread","bread"],["rice","rice"],["cereal","cereal"],["cheese","cheese"],["meat","meat"],["soup","soup"],["butter","butter"],["honey","honey"],["jam","jam"],["yogurt","yogurt"],["chocolate","chocolate"],["sugar","sugar"],["flour","flour"],["salt","salt"],["oil","oil"]]
+  food:{
+    c:[["apple","apple"],["banana","banana"],["orange","orange"],["lemon","lemon"],["pear","pear"],["grapes","grapes"],["strawberry","strawberry"],["watermelon","watermelon"],["tomato","tomato"],["carrot","carrot"],["vegetables","vegetables"],["egg","egg"],["burger","burger"],["hotdog","hot dog"],["fries","fries"],["pizza","pizza"],["sandwich","sandwich"],["cookie","cookie"],["cake","cake"],["candy","candy"]],
+    u:[["bread","bread"],["rice","rice"],["cereal","cereal"],["cheese","cheese"],["meat","meat"],["seafood","seafood"],["soup","soup"],["butter","butter"],["honey","honey"],["jam","jam"],["yogurt","yogurt"],["chocolate","chocolate"],["sugar","sugar"],["flour","flour"],["salt","salt"],["oil","oil"],["ketchup","ketchup"],["mustard","mustard"]]
+  },
+  drink:{
+    c:[],
+    u:[["water","water"],["milk","milk"],["juice","juice"],["tea","tea"],["coffee","coffee"]]
+  },
+  abstract:{
+    c:[["","idea 想法"],["","dream 夢想"],["","plan 計畫"]],
+    u:[["","money 錢"],["","information 資訊"],["","advice 建議"],["","homework 作業"],["","news 新聞"],["","music 音樂"],["","work 工作"],["","time 時間"],["","love 愛"],["","happiness 快樂"]]
+  }
 };
+let NChartTab="food";
+const N_TABS=[["food","🍽 食物 Food"],["drink","🥤 飲料 Drinks"],["abstract","💭 抽象 Abstract"]];
+function nChartTab(cat){ NChartTab=cat; document.querySelectorAll(".nouns .n-tab").forEach(b=>b.classList.toggle("on",b.dataset.cat===cat)); renderNChart(); }
+function renderNChart(){
+  const box=document.getElementById("nChart"); if(!box) return;
+  const cat=NOUN_CHART[NChartTab]||NOUN_CHART.food;
+  const chip=([k,w])=>`<div class="n-chip">${k&&NICON[k]?`<span class="n-ic">${NICON[k]}</span>`:`<span class="n-ic n-abs">💭</span>`}<span class="n-w">${w}</span></div>`;
+  const panel=(cls,head,items)=>`<div class="n-panel"><div class="n-head ${cls}">${head}</div><div class="n-grid">${items.length?items.map(chip).join(""):`<div class="n-empty">${cls==="c"?"（這一類幾乎都是不可數）":"—"}</div>`}</div></div>`;
+  box.innerHTML=`<div class="n-cols">${panel("c","🔢 可數 Countable",cat.c)}${panel("u","💧 不可數 Uncountable",cat.u)}</div>`;
+}
 /* 分類遊戲題庫：w 單字、t 類別(c/u)、icon 圖示鍵（可空）、why 解析 */
 const NOUN_POOL=[
   {w:"apple",t:"c",icon:"apple",why:"蘋果可以一個一個數：an apple, two apples。"},
@@ -7519,7 +7543,16 @@ const NOUN_POOL=[
   {w:"snow",t:"u",icon:"",why:"雪不可數：some snow。"},
   {w:"news",t:"u",icon:"",why:"新聞不可數：some news（不說 a news／newses）。"},
   {w:"rain",t:"u",icon:"",why:"雨不可數：some rain, a lot of rain。"},
-  {w:"work",t:"u",icon:"",why:"工作（事情）不可數：some work。（a job 才可數）"}
+  {w:"work",t:"u",icon:"",why:"工作（事情）不可數：some work。（a job 才可數）"},
+  {w:"vegetables",t:"c",icon:"vegetables",why:"蔬菜可數：a vegetable, vegetables。"},
+  {w:"seafood",t:"u",icon:"seafood",why:"海鮮是集合名詞，不可數：some seafood。"},
+  {w:"ketchup",t:"u",icon:"ketchup",why:"番茄醬不可數：some ketchup, a bottle of ketchup。"},
+  {w:"mustard",t:"u",icon:"mustard",why:"黃芥末醬不可數：some mustard。"},
+  {w:"time",t:"u",icon:"",why:"時間（概念）不可數：some time。（a good time 例外，指經歷）"},
+  {w:"love",t:"u",icon:"",why:"愛（抽象）不可數：some love（不說 a love / loves）。"},
+  {w:"happiness",t:"u",icon:"",why:"快樂（抽象）不可數：some happiness。"},
+  {w:"idea",t:"c",icon:"",why:"想法可數：an idea, ideas。"},
+  {w:"dream",t:"c",icon:"",why:"夢想可數：a dream, dreams。"}
 ];
 let NG={queue:[],i:0,right:0,ans:null,done:false};
 const NG_BATCH=10;
@@ -7580,9 +7613,6 @@ function renderNounGame(){
     </div>${fb}`;
 }
 function renderNouns(){
-  const chip=(k,w)=>`<div class="n-chip"><span class="n-ic">${NICON[k]}</span><span class="n-w">${w}</span></div>`;
-  const cCards=NOUN_CHART.c.map(([k,w])=>chip(k,w)).join("");
-  const uCards=NOUN_CHART.u.map(([k,w])=>chip(k,w)).join("");
   app.innerHTML=`<div class="view verb-forms nouns">
     <style>
     .nouns .n-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
@@ -7611,6 +7641,11 @@ function renderNouns(){
     .nouns .ng-done{text-align:center;padding:14px}
     .nouns .ng-done-score{font:800 20px var(--sans);color:var(--navy);margin-bottom:6px}
     .nouns .ng-reward{font:700 15px var(--sans);color:var(--teal);margin-bottom:14px}
+    .nouns .n-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 12px}
+    .nouns .n-tab{font:600 13.5px var(--sans);padding:7px 14px;border:1.5px solid var(--line);border-radius:999px;background:var(--bg);color:var(--navy);cursor:pointer}
+    .nouns .n-tab.on{background:#4db6ac;border-color:#4db6ac;color:#fff}
+    .nouns .n-abs{display:flex;align-items:center;justify-content:center;width:46px;height:46px;font-size:26px}
+    .nouns .n-empty{grid-column:1/-1;color:var(--muted);font-size:13px;padding:14px;text-align:center}
     @media(max-width:640px){.nouns .n-cols{grid-template-columns:1fr}.nouns .ng-word{font-size:24px}}
     </style>
     <div class="crumb"><a href="#/home">Home</a> › 可數／不可數名詞</div>
@@ -7632,11 +7667,9 @@ function renderNouns(){
     </div>
 
     <div class="vf-sec"><h2>圖解：看圖記單字</h2>
-      <p class="vf-sub">左邊能一個一個數，右邊只能整體說。</p>
-      <div class="n-cols">
-        <div class="n-panel"><div class="n-head c">🔢 可數 Countable</div><div class="n-grid">${cCards}</div></div>
-        <div class="n-panel"><div class="n-head u">💧 不可數 Uncountable</div><div class="n-grid">${uCards}</div></div>
-      </div>
+      <p class="vf-sub">分成「食物／飲料／抽象」三類；左邊能一個一個數，右邊只能整體說。</p>
+      <div class="n-tabs">${N_TABS.map(([c,l])=>`<button class="n-tab${c==='food'?' on':''}" data-cat="${c}" onclick="nChartTab('${c}')">${l}</button>`).join("")}</div>
+      <div id="nChart"></div>
     </div>
 
     <div class="vf-sec"><h2>🎮 分類遊戲 Sort the Nouns</h2>
@@ -7646,6 +7679,7 @@ function renderNouns(){
 
     <div class="vf-xlink">📚 想更完整？看課程：<a href="#/lesson/count-noncount">可數與不可數名詞</a>、<a href="#/lesson/much-many">much / many / a lot of</a>、<a href="#/lesson/partitives">量詞 a cup of / a piece of</a>。</div>
   </div>`;
+  NChartTab="food"; renderNChart();
   ngStart();
   window.scrollTo(0,0);
 }
