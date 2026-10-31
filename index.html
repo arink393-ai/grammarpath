@@ -7566,60 +7566,86 @@ function ngSetCat(c){ NGCat=c; document.querySelectorAll(".nouns .ng-cat").forEa
 function ngStart(){
   let pool=NOUN_POOL.map((_,i)=>i);
   if(NGCat!=="all") pool=pool.filter(i=>NOUN_POOL[i].cat===NGCat);
-  const idx=prtShuffle(pool).slice(0,Math.min(NG_BATCH,pool.length));
-  NG={queue:idx,i:0,right:0,ans:null,done:false,rewarded:false};
+  const items=prtShuffle(pool).slice(0,Math.min(8,pool.length));
+  NG={items,placed:{},mistakes:0,feedback:null,done:false,rewarded:false};
   renderNounGame();
 }
-function ngPick(choice){
-  if(NG.ans!==null||NG.done) return;
-  NG.ans=choice; const item=NOUN_POOL[NG.queue[NG.i]];
-  if(choice===item.t) NG.right++;
-  renderNounGame();
-}
-function ngNext(){
-  NG.ans=null; NG.i++;
-  if(NG.i>=NG.queue.length){ NG.done=true; }
+function ngDrop(idx, zone){
+  if(NG.done || NG.placed[idx]!==undefined) return;
+  const it=NOUN_POOL[idx];
+  if(!zone){ renderNounGame(); return; }            // 放到框外 → 彈回
+  if(zone===it.t){ NG.placed[idx]=it.t; NG.feedback=null; }
+  else { NG.mistakes=(NG.mistakes||0)+1; NG.feedback={idx, why:it.why}; }
+  if(Object.keys(NG.placed).length>=NG.items.length) NG.done=true;
   renderNounGame();
 }
 function ngAward(){
   if(NG.rewarded) return NG.reward;
   NG.rewarded=true;
-  const total=NG.queue.length, right=NG.right;
-  let xp=right*2; if(right===total) xp+=6;
+  const total=NG.items.length, m=NG.mistakes||0;
+  let xp=total*2; if(m===0) xp+=6;
   let cansMsg="";
-  if(total>0 && right/total>=0.7){
-    const d=todayKey();
-    if(!store.data.pracCans || store.data.pracCans.d!==d) store.data.pracCans={d,ids:{}};
-    if(!store.data.pracCans.ids["noun-game"]){ store.data.pracCans.ids["noun-game"]=1; store.addCans(PRACTICE_CANS); cansMsg=`　＋${PRACTICE_CANS} 🥫`; }
-    else cansMsg="　（今日罐罐已領 🥫）";
-  }
-  let surprise="";
-  if(Math.random()<0.25){ store.addCans(5); surprise="　🎁 隨機驚喜 ＋5 🥫！"; }
-  if(xp>0){ store.addXP(xp); } else { try{toast("完成分類，再接再厲 🐾");}catch(e){} }
+  const d=todayKey();
+  if(!store.data.pracCans || store.data.pracCans.d!==d) store.data.pracCans={d,ids:{}};
+  if(!store.data.pracCans.ids["noun-game"]){ store.data.pracCans.ids["noun-game"]=1; store.addCans(PRACTICE_CANS); cansMsg=`　＋${PRACTICE_CANS} 🥫`; }
+  else cansMsg="　（今日罐罐已領 🥫）";
+  let surprise=""; if(Math.random()<0.25){ store.addCans(5); surprise="　🎁 隨機驚喜 ＋5 🥫！"; }
+  if(xp>0) store.addXP(xp);
   NG.reward=`🎉 分類完成！＋${xp} XP${cansMsg}${surprise}`;
   return NG.reward;
+}
+function ngChip(i,locked){
+  const it=NOUN_POOL[i];
+  const ic=it.icon&&NICON[it.icon]?`<span class="nd-ic">${NICON[it.icon]}</span>`:`<span class="nd-ic nd-abs">🔤</span>`;
+  return `<div class="nd-chip${locked?" placed":" tray"}" data-idx="${i}">${ic}<span class="nd-w">${it.w}</span></div>`;
 }
 function renderNounGame(){
   const box=document.getElementById("nounGame"); if(!box) return;
   if(NG.done){
-    const total=NG.queue.length, right=NG.right, pct=Math.round(right/total*100);
+    const m=NG.mistakes||0;
     const line=ngAward();
-    box.innerHTML=`<div class="ng-done"><div class="ng-done-score">答對 ${right} / ${total}（${pct}%）${pct===100?" 🏆":pct>=70?" 🐾":""}</div>
+    box.innerHTML=`<div class="ng-done"><div class="ng-done-score">全部分類完成！${m===0?"零失誤 🏆":"失誤 "+m+" 次 🐾"}</div>
       <div class="ng-reward">${line}</div>
       <button class="btn btn-primary" onclick="ngStart()">再玩一次 ↻</button></div>`;
     return;
   }
-  const item=NOUN_POOL[NG.queue[NG.i]], answered=NG.ans!==null, correct=answered&&NG.ans===item.t;
-  const icon=item.icon&&NICON[item.icon]?`<span class="ng-icon">${NICON[item.icon]}</span>`:`<span class="ng-icon ng-icon-word">🔤</span>`;
-  const btnCls=(c)=>{let s="ng-btn";if(answered){if(c===item.t)s+=" ok";else if(c===NG.ans)s+=" bad";}return s;};
-  const fb=answered?`<div class="ng-fb ${correct?"ok":"bad"}">${correct?"✅ 答對了！":"💡 再看一次："} ${item.why}</div>
-      <button class="btn btn-primary ng-next" onclick="ngNext()">${NG.i+1>=NG.queue.length?"看成績 →":"下一題 →"}</button>`:"";
-  box.innerHTML=`<div class="ng-top"><span class="ng-count">第 ${NG.i+1} / ${NG.queue.length} 題</span><span class="ng-score">答對 ${NG.right}</span></div>
-    <div class="ng-card">${icon}<div class="ng-word">${item.w}</div></div>
-    <div class="ng-btns">
-      <button class="${btnCls("c")}" ${answered?"disabled":""} onclick="ngPick('c')">🔢 可數 Countable</button>
-      <button class="${btnCls("u")}" ${answered?"disabled":""} onclick="ngPick('u')">💧 不可數 Uncountable</button>
-    </div>${fb}`;
+  const tray=NG.items.filter(i=>NG.placed[i]===undefined);
+  const zoneChips=(z)=>NG.items.filter(i=>NG.placed[i]===z).map(i=>ngChip(i,true)).join("");
+  const done=Object.keys(NG.placed).length, total=NG.items.length;
+  const fb=NG.feedback?`<div class="ng-fb bad">💡 <b>${NOUN_POOL[NG.feedback.idx].w}</b>：${NG.feedback.why}</div>`:`<div class="nd-hint">👉 把上面的單字<b>拖</b>到正確的框裡（可數 / 不可數）；放錯會彈回來並告訴你原因。</div>`;
+  box.innerHTML=`<div class="ng-top"><span>已分類 ${done} / ${total}</span><span>失誤 ${NG.mistakes||0}</span></div>
+    <div class="nd-tray" id="ndTray">${tray.map(i=>ngChip(i,false)).join("")||'<span class="nd-empty2">全部分好了！🎉</span>'}</div>
+    ${fb}
+    <div class="nd-zones">
+      <div class="nd-zone c" data-zone="c"><div class="nd-zhead c">🔢 可數 Countable</div><div class="nd-zbody">${zoneChips("c")}</div></div>
+      <div class="nd-zone u" data-zone="u"><div class="nd-zhead u">💧 不可數 Uncountable</div><div class="nd-zbody">${zoneChips("u")}</div></div>
+    </div>`;
+  ngAttachDrag();
+}
+function ngAttachDrag(){
+  const board=document.getElementById("nounGame"); if(!board) return;
+  const zoneEl=(x,y)=>{ const el=document.elementFromPoint(x,y); return el?el.closest(".nd-zone"):null; };
+  const clearOver=()=>board.querySelectorAll(".nd-zone.over").forEach(z=>z.classList.remove("over"));
+  board.querySelectorAll(".nd-chip.tray").forEach(chip=>{
+    let drag=null;
+    const move=(x,y)=>{ drag.ghost.style.left=(x-drag.dx)+"px"; drag.ghost.style.top=(y-drag.dy)+"px"; clearOver(); const z=zoneEl(x,y); if(z)z.classList.add("over"); };
+    const cleanup=()=>{ if(drag&&drag.ghost) drag.ghost.remove(); chip.style.opacity=""; drag=null; clearOver(); };
+    chip.addEventListener("pointerdown",e=>{
+      if(NG.done) return; e.preventDefault();
+      const r=chip.getBoundingClientRect();
+      const ghost=chip.cloneNode(true);
+      ghost.classList.add("dragging");
+      ghost.style.cssText="position:fixed;margin:0;pointer-events:none;z-index:9999;width:"+r.width+"px;height:"+r.height+"px;left:"+r.left+"px;top:"+r.top+"px";
+      document.body.appendChild(ghost);
+      chip.style.opacity=".3";
+      drag={ghost,dx:e.clientX-r.left,dy:e.clientY-r.top};
+      try{ chip.setPointerCapture(e.pointerId); }catch(_){}
+      move(e.clientX,e.clientY);
+    });
+    chip.addEventListener("pointermove",e=>{ if(drag) move(e.clientX,e.clientY); });
+    chip.addEventListener("pointerup",e=>{ if(!drag) return; const z=zoneEl(e.clientX,e.clientY); cleanup(); ngDrop(+chip.dataset.idx, z?z.dataset.zone:null); });
+    chip.addEventListener("pointercancel",()=>{ if(drag){ cleanup(); renderNounGame(); } });
+  });
 }
 function renderNouns(){
   app.innerHTML=`<div class="view verb-forms nouns">
@@ -7655,7 +7681,21 @@ function renderNouns(){
     .nouns .n-tab.on{background:#4db6ac;border-color:#4db6ac;color:#fff}
     .nouns .n-abs{display:flex;align-items:center;justify-content:center;width:46px;height:46px;font-size:26px}
     .nouns .n-empty{grid-column:1/-1;color:var(--muted);font-size:13px;padding:14px;text-align:center}
-    @media(max-width:640px){.nouns .n-cols{grid-template-columns:1fr}.nouns .ng-word{font-size:24px}}
+    .nouns .nd-tray{display:flex;flex-wrap:wrap;gap:8px;min-height:72px;padding:12px;border:2px dashed var(--line);border-radius:14px;background:var(--bg);margin-bottom:10px;align-content:flex-start}
+    .nouns .nd-chip{display:inline-flex;align-items:center;gap:6px;background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:6px 11px 6px 7px;font:600 14px var(--sans);color:var(--navy);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+    .nouns .nd-chip.dragging{cursor:grabbing;box-shadow:0 10px 24px rgba(0,0,0,.22);border-color:var(--teal)}
+    .nouns .nd-chip.placed{background:#e5f6ec;border-color:#2e9e5b;color:#1d6b3e;cursor:default}
+    .nouns .nd-ic svg{width:30px;height:30px;display:block}
+    .nouns .nd-abs{font-size:21px;line-height:1}
+    .nouns .nd-empty2{color:var(--muted);font-size:13px;padding:10px}
+    .nouns .nd-hint{font-size:13px;color:var(--muted);line-height:1.5;margin:2px 0 10px}
+    .nouns .nd-zones{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .nouns .nd-zone{border:2px solid var(--line);border-radius:14px;overflow:hidden;min-height:150px;background:var(--paper);transition:border-color .1s,box-shadow .1s}
+    .nouns .nd-zone.over{border-color:var(--teal);box-shadow:0 0 0 3px rgba(77,182,172,.28)}
+    .nouns .nd-zhead{font:700 14px var(--sans);color:#fff;padding:9px;text-align:center}
+    .nouns .nd-zhead.c{background:#f6b64b}.nouns .nd-zhead.u{background:#4db6ac}
+    .nouns .nd-zbody{display:flex;flex-wrap:wrap;gap:8px;padding:12px;align-content:flex-start;min-height:104px}
+    @media(max-width:640px){.nouns .n-cols{grid-template-columns:1fr}.nouns .ng-word{font-size:24px}.nouns .nd-chip{font-size:12.5px;padding:5px 9px 5px 6px}.nouns .nd-ic svg{width:26px;height:26px}}
     </style>
     <div class="crumb"><a href="#/home">Home</a> › 可數／不可數名詞</div>
     <div class="eyebrow" style="color:#4db6ac">Nouns · 可數 vs 不可數</div>
