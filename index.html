@@ -8863,6 +8863,7 @@ function startVideoQuiz(id){
     i:0, right:0, results:[], listen:false, title:"影片練習 · "+l.title+"｜"+l.zh, timed:false});
   renderQuestion();
 }
+const CLAUSE_LESSONS = {"relative-clauses":1,"noun-clauses":1,"adverb-clauses":1};
 function renderLesson(id){
   const l = lessonById(id), u = unitOf(l), lv = levelById(u.level);
   if(unitLocked(u)){ toast("先餵養解鎖這個進階單元 🥫"); location.hash = "#/level/" + u.level; return; }
@@ -8897,6 +8898,7 @@ function renderLesson(id){
         <div class="eyebrow">${lv.name} · Lesson ${l.n}</div>
         <h1 class="display" style="font-size:32px">${l.title}<span class="zh-term-lg">${l.zh}</span></h1>
         <p class="lede" style="margin-bottom:14px">${l.sub}</p>
+        ${CLAUSE_LESSONS[l.id]?`<div style="margin:0 0 14px;font-size:13.5px"><a href="#/clauses" style="color:var(--teal);font-weight:600;text-decoration:none">📚 ← 回子句總覽 Clauses overview</a> <span style="color:var(--muted)">· 看三種子句的差異與地圖</span></div>`:""}
         <div class="lesson-quick"><button class="btn btn-primary" onclick="location.hash='#/practice/${l.id}'">🎮 先玩再學 Play first（${(l.q||[]).length} 題・約 3 分鐘）</button><span>答錯會告訴你原因；想先看說明就往下滑 👇</span></div>
         ${lessonVideoHTML(l.id)}
         <div class="formbox"><div class="fb-l">Form</div><div class="fb-p">${l.form.p}</div>
