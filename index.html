@@ -8524,9 +8524,17 @@ function renderReflect(){
       <div class="rf-print-icon">🖨</div>
       <div class="rf-print-txt">
         <div class="rf-print-t">列印學習歷程表 · My Learning Journey</div>
-        <div class="rf-print-s">課堂用的完整空白學習歷程表（含小考、自我評量、老師評語，加一頁每週反思，再加一頁「今天學到什麼＋給老師的建議」引導反思頁）。直接列印或存成 PDF 給學生手寫。</div>
+        <div class="rf-print-s">課堂用的完整空白學習歷程表（含小考、自我評量、老師評語，加一頁每週反思）。直接列印或存成 PDF 給學生手寫。</div>
       </div>
       <button class="btn btn-navy" onclick="printJourney()">列印 / 存 PDF</button>
+    </div>
+    <div class="card rf-print">
+      <div class="rf-print-icon">📝</div>
+      <div class="rf-print-txt">
+        <div class="rf-print-t">列印課後反思單 · Reflection</div>
+        <div class="rf-print-s">單張引導反思單：「What I have learned today 今天我學到了什麼」＋「Any comment or suggestion to the instructor 給老師的意見或建議」，附中英句型起手式與手寫橫線。當作下課前的 exit ticket 很好用。</div>
+      </div>
+      <button class="btn btn-navy" onclick="printReflectSheet()">列印 / 存 PDF</button>
     </div>
     <h2 class="section" style="margin-top:28px">過往紀錄 Past entries</h2>
     <div class="rf-pastlist">${pastHTML}</div>
@@ -8740,20 +8748,46 @@ function printJourney(){
       <tr><td class="q" style="height:150px">Task：</td><td></td></tr>
     </table>
   </div>
+  <\/body><\/html>`;
+  safeOpenPrintDoc(doc, "My Learning Journey");
+}
+/* Standalone printable — guided post-class reflection (one page). */
+function printReflectSheet(){
+  const doc = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Reflection 課後反思</title>
+  <style>
+   *{box-sizing:border-box}
+   body{font-family:Arial,"Helvetica Neue",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;color:#000;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#7A5B49;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
+   .bar button{font:inherit;background:#fff;color:#7A5B49;border:0;border-radius:8px;padding:7px 14px;font-weight:600;cursor:pointer}
+   .bar .hint{opacity:.85;font-size:12px}
+   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:44px 50px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+   h1{font-size:21px;font-weight:700;margin:0 0 16px}
+   .dn{display:flex;justify-content:space-between;font-size:13px;margin:0 0 9px}
+   .dn u{font-style:normal;text-decoration:none;border-bottom:1px solid #000;padding:0 10px 1px;min-width:120px;display:inline-block;text-align:center}
+   table{border-collapse:collapse;width:100%;table-layout:fixed}
+   td{border:1px solid #000;padding:6px 9px;font-size:12.5px;vertical-align:top;line-height:1.5;word-break:break-word}
+   .rf-h{font-size:15px;font-weight:700;margin:0}
+   .rf-h span{font-weight:400;color:#444;font-size:12.5px}
+   .guide{font-size:11.5px;color:#555;font-style:italic;line-height:1.55;margin:5px 0 0}
+   .lines{background-image:repeating-linear-gradient(#fff 0 29px,#c9c9c9 29px 30px);background-position:0 6px}
+   @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
+   @page{margin:1.3cm}
+  </style></head><body>
+  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">課後引導反思單，直接列印或存成 PDF 給學生手寫。</span></div>
   <div class="sheet">
     <h1>Reflection 課後反思</h1>
     <div class="dn"><span>Date：<u></u></span><span>Name：<u></u></span><span>Topic：<u></u></span></div>
     <table>
       <tr><td><p class="rf-h">What I have learned today <span>今天我學到了什麼</span></p>
         <p class="guide">引導 Guide：寫下今天 1–3 個重點。可用句型 — I learned (that)… ／ I now understand… ／ An example is… ／ The key point is… ／ I can now…</p></td></tr>
-      <tr><td class="lines" style="height:300px"></td></tr>
+      <tr><td class="lines" style="height:345px"></td></tr>
       <tr><td><p class="rf-h">Any comment or suggestion to the instructor <span>給老師的意見或建議</span></p>
         <p class="guide">引導 Guide：哪裡最有幫助？哪裡還想多練習或不太懂？可用句型 — It was helpful when… ／ I'd like more practice on… ／ Could you please…? ／ I'm still not sure about… ／ Thank you for…</p></td></tr>
-      <tr><td class="lines" style="height:235px"></td></tr>
+      <tr><td class="lines" style="height:290px"></td></tr>
     </table>
   </div>
   <\/body><\/html>`;
-  safeOpenPrintDoc(doc, "My Learning Journey");
+  safeOpenPrintDoc(doc, "Reflection 課後反思");
 }
 
 /* =====================================================
