@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v124-noun-icons-nofaces";
+const CACHE = "eci-v125-noun-icons-expanded";
 const SHELL = [
   "./",
   "./index.html",
