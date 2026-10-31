@@ -11668,6 +11668,41 @@ function cwSheetClues(cw){
   const cl=p=>`<li><b>${p.num}.</b> ${rdPlain(p.zh)} <i>(${rdPlain(p.pos)} · ${p.w.length} letters)</i></li>`;
   return `<div class="cwp-clues"><div><b>橫 Across →</b><ol>${cw.across.map(cl).join("")}</ol></div><div><b>直 Down ↓</b><ol>${cw.down.map(cl).join("")}</ol></div></div>`;
 }
+/* Sentence starter printed at the top of the answer lines for one discussion question.
+   Picks the real question sentence (questions often open with a context sentence), matches its pattern,
+   and turns the question's own words around where it can ("If you could X" → "If I could X, I would …").
+   lk = level a / b / c: longer frames with reasons and contrast at higher levels. */
+function dwStarter(q, lk){
+  const me = s => s.replace(/\byou are\b/gi,"I am").replace(/\byou were\b/gi,"I were").replace(/\byourself\b/gi,"myself")
+                   .replace(/\byours\b/gi,"mine").replace(/\byour\b/gi,"my").replace(/\byou\b/gi,"I");
+  const sents = String(q).replace(/\s+/g," ").trim().split(/(?<=[.!?])\s+/);
+  const t = sents.find(s=>s.includes("?")) || sents[0];
+  const WH = /^(what|which|why|how|who|whose|where|when|do|does|did|should|is|are|was|were|can|could|would|will|have|has)\b/i;
+  const after = t.match(/^[^,?]{3,60},\s*(.+)$/);
+  const core = WH.test(t) ? t : (after && WH.test(after[1]) ? after[1] : t);
+  const why = lk==="c" ? " . This is because … . For example, …" : lk==="b" ? " because … . For example, …" : " because …";
+  let m;
+  if((m = t.match(/^If you ([^,?]+?),\s*(what|which|how|where|who|would|do|should)\b/i))) return `If I ${me(m[1])}, I would …${why}`;
+  if((m = t.match(/^If ([A-Z][^,?]+?),\s*(what|which|how|where|who|would|do|should)\b/))) return `If ${me(m[1])}, I would …${why}`;
+  if((m = core.match(/^What would you do (if|when) ([^?]+)\?/i))) return `If I ${me(m[2]).replace(/^I /,"")}, I would …${why}`;
+  if(/^have you ever/i.test(core)) return lk==="a" ? "Yes, I have. / No, I haven't. One time, I …" : "Yes, I have. Once, I … . It made me feel …";
+  if(/difference between/i.test(core)) return lk==="a" ? "… is … , but … is … ." : "The main difference is that … , while … . This matters because …";
+  if(/\bcompare\b|similar|different\b/i.test(core)) return lk==="a" ? "In ___, … . In Taiwan, … ." : "One similarity is that … . One difference is that … .";
+  if(/\bagree\b/i.test(core)) return lk==="c" ? "I agree / disagree with the view that … because … . However, …" : "I agree / disagree, because …";
+  if(/^(is it|are they|is this)\b.*\bor\b/i.test(core) && !/better to/i.test(core)) return lk==="a" ? "I think it is … because …" : lk==="b" ? "I think it is … because … . For example, …" : "I think it is … , because … . However, …";
+  if(/better (to|for) .+ (or|than) /i.test(core)) return lk==="a" ? "I think it is better to … because …" : "I think it is better to … because … . On the other hand, …";
+  if(/can you think of|give an example/i.test(t)) return lk==="a" ? "One example is … . It …" : "One example is … . I chose it because …";
+  if(/favou?rite/i.test(core)) return "My favourite … is … because …";
+  if(/\b(which|what)\b.*\bwould you (choose|pick|invite|make|bring|ask|send|create)\b/i.test(core)) return lk==="a" ? "I would choose … because …" : "I would choose … because … . Also, …";
+  if(/\byour (family|school|city|town|country|friends?)\b/i.test(core) && /^(how|what|where|who)\b/i.test(core)) return lk==="a" ? "My … usually … . We …" : "In my … , people usually … . For example, …";
+  if(/^how do you\b/i.test(core)) return lk==="a" ? "I usually … . I also …" : "I usually … . I could also … .";
+  if(/^why\b/i.test(core)) return lk==="a" ? "I think … because …" : lk==="b" ? "I think … because … . For example, …" : "One possible reason is that … . Another reason may be that …";
+  if(/^(do|does|did|should|is|are|was|were|can|could|would|will|have|has)\b/i.test(core))
+    return lk==="a" ? "Yes, … / No, … . I think … because …" : lk==="b" ? "Yes / No. I think … because … . For example, …" : "In my view, … because … . However, some people think …";
+  if(/^how\b/i.test(core)) return lk==="a" ? "I think … . First, … . Also, …" : "I think … . First, … . Second, … .";
+  if(/^(what|where|who|whose|when|which)\b/i.test(core)) return lk==="c" ? "I believe … . This is because … . For instance, …" : lk==="b" ? "I think … because … . For example, …" : "I think … because …";
+  return lk==="a" ? "I think … because …" : "In my opinion, … because … .";
+}
 function rdSheetHTML(r, lv, label){
   const paras   = lv.text.map(p=>`<p>${rdEsc(p)}</p>`).join("");
   const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${rdEsc(g[0])}</b> <i>${rdEsc(g[1])}</i> ${rdEsc(g[2])}</span>`).join("");
@@ -11689,7 +11724,7 @@ function rdSheetHTML(r, lv, label){
     a:{lines:3, need:"每題至少寫 <b>1–2 個完整句子</b>。", frames:["I think …","I like / I don't like … because …","In Taiwan, …"]},
     b:{lines:4, need:"每題寫 <b>2–3 個完整句子</b>，要說出理由。", frames:["I think … because …","For example, …","I agree / disagree that …"]},
     c:{lines:5, need:"每題寫 <b>3–4 個完整句子</b>：表明立場、說明理由、舉例。", frames:["In my view, …","This is because …","For instance, …","On the other hand, …"]}}[lk] || {lines:3, need:"", frames:[]};
-  const discuss = (r.discuss||[]).map(d=>`<li><div class="dq">${rdEsc(d)}</div>${'<div class="wl"></div>'.repeat(DW.lines)}</li>`).join("");
+  const discuss = (r.discuss||[]).map(d=>`<li><div class="dq">${rdEsc(d)}</div><div class="wl wl-s"><span>✏️ ${rdEsc(dwStarter(d, lk))}</span></div>${'<div class="wl"></div>'.repeat(DW.lines-1)}</li>`).join("");
   return `<section class="sheet">
   <div class="name-row"><span>Name 姓名: ____________</span><span>Class 班級: ________</span><span>Date 日期: ${label?`<b>${rdEsc(label)}</b>`:"________"}</span><span>Score 分數: ______</span></div>
   ${label?`<div class="day-tag">${rdEsc(label)}</div>`:""}
@@ -11702,7 +11737,7 @@ function rdSheetHTML(r, lv, label){
   ${qs}
   ${discuss?`<div class="dw-sec"><h2>Discussion &amp; Writing 討論與寫作</h2>
   <div class="dw-how"><span>① 先和老師、同學討論　② 用<b>完整的英文句子</b>寫下你的想法</span><span class="dw-when">☐ 課堂完成　☐ 回家作業　繳交日：________</span></div>
-  <div class="dw-tip">${DW.need}　可以這樣開頭：${DW.frames.map(f=>`<i>${f}</i>`).join("　")}</div>
+  <div class="dw-tip">${DW.need}　每題第一行有 ✏️ 開頭提示，可以照著接下去寫，也可以用自己的話開頭。</div>
   <ol class="disc">${discuss}</ol>
   <div class="dw-check">寫完自我檢查：☐ 大寫開頭　☐ 句尾有句號或問號　☐ 每句都有主詞和動詞　☐ 有說出理由（because / for example）</div></div>`:""}
   <div class="src-note">📰 Source 資料來源：改寫自 ${rdEsc(r.src)} 等媒體之公開報導（${rdEsc(r.date)}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</div>
@@ -11764,6 +11799,8 @@ function rdOpenWorksheet(sections, docTitle){
 #rd-print-preview ol.disc li{margin:6px 0 14px}
 #rd-print-preview .dq{margin-bottom:2px}
 #rd-print-preview .wl{height:27px;border-bottom:1px solid #9a9a9a}
+#rd-print-preview .wl-s{display:flex;align-items:flex-end;padding-bottom:3px}
+#rd-print-preview .wl-s span{font:italic 10.5pt Georgia,'Times New Roman',serif;color:#9a7a63}
 #rd-print-preview .dw-how{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;font:9.5pt system-ui,sans-serif;color:#333;margin:-4px 0 6px}
 #rd-print-preview .dw-when{white-space:nowrap}
 #rd-print-preview .dw-tip{font:9.5pt system-ui,sans-serif;color:#555;background:#F7F1E8;border-radius:6px;padding:6px 10px;margin-bottom:10px}
