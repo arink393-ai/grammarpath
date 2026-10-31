@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v122-nouns-infinitive-dummyit";
+const CACHE = "eci-v123-lesson-related-links";
 const SHELL = [
   "./",
   "./index.html",
