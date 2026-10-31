@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v118-clear-closed";
+const CACHE = "eci-v119-adverb-clauses";
 const SHELL = [
   "./",
   "./index.html",
@@ -50,11 +50,11 @@ const SHELL = [
   "./homework.css?v=9",
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
-  "./curriculum-loader.js?v=3",
-  "./lesson-notes.js?v=4",
+  "./curriculum-loader.js?v=4",
+  "./lesson-notes.js?v=5",
   "./homework.js?v=11",
   "./student-info.js?v=7",
-  "./offline-content.js?v=9",
+  "./offline-content.js?v=10",
   "./daily.js?v=18",
   "./adventure.js?v=5",
   "./vocab/books.js?v=6",
