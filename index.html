@@ -8532,7 +8532,7 @@ function renderReflect(){
       <div class="rf-print-icon">📝</div>
       <div class="rf-print-txt">
         <div class="rf-print-t">列印課後反思單 · Reflection</div>
-        <div class="rf-print-s">單張引導反思單：「What I have learned today 今天我學到了什麼」＋「Any comment or suggestion to the instructor 給老師的意見或建議」，附中英句型起手式與手寫橫線。當作下課前的 exit ticket 很好用。</div>
+        <div class="rf-print-s">兩頁式：第一頁 <b>My Learning Journey</b> 學習歷程表，第二頁引導反思「What I have learned today 今天我學到了什麼」＋「Any comment or suggestion to the instructor 給老師的意見或建議」，附中英句型起手式與手寫橫線。當作下課前的 exit ticket 很好用。</div>
       </div>
       <button class="btn btn-navy" onclick="printReflectSheet()">列印 / 存 PDF</button>
     </div>
@@ -8760,12 +8760,18 @@ function printReflectSheet(){
    .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#7A5B49;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
    .bar button{font:inherit;background:#fff;color:#7A5B49;border:0;border-radius:8px;padding:7px 14px;font-weight:600;cursor:pointer}
    .bar .hint{opacity:.85;font-size:12px}
-   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:44px 50px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:44px 50px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
+   .sheet:last-child{break-after:auto;page-break-after:auto}
    h1{font-size:21px;font-weight:700;margin:0 0 16px}
    .dn{display:flex;justify-content:space-between;font-size:13px;margin:0 0 9px}
    .dn u{font-style:normal;text-decoration:none;border-bottom:1px solid #000;padding:0 10px 1px;min-width:120px;display:inline-block;text-align:center}
    table{border-collapse:collapse;width:100%;table-layout:fixed}
    td{border:1px solid #000;padding:6px 9px;font-size:12.5px;vertical-align:top;line-height:1.5;word-break:break-word}
+   .ctr{text-align:center}
+   .stack{margin-top:4px;display:flex;flex-direction:column;gap:4px}
+   .cb{display:flex;align-items:center;gap:7px;font-size:12.5px}
+   .cb b{width:12px;height:12px;border:1px solid #000;display:inline-block;flex:none;font-size:0;line-height:0}
+   .write{white-space:pre-wrap}
    .rf-h{font-size:15px;font-weight:700;margin:0}
    .rf-h span{font-weight:400;color:#444;font-size:12.5px}
    .guide{font-size:11.5px;color:#555;font-style:italic;line-height:1.55;margin:5px 0 0}
@@ -8773,7 +8779,57 @@ function printReflectSheet(){
    @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
    @page{margin:1.3cm}
   </style></head><body>
-  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">課後引導反思單，直接列印或存成 PDF 給學生手寫。</span></div>
+  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">課後反思單（第一頁 My Learning Journey 學習歷程、第二頁引導反思），直接列印或存成 PDF 給學生手寫。</span></div>
+  <div class="sheet">
+    <h1>My Learning Journey</h1>
+    <div class="dn"><span>Date：<u></u></span><span>Name：<u></u></span></div>
+    <table>
+      <tr>
+        <td colspan="3">Last lesson：<div class="stack"><span class="cb"><b></b>Can tell</span><span class="cb"><b></b>Can't tell</span></div></td>
+        <td colspan="3">Last time's homework：<div class="stack"><span class="cb"><b></b>finished</span><span class="cb"><b></b>unfinished</span></div></td>
+      </tr>
+      <tr>
+        <td colspan="3" style="height:54px">Today's test：<br>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp; Score：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /</td>
+        <td colspan="3">School schedule：<br>Lesson__________</td>
+      </tr>
+      <tr>
+        <td colspan="3" style="height:54px">Today's goal：</td>
+        <td colspan="3">Teaching Materials：</td>
+      </tr>
+      <tr><td colspan="6">What did I learn today?</td></tr>
+      <tr>
+        <td colspan="2" style="height:236px">Quiz</td>
+        <td colspan="4"></td>
+      </tr>
+      <tr>
+        <td colspan="2">The thing I did well</td>
+        <td colspan="2">The thing I need to improve</td>
+        <td colspan="2">Tomorrow's goal</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="write" style="height:66px"></td>
+        <td colspan="2" class="write"></td>
+        <td colspan="2" rowspan="3" class="write"></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="ctr">Self-assessment</td>
+        <td colspan="2" rowspan="2">Homework</td>
+      </tr>
+      <tr>
+        <td colspan="2"><div class="stack"><span class="cb"><b></b>Excellent</span><span class="cb"><b></b>Good</span><span class="cb"><b></b>Keep going</span></div></td>
+      </tr>
+      <tr>
+        <td colspan="2">Teacher's assessment</td>
+        <td colspan="2">Next time</td>
+        <td colspan="2">Start from the page.</td>
+      </tr>
+      <tr>
+        <td colspan="2" style="height:64px"><div class="stack"><span class="cb"><b></b>Excellent</span><span class="cb"><b></b>Good</span><span class="cb"><b></b>Keep going</span></div></td>
+        <td colspan="2">Next time test</td>
+        <td colspan="2"></td>
+      </tr>
+    </table>
+  </div>
   <div class="sheet">
     <h1>Reflection 課後反思</h1>
     <div class="dn"><span>Date：<u></u></span><span>Name：<u></u></span><span>Topic：<u></u></span></div>
