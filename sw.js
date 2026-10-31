@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v119-adverb-clauses";
+const CACHE = "eci-v120-clauses-hub";
 const SHELL = [
   "./",
   "./index.html",

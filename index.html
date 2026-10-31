@@ -2184,6 +2184,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/level/advanced">📕 高級 Advanced</button>
   <button data-nav="#/verbforms">🔁 動詞三態 Verb Forms</button>
   <button data-nav="#/participles">🧩 分詞 Participles</button>
+  <button data-nav="#/clauses">📚 子句總覽 Clauses</button>
   <button data-nav="#/games">🎮 遊戲 Games</button>
   <div class="nav-group">島上資源 Island</div>
   <button data-nav="#/island">🐾 我的貓島 My Island</button>
@@ -2823,6 +2824,7 @@ async function route(){
   else if(h[0]==="present") renderPresentList();
   else if(h[0]==="verbforms") renderVerbForms();
   else if(h[0]==="participles") renderParticiples();
+  else if(h[0]==="clauses") renderClauses();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
   else if(h[0]==="etymology" && h[1]) renderEtymology(h[1]);
@@ -7331,6 +7333,74 @@ function renderParticiples(){
     <div class="vf-xlink">🔁 還不熟動詞的過去分詞（V3）？先到 <a href="#/verbforms">動詞三態專區</a> 把三態記熟，分詞就會更輕鬆。也可看課程：<a href="#/lesson/participle-adjectives">分詞形容詞</a>、<a href="#/lesson/participle-clauses">分詞構句</a>。</div>
   </div>`;
   prtNewBatch();
+  window.scrollTo(0,0);
+}
+
+/* =====================================================
+   子句總覽導覽頁 Clauses Overview Hub
+   ===================================================== */
+function renderClauses(){
+  const card=(id,emoji,zh,en,desc,tag)=>`<button class="cl-card" onclick="location.hash='#/lesson/${id}'">
+    <span class="cl-card-emoji">${emoji}</span>
+    <span class="cl-card-body"><span class="cl-card-zh">${zh}</span><span class="cl-card-en">${en}</span><span class="cl-card-desc">${desc}</span></span>
+    <span class="cl-card-tag">${tag}</span></button>`;
+  app.innerHTML=`<div class="view verb-forms clauses">
+    <style>
+    .clauses .cl-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px}
+    .clauses .cl-card{display:flex;gap:12px;align-items:flex-start;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:15px 16px;cursor:pointer;font:inherit;color:var(--ink);transition:transform .12s,box-shadow .12s,border-color .12s}
+    .clauses .cl-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.08);border-color:var(--teal)}
+    .clauses .cl-card-emoji{font-size:26px;line-height:1.1;flex:none}
+    .clauses .cl-card-body{display:flex;flex-direction:column;gap:2px;min-width:0}
+    .clauses .cl-card-zh{font:700 1rem var(--sans);color:var(--navy)}
+    .clauses .cl-card-en{font:600 12px var(--sans);letter-spacing:.02em;color:var(--teal)}
+    .clauses .cl-card-desc{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:3px}
+    .clauses .cl-card-tag{flex:none;align-self:flex-start;font:700 10.5px var(--sans);color:#fff;background:var(--navy);border-radius:6px;padding:2px 7px;white-space:nowrap}
+    @media(max-width:640px){.clauses .cl-cards{grid-template-columns:1fr}}
+    </style>
+    <div class="crumb"><a href="#/home">Home</a> › 子句總覽</div>
+    <div class="eyebrow" style="color:var(--teal)">Clauses · 子句總覽</div>
+    <h1 class="display">子句總覽<span class="zh-term-lg" style="color:var(--teal)">Clauses</span></h1>
+    <p class="lede">一個句子裡常常不只一個「子句」。<b>子句 ＝ 有主詞＋動詞的字群</b>。學會分辨三種<b>從屬子句</b>（名詞、形容詞、副詞），再長的句子都拆得開、讀得懂、寫得出。</p>
+
+    <div class="vf-sec"><h2>先搞懂：獨立子句 vs 從屬子句</h2>
+      <div class="vf-rule">
+        <div class="vf-rline"><b>獨立子句</b>（main / independent clause）：能自己成為一個完整句子。<code>I was tired.</code></div>
+        <div class="vf-rline"><b>從屬子句</b>（subordinate clause）：不能單獨成句，要依附主句，通常由連接詞帶出。<code>because I was tired</code>（✗ 不能單獨使用）</div>
+        <div class="vf-rline">從屬子句依它在句中扮演的<b>角色</b>分成三種 → <b>名詞子句</b>、<b>形容詞子句（＝關係子句）</b>、<b>副詞子句</b>。</div>
+      </div>
+    </div>
+
+    <div class="vf-sec"><h2>三種從屬子句一覽</h2>
+      <p class="vf-sub">看它在句子裡「<b>當什麼用</b>」，就知道是哪一種。</p>
+      <div class="vf-tablewrap"><table class="vf-table">
+        <thead><tr><th>子句種類</th><th>當什麼用</th><th>常見連接詞</th><th>例句</th></tr></thead>
+        <tbody>
+          <tr><td class="b1">名詞子句<div class="vf-zhcell">Noun clause</div></td><td>當<b>名詞</b>（主詞／受詞／補語）</td><td>that, whether, if, what, who, where…</td><td>I know <b>that you tried</b>.</td></tr>
+          <tr><td class="b1">形容詞子句<div class="vf-zhcell">＝關係子句 Relative</div></td><td>修飾<b>名詞</b></td><td>who, which, that, whose, where</td><td>The man <b>who called</b> is here.</td></tr>
+          <tr><td class="b1">副詞子句<div class="vf-zhcell">Adverb clause</div></td><td>修飾<b>動詞／全句</b>（時間‧原因‧條件‧讓步）</td><td>when, because, if, although, so that</td><td><b>When it rains</b>, we stay in.</td></tr>
+        </tbody></table></div>
+    </div>
+
+    <div class="vf-sec"><h2>怎麼快速分辨？三個小測試</h2>
+      <div class="vf-rule">
+        <div class="vf-rline"><b>① 能用 it 代替嗎？</b> 可以 → <b>名詞子句</b>（它是一個「東西」，當主詞或受詞）。<br><code>I believe (that) he's honest.</code> → I believe <b>it</b>. ✓</div>
+        <div class="vf-rline"><b>② 它緊跟在名詞後面、在描述那個名詞嗎？</b> 是 → <b>形容詞子句</b>（回答 which／what kind）。<br><code>the book <b>that I bought</b></code>（哪一本書？）</div>
+        <div class="vf-rline"><b>③ 它在講時間／原因／條件／讓步，而且能整組搬到句首嗎？</b> 是 → <b>副詞子句</b>（回答 when／why／if）。<br><code><b>Because I was late</b>, I ran.</code> ＝ I ran <b>because I was late</b>.</div>
+      </div>
+    </div>
+
+    <div class="vf-sec"><h2>各別課程：點進去深入學</h2>
+      <p class="vf-sub">每一課都有文法篇章、互動練習與可列印學習單（皆為 📕 高級單元，需先解鎖）。</p>
+      <div class="cl-cards">
+        ${card("noun-clauses","📦","名詞子句","Noun Clauses","當名詞用：that／whether／疑問詞引導，當主詞、受詞或補語，含假設語氣。","高級 · 10.3")}
+        ${card("relative-clauses","🧷","形容詞子句（關係子句）","Relative Clauses","修飾名詞：who／which／that…，含限定與非限定（有無逗號）用法。","高級 · 9.2")}
+        ${card("adverb-clauses","⏱️","副詞子句","Adverb Clauses","修飾全句：時間、原因、條件、讓步、目的與結果。","高級 · 9.5")}
+        ${card("participle-clauses","✂️","分詞構句","Participle Clauses","把子句「精簡」成分詞片語：Feeling tired, she left.","高級 · 9.3")}
+      </div>
+    </div>
+
+    <div class="vf-xlink">🧩 子句裡常用到分詞與時態：先到 <a href="#/participles">現在分詞／過去分詞專區</a> 熟悉 V-ing／V3，或到 <a href="#/verbforms">動詞三態專區</a> 把三態記牢，讀寫子句會更順。</div>
+  </div>`;
   window.scrollTo(0,0);
 }
 
