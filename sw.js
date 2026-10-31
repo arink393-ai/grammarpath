@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v126-noun-tabs-more";
+const CACHE = "eci-v127-game-cats-abstract-icons";
 const SHELL = [
   "./",
   "./index.html",
