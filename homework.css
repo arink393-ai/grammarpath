@@ -229,3 +229,18 @@ button.tc-scope.on .si-caret{transform:rotate(90deg)}
 .si-danger-body .tc-sub{margin:2px 0 6px}
 .si-red{color:#B23B2E}
 .tc-bulk{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:0 0 14px;padding:10px 12px;border:1px dashed #E7B4A3;border-radius:10px;background:#FFFBFA}
+
+/* 出作業：每個項目旁標出對象裡有多少人已做完 */
+.tc-pick{align-items:baseline}
+.tc-pick-txt{flex:1 1 auto;min-width:0;text-align:left}
+.tc-done-slot{flex:none;margin-left:auto;padding-left:8px}
+.tc-done{display:inline-block;padding:1px 8px;border-radius:999px;font:600 11.5px var(--sans);white-space:nowrap;cursor:help}
+.tc-done.full{background:#E4F0E4;color:#3B7A3B}
+.tc-done.part{background:#FDF0D8;color:#9A6B12}
+.tc-done.none{background:#F3EFE6;color:#9A9285}
+.tc-done-note{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.tc-done-text{flex:1 1 320px}
+.tc-hidedone{flex:none;display:inline-flex;align-items:center;gap:6px;font:600 13px var(--sans);color:var(--ink);cursor:pointer}
+.hide-alldone .tc-pick.alldone{display:none}
+/* 出作業表單裡的勾選框：不要被「.tc-newhw input」撐成 180px 寬（會讓勾選框飄在中間、文字被推走） */
+.tc-newhw .tc-pick input[type=checkbox],.tc-newhw .tc-inline input[type=checkbox],.tc-newhw .tc-hidedone input[type=checkbox]{flex:0 0 auto;width:auto;min-width:0;padding:0;margin:0 2px 0 0}

@@ -553,6 +553,7 @@ function tcFormToggle(list, id){
   tcFormSync();
   const arr=TC_FORM[list]; const i=arr.indexOf(id); if(i>=0) arr.splice(i,1); else arr.push(id);
   const c=document.getElementById("na-cnt-"+list); if(c) c.textContent=arr.length;
+  tcRefreshDone();
 }
 function tcScopeToggle(t, id){
   tcFormSync();
@@ -578,9 +579,46 @@ function tcPickGrade(g){
   paintTeacher();
 }
 function tcFormCancel(){ TC_FORM=tcFormBlank(); TC_NEWOPEN=false; paintTeacher(); }
+/* ---------- 出作業時：每個項目旁標出「目前指定的對象」有多少人已經做完 ---------- */
+function tcTargetIds(){
+  const F = TC_FORM || tcFormBlank();
+  const active = TDATA.profiles.filter(p=>p.role!=="teacher" && !(typeof siArchived==="function" && siArchived(p.id)));
+  if(F.mode!=="pick") return active.map(p=>p.id);
+  const set = new Set(F.students);
+  (TDATA.members||[]).forEach(m=>{ if(F.groups.includes(m.group_id)) set.add(m.user_id); });
+  return active.map(p=>p.id).filter(id=>set.has(id));
+}
+function tcDoneInfo(t, id, ids){
+  const prog = {}; TDATA.progress.forEach(p=>prog[p.user_id]=p.data||{});
+  const it = t==="readaloud" ? {t, id, lv:(TC_FORM&&TC_FORM.raLv)||""} : {t, id};
+  const done = [], todo = [];
+  ids.forEach(uid=>{ (scopeDone(it, prog[uid]||{}) ? done : todo).push(tName(uid)); });
+  return {n:ids.length, done, todo};
+}
+const TC_DONE_HOW = {lesson:"做完練習", story:"做完（寓言＝做過讀後練習；繪本＝打開讀過）", reading:"打開讀過", readaloud:"交過跟讀錄音"};
+function tcDoneBadge(t, id, ids){
+  ids = ids || tcTargetIds();
+  const d = tcDoneInfo(t, id, ids); if(!d.n) return {html:"", all:false};
+  const how = TC_DONE_HOW[t] || "完成";
+  const tip = `${how}｜已完成（${d.done.length}）：${d.done.join("、")||"—"}\n還沒（${d.todo.length}）：${d.todo.join("、")||"—"}`;
+  if(!d.todo.length) return {all:true, html:`<span class="tc-done full" title="${esc(tip)}">✅ 全部做過</span>`};
+  if(!d.done.length) return {all:false, html:`<span class="tc-done none" title="${esc(tip)}">0/${d.n}</span>`};
+  return {all:false, html:`<span class="tc-done part" title="${esc(tip)}">${d.done.length}/${d.n} 已做</span>`};
+}
+/* 對象或程度改變後，不重畫整個表單，只更新每個項目旁的標示 */
+function tcRefreshDone(){
+  const ids = tcTargetIds();
+  document.querySelectorAll(".tc-pick[data-t]").forEach(l=>{
+    const b = tcDoneBadge(l.dataset.t, l.dataset.id, ids), el = l.querySelector(".tc-done-slot");
+    if(el) el.innerHTML = b.html; l.classList.toggle("alldone", !!b.all);
+  });
+  const n = document.getElementById("na-done-n"); if(n) n.textContent = ids.length;
+}
 function tcScopePicker(){
   const sel=(t,id)=>TC_FORM.scope.some(x=>x.t===t && x.id===id);
-  const cb=(t,id,label,zh)=>`<label class="tc-pick"><input type="checkbox" ${sel(t,id)?"checked":""} onchange="tcScopeToggle('${t}','${id}')"> ${esc(label)}${zh?` <span class="tc-sub">${esc(zh)}</span>`:""}</label>`;
+  const ids = tcTargetIds();
+  const cb=(t,id,label,zh)=>{ const b = tcDoneBadge(t,id,ids);
+    return `<label class="tc-pick ${b.all?"alldone":""}" data-t="${t}" data-id="${esc(id)}"><input type="checkbox" ${sel(t,id)?"checked":""} onchange="tcScopeToggle('${t}','${esc(id)}')"> <span class="tc-pick-txt">${esc(label)}${zh?` <span class="tc-sub">${esc(zh)}</span>`:""}</span><span class="tc-done-slot">${b.html}</span></label>`; };
   const lessons = DATA.levels.map(lv=>{
     const units = DATA.units.filter(u=>u.level===lv.id).map(u=>{
       const ls = DATA.lessons.filter(l=>l.unit===u.id);
@@ -593,7 +631,7 @@ function tcScopePicker(){
   const raLv = TC_FORM.raLv||"";
   const recs = `<details class="tc-pick-grp"><summary>🎤 跟讀錄音（指定文章錄音）</summary><div class="tc-pick-body">
     <div class="hw-row" style="margin:4px 0 8px"><label class="tc-inline">勾選時指定程度
-      <select onchange="TC_FORM.raLv=this.value"><option value="" ${raLv===""?"selected":""}>不限（學生自選）</option>${Object.entries(RA_LV).map(([k,l])=>`<option value="${k}" ${raLv===k?"selected":""}>${l}</option>`).join("")}</select></label></div>
+      <select onchange="TC_FORM.raLv=this.value;tcRefreshDone()"><option value="" ${raLv===""?"selected":""}>不限（學生自選）</option>${Object.entries(RA_LV).map(([k,l])=>`<option value="${k}" ${raLv===k?"selected":""}>${l}</option>`).join("")}</select></label></div>
     <div class="tc-sub" style="margin-bottom:6px">學生的作業會出現「去錄音 →」，點了直接跳到那篇文章的錄音區，錄完交出就算完成。</div>
     ${rds.map(r=>cb("readaloud",r.id,r.topic,r.zh)).join("")}</div></details>`;
   const sts = typeof STORIES!=="undefined"?STORIES:[];
@@ -622,7 +660,9 @@ function tcHomeworkForm(students){
       ${pick}</div>
     <div class="tc-sec"><div class="tc-sec-h">範圍 What（已選 <b id="na-cnt-scope">${F.scope.length}</b>）</div>
       <div class="hw-chips" id="na-scope-chips">${F.scope.length?scopeChips(F.scope):`<span class="tc-sub">還沒選。可不選（純打字／錄音作業）。</span>`}</div>
-      <div class="tc-pick-wrap">${tcScopePicker()}</div>
+      <div class="tc-sub tc-done-note"><span class="tc-done-text">每個項目旁的 <span class="tc-done full">✅ 全部做過</span> <span class="tc-done part">3/5 已做</span> 是目前選的對象（<b id="na-done-n">${tcTargetIds().length}</b> 人）有幾位已經做完；滑鼠移上去看名單。</span>
+        <label class="tc-hidedone"><input type="checkbox" ${TC_FORM.hideDone?"checked":""} onchange="TC_FORM.hideDone=this.checked;document.querySelector('.tc-pick-wrap').classList.toggle('hide-alldone',this.checked)"> 隱藏全部都做過的</label></div>
+      <div class="tc-pick-wrap ${TC_FORM.hideDone?"hide-alldone":""}">${tcScopePicker()}</div>
       <div class="tc-sub">學生會看到可點的範圍清單；你會在下方看到每個人完成了幾項（文法課＝做完練習、寓言＝做過讀後練習、其他＝打開讀過）。</div></div>
     <div class="hw-row"><button class="btn btn-navy" onclick="tcCreate()">${F.id?"儲存修改 Save":"建立 Create"}</button>
       ${F.id?`<button class="btn btn-ghost" onclick="tcFormCancel()">取消編輯</button>`:""}</div>
