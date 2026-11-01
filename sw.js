@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v138-uncountable-partitives";
+const CACHE = "eci-v139-nov-traps";
 const SHELL = [
   "./",
   "./index.html",

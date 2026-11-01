@@ -10,9 +10,14 @@
    `id / cat / topic / zh / src / date / day / week / tag / icon / levels.{a,b,c}{title,cefr,text[],gloss[],q[]} / discuss[] / proper[]`
    - 每日閱讀：給 `day`（例 `"2026-11-03"`）。
    - 每週重點：給最新的 `week` 標籤（例 `"11/2–11/8"`），就會自動成為「本週重點」。
-2. 執行 `python3 tools/build_readings.py`：檢查資料（三個程度、題目答案索引、id 不重複、月份放對檔），並更新 `index.html` 的目錄。
+2. 執行 `python3 tools/build_readings.py`：先把每篇的正確答案位置**平均分散到 A–D**（自動調整選項順序，重跑結果不變；`--check` 會擋下沒分散的），再檢查資料（三個程度、題目答案索引、id 不重複、月份放對檔），並更新 `index.html` 的目錄。
 3. 執行 `python3 tools/sync_assets.py`，把 `sw.js` 的 `CACHE` 名稱加一版。
 4. 只提交自己改的檔案（`readings/…json`、`index.html`、`offline-content.js`、`sw.js`），不要用 `git add -A`。
 5. 要真人語音：`./update.sh`（Kokoro 產生 MP3，只會提交音檔與 RD_AUDIO 清單）。
 
 `tests/content-loading.test.cjs` 會檢查 `index.html` 的目錄和這裡的檔案是否一致；忘了第 2 步測試就會失敗。
+
+## 出題提醒
+
+- 正確答案不用自己排 A/B/C/D，建置時會自動平均分散。
+- 每題至少放一個「陷阱選項」：文章裡真的有、但不是主旨的細節；照抄原文字詞但意思錯的；太絕對（always / only / all）的；因果顛倒的。避免一看就知道錯的搞笑選項。

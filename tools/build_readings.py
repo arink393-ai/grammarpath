@@ -15,7 +15,7 @@
   python3 tools/build_readings.py --check    只檢查（測試用；index.html 與 readings/*.json 不一致就回傳 1）
   python3 tools/build_readings.py --extract  一次性：把 index.html 裡完整的 READINGS 拆成 readings/*.json
 """
-import glob, hashlib, json, os, re, subprocess, sys
+import glob, hashlib, json, os, random, re, subprocess, sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIR = os.path.join(REPO, 'readings')
@@ -52,6 +52,38 @@ def write_month(m, rs):
     with open(os.path.join(DIR, m + '.json'), 'w', encoding='utf-8') as f:
         f.write('[\n' + ',\n'.join(json.dumps(r, ensure_ascii=False) for r in rs) + '\n]\n')
 
+def balance(r):
+    """把每個程度的正確答案位置平均分散到 A–D（依 id+程度 固定洗牌，重跑結果不變）。
+    只移動選項順序，不改內容；回傳這篇有幾題被移動。"""
+    moved = 0
+    for lv in ('a', 'b', 'c'):
+        qs = ((r.get('levels') or {}).get(lv) or {}).get('q') or []
+        rng = random.Random(int(hashlib.md5((r.get('id', '') + lv).encode()).hexdigest(), 16))
+        seq = []
+        while len(seq) < len(qs):
+            blk = [0, 1, 2, 3]; rng.shuffle(blk); seq += blk
+        for i, q in enumerate(qs):
+            opts, a = q.get('opts') or [], q.get('a')
+            if not (isinstance(a, int) and 0 <= a < len(opts)): continue
+            t = seq[i] % len(opts)
+            if t == a: continue
+            rest = [o for x, o in enumerate(opts) if x != a]
+            rest.insert(t, opts[a]); q['opts'] = rest; q['a'] = t; moved += 1
+    return moved
+
+def balance_files(write):
+    """write=True：改寫 readings/*.json；False：只回報有幾題沒平均分散。"""
+    total = 0
+    for p in sorted(glob.glob(os.path.join(DIR, '*.json'))):
+        try: rs = json.load(open(p, encoding='utf-8'))
+        except Exception: continue
+        n = sum(balance(r) for r in rs if isinstance(r, dict))
+        if n and write:
+            with open(p, 'w', encoding='utf-8') as f:   # 保留原本順序與一行一篇的格式
+                f.write('[\n' + ',\n'.join(json.dumps(r, ensure_ascii=False) for r in rs) + '\n]\n')
+        total += n
+    return total
+
 def load():
     errs, all_rs, files = [], [], {}
     for p in sorted(glob.glob(os.path.join(DIR, '*.json'))):
@@ -87,6 +119,12 @@ def block(all_rs, files):
 
 def main():
     if '--extract' in sys.argv: extract()
+    if '--check' in sys.argv:
+        n = balance_files(write=False)
+        if n: print(f'✗ 有 {n} 題的正確答案位置沒有平均分散，請執行 python3 tools/build_readings.py'); sys.exit(1)
+    else:
+        n = balance_files(write=True)
+        if n: print(f'答案位置已平均分散：調整 {n} 題')
     all_rs, files, errs = load()
     for e in errs: print('✗', e)
     if errs: sys.exit(1)
