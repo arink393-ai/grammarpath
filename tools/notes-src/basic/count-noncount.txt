@@ -1,113 +1,39 @@
 # zh
-## 能數 vs. 不能數
-<b>可數名詞</b>可以一個一個數，有單數和複數；<b>不可數名詞</b>是一整團、一整片、或抽象的東西，沒有複數，前面不能加 a / an 或數字。
-表：可數與不可數的差別
-| | 可數名詞 | 不可數名詞 |
+## 可數 vs 不可數名詞
+可數名詞能一個一個數（有單複數）；不可數名詞是整體、物質或抽象（沒有複數）。
+表：兩者差別
+| 項目 | 可數 | 不可數 |
 |---|---|---|
-| 例子 | apple, chair, student | water, rice, money, music |
-| 複數 | apples | ✗（沒有複數） |
-| a / an | an apple | ✗ a water |
-| 數字 | three apples | ✗ three waters → three bottles of water |
-| 很多 | many apples | much water |
-| 一些 | a few apples / some apples | a little water / some water |
-| 動詞 | The apples <b>are</b>… | The water <b>is</b>… |
-
-## 常見的不可數名詞
-表：不可數名詞分類
-| 類別 | 例子 |
+| 複數 -s | 有（dogs） | 沒有（✗ waters） |
+| a / an | 可以（a dog） | 不行（some water） |
+| 「多」 | many / few | much / little |
+| 動詞 | 單或複 | 單數 |
+| 怎麼數 | 直接數 | a __ of（量詞） |
+## 常見不可數名詞
+| 類型 | 例子 |
 |---|---|
-| 液體 | water, milk, juice, tea, coffee, oil |
-| 細小顆粒 | rice, sugar, salt, sand, flour |
-| 材料、物質 | paper, wood, glass, gold, plastic |
-| 抽象概念 | love, help, fun, luck, health, music |
-| 集合名詞 | money, furniture, luggage, homework, information, news, advice, equipment |
-| 天氣 | weather, rain, snow, wind |
-
-## 怎麼數不可數名詞？用「量詞」
-不可數名詞不能直接加數字（✗ two waters），要用<b>「a／數字 + 單位 + of + 名詞」</b>來數。
-表：常見量詞單位（數不可數名詞）
-| 量詞 | 中文 | 例子 |
-|---|---|---|
-| a cup of | 一杯（熱飲） | a cup of tea / coffee |
-| a glass of | 一杯（冷飲） | a glass of water / milk / juice |
-| a bottle of | 一瓶 | a bottle of water / milk |
-| a jug of | 一壺 | a jug of water |
-| a can of | 一罐 | a can of Coke / soup |
-| a carton of | 一紙盒 | a carton of milk |
-| a jar of | 一罐（玻璃） | a jar of honey / jam |
-| a packet of | 一包 | a packet of tea / sugar |
-| a box of | 一盒 | a box of cereal / chocolates |
-| a bag of | 一袋 | a bag of flour / rice |
-| a bowl of | 一碗 | a bowl of rice / soup |
-| a spoonful of | 一匙 | a spoonful of sugar |
-| a piece of | 一片／一則／一件 | a piece of bread / advice / news |
-| a slice of | 一（薄）片 | a slice of bread / cheese |
-| a loaf of | 一條（整條麵包） | a loaf of bread |
-| a bar of | 一條、一塊 | a bar of chocolate / soap |
-| a sheet of | 一張 | a sheet of paper |
-| a tube of | 一條（軟管） | a tube of toothpaste |
-| a kilo of | 一公斤 | a kilo of meat / sugar |
-| a gallon of | 一加侖 | a gallon of petrol |
-| a bunch of | 一串、一把 | a bunch of grapes / bananas |
-> 要說兩個以上，改的是<b>量詞</b>，不可數名詞不變：two <b>bottles</b> of water（✗ two bottles of waters）。更多量詞與練習，見「量詞 Partitives」這一課。
-
-## 一字兩用
-有些字可數、不可數的意思不同：
-| 不可數 | 可數 |
-|---|---|
-| paper 紙 | a paper 報紙、報告 |
-| glass 玻璃 | a glass 玻璃杯；glasses 眼鏡 |
-| time 時間 | three times 三次 |
-| chicken 雞肉 | a chicken 一隻雞 |
-| hair 頭髮（全部） | a hair 一根頭髮 |
-> 中文覺得能數的「家具、行李、作業、建議」，英文都是不可數。
-
+| 物質 | water, milk, bread, rice, money |
+| 抽象 | information, advice, news, homework, furniture |
+> 有些字兩種都行、意思不同：<span class="en"><b>a coffee</b></span>（一杯）vs <span class="en"><b>some coffee</b></span>（咖啡這種飲料）。更多圖解與遊戲，到「可數不可數專區」。
 # mc
-Q: I need some ___ about the trip. || 我需要一些關於這趟旅行的資訊。
-A: informations | information* | an information
-W: information 不可數，沒有複數。
-Q: How ___ luggage do you have? || 你有多少行李？
-A: many | much* | few
-W: luggage 不可數，用 How much。
-Q: Can I have ___ of paper? || 可以給我一張紙嗎？
-A: a piece* | a | an
-W: 紙（paper）不可數，要數時用 a piece of paper。
-Q: The weather ___ nice today. || 今天天氣很好。
-A: are | is* | were
-W: weather 不可數，動詞用單數 is。
-
+Q: Could I have ___ bread? || 可以給我一些麵包嗎？
+A: a | an | some*
+W: bread 不可數 → some。
+Q: She has ___ homework tonight. || 她今晚有很多功課。
+A: many | a lot of* | a few
+W: homework 不可數 → a lot of（不用 many）。
+Q: There is ___ in the news today. || 今天新聞有些資訊。
+A: an information | informations | some information*
+W: information 不可數、無複數 → some information。
 # err
-S: We bought some new [furnitures|furniture]. || 我們買了一些新家具。
-W: furniture 不可數，不能加 s。
-S: She drinks [many|a lot of] coffee. || 她喝很多咖啡。
-W: coffee 不可數，不能用 many；肯定句用 a lot of。
-S: Thank you for [a|your] help. || 謝謝你的幫忙。
-W: help 是不可數名詞，不能加 a。
-
+S: Can I have [a water|a glass of water]? || 可以給我一杯水嗎？
+W: water 不可數，用量詞 a glass of water。
+S: He gave me two [advices|pieces of advice]. || 他給了我兩個建議。
+W: advice 不可數，用 pieces of advice。
+S: The [furnitures are|furniture is] new. || 這家具是新的。
+W: furniture 不可數、單數動詞。
 # mk
-- information 不可數，沒有複數。
-- advice 不可數，不能加 an；說 some advice 或 a piece of advice。
-- apples 是可數名詞，問數量用 How many。
-
-# mc
-Q: There is ___ sand in my shoes. || 我的鞋子裡有一些沙。
-A: a | some* | many
-W: sand 不可數，用 some。
-Q: How ___ chairs do we need? || 我們需要幾張椅子？
-A: much | many* | little
-W: chairs 可數，用 How many。
-Q: We had a lot of ___ at the party. || 我們在派對上玩得很開心。
-A: funs | fun* | a fun
-W: fun 不可數，沒有複數。
-Q: She bought two ___ of milk. || 她買了兩瓶牛奶。
-A: bottle | bottles* | bottles milks
-W: 不可數名詞靠量詞數，量詞變複數。
-# err
-S: I need [a|some] help with my homework. || 我的功課需要一些幫忙。
-W: help 不可數，不能加 a。
-S: The [luggages|luggage] is very heavy. || 行李很重。
-W: luggage 不可數，沒有複數。
-S: There [are|is] some rice in the bowl. || 碗裡有一些飯。
-W: rice 不可數，用 is。
-S: He gave me [a good news|good news]. || 他告訴我一個好消息。
-W: news 不可數，不加 a；要數時說 a piece of news。
+- water 不可數，用 some 或量詞。
+- information 不可數，無複數、用 much。
+- bread 不可數，要數用量詞。
+- furniture 不可數、單數動詞。

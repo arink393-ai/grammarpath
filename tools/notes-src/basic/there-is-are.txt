@@ -1,78 +1,36 @@
 # zh
-## There is / There are：「有」
-中文說「桌上有一本書」，英文不能說 <span class="en">The desk has a book</span>，而要用 <b>There be</b> 句型：<span class="en"><b>There is</b> a book on the desk.</span> 它表示某地「存在」某物。
-表：There be 句型
-| 句型 | 單數／不可數 | 複數 |
-|---|---|---|
-| 肯定 | There <b>is</b> a cat. | There <b>are</b> two cats. |
-| 否定 | There <b>isn't</b> any milk. | There <b>aren't</b> any eggs. |
-| 疑問 | <b>Is</b> there a bank near here? | <b>Are</b> there any questions? |
-| 簡答 | Yes, there is. / No, there isn't. | Yes, there are. / No, there aren't. |
-註：be 動詞跟著<b>後面第一個名詞</b>決定單複數。There <b>is</b> a pen and two books.
-
-## have 和 there is 的差別
-| 句型 | 意思 | 例句 |
-|---|---|---|
-| 人 + have | 某人<b>擁有</b> | I <b>have</b> a bike. |
-| There is / are | 某處<b>存在</b> | <b>There is</b> a bike in the yard. |
-> ✗ Have a park near my home. → ✓ <b>There is</b> a park near my home.
-
-## 過去與未來
-| 時態 | 例句 |
+## There is / There are：表示「有」
+用 There is/are 說某地「有」某物。動詞的單複數要看<b>後面的名詞</b>。
+表：怎麼選
+| 後面的名詞 | 用 |
 |---|---|
-| 過去 | There <b>was</b> a storm. / There <b>were</b> many people. |
-| 未來 | There <b>will be</b> a test tomorrow. |
-| 未來 | There <b>is going to be</b> a party. |
-
-## 問「有多少」
-<span class="en">How many students <b>are there</b> in your class? — There are thirty.</span>
-
+| 單數 | There is a cat. |
+| 不可數 | There is some milk. |
+| 複數 | There are two dogs. |
+## 否定、問句、過去式
+| 類型 | 現在 | 過去 |
+|---|---|---|
+| 否定 | There isn't / aren't | There wasn't / weren't |
+| 問句 | Is / Are there…? | Was / Were there…? |
+> 列舉多個東西時，動詞跟著<b>最靠近的第一個名詞</b>：<span class="en">There <b>is</b> a pen and two books. / There <b>are</b> two books and a pen.</span>
 # mc
-Q: There ___ a lot of people at the concert. || 演唱會上有很多人。
-A: is | are* | have
-W: people 是複數，用 There are。
-Q: ___ any milk in the fridge? || 冰箱裡有牛奶嗎？
-A: Are there | Is there* | Have
-W: milk 不可數，用 Is there。
-Q: There ___ a typhoon last week. || 上週有颱風。
-A: is | was* | were
-W: last week 是過去，a typhoon 單數，用 was。
-Q: There ___ a test tomorrow. || 明天有考試。
-A: will be* | will have | is being
-W: 未來的「有」用 There will be。
-
+Q: ___ some milk in the glass. || 杯子裡有一些牛奶。
+A: There is* | There are | They are
+W: milk 不可數 → There is。
+Q: ___ three books on the table. || 桌上有三本書。
+A: There is | There are* | It is
+W: three books 複數 → There are。
+Q: ___ any eggs in the fridge? || 冰箱裡有蛋嗎？
+A: Is there | Are there* | There are
+W: eggs 複數、問句 → Are there。
 # err
-S: There [is|are] three windows in my room. || 我房間有三扇窗戶。
-W: three windows 是複數，用 There are。
-S: [Has|Is there] a convenience store near here? || 這附近有便利商店嗎？
-W: 某處「有」某物要用 There be 句型。
-S: There [are|is] some bread on the plate. || 盤子上有一些麵包。
-W: bread 不可數，用 There is。
-
+S: There [is|are] many people here. || 這裡有很多人。
+W: many people 複數 → There are。
+S: There [are|is] a dog in the garden. || 花園裡有一隻狗。
+W: a dog 單數 → There is。
+S: [There was|Was there] a party last night? || 昨晚有派對嗎？
+W: 過去問句 → Was there…？
 # mk
-- restaurants 是複數，用 There are。
-- traffic 不可數，用 There is。
-- 某處「有」某物，要用 There is，不能用 Have。
-
-# mc
-Q: There ___ some apples on the table. || 桌上有一些蘋果。
-A: is | are* | have
-W: apples 複數，用 There are。
-Q: ___ there any questions? || 有任何問題嗎？
-A: Is | Are* | Have
-W: questions 複數，用 Are there。
-Q: There ___ any water in the bottle. || 瓶子裡沒有水。
-A: aren't | isn't* | don't
-W: water 不可數，用 isn't。
-Q: How many people ___ in your family? || 你家有幾個人？
-A: is there | are there* | there are
-W: 問句語序：How many + 名詞 + are there？
-# err
-S: There [is|are] two bathrooms in our house. || 我們家有兩間浴室。
-W: two bathrooms 複數，用 There are。
-S: There [are|is] a lot of noise outside. || 外面很吵。
-W: noise 不可數，用 There is。
-S: [Have|There are] many stores on this street. || 這條街上有很多商店。
-W: 某處「有」某物，用 There be 句型。
-S: There [was|were] many people at the concert yesterday. || 昨天演唱會有很多人。
-W: people 是複數，過去式用 were。
+- a cat 單數 → There is。
+- two dogs 複數 → There are。
+- milk 不可數 → There is。

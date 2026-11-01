@@ -1,82 +1,38 @@
 # zh
-## 不定代名詞：不特定的人、事、地
-當我們不知道或不需要說出是誰、是什麼時，就用不定代名詞。它們由前半（some / any / every / no）加上後半（-one / -body / -thing / -where）組成。
-表：不定代名詞組合表
-| | 人 -one / -body | 事物 -thing | 地方 -where |
+## 不定代名詞：some- / any- / every- / no-
+把 some-/any-/every-/no- 和 -one/-body（人）、-thing（物）、-where（地點）組合，就能泛指人、事、地。
+表：組合
+| 字首 | 人 | 物 | 地 |
 |---|---|---|---|
-| some- | someone / somebody 某人 | something 某事 | somewhere 某處 |
-| any- | anyone / anybody 任何人 | anything 任何事 | anywhere 任何地方 |
-| every- | everyone / everybody 每個人 | everything 每件事 | everywhere 到處 |
-| no- | no one / nobody 沒有人 | nothing 沒有東西 | nowhere 哪裡都沒有 |
-註：-one 和 -body 意思一樣，-body 比較口語。no one 要分開寫。
-
-## some- 和 any- 怎麼選？
-| 用 some- | 用 any- |
+| some- | someone | something | somewhere |
+| any- | anyone | anything | anywhere |
+| every- | everyone | everything | everywhere |
+| no- | no one | nothing | nowhere |
+## 兩個重點
+| 重點 | 說明 |
 |---|---|
-| 肯定句 | 否定句、疑問句 |
-| I saw <b>someone</b>. | I didn't see <b>anyone</b>. / Did you see <b>anyone</b>? |
-| 請求、提議的疑問句也用 some-：Would you like <b>something</b> to drink? | 肯定句的 any- 表示「隨便哪個都」：<b>Anyone</b> can do it. |
-
-## 一律用單數動詞
-everyone、somebody、nothing 等雖然意思可能是很多人，但文法上都當<b>單數</b>：
-<span class="en">Everyone <b>is</b> here.</span>（✗ are）／ <span class="en">Nobody <b>knows</b>.</span>
-
-## 不能雙重否定
-no-、nothing、nobody 已經是否定，不能再加 not：
-| ✗ 錯誤 | ✓ 正確 |
-|---|---|
-| I don't know nothing. | I don't know <b>anything</b>. / I know <b>nothing</b>. |
-| There isn't nobody. | There isn't <b>anybody</b>. / There is <b>nobody</b>. |
-
-## 形容詞放後面
-修飾不定代名詞的形容詞放在<b>後面</b>：<span class="en">something <b>cold</b>, nothing <b>special</b>, somewhere <b>quiet</b></span>。
-
+| some- vs any- | 肯定用 some-；否定、問句用 any- |
+| 當單數 | Everyone <b>is</b> here. / Nothing <b>is</b> easy. |
+> no-、nothing 本身已是否定，<b>不再加 not</b>：✗ I don't have nothing → ✓ I have nothing / I don't have anything。邀請、請求的問句仍可用 some-：<span class="en">Would you like <b>something</b> to drink?</span>
 # mc
-Q: Is there ___ in the box? || 箱子裡有東西嗎？
-A: something | anything* | nothing
-W: 一般疑問句用 any-：anything。
-Q: Everybody ___ the answer. || 每個人都知道答案。
-A: know | knows* | are knowing
-W: everybody 文法上是單數，動詞加 s。
-Q: I'm thirsty. I want something ___. || 我好渴，想喝點冰的。
-A: cold to drink* | to drink cold | cold drink to
-W: 形容詞放在 something 後面：something cold to drink。
-Q: I looked for my cat, but it was ___. || 我找我的貓，但到處都找不到。
-A: anywhere | nowhere* | somewhere
-W: nowhere「哪裡都沒有」，本身是否定。
-
-# err
-S: Nobody [are|is] in the classroom. || 教室裡沒有人。
-W: nobody 當單數，用 is。
-S: I didn't buy [nothing|anything] today. || 我今天什麼都沒買。
-W: 已經有 didn't，不能再用 nothing；改成 anything。
-S: Let's go [quiet somewhere|somewhere quiet]. || 我們去個安靜的地方吧。
-W: 形容詞要放在不定代名詞後面。
-
-# mk
-- 已有 didn't，不能再用 nobody；否定句用 anybody。
-- everybody 是單數，動詞用 is。
-- isn't 和 nothing 會變雙重否定；用 anything，或改成 There is nothing。
-
-# mc
-Q: Is ___ home? The lights are on. || 有人在家嗎？燈是亮的。
-A: anyone* | any | everyone are
-W: 一般疑問句用 any-。
-Q: I'm hungry. I want ___ to eat. || 我餓了，我想吃點東西。
+Q: There isn't ___ in the fridge. || 冰箱裡什麼都沒有。
+A: something | anything* | everything
+W: 否定句用 any- → anything。
+Q: ___ in the room was surprised. || 房間裡每個人都很驚訝。
+A: Everyone* | Everyones | Every ones
+W: Everyone 當單數主詞。
+Q: Would you like ___ to eat? || 你想吃點什麼嗎？
 A: anything | something* | nothing
-W: 肯定句用 some-。
-Q: ___ in my class likes music. || 我們班上每個人都喜歡音樂。
-A: Everyone* | Anyone | No one don't
-W: 「每個人」用 everyone，動詞用單數 likes。
-Q: There is ___ in the fridge. It's empty. || 冰箱裡什麼都沒有，空的。
-A: anything | nothing* | something
-W: 肯定句中表示「沒有東西」用 nothing。
+W: 邀請的問句用 something。
 # err
-S: Someone [have|has] taken my pen. || 有人拿走了我的筆。
-W: someone 當單數，用 has。
-S: I didn't tell [nobody|anybody] about it. || 我沒有告訴任何人。
-W: 已經有 didn't，不能再用 nobody。
-S: Would you like [anything|something] to drink? || 你想喝點什麼嗎？
-W: 提供東西的問句用 some-。
-S: Let's do [different something|something different]. || 我們做點不一樣的事吧。
-W: 形容詞放在不定代名詞後面。
+S: I don't know [nobody|anybody] here. || 我在這裡誰都不認識。
+W: 否定句用 anybody（不和 not 並用）。
+S: Everybody [are|is] welcome. || 歡迎每個人。
+W: Everybody 當單數 → is。
+S: Does anyone [knows|know] the way? || 有人知道路嗎？
+W: 有 does，動詞回原形 know。
+# mk
+- 否定句用 anything；或用 nothing。
+- 不定代名詞當單數 → is。
+- 有 does，動詞回原形 know。
+- 肯定句用 someone。

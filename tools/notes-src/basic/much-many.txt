@@ -1,75 +1,35 @@
 # zh
-## many 和 much：都是「很多」
-英文的「很多」要看後面的名詞能不能數。
-表：many / much / a lot of 比較
-| 字 | 接什麼名詞 | 常用在 | 例句 |
-|---|---|---|---|
-| many | 複數可數名詞 | 肯定、否定、疑問句 | I have <b>many</b> friends. |
-| much | 不可數名詞 | 否定句、疑問句 | I don't have <b>much</b> time. |
-| a lot of / lots of | 兩者都可以 | 肯定句最自然 | She drinks <b>a lot of</b> water. |
-註：much 在肯定句聽起來比較正式或生硬，日常說話多用 a lot of：I have <b>a lot of</b> homework.
-
-## 問「多少」
-| 問句 | 接 | 例句 |
+## many / much / a lot of：數量詞
+說「多」時，要看名詞是可數還是不可數。
+表：怎麼選
+| 數量詞 | 配什麼 | 例子 |
 |---|---|---|
-| How many…? | 複數可數名詞 | <b>How many</b> students are there? |
-| How much…? | 不可數名詞 | <b>How much</b> milk do you need? |
-| How much…?（價錢） | — | <b>How much</b> is this shirt? |
-
-## 「少」的說法
-| | 可數 | 不可數 |
-|---|---|---|
-| 一些（正面） | a few friends | a little money |
-| 很少（負面） | few friends | little money |
-| 太多 | too many cars | too much sugar |
-> a few / a little 是「有一些」；few / little 是「幾乎沒有」。
-
+| many | 可數複數 | many books |
+| much | 不可數 | much time |
+| a lot of / lots of | 兩者皆可 | a lot of books / water |
+| a few | 可數複數 | a few apples |
+| a little | 不可數 | a little milk |
+## 問數量：How many / How much
+可數用 <b>How many</b>，不可數用 <b>How much</b>。
+> much 多用在否定句和問句；肯定句常用 a lot of：✓ I have a lot of friends.（比 many friends 更口語）
 # mc
-Q: How ___ water do you drink every day? || 你每天喝多少水？
-A: many | much* | lot
-W: water 不可數，用 How much。
-Q: There are ___ cars on the road today. || 今天路上有很多車。
-A: much | many* | a little
-W: cars 是複數可數名詞，用 many。
-Q: I don't have ___ free time this week. || 這週我沒什麼空閒時間。
-A: many | much* | a few
-W: time（時間）不可數，否定句用 much。
-Q: Don't put ___ salt in the soup. || 湯裡別放太多鹽。
-A: too many | too much* | too few
-W: salt 不可數，用 too much。
-
-# err
-S: How [much|many] brothers do you have? || 你有幾個兄弟？
-W: brothers 是可數名詞，用 How many。
-S: She has [many|a lot of] money. || 她有很多錢。
-W: money 不可數，不能用 many；肯定句用 a lot of。
-S: We have [a few|a little] milk left. || 我們還剩一點牛奶。
-W: milk 不可數，用 a little。
-
-# mk
-- books 可數，問數量用 How many。
-- people 是複數可數名詞，不能用 much；肯定句用 a lot of。
-- homework 不可數，不能加 s，也不能用 many。
-
-# mc
-Q: How ___ eggs do we need? || 我們需要幾顆蛋？
-A: much | many* | lot
-W: eggs 可數，用 How many。
-Q: There isn't ___ juice left. || 果汁剩不多了。
-A: many | much* | a few
-W: juice 不可數，否定句用 much。
-Q: She has ___ friends at school. || 她在學校有很多朋友。
-A: a lot of* | much | a little
-W: friends 可數複數，肯定句用 a lot of（或 many）。
-Q: I only have ___ money. || 我只有一點錢。
+Q: How ___ sugar do you want? || 你要多少糖？
+A: many | much* | few
+W: sugar 不可數 → How much。
+Q: There are ___ cars on the road. || 路上有很多車。
+A: much | a lot of* | a little
+W: cars 可數、肯定句 → a lot of。
+Q: I have ___ time before the bus comes. || 公車來之前我有一點時間。
 A: a few | a little* | many
-W: money 不可數，「一點」用 a little。
+W: time 不可數 → a little。
 # err
-S: How [many|much] sugar do you want? || 你要多少糖？
-W: sugar 不可數，用 How much。
-S: There are [much|many] students in the hall. || 禮堂裡有很多學生。
-W: students 可數，用 many。
-S: I have [a little|a few] questions. || 我有幾個問題。
-W: questions 可數，用 a few。
-S: Don't eat too [many|much] chocolate. || 不要吃太多巧克力。
-W: chocolate 不可數，用 too much。
+S: She doesn't have [many|much] experience. || 她經驗不多。
+W: experience 不可數 → much。
+S: How [much|many] eggs do we need? || 我們需要幾顆蛋？
+W: eggs 可數 → How many。
+S: I read [much|many] books last month. || 我上個月讀了很多書。
+W: books 可數 → many。
+# mk
+- books 可數，用 many。
+- money 不可數，用 much。
+- apples 可數，用 How many。
