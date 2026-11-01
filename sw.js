@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v131-reflect-journey-p1";
+const CACHE = "eci-v132-nouns-lesson-update";
 const SHELL = [
   "./",
   "./index.html",
@@ -50,11 +50,11 @@ const SHELL = [
   "./homework.css?v=9",
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
-  "./curriculum-loader.js?v=5",
-  "./lesson-notes.js?v=6",
+  "./curriculum-loader.js?v=6",
+  "./lesson-notes.js?v=7",
   "./homework.js?v=11",
   "./student-info.js?v=7",
-  "./offline-content.js?v=11",
+  "./offline-content.js?v=12",
   "./daily.js?v=18",
   "./adventure.js?v=5",
   "./vocab/books.js?v=6",
