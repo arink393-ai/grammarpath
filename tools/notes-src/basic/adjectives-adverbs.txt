@@ -1,87 +1,75 @@
 # zh
-## 形容詞 vs. 副詞
-<b>形容詞</b>描述名詞：「怎樣的人／東西？」<b>副詞</b>描述動作：「怎麼做？做得如何？多常做？」也可以修飾形容詞或其他副詞。
-表：形容詞與副詞比一比
-| | 形容詞 adjective | 副詞 adverb |
+## 形容詞與副詞：修飾的工作
+
+<b>形容詞</b>修飾名詞或代名詞（a <b>red</b> car）；<b>副詞</b>修飾動詞、形容詞、另一個副詞或整個句子（runs <b>fast</b>, <b>very</b> cold）。
+
+## 形容詞的兩種位置
+
+表：adjective position
+| 用法 | 位置 | 例句 |
 |---|---|---|
-| 修飾對象 | 名詞、代名詞 | 動詞、形容詞、副詞、整個句子 |
-| 回答的問題 | 什麼樣的？ | 怎麼做？多…？多常？ |
-| 位置 | 名詞前，或 be／連綴動詞後 | 動詞後、形容詞前 |
-| 例句 | She is a <b>careful</b> driver. | She drives <b>carefully</b>. |
+| 限定用法 | 放名詞前面 | <span class="en">a <b>tall</b> building</span> |
+| 敘述用法 | 放連綴動詞後面 | <span class="en">The building is <b>tall</b>. / She looks <b>tired</b>.</span> |
 
-## 形容詞放哪裡？
-- 名詞前面：<span class="en">a <b>tall</b> boy</span>
-- be 動詞和連綴動詞（look, feel, smell, taste, sound, seem, become）後面：<span class="en">You look <b>happy</b>.</span>
-> 連綴動詞後面要用形容詞，不是副詞：The cake tastes <b>good</b>（✗ well）。
+## 形容詞的順序
 
-## 形容詞變副詞
-表：-ly 的規則
-| 規則 | 例子 |
+多個形容詞的順序：<b>意見 → 大小 → 新舊 → 形狀 → 顏色 → 來源 → 材料 → 名詞</b>。例：<span class="en">a nice small old round black Italian wooden table</span>（實際很少放這麼多）。常用：<span class="en">a <b>small black</b> bag、a <b>beautiful old</b> house</span>。
+
+## 副詞的種類
+
+表：kinds of adverbs
+| 種類 | 例子 | 例句 |
+|---|---|---|
+| 方式 manner | carefully, well, fast | <span class="en">He drives <b>carefully</b>.</span> |
+| 時間 time | now, today, soon | <span class="en">I'll call you <b>later</b>.</span> |
+| 地點 place | here, there, outside | <span class="en">Come <b>here</b>.</span> |
+| 頻率 frequency | always, often, never | <span class="en">She <b>often</b> reads.</span> |
+| 程度 degree | very, too, quite | <span class="en">It's <b>too</b> hot.</span> |
+
+## 形容詞 → 副詞（-ly）與例外
+
+表：making adverbs
+| 情況 | 變化／例子 |
 |---|---|
-| 大部分直接加 -ly | quick → quickly, careful → carefully |
-| 子音＋y：去 y 加 -ily | happy → happily, easy → easily |
-| 字尾 -le：去 e 加 -y | simple → simply, gentle → gently |
-| 字尾 -ic：加 -ally | basic → basically |
+| 一般 + ly | quick → quickly, slow → slowly |
+| 子音 + y → ily | happy → happily, easy → easily |
+| -le → -ly | simple → simply, gentle → gently |
+| 同形（形＝副） | fast, hard, late, early, high |
 | 不規則 | good → <b>well</b> |
+| -ly 卻是形容詞 | friendly, lovely, lonely, silly |
+註：hard（努力）vs hardly（幾乎不）、late（晚）vs lately（最近）意思不同，別搞混。
 
-## 長得一樣的形容詞和副詞
-| 單字 | 形容詞用法 | 副詞用法 |
-|---|---|---|
-| fast | a fast car | He runs fast. |
-| hard | a hard test | She works hard. |
-| late | a late bus | He got up late. |
-| early | an early class | I woke up early. |
-註：hardly（幾乎不）、lately（最近）是不同意思的字，不是 hard、late 的副詞。
+## 形容詞 vs 副詞（最易混）
 
-## 以 -ly 結尾卻是形容詞
-<span class="en">friendly, lovely, lonely, ugly, likely</span> 都是形容詞。要當副詞用時，改說 <span class="en">in a friendly way</span>。
+修飾<b>名詞</b> → 形容詞；修飾<b>動詞</b> → 副詞。<span class="en">She is a <b>careful</b> driver.（adj）→ She drives <b>carefully</b>.（adv）</span>。但<b>連綴動詞</b>（be, look, taste, smell, sound）後面接<b>形容詞</b>：<span class="en">The flower smells <b>sweet</b>.</span>（不是 sweetly）。
+
+> 判斷訣竅：先找被修飾的字。是名詞 → 用形容詞；是動詞 → 用副詞；若動詞是 be/look/taste/smell → 後面仍用形容詞。
 
 # mc
-Q: He speaks English very ___. || 他英文說得很好。
+Q: He is a ___ worker. || 他是個認真的工人。
+A: hard* | hardly | hardness
+W: 修飾名詞 worker → 形容詞 hard。
+
+Q: She speaks French ___. || 她法文說得很好。
 A: good | well* | goodly
-W: 修飾動詞 speaks 要用副詞；good 的副詞是不規則的 well。
-Q: This cake tastes ___. || 這蛋糕很好吃。
-A: wonderfully | wonderful* | wonder
-W: taste 是<b>連綴動詞</b>，後面接形容詞 wonderful。
-Q: Please close the door ___. || 請輕輕地關門。
-A: gentle | gently* | gentlely
-W: 字尾 -le 的形容詞，去 e 加 y 變副詞：gently。
-Q: She is a ___ person. || 她是個友善的人。
-A: friendly* | friendlily | friend
-W: friendly 雖然以 -ly 結尾，但它是<b>形容詞</b>，修飾名詞 person。
+W: 修飾動詞 speak，good 的副詞是 well。
+
+Q: This soup tastes ___. || 這湯嚐起來很棒。
+A: great* | greatly
+W: 連綴動詞 taste 後接形容詞 great。
 
 # err
-S: Please drive [careful|carefully]. || 請小心開車。
-W: 修飾動詞 drive 要用副詞 carefully。
-S: You look [sadly|sad] today. || 你今天看起來很難過。
-W: look 是連綴動詞，後面要接形容詞 sad，說明主詞的狀態。
-S: He studied [hardly|hard] for the test. || 他為考試很用功地讀書。
-W: hard 本身就可以當副詞（努力地）；hardly 是「幾乎不」，意思完全相反。
+S: He drives very [careful|carefully]. || 他開車非常小心。
+W: 修飾動詞 drive → 副詞 carefully。
+
+S: I bought a [red big|big red] apple. || 我買了一顆大紅蘋果。
+W: 形容詞順序：大小 big 在顏色 red 前。
+
+S: You look [happily|happy] today. || 你今天看起來很開心。
+W: 連綴動詞 look 後接形容詞 happy。
 
 # mk
-- 要描述動詞 sings（怎麼唱），必須用副詞 beautifully。
-- good 是形容詞；修飾動詞 speaks 要用副詞 well。
-- 修飾動詞 Drive 要用副詞 carefully。
-
-# mc
-Q: The dog barked ___ at the stranger. || 那隻狗對陌生人大聲吠叫。
-A: loud | loudly* | loudness
-W: 修飾動詞 barked 用副詞 loudly。
-Q: She looks ___ in that dress. || 她穿那件洋裝看起來很漂亮。
-A: beautifully | beautiful* | beauty
-W: look 是連綴動詞，後接形容詞。
-Q: He finished the test ___. || 他輕鬆地完成了考試。
-A: easy | easily* | easyly
-W: 子音＋y：去 y 加 -ily。
-Q: We walked ___ because we were late. || 我們走得很快，因為快遲到了。
-A: fast* | fastly | faster than
-W: fast 的副詞形式還是 fast，沒有 fastly。
-# err
-S: The music is too [loudly|loud]. || 音樂太大聲了。
-W: be 動詞後面描述主詞，要用形容詞 loud。
-S: She answered the question [correct|correctly]. || 她正確地回答了問題。
-W: 修飾動詞 answered 要用副詞 correctly。
-S: He runs very [fastly|fast]. || 他跑得很快。
-W: fast 本身就是副詞，沒有 fastly。
-S: I feel [badly|bad] about the mistake. || 我對這個錯誤感到很難過。
-W: feel 是連綴動詞，後面接形容詞 bad。
+- 修飾動詞 sing 要用副詞 beautifully。
+- 修飾動詞 run 要用副詞 quickly。
+- 形容詞順序：大小在顏色前面。
+- 連綴動詞 taste 後面接形容詞 good。

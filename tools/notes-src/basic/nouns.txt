@@ -1,100 +1,99 @@
 # zh
-## 名詞是什麼？
-名詞（noun）是「名稱」：人、地方、東西、動物，甚至看不見摸不到的想法和感覺，都有名字，這些名字就是名詞。句子裡的主詞和受詞，大多由名詞來擔任。
-表：名詞的四大分類
-| 分類 | 說明 | 例字 |
-|---|---|---|
-| 普通名詞 | 一般人事物的名稱，開頭小寫 | teacher, city, dog |
-| 專有名詞 | 特定人、地、事物的名字，開頭一定大寫 | Amy, Taipei, Monday, English |
-| 具體名詞 | 看得到、摸得到的東西 | desk, apple, rain |
-| 抽象名詞 | 看不到、摸不到的概念或感覺 | love, freedom, kindness, advice |
-註：一個名詞可以同時屬於兩類，例如 apple 既是普通名詞也是具體名詞。
+## 名詞 Nouns：人、地、事、物、概念的名稱
 
-## 專有名詞要大寫
-台灣學生最常忘記大寫的有：人名、地名、國家和語言、星期與月份、節日、書名和電影名。
-| 種類 | 例子 |
+名詞是<b>人、地、事、物、概念</b>的名稱。<b>名詞片語＝限定詞＋名詞</b>（a book, the river, my dog），可以當句子的主詞、受詞、補語或同位語——幾乎每個句子都少不了名詞。
+
+## 名詞的分類（同一個字可同時屬多類）
+
+表：名詞分類
+| 分類 | 說明 | 例子 |
+|---|---|---|
+| 普通名詞 | 一般的名稱 | city, dog, teacher |
+| 專有名詞 | 特定的名稱（字首大寫） | Taipei, Rex, Monday |
+| 具體名詞 | 看得見、摸得著 | apple, rain, dog |
+| 抽象名詞 | 看不見的概念、情緒、狀態 | love, time, freedom |
+| 物質名詞 | 物質、食物、元素（多為不可數） | water, gold, rice |
+| 集合名詞 | 一群個體組成的群體 | team, family, police |
+| 複合名詞 | 兩字以上組成 | toothpaste, bus stop |
+| 可數名詞 (C) | 可以計數，有單複數 | book, car, apple |
+| 不可數名詞 (U) | 不能計數，無複數 | water, money, furniture |
+註：同一個名詞可能同時屬多類，例如 <b>car</b> ＝ 普通名詞＋具體名詞＋可數名詞。
+
+## 普通 vs 專有（大寫）
+
+專有名詞指「特定」的人、地、物，第一個字母要<b>大寫</b>：人名、地名、國家、語言、星期、月份、品牌等。其餘是普通名詞。<span class="en">My <b>school</b> is in <b>Taipei</b>.</span>（school 普通、Taipei 專有）。
+
+## 可數 vs 不可數（限定詞規則最重要）
+
+表：限定詞與動詞
+| 種類 | 加 a/an？ | 複數？ | 動詞 | 怎麼數 |
+|---|---|---|---|---|
+| 單數可數 | <b>一定要</b>限定詞 (a/the/my…) | — | 單數 | 直接數 one apple |
+| 複數可數 | <b>不能</b> a/an（可加 the） | 加 -s/-es | 複數 | two apples |
+| 不可數 | <b>不能</b> a/an（可加 the） | <b>沒有</b>複數 | <b>單數</b> | 量詞 a glass of water |
+註：台灣學生最常犯的錯：單數可數名詞前漏掉限定詞。✗ <span class="en">I am teacher.</span> → ✓ <span class="en">I am <b>a</b> teacher.</span>　✗ Taiwan is country → ✓ Taiwan is <b>a</b> country.
+
+有些字兩種都有，意思不同就看要不要冠詞：<span class="en">a <b>room</b></span>（房間，可數）vs <span class="en">There's <b>room</b> for improvement.</span>（空間，不可數）。
+
+## 物質名詞 & 集合名詞
+
+表：動詞單複數
+| 類型 | 用法 | 例句 |
+|---|---|---|
+| 物質名詞 | 多為不可數、用單數動詞、不加 a/an 或數字 | <span class="en">The rice <b>is</b> ready.</span> |
+| 集合名詞（整體） | 當一個整體 → 單數動詞 | <span class="en">My family <b>is</b> small.</span> |
+| 集合名詞（個體） | 強調一群個體 → 複數動詞 | <span class="en">My family <b>are</b> all doctors.</span> |
+
+## 複合名詞的三種寫法
+
+表：compound nouns
+| 寫法 | 例子 |
 |---|---|
-| 人名、稱謂 | Mr. Lin, Grandma Chen |
-| 地名、國家 | Kaohsiung, Japan, the Pacific Ocean |
-| 語言、國籍 | English, Chinese, Japanese |
-| 星期、月份、節日 | Sunday, July, Christmas |
-| 品牌、組織 | Apple, the United Nations |
-> 季節（spring, summer…）不是專有名詞，不用大寫。
+| 相連成一字 | toothpaste, sunlight, football |
+| 空格分開 | bus stop, ice cream, rain forest |
+| 連字號 | mother-in-law, merry-go-round |
 
-## 可數與不可數
-可以一個一個數的叫<b>可數名詞</b>，有單數和複數（a book → two books）；不能直接數的叫<b>不可數名詞</b>，沒有複數形，前面也不能加 a/an。
-表：容易搞錯的不可數名詞
-| 中文意思 | 英文（不可數） | 想數的時候 |
-|---|---|---|
-| 建議 | advice | a piece of advice |
-| 資訊 | information | two pieces of information |
-| 家具 | furniture | a piece of furniture |
-| 行李 | luggage / baggage | three pieces of luggage |
-| 作業 | homework | a lot of homework |
-| 新聞 | news | a piece of news |
-註：news 字尾雖然有 s，但它是不可數名詞，動詞要用單數：The news is good.
+## 名詞的數·性·格
 
-## 名詞在句子裡的位置
-- 當<b>主詞</b>：放在動詞前面 → <span class="en"><b>Dogs</b> bark.</span>
-- 當<b>受詞</b>：放在動詞或介系詞後面 → <span class="en">I like <b>music</b>. / He sat on the <b>chair</b>.</span>
-- 當<b>補語</b>：放在 be 動詞後面說明主詞 → <span class="en">She is a <b>nurse</b>.</span>
-- 前面常帶限定詞或形容詞 → <span class="en">my <b>old</b> <b>bike</b></span>
+表：名詞三特性
+| 特性 | 內容 |
+|---|---|
+| 數 Number | 單數 / 複數；規則加 -s/-es，另有不規則（child→children, man→men） |
+| 性 Gender | 陽性 father／陰性 mother／通性 doctor, friend／無性 rock, advice |
+| 格 Case | 主格（當主詞）＝受格（當受詞）形式相同；所有格要變化 |
+註：所有格：字尾無 s 音 → 加 <b>'s</b>（my sister<b>'s</b> room、the children<b>'s</b> toys）；字尾已有 s 音 → 只加 <b>'</b>（the girls<b>'</b> dresses）。
 
-## 常見名詞字尾
-| 字尾 | 原字 | 名詞 |
-|---|---|---|
-| -tion / -sion | inform, decide | information, decision |
-| -ment | move, enjoy | movement, enjoyment |
-| -ness | kind, happy | kindness, happiness |
-| -er / -or | teach, act | teacher, actor |
-| -ity | able, real | ability, reality |
+## 名詞的功能
+
+名詞／名詞片語可當：<b>主詞</b>（<span class="en">Nicole</span> collects dolls）、<b>受詞</b>（Nicole collects <span class="en">dolls</span>）、<b>補語</b>（Jack is <span class="en">a teacher</span>）、<b>同位語</b>（My friend, <span class="en">Amy</span>, sings）。
+
+> 記住三件事就不太會錯：① 單數可數名詞前一定要有限定詞；② 不可數名詞無複數、用單數動詞；③ 專有名詞（人名、地名、語言、星期）要大寫。
 
 # mc
-Q: She gave me some useful ___. || 她給了我一些有用的建議。
-A: advice* | advices | an advice
-W: advice 是<b>不可數名詞</b>，沒有複數，也不能加 an。
-Q: My favorite subject is ___. || 我最喜歡的科目是英文。
-A: english | English* | an English
-W: 語言名稱是<b>專有名詞</b>，第一個字母要大寫。
-Q: There ___ a lot of furniture in the room. || 房間裡有很多家具。
-A: are | is* | be
-W: furniture 不可數，動詞用單數 is。
-Q: The ___ of the story made everyone cry. || 這個故事的結局讓大家都哭了。
-A: end* | ended | endly
-W: the 和 of 中間要放<b>名詞</b>，end 在這裡當名詞「結局」。
+Q: I am ___ engineer. || 我是一名工程師。
+A: — | an* | some
+W: 單數可數名詞前要有限定詞；engineer 母音開頭用 an。
+
+Q: There isn't ___ milk in the fridge. || 冰箱裡沒有牛奶了。
+A: many | much* | a
+W: milk 不可數，用 much，不用 many／a。
+
+Q: The news ___ good today. || 今天的新聞是好消息。
+A: is* | are | were
+W: news 不可數，用單數動詞 is。
 
 # err
-S: We will visit [japan|Japan] next summer. || 我們明年夏天要去日本。
-W: 國家名稱是專有名詞，開頭一定大寫。
-S: I have a lot of [homeworks|homework] today. || 我今天有很多作業。
-W: homework 是不可數名詞，沒有 -s 的複數形。
-S: The [news are|news is] very exciting. || 這則消息非常令人興奮。
-W: news 看起來像複數，其實是不可數名詞，動詞要用 is。
+S: She is [nurse|a nurse]. || 她是一位護士。
+W: 單數可數名詞前要有限定詞 a。
+
+S: I'd like some [informations|information]. || 我想要一些資訊。
+W: information 不可數，沒有複數形。
+
+S: We go to school on [monday|Monday]. || 我們星期一上學。
+W: 星期是專有名詞，要大寫。
 
 # mk
-- 句首第一個字母和人名、地名（Taipei）都要大寫；I 永遠大寫。
-- 語言名稱 English 是專有名詞，要大寫。
-- advice 是不可數名詞，不能加 -s；要數時說 a piece of advice。
-
-# mc
-Q: There are two ___ in the room. || 房間裡有兩張床。
-A: bed | beds* | bedes
-W: 數字 two 後面接<b>複數名詞</b>。
-Q: Every ___ is different. || 每個人都不一樣。
-A: person* | persons | people
-W: every 後面接<b>單數</b>名詞。
-Q: We visited ___ last year. || 我們去年去了東京。
-A: tokyo | Tokyo* | the Tokyo
-W: 城市名稱是專有名詞，要大寫，也不加 the。
-Q: I need some ___ for my trip. || 我旅行需要一些錢。
-A: moneys | money* | a money
-W: money 是<b>不可數名詞</b>，沒有複數也不加 a。
-# err
-S: I have three [sister|sisters]. || 我有三個姊妹。
-W: 數字三後面要用複數名詞 sisters。
-S: My birthday is in [april|April]. || 我的生日在四月。
-W: 月份名稱要大寫。
-S: He gave me a lot of [informations|information]. || 他給了我很多資訊。
-W: information 不可數，不能加 -s。
-S: Can I have some [breads|bread]? || 可以給我一些麵包嗎？
-W: bread 是不可數名詞，沒有複數形。
+- 單數可數名詞前一定要有限定詞：a teacher。
+- country 是單數可數名詞，前面要有 a。
+- advice 不可數，沒有複數形，不加 -s。
+- 語言是專有名詞，第一個字母要大寫 English。
