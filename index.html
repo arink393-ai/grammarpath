@@ -12174,7 +12174,7 @@ function cwSheetGrid(cw, showAns){
     for(let c=cw.minC;c<=cw.maxC;c++){ const k=r+","+c, sol=cw.cells[k];
       if(!sol){ h+="<td class='cwp-x'></td>"; continue; }
       const num=cw.numberAt[k]?`<span class='cwp-num'>${cw.numberAt[k]}</span>`:"";
-      h+=`<td class='cwp-c'>${num}${showAns?`<span class='cwp-a'>${sol}</span>`:""}</td>`;
+      h+=`<td class='cwp-c'>${num}<span class='cwp-a${showAns?"":" cwp-key"}'>${sol}</span></td>`;
     } h+="</tr>";
   } return h+"</tbody></table>";
 }
@@ -12227,7 +12227,7 @@ function rdSheetHTML(r, lv, label){
     ${cwSheetClues(cw)}</div>` : "";
   const cwAns = cw ? `<div class="ak-cw"><b>Crossword 填字解答</b>${cwSheetGrid(cw,true)}</div>` : "";
   const qs = (lv.q||[]).map((q,i)=>{
-    const opts = (q.opts||[]).map((o,oi)=>`<div class="rd-ws-option">(${RD_LET[oi]}) ${rdPlain(o)}</div>`).join("");
+    const opts = (q.opts||[]).map((o,oi)=>`<div class="rd-ws-option${oi===q.a?" opt-ok":""}">(${RD_LET[oi]}) ${rdPlain(o)}</div>`).join("");
     return `<div class="q"><div class="qh"><span class="qn">${i+1}.</span> ${rdPlain(q.q)}<span class="qtag">${rdEsc(q.t)}</span></div><div class="rd-ws-options">${opts}</div></div>`;
   }).join("");
   const answers = (lv.q||[]).map((q,i)=>`<div class="ak"><b>${i+1}. (${RD_LET[q.a]})</b> ${rdPlain(q.why)}</div>`).join("");
@@ -12309,6 +12309,10 @@ function rdOpenWorksheet(sections, docTitle){
 #rd-print-preview .qtag{font:600 9pt system-ui,sans-serif;color:#79401F;background:#FCF0E8;border-radius:99px;padding:1px 7px;margin-left:8px;vertical-align:middle;white-space:nowrap}
 #rd-print-preview .rd-ws-options{padding-left:20px;font:11pt system-ui,sans-serif}
 #rd-print-preview .rd-ws-option{margin:3px 0}
+#rd-print-preview.show-answers .opt-ok{color:#2E7D4F;font-weight:700;background:#E6F4EA;border-radius:4px;padding:0 4px;margin-left:-4px}
+#rd-print-preview.show-answers .opt-ok::after{content:"  ✓"}
+#rd-print-preview .cwp-key{display:none!important}
+#rd-print-preview.show-answers .cwp-key{display:flex!important;color:#2E7D4F}
 #rd-print-preview ol.disc{padding-left:22px}
 #rd-print-preview ol.disc li{margin:6px 0 14px}
 #rd-print-preview .dq{margin-bottom:2px}
@@ -12390,7 +12394,8 @@ ${sections.map(s=>rdSheetHTML(s.r, s.lv, s.label)).join("")}`;
   document.body.classList.add("rd-printing");
   document.body.style.overflow = "hidden";
   document.title = docTitle;
-  preview.querySelector("#ak-toggle").onchange = e=>preview.classList.toggle("show-answers", e.target.checked);
+  preview.querySelector("#ak-toggle").onchange = e=>{ preview.classList.toggle("show-answers", e.target.checked);
+    if(e.target.checked) toast("✓ 已顯示解答：題目的正確選項標綠色、填字填好答案；解析在每份學習單最後"); };
   preview.querySelector("#rd-print-color").onchange = e=>preview.classList.toggle("ink-saving", e.target.value === "mono");
   preview.querySelector("#rd-print-close").onclick = rdCloseWorksheet;
   preview.querySelector("#rd-print-submit").onclick = ()=>window.print();
