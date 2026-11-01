@@ -1,79 +1,37 @@
 # zh
-## 句型二：主詞＋連綴動詞＋補語
-連綴動詞（linking verb）不表示動作，而是把主詞和後面的<b>補語</b>「連起來」，說明主詞是什麼、怎麼樣。補語通常是<b>形容詞</b>或<b>名詞</b>。
-判斷法：連綴動詞大多可以換成 be 動詞，意思仍然通順。<span class="en">She <b>looks</b> tired. → She <b>is</b> tired.</span>
+## 句型二 S + V + C：連綴動詞後面接補語
+<b>連綴動詞</b>本身意思不完整，後面要接<b>補語</b>（名詞或形容詞）來描述<b>主詞</b>。
 表：常見連綴動詞
-| 類別 | 動詞 | 例句 |
+| 類型 | 動詞 | 例句 |
 |---|---|---|
-| 是 | be | He <b>is</b> a pilot. |
-| 感官（看、聽、聞、嚐、摸） | look, sound, smell, taste, feel | The music <b>sounds</b> great. |
-| 變成 | become, get, turn, grow, go | It <b>got</b> dark. / Her face <b>turned</b> red. |
-| 似乎 | seem, appear | He <b>seems</b> nice. |
-| 保持 | keep, stay, remain | Please <b>keep</b> quiet. |
-
-## 補語用形容詞，不用副詞
-這是句型二最常考的重點：連綴動詞後面描述的是<b>主詞的狀態</b>，所以要用形容詞。
-| ✗ 錯誤 | ✓ 正確 | 說明 |
-|---|---|---|
-| The cake tastes well. | The cake tastes <b>good</b>. | 描述蛋糕的味道 |
-| She looks sadly. | She looks <b>sad</b>. | 描述她的樣子 |
-| It sounds greatly. | It sounds <b>great</b>. | 描述聽起來的感覺 |
-註：feel well 是例外，well 在這裡是形容詞「身體健康」：I don't feel <b>well</b>.
-
-## 同一個動詞，兩種身分
-| 連綴動詞（句型二） | 動作動詞（句型三） |
+| be / 變成 | be, become, get, turn | She <b>became</b> a doctor. |
+| 看似 | seem, appear, look | You <b>look</b> tired. |
+| 感官 | feel, taste, smell, sound | The soup <b>tastes</b> good. |
+## 補語用形容詞，不是副詞
+連綴動詞後面接<b>形容詞</b>，因為它描述的是主詞（名詞），不是動作。
+| ✗ | ✓ |
 |---|---|
-| The soup <b>tastes</b> salty.（湯嚐起來鹹） | She <b>tasted</b> the soup.（她嚐了湯） |
-| He <b>looks</b> angry.（他看起來生氣） | He <b>looked</b> at me.（他看著我） |
-| The flower <b>smells</b> sweet. | The dog <b>smelled</b> the food. |
-> 感官動詞要接名詞時，用 look like / sound like / smell like：It <b>looks like</b> a cat.
-
+| She looks beautifully. | She looks <b>beautiful</b>. |
+| It sounds greatly. | It sounds <b>great</b>. |
+> 同一個動詞可能有兩種用法：<span class="en">She <b>looked</b> happy.</span>（連綴，+形容詞）vs <span class="en">She <b>looked</b> at me.</span>（一般動詞，+介系詞）。
 # mc
-Q: Your idea sounds ___. || 你的主意聽起來很棒。
-A: great* | greatly | well
-W: sound 是連綴動詞，後面接形容詞 great。
-Q: The leaves ___ yellow in autumn. || 秋天葉子變黃。
-A: turn* | turn to | are turning to
-W: turn 當連綴動詞「變成」，後面直接接形容詞。
-Q: That cloud looks ___ a rabbit. || 那朵雲看起來像一隻兔子。
-A: as | like* | likely
-W: 連綴動詞後要接名詞時，用 look like。
-Q: Please keep ___ in the library. || 在圖書館請保持安靜。
-A: quiet* | quietly | quietness
-W: keep 在這裡是連綴動詞，接形容詞 quiet。
-
+Q: The music sounds ___. || 這音樂聽起來很棒。
+A: wonderful* | wonderfully | wonder
+W: 連綴動詞 sound + 形容詞 wonderful。
+Q: He ___ angry when he heard it. || 他聽到時變得很生氣。
+A: became* | became to | was become
+W: become + 形容詞補語，不加 to。
+Q: This milk ___ bad. Don't drink it. || 這牛奶聞起來壞了。
+A: smells* | smells badly | is smell
+W: smell 連綴動詞 + 形容詞 bad。
 # err
-S: This flower smells [sweetly|sweet]. || 這朵花聞起來很香。
-W: smell 是連綴動詞，描述主詞要用形容詞 sweet。
-S: It is getting [darkly|dark] outside. || 外面天色漸漸暗了。
-W: get 在這裡是連綴動詞「變得」，後面接形容詞 dark。
-S: She looks [a movie star|like a movie star]. || 她看起來像電影明星。
-W: 連綴動詞 look 後面接名詞時要說 look like。
-
+S: You look [tiredly|tired] today. || 你今天看起來很累。
+W: 連綴動詞 look 後接形容詞 tired。
+S: The plan sounds [perfectly|perfect]. || 這計畫聽起來很完美。
+W: sound 後接形容詞 perfect。
+S: She became [to a star|a star]. || 她變成了明星。
+W: become 後面直接接補語，不加 to。
 # mk
-- become 是連綴動詞，後面接形容詞 happy。
-- smell 是連綴動詞，後面接形容詞 good。
-- look 是連綴動詞，描述主詞要用形容詞 tired。
-
-# mc
-Q: The bread smells ___. || 這麵包聞起來很香。
-A: good* | well | goodly
-W: 連綴動詞後接形容詞 good。
-Q: He became ___ after many years of practice. || 經過多年練習，他成為了一位醫生。
-A: a doctor* | doctor to | as doctor
-W: become 後面可以接名詞補語 a doctor。
-Q: Your plan seems ___. || 你的計畫似乎很合理。
-A: reasonable* | reasonably | reason
-W: seem 是連綴動詞，接形容詞。
-Q: The weather is getting ___. || 天氣越來越冷了。
-A: cold* | coldly | to cold
-W: get 當連綴動詞「變得」，接形容詞。
-# err
-S: The milk tastes [sourly|sour]. || 牛奶嚐起來是酸的。
-W: taste 是連綴動詞，接形容詞 sour。
-S: You look [happily|happy] today. || 你今天看起來很開心。
-W: look 是連綴動詞，接形容詞 happy。
-S: The room stayed [quietly|quiet] all night. || 房間整晚保持安靜。
-W: stay 是連綴動詞，接形容詞 quiet。
-S: That sounds [a good idea|like a good idea]. || 聽起來是個好主意。
-W: 連綴動詞後接名詞時，用 sound like。
+- 連綴動詞後接形容詞，不是副詞。
+- become 後面直接接補語，不加 to。
+- 感官連綴動詞 smell 後接形容詞 bad。

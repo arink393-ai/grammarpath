@@ -1,88 +1,41 @@
 # zh
-## 五大句型總覽
-英文所有句子都可以歸納成五種基本句型，差別在於<b>動詞後面需要什麼</b>。學會判斷動詞屬於哪一型，就能寫出結構正確的句子。
-表：英文五大句型
-| 句型 | 結構 | 動詞種類 | 例句 |
-|---|---|---|---|
-| 句型一 | S + V | 完全不及物動詞 | Birds <b>fly</b>. |
-| 句型二 | S + V + C | 連綴動詞 | She <b>is</b> happy. |
-| 句型三 | S + V + O | 完全及物動詞 | I <b>like</b> music. |
-| 句型四 | S + V + IO + DO | 授與動詞 | He <b>gave</b> me a book. |
-| 句型五 | S + V + O + OC | 不完全及物動詞 | They <b>made</b> me happy. |
-註：S＝主詞 Subject、V＝動詞 Verb、O＝受詞 Object、C＝補語 Complement、IO＝間接受詞、DO＝直接受詞。
-
-## 句型一：主詞＋不及物動詞
-動詞本身意思就完整，後面<b>不需要受詞</b>。後面可以加上副詞或介系詞片語（地點、時間、方式），但那些只是「附加說明」，不是受詞。
-表：常見的不及物動詞
-| 動詞 | 例句 |
+## 句型一 S + V：不及物動詞自己就完整
+<b>不及物動詞</b>（vi.）本身意思完整，後面<b>不需要受詞</b>。最簡單的句子就是「主詞 + 動詞」。
+| 例句 | 說明 |
 |---|---|
-| arrive 抵達 | The bus <b>arrived</b> late. |
-| happen 發生 | What <b>happened</b>? |
-| rise 上升 | The sun <b>rises</b> in the east. |
-| fall 落下 | Leaves <b>fall</b> in autumn. |
-| cry / laugh / sleep | The baby <b>cried</b> all night. |
-| go / come / walk / run | He <b>runs</b> every morning. |
-
-## 不及物動詞＋介系詞
-不及物動詞想要接名詞時，中間要有<b>介系詞</b>：
-| ✗ 錯誤 | ✓ 正確 |
-|---|---|
-| arrive the station | arrive <b>at</b> the station |
-| listen music | listen <b>to</b> music |
-| look the picture | look <b>at</b> the picture |
-| wait the bus | wait <b>for</b> the bus |
-> arrive at（小地點）／arrive in（大城市、國家）：arrive <b>in</b> Tokyo。
-
-## 一個動詞可能有不同句型
-有些動詞既可以不及物，也可以及物，要看有沒有受詞：
-<span class="en">The door <b>opened</b>.</span>（句型一）／ <span class="en">She <b>opened</b> the door.</span>（句型三）
-
+| Birds <b>fly</b>. | fly 後面不用接東西 |
+| The baby <b>is sleeping</b>. | sleep 不及物 |
+| She <b>smiled</b>. | smile 不及物 |
+## 常加上修飾語補充時間、地點
+不及物動詞後面常接地點、時間等修飾語（不是受詞）：<span class="en">We arrived <b>late</b>. / They are playing <b>outside</b>.</span>
+## 要接名詞？先加介系詞
+很多不及物動詞要接名詞時，中間要有介系詞。
+表：常見搭配
+| 動詞 | 介系詞 | 例句 |
+|---|---|---|
+| listen | to | listen <b>to</b> music |
+| wait | for | wait <b>for</b> the bus |
+| look | at | look <b>at</b> the board |
+| agree | with | agree <b>with</b> you |
+> 不及物動詞<b>沒有被動語態</b>。✗ The accident was happened. → ✓ The accident happened.
 # mc
-Q: The accident ___ last night. || 那場意外發生在昨晚。
-A: happened* | was happened | happened it
-W: happen 是不及物動詞，後面不接受詞，也沒有被動式。
-Q: We arrived ___ the airport at noon. || 我們中午抵達機場。
-A: to | at* | the
-W: arrive 是不及物，接地點要加介系詞；機場是小地點用 at。
-Q: Please listen ___ the teacher. || 請聽老師說。
-A: at | to* | for
-W: listen 不及物，要用 listen to + 人／東西。
-Q: The baby is ___. || 寶寶在睡覺。
-A: sleeping* | sleeping the bed | sleep
-W: sleep 是不及物動詞，句型一 S + V 就已經完整。
-
+Q: We ___ at seven every morning. || 我們每天七點起床。
+A: get up* | get up the bed | are get up
+W: get up 是不及物動詞，後面不接受詞。
+Q: She is listening ___ the radio. || 她正在聽收音機。
+A: — | to* | at
+W: listen 要接名詞時加 to。
+Q: Something strange ___ last night. || 昨晚發生了奇怪的事。
+A: happened* | was happened | happened to it
+W: happen 不及物、沒有被動。
 # err
-S: We are [waiting the|waiting for the] bus. || 我們在等公車。
-W: wait 是不及物動詞，要用 wait for + 受詞。
-S: My uncle arrived [to|in] Taipei yesterday. || 我叔叔昨天抵達台北。
-W: arrive 不能接 to；大城市用 arrive in。
-S: The price of eggs [rose up|rose]. || 蛋價上漲了。
-W: rise 本身就是「上升」，不需要再加 up。
-
+S: Please wait [me|for me] here. || 請在這裡等我。
+W: wait 接人要加 for。
+S: I totally [agree you|agree with you]. || 我完全同意你。
+W: agree 接人要加 with。
+S: The sun [was risen|rose] at six. || 太陽六點升起。
+W: rise 是不及物動詞，沒有被動。
 # mk
-- fly 是不及物動詞，接地點要加介系詞：fly in the sky。
-- arrive 不接 to；到學校用 arrive at school。
-- fall 不及物，接方向要加介系詞：fell to the ground。
-
-# mc
-Q: Many people ___ in the accident. || 很多人在意外中喪生。
-A: died* | were died | died them
-W: die 是不及物動詞，沒有被動，也不接受詞。
-Q: The guests ___ at seven. || 客人七點到。
-A: arrived* | arrived the party | were arrived
-W: arrive 是不及物動詞，S + V 就完整。
-Q: Please wait ___ me here. || 請在這裡等我。
-A: to | for* | at
-W: wait 不及物，要用 wait for + 人。
-Q: The sun ___ in the west. || 太陽從西方落下。
-A: sets* | is set | sets it
-W: set（落下）是不及物動詞。
-# err
-S: The plane [arrived to|arrived at] the airport. || 飛機抵達機場。
-W: arrive 不接 to；小地點用 arrive at。
-S: I like to [listen|listen to] music. || 我喜歡聽音樂。
-W: listen 不及物，接受詞要加 to。
-S: The problem [was disappeared|disappeared]. || 問題消失了。
-W: disappear 是不及物動詞，不能用被動。
-S: Please look [the|at the] board. || 請看黑板。
-W: look 不及物，要說 look at。
+- agree 接人要加介系詞 with。
+- listen 後面要加 to。
+- happen 是不及物動詞，沒有被動語態。

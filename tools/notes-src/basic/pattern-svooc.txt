@@ -1,82 +1,37 @@
 # zh
-## 句型五：主詞＋動詞＋受詞＋受詞補語
-有些動詞接了受詞後，意思還不完整，要再補充說明「受詞變成什麼、是什麼、做什麼」，這個補充就是<b>受詞補語（OC）</b>。
-判斷法：受詞和受詞補語之間可以加 be 動詞變成一句話。<span class="en">They made <b>me happy</b>. → I am happy.</span>
-表：受詞補語的種類
-| 補語種類 | 常見動詞 | 例句 |
+## 句型五 S + V + O + OC：補語描述「受詞」
+有些動詞後面接受詞還不夠，要再加一個<b>受詞補語</b>來補充說明<b>受詞</b>。補語可以是形容詞、名詞、原形動詞、V-ing 或 V3。
+表：補語的種類
+| 動詞類型 | 補語 | 例句 |
 |---|---|---|
-| 形容詞 | make, keep, find, leave, get | The news made <b>her sad</b>. |
-| 名詞 | call, name, elect, make, choose | They named <b>the baby Leo</b>. |
-| 原形動詞 | 使役動詞 make, let, have；感官動詞 see, hear, watch | Mom let <b>me go</b> out. |
-| to V | want, ask, tell, allow, expect | I want <b>you to help</b> me. |
-| V-ing | see, hear, find, keep, catch | I saw <b>him running</b>. |
-
-## 補語用形容詞，不用副詞
-受詞補語說明的是受詞的狀態，所以要用形容詞：
-| ✗ 錯誤 | ✓ 正確 |
+| make, keep, find | 形容詞 | The news made me <b>happy</b>. |
+| call, name, elect | 名詞 | We call him <b>Tom</b>. |
+| 感官 see, hear, watch | 原形 / V-ing | I saw her <b>cross</b> the street. |
+| 使役 make, let, have | 原形 | She made me <b>laugh</b>. |
+## 補語描述的是「受詞」
+| 句子 | 補語描述誰 |
 |---|---|
-| The movie made me sadly. | The movie made me <b>sad</b>. |
-| Keep the room cleanly. | Keep the room <b>clean</b>. |
-| I found the book interestingly. | I found the book <b>interesting</b>. |
-
-## 名詞補語不加介系詞
-call、name、elect 後面直接放名詞，不加 to / as：
-<span class="en">They called him <b>Superman</b>.</span>（✗ called him as Superman）<br><span class="en">We elected Amy <b>class leader</b>.</span>（職位前不加 the）
-
-## 使役動詞：make / let / have
-| 動詞 | 意思 | 結構 | 例句 |
-|---|---|---|---|
-| make | 強迫 | make + 人 + 原形V | He made me <b>wait</b>. |
-| let | 允許 | let + 人 + 原形V | Let me <b>help</b> you. |
-| have | 叫、請 | have + 人 + 原形V | I'll have him <b>call</b> you. |
-> 使役動詞後面用原形動詞，不加 to：✗ made me to wait。
-
+| She keeps <b>the room</b> clean. | the room（受詞）很乾淨 |
+| They found <b>the movie</b> boring. | the movie（受詞）無聊 |
+> 名詞補語前不加 as：✗ We elected him <b>as</b> leader. → ✓ We elected him leader.　感官／使役動詞後用原形，不加 to：✗ I saw him <b>to</b> fall. → ✓ I saw him fall.
 # mc
-Q: The long walk made us ___. || 長途步行讓我們很累。
-A: tired* | tiredly | tire
-W: 受詞補語說明 us 的狀態，用形容詞 tired。
-Q: Everyone calls him ___. || 大家都叫他「小胖」。
-A: as Fatty | Fatty* | to Fatty
-W: call 後面直接接名詞補語，不加 as / to。
-Q: My parents let me ___ up late on Saturdays. || 我爸媽星期六讓我晚睡。
-A: to stay | stay* | staying
-W: 使役動詞 let 後面用原形動詞 stay。
-Q: Please leave the door ___. || 請讓門開著。
-A: open* | opened up | openly
-W: leave + 受詞 + 形容詞：讓…保持某狀態。
-
+Q: The teacher made the lesson ___. || 老師把課上得很有趣。
+A: interestingly | interesting* | interest
+W: 受詞補語用形容詞 interesting。
+Q: They elected her ___. || 他們選她當班長。
+A: as monitor | monitor* | to monitor
+W: elect + 受詞 + 名詞補語，不加 as。
+Q: I watched them ___ soccer. || 我看他們踢足球。
+A: to play | play* | played
+W: 感官動詞 watch + 原形 play（或 playing）。
 # err
-S: The good news made everyone [happily|happy]. || 好消息讓大家都很開心。
-W: 受詞補語要用形容詞 happy。
-S: Our teacher made us [to rewrite|rewrite] the essay. || 老師要我們重寫作文。
-W: 使役動詞 make 後面用原形動詞，不加 to。
-S: I saw him [to cross|cross] the street. || 我看到他過馬路。
-W: 感官動詞 see 後面的受詞補語用原形動詞（或 V-ing），不加 to。
-
+S: Coffee keeps me [awakely|awake]. || 咖啡讓我保持清醒。
+W: keep + 受詞 + 形容詞補語 awake。
+S: We named our dog [as Lucky|Lucky]. || 我們把狗取名叫 Lucky。
+W: name + 受詞 + 名詞補語，不加 as。
+S: My dad let me [to drive|drive]. || 我爸讓我開車。
+W: 使役動詞 let + 原形 drive。
 # mk
-- 受詞補語描述 him 的狀態，用形容詞 happy。
-- 受詞補語要用形容詞 difficult，不是名詞 difficulty。
-- name 後面直接接名字，不加 to。
-
-# mc
-Q: The teacher made us ___ the poem. || 老師要我們背這首詩。
-A: memorize* | to memorize | memorized
-W: 使役動詞 make 後接原形動詞。
-Q: We painted the wall ___. || 我們把牆漆成白色。
-A: white* | whitely | whiten
-W: 受詞補語用形容詞 white。
-Q: I found the movie ___. || 我覺得這部電影很無聊。
-A: bored | boring* | boringly
-W: 受詞補語描述「電影」（令人無聊），用 boring。
-Q: My parents want me ___ a doctor. || 我爸媽希望我當醫生。
-A: be | to be* | being
-W: want + 受詞 + to V。
-# err
-S: The cold weather made me [sickly|sick]. || 寒冷的天氣讓我生病了。
-W: 受詞補語用形容詞 sick。
-S: Please keep the door [closely|closed]. || 請讓門保持關著。
-W: 受詞補語描述門的狀態，用 closed。
-S: Mom let me [to go|go] to the party. || 媽媽讓我去派對。
-W: 使役動詞 let 後面接原形動詞。
-S: They call [as him|him] "the King." || 他們叫他「國王」。
-W: call + 受詞 + 名詞補語，中間不加 as。
+- 受詞補語用形容詞 happy，不是副詞。
+- elect / name / call 後接名詞補語，不加 as。
+- 感官動詞 see 後接原形動詞（或 V-ing），不用 to。

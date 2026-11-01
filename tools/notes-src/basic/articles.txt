@@ -1,89 +1,40 @@
 # zh
-## 冠詞是什麼？
-冠詞是放在名詞前面的小字，只有三個：<b>a、an、the</b>。中文沒有冠詞，所以這是台灣學生最常漏掉、也最常用錯的地方。
-表：不定冠詞與定冠詞
-| 冠詞 | 名稱 | 用在 | 例句 |
-|---|---|---|---|
-| a / an | 不定冠詞 | 第一次提到、不特定的「一個」單數可數名詞 | I saw <b>a</b> dog. |
-| the | 定冠詞 | 特定的、雙方都知道是哪一個 | <b>The</b> dog was very big. |
-
-## a 還是 an？看「發音」不是看字母
-| 用 a（子音開頭的音） | 用 an（母音開頭的音） |
+## 冠詞 a / an / the：這個名詞「新」還是「舊」？
+冠詞放在名詞前面。判斷用哪個，先問：這是<b>第一次提到／泛指</b>（新資訊），還是<b>雙方都知道的特定</b>（舊資訊）？
+表：三種選擇
+| 冠詞 | 什麼時候用 | 例子 |
+|---|---|---|
+| a / an | 第一次提到、泛指一個單數可數名詞、職業 | I saw <b>a</b> dog. She is <b>an</b> artist. |
+| the | 雙方都知道的特定、再次提到、獨一無二 | Close <b>the</b> door. <b>the</b> sun |
+| 不加（零冠詞） | 複數泛指、不可數泛指、某些固定片語 | <b>Dogs</b> are loyal. go to <b>bed</b> |
+## a 還是 an？看「發音」不是拼字
+下一個字發<b>母音</b>開頭 → an；發<b>子音</b>開頭 → a。看的是聲音。
+| a（子音開頭音） | an（母音開頭音） |
 |---|---|
-| a book, a cat | an apple, an egg |
-| a <b>u</b>niversity（念 /juː/） | an <b>u</b>mbrella（念 /ʌ/） |
-| a <b>o</b>ne-day trip（念 /w/） | an <b>h</b>our（h 不發音） |
-| a <b>h</b>orse（h 有發音） | an <b>h</b>onest boy（h 不發音） |
-| a <b>U</b>SB | an <b>M</b>RT station（M 念 /em/） |
-
-## 什麼時候用 the？
-表：用 the 的情況
-| 情況 | 例句 |
-|---|---|
-| 前面提過的 | I bought a shirt. <b>The</b> shirt is blue. |
-| 雙方都知道的 | Please close <b>the</b> door. |
-| 世上獨一無二的 | <b>the</b> sun, <b>the</b> moon, <b>the</b> earth |
-| 最高級、序數 | <b>the</b> best, <b>the</b> first |
-| 樂器 | play <b>the</b> piano |
-| 河流、海洋、山脈 | <b>the</b> Pacific Ocean, <b>the</b> Alps |
-
-## 什麼時候不用冠詞？
-| 情況 | 例句 |
-|---|---|
-| 泛指的複數或不可數名詞 | <b>Dogs</b> are friendly. / <b>Life</b> is beautiful. |
-| 三餐 | have <b>breakfast</b> |
-| 球類運動 | play <b>basketball</b> |
-| 學科、語言 | I like <b>math</b>. |
-| 交通工具 by… | by <b>bus</b> |
-| 去做主要用途的場所 | go to <b>school</b> / go to <b>bed</b> |
-> 說身分職業一定要加 a / an：She is <b>an</b> engineer.
-
+| a university（/j/） | an umbrella |
+| a European | an hour（h 不發音） |
+## 先 a，後 the
+同一個東西，第一次用 a/an（新），第二次雙方都知道了就用 the（舊）：<span class="en">I have a cat. The cat is black.</span>
+> 泛指「所有／一般」時：複數名詞和不可數名詞前面<b>不加</b>冠詞。✗ The water is important.（泛指時）→ ✓ Water is important.
 # mc
-Q: I waited for ___ hour. || 我等了一個小時。
+Q: She works as ___ nurse. || 她是護士。
+A: a* | an | the
+W: nurse 子音開頭、職業 → a。
+Q: There is ___ elephant at the zoo. || 動物園有一隻大象。
 A: a | an* | the
-W: hour 的 h 不發音，以母音開頭，用 an。
-Q: She plays ___ violin very well. || 她小提琴拉得很好。
-A: a | the* | an
-W: 演奏樂器要加 the。
-Q: My brother studies at ___ university in Tainan. || 我哥哥在台南一所大學念書。
-A: a* | an | 不填
-W: university 念 /juː/，是子音開頭的音，用 a。
-Q: We play ___ basketball after school. || 我們放學後打籃球。
-A: the | a | 不填*
-W: 球類運動前面不加冠詞。
-
+W: elephant 母音開頭 → an。
+Q: Can you pass me ___ salt? || 可以把鹽遞給我嗎？
+A: a | an | the*
+W: 雙方都知道的特定（桌上的鹽）→ the。
 # err
-S: My mother is [nurse|a nurse]. || 我媽媽是護士。
-W: 說職業身分，單數可數名詞前要加 a。
-S: There is [a|an] old man at the door. || 門口有位老人。
-W: old 以母音開頭，要用 an。
-S: [The|] Music makes me happy. || 音樂讓我快樂。
-W: 泛指一般的音樂，不可數名詞前不加 the。
-
+S: I am [student|a student]. || 我是學生。
+W: 單數可數名詞前要有冠詞 a。
+S: We waited for [a hour|an hour]. || 我們等了一個小時。
+W: hour 的 h 不發音、母音開頭 → an。
+S: [The honesty|Honesty] is important. || 誠實很重要。
+W: 抽象不可數名詞泛指不加 the。
 # mk
-- 說職業要加冠詞；engineer 以母音開頭用 an。
-- hour 的 h 不發音，以母音開頭，用 an。
-- 泛指一般的「人生」，不加 the。
-
-# mc
-Q: I saw ___ elephant at the zoo. || 我在動物園看到一隻大象。
-A: a | an* | the
-W: elephant 以母音開頭，用 an。
-Q: ___ moon is very bright tonight. || 今晚的月亮很亮。
-A: A | The* | 不填
-W: 獨一無二的東西加 the。
-Q: She goes to work by ___ bus. || 她搭公車上班。
-A: a | the | 不填*
-W: by + 交通工具，不加冠詞。
-Q: He is ___ honest man. || 他是個誠實的人。
-A: a | an* | the
-W: honest 的 h 不發音，以母音開頭，用 an。
-# err
-S: I had [a|] breakfast at seven. || 我七點吃早餐。
-W: 三餐前面不加冠詞。
-S: She wants to be [a|an] artist. || 她想當藝術家。
-W: artist 以母音開頭，用 an。
-S: [Sun|The sun] rises in the east. || 太陽從東方升起。
-W: 獨一無二的 sun 要加 the。
-S: My brother plays [the|] soccer every day. || 我哥哥每天踢足球。
-W: 球類運動不加冠詞。
+- 單數可數名詞前要有冠詞 a。
+- university 發 /j/ 子音，用 a。
+- go to bed 是固定片語，不加 the。
+- 泛指不可數名詞不加 the。
