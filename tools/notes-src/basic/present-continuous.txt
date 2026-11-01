@@ -1,86 +1,43 @@
 # zh
-## 現在進行式：「正在」做
-現在進行式表示<b>說話的這一刻正在發生</b>的事，或是<b>這段時間暫時</b>在做的事。
-公式：主詞 + <b>am / is / are</b> + 動詞<b>-ing</b>（兩個部分缺一不可）
-表：現在進行式的句型
-| 句型 | 例句 |
-|---|---|
-| 肯定 | She <b>is reading</b> a book now. |
-| 否定 | They <b>aren't watching</b> TV. |
-| 疑問 | <b>Are</b> you <b>listening</b>? — Yes, I am. |
-
-## 動詞加 -ing 的規則
+## 現在進行式 be + V-ing：此刻正在做
+現在進行式表示<b>此刻正在進行</b>的動作，也可表最近一段時間或已安排的未來。結構是 <b>be（am/is/are）+ V-ing</b>，兩個都要有。
+| 主詞 | be | V-ing |
+|---|---|---|
+| I | am | reading |
+| he / she / it | is | reading |
+| you / we / they | are | reading |
+## V-ing 的拼字規則
 | 規則 | 例子 |
 |---|---|
-| 一般直接加 -ing | read → reading, eat → eating |
-| 字尾不發音的 e：去 e 加 -ing | make → making, write → writing |
-| 短母音＋單一子音：重複字尾再加 -ing | run → running, swim → swimming, sit → sitting |
-| 字尾 -ie：改 y 加 -ing | lie → lying, die → dying |
-註：see → seeing、be → being 的 e 有發音，不用去掉。
-
-## 現在簡單式 vs. 現在進行式
-| | 現在簡單式 | 現在進行式 |
-|---|---|---|
-| 意思 | 平常、習慣、事實 | 現在正在、暫時 |
-| 例句 | I <b>walk</b> to school every day. | I <b>am walking</b> to school now. |
-| 常見時間詞 | every day, usually, often | now, right now, at the moment, Look! Listen! |
-
-## 不能用進行式的動詞
-表示<b>狀態</b>、而不是動作的動詞，通常不用進行式：
-| 類別 | 動詞 |
+| 一般直接加 -ing | play → playing |
+| 字尾 e 去 e 加 -ing | make → making, write → writing |
+| 短母音 + 單子音：重複字尾 | run → running, swim → swimming |
+| 字尾 -ie → -ying | lie → lying, die → dying |
+## 現在簡單式 vs 現在進行式
+| 現在簡單式 | 現在進行式 |
 |---|---|
-| 想法、知道 | know, understand, believe, remember |
-| 喜好 | like, love, hate, want, need |
-| 擁有 | have（擁有時）, own, belong |
-| 感官 | see, hear, smell, taste（表狀態時） |
-> I <b>know</b> the answer.（✗ I am knowing）／ I <b>am having</b> lunch.（have 表「吃」是動作，可以用進行式）
-
+| 習慣、事實 | 此刻正在進行 |
+| I <b>play</b> tennis. | I <b>am playing</b> tennis now. |
+> <b>狀態動詞</b>（know, like, want, have擁有, believe）通常不用進行式：✗ I am knowing → ✓ I know.
 # mc
-Q: Look! The baby ___. || 你看！寶寶在睡覺。
-A: sleeps | is sleeping* | sleeping
-W: Look! 表示眼前正在發生，用現在進行式 is sleeping。
-Q: They ___ soccer right now. || 他們現在正在踢足球。
-A: are playing* | is playing | playing
-W: 主詞 They 配 are，再加 V-ing。
-Q: I ___ what you mean. || 我懂你的意思。
-A: am understanding | understand* | understanding
-W: understand 是<b>狀態動詞</b>，不用進行式。
-Q: The children are ___ in the pool. || 孩子們正在泳池裡游泳。
-A: swiming | swimming* | swim
-W: swim 是短母音＋單一子音，重複 m 再加 -ing。
-
+Q: Listen! Someone ___ the piano. || 聽！有人在彈鋼琴。
+A: plays | is playing* | play
+W: 此刻正在進行 → is playing。
+Q: They ___ dinner right now. || 他們現在正在吃晚餐。
+A: have | are having* | having
+W: right now → are having（此刻）。
+Q: He is ___ a picture. || 他正在畫圖。
+A: draw | draws | drawing*
+W: be 後用 V-ing → drawing。
 # err
-S: She [cooking|is cooking] dinner now. || 她現在正在煮晚餐。
-W: 進行式要有 be 動詞，不能只有 V-ing。
-S: Listen! Someone [sings|is singing]. || 聽！有人在唱歌。
-W: Listen! 表示正在發生，要用現在進行式。
-S: I am [writeing|writing] an email. || 我正在寫電子郵件。
-W: write 字尾 e 不發音，去 e 再加 -ing。
-
+S: She is [write|writing] an email. || 她正在寫電子郵件。
+W: be 後要用 V-ing → writing。
+S: We [playing|are playing] soccer now. || 我們現在在踢足球。
+W: 進行式要有 be（are）+ V-ing。
+S: He is [runing|running] in the park. || 他正在公園跑步。
+W: run 短母音+單子音，n 要重複 → running。
 # mk
-- 進行式要用 V-ing：am studying。
-- 進行式要有 be 動詞：She is cooking。
-- know 是狀態動詞，不用進行式：I know the answer。
-
-# mc
-Q: Be quiet! The baby ___. || 安靜！寶寶在睡覺。
-A: sleeps | is sleeping* | sleep
-W: 說話當下正在發生，用現在進行式。
-Q: We ___ dinner at the moment. || 我們現在正在吃晚餐。
-A: are having* | have | are have
-W: have 表示「吃」時可以用進行式：are having。
-Q: Why ___ you laughing? || 你為什麼在笑？
-A: do | are* | is
-W: 進行式問句用 be 動詞；you 配 are。
-Q: He is ___ a letter to his friend. || 他正在寫信給朋友。
-A: writeing | writing* | write
-W: write 去 e 加 -ing。
-# err
-S: Look! The bus [comes|is coming]. || 看！公車來了。
-W: Look! 表示正在發生，用現在進行式。
-S: They are [siting|sitting] under the tree. || 他們坐在樹下。
-W: sit 是短母音＋單子音，重複 t 再加 -ing。
-S: I [am wanting|want] a glass of water. || 我想要一杯水。
-W: want 是狀態動詞，不用進行式。
-S: My sister [are|is] playing the piano now. || 我姊姊正在彈鋼琴。
-W: My sister 單數，用 is。
+- be 後面要用 V-ing → cooking。
+- 進行式要有 be + V-ing。
+- 短母音+單子音要重複：run → running。
+- know 是狀態動詞，不用進行式。

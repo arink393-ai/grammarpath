@@ -1,81 +1,39 @@
 # zh
-## was / were：過去的「是、在」
-be 動詞的過去式只有兩個：<b>was</b> 和 <b>were</b>。用來描述過去的狀態、身分或位置。
-表：be 動詞現在式與過去式對照
-| 主詞 | 現在式 | 過去式 |
+## Be 動詞過去式 was / were
+現在的 am/is 過去變成 <b>was</b>；are 過去變成 <b>were</b>。用來說過去「是什麼、怎麼樣、在哪裡」。
+表：was / were 配對
+| 主詞 | 過去 be |
+|---|---|
+| I / he / she / it / 單數名詞 | was |
+| you / we / they / 複數名詞 | were |
+## 否定與問句
+否定：was/were + not（wasn't, weren't）。問句：把 was/were 移到主詞前面。
+| 肯定 | 否定 | 問句 |
 |---|---|---|
-| I | am | <b>was</b> |
-| he / she / it / 單數名詞 | is | <b>was</b> |
-| you / we / they / 複數名詞 | are | <b>were</b> |
-註：記法：am、is → was；are → were。
-
-## 句型
-| 句型 | 例句 |
-|---|---|
-| 肯定 | I <b>was</b> tired yesterday. |
-| 否定 | They <b>weren't</b> at home last night. |
-| 疑問 | <b>Was</b> she sick? — Yes, she was. / No, she wasn't. |
-| Wh- 問句 | Where <b>were</b> you last weekend? |
-
-## 常搭配的過去時間詞
-| 時間詞 | 中文 |
-|---|---|
-| yesterday | 昨天 |
-| last night / week / year | 昨晚、上週、去年 |
-| ... ago | …以前（two days ago） |
-| in 2020 | 在 2020 年 |
-| this morning（已過去時） | 今天早上 |
-
-## There was / There were
-「過去有」用 There was（單數、不可數）／ There were（複數）：<span class="en">There <b>was</b> a cat in the garden. / There <b>were</b> many people at the party.</span>
-> you 不論單複數，都用 were：You <b>were</b> right.
-
+| She was here. | She wasn't here. | Was she here? |
+| They were late. | They weren't late. | Were they late? |
+## There was / were（過去「有」）
+單數用 There was，複數用 There were。
+> ✗ They was happy. → ✓ They <b>were</b> happy.（複數配 were）
 # mc
-Q: We ___ at the beach last Sunday. || 我們上週日在海邊。
-A: was | were* | are
-W: 主詞 We 配 were；last Sunday 是過去。
-Q: The test ___ very hard yesterday. || 昨天的考試很難。
-A: was* | were | is
-W: The test 單數，過去式用 was。
-Q: ___ you busy last night? || 你昨晚忙嗎？
+Q: I ___ really tired last night. || 我昨晚真的很累。
+A: was* | were | am
+W: I → was。
+Q: ___ your parents at home? || 你爸媽在家嗎？
 A: Was | Were* | Did
-W: you 一律配 were；問句把 Were 放前面。
-Q: There ___ two dogs in the yard this morning. || 今天早上院子裡有兩隻狗。
+W: parents 複數，問句用 Were。
+Q: There ___ many stars in the sky. || 天空有很多星星。
 A: was | were* | is
-W: two dogs 是複數，用 There were。
-
+W: many stars 複數 → There were。
 # err
-S: My grandparents [was|were] farmers. || 我的祖父母以前是農夫。
-W: My grandparents 是複數，要用 were。
-S: [Did|Was] he at school yesterday? || 他昨天在學校嗎？
-W: 句子裡沒有一般動詞，問句直接用 be 動詞 Was。
-S: I [wasn't not|wasn't] hungry. || 我那時不餓。
-W: wasn't 已經包含 not，不能再加一次。
-
+S: We [was|were] in the same team. || 我們在同一隊。
+W: we 複數配 were。
+S: He [weren't|wasn't] at the meeting. || 他沒在會議上。
+W: he 的過去否定用 wasn't。
+S: [Was|Were] you happy with the gift? || 你喜歡那個禮物嗎？
+W: you 的問句用 Were。
 # mk
-- 主詞 I 的過去式 be 動詞是 was。
-- They 是複數，過去式用 were。
-- you 一律配 were：Were you at home?
-
-# mc
-Q: Where ___ you yesterday afternoon? || 你昨天下午在哪裡？
-A: was | were* | are
-W: you 一律配 were。
-Q: The movie ___ very boring. || 那部電影很無聊。
-A: was* | were | did
-W: The movie 單數，過去式用 was。
-Q: There ___ many people at the night market last night. || 昨晚夜市人很多。
-A: was | were* | are
-W: people 是複數，過去式用 were。
-Q: I ___ at school yesterday. I was sick. || 我昨天沒去學校，我生病了。
-A: wasn't* | weren't | didn't
-W: 主詞 I 的過去否定是 wasn't。
-# err
-S: She [were|was] very happy yesterday. || 她昨天很開心。
-W: She 單數，過去式用 was。
-S: [Was|Were] they at the party? || 他們有在派對上嗎？
-W: they 是複數，用 Were。
-S: We [are|were] in Japan last summer. || 我們去年夏天在日本。
-W: last summer 是過去，要用 were。
-S: There [was|were] two cats on the sofa. || 沙發上有兩隻貓。
-W: two cats 是複數，用 There were。
+- they 複數配 were。
+- I 配 was。
+- be 動詞否定是 was + not（wasn't）。
+- they 問句用 Were。

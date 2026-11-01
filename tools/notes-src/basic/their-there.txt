@@ -1,73 +1,38 @@
 # zh
-## 發音相同、意思不同
-their、there、they're 三個字念起來幾乎一樣，但意思和詞性完全不同，是英文寫作最常見的錯誤之一。
-表：their / there / they're 比較
-| 單字 | 詞性 | 意思 | 例句 |
-|---|---|---|---|
-| their | 所有格 | 他們的 | That is <b>their</b> house. |
-| there | 副詞 | 那裡；There is/are 有 | Put it over <b>there</b>. / <b>There</b> are five cats. |
-| they're | 縮寫 | they are 他們是 | <b>They're</b> my classmates. |
-
-## 判斷三步驟
-- 能換成 <b>they are</b> 而句子通順 → they're
-- 後面接名詞，表示「他們的…」 → their
-- 指地點，或「有…」的句型 → there
-> 記憶法：there 裡面有 here（這裡），都和地點有關；their 裡有 heir（繼承人），和擁有有關。
-
-## 其他常見的同音字
-| 容易混淆 | 意思 | 例句 |
+## their / there / they're：同音，意思完全不同
+這三個字唸起來一樣，但用法不同。
+表：三者比較
+| 字 | 意思 | 例句 |
 |---|---|---|
-| your / you're | 你的／你是 | <b>Your</b> bag is red. / <b>You're</b> late. |
-| its / it's | 它的／它是 | The dog wagged <b>its</b> tail. / <b>It's</b> raining. |
-| to / too / two | 到／也、太／二 | I want <b>to</b> go <b>too</b>. I have <b>two</b> cats. |
-| whose / who's | 誰的／誰是 | <b>Whose</b> pen? / <b>Who's</b> there? |
-
+| their | 他們的（+名詞） | <b>their</b> house, <b>their</b> dog |
+| there | 那裡／存在 | over <b>there</b>; <b>There</b> is a cat. |
+| they're | they are 的縮寫 | <b>They're</b> happy. |
+## 判斷訣竅
+| 問自己 | 答案 | 用 |
+|---|---|---|
+| 能換成 "they are" 嗎？ | 能 | they're |
+| 指地點，或「有…」？ | 是 | there |
+| 後面接名詞、表「他們的」？ | 是 | their |
+> ✗ Their going home. → ✓ <b>They're</b> going home.（＝ They are going home）
 # mc
-Q: The students forgot ___ books. || 學生們忘了帶他們的書。
-A: their* | there | they're
-W: 後面接名詞 books，表示「他們的」，用 their。
-Q: ___ is a bank near the station. || 車站附近有一家銀行。
+Q: ___ books are on the desk. || 他們的書在桌上。
+A: Their* | There | They're
+W: 後接名詞 books、表「他們的」→ Their。
+Q: ___ is a dog in the yard. || 院子裡有一隻狗。
 A: Their | There* | They're
-W: 「有…」的句型是 There is。
-Q: ___ going to the beach tomorrow. || 他們明天要去海邊。
+W: There is（存在）。
+Q: ___ going to win the game. || 他們會贏這場比賽。
 A: Their | There | They're*
-W: 可以換成 They are going…，所以用 they're。
-Q: I left my umbrella over ___. || 我把雨傘留在那邊了。
-A: their | there* | they're
-W: over there 是「在那邊」，表示地點。
-
+W: ＝ They are → They're。
 # err
-S: [Their|They're] very good at basketball. || 他們很會打籃球。
-W: 這裡的意思是 They are，要寫 They're。
-S: The kids washed [there|their] hands. || 孩子們洗了他們的手。
-W: 後接名詞 hands 表示所有，用 their。
-S: [It's|Its] color is blue. || 它的顏色是藍色。
-W: 「它的」是 its，沒有撇號；it's = it is。
-
-# mk
-- 意思是 They are going…，要寫 They're。
-- 後面接名詞 food，表示「他們的」，用 their。
-- 「有…」的句型用 There is。
-
-# mc
-Q: I put your bag over ___. || 我把你的包包放在那邊。
-A: their | there* | they're
+S: [Their|They're] my classmates. || 他們是我的同學。
+W: ＝ They are → They're。
+S: Look over [their|there]! || 看那邊！
 W: 指地點用 there。
-Q: The kids are happy because ___ on vacation. || 孩子們很開心，因為他們在放假。
-A: their | there | they're*
-W: = they are on vacation。
-Q: ___ are many stars in the sky. || 天上有很多星星。
-A: There* | Their | They're
-W: 「有…」用 There are。
-Q: Tom and Amy love ___ new puppy. || 湯姆和艾咪很愛他們的新小狗。
-A: their* | there | they're
-W: 後接名詞 puppy，表示「他們的」。
-# err
-S: Is [their|there] a bus stop near here? || 這附近有公車站嗎？
-W: 「有…」的句型要用 there。
-S: [There|They're] my cousins from Kaohsiung. || 他們是我高雄來的表親。
-W: 意思是 They are，要寫 They're。
-S: [You're|Your] phone is ringing. || 你的手機在響。
-W: 「你的」是 your；you're 是 you are。
-S: The students opened [they're|their] books. || 學生們打開他們的書。
-W: 後接名詞 books，用所有格 their。
+S: [There|Their] car is red. || 他們的車是紅色的。
+W: 後接名詞 car、表「他們的」→ Their。
+# mk
+- 能還原成 they are → they're。
+- 指地點用 there。
+- 表「他們的」+名詞用 their。
+- 所有格用 their。

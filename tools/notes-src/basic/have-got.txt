@@ -1,78 +1,37 @@
 # zh
-## have / has：擁有
-have 表示「有、擁有」，也可以說身體特徵、家人、生病等。主詞是第三人稱單數時要用 <b>has</b>。
-表：have 的用法
-| 用途 | 例句 |
-|---|---|
-| 擁有物品 | I <b>have</b> a new bike. |
-| 家人、朋友 | She <b>has</b> two brothers. |
-| 外表特徵 | He <b>has</b> short hair. |
-| 生病 | I <b>have</b> a cold. |
-
-## have got：英式口語的「有」
-<b>have got / has got</b> 意思和 have 一樣，英式英文和口語很常用。
-| | have | have got |
+## have 和 have got：兩種「擁有」的說法
+表示「擁有」時，have 和 have got 意思相同。have got 比較口語，英式英文很常用。
+表：兩套說法
+| 項目 | have | have got |
 |---|---|---|
-| 肯定 | She <b>has</b> a cat. | She<b>'s got</b> a cat. |
-| 否定 | She <b>doesn't have</b> a cat. | She <b>hasn't got</b> a cat. |
-| 疑問 | <b>Does</b> she <b>have</b> a cat? | <b>Has</b> she <b>got</b> a cat? |
-| 簡答 | Yes, she does. | Yes, she has. |
-註：have got 的否定和疑問直接用 have / has，不加 do / does；一般的 have 則要借助 do / does。
-
-## 不要混用
-兩種句型的助動詞不能混在一起：
-- ✗ Do you have got…? → ✓ <span class="en"><b>Have</b> you <b>got</b>…?</span> 或 ✓ <span class="en"><b>Do</b> you <b>have</b>…?</span>
-- ✗ I have got not… → ✓ <span class="en">I <b>haven't got</b>…</span>
-> have got 只用在現在式。過去式說 had：I <b>had</b> a dog when I was young.（✗ I had got）
-
-## have 當「吃、做」時不能換成 have got
-<span class="en">have breakfast（吃早餐）, have a party（開派對）, have fun（玩得開心）</span>，這些是動作，可以用進行式 <span class="en">We're having lunch.</span>，但不能說 have got lunch。
-
+| 肯定 | I have a car. | I've got a car. |
+| 第三人稱 | She has a dog. | She's got a dog. |
+| 否定 | I don't have… | I haven't got… |
+| 問句 | Do you have…? | Have you got…? |
+## 兩套不要混用
+問句和否定要整套一致，不能把兩種拌在一起。
+> ✗ Do you have got a pen? → ✓ Do you have a pen? / Have you got a pen?
+## 動作的 have 不能用 got
+have breakfast、have a shower、have a break、have fun 這些是「動作」，只能用 have，不能換成 got。
 # mc
-Q: My sister ___ long hair. || 我姐姐留長頭髮。
-A: have | has* | having
-W: My sister 是第三人稱單數，用 has。
-Q: ___ you got a pen? || 你有筆嗎？
+Q: She ___ three cats. || 她有三隻貓。
+A: have | has* | have got a
+W: she → has。
+Q: ___ you got a pencil? || 你有鉛筆嗎？
 A: Do | Have* | Are
-W: have got 的問句把 Have 放前面，不用 Do。
-Q: He ___ a car. He takes the bus. || 他沒有車，他搭公車。
-A: hasn't got* | doesn't got | haven't got
-W: 主詞 He 單數，have got 的否定是 hasn't got。
-Q: Does your school ___ a swimming pool? || 你們學校有游泳池嗎？
-A: has | have* | have got
-W: 用了 Does，後面動詞回到原形 have。
-
+W: have got 的問句：Have you got…？
+Q: We ___ lunch at noon. || 我們中午吃午餐。
+A: have got | have* | has
+W: 動作 have lunch，不用 got。
 # err
-S: She [have|has] three cats. || 她有三隻貓。
-W: 第三人稱單數 She 要用 has。
-S: [Do|Have] they got any money? || 他們有錢嗎？
-W: have got 的問句用 Have 開頭，不用 Do。
-S: Does he [has|have] a brother? || 他有兄弟嗎？
-W: 有 Does 時，後面動詞用原形 have。
-
+S: My dad [have|has] a motorcycle. || 我爸有一台機車。
+W: 第三人稱單數 → has。
+S: I [don't have got|haven't got] any money. || 我沒有錢。
+W: have got 的否定是 haven't got（不要混用）。
+S: She [has got|has] a shower every morning. || 她每天早上洗澡。
+W: 動作 have a shower 不能用 got，用 has a shower。
 # mk
-- 主詞 She 是第三人稱單數，have 要變成 has。
-- have got 的否定直接在 have 後加 not：haven't got。
-
-# mc
-Q: They ___ a big house. || 他們有一間大房子。
-A: has | have* | haves
-W: They 用 have。
-Q: She hasn't ___ any brothers. || 她沒有兄弟。
-A: get | got* | have
-W: have got 的否定：hasn't got。
-Q: ___ your brother have a car? || 你哥哥有車嗎？
-A: Do | Does* | Has
-W: 一般 have 的問句借助 does（主詞單數）。
-Q: I have a headache. = I ___ a headache. || 我頭痛。
-A: 've got* | 'm got | have get
-W: have = have got，縮寫 I've got。
-# err
-S: My cat [have|has] blue eyes. || 我的貓有藍眼睛。
-W: My cat 單數，用 has。
-S: We [hasn't|haven't] got any homework today. || 我們今天沒有功課。
-W: We 的否定用 haven't got。
-S: Do you [has|have] a pencil? || 你有鉛筆嗎？
-W: Do 後面接原形 have。
-S: [Does|Has] she got a bike? || 她有腳踏車嗎？
-W: have got 的問句用 Has 開頭，不用 Does。
+- 第三人稱單數用 has。
+- have got 的否定是 haven't got。
+- 兩套說法不能混用。
+- 動作的 have 不能用 got。

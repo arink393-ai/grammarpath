@@ -1,81 +1,44 @@
 # zh
-## 什麼時候用現在簡單式？
-現在簡單式不是「現在正在做」，而是說<b>平常、經常、一直如此</b>的事。
-表：現在簡單式的三大用途
-| 用途 | 例句 | 常搭配的字 |
-|---|---|---|
-| 習慣、例行公事 | I <b>get up</b> at six every day. | every day, usually, on Sundays |
-| 不變的事實、真理 | Water <b>boils</b> at 100°C. | — |
-| 時刻表、固定行程 | The train <b>leaves</b> at 9:00. | at + 時間 |
-
-## 句型與 -s 規則
-表：現在簡單式三種句型
-| 句型 | I / you / we / they | he / she / it |
-|---|---|---|
-| 肯定 | I <b>play</b> tennis. | She <b>plays</b> tennis. |
-| 否定 | I <b>don't play</b> tennis. | She <b>doesn't play</b> tennis. |
-| 疑問 | <b>Do</b> you <b>play</b> tennis? | <b>Does</b> she <b>play</b> tennis? |
-註：用了 does / doesn't，後面的動詞就要回到<b>原形</b>，-s 已經跑到 does 身上了。
-
-## 第三人稱單數加 -s 的規則
+## 現在簡單式：習慣、事實、時間表
+現在簡單式用來說<b>習慣</b>（每天做的事）、<b>一般事實</b>（永遠為真）和<b>時間表</b>（班次、課表）。動詞用原形，但主詞是 he/she/it 時要加 -s/-es。
+表：動詞變化
+| 主詞 | 動詞 |
+|---|---|
+| I / you / we / they | 原形：play, go |
+| he / she / it / 單數名詞 | 加 -s/-es：plays, goes |
+## 第三人稱加 -s/-es 的規則
 | 規則 | 例子 |
 |---|---|
-| 一般加 -s | work → works, like → likes |
-| s, sh, ch, x, o 結尾加 -es | wash → washes, do → does, go → goes |
-| 子音＋y：y 變 i 加 -es | cry → cries, study → studies |
-| 母音＋y：加 -s | say → says, enjoy → enjoys |
-| 不規則 | have → has |
-> 發音小提醒：-s 有三種念法 /s/（works）、/z/（plays）、/ɪz/（watches）。
-
-## 簡答
-<span class="en">Do you like cats? — Yes, I <b>do</b>. / No, I <b>don't</b>.</span><br><span class="en">Does he live here? — Yes, he <b>does</b>. / No, he <b>doesn't</b>.</span>
-
+| 一般加 -s | eat → eats |
+| s/ss/sh/ch/x/o 加 -es | watch → watches, go → goes |
+| 子音 + y → -ies | study → studies |
+| have → has | She has a cat. |
+## 否定與問句：靠 do / does
+否定與問句借助 do/does，<b>主動詞要回原形</b>（因為 do/does 已經帶了 -s）。
+| 主詞 | 否定 | 問句 |
+|---|---|---|
+| I/you/we/they | don't play | Do you play? |
+| he/she/it | doesn't play | Does he play? |
+> ✗ Does he likes it? → ✓ Does he <b>like</b> it?（有 does 了，動詞回原形）
 # mc
-Q: The sun ___ in the east. || 太陽從東方升起。
-A: rise | rises* | is rising
-W: 不變的事實用現在簡單式；主詞 The sun 單數，加 -s。
-Q: My brother ___ like vegetables. || 我弟弟不喜歡蔬菜。
+Q: My mom ___ to work by car. || 我媽開車上班。
+A: go | goes* | going
+W: mom 第三人稱單數 → goes。
+Q: ___ they speak English? || 他們說英文嗎？
+A: Do* | Does | Are
+W: they 的問句用 Do + 原形。
+Q: He ___ like onions. || 他不喜歡洋蔥。
 A: don't | doesn't* | isn't
-W: 第三人稱單數的否定用 doesn't + 原形動詞。
-Q: ___ your mother work in a hospital? || 你媽媽在醫院工作嗎？
-A: Do | Does* | Is
-W: 主詞 your mother 單數，問句用 Does。
-Q: She ___ her homework after dinner. || 她晚餐後寫功課。
-A: do | dos | does*
-W: do 以 o 結尾，第三人稱單數加 -es：does。
-
+W: he 的否定用 doesn't。
 # err
-S: He [watch|watches] TV every evening. || 他每天晚上看電視。
-W: 第三人稱單數加 -s；watch 以 ch 結尾，要加 -es。
-S: Does she [plays|play] the piano? || 她彈鋼琴嗎？
-W: 有了 Does，後面的動詞要用原形 play。
-S: My dog [don't|doesn't] eat fish. || 我的狗不吃魚。
-W: 主詞 My dog 是第三人稱單數，否定用 doesn't。
-
+S: She [watch|watches] TV after dinner. || 她晚餐後看電視。
+W: she 第三人稱單數、watch 字尾 ch，要加 -es。
+S: [Do|Does] your brother play basketball? || 你哥哥打籃球嗎？
+W: brother 第三人稱單數，問句用 Does。
+S: Does he [plays|play] the guitar? || 他彈吉他嗎？
+W: 有 does，主動詞回原形 play。
 # mk
-- 主詞 He 是第三人稱單數，現在式動詞要加 -s：plays。
-- 用了 doesn't，後面的動詞要回到原形 like。
-- 主詞 she 是第三人稱單數，問句要用 Does。
-
-# mc
-Q: My grandma ___ TV every evening. || 我奶奶每天晚上看電視。
-A: watch | watches* | watching
-W: 第三人稱單數；ch 結尾加 -es。
-Q: We ___ to school on Saturdays. || 我們星期六不上學。
-A: don't go* | doesn't go | not go
-W: 主詞 We 的否定用 don't + 原形。
-Q: Does your cat ___ fish? || 你的貓吃魚嗎？
-A: eats | eat* | eating
-W: Does 後面接原形動詞。
-Q: Water ___ at 0°C. || 水在攝氏零度結冰。
-A: freeze | freezes* | is freezing
-W: 科學事實用現在簡單式；主詞單數加 s。
-# err
-S: My father [go|goes] to work by MRT. || 我爸爸搭捷運上班。
-W: 第三人稱單數，go 要加 -es。
-S: They [doesn't|don't] like spicy food. || 他們不喜歡辣的食物。
-W: They 的否定用 don't。
-S: [Do|Does] he live near here? || 他住在這附近嗎？
-W: 主詞 he 是第三人稱單數，用 Does。
-S: She [studys|studies] English every day. || 她每天讀英文。
-W: 子音＋y 結尾，去 y 加 -ies。
+- 第三人稱單數 he，動詞加 -s → plays。
+- he/she/it 的否定用 doesn't。
+- 問句有 does，主動詞回原形 like。
+- 一般動詞句不加 be。

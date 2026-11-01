@@ -1,78 +1,39 @@
 # zh
-## 英文語序的基本骨架
-英文非常依賴字的順序來表達意思。<span class="en">The dog bit the man.</span>（狗咬人）和 <span class="en">The man bit the dog.</span>（人咬狗）用的字一樣，意思完全相反。
-表：英文句子的標準順序
-| 主詞 | 動詞 | 受詞 | 地點 | 時間 |
+## 英文語序：主詞 + 動詞 + 受詞
+英文句子的骨架是 <b>S + V + O</b>（主詞 + 動詞 + 受詞）。其他資訊（地點、時間）加在後面。
+| S | V | O | 地點 | 時間 |
 |---|---|---|---|---|
-| I | play | basketball | at school | every day. |
-| She | met | her friend | in the park | yesterday. |
-| We | will visit | Grandma | in Tainan | next week. |
-註：口訣「人 → 做 → 什麼 → 在哪 → 何時」。中文常把時間放前面（我昨天在公園…），英文時間通常放最後。
-
-## 形容詞放在名詞前面
-<span class="en">a <b>red</b> car</span>（✗ a car red）。多個形容詞時順序大致是：
-| 意見 | 大小 | 新舊／年齡 | 形狀 | 顏色 | 來源 | 材質 | 名詞 |
-|---|---|---|---|---|---|---|---|
-| beautiful | small | old | round | brown | Italian | wooden | table |
-> 實際上通常只用兩三個：a <b>nice big</b> house、an <b>old blue</b> bag。
-
-## 副詞的位置
-| 副詞種類 | 位置 | 例句 |
-|---|---|---|
-| very much / well / a lot | 放在受詞<b>後面</b> | I like this song <b>very much</b>. |
-| 頻率副詞 | 一般動詞前、be 動詞後 | She <b>often</b> reads. / He is <b>always</b> late. |
-| 時間副詞 | 句尾（或句首） | I saw him <b>yesterday</b>. |
-> 動詞和受詞是好朋友，中間不要插入副詞：✗ I like very much this song.
-
-## 問句的語序
-問句要把 be 動詞或助動詞移到主詞前面：<span class="en"><b>Are</b> you ready? / <b>Do</b> you like it? / Where <b>does</b> she live?</span>
-
+| I | eat | breakfast | at home | every day |
+| She | plays | soccer | at the park | on Sundays |
+## 幾個位置規則
+| 規則 | 例子 |
+|---|---|
+| 地點在時間前面 | at home every day |
+| 形容詞放名詞前 | a <b>red</b> car |
+| 頻率副詞放一般動詞前 | I <b>usually</b> walk. |
+| 頻率副詞放 be 動詞後 | He is <b>always</b> late. |
+## 問句與否定靠助動詞
+問句與否定會調整語序，用 do/does/be 幫忙：<span class="en">Do you like tea? / She doesn't like tea.</span>
+> ✗ I eat every day breakfast. → ✓ I eat breakfast <b>every day</b>.（時間放句尾，別插在動詞和受詞中間）
 # mc
-Q: I ___ every weekend. || 我每個週末都去游泳池游泳。
-A: swim in the pool* | in the pool swim | swim every in the pool
-W: 順序是「動詞 → 地點 → 時間」：swim in the pool every weekend。
-Q: She bought ___. || 她買了一件漂亮的白洋裝。
-A: a white beautiful dress | a beautiful white dress* | a dress beautiful white
-W: 意見（beautiful）在顏色（white）前面，形容詞都放名詞前。
-Q: He speaks English ___. || 他英文說得很好。
-A: well* | well English | very English
-W: well 放在受詞 English 後面。
-Q: ___ do you go to bed? || 你幾點上床睡覺？
-A: What time* | Time what | What you time
-W: 疑問詞 What time 放句首，接 do + 主詞 + 動詞。
-
+Q: Which order is correct? ___ || 我每天讀書。
+A: I read every day books | I read books every day* | Every day I books read
+W: S+V+O+時間：read books every day。
+Q: She bought ___. || 她買了一件漂亮的洋裝。
+A: a dress beautiful | beautiful a dress | a beautiful dress*
+W: 冠詞 + 形容詞 + 名詞：a beautiful dress。
+Q: He ___ plays video games. || 他有時候打電動。
+A: sometimes* | is sometimes | plays sometimes
+W: 頻率副詞放一般動詞 plays 前。
 # err
-S: I [like very much pizza|like pizza very much]. || 我非常喜歡披薩。
-W: very much 要放在受詞後面，不能插在動詞和受詞中間。
-S: She has [a dog black|a black dog]. || 她有一隻黑狗。
-W: 形容詞放在名詞前面。
-S: We [yesterday went|went] to the zoo yesterday. || 我們昨天去了動物園。
-W: 時間副詞 yesterday 放句尾就好，不要放在主詞和動詞中間。
-
+S: We watch [on Fridays movies|movies on Fridays]. || 我們星期五看電影。
+W: 受詞先、時間後：movies on Fridays。
+S: I like [very much this book|this book very much]. || 我很喜歡這本書。
+W: 受詞放動詞後，very much 放句尾。
+S: [Always she|She always] smiles. || 她總是微笑。
+W: 頻率副詞放一般動詞 smiles 前，不放句首。
 # mk
-- very much 要放在受詞 this song 的後面。
-- 形容詞 red 要放在名詞 car 前面。
-- 地點 to school 在前、時間 every day 在後。
-
-# mc
-Q: She ___. || 她每天早上在公園跑步。
-A: runs in the park every morning* | in the park runs every morning | every morning in the park runs
-W: 動詞 → 地點 → 時間。
-Q: I have ___. || 我有一隻可愛的小貓。
-A: a cute little cat* | a little cute cat | a cat cute little
-W: 意見（cute）在大小（little）前面，都放在名詞前。
-Q: They ___ soccer after school. || 他們常常放學後踢足球。
-A: play often | often play* | playing often
-W: 頻率副詞 often 放在一般動詞 play 前面。
-Q: ___ is your new teacher? || 你的新老師是誰？
-A: Who* | Who she | She who
-W: 疑問詞放句首，再接 be 動詞和主詞。
-# err
-S: I visited my grandma [last week in Tainan|in Tainan last week]. || 我上週去台南看奶奶。
-W: 英文順序是地點在前、時間在後。
-S: He bought [a bag new|a new bag]. || 他買了一個新包包。
-W: 形容詞放在名詞前面。
-S: She speaks [very well English|English very well]. || 她英文說得很好。
-W: very well 要放在受詞 English 後面。
-S: [Where you are|Where are you] from? || 你是哪裡人？
-W: Wh- 問句要把 be 動詞移到主詞前面。
+- 時間放句尾，不插在動詞和受詞中間。
+- 受詞先、時間後。
+- 受詞放動詞後，very much 放句尾。
+- 頻率副詞放 be 動詞後。
