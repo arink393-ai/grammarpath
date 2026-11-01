@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v133-balanced-answers";
+const CACHE = "eci-v134-done-badges";
 const SHELL = [
   "./",
   "./index.html",
@@ -47,12 +47,12 @@ const SHELL = [
   "./daily.css?v=17",
   "./adventure.css?v=5",
   "./lesson-notes.css?v=3",
-  "./homework.css?v=9",
+  "./homework.css?v=13",
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=6",
   "./lesson-notes.js?v=7",
-  "./homework.js?v=11",
+  "./homework.js?v=13",
   "./student-info.js?v=7",
   "./offline-content.js?v=12",
   "./daily.js?v=18",
