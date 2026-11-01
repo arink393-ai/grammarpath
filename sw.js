@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v132-nouns-lesson-update";
+const CACHE = "eci-v133-balanced-answers";
 const SHELL = [
   "./",
   "./index.html",
@@ -65,6 +65,7 @@ const SHELL = [
   "./vocab/books.js",
   "./vocab/catalog.js?v=1",
   "./vocab/book-loader.js?v=3",
+  "./offline-content.js?v=9",
   "./vocab/account-storage.js?v=2",
   "./vocab/app.js?v=10",
   "./icons/icon-192.png",
