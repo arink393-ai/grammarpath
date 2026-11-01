@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v135-verbs-adj-update";
+const CACHE = "eci-v136-lessons-sync";
 const SHELL = [
   "./",
   "./index.html",
