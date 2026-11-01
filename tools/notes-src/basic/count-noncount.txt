@@ -23,6 +23,34 @@
 | 集合名詞 | money, furniture, luggage, homework, information, news, advice, equipment |
 | 天氣 | weather, rain, snow, wind |
 
+## 怎麼數不可數名詞？用「量詞」
+不可數名詞不能直接加數字（✗ two waters），要用<b>「a／數字 + 單位 + of + 名詞」</b>來數。
+表：常見量詞單位（數不可數名詞）
+| 量詞 | 中文 | 例子 |
+|---|---|---|
+| a cup of | 一杯（熱飲） | a cup of tea / coffee |
+| a glass of | 一杯（冷飲） | a glass of water / milk / juice |
+| a bottle of | 一瓶 | a bottle of water / milk |
+| a jug of | 一壺 | a jug of water |
+| a can of | 一罐 | a can of Coke / soup |
+| a carton of | 一紙盒 | a carton of milk |
+| a jar of | 一罐（玻璃） | a jar of honey / jam |
+| a packet of | 一包 | a packet of tea / sugar |
+| a box of | 一盒 | a box of cereal / chocolates |
+| a bag of | 一袋 | a bag of flour / rice |
+| a bowl of | 一碗 | a bowl of rice / soup |
+| a spoonful of | 一匙 | a spoonful of sugar |
+| a piece of | 一片／一則／一件 | a piece of bread / advice / news |
+| a slice of | 一（薄）片 | a slice of bread / cheese |
+| a loaf of | 一條（整條麵包） | a loaf of bread |
+| a bar of | 一條、一塊 | a bar of chocolate / soap |
+| a sheet of | 一張 | a sheet of paper |
+| a tube of | 一條（軟管） | a tube of toothpaste |
+| a kilo of | 一公斤 | a kilo of meat / sugar |
+| a gallon of | 一加侖 | a gallon of petrol |
+| a bunch of | 一串、一把 | a bunch of grapes / bananas |
+> 要說兩個以上，改的是<b>量詞</b>，不可數名詞不變：two <b>bottles</b> of water（✗ two bottles of waters）。更多量詞與練習，見「量詞 Partitives」這一課。
+
 ## 一字兩用
 有些字可數、不可數的意思不同：
 | 不可數 | 可數 |

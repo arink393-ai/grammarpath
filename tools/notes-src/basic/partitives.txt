@@ -12,6 +12,9 @@
 | a box of | 一盒 | a box of chocolates |
 | a bag of | 一袋 | a bag of chips |
 | a carton of | 一紙盒 | a carton of milk |
+| a jug of | 一壺 | a jug of water |
+| a jar of | 一罐（玻璃） | a jar of honey / jam |
+| a packet of | 一包 | a packet of tea / sugar |
 
 表：形狀、份量類量詞
 | 量詞 | 中文 | 例子 |
@@ -23,6 +26,15 @@
 | a sheet of | 一張 | a sheet of paper |
 | a spoonful of | 一匙 | a spoonful of sugar |
 | a pair of | 一雙、一副 | a pair of shoes / glasses |
+
+表：份量、單位、集合類量詞
+| 量詞 | 中文 | 例子 |
+|---|---|---|
+| a tube of | 一條（軟管） | a tube of toothpaste |
+| a kilo of | 一公斤 | a kilo of meat / sugar |
+| a gallon of | 一加侖 | a gallon of petrol |
+| a bunch of | 一串、一把 | a bunch of grapes / bananas |
+| a deck of | 一副 | a deck of cards |
 
 ## 複數變化在「量詞」身上
 要說兩個以上，改的是量詞，不可數名詞本身不變：
