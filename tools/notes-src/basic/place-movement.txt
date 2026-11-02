@@ -1,92 +1,38 @@
 # zh
-## 位置介系詞：在哪裡？
-表：位置介系詞
-| 介系詞 | 意思 | 例句 |
-|---|---|---|
-| in | 在…裡面 | The cat is <b>in</b> the box. |
-| on | 在…上面（接觸） | The book is <b>on</b> the desk. |
-| under | 在…下面 | The ball is <b>under</b> the chair. |
-| above / over | 在…上方（不接觸） | The lamp is <b>above</b> the table. |
-| behind | 在…後面 | The garden is <b>behind</b> the house. |
-| in front of | 在…前面 | The bus stopped <b>in front of</b> the school. |
-| next to / beside | 在…旁邊 | Sit <b>next to</b> me. |
-| between | 在（兩者）之間 | The bank is <b>between</b> the café and the park. |
-| among | 在（三者以上）之中 | a house <b>among</b> the trees |
-| across from / opposite | 在…對面 | The store is <b>across from</b> the station. |
-| near | 在…附近 | I live <b>near</b> the school. |
-
-## 移動介系詞：往哪裡去？
-表：移動介系詞
-| 介系詞 | 意思 | 例句 |
-|---|---|---|
-| to | 到…（目的地） | We walked <b>to</b> the park. |
-| into | 進入…裡面 | He jumped <b>into</b> the pool. |
-| out of | 從…出來 | She ran <b>out of</b> the room. |
-| onto | 到…上面 | The cat jumped <b>onto</b> the table. |
-| across | 橫越（平面） | walk <b>across</b> the street |
-| through | 穿過（立體空間） | drive <b>through</b> the tunnel |
-| along | 沿著 | walk <b>along</b> the river |
-| up / down | 往上／往下 | climb <b>up</b> the hill |
-| past | 經過 | walk <b>past</b> the bank |
-| around | 繞著、在…周圍 | run <b>around</b> the track |
-| toward(s) | 朝向 | walk <b>toward</b> the door |
-
-## in vs. into、on vs. onto
-| 靜止的位置 | 移動的方向 |
+## 地點與移動介系詞
+介系詞可以說<b>東西在哪裡</b>（位置），也可以說<b>往哪裡去</b>（移動）。
+表：位置 vs 移動
+| 位置（在哪裡） | 移動（往哪去） |
 |---|---|
-| The fish is <b>in</b> the water. | The boy jumped <b>into</b> the water. |
-| The cat is <b>on</b> the roof. | The cat climbed <b>onto</b> the roof. |
-> go home / go there / go abroad / go downtown：home、there 是副詞，前面不加 to。
-
-## across vs. through
-across 是從平面的一邊到另一邊（馬路、河、橋）；through 是穿過有包圍感的空間（森林、隧道、人群、窗戶）。
-
+| in, on, under, over | to, into, out of |
+| behind, in front of | across, through |
+| next to, between, near | up, down, along |
+## to vs into / 固定用法
+| 用法 | 例子 |
+|---|---|
+| to（朝目的地） | go <b>to</b> the park |
+| into（進入內部） | walk <b>into</b> the room |
+| home 不加 to | go <b>home</b> |
+| arrive at / in | <b>arrive at</b> school, <b>arrive in</b> Taipei |
+> 最常錯：✗ go to home → ✓ go <b>home</b>；✗ arrive to → ✓ <b>arrive at/in</b>。
 # mc
-Q: The children ran ___ the classroom when the bell rang. || 鐘一響，孩子們就跑出教室。
-A: out of* | out | from in
-W: 從裡面到外面用 out of。
-Q: The train went ___ a long tunnel. || 火車穿過一條長隧道。
-A: across | through* | along
-W: 穿過有包圍感的空間（隧道）用 through。
-Q: The post office is ___ the bank and the bakery. || 郵局在銀行和麵包店中間。
-A: among | between* | across
-W: 在「兩者之間」用 between。
-Q: Let's go ___ now. It's late. || 我們現在回家吧，很晚了。
-A: to home | home* | at home
-W: home 在這裡是副詞，go home 不加 to。
-
+Q: The keys are ___ the drawer. || 鑰匙在抽屜裡。
+A: in* | to | into
+W: 在裡面（位置）→ in。
+Q: She ran ___ the house when it rained. || 下雨時她跑進屋裡。
+A: to | into* | at
+W: 進入內部 → into。
+Q: We swam ___ the lake. || 我們游過湖。
+A: across* | in | on
+W: 橫越 → across。
 # err
-S: She jumped [in|into] the swimming pool. || 她跳進游泳池。
-W: 表示「進入」的移動方向用 into。
-S: We walked [through|across] the bridge. || 我們走過那座橋。
-W: 從橋的一端到另一端（平面）用 across。
-S: I went [to there|there] last year. || 我去年去過那裡。
-W: there 是副詞，前面不加 to。
-
+S: I usually go [to home|home] after school. || 我放學後通常回家。
+W: home 前面不加 to。
+S: They arrived [to|at] the airport. || 他們到達機場。
+W: arrive at（地點）。
+S: The cat jumped [to|onto] the table. || 貓跳到桌上。
+W: 跳到表面上用 onto。
 # mk
-- 走進去是移動，用 into。
-- arrive 不接 to；大城市用 arrive in。
-- 「穿過」是 through；threw 是 throw 的過去式。
-
-# mc
-Q: The cat jumped ___ the table. || 貓跳到桌子上。
-A: onto* | into | through
-W: 移動到表面上用 onto。
-Q: We walked ___ the river. || 我們沿著河邊走。
-A: along* | across | among
-W: 沿著用 along。
-Q: The school is ___ the bank. || 學校在銀行對面。
-A: across from* | across to | between
-W: 在…對面用 across from。
-Q: The ball rolled ___ the sofa. || 球滾到沙發底下。
-A: under* | above | over to
-W: 在…下面用 under。
-# err
-S: The children ran [in|into] the classroom. || 孩子們跑進教室。
-W: 表示「進入」的動作用 into。
-S: She is sitting [between|among] her friends. || 她坐在一群朋友之中。
-W: 三人以上之中用 among。
-S: We drove [across|through] the tunnel. || 我們開車穿過隧道。
-W: 穿過有包圍感的空間用 through。
-S: The bank is [next|next to] the post office. || 銀行在郵局旁邊。
-W: 「在…旁邊」是 next to。
+- home 前面不加 to。
+- arrive 用 at/in，不用 to。
+- 進入內部用 into。
