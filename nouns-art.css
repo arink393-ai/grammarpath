@@ -1,0 +1,25 @@
+.nouns.nouns .n-food-art{display:block;width:90px;aspect-ratio:9/10;background-size:500% 300%;background-repeat:no-repeat;clip-path:inset(2% 3% round 10px);border-radius:14px;flex:none}
+.nouns.nouns .n-chip{background:#fffaf1;padding:12px 5px;border-radius:18px;gap:8px}
+.nouns.nouns .n-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.nouns.nouns .ng-icon .n-food-art{width:130px}
+.nouns.nouns .nd-ic .n-food-art{width:36px}
+.nouns.nouns .n-materials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:20px 0}
+.nouns.nouns .n-material{min-width:0;border:1px solid #e6d8bf;border-radius:22px;overflow:hidden;background:#fffaf1}
+.nouns.nouns .n-material figure{margin:0;background:#eee5d6}
+.nouns.nouns .n-material img{display:block;width:100%;height:180px;object-fit:cover}
+.nouns.nouns .n-material figcaption{padding:8px 14px;font-size:12px;color:#695746;background:#f5ebdc}
+.nouns.nouns .n-material-body{padding:16px}
+.nouns.nouns .n-material h3{margin:0 0 6px;font-size:22px;color:#79543d}
+.nouns.nouns .n-material p{font-size:14px;line-height:1.7;margin:8px 0}
+.nouns.nouns .n-cut-stage{height:180px;position:relative;margin:8px auto;width:180px}
+.nouns.nouns .n-cut-stage .n-food-art{position:absolute;left:25px;top:18px;width:130px;border-radius:0}
+.nouns.nouns .n-cut-controls{display:flex;gap:5px}
+.nouns.nouns .n-cut-controls button{flex:1;border:1px solid #d7c4a4;border-radius:10px;background:#fff;padding:8px 3px;color:#6a513c;font:600 13px var(--sans);cursor:pointer}
+.nouns.nouns .n-cut-controls button[aria-pressed=true]{background:#377f75;color:white;border-color:#377f75}
+.nouns.nouns .n-cut-controls button:focus-visible{outline:3px solid #df9858;outline-offset:2px}
+.nouns.nouns .n-material-status{min-height:72px;color:#37756b}
+.nouns.nouns .n-mass-note{padding:18px 20px;border-radius:16px;background:#eaf4ee;color:#315e52;line-height:1.8}
+.nouns.nouns .n-unit{display:block;font-weight:700;color:#79543d}
+@media(max-width:900px){.nouns.nouns .n-materials{grid-template-columns:1fr}.nouns.nouns .n-material img{height:240px;object-fit:contain}.nouns.nouns .n-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.nouns.nouns .n-grid{grid-template-columns:repeat(3,minmax(0,1fr));padding:10px;gap:7px}.nouns.nouns .n-food-art{width:76px}.nouns.nouns .n-w{font-size:12px}.nouns.nouns .n-material img{height:210px}}
+@media(max-width:360px){.nouns.nouns .n-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}

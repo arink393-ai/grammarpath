@@ -38,7 +38,7 @@ def main():
     shards = sorted(os.path.basename(f)[:-3] for f in glob.glob(os.path.join(REPO, 'vocab', 'info', '*.js')))
 
     idx, voc = page_assets('index.html'), page_assets('vocab/index.html')
-    art = ['art/cat-dex/meme-cats-atlas.png', 'art/cat-dex/meme-cats-atlas-2.png', 'art/cat-dex/meme-cats-atlas-3.png'] + [f'art/island/cats-{i}.png' for i in range(1,5)]
+    art = ['art/cat-dex/meme-cats-atlas.png', 'art/cat-dex/meme-cats-atlas-2.png', 'art/cat-dex/meme-cats-atlas-3.png'] + [f'art/island/cats-{i}.png' for i in range(1,5)] + sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/nouns/*')) if p.endswith(('.png', '.jpg')))
     # 課程貓咪圖（原本 base64 內嵌在 index.html，2026-10-27 抽成檔案，index 改版時不必重下載）
     art += sorted('art/breeds/'+os.path.basename(f) for f in glob.glob(os.path.join(REPO, 'art', 'breeds', '*.webp')))
     core = ['index.html'] + art + idx + [f'curriculum/{l}.json?v={cur_v}' for l in ('basic', 'intermediate', 'advanced')] + [f'curriculum/notes/{l}.json?v={notes_v}' for l in ('basic', 'intermediate', 'advanced')] + ['vocab/'] + voc

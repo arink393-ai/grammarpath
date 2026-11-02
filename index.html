@@ -2155,6 +2155,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .vf-xlink a{color:var(--teal);font-weight:600;text-decoration:none}
 .vf-xlink a:hover{text-decoration:underline}
 </style>
+<link rel="stylesheet" href="nouns-art.css?v=1">
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -2257,7 +2258,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="lesson-notes.js?v=13"></script>
 <script src="homework.js?v=13"></script>
 <script src="student-info.js?v=7"></script>
-<script src="offline-content.js?v=16"></script>
+<script src="offline-content.js?v=17"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=5"></script>
 <script src="vocab/books.js?v=6"></script>
@@ -7472,6 +7473,50 @@ const NICON={
   music:`<svg viewBox="0 0 48 48"><path d="M20 10l17-3v6l-17 3z" fill="#7e57c2"/><rect x="17.8" y="12" width="2.6" height="20" fill="#5e35b1"/><rect x="34.4" y="9" width="2.6" height="20" fill="#5e35b1"/><ellipse cx="14.5" cy="33" rx="5" ry="4" fill="#7e57c2"/><ellipse cx="31" cy="30" rx="5" ry="4" fill="#7e57c2"/></svg>`,
   work:`<svg viewBox="0 0 48 48"><rect x="8" y="16" width="32" height="22" rx="3" fill="#8d6e63"/><rect x="8" y="22" width="32" height="4" fill="#6d4c41"/><path d="M18 16v-3a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v3" fill="none" stroke="#6d4c41" stroke-width="2.4"/><rect x="21" y="22" width="6" height="5" rx="1" fill="#5d4037"/></svg>`
 };
+/* Painted food atlas shared by the chart and sorting game. */
+const NOUN_ART_KEYS = ["apple","banana","orange","lemon","pear","grapes","strawberry","watermelon","tomato","carrot","vegetables","egg","burger","hotdog","fries","pizza","sandwich","cookie","cake","candy","bread","rice","cereal","cheese","meat","seafood","soup","butter","honey","jam","yogurt","chocolate","sugar","flour","salt","oil","ketchup","mustard","fruit","icecream","water","milk","juice","tea","coffee"];
+NOUN_ART_KEYS.forEach((key,i)=>{
+  const slot=i%15, sheet=Math.floor(i/15)+1, row=Math.floor(slot/5);
+  const cuts=sheet===2?[0,340,640,1024]:[0,341,683,1024], h=cuts[row+1]-cuts[row];
+  NICON[key]=`<span class="n-food-art" aria-hidden="true" style="background-image:url('art/nouns/foods-${Math.floor(i/15)+1}.png');aspect-ratio:${307.2/h};background-size:500% ${1024/h*100}%;background-position:${slot%5*25}% ${cuts[row]/(1024-h)*100}%"></span>`;
+});
+const NOUN_MATERIALS=[
+ {key:"meat",zh:"肉",alt:"不同部位、形狀與大小的肉塊",desc:"大塊、小塊、薄片都可以叫 meat。談肉這種食材時，沒有固定的一個肉。",units:["a piece of meat","two pieces of meat","four pieces of meat"]},
+ {key:"bread",zh:"麵包",alt:"長條、圓形、切片與碎塊等不同形狀的麵包",desc:"長條、圓形、切片都是 bread。外形和份量改變，仍然是麵包這種食物。",units:["a piece of bread","two pieces of bread","four pieces of bread"]},
+ {key:"cheese",zh:"起司",alt:"整輪、大塊、楔形與切片等大小不一的起司",desc:"整輪、切片或小碎塊都還是 cheese。要數份量，可以先指定一塊或一片。",units:["a piece of cheese","two pieces of cheese","four pieces of cheese"]}
+];
+function nMaterialPieces(key,step){
+ const cuts=step===0?["0"]:step===1?["0 50% 0 0","0 0 0 50%"]:["0 50% 50% 0","0 0 50% 50%","50% 50% 0 0","50% 0 0 50%"];
+ return cuts.map((cut,i)=>{
+   const dx=step===0?0:(i%2===0?-7:7),dy=step===2?(i<2?-7:7):0;
+   return NICON[key].replace('style="',`style="clip-path:inset(${cut});transform:translate(${dx}px,${dy}px);`);
+ }).join("");
+}
+function nMaterialStep(key,step){
+ const item=NOUN_MATERIALS.find(x=>x.key===key);
+ if(!item||!Number.isInteger(step)||step<0||step>2)return;
+ const card=document.getElementById("nMaterial-"+key);if(!card)return;
+ card.querySelector(".n-cut-stage").innerHTML=nMaterialPieces(key,step);
+ card.querySelectorAll("button[data-step]").forEach(b=>b.setAttribute("aria-pressed",String(Number(b.dataset.step)===step)));
+ card.querySelector(".n-material-status").innerHTML=`切成 ${[1,2,4][step]} 塊，仍然是 <b>some ${key}</b>。<span class="n-unit">${item.units[step]}</span>數的是 piece / pieces，${key} 不加 -s。`;
+}
+function nMaterialsHTML(){
+ return `<section class="vf-sec"><h2>食材小實驗：切小了，還是同一種食材</h2>
+ <p class="vf-sub">看看肉、麵包和起司：大小、形狀可以不一樣；繼續分成更小的份，日常語意上仍然是 meat、bread、cheese。</p>
+ <div class="n-materials">${NOUN_MATERIALS.map(item=>`<article class="n-material" id="nMaterial-${item.key}">
+ <figure><img src="art/nouns/${item.key}-photo.jpg" alt="${item.alt}" loading="lazy" decoding="async"><figcaption>觀察實物：${item.alt}</figcaption></figure>
+ <div class="n-material-body"><h3>${item.key} · ${item.zh}</h3><p>${item.desc}</p>
+ <div class="n-cut-stage" aria-hidden="true">${nMaterialPieces(item.key,0)}</div>
+ <div class="n-cut-controls" role="group" aria-label="${item.zh}切分示範">${["一大塊","切成 2 塊","再切成 4 塊"].map((label,i)=>`<button type="button" data-step="${i}" aria-pressed="${i===0}" onclick="nMaterialStep('${item.key}',${i})">${label}</button>`).join("")}</div>
+ <p class="n-material-status" aria-live="polite">這是 <b>some ${item.key}</b>。<span class="n-unit">${item.units[0]}</span>數的是一塊，食材名稱不加 -s。</p>
+ </div></article>`).join("")}</div>
+ <div class="n-mass-note"><b>物質不自帶固定的「一個」，份量可以指定單位。</b><br>
+ some bread → two <b>slices</b> of bread（兩片麵包）<br>
+ some meat → two <b>pieces</b> of meat（兩塊肉）<br>
+ some cheese → 100 <b>grams</b> of cheese（100 公克起司）<br>
+ 「能繼續切分」是理解這些物質名詞的比喻，不是物理上的無限分割，也不是所有不可數名詞的判斷公式。蘋果也能切開，但 an apple 是一顆完整的個體；information、advice 則屬於抽象的不可數名詞。</div></section>`;
+}
+
 /* 圖卡（本區展示用） */
 const NOUN_CHART={
   food:{
@@ -7715,8 +7760,10 @@ function renderNouns(){
       <p class="vf-sub" style="margin-top:10px">💡 有些字兩種都行，意思不同：<code>a coffee</code>（一杯咖啡）vs <code>some coffee</code>（咖啡這種飲料）；<code>a paper</code>（報告／報紙）vs <code>some paper</code>（紙）。</p>
     </div>
 
+    ${nMaterialsHTML()}
+
     <div class="vf-sec"><h2>圖解：看圖記單字</h2>
-      <p class="vf-sub">分成「食物／飲料／抽象」三類；左邊能一個一個數，右邊只能整體說。</p>
+      <p class="vf-sub">分成「食物／飲料／抽象」三類；這裡列的是常見用法。cake、pizza、candy 等字也能當不可數，表示食物本身或不指定個數的份量。</p>
       <div class="n-tabs">${N_TABS.map(([c,l])=>`<button class="n-tab${c==='food'?' on':''}" data-cat="${c}" onclick="nChartTab('${c}')">${l}</button>`).join("")}</div>
       <div id="nChart"></div>
     </div>

@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v144-unit3-content";
+const CACHE = "eci-v145-nouns-illustrated";
 const SHELL = [
   "./",
   "./index.html",
@@ -10,6 +10,12 @@ const SHELL = [
   "./art/island/cats-2.png",
   "./art/island/cats-3.png",
   "./art/island/cats-4.png",
+  "./art/nouns/bread-photo.jpg",
+  "./art/nouns/cheese-photo.jpg",
+  "./art/nouns/foods-1.png",
+  "./art/nouns/foods-2.png",
+  "./art/nouns/foods-3.png",
+  "./art/nouns/meat-photo.jpg",
   "./art/breeds/abyssinian.webp",
   "./art/breeds/american-curl.webp",
   "./art/breeds/american-shorthair.webp",
@@ -48,13 +54,14 @@ const SHELL = [
   "./adventure.css?v=5",
   "./lesson-notes.css?v=3",
   "./homework.css?v=13",
+  "./nouns-art.css?v=1",
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=11",
   "./lesson-notes.js?v=13",
   "./homework.js?v=13",
   "./student-info.js?v=7",
-  "./offline-content.js?v=16",
+  "./offline-content.js?v=17",
   "./daily.js?v=18",
   "./adventure.js?v=5",
   "./vocab/books.js?v=6",
