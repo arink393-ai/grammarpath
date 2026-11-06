@@ -1,87 +1,37 @@
 # zh
-## 助動詞的共同規則
-can、could、should、must、may、will 這類「情態助動詞」有三個共同特點，學會了所有助動詞都通用：
-表：情態助動詞三大規則
-| 規則 | ✓ 正確 | ✗ 錯誤 |
-|---|---|---|
-| 後面接原形動詞 | She can <b>swim</b>. | She can swims. / can to swim |
-| 本身不加 -s | He <b>can</b> dance. | He cans dance. |
-| 否定、疑問不用 do | I <b>can't</b> go. / <b>Can</b> you go? | I don't can go. |
-
-## can 的用法
-表：can 的三種意思
-| 用法 | 例句 | 否定 |
-|---|---|---|
-| 能力（會） | I <b>can</b> speak Japanese. | I <b>can't</b> (cannot) drive. |
-| 許可（可以） | You <b>can</b> use my phone. | You can't park here. |
-| 請求 | <b>Can</b> you help me? | — |
-註：cannot 寫成一個字；口語縮寫為 can't。
-
-## could 的用法
-| 用法 | 例句 |
+## can / could：能力、請求、可能
+can 是最常用的助動詞之一，表「會、能、可以」。could 是它的過去式，也用在更客氣的請求。
+表：三種意思
+| 意思 | 例句 |
 |---|---|
-| 過去的能力 | I <b>could</b> run fast when I was young. |
-| 較禮貌的請求 | <b>Could</b> you open the window, please? |
-| 可能性（不確定） | It <b>could</b> rain later. |
-
-## 請求的禮貌程度
-| 說法 | 禮貌程度 |
+| 能力 | I <b>can</b> swim. / I <b>could</b> swim at five. |
+| 請求／許可 | <b>Can</b> I…? / <b>Could</b> you…?（更禮貌） |
+| 可能性 | It <b>can</b> get cold at night. |
+## 用法重點
+| 規則 | 例子 |
 |---|---|
-| Can you…? | 一般、對熟人 |
-| Could you…? | 較客氣 |
-| Could you possibly…? / Would you mind…? | 非常客氣 |
-
-## be able to：能夠
-can 只有現在式和 could 兩種形式。需要其他時態時，改用 <b>be able to</b>：
-<span class="en">I <b>will be able to</b> swim next year.</span>（✗ will can）<span class="en">She <b>has been able to</b> read since she was four.</span>
-> 過去「成功做到某件事」常用 was able to：The fire was big, but we <b>were able to</b> escape.
-
+| 後接原形 | can <b>swim</b>（✗ can to swim） |
+| 不隨主詞變化 | she <b>can</b>（✗ cans） |
+| 否定 | can't / cannot / couldn't |
+> 問句把 can/could 移到主詞前：<span class="en"><b>Can</b> you help me? — Yes, I <b>can</b>.</span>
 # mc
-Q: My grandfather ___ use a smartphone. || 我爺爺會用智慧型手機。
-A: can* | cans | can to
-W: can 後接原形，本身不加 s。
-Q: ___ you pass me the salt, please? || 可以請你把鹽遞給我嗎？
-A: Could* | Do | Are
-W: 禮貌的請求用 Could you…?
-Q: When I was five, I ___ ride a bike. || 我五歲時就會騎腳踏車了。
-A: can | could* | can't to
-W: 過去的能力用 could。
-Q: After this course, you will ___ speak French. || 上完這門課，你就能說法文。
-A: can | be able to* | could
-W: will 後面不能接 can，改用 be able to。
-
+Q: ___ you ride a bike? || 你會騎腳踏車嗎？
+A: Do | Can* | Are
+W: 問能力用 Can。
+Q: She can ___ very well. || 她唱得很好。
+A: sings | to sing | sing*
+W: can + 原形 sing。
+Q: ___ you lend me a pen, please? || 可以借我一支筆嗎？
+A: Could* | Do | Does
+W: Could you…? 更禮貌。
 # err
-S: She [can sings|can sing] very well. || 她歌唱得很好。
-W: can 後面接原形動詞 sing。
-S: I [don't can|can't] find my keys. || 我找不到我的鑰匙。
-W: can 的否定直接加 not：can't。
-S: He will [can|be able to] come tomorrow. || 他明天能來。
-W: 兩個助動詞不能連用，will 後面用 be able to。
-
+S: I [can to drive|can drive] a car. || 我會開車。
+W: can 後接原形，不加 to。
+S: He [cans|can] speak Korean. || 他會說韓文。
+W: can 不加 s。
+S: [Can you helping|Can you help] me? || 你可以幫我嗎？
+W: can 後接原形 help。
 # mk
-- can 後面直接接原形動詞，不加 to。
-- can 本身不加 -s。
-- could 後面接原形動詞 speak。
-
-# mc
-Q: ___ I use your phone? || 我可以用你的手機嗎？
-A: Can* | Do | Am
-W: 請求許可用 Can I…?
-Q: She couldn't ___ the door. It was locked. || 她打不開門，門鎖住了。
-A: opened | open* | to open
-W: could 後面接原形。
-Q: My little brother ___ read yet. || 我弟弟還不會識字。
-A: can't* | doesn't can | can not to
-W: can 的否定是 can't。
-Q: I'm sorry, I ___ come to your party last night. || 抱歉，我昨晚沒辦法去你的派對。
-A: can't | couldn't* | can
-W: 過去的「不能」用 couldn't。
-# err
-S: [Do you can|Can you] help me? || 你可以幫我嗎？
-W: can 的問句直接把 Can 放前面，不加 Do。
-S: She [can to|can] play the violin. || 她會拉小提琴。
-W: can 後面直接接原形。
-S: He [cans|can] run very fast. || 他跑得很快。
-W: 助動詞 can 不加 -s。
-S: I hope I [can will|will be able to] visit you next year. || 我希望明年能去看你。
-W: 兩個助動詞不能連用，改用 will be able to。
+- can 後面接原形，不加 to。
+- 助動詞 can 不隨主詞加 s。
+- can 後面用原形 help。

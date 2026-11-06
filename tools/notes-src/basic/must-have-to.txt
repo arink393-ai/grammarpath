@@ -1,80 +1,36 @@
 # zh
-## must 與 have to：「必須」
-兩個都表示必須做某事，但來源不同：
-表：must vs. have to
-| | must | have to |
-|---|---|---|
-| 義務來自 | 說話者自己的想法、強烈要求 | 外在規定、環境 |
-| 例句 | I <b>must</b> study harder.（我自己覺得） | I <b>have to</b> wear a uniform.（學校規定） |
-| 變化 | 沒有變化 | have / has / had / will have to |
-| 過去式 | （借用 had to） | I <b>had to</b> work yesterday. |
-| 未來式 | （借用 will have to） | You <b>will have to</b> wait. |
-註：have to 會跟著主詞變化：She <b>has to</b> go.（✗ She have to go.）
-
-## 否定的意思完全不同！
-這是最重要的考點：
-表：mustn't vs. don't have to
+## must / have to：必須
+must 和 have to 都表「必須」。must 常是說話者覺得重要或規定；have to 常是外在要求。
+表：肯定
+| 說法 | 例句 |
+|---|---|
+| must | You <b>must</b> stop at a red light. |
+| have to（he/she/it → has to） | She <b>has to</b> work on Saturday. |
+## 否定意思完全不同！
 | 說法 | 意思 | 例句 |
 |---|---|---|
-| mustn't / must not | <b>禁止</b>，絕對不可以 | You <b>mustn't</b> smoke here.（不准抽菸） |
-| don't have to | <b>不必</b>，可以不做 | You <b>don't have to</b> pay.（不用付錢，免費） |
-> 記法：mustn't = 不可以；don't have to = 沒必要。
-
-## 疑問句
-| must | have to |
-|---|---|
-| <b>Must</b> I go?（較正式） | <b>Do</b> I <b>have to</b> go? |
-| — Yes, you must. / No, you don't have to. | — Yes, you do. / No, you don't. |
-
-## must 的另一個意思：一定是（推測）
-<span class="en">He's been working all day. He <b>must</b> be tired.</span>（他一定很累）→ 詳見進階課「Modals of Deduction」。
-
+| mustn't | 禁止（不可以） | You <b>mustn't</b> touch that. |
+| don't have to | 不必（沒必要） | You <b>don't have to</b> pay. |
+> must 沒有過去式，過去用 <b>had to</b>：<span class="en">I <b>had to</b> wait an hour.</span>
 # mc
-Q: My brother ___ get up at six every day. || 我哥哥每天必須六點起床。
+Q: You ___ wear a seatbelt in the car. || 你在車上必須繫安全帶。
+A: must* | must to | have
+W: 規定用 must + 原形。
+Q: Tomorrow is a holiday, so I ___ get up early. || 明天放假，我不必早起。
+A: mustn't | don't have to* | must not
+W: 不必用 don't have to。
+Q: My sister ___ wear glasses to read. || 我妹讀書必須戴眼鏡。
 A: have to | has to* | must to
-W: 主詞 My brother 單數，have to 要變 has to。
-Q: You ___ touch the stove. It's hot! || 你不准碰爐子，很燙！
-A: don't have to | mustn't* | needn't
-W: 「禁止、不可以」用 mustn't。
-Q: Tomorrow is Sunday. I ___ go to school. || 明天星期天，我不用上學。
-A: mustn't | don't have to* | haven't to
-W: 「不必」用 don't have to。
-Q: Yesterday I ___ walk home because I lost my bus card. || 昨天我弄丟了公車卡，只好走路回家。
-A: must | had to* | have to
-W: must 沒有過去式，過去的必須用 had to。
-
+W: she → has to。
 # err
-S: She [have to|has to] take care of her sister. || 她必須照顧妹妹。
-W: 主詞 She 單數，用 has to。
-S: You [must to|must] wear a helmet. || 你必須戴安全帽。
-W: must 後面直接接原形，不加 to。
-S: We [mustn't|don't have to] hurry. We have plenty of time. || 我們不用急，時間很充裕。
-W: 「不必」是 don't have to；mustn't 是「禁止」，意思不對。
-
+S: You [must to|must] follow the rules. || 你必須遵守規則。
+W: must 後接原形，不加 to。
+S: You [mustn't|don't have to] come if you're busy. || 你忙的話不必來。
+W: 「不必」用 don't have to（mustn't 是禁止）。
+S: Yesterday I [must|had to] work late. || 我昨天必須加班。
+W: must 無過去式，過去用 had to。
 # mk
-- must 後面直接接原形動詞，不加 to。
-- 主詞 She 單數，have to 要變 has to。
-- 「不必擔心」是 don't have to；must 不能和 don't 連用。
-
-# mc
-Q: Students ___ run in the hallway. It's against the rules. || 學生不准在走廊奔跑，這是違反規定的。
-A: mustn't* | don't have to | doesn't have to
-W: 禁止用 mustn't。
-Q: You ___ bring anything. We have everything. || 你不用帶任何東西，我們什麼都有。
-A: mustn't | don't have to* | must
-W: 「不必」用 don't have to。
-Q: He ___ wear glasses to read. || 他看書必須戴眼鏡。
-A: have to | has to* | must to
-W: 主詞 he，用 has to。
-Q: We ___ wait for an hour yesterday. || 我們昨天得等一個小時。
-A: must | had to* | have to
-W: 過去的必須用 had to。
-# err
-S: You [must not to|must not] park here. || 你不准在這裡停車。
-W: must not 後面接原形。
-S: [Does she must|Does she have to] work on Sunday? || 她星期天必須工作嗎？
-W: must 不能和 does 連用，用 Does she have to。
-S: I [must|had to] stay home yesterday because I was sick. || 我昨天生病，只好待在家。
-W: must 沒有過去式，用 had to。
-S: My dad [have to|has to] get up at five. || 我爸爸必須五點起床。
-W: 主詞 my dad 單數，用 has to。
+- must 後接原形，不加 to。
+- must 後接原形。
+- mustn't 後接原形。
+- must 無過去式，過去用 had to。

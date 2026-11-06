@@ -1,79 +1,36 @@
 # zh
-## 做運動：play、go 還是 do？
-中文都說「打、做、去」，英文要看運動的種類選動詞：
-表：運動與活動的動詞
-| 動詞 | 搭配什麼 | 例子 |
+## 運動與活動：play / go / do
+談運動、活動要用對動詞。
+表：怎麼選
+| 動詞 | 用在 | 例子 |
 |---|---|---|
-| play | <b>球類</b>、對抗性比賽、棋類 | play basketball / soccer / tennis / badminton / chess / video games |
-| go | 以 <b>-ing</b> 結尾的活動 | go swimming / jogging / hiking / shopping / camping / fishing / skiing |
-| do | <b>個人</b>運動、武術、沒有球的訓練 | do yoga / karate / taekwondo / gymnastics / exercise / aerobics |
-註：口訣：「有球用 play、-ing 用 go、其他用 do」。
-
-## 樂器要加 the
-<span class="en">play <b>the</b> piano / play <b>the</b> guitar / play <b>the</b> violin</span>，但球類不加 the：<span class="en">play basketball</span>（✗ play the basketball）。
-
-## go + V-ing 不加介系詞
-| ✗ 錯誤 | ✓ 正確 |
-|---|---|
-| go to swimming | go swimming |
-| go to shopping | go shopping |
-| go for fishing | go fishing |
-> 地點要放在後面並用 in / at：go swimming <b>in</b> the river、go shopping <b>at</b> the mall（不用 to）。
-
-## 其他相關說法
-| 說法 | 意思 |
-|---|---|
-| work out | 健身、運動 |
-| go for a walk / run / swim | 去散步／跑步／游泳 |
-| practice + 運動 | 練習某運動：practice basketball |
-| be good at + 運動 | 擅長：She's good at tennis. |
-
+| play | 球類、對戰、遊戲 | play basketball, play chess |
+| go | 以 -ing 結尾的活動 | go swimming, go shopping, go hiking |
+| do | 其他運動、武術 | do yoga, do karate, do exercise |
+## 要不要加 the？
+| 情況 | 規則 | 例子 |
+|---|---|---|
+| 運動 | 不加 the | play tennis（✗ the） |
+| 樂器 | 加 the | play <b>the</b> piano |
+> go 後面直接接 V-ing，不加 to：✗ go to swimming → ✓ <b>go swimming</b>。
 # mc
-Q: My father ___ hiking every Sunday. || 我爸爸每個星期天去爬山。
-A: plays | goes* | does
-W: -ing 結尾的活動用 go：go hiking。
-Q: Do you want to ___ badminton after school? || 放學後要不要打羽毛球？
-A: play* | go | do
-W: 球類運動用 play。
-Q: She ___ taekwondo twice a week. || 她一週練兩次跆拳道。
+Q: They ___ soccer every Saturday. || 他們每週六踢足球。
+A: do | go | play*
+W: 球類用 play。
+Q: I want to ___ shopping this afternoon. || 我今天下午想去逛街。
+A: do | go* | play
+W: go + V-ing（go shopping）。
+Q: My mom ___ yoga to relax. || 我媽做瑜伽放鬆。
 A: plays | goes | does*
-W: 武術類用 do。
-Q: Can you play ___ guitar? || 你會彈吉他嗎？
-A: a | the* | an
-W: 演奏樂器要加 the。
-
+W: do yoga。
 # err
-S: Let's go [to shopping|shopping] this weekend. || 這週末一起去購物吧。
-W: go + V-ing 中間不加 to。
-S: My brother [goes|plays] soccer with his friends. || 我哥哥和朋友踢足球。
-W: 球類運動用 play。
-S: I [play|do] yoga in the morning. || 我早上做瑜伽。
-W: yoga 是個人運動，用 do。
-
+S: We go [to swimming|swimming] in summer. || 我們夏天去游泳。
+W: go + V-ing，不加 to。
+S: He plays [the basketball|basketball] after school. || 他放學後打籃球。
+W: 運動不加 the。
+S: She can play [piano|the piano] well. || 她鋼琴彈得很好。
+W: 樂器要加 the（play the piano）。
 # mk
-- -ing 結尾的活動用 go：go swimming。
-- tennis 是球類，用 play。
-- yoga 是個人運動，用 do。
-
-# mc
-Q: Let's ___ camping this weekend. || 這週末去露營吧。
-A: play | go* | do
-W: -ing 結尾的活動用 go。
-Q: He ___ chess with his grandpa. || 他和爺爺下棋。
-A: plays* | goes | does
-W: 棋類用 play。
-Q: My mom ___ exercise every morning. || 我媽媽每天早上運動。
-A: plays | goes | does*
-W: do exercise。
-Q: She plays ___ violin in the school band. || 她在校樂團拉小提琴。
-A: a | the* | an
-W: 樂器前面加 the。
-# err
-S: We [played|went] skiing in Japan. || 我們在日本去滑雪。
-W: -ing 活動用 go。
-S: He [does|plays] badminton after school. || 他放學後打羽毛球。
-W: 球類運動用 play。
-S: They [play|do] karate on Saturdays. || 他們星期六練空手道。
-W: 武術用 do。
-S: Let's go [to fishing|fishing] at the lake. || 我們去湖邊釣魚吧。
-W: go + V-ing 不加 to。
+- go + V-ing，不加 to。
+- 運動不加 the。
+- 球類用 play。
