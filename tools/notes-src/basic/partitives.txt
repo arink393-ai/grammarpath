@@ -90,3 +90,38 @@ S: Can you buy a carton of [milks|milk]? || 你可以買一盒牛奶嗎？
 W: 量詞後的不可數名詞不加 s。
 S: She gave me [an advice|a piece of advice]. || 她給了我一個建議。
 W: advice 不可數，要用 a piece of。
+
+# mc
+Q: Grandma turned ___ of grapes into juice. || 奶奶把一串葡萄打成果汁。
+A: a bunch* | a slice | a can
+W: 一串葡萄：a bunch of grapes。
+Q: She poured water from ___. || 她從一個水壺倒水。
+A: a jug* | a packet | a bar
+W: 壺裝水：a jug of water。
+Q: Spread ___ of jam on your toast. || 吐司上抹一點果醬。
+A: a jar* | a tube | a loaf
+W: 果醬裝玻璃罐：a jar of jam。
+Q: Can you buy ___ of toothpaste? || 可以買一條牙膏嗎？
+A: a bar | a tube* | a bottle
+W: 牙膏是軟管：a tube of toothpaste。
+Q: Mom bought ___ of meat at the market. || 媽媽在市場買了一公斤肉。
+A: a kilo* | a sheet | a cup
+W: 肉論重量：a kilo of meat。
+Q: Dad bought ___ of petrol on the way home. || 爸爸回家路上買了一加侖汽油。
+A: a gallon* | a jar | a loaf
+W: 汽油論加侖：a gallon of petrol。
+Q: I need ___ of sugar for the tea. || 泡茶我需要一包糖。
+A: a packet* | a pair | a slice
+W: 一包糖：a packet of sugar。
+Q: Let's play cards! Pass me ___. || 來玩牌！給我一副牌。
+A: a deck of cards* | a bar of cards | a slice of cards
+W: 一副牌：a deck of cards。
+# err
+S: He drank a [packet|jug] of water. || 他喝了一壺水。
+W: 壺裝水：a jug of water。
+S: Please buy a [bunch|tube] of toothpaste. || 請買一條牙膏。
+W: 牙膏用軟管量詞：a tube of toothpaste。
+S: We ate a whole [deck|bunch] of bananas. || 我們吃了一整串香蕉。
+W: 一串香蕉：a bunch of bananas。
+S: She bought two [kilo|kilos] of sugar. || 她買了兩公斤糖。
+W: 數量是兩公斤，量詞變複數 kilos。
