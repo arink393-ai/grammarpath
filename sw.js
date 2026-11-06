@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v148-partitive-practice";
+const CACHE = "eci-v149-countnoncount-partitives";
 const SHELL = [
   "./",
   "./index.html",
@@ -16,6 +16,8 @@ const SHELL = [
   "./art/nouns/foods-2.png",
   "./art/nouns/foods-3.png",
   "./art/nouns/meat-photo.jpg",
+  "./art/fables/aesop-crow-pitcher.png",
+  "./art/fables/aesop-frogs-ox.png",
   "./art/breeds/abyssinian.webp",
   "./art/breeds/american-curl.webp",
   "./art/breeds/american-shorthair.webp",
@@ -58,7 +60,7 @@ const SHELL = [
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=12",
-  "./lesson-notes.js?v=15",
+  "./lesson-notes.js?v=16",
   "./homework.js?v=13",
   "./student-info.js?v=7",
   "./offline-content.js?v=18",

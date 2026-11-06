@@ -15,6 +15,29 @@
 | 物質 | water, milk, bread, rice, money |
 | 抽象 | information, advice, news, homework, furniture |
 > 有些字兩種都行、意思不同：<span class="en"><b>a coffee</b></span>（一杯）vs <span class="en"><b>some coffee</b></span>（咖啡這種飲料）。更多圖解與遊戲，到「可數不可數專區」。
+## 怎麼數不可數名詞？用量詞
+不可數名詞不能直接加數字（✗ two waters），要用<b>「a／數字 + 單位 + of + 名詞」</b>來數。
+表：常見量詞單位
+| 量詞 | 中文 | 例子 |
+|---|---|---|
+| a cup of | 一杯（熱飲） | a cup of tea / coffee |
+| a glass of | 一杯（冷飲） | a glass of water / milk |
+| a bottle of | 一瓶 | a bottle of water |
+| a can of | 一罐 | a can of Coke |
+| a carton of | 一紙盒 | a carton of milk |
+| a jar of | 一罐（玻璃） | a jar of honey / jam |
+| a packet of | 一包 | a packet of tea / sugar |
+| a box of | 一盒 | a box of cereal |
+| a bag of | 一袋 | a bag of flour / rice |
+| a bowl of | 一碗 | a bowl of rice / soup |
+| a piece of | 一片／一則／一件 | a piece of bread / advice / news |
+| a slice of | 一（薄）片 | a slice of bread / cheese |
+| a loaf of | 一條（整條麵包） | a loaf of bread |
+| a bar of | 一條、一塊 | a bar of chocolate / soap |
+| a tube of | 一條（軟管） | a tube of toothpaste |
+| a kilo of | 一公斤 | a kilo of meat / sugar |
+| a bunch of | 一串、一把 | a bunch of grapes / bananas |
+> 要說兩個以上，改的是<b>量詞</b>，不可數名詞不變：two <b>bottles</b> of water（✗ two bottles of waters）。完整量詞與練習，見「量詞 Partitives」這一課。
 # mc
 Q: Could I have ___ bread? || 可以給我一些麵包嗎？
 A: a | an | some*
