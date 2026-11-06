@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v152-week-1109";
+const CACHE = "eci-v153-fable-storybook";
 const SHELL = [
   "./",
   "./index.html",
@@ -16,8 +16,18 @@ const SHELL = [
   "./art/nouns/foods-2.png",
   "./art/nouns/foods-3.png",
   "./art/nouns/meat-photo.jpg",
+  "./art/fables/aesop-belling-cat.png",
+  "./art/fables/aesop-bundle-sticks.png",
   "./art/fables/aesop-crow-pitcher.png",
+  "./art/fables/aesop-fox-crow.png",
+  "./art/fables/aesop-fox-grapes.png",
   "./art/fables/aesop-frogs-ox.png",
+  "./art/fables/aesop-goose-golden-egg.png",
+  "./art/fables/aesop-hare-tortoise.png",
+  "./art/fables/aesop-lion-mouse.png",
+  "./art/fables/aesop-milkmaid-pail.png",
+  "./art/fables/aesop-shepherd-wolf.png",
+  "./art/fables/aesop-wind-sun.png",
   "./art/breeds/abyssinian.webp",
   "./art/breeds/american-curl.webp",
   "./art/breeds/american-shorthair.webp",
