@@ -10946,7 +10946,7 @@ const READINGS = [
 {"id": "spacex-ipo", "cat": "business", "topic": "The Biggest Stock Market Debut Ever", "zh": "史上最大規模上市案", "src": "The Economist · The Washington Post · Reuters", "date": "2026-07-16", "week": "7/27–8/2", "tag": "Business 財經", "icon": "rocket"},
 {"id": "eclipse-2026", "cat": "science", "topic": "Europe's First Total Eclipse in 27 Years", "zh": "歐洲 27 年來首見日全食", "src": "Science · Nature · NASA", "date": "2026-07-16", "week": "7/20–7/26", "tag": "Science 科學", "icon": "eclipse"}
 ];
-const READINGS_FILES = {"2026-07": "readings/2026-07.json?v=8d2a46b6", "2026-08": "readings/2026-08.json?v=c880d335", "2026-09": "readings/2026-09.json?v=1b26382a", "2026-10": "readings/2026-10.json?v=28a200cd", "2026-11": "readings/2026-11.json?v=20feb6d3"};
+const READINGS_FILES = {"2026-07": "readings/2026-07.json?v=8d2a46b6", "2026-08": "readings/2026-08.json?v=c880d335", "2026-09": "readings/2026-09.json?v=1b26382a", "2026-10": "readings/2026-10.json?v=e1f6d4c4", "2026-11": "readings/2026-11.json?v=c3336dce"};
 /*READINGS_END*/
 
 /* 單元題組閱讀 — 貓島情境短文，自然嵌入該單元文法點 */
@@ -12264,6 +12264,39 @@ function dwStarter(q, lk){
   if(/^(what|where|who|whose|when|which)\b/i.test(core)) return lk==="c" ? "I believe … . This is because … . For instance, …" : lk==="b" ? "I think … because … . For example, …" : "I think … because …";
   return lk==="a" ? "I think … because …" : "In my opinion, … because … .";
 }
+/* ---- Worksheet extras: A1–A2 guided translation, B1–B2 cloze (文意選填) + sentence translation ----
+   Data: levels.a.gt = [{en, zh, b:[words to blank]}], levels.b.tr = [{en, zh}] (readings/*.json).
+   The cloze needs no extra data: it blanks the A1–A2 version's key words (a text the B1–B2 sheet does not show)
+   and fills the word bank with that article's B/C words as tempting distractors. */
+const WS_LET = "ABCDEFGHIJKL";
+function wsRe(w){ const e=s=>s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  return /[\s-]/.test(w) ? e(w) : /e$/.test(w) ? e(w.slice(0,-1))+"(?:e|es|ed|ing)" : /y$/.test(w) ? e(w.slice(0,-1))+"(?:y|ies|ied|ying)" : e(w)+"(?:s|es|ed|ing)?"; }
+function wsSeed(str){ let h=2166136261; for(const c of str){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); } return ()=>{ h^=h<<13; h^=h>>>17; h^=h<<5; return ((h>>>0)%10000)/10000; }; }
+function wsGuided(en, blanks){
+  const marks=[]; let t=en;
+  (blanks||[]).forEach(w=>{ const m=t.match(new RegExp("\\b("+wsRe(w)+")\\b","i")); if(m){ marks.push(m[1]); t=t.replace(m[1], "\u0001"+(marks.length-1)+"\u0002"); } });
+  return rdEsc(t).replace(/\u0001(\d+)\u0002/g,(_,i)=>{ const w=marks[+i];
+    return `<span class="gt-b">${w.split(" ").map(x=>x[0]+"_".repeat(Math.max(2,x.length-1))).join(" ")}<small>(${w.replace(/[^A-Za-z]/g,"").length})</small></span><span class="ak-inline"> ${rdEsc(w)}</span>`; });
+}
+function wsCloze(r){
+  const A=r.levels.a; if(!A?.text) return null;
+  const paras=A.text.slice(); const found=[];
+  (A.gloss||[]).forEach(g=>{ if(found.length>=8) return;
+    for(let pi=0;pi<paras.length;pi++){ const re=new RegExp("\\b("+wsRe(g[0])+")\\b","gi"); let m;
+      while((m=re.exec(paras[pi]))){ if(/^[A-Z]/.test(m[1]) && m.index>0 && !/[.!?]\s*$/.test(paras[pi].slice(0,m.index))) continue;   /* skip names like "Nobel Prize" */
+        if(!found.some(f=>f.pi===pi && Math.abs(f.at-m.index)<m[1].length+2)){ found.push({pi, at:m.index, w:m[1]}); return; } } } });
+  if(found.length<4) return null;
+  found.sort((x,y)=>x.pi-y.pi||x.at-y.at);
+  const ans=found.map(f=>f.w), low=new Set(ans.map(w=>w.toLowerCase()));
+  const extra=[...(r.levels.b?.gloss||[]),...(r.levels.c?.gloss||[])].map(g=>g[0]).filter(w=>!low.has(w.toLowerCase()) && !/\s/.test(w));
+  const rnd=wsSeed(r.id+"|cz"); const bank=[...ans, ...extra.slice(0, Math.max(0, Math.min(10, ans.length+4)-ans.length))];
+  for(let i=bank.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); [bank[i],bank[j]]=[bank[j],bank[i]]; }
+  const key=ans.map(w=>WS_LET[bank.indexOf(w)]);
+  const byP={}; found.forEach((f,n)=>{ (byP[f.pi]=byP[f.pi]||[]).push({...f,n}); });
+  const html=paras.map((p,pi)=>{ let out="", last=0; (byP[pi]||[]).sort((x,y)=>x.at-y.at).forEach(f=>{ out+=rdEsc(p.slice(last,f.at))+`<span class="cz-b">(${f.n+1})<span class="ak-inline"> ${key[f.n]} ${rdEsc(f.w)}</span></span>`; last=f.at+f.w.length; }); return `<p>${out+rdEsc(p.slice(last))}</p>`; }).join("");
+  return {html, bank, key, ans};
+}
+function wsHints(en, gloss){ return (gloss||[]).map(g=>g[0]).filter(w=>new RegExp("\\b"+wsRe(w)+"\\b","i").test(en)); }
 function rdSheetHTML(r, lv, label){
   const paras   = lv.text.map(p=>`<p>${rdEsc(p)}</p>`).join("");
   const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${rdEsc(g[0])}</b> <i>${rdEsc(g[1])}</i> ${rdEsc(g[2])}</span>`).join("");
@@ -12286,6 +12319,25 @@ function rdSheetHTML(r, lv, label){
     b:{lines:4, need:"每題寫 <b>2–3 個完整句子</b>，要說出理由。", frames:["I think … because …","For example, …","I agree / disagree that …"]},
     c:{lines:5, need:"每題寫 <b>3–4 個完整句子</b>：表明立場、說明理由、舉例。", frames:["In my view, …","This is because …","For instance, …","On the other hand, …"]}}[lk] || {lines:3, need:"", frames:[]};
   const discuss = (r.discuss||[]).map(d=>`<li><div class="dq">${rdEsc(d)}</div><div class="wl wl-s"><span>✏️ ${rdEsc(dwStarter(d, lk))}</span></div>${'<div class="wl"></div>'.repeat(DW.lines-1)}</li>`).join("");
+  /* A1–A2: guided translation replaces discussion & writing (falls back to discussion until an article has gt data) */
+  const gt = lk==="a" && lv.gt && lv.gt.length ? lv.gt : null;
+  const gtSec = gt ? `<div class="gt-sec"><h2>Guided Translation 引導式翻譯</h2>
+    <p class="ws-tip">看中文意思，把英文句子的空格填完整。每格給你第一個字母，括號是字母數。</p>
+    <ol class="gt">${gt.map(x=>`<li><div class="gt-zh">${rdEsc(x.zh)}</div><div class="gt-en">${wsGuided(x.en, x.b)}</div></li>`).join("")}</ol></div>` : "";
+  const gtAns = gt ? `<div class="ak-sec"><b>Guided Translation 引導式翻譯</b>${gt.map((x,i)=>`<div class="ak">${i+1}. ${rdEsc(x.en)}</div>`).join("")}</div>` : "";
+  /* B1–B2: cloze (文意選填) + whole-sentence translation, discussion & writing kept */
+  const cz = lk==="b" ? wsCloze(r) : null;
+  const czSec = cz ? `<div class="cz-sec"><h2>Cloze 文意選填</h2>
+    <p class="ws-tip">同一個主題的另一篇短文。從下面的字庫選出最適合的字，把代號寫在空格裡（每個字最多用一次，有 ${cz.bank.length-cz.ans.length} 個用不到）。</p>
+    <div class="cz-bank">${cz.bank.map((w,i)=>`<span><b>(${WS_LET[i]})</b> ${rdEsc(w)}</span>`).join("")}</div>
+    <div class="cz-text">${cz.html}</div>
+    <div class="cz-lines">${cz.ans.map((_,i)=>`<span>(${i+1}) ______</span>`).join("")}</div></div>` : "";
+  const czAns = cz ? `<div class="ak-sec"><b>Cloze 文意選填</b><div class="ak">${cz.key.map((k,i)=>`(${i+1}) ${k} ${rdEsc(cz.ans[i])}`).join("　")}</div></div>` : "";
+  const tr = lk==="b" && lv.tr && lv.tr.length ? lv.tr : null;
+  const trSec = tr ? `<div class="tr-sec"><h2>Sentence Translation 整句翻譯</h2>
+    <p class="ws-tip">把中文翻成<b>完整的英文句子</b>。提示字可以用，記得注意時態和單複數。</p>
+    <ol class="tr">${tr.map(x=>{ const h=wsHints(x.en, lv.gloss); return `<li><div class="gt-zh">${rdEsc(x.zh)}</div>${h.length?`<div class="tr-hint">提示：${h.map(rdEsc).join("、")}</div>`:""}<div class="wl"></div><div class="wl"></div><div class="ak-inline">✓ ${rdEsc(x.en)}</div></li>`; }).join("")}</ol></div>` : "";
+  const trAns = tr ? `<div class="ak-sec"><b>Sentence Translation 整句翻譯（參考答案）</b>${tr.map((x,i)=>`<div class="ak">${i+1}. ${rdEsc(x.en)}</div>`).join("")}</div>` : "";
   return `<section class="sheet">
   <div class="name-row"><span>Name 姓名: ____________</span><span>Class 班級: ________</span><span>Date 日期: ${label?`<b>${rdEsc(label)}</b>`:"________"}</span><span>Score 分數: ______</span></div>
   ${label?`<div class="day-tag">${rdEsc(label)}</div>`:""}
@@ -12296,13 +12348,14 @@ function rdSheetHTML(r, lv, label){
   ${cwSec}
   <h2>Comprehension Questions 閱讀測驗</h2>
   ${qs}
-  ${discuss?`<div class="dw-sec"><h2>Discussion &amp; Writing 討論與寫作</h2>
+  ${gtSec}${czSec}${trSec}
+  ${discuss && !gt?`<div class="dw-sec"><h2>Discussion &amp; Writing 討論與寫作</h2>
   <div class="dw-how"><span>① 先和老師、同學討論　② 用<b>完整的英文句子</b>寫下你的想法</span><span class="dw-when">☐ 課堂完成　☐ 回家作業　繳交日：________</span></div>
   <div class="dw-tip">${DW.need}　每題第一行有 ✏️ 開頭提示，可以照著接下去寫，也可以用自己的話開頭。</div>
   <ol class="disc">${discuss}</ol>
   <div class="dw-check">寫完自我檢查：☐ 大寫開頭　☐ 句尾有句號或問號　☐ 每句都有主詞和動詞　☐ 有說出理由（because / for example）</div></div>`:""}
   <div class="src-note">📰 Source 資料來源：改寫自 ${rdEsc(r.src)} 等媒體之公開報導（${rdEsc(r.date)}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</div>
-  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}${cwAns}</div>
+  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}${cwAns}${gtAns}${czAns}${trAns}</div>
 </section>`;
 }
 /* Same-page preview avoids blocked popup windows and keeps the reading answers intact. */
@@ -12365,6 +12418,23 @@ function rdOpenWorksheet(sections, docTitle){
 #rd-print-preview .dq{margin-bottom:2px}
 #rd-print-preview .wl{height:27px;border-bottom:1px solid #9a9a9a}
 #rd-print-preview .wl-s{display:flex;align-items:flex-end;padding-bottom:3px}
+#rd-print-preview .ws-tip{font:9.5pt system-ui,sans-serif;color:#555;margin:-4px 0 10px}
+#rd-print-preview ol.gt,#rd-print-preview ol.tr{padding-left:22px}
+#rd-print-preview ol.gt li,#rd-print-preview ol.tr li{margin:0 0 14px;break-inside:avoid;page-break-inside:avoid}
+#rd-print-preview .gt-zh{font:11pt system-ui,sans-serif;color:#333;margin-bottom:4px}
+#rd-print-preview .gt-en{line-height:2.1}
+#rd-print-preview .gt-b{display:inline-block;letter-spacing:2px;font-family:'Courier New',monospace;font-weight:700;color:#79401F;padding:0 2px}
+#rd-print-preview .gt-b small{font:8pt system-ui,sans-serif;color:#999;letter-spacing:0;margin-left:2px}
+#rd-print-preview .tr-hint{font:9.5pt system-ui,sans-serif;color:#79401F;margin-bottom:2px}
+#rd-print-preview .cz-bank{display:flex;flex-wrap:wrap;gap:6px 18px;border:1.5px solid #E2CDB6;border-radius:8px;padding:8px 12px;margin-bottom:10px;font:10.5pt system-ui,sans-serif;background:#FFFBF5}
+#rd-print-preview .cz-text p{margin:0 0 8px;line-height:1.9}
+#rd-print-preview .cz-b{display:inline-block;min-width:64px;border-bottom:1.5px solid #333;text-align:center;font:700 9.5pt system-ui,sans-serif;color:#79401F}
+#rd-print-preview .cz-lines{display:flex;flex-wrap:wrap;gap:6px 22px;font:10.5pt system-ui,sans-serif;margin-top:4px}
+#rd-print-preview .gt-sec,#rd-print-preview .cz-sec,#rd-print-preview .tr-sec{break-inside:avoid-page}
+#rd-print-preview .ak-sec{margin-top:10px}
+#rd-print-preview .ak-inline{display:none;color:#2E7D4F;font-weight:700}
+#rd-print-preview.show-answers .ak-inline{display:inline}
+#rd-print-preview.show-answers .tr .ak-inline{display:block;margin-top:2px}
 #rd-print-preview .wl-s span{font:italic 10.5pt Georgia,'Times New Roman',serif;color:#9a7a63}
 #rd-print-preview .dw-how{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;font:9.5pt system-ui,sans-serif;color:#333;margin:-4px 0 6px}
 #rd-print-preview .dw-when{white-space:nowrap}

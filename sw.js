@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v149-countnoncount-partitives";
+const CACHE = "eci-v150-worksheet-translation";
 const SHELL = [
   "./",
   "./index.html",
