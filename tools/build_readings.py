@@ -103,8 +103,15 @@ def load():
                 if not L: errs.append(f'{rid}：缺少 levels.{lv}'); continue
                 if not L.get('text'): errs.append(f'{rid}/{lv}：缺少 text')
                 for qi, q in enumerate(L.get('q') or []):
-                    if not (isinstance(q.get('a'), int) and 0 <= q['a'] < len(q.get('opts') or [])):
-                        errs.append(f'{rid}/{lv} 第 {qi+1} 題答案索引不對')
+                    opts = q.get('opts') or []
+                    if not (isinstance(q.get('a'), int) and 0 <= q['a'] < len(opts)):
+                        errs.append(f'{rid}/{lv} 第 {qi+1} 題答案索引不對'); continue
+                    if len({o.strip().lower() for o in opts}) != len(opts):
+                        errs.append(f'{rid}/{lv} 第 {qi+1} 題有重複的選項')
+                    # 正確答案總是最長的話，學生「挑最長的」就能猜對：至少要有一個誘答跟它差不多長
+                    others = [len(o) for j, o in enumerate(opts) if j != q['a']]
+                    if others and len(opts[q['a']]) > max(others) + 3:
+                        errs.append(f'{rid}/{lv} 第 {qi+1} 題正確答案明顯比其他選項長（{len(opts[q["a"]])} 字 vs {max(others)} 字），請把一個誘答寫長一點')
             all_rs.append(r)
     ids = [r.get('id') for r in all_rs]
     for d in sorted({i for i in ids if ids.count(i) > 1}): errs.append(f'重複的 id：{d}')
