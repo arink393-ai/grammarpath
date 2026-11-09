@@ -102,6 +102,8 @@ def load():
                 L = (r.get('levels') or {}).get(lv)
                 if not L: errs.append(f'{rid}：缺少 levels.{lv}'); continue
                 if not L.get('text'): errs.append(f'{rid}/{lv}：缺少 text')
+                if 'tz' in L and len(L['tz']) != len(L.get('text') or []):
+                    errs.append(f'{rid}/{lv}：tz（全文翻譯）有 {len(L["tz"])} 段，text 有 {len(L.get("text") or [])} 段，要一段對一段')
                 for qi, q in enumerate(L.get('q') or []):
                     opts = q.get('opts') or []
                     if not (isinstance(q.get('a'), int) and 0 <= q['a'] < len(opts)):
