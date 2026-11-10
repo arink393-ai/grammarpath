@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v182-tz-all";
+const CACHE = "eci-v183-noun-illustrations";
 const SHELL = [
   "./",
   "./index.html",
@@ -12,10 +12,13 @@ const SHELL = [
   "./art/island/cats-4.png",
   "./art/nouns/bread-photo.jpg",
   "./art/nouns/cheese-photo.jpg",
+  "./art/nouns/concepts.png",
+  "./art/nouns/count-mass.png",
   "./art/nouns/foods-1.png",
   "./art/nouns/foods-2.png",
   "./art/nouns/foods-3.png",
   "./art/nouns/meat-photo.jpg",
+  "./art/nouns/sand-jelly.png",
   "./art/fables/aesop-belling-cat.png",
   "./art/fables/aesop-bundle-sticks.png",
   "./art/fables/aesop-crow-pitcher.png",
@@ -66,14 +69,14 @@ const SHELL = [
   "./adventure.css?v=5",
   "./lesson-notes.css?v=3",
   "./homework.css?v=13",
-  "./nouns-art.css?v=1",
+  "./nouns-art.css?v=3",
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=12",
   "./lesson-notes.js?v=16",
   "./homework.js?v=13",
   "./student-info.js?v=7",
-  "./offline-content.js?v=18",
+  "./offline-content.js?v=19",
   "./daily.js?v=18",
   "./adventure.js?v=5",
   "./vocab/books.js?v=6",

@@ -1,4 +1,4 @@
-.nouns.nouns .n-food-art{display:block;width:90px;aspect-ratio:9/10;background-size:500% 300%;background-repeat:no-repeat;clip-path:inset(2% 3% round 10px);border-radius:14px;flex:none}
+.nouns.nouns .n-food-art{display:block;width:90px;aspect-ratio:9/10;background-size:500% 300%;background-repeat:no-repeat;border-radius:0;flex:none}
 .nouns.nouns .n-chip{background:#fffaf1;padding:12px 5px;border-radius:18px;gap:8px}
 .nouns.nouns .n-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .nouns.nouns .ng-icon .n-food-art{width:130px}
@@ -23,3 +23,27 @@
 @media(max-width:900px){.nouns.nouns .n-materials{grid-template-columns:1fr}.nouns.nouns .n-material img{height:240px;object-fit:contain}.nouns.nouns .n-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.nouns.nouns .n-grid{grid-template-columns:repeat(3,minmax(0,1fr));padding:10px;gap:7px}.nouns.nouns .n-food-art{width:76px}.nouns.nouns .n-w{font-size:12px}.nouns.nouns .n-material img{height:210px}}
 @media(max-width:360px){.nouns.nouns .n-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.nouns.nouns .n-mass-tabs{margin:20px 0 16px}
+.nouns.nouns .n-mass-tabs button[aria-pressed=true]{background:#377f75;border-color:#377f75;color:#fff}
+.nouns.nouns .n-mass-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.nouns.nouns .n-mass-group{padding:20px;background:#fffaf1;border:1px solid #e6d8bf;border-radius:22px;min-width:0}
+.nouns.nouns .n-mass-group h3{color:#79543d;font-size:23px;margin:0 0 12px}
+.nouns.nouns .n-mass-group h3 small{display:block;font-size:13px;margin-top:5px;color:#497d72}
+.nouns.nouns .n-mass-group p{font-size:14px;line-height:1.8}
+.nouns.nouns .n-mass-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.nouns.nouns .n-mass-zh{font-size:12px;color:#796552;text-align:center}
+.nouns.nouns .n-mass-extra{display:block;width:90px;aspect-ratio:3/4;background-image:url('art/nouns/sand-jelly.png');background-size:200% 100%;background-repeat:no-repeat;border-radius:14px}
+.nouns.nouns .n-mass-example{background:#eaf4ee;border-radius:10px;padding:10px;color:#315e52;margin-bottom:0}
+.nouns.nouns .n-mass-tabs button:focus-visible{outline:3px solid #df9858;outline-offset:3px}
+@media(max-width:700px){.nouns.nouns .n-mass-groups{grid-template-columns:1fr}.nouns.nouns .n-mass-group{padding:14px}.nouns.nouns .n-mass-grid .n-food-art,.nouns.nouns .n-mass-extra{width:72px}}
+
+.nouns.nouns .n-concept-art{display:block;width:90px;aspect-ratio:9/8;background:url('art/nouns/concepts.png') no-repeat;background-size:400% 300%;flex:none}
+.nouns.nouns .n-dual-art{display:block;width:100%;aspect-ratio:9/4;background:url('art/nouns/count-mass.png') no-repeat;background-size:200% 300%;margin:16px auto}
+.nouns.nouns .nd-ic .n-concept-art,.nouns.nouns .nd-ic .n-dual-art{width:40px;margin:0}
+.nouns.nouns .n-dual-card{background:#fffaf1;border:1px solid #e6d8bf;border-radius:22px;padding:20px;margin:18px 0}
+.nouns.nouns .n-dual-card h3{font-size:26px;color:#79543d;margin:0 0 14px}
+.nouns.nouns .n-dual-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.nouns.nouns .n-dual-pair>div{min-width:0;padding:12px;background:#fff8ee;border-radius:14px}
+.nouns.nouns .n-dual-pair b{color:#377f75}.nouns.nouns .n-dual-pair strong{display:block}
+.nouns.nouns .nd-context{display:block;font-size:12px;line-height:1.5;max-width:170px;white-space:normal;font-weight:400;margin-top:4px}
+@media(max-width:600px){.nouns.nouns .n-dual-pair{grid-template-columns:1fr}.nouns.nouns .n-concept-art{width:72px}}

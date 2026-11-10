@@ -2199,7 +2199,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .vf-xlink a{color:var(--teal);font-weight:600;text-decoration:none}
 .vf-xlink a:hover{text-decoration:underline}
 </style>
-<link rel="stylesheet" href="nouns-art.css?v=1">
+<link rel="stylesheet" href="nouns-art.css?v=3">
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -2303,7 +2303,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="lesson-notes.js?v=16"></script>
 <script src="homework.js?v=13"></script>
 <script src="student-info.js?v=7"></script>
-<script src="offline-content.js?v=18"></script>
+<script src="offline-content.js?v=19"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=5"></script>
 <script src="vocab/books.js?v=6"></script>
@@ -7487,6 +7487,46 @@ function nMaterialsHTML(){
  「能繼續切分」是理解這些物質名詞的比喻，不是物理上的無限分割，也不是所有不可數名詞的判斷公式。蘋果也能切開，但 an apple 是一顆完整的個體；information、advice 則屬於抽象的不可數名詞。</div></section>`;
 }
 
+/* Memory groups describe the current sense, not exclusive physical categories. */
+const NOUN_MASS_GROUPS=[
+ {id:'grains',title:'粉末與顆粒',en:'Powders & grains',hint:'把細小顆粒當作一堆物質；要數單顆時加 grain。米是顆粒，不是粉末。',example:'some rice → two grains of rice',items:[['flour','flour','麵粉'],['sugar','sugar','糖'],['salt','salt','鹽'],['rice','rice','米／米飯'],['sand','sand','沙子']]},
+ {id:'melting',title:'會融化的食物',en:'Foods that melt',hint:'溫度改變，形狀也會改變；談食材本身時，常用不可數用法。',example:'some chocolate → two pieces of chocolate',items:[['chocolate','chocolate','巧克力'],['icecream','ice cream','冰淇淋'],['cheese','cheese','起司'],['butter','butter','奶油']]},
+ {id:'semisolid',title:'半固體與抹醬',en:'Soft foods & spreads',hint:'軟軟、稠稠或可以抹開的食物；份量可用 spoonful、cup 或 serving。',example:'some yogurt → a cup of yogurt',items:[['yogurt','yogurt','優格'],['jelly','jelly','果凍（英式用法）'],['jam','jam','果醬'],['ketchup','ketchup','番茄醬'],['mustard','mustard','芥末醬']]},
+ {id:'liquids',title:'液體類',en:'Liquids',hint:'流動、隨容器改變形狀；要數份量時，加杯、瓶或公升等單位。',example:'some water → two glasses of water',items:[['water','water','水'],['milk','milk','牛奶'],['juice','juice','果汁'],['tea','tea','茶'],['coffee','coffee','咖啡'],['oil','oil','油'],['honey','honey','蜂蜜'],['soup','soup','湯']]},
+ {id:'pieces',title:'可切分的食材',en:'Food as a substance',hint:'大小與形狀沒有固定的一個；切片或切塊後仍是同一種食材。',example:'some bread → two slices of bread',items:[['bread','bread','麵包'],['meat','meat','肉'],['cheese','cheese','起司']]},
+ {id:'abstract',title:'抽象概念與總稱',en:'Ideas & collective amounts',hint:'沒有可直接數的一個單位；需要指定 a piece of advice、a dollar 等。',example:'some advice → two pieces of advice',items:[['information','information','資訊'],['advice','advice','建議'],['homework','homework','作業'],['music','music','音樂'],['money','money','錢'],['time','time','時間']]}
+];
+['sand','jelly'].forEach((key,i)=>{NICON[key]=`<span class="n-mass-extra" aria-hidden="true" style="background-position:${i*100}% 50%"></span>`;});
+let NMassGroup='all';
+function nMassFilter(id){
+ if(id!=='all'&&!NOUN_MASS_GROUPS.some(g=>g.id===id))return;
+ NMassGroup=id;renderNMass();
+}
+function renderNMass(){
+ const box=document.getElementById('nMass');if(!box)return;
+ const groups=NMassGroup==='all'?NOUN_MASS_GROUPS:NOUN_MASS_GROUPS.filter(g=>g.id===NMassGroup);
+ box.innerHTML=`<div class="n-tabs n-mass-tabs" role="group" aria-label="不可數名詞物質分類"><button class="n-tab" aria-pressed="${NMassGroup==='all'}" onclick="nMassFilter('all')">全部分類</button>${NOUN_MASS_GROUPS.map(g=>`<button class="n-tab" aria-pressed="${NMassGroup===g.id}" onclick="nMassFilter('${g.id}')">${g.title}</button>`).join('')}</div>
+ <div class="n-mass-groups">${groups.map(g=>`<article class="n-mass-group"><h3>${g.title}<small>${g.en}</small></h3><p>${g.hint}</p><div class="n-mass-grid">${g.items.map(([key,en,zh])=>`<div class="n-chip"><span class="n-ic">${NICON[key]||'💭'}</span><span class="n-w">${en}</span><span class="n-mass-zh">${zh}</span></div>`).join('')}</div><p class="n-mass-example">${g.example}</p></article>`).join('')}</div>`;
+}
+function nMassHTML(){return `<section class="vf-sec"><h2>不可數名詞，按物質特徵來記</h2><p class="vf-sub">選一類看看：粉末、顆粒、會融化、半固體、液體……用常見的樣子幫助記憶。</p><div class="n-mass-note">這些分類可以重疊，例如起司既會融化，也能切分；蜂蜜是黏稠液體。<b>可不可數仍要看單字的意思與用法，不能只靠外觀判斷。</b>這裡的 jelly 指英式英語的果凍，美式英語常說 gelatin dessert；指定一份時也可能用可數說法。</div><div id="nMass"></div></section>`;}
+
+// Each atlas window includes the entire subject, including leaves and shadows.
+[['fruit',3,895,340,1270,680],['mustard',3,620,345,900,675],['icecream',3,1270,335,1536,680],['sandwich',2,335,0,614,340],['cookie',2,635,0,920,340]].forEach(([key,sheet,x,y,right,bottom])=>{
+ const w=right-x,h=bottom-y;
+ NICON[key]=`<span class="n-food-art" aria-hidden="true" style="background-image:url('art/nouns/foods-${sheet}.png');aspect-ratio:${w/h};background-size:${1536/w*100}% ${1024/h*100}%;background-position:${x/(1536-w)*100}% ${y/(1024-h)*100}%"></span>`;
+});
+['information','advice','homework','music','money','time','idea','dream','plan','news','work','love'].forEach((key,i)=>{
+ NICON[key]=`<span class="n-concept-art" aria-hidden="true" style="background-position:${i%4*100/3}% ${Math.floor(i/4)*50}%"></span>`;
+});
+NICON.happiness=NICON.love;
+const NOUN_DUAL=[
+ {word:'pizza',count:'We ordered two pizzas.',cz:'我們點了兩個完整的披薩。',mass:'Would you like some pizza?',mz:'你想吃一些披薩嗎？這裡談食物的量。'},
+ {word:'cake',count:'She baked two cakes.',cz:'她烤了兩個完整的蛋糕。',mass:'I ate some cake.',mz:'我吃了一些蛋糕。這裡不數完整的蛋糕。'},
+ {word:'chicken',count:'There are two chickens.',cz:'有兩隻雞。這裡指活的動物。',mass:'We had chicken for lunch.',mz:'我們午餐吃雞肉。這裡指食材。'}
+];
+NOUN_DUAL.forEach((it,row)=>['c','u'].forEach((sense,col)=>{NICON[it.word+'_'+sense]=`<span class="n-dual-art" aria-hidden="true" style="background-position:${col*100}% ${row*50}%"></span>`;}));
+function nDualHTML(){return `<section class="vf-sec"><h2>同一個字，換個意思就不同</h2><p class="vf-sub">看句子裡是在數完整個體，還是在談食物的量。</p>${NOUN_DUAL.map(it=>`<article class="n-dual-card"><h3>${it.word}</h3><div class="n-dual-pair"><div><b>可數 Countable</b>${NICON[it.word+'_c']}<strong>${it.count}</strong><p>${it.cz}</p></div><div><b>不可數 Uncountable</b>${NICON[it.word+'_u']}<strong>${it.mass}</strong><p>${it.mz}</p></div></div></article>`).join('')}<p class="n-mass-note">想數食物的份量，可以說 two slices of pizza、two pieces of cake、two pieces of chicken；數的是片或塊。chicken 作可數名詞時也可指一整隻供烹調的雞。</p></section>`;}
+
 /* 圖卡（本區展示用） */
 const NOUN_CHART={
   food:{
@@ -7514,6 +7554,11 @@ function renderNChart(){
 }
 /* 分類遊戲題庫：w 單字、t 類別(c/u)、icon 圖示鍵（可空）、why 解析 */
 const NOUN_POOL=[
+  {w:"pizza",context:"Would you like some pizza?",t:"u",cat:"food",icon:"pizza_u",why:"some pizza 指食物的量，這裡不可數。"},
+  {w:"cake",context:"I ate some cake.",t:"u",cat:"food",icon:"cake_u",why:"some cake 指吃的蛋糕份量，這裡不可數。"},
+  {w:"chicken",context:"There are two chickens.",t:"c",cat:"food",icon:"chicken_c",why:"chickens 指兩隻雞，可數。"},
+  {w:"chicken",context:"We had chicken for lunch.",t:"u",cat:"food",icon:"chicken_u",why:"chicken 指雞肉，不可數。"},
+
   {w:"apple",t:"c",cat:"food",icon:"apple",why:"蘋果可數：an apple, two apples。"},
   {w:"banana",t:"c",cat:"food",icon:"banana",why:"香蕉可數：a banana, bananas。"},
   {w:"orange",t:"c",cat:"food",icon:"orange",why:"柳橙可數：an orange, oranges。"},
@@ -7529,10 +7574,10 @@ const NOUN_POOL=[
   {w:"burger",t:"c",cat:"food",icon:"burger",why:"漢堡可數：a burger, burgers。"},
   {w:"hot dog",t:"c",cat:"food",icon:"hotdog",why:"熱狗可數：a hot dog, hot dogs。"},
   {w:"fries",t:"c",cat:"food",icon:"fries",why:"薯條可數（複數）：some fries。"},
-  {w:"pizza",t:"c",cat:"food",icon:"pizza",why:"（整個）披薩可數：a pizza。一片是 a slice of pizza。"},
+  {w:"pizza",context:"We ordered two pizzas.",t:"c",cat:"food",icon:"pizza",why:"（整個）披薩可數：a pizza。一片是 a slice of pizza。"},
   {w:"sandwich",t:"c",cat:"food",icon:"sandwich",why:"三明治可數：a sandwich, sandwiches。"},
   {w:"cookie",t:"c",cat:"food",icon:"cookie",why:"餅乾可數：a cookie, cookies。"},
-  {w:"cake",t:"c",cat:"food",icon:"cake",why:"（整個）蛋糕可數：a cake。一塊是 a piece of cake。"},
+  {w:"cake",context:"She baked two cakes.",t:"c",cat:"food",icon:"cake",why:"（整個）蛋糕可數：a cake。一塊是 a piece of cake。"},
   {w:"candy",t:"c",cat:"food",icon:"candy",why:"糖果通常可數：a candy, candies。"},
   {w:"bread",t:"u",cat:"food",icon:"bread",why:"麵包不可數：some bread, a slice of bread。"},
   {w:"rice",t:"u",cat:"food",icon:"rice",why:"米飯不可數：some rice, a bowl of rice。"},
@@ -7612,7 +7657,7 @@ function ngAward(){
 function ngChip(i,locked){
   const it=NOUN_POOL[i];
   const ic=it.icon&&NICON[it.icon]?`<span class="nd-ic">${NICON[it.icon]}</span>`:`<span class="nd-ic nd-abs">🔤</span>`;
-  return `<div class="nd-chip${locked?" placed":" tray"}" data-idx="${i}">${ic}<span class="nd-w">${it.w}</span></div>`;
+  return `<div class="nd-chip${locked?" placed":" tray"}" data-idx="${i}">${ic}<span class="nd-w">${it.w}${it.context?`<small class="nd-context">${it.context}</small>`:""}</span></div>`;
 }
 function renderNounGame(){
   const box=document.getElementById("nounGame"); if(!box) return;
@@ -7731,6 +7776,8 @@ function renderNouns(){
     </div>
 
     ${nMaterialsHTML()}
+    ${nMassHTML()}
+    ${nDualHTML()}
 
     <div class="vf-sec"><h2>圖解：看圖記單字</h2>
       <p class="vf-sub">分成「食物／飲料／抽象」三類；這裡列的是常見用法。cake、pizza、candy 等字也能當不可數，表示食物本身或不指定個數的份量。</p>
@@ -7746,6 +7793,7 @@ function renderNouns(){
 
     <div class="vf-xlink">📚 想更完整？看課程：<a href="#/lesson/count-noncount">可數與不可數名詞</a>、<a href="#/lesson/much-many">much / many / a lot of</a>、<a href="#/lesson/partitives">量詞 a cup of / a piece of</a>。</div>
   </div>`;
+  NMassGroup="all"; renderNMass();
   NChartTab="food"; renderNChart();
   NGCat="all"; ngStart();
   window.scrollTo(0,0);
