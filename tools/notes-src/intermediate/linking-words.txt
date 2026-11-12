@@ -1,81 +1,78 @@
 # zh
-## 連接詞 vs. 轉折副詞
-「雖然、但是、因此、而且」在英文裡分成兩種字，<b>標點符號規則完全不同</b>，是寫作最常扣分的地方。
-表：兩種連接方式
-| 種類 | 例字 | 功能 | 標點 |
-|---|---|---|---|
-| 連接詞 | although, because, but, so, and, while | 把兩個子句接成<b>一句</b> | 一個句子 |
-| 轉折副詞 | however, therefore, moreover, also | 連接<b>兩個獨立的句子</b> | 前面句號或分號，後面逗號 |
-
-表：同樣意思的兩種寫法
-| 意思 | 連接詞（一句） | 轉折副詞（兩句） |
+## 從屬連接詞是什麼
+對等連接詞（and, but, or）連接「地位相等」的兩句；<b>從屬連接詞</b>（when, because, so that…）帶出一個「附屬子句」，這個子句不能單獨成句，要靠主句才完整。
+表：四大類從屬連接詞
+| 類別 | 常用字 | 例句 |
 |---|---|---|
-| 讓步／轉折 | <b>Although</b> it was late, we kept talking. | It was late. <b>However,</b> we kept talking. |
-| 結果 | It rained, <b>so</b> we stayed home. | It rained. <b>Therefore,</b> we stayed home. |
-| 補充 | She is smart, <b>and</b> she is kind. | She is smart. <b>Moreover,</b> she is kind. |
+| 時間 | when, while, as soon as, until, before, after | <b>As soon as</b> I got home, I fell asleep. |
+| 原因 | because, since, as | <b>Since</b> it was late, we went home. |
+| 結果 | so + 形/副 + that | It was <b>so</b> cold <b>that</b> the lake froze. |
+| 目的 | so that + 主詞 + can/would | I saved money <b>so that</b> I could travel. |
 
-## however 的標點
-however 是副詞，不能像 but 一樣直接用逗號連接兩個句子：
+## 子句的位置與逗號
+附屬子句放<b>句首</b>→後面加逗號；放<b>句尾</b>→不加逗號。
+| 位置 | 例句 |
+|---|---|
+| 子句在前 | <b>Before</b> you leave, turn off the lights. |
+| 子句在後 | Turn off the lights <b>before</b> you leave. |
+
+## 時間子句用「現在式」表未來
+講未來的事，when／as soon as／until／before／after 帶出的時間子句要用<b>現在式</b>，不用 will（主句才有 will）。
 | ✗ 錯誤 | ✓ 正確 |
 |---|---|
-| It was expensive, however, I bought it. | It was expensive. <b>However,</b> I bought it. |
-| | It was expensive<b>;</b> however, I bought it. |
-| | It was expensive, <b>but</b> I bought it. |
+| I'll call when I will arrive. | I'll call <b>when</b> I <b>arrive</b>. |
+| Wait until the rain will stop. | Wait <b>until</b> the rain <b>stops</b>. |
+> 主句可以有 will，但時間子句不行。
 
-## although 和 but 不能一起用
-中文「雖然…但是…」英文只能選一個：
-<span class="en"><b>Although</b> he was tired, he finished.</span>（✗ Although he was tired, but he finished.）
+## because vs. because of
+because 後面接<b>子句</b>（主詞 + 動詞）；because of 後面接<b>名詞</b>。
+| because + 子句 | because of + 名詞 |
+|---|---|
+| because it <b>was</b> raining | because of <b>the rain</b> |
 
-## however 不等於 although
-however 不能放在子句前面當「雖然」：✗ However he was tired, he finished. → ✓ <b>Although</b> he was tired, he finished.
-> however + 形容詞 = 無論多麼：However hard I try, I can't do it.（這是另一個用法）
+## so … that（結果）vs. so that（目的）
+so + 形容詞/副詞 + that ＝「如此…以致於」（結果）；so that + 主詞 + can/could ＝「為了」（目的）。兩者差一個字，意思不同。
+<span class="en">It was <b>so</b> loud <b>that</b> I couldn't think.</span>（結果）
+<span class="en">I spoke clearly <b>so that</b> everyone could follow.</span>（目的）
 
 # mc
-Q: ___ it was raining, we went hiking. || 雖然在下雨，我們還是去爬山了。
-A: However | Although* | But
-W: 接一個子句表示「雖然」，用連接詞 although。
-Q: The test was hard. ___, most students passed. || 考試很難。然而，大部分學生都及格了。
-A: Although | However* | But although
-W: 句號後面開新句子，用轉折副詞 However + 逗號。
-Q: I missed the bus, ___ I was late for school. || 我錯過了公車，所以上學遲到了。
-A: therefore | so* | however
-W: 用逗號連接兩個子句時，要用連接詞 so。
-Q: He studied hard. ___, he got an A. || 他很用功，因此拿到了 A。
-A: So that | Therefore* | Although
-W: 新句子開頭表示結果，用 Therefore + 逗號。
+Q: ___ I finish my homework, I'll watch TV. || 我一寫完功課就去看電視。
+A: Until | As soon as* | Because
+W: 「一…就…」用時間連接詞 as soon as。
+Q: We cancelled the picnic ___ it was raining hard. || 因為雨下得很大，我們取消了野餐。
+A: so | because* | so that
+W: 表原因、後接子句，用 because。
+Q: It was so cold ___ the lake froze. || 天氣冷到湖面結冰。
+A: so | that* | because
+W: so + 形容詞 + that 表「如此…以致於」。
+Q: Please wait ___ I come back. || 請等到我回來。
+A: so that | until* | because
+W: 「直到」用時間連接詞 until。
 
 # err
-S: Although she was sick, [but she|she] came to school. || 雖然她生病了，她還是來上學。
-W: although 和 but 不能同時使用。
-S: I wanted to go. [however,|However,] I was too busy. || 我想去。然而我太忙了。
-W: however 開始新的句子，首字母要大寫。
-S: [However|Although] the food was cheap, it was delicious. || 雖然食物很便宜，但很好吃。
-W: 放在子句前表示「雖然」要用 although。
+S: I'll text you when I [will get|get] home. || 我一到家就傳訊息給你。
+W: 時間子句用現在式表未來，不用 will。
+S: We stayed home because [of it|it] was snowing. || 因為在下雪，我們待在家。
+W: because 後面接子句；要接名詞才用 because of。
+S: She left early so that she [catch|could catch] the bus. || 她早點離開，為了趕上公車。
+W: so that 後面要有主詞 + can/could。
 
 # mk
-- although 和 but 不能同時使用。
-- however 不能接子句當「雖然」，要用 although。
-- however 不能用逗號接兩個句子；前面要用句號（或分號）。
+- 時間子句用現在式表未來，不用 will。
+- because 後面接子句；because of 後面接名詞。
+- so that 後面要有主詞 + can/would。
+- 已用從屬連接詞（如 since），主句不再加 so。
 
 # mc
-Q: ___ he is young, he is very wise. || 雖然他很年輕，卻很有智慧。
-A: However | Although* | But
-W: 接子句表示「雖然」，用 although。
-Q: It was cold. ___, we went swimming. || 天氣很冷。然而，我們還是去游泳了。
-A: Although | However* | Because
-W: 新句子開頭的「然而」用 However。
-Q: She was sick, ___ she stayed home. || 她生病了，所以待在家。
-A: therefore | so* | however
-W: 用逗號連接兩個子句，要用連接詞 so。
-Q: The bus was late. ___, I missed the meeting. || 公車遲到了，因此我錯過了會議。
-A: So that | Therefore* | Although
-W: 新句子開頭表示結果用 Therefore。
-# err
-S: Although the food was cheap, [but it|it] was delicious. || 雖然食物很便宜，卻很好吃。
-W: although 和 but 不能同時用。
-S: It was late[, however,|. However,] we kept working. || 很晚了。然而我們還是繼續工作。
-W: however 不能用逗號接兩個句子，前面要用句號。
-S: [However|Although] it rained, we had fun. || 雖然下雨，我們還是玩得很開心。
-W: 接子句表示「雖然」要用 although。
-S: I studied hard[, therefore|, so] I passed. || 我很用功，所以考過了。
-W: 用逗號連接兩個子句要用連接詞 so；therefore 前面要用句號或分號。
+Q: ___ you've finished, you can leave. || 既然你做完了，就可以走了。
+A: Until | Since* | So that
+W: 「既然」表原因，用 Since。
+Q: He whispered ___ nobody could hear him. || 他小聲說話，為了不讓別人聽見。
+A: because | so that* | until
+W: 表目的用 so that + 主詞 + could。
+Q: ___ I was cooking, the phone rang. || 我在煮飯的時候，電話響了。
+A: While* | Until | Because
+W: 兩件事同時進行，用 while。
+Q: The soup was so salty ___ nobody ate it. || 湯鹹到沒人吃。
+A: because | that* | so
+W: so + 形容詞 + that 表結果。
