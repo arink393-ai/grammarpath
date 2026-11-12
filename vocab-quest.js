@@ -223,25 +223,54 @@ function vqRecords(){ return store.data.vocabQuests || {}; }
 function vqStatus(date, track=vqTrack()){ const r=vqRecords()[vqKey(date,track)]; return r&&r.done?'done':r&&(r.learned||r.quiz)?'started':'new'; }
 
 /* ---- 發音：單字用 Kokoro 真人發音，失敗退有道→瀏覽器；可排隊（先念單字再念例句） ---- */
-let vqAudio=null, vqQueue=[];
+let vqAudio=null, vqQueue=[], vqSpeechRun=0;
 // slug/shard 需與 tools/gen_vocab_audio.mjs 一致
 const vqSlug=w=>String(w).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
 const vqShard=w=>{ const s=vqSlug(w); return /^[a-z]/.test(s)?s[0]:'_'; };
-// 記憶圖像（老師字根字首風格的黑色剪影）：有圖才顯示，沒圖自動隱藏
-const vqImg=w=>`<div class="vq-pic-wrap" style="text-align:center;margin:2px 0 6px"><img src="vocab/img/${vqSlug(w)}.png" alt="" loading="lazy" style="max-width:150px;max-height:150px;object-fit:contain" onerror="this.parentElement.remove()"></div>`;
-function vqSay(list){
- vqQueue = Array.isArray(list)?list.slice():[list];
- if(vqAudio){ vqAudio.onended=null; vqAudio.pause(); }
- if(window.speechSynthesis) speechSynthesis.cancel();
- vqNext();
+// Word-specific pictures; abstract verbs use a contextual scene and caption.
+const VQ_SCENES={pill:[0,'藥片與膠囊'],skip:[1,'跨過中間的石頭：跳過、略過'],neighborhood:[2,'住家周圍的社區'],structure:[3,'支撐房屋的樑柱結構'],rid:[4,'get rid of clutter：清除雜物']};
+function vqImg(w){
+ const key=vqSlug(w),scene=VQ_SCENES[key];
+ const rect=scene&&[[0,0,490,512],[490,0,1000,512],[1000,0,1536,512],[0,512,510,1024],[510,512,1024,1024]][scene[0]];
+ const sw=rect?rect[2]-rect[0]:1,sh=rect?rect[3]-rect[1]:1;
+ if(scene)return `<figure class="vq-pic-wrap" style="margin:16px auto;text-align:center"><span role="img" aria-label="${esc(scene[1])}" style="display:block;width:min(240px,100%);aspect-ratio:${sw/sh};margin:auto;background-image:url('art/vocab/unit42.png');background-size:${1536/sw*100}% ${1024/sh*100}%;background-position:${rect[0]/(1536-sw)*100}% ${rect[1]/(1024-sh)*100}%"></span><figcaption style="font-size:14px;color:#746554">${esc(scene[1])}</figcaption></figure>`;
+ const aliases={'ice-cream':'icecream','hot-dog':'hotdog','hamburger':'burger'};
+ const icon=aliases[key]||key;
+ if(typeof NOUN_ART_KEYS!=='undefined'&&NOUN_ART_KEYS.includes(icon)&&!['chicken','tablet'].includes(key))return `<div class="vq-pic-wrap nouns" style="display:flex;justify-content:center;margin:16px auto">${NICON[icon]}</div>`;
+ return `<div class="vq-pic-wrap" style="text-align:center;margin:16px auto"><img src="vocab/img/${key}.png" alt="${esc(w)} 的記憶圖像" loading="lazy" style="max-width:200px;max-height:200px;object-fit:contain" onerror="this.parentElement.remove()"></div>`;
 }
-function vqNext(){
+function vqSay(list){
+ const run=++vqSpeechRun;
+ vqQueue = Array.isArray(list)?list.slice():[list];
+ if(vqAudio){ vqAudio.onended=null; vqAudio.onerror=null; vqAudio.pause(); vqAudio=null; }
+ if(window.speechSynthesis) speechSynthesis.cancel();
+ vqNext(run);
+}
+function vqNext(run=vqSpeechRun){
+ if(run!==vqSpeechRun)return;
  const text=vqQueue.shift(); if(!text) return;
- const fallback=()=>{ if(!window.speechSynthesis){ vqNext(); return; } const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.rate=.95; if(typeof tts!=='undefined'&&tts.voice) u.voice=tts.voice; u.onend=vqNext; speechSynthesis.speak(u); };
- const youdao=()=>{ vqAudio=new Audio('https://dict.youdao.com/dictvoice?type=2&audio='+encodeURIComponent(text)); vqAudio.onended=vqNext; vqAudio.onerror=fallback; vqAudio.play().catch(fallback); };
- // 單字有 Kokoro 檔就用真人聲；例句等沒有檔 → 退有道
- const a=new Audio('vocab/audio/'+vqShard(text)+'/'+vqSlug(text)+'.mp3');
- vqAudio=a; a.onended=vqNext; a.onerror=youdao; a.play().catch(youdao);
+ const next=()=>{if(run===vqSpeechRun)vqNext(run);};
+ const fallback=()=>{
+  if(run!==vqSpeechRun)return;
+  if(!window.speechSynthesis){next();return;}
+  const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.95;
+  if(typeof tts!=='undefined'&&tts.voice)u.voice=tts.voice;
+  let settled=false;const done=()=>{if(settled)return;settled=true;next();};
+  u.onend=done;u.onerror=done;speechSynthesis.speak(u);
+ };
+ const play=(url,onFailure)=>{
+  if(run!==vqSpeechRun)return;
+  const a=new Audio(url);vqAudio=a;let settled=false;
+  const finish=(failed)=>{
+   if(settled||run!==vqSpeechRun)return;settled=true;
+   a.onended=null;a.onerror=null;
+   if(failed){a.pause();onFailure();}else next();
+  };
+  a.onended=()=>finish(false);a.onerror=()=>finish(true);
+  a.play().catch(()=>finish(true));
+ };
+ const youdao=()=>play('https://dict.youdao.com/dictvoice?type=2&audio='+encodeURIComponent(text),fallback);
+ play('vocab/audio/'+vqShard(text)+'/'+vqSlug(text)+'.mp3',youdao);
 }
 const vqMark=(sentence,w)=>{ const root=w.length>4?w.replace(/(e|y|le)$/,''):w; return esc(sentence).replace(new RegExp('\\b('+root+'[a-z]*)','i'),'<mark>$1</mark>'); };
 

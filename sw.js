@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v184-adv-grammar";
+const CACHE = "eci-v185-vocab-picture-audio";
 const SHELL = [
   "./",
   "./index.html",
@@ -31,6 +31,7 @@ const SHELL = [
   "./art/fables/aesop-milkmaid-pail.png",
   "./art/fables/aesop-shepherd-wolf.png",
   "./art/fables/aesop-wind-sun.png",
+  "./art/vocab/unit42.png",
   "./art/breeds/abyssinian.webp",
   "./art/breeds/american-curl.webp",
   "./art/breeds/american-shorthair.webp",
@@ -80,7 +81,7 @@ const SHELL = [
   "./daily.js?v=18",
   "./adventure.js?v=5",
   "./vocab/books.js?v=6",
-  "./vocab-quest.js?v=17",
+  "./vocab-quest.js?v=18",
   "./manifest.webmanifest",
   "./vocab/",
   "./vocab/style.css?v=2",
