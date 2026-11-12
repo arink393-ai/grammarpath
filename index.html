@@ -7994,7 +7994,22 @@ function renderWriting(){
       <p class="vf-sub">想更深入？看課程 <a href="#/lesson/conjunctions">連接詞</a>、<a href="#/clauses">子句總覽</a>。</p>
     </div>
 
-    <div class="vf-sec"><h2>④ 寫作三步驟</h2>
+    <div class="vf-sec"><h2>④ 段落寫作：主題句＋支持句＋結論句</h2>
+      <p class="vf-sub">句子會寫了，就能組成「一段」。一段只講<b>一個主題</b>，由三種句子組成：</p>
+      <div class="vf-tablewrap"><table class="vf-table">
+        <thead><tr><th>部分</th><th>功能</th><th>句型起手式</th></tr></thead>
+        <tbody>
+          <tr><td class="b1">主題句<div class="vf-zhcell">Topic sentence</div></td><td>一句話點出<b>這段在講什麼</b>（放開頭）</td><td>My favorite … is … · … is important because …</td></tr>
+          <tr><td class="b1">支持句<div class="vf-zhcell">Supporting ×2–4</div></td><td>理由、例子、細節，<b>把主題說清楚</b></td><td>First, … · For example, … · Also, … · Another reason is …</td></tr>
+          <tr><td class="b1">結論句<div class="vf-zhcell">Concluding</div></td><td>收尾、重述或寫感想</td><td>So, … · In conclusion, … · That's why …</td></tr>
+        </tbody></table></div>
+      <p class="vf-sub" style="margin-top:12px"><b>轉承詞 Transitions</b>（讓段落更順）：順序 First／Second／Then／Finally；舉例 For example／such as；補充 Also／In addition；因果 because／so；結論 In conclusion／Overall。</p>
+      <div class="vf-xlink" style="line-height:1.95"><b>範例段落 Example</b>（🟦主題句｜🟩支持句｜🟧結論句）：<br>
+        🟦 My favorite animal is the dog. 🟩 First, dogs are friendly and love to play. Also, they can help people — for example, guide dogs help the blind. My dog even waits for me at the door every day. 🟧 That's why I think dogs are the best pets.</div>
+      <p class="vf-sub" style="margin-top:10px"><b>段落自我檢查：</b>☐ 有主題句　☐ 2 句以上支持　☐ 有結論句　☐ 用了轉承詞　☐ 整段只講一個主題</p>
+    </div>
+
+    <div class="vf-sec"><h2>⑤ 寫作三步驟</h2>
       <div class="vf-rule">
         <div class="vf-rline"><b>Plan 想</b>：先想點子、列幾個重點（先用中文想也可以）。</div>
         <div class="vf-rline"><b>Write 寫</b>：一句一句寫，先求<b>完整</b>再求<b>長</b>。</div>
@@ -8002,15 +8017,15 @@ function renderWriting(){
       </div>
     </div>
 
-    <div class="vf-sec"><h2>⑤ 題目庫 Prompts</h2>
+    <div class="vf-sec"><h2>⑥ 題目庫 Prompts</h2>
       <p class="vf-sub">挑一個題目，用下面的句型起手式開始寫。</p>
       <div class="wr-cards">${WRITING_PROMPTS.map(p=>card(p[0],p[1],p[2],p[3])).join("")}</div>
     </div>
 
     <div class="vf-sec">
-      <h2>🖨 列印作文稿紙 Writing Paper</h2>
-      <p class="vf-sub">兩頁式：第一頁「造句→擴寫」練習（照問題把句子加長），第二頁作文稿紙（題目靈感＋橫線＋自我檢查）。</p>
-      <div class="vf-print"><button class="btn btn-navy" onclick="printWritingSheet()">🖨 列印 / 存 PDF</button></div>
+      <h2>🖨 列印稿紙 Printables</h2>
+      <p class="vf-sub"><b>造句→擴寫稿</b>（第一頁擴寫階梯、第二頁作文稿）；<b>段落寫作稿</b>（第一頁主題句／支持句／結論句規劃、第二頁謄寫稿）。直接列印或存成 PDF。</p>
+      <div class="vf-print"><button class="btn btn-navy" onclick="printWritingSheet()">🖨 造句→擴寫稿</button> <button class="btn btn-navy" onclick="printParagraphSheet()">🖨 段落寫作稿</button></div>
     </div>
   </div>`;
   window.scrollTo(0,0);
@@ -8066,6 +8081,54 @@ function printWritingSheet(){
   </div>
   <\/body><\/html>`;
   safeOpenPrintDoc(doc, "英文作文稿紙");
+}
+function printParagraphSheet(){
+  const doc = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>段落寫作稿 Paragraph</title>
+  <style>
+   *{box-sizing:border-box}
+   body{font-family:Arial,"Helvetica Neue",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;color:#000;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
+   .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
+   .bar .hint{opacity:.85;font-size:12px}
+   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:40px 48px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
+   .sheet:last-child{break-after:auto;page-break-after:auto}
+   h1{font-size:20px;font-weight:700;margin:0 0 6px}
+   .dn{display:flex;justify-content:space-between;font-size:13px;margin:0 0 10px}
+   .dn u{font-style:normal;text-decoration:none;border-bottom:1px solid #000;padding:0 10px 1px;min-width:120px;display:inline-block;text-align:center}
+   table{border-collapse:collapse;width:100%;table-layout:fixed}
+   td{border:1px solid #000;padding:7px 10px;font-size:13px;vertical-align:top;line-height:1.6}
+   td.q{width:40%;font-weight:600;background:#f1f7f5}
+   .guide{font-size:12px;color:#444;line-height:1.6;margin:8px 0}
+   .lines{background-image:repeating-linear-gradient(#fff 0 31px,#c9c9c9 31px 32px);background-position:0 7px}
+   .writebox{border:1px solid #000;border-radius:4px}
+   .check{font-size:12.5px;line-height:1.9;margin-top:12px}
+   @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
+   @page{margin:1.3cm}
+  </style></head><body>
+  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">段落寫作稿（第一頁規劃、第二頁謄寫），直接列印或存成 PDF 給學生手寫。</span></div>
+  <div class="sheet">
+    <h1>段落寫作規劃　Plan a Paragraph</h1>
+    <div class="dn"><span>Date：<u></u></span><span>Name：<u></u></span></div>
+    <p class="guide">一段只講<b>一個主題</b>。先在這頁規劃，再到第二頁寫成完整段落。句型起手式：主題句 My favorite … is … ／支持句 First, … · For example, … · Also, … ／結論句 So, … · That's why …</p>
+    <table>
+      <tr><td class="q">主題 Topic（這段要講什麼？）</td><td class="lines" style="height:40px"></td></tr>
+      <tr><td class="q">🟦 主題句 Topic sentence</td><td class="lines" style="height:58px"></td></tr>
+      <tr><td class="q">🟩 支持句 1（理由／例子）</td><td class="lines" style="height:58px"></td></tr>
+      <tr><td class="q">🟩 支持句 2</td><td class="lines" style="height:58px"></td></tr>
+      <tr><td class="q">🟩 支持句 3（可省略）</td><td class="lines" style="height:58px"></td></tr>
+      <tr><td class="q">🟧 結論句 Concluding</td><td class="lines" style="height:58px"></td></tr>
+    </table>
+    <p class="guide"><b>轉承詞小幫手：</b> First · Second · Then · Also · For example · Because · So · In conclusion</p>
+  </div>
+  <div class="sheet">
+    <h1>我的段落　My Paragraph</h1>
+    <div class="dn"><span>Date：<u></u></span><span>Title：<u></u></span></div>
+    <div class="guide">把上一頁的句子連起來，寫成一整段（段首空兩格 indent）。</div>
+    <div class="writebox lines" style="height:430px"></div>
+    <div class="check"><b>自我檢查 Self-check：</b> ☐ 有主題句　☐ 2 句以上支持　☐ 有結論句　☐ 用了轉承詞　☐ 整段只講一個主題</div>
+  </div>
+  <\/body><\/html>`;
+  safeOpenPrintDoc(doc, "段落寫作稿");
 }
 
 function renderTheoryList(){
