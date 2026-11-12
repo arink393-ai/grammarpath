@@ -1,8 +1,9 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v185-vocab-picture-audio";
+const CACHE = "eci-v186-past-papers";
 const SHELL = [
   "./",
   "./index.html",
+  "./exams.html",
   "./art/cat-dex/meme-cats-atlas.png",
   "./art/cat-dex/meme-cats-atlas-2.png",
   "./art/cat-dex/meme-cats-atlas-3.png",

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>歷屆試題 Past Papers</title>
+<meta name="description" content="國中教育會考英語、大學學測英文近五年歷屆試題與官方參考答案，連到官方正版 PDF，可線上練習與列印。">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --paper:#FFFEFB; --cream:#FBF3E9; --ink:#5D4A3E; --navy:#7A5B49; --body:#77655A; --muted:#A79484;
+  --terra:#E08862; --terra-bg:#FCF0E8; --terra-line:#F2D8C7; --line:#EEE2D2;
+  --gold:#C6892F; --sage:#6E9E8F; --sage-bg:#EAF2EE; --sage-line:#CFE2D8;
+  --serif:'Lora',Georgia,serif; --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --shadow:0 6px 20px rgba(122,91,73,.10);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; font-family:var(--sans); color:var(--body); line-height:1.6;
+  background:
+    radial-gradient(1200px 400px at 50% -140px, #FCEDE2, transparent),
+    var(--cream);
+  padding:0 16px 64px;
+}
+.wrap{max-width:960px;margin:0 auto}
+
+/* top bar */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0 6px;flex-wrap:wrap}
+.crumb{font:600 13px var(--sans);color:var(--muted)}
+.crumb a{color:var(--navy);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+.print-btn{display:inline-flex;align-items:center;gap:7px;border:none;cursor:pointer;
+  background:var(--navy);color:#fff;border-radius:99px;padding:9px 18px;font:600 13.5px var(--sans);
+  transition:transform .12s ease, box-shadow .12s ease}
+.print-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+
+/* hero */
+.hero{margin:10px 0 6px}
+.eyebrow{font:600 12.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--terra)}
+.hero h1{font:700 clamp(28px,5vw,42px)/1.12 var(--serif);color:var(--ink);margin:6px 0 10px;text-wrap:balance}
+.hero h1 .zh{color:var(--terra)}
+.lede{font-size:15.5px;max-width:62ch;margin:0}
+.lede b{color:var(--navy)}
+
+/* info callout */
+.note{display:flex;gap:11px;align-items:flex-start;background:var(--paper);border:1.5px solid var(--line);
+  border-left:4px solid var(--gold);border-radius:12px;padding:12px 15px;margin:18px 0 6px;font-size:13.5px;color:var(--body)}
+.note .ic{font-size:17px;line-height:1.3;flex:none}
+.note b{color:var(--navy)}
+
+/* exam section */
+.exam{margin:34px 0 0;scroll-margin-top:16px}
+.exam-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:4px}
+.exam-badge{font:700 13px var(--sans);letter-spacing:.04em;color:#fff;border-radius:99px;padding:5px 13px}
+.exam h2{font:700 23px var(--serif);color:var(--ink);margin:0}
+.exam-sub{font-size:13px;color:var(--muted);flex-basis:100%;margin:2px 0 0}
+.exam-sub a{color:var(--navy)}
+.t-terra .exam-badge{background:var(--terra)} .t-terra h2{color:#B5623E}
+.t-sage  .exam-badge{background:var(--sage)}  .t-sage h2{color:#4E7D6E}
+
+.years{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px;margin-top:16px}
+.ycard{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:15px 15px 16px;
+  box-shadow:0 3px 10px rgba(122,91,73,.05);display:flex;flex-direction:column;gap:11px}
+.ycard-top{display:flex;align-items:baseline;gap:8px}
+.yr{font:700 30px var(--serif);line-height:1}
+.t-terra .yr{color:var(--terra)} .t-sage .yr{color:var(--sage)}
+.yr-cal{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap}
+.yr-tag{margin-left:auto;font:600 10.5px var(--sans);letter-spacing:.03em;color:var(--muted);white-space:nowrap;
+  border:1px solid var(--line);border-radius:99px;padding:2px 8px;align-self:center;flex:none}
+.dl{display:flex;flex-direction:column;gap:7px}
+.dl a{display:flex;align-items:center;gap:8px;text-decoration:none;border-radius:9px;padding:9px 11px;
+  font:600 13.5px var(--sans);border:1.5px solid;transition:transform .1s ease,background .12s ease}
+.dl a:hover{transform:translateY(-1px)}
+.dl .q{color:#fff;border-color:transparent}
+.t-terra .dl .q{background:var(--terra)} .t-sage .dl .q{background:var(--sage)}
+.dl .s{background:var(--paper);border-color:var(--terra-line);color:var(--navy)}
+.t-sage .dl .s{border-color:var(--sage-line)}
+.dl .a{background:var(--terra-bg);border-color:var(--terra-line);color:#A85C3C}
+.t-sage .dl .a{background:var(--sage-bg);border-color:var(--sage-line);color:#45715F}
+.dl a .ei{font-size:15px;flex:none}
+.dl a .url{display:none}
+
+/* tips */
+.tips{margin:40px 0 0;background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:22px 22px 8px}
+.tips h3{font:700 18px var(--serif);color:var(--ink);margin:0 0 4px;display:flex;align-items:center;gap:8px}
+.steps{list-style:none;counter-reset:s;padding:0;margin:14px 0 6px;display:grid;gap:12px}
+.steps li{counter-increment:s;position:relative;padding-left:44px;font-size:14px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font:700 14px var(--sans);color:#fff;background:var(--terra)}
+.steps li b{color:var(--navy)}
+.tip-foot{font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:8px;padding:12px 0 4px}
+
+/* footer */
+.foot{margin:30px 0 0;font-size:12.5px;color:var(--muted);line-height:1.7}
+.foot a{color:var(--navy)}
+.foot .srcs{display:flex;flex-wrap:wrap;gap:6px 18px;margin:6px 0 10px}
+.updated{font-size:12px;color:var(--muted)}
+
+@media(max-width:480px){
+  .years{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px}
+  .hero h1{font-size:27px}
+}
+
+/* ---------- print ---------- */
+@media print{
+  body{background:#fff;padding:0 6mm;color:#000}
+  .topbar,.print-btn,.note,.tips{display:none !important}
+  .hero{margin:0 0 6px}
+  .hero h1{font-size:22px;color:#000}
+  .eyebrow{color:#555}
+  .lede{font-size:12px}
+  .exam{margin:14px 0 0;break-inside:avoid}
+  .exam h2,.exam .yr{color:#000 !important}
+  .exam-badge{background:#000 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .years{gap:8px;grid-template-columns:repeat(2,1fr)}
+  .ycard{box-shadow:none;border:1px solid #bbb;break-inside:avoid;padding:9px 10px}
+  .dl a{border:1px solid #bbb !important;background:#fff !important;color:#000 !important;padding:4px 0;font-size:10.5px}
+  .dl a .ei{display:none}
+  .dl a .url{display:block;font:400 9px/1.25 monospace;color:#333;word-break:break-all;margin-top:1px}
+  .dl a .lbl{font-weight:700}
+  .foot{color:#333;margin-top:12px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="crumb"><a href="index.html">🐾 English Cat Island</a> › 歷屆試題</div>
+    <button class="print-btn" onclick="window.print()">🖨 列印本頁清單</button>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Past Exam Papers · 近五年</div>
+    <h1>歷屆試題 <span class="zh">練習區</span></h1>
+    <p class="lede">國中教育<b>會考英語</b>與大學<b>學測英文</b>近五年的官方試題與參考答案，全部連到<b>官方正版 PDF</b>——點開就能線上作答、下載或列印。先限時寫一遍、再對答案訂正，是最有效的考前練習。</p>
+  </header>
+
+  <div class="note">
+    <span class="ic">🖨️</span>
+    <div>想<b>列印試題</b>：點該年的「試題」會開啟官方 PDF，在 PDF 畫面按 <b>Ctrl&nbsp;/&nbsp;⌘ + P</b> 就能印出整份考卷。想印這頁的清單備查，按右上角「列印本頁清單」。</div>
+  </div>
+
+  <main id="exam-root"></main>
+
+  <section class="tips">
+    <h3>📚 怎麼用這些考古題最有效</h3>
+    <ol class="steps">
+      <li><b>限時模擬</b>：印出或開啟整份試題，用考試時間作答（會考英語閱讀 60 分鐘、學測英文 100 分鐘），中途不查字典。</li>
+      <li><b>先自己對答案</b>：用官方「參考答案」批改，算出對幾題，記錄分數看進步。</li>
+      <li><b>訂正最重要</b>：每題錯的，回去看文章找出線索、把不會的單字片語抄下來，這一步比多寫一份還有用。</li>
+      <li><b>重複再寫</b>：一兩週後把同一份重寫一次，看看訂正過的題目是否真的記住了。</li>
+    </ol>
+    <p class="tip-foot">💡 會考英語分「聽力」與「閱讀」兩部分，官方網站公布的是<b>閱讀試題本</b>；聽力部分建議搭配課本或老師提供的音檔練習。學測英文含「非選擇題」（翻譯＋作文），可一併下載<b>答題卷</b>練習書寫與排版。</p>
+  </section>
+
+  <footer class="foot">
+    <div class="srcs">
+      <span>官方來源：</span>
+      <a href="https://cap.rcpet.edu.tw/examination.html" target="_blank" rel="noopener">國中教育會考（心測中心）</a>
+      <a href="https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634" target="_blank" rel="noopener">大學學測（大考中心）</a>
+    </div>
+    <p>試題與答案著作權屬「國立臺灣師範大學心理與教育測驗研究發展中心」及「財團法人大學入學考試中心基金會」所有。本頁僅整理官方公開下載連結，供學生非營利學習使用，不另行重製或散布試題內容；如連結失效請至官方網站查詢最新版本。</p>
+    <p class="updated">最後更新：2026-11-13</p>
+  </footer>
+
+</div>
+
+<script>
+/* 官方正版 PDF 連結（近五年，皆經連線確認可開啟）。
+   會考＝國中教育會考英語（閱讀試題＋參考答案）；學測＝大學學測英文（試題＋答題卷＋選擇題答案）。 */
+const CEEC="https://www.ceec.edu.tw/files/file_pool/1/";
+const EXAMS=[
+  {
+    theme:"t-terra", badge:"國中會考", title:"國中教育會考 · 英語（閱讀）",
+    sub:'每年 5 月舉行 · 閱讀試題本＋官方參考答案 · <a href="https://cap.rcpet.edu.tw/examination.html" target="_blank" rel="noopener">官方網站 ↗</a>',
+    rows:[114,113,112,111,110].map(y=>({
+      yr:y, cal:(y+1911)+"年", tag:"閱讀",
+      links:[
+        {cls:"q", ic:"📄", lbl:"試題",  url:`https://cap.rcpet.edu.tw/exam/${y}/${y}P_English.pdf`},
+        {cls:"a", ic:"✅", lbl:"參考答案", url:`https://cap.rcpet.edu.tw/exam/${y}/${y}P_Answer.pdf`}
+      ]
+    }))
+  },
+  {
+    theme:"t-sage", badge:"大學學測", title:"大學學科能力測驗 · 英文",
+    sub:'每年 1 月舉行 · 試題＋答題卷＋選擇題答案 · <a href="https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634" target="_blank" rel="noopener">官方網站 ↗</a>',
+    rows:[
+      {yr:115, tag:"含非選", q:"0q054532302653501476/02-115%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%a9%a6%e5%8d%b7.pdf", s:"0q054339832930771045/02-115%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e9%a1%8c%e5%8d%b7.pdf", a:"0q040594609847120321/02-115%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e6%a1%88.pdf"},
+      {yr:114, tag:"含非選", q:"0p056425554473267580/02-114%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%a9%a6%e9%a1%8c.pdf", s:"0p051546347999453841/114%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e9%a1%8c%e5%8d%b7-%e5%ae%9a%e7%a8%bf.pdf", a:"0p051545433631383724/02-114%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e6%a1%88.pdf"},
+      {yr:113, tag:"含非選", q:"0o051427482769341323/02-113%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%a7%91%e5%ae%9a%e7%a8%bf.pdf", s:"0o051427743847199378/02-113%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e9%a1%8c%e5%8d%b7-%e5%ae%9a%e7%a8%bf.pdf", a:"0o051427843482078305/02-113%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e6%a1%88.pdf"},
+      {yr:112, tag:"含非選", q:"0n045359274947649605/02-112%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%a9%a6%e5%8d%b7.pdf", s:"0n045359625125497650/02-112%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e9%a1%8c%e5%8d%b7.pdf", a:"0n045359936769376687/02-112%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88.pdf"},
+      {yr:111, tag:"含非選", q:"0m053357638065462325/02-111%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%a9%a6%e5%8d%b7.pdf", s:"0m053357759609341353/02-111%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e7%ad%94%e9%a1%8c%e5%8d%b7.pdf", a:"0m052625594764853905/02-111%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e9%81%b8%e6%93%87%e9%a1%8c%e7%ad%94%e6%a1%88..pdf"}
+    ].map(r=>({
+      yr:r.yr, cal:(r.yr+1911)+"年", tag:r.tag,
+      links:[
+        {cls:"q", ic:"📄", lbl:"試題",   url:CEEC+r.q},
+        {cls:"s", ic:"📝", lbl:"答題卷",  url:CEEC+r.s},
+        {cls:"a", ic:"✅", lbl:"選擇題答案", url:CEEC+r.a}
+      ]
+    }))
+  }
+];
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+document.getElementById("exam-root").innerHTML = EXAMS.map(ex=>`
+  <section class="exam ${ex.theme}">
+    <div class="exam-head">
+      <span class="exam-badge">${ex.badge}</span>
+      <h2>${ex.title}</h2>
+      <p class="exam-sub">${ex.sub}</p>
+    </div>
+    <div class="years">
+      ${ex.rows.map(r=>`
+        <article class="ycard">
+          <div class="ycard-top">
+            <span class="yr">${r.yr}</span><span class="yr-cal">${r.cal}</span>
+            <span class="yr-tag">${r.tag}</span>
+          </div>
+          <div class="dl">
+            ${r.links.map(l=>`<a class="${l.cls}" href="${esc(l.url)}" target="_blank" rel="noopener">
+                <span class="ei">${l.ic}</span><span class="lbl">${l.lbl}</span>
+                <span class="url">${esc(decodeURIComponent(l.url))}</span>
+              </a>`).join("")}
+          </div>
+        </article>`).join("")}
+    </div>
+  </section>`).join("");
+</script>
+</body>
+</html>
