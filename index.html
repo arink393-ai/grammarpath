@@ -8009,7 +8009,24 @@ function renderWriting(){
       <p class="vf-sub" style="margin-top:10px"><b>段落自我檢查：</b>☐ 有主題句　☐ 2 句以上支持　☐ 有結論句　☐ 用了轉承詞　☐ 整段只講一個主題</p>
     </div>
 
-    <div class="vf-sec"><h2>⑤ 寫作三步驟</h2>
+    <div class="vf-sec"><h2>⑤ 短文寫作：五段式 Essay</h2>
+      <p class="vf-sub">段落會寫了，就能把 <b>5 段</b>組成一篇短文：1 段<b>引言</b>＋3 段<b>本文</b>＋1 段<b>結論</b>。核心是<b>主旨句 Thesis</b>——用一句話說出整篇的主張。</p>
+      <div class="vf-tablewrap"><table class="vf-table">
+        <thead><tr><th>段落</th><th>裡面放什麼</th><th>句型起手式</th></tr></thead>
+        <tbody>
+          <tr><td class="b1">引言<div class="vf-zhcell">Introduction</div></td><td>① 吸睛開場 Hook　② 背景一兩句　③ <b>主旨句 Thesis</b>（本篇主張，常含 3 個重點）</td><td>Have you ever …? · These days, … · I believe … for three reasons: A, B, and C.</td></tr>
+          <tr><td class="b1">本文 ×3<div class="vf-zhcell">Body</div></td><td>每段一個重點＝主題句＋支持（理由／例子／細節）</td><td>First, … · Second, … · Another reason is … · For example, …</td></tr>
+          <tr><td class="b1">結論<div class="vf-zhcell">Conclusion</div></td><td>重述主旨（換句話說）＋總結三重點＋收尾想法</td><td>In conclusion, … · To sum up, … · That is why …</td></tr>
+        </tbody></table></div>
+      <p class="vf-sub" style="margin-top:12px"><b>主旨句 Thesis 小撇步：</b>一句話回答題目，並點出你會談的 <b>2–3 個重點</b>，本文每段各寫一個。例：<code>Reading is important because it builds knowledge, improves writing, and relaxes the mind.</code></p>
+      <div class="vf-xlink" style="line-height:1.95"><b>範例大綱 Outline</b>（Topic：Why I love my hometown）：<br>
+        🟦 <b>Intro</b>：Hook 一句問句 ＋ Thesis — I love my hometown because of its food, its people, and its scenery.<br>
+        🟩 <b>Body 1</b> food（夜市小吃＋例子）　🟩 <b>Body 2</b> people（友善＋例子）　🟩 <b>Body 3</b> scenery（山與海＋例子）<br>
+        🟧 <b>Conclusion</b>：重述三點 ＋「這就是我愛家鄉的原因」。</div>
+      <p class="vf-sub" style="margin-top:10px"><b>短文自我檢查：</b>☐ 引言有主旨句　☐ 3 段本文各一個重點　☐ 每段有主題句與例子　☐ 結論有重述　☐ 段與段間有轉承詞</p>
+    </div>
+
+    <div class="vf-sec"><h2>⑥ 寫作三步驟</h2>
       <div class="vf-rule">
         <div class="vf-rline"><b>Plan 想</b>：先想點子、列幾個重點（先用中文想也可以）。</div>
         <div class="vf-rline"><b>Write 寫</b>：一句一句寫，先求<b>完整</b>再求<b>長</b>。</div>
@@ -8017,7 +8034,7 @@ function renderWriting(){
       </div>
     </div>
 
-    <div class="vf-sec"><h2>⑥ 題目庫 Prompts</h2>
+    <div class="vf-sec"><h2>⑦ 題目庫 Prompts</h2>
       <p class="vf-sub">挑一個題目，用下面的句型起手式開始寫。</p>
       <div class="wr-cards">${WRITING_PROMPTS.map(p=>card(p[0],p[1],p[2],p[3])).join("")}</div>
     </div>
@@ -8025,7 +8042,7 @@ function renderWriting(){
     <div class="vf-sec">
       <h2>🖨 列印稿紙 Printables</h2>
       <p class="vf-sub"><b>造句→擴寫稿</b>（第一頁擴寫階梯、第二頁作文稿）；<b>段落寫作稿</b>（第一頁主題句／支持句／結論句規劃、第二頁謄寫稿）。直接列印或存成 PDF。</p>
-      <div class="vf-print"><button class="btn btn-navy" onclick="printWritingSheet()">🖨 造句→擴寫稿</button> <button class="btn btn-navy" onclick="printParagraphSheet()">🖨 段落寫作稿</button></div>
+      <div class="vf-print"><button class="btn btn-navy" onclick="printWritingSheet()">🖨 造句→擴寫稿</button> <button class="btn btn-navy" onclick="printParagraphSheet()">🖨 段落寫作稿</button> <button class="btn btn-navy" onclick="printEssaySheet()">🖨 五段式短文稿</button></div>
     </div>
   </div>`;
   window.scrollTo(0,0);
@@ -8129,6 +8146,55 @@ function printParagraphSheet(){
   </div>
   <\/body><\/html>`;
   safeOpenPrintDoc(doc, "段落寫作稿");
+}
+function printEssaySheet(){
+  const body = n => `<tr><td class="q">🟩 Body ${n}　主題句 Topic</td><td class="lines" style="height:40px"></td></tr>
+      <tr><td class="q">　　支持／例子 Support</td><td class="lines" style="height:62px"></td></tr>`;
+  const doc = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>五段式短文稿 Essay</title>
+  <style>
+   *{box-sizing:border-box}
+   body{font-family:Arial,"Helvetica Neue",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;color:#000;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
+   .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
+   .bar .hint{opacity:.85;font-size:12px}
+   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:38px 46px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
+   .sheet:last-child{break-after:auto;page-break-after:auto}
+   h1{font-size:20px;font-weight:700;margin:0 0 6px}
+   .dn{display:flex;justify-content:space-between;font-size:13px;margin:0 0 10px}
+   .dn u{font-style:normal;text-decoration:none;border-bottom:1px solid #000;padding:0 10px 1px;min-width:120px;display:inline-block;text-align:center}
+   table{border-collapse:collapse;width:100%;table-layout:fixed}
+   td{border:1px solid #000;padding:6px 9px;font-size:12.5px;vertical-align:top;line-height:1.55}
+   td.q{width:40%;font-weight:600;background:#f1f7f5}
+   .guide{font-size:12px;color:#444;line-height:1.6;margin:8px 0}
+   .lines{background-image:repeating-linear-gradient(#fff 0 30px,#c9c9c9 30px 31px);background-position:0 6px}
+   .writebox{border:1px solid #000;border-radius:4px}
+   .check{font-size:12.5px;line-height:1.9;margin-top:10px}
+   @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
+   @page{margin:1.2cm}
+  </style></head><body>
+  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">五段式短文稿（第一頁大綱規劃、第二頁謄寫），直接列印或存成 PDF 給學生手寫。</span></div>
+  <div class="sheet">
+    <h1>五段式短文大綱　Essay Outline</h1>
+    <div class="dn"><span>Date：<u></u></span><span>Name：<u></u></span></div>
+    <p class="guide">一篇短文＝引言＋3 段本文＋結論。先規劃，再到第二頁寫成完整短文。</p>
+    <table>
+      <tr><td class="q">題目 Topic / Question</td><td class="lines" style="height:36px"></td></tr>
+      <tr><td class="q">🟦 Intro — Hook 吸睛開場</td><td class="lines" style="height:40px"></td></tr>
+      <tr><td class="q">🟦 Intro — <b>主旨句 Thesis</b>（含 3 個重點）</td><td class="lines" style="height:62px"></td></tr>
+      ${body(1)}${body(2)}${body(3)}
+      <tr><td class="q">🟧 Conclusion 重述＋收尾</td><td class="lines" style="height:62px"></td></tr>
+    </table>
+    <p class="guide"><b>轉承詞小幫手：</b> First · Second · Finally · For example · Also · In conclusion · To sum up</p>
+  </div>
+  <div class="sheet">
+    <h1>我的短文　My Essay</h1>
+    <div class="dn"><span>Date：<u></u></span><span>Title：<u></u></span></div>
+    <div class="guide">照大綱把 5 段寫出來，每段段首空兩格（indent）。不夠寫可用背面。</div>
+    <div class="writebox lines" style="height:470px"></div>
+    <div class="check"><b>自我檢查 Self-check：</b> ☐ 引言有主旨句　☐ 3 段本文各一重點　☐ 每段有主題句與例子　☐ 結論有重述　☐ 段間有轉承詞</div>
+  </div>
+  <\/body><\/html>`;
+  safeOpenPrintDoc(doc, "五段式短文稿");
 }
 
 function renderTheoryList(){
