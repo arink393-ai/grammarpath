@@ -2230,6 +2230,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/verbforms">🔁 動詞三態 Verb Forms</button>
   <button data-nav="#/participles">🧩 分詞 Participles</button>
   <button data-nav="#/clauses">📚 子句總覽 Clauses</button>
+  <button data-nav="#/writing">✍️ 英文作文 Writing</button>
   <button data-nav="#/nouns">🍎 可數不可數 Nouns</button>
   <button data-nav="#/games">🎮 遊戲 Games</button>
   <div class="nav-group">島上資源 Island</div>
@@ -2873,6 +2874,7 @@ async function route(){
   else if(h[0]==="verbforms") renderVerbForms();
   else if(h[0]==="participles") renderParticiples();
   else if(h[0]==="clauses") renderClauses();
+  else if(h[0]==="writing") renderWriting();
   else if(h[0]==="nouns") renderNouns();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
@@ -7925,6 +7927,145 @@ function saveMyProfile(){
   if(err) err.hidden=true;
   try{ toast("✅ 已儲存你的資料，謝謝你！老師會更認識你 🐾"); }catch(e){}
   renderMyProfile();
+}
+
+/* =====================================================
+   英文作文區 Writing（基礎造句→擴寫；指引＋題目庫＋可列印稿紙）
+   ===================================================== */
+const WRITING_PROMPTS = [
+  ["🧒","介紹自己 Myself","寫 3–5 句介紹自己：名字、年齡、學校、喜歡的東西。",["My name is ___ .","I am ___ years old.","I like ___ because ___ ."]],
+  ["👨‍👩‍👧","我的家人 My family","介紹一位家人：是誰、長相或個性、你們會一起做什麼。",["This is my ___ .","He / She is ___ .","We often ___ together."]],
+  ["📅","我的一天 My day","用時間順序寫你平常的一天。",["In the morning, I ___ .","Then I ___ .","At night, I ___ ."]],
+  ["🍜","我最喜歡的… My favorite","選一樣最愛（食物／動物／地方），說為什麼。",["My favorite ___ is ___ .","It is ___ .","I like it because ___ ."]],
+  ["🖼️","看圖寫作 Describe a picture","看一張圖，寫出看到的人、地點、動作。",["In the picture, I can see ___ .","They are ___ -ing.","It looks ___ ."]],
+  ["💭","我的想法 My opinion","給一個簡單意見並說一個理由。",["I think ___ .","One reason is ___ .","So I ___ ."]]
+];
+function renderWriting(){
+  const card=(emoji,zh,hint,starters)=>`<div class="wr-card"><div class="wr-card-h"><span class="wr-emoji">${emoji}</span><b>${zh}</b></div><p class="wr-hint">${hint}</p><ul class="wr-start">${starters.map(s=>`<li>${s}</li>`).join("")}</ul></div>`;
+  app.innerHTML=`<div class="view verb-forms writing">
+    <style>
+    .writing .wr-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .writing .wr-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+    .writing .wr-card-h{display:flex;align-items:center;gap:9px;font:700 1rem var(--sans);color:var(--navy)}
+    .writing .wr-emoji{font-size:22px}
+    .writing .wr-hint{font-size:13px;color:var(--muted);margin:7px 0 8px;line-height:1.55}
+    .writing .wr-start{margin:0;padding-left:18px}
+    .writing .wr-start li{font-size:13px;line-height:1.95;color:var(--ink)}
+    @media(max-width:640px){.writing .wr-cards{grid-template-columns:1fr}}
+    </style>
+    <div class="crumb"><a href="#/home">Home</a> › 英文作文</div>
+    <div class="eyebrow" style="color:var(--teal)">Writing · 英文作文</div>
+    <h1 class="display">英文作文區<span class="zh-term-lg" style="color:var(--teal)">Writing</span></h1>
+    <p class="lede">從<b>一個完整句子</b>開始，慢慢加長、再串成一段。這一區教你怎麼寫出好句子、怎麼把句子變豐富，還附<b>題目庫</b>和<b>可列印稿紙</b>。</p>
+
+    <div class="vf-sec"><h2>① 一個好句子的三件事</h2>
+      <div class="vf-rule">
+        <div class="vf-rline"><b>要有主詞＋動詞</b>，開頭<b>大寫</b>、結尾<b>句點</b>：<code>The dog runs.</code></div>
+        <div class="vf-rline"><b>不要寫不完整句</b>（少了主句）：<code>✗ Because I was tired.</code> → <code>I went to bed because I was tired.</code></div>
+        <div class="vf-rline"><b>不要兩句黏一起</b>：<code>✗ I was tired I slept.</code> → 用句點或連接詞分開：<code>I was tired, so I slept.</code></div>
+      </div>
+    </div>
+
+    <div class="vf-sec"><h2>② 把句子「擴寫」變豐富</h2>
+      <p class="vf-sub">用問題一步步把短句加長。</p>
+      <div class="vf-tablewrap"><table class="vf-table">
+        <thead><tr><th>問自己</th><th>加什麼</th><th>句子長大了</th></tr></thead>
+        <tbody>
+          <tr><td class="b1">（起點）</td><td>主詞＋動詞</td><td>The dog runs.</td></tr>
+          <tr><td class="b1">What kind?</td><td>形容詞</td><td>The <b>little</b> dog runs.</td></tr>
+          <tr><td class="b1">How?</td><td>副詞</td><td>The little dog runs <b>quickly</b>.</td></tr>
+          <tr><td class="b1">Where?</td><td>地點</td><td>The little dog runs quickly <b>in the park</b>.</td></tr>
+          <tr><td class="b1">When?</td><td>時間</td><td><b>Every morning</b>, the little dog runs quickly in the park.</td></tr>
+          <tr><td class="b1">Why?</td><td>原因 because…</td><td>…in the park <b>because it loves to play</b>.</td></tr>
+        </tbody></table></div>
+      <div class="vf-xlink">✍️ 完整版：<b>Every morning, the little dog runs quickly in the park because it loves to play.</b></div>
+    </div>
+
+    <div class="vf-sec"><h2>③ 用連接詞把句子串起來</h2>
+      <div class="vf-tablewrap"><table class="vf-table">
+        <thead><tr><th>連接詞</th><th>用來</th><th>例子</th></tr></thead>
+        <tbody>
+          <tr><td class="b1">and</td><td>加東西</td><td>I like cats <b>and</b> dogs.</td></tr>
+          <tr><td class="b1">but</td><td>相反</td><td>It's small <b>but</b> strong.</td></tr>
+          <tr><td class="b1">so</td><td>結果</td><td>It rained, <b>so</b> we stayed home.</td></tr>
+          <tr><td class="b1">because</td><td>原因</td><td>I'm happy <b>because</b> it's Friday.</td></tr>
+          <tr><td class="b1">then / after that</td><td>順序</td><td>I ate, <b>then</b> I did my homework.</td></tr>
+        </tbody></table></div>
+      <p class="vf-sub">想更深入？看課程 <a href="#/lesson/conjunctions">連接詞</a>、<a href="#/clauses">子句總覽</a>。</p>
+    </div>
+
+    <div class="vf-sec"><h2>④ 寫作三步驟</h2>
+      <div class="vf-rule">
+        <div class="vf-rline"><b>Plan 想</b>：先想點子、列幾個重點（先用中文想也可以）。</div>
+        <div class="vf-rline"><b>Write 寫</b>：一句一句寫，先求<b>完整</b>再求<b>長</b>。</div>
+        <div class="vf-rline"><b>Check 檢查</b>：大寫？句點？有主詞動詞？拼字對嗎？</div>
+      </div>
+    </div>
+
+    <div class="vf-sec"><h2>⑤ 題目庫 Prompts</h2>
+      <p class="vf-sub">挑一個題目，用下面的句型起手式開始寫。</p>
+      <div class="wr-cards">${WRITING_PROMPTS.map(p=>card(p[0],p[1],p[2],p[3])).join("")}</div>
+    </div>
+
+    <div class="vf-sec">
+      <h2>🖨 列印作文稿紙 Writing Paper</h2>
+      <p class="vf-sub">兩頁式：第一頁「造句→擴寫」練習（照問題把句子加長），第二頁作文稿紙（題目靈感＋橫線＋自我檢查）。</p>
+      <div class="vf-print"><button class="btn btn-navy" onclick="printWritingSheet()">🖨 列印 / 存 PDF</button></div>
+    </div>
+  </div>`;
+  window.scrollTo(0,0);
+}
+function printWritingSheet(){
+  const prompts = WRITING_PROMPTS.map(p=>`<li><b>${p[1]}</b>：${p[2]}</li>`).join("");
+  const doc = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>英文作文稿紙 Writing Paper</title>
+  <style>
+   *{box-sizing:border-box}
+   body{font-family:Arial,"Helvetica Neue",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;color:#000;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
+   .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
+   .bar .hint{opacity:.85;font-size:12px}
+   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:40px 48px;box-shadow:0 8px 24px rgba(0,0,0,.14);break-after:page;page-break-after:always}
+   .sheet:last-child{break-after:auto;page-break-after:auto}
+   h1{font-size:20px;font-weight:700;margin:0 0 6px}
+   .dn{display:flex;justify-content:space-between;font-size:13px;margin:0 0 10px}
+   .dn u{font-style:normal;text-decoration:none;border-bottom:1px solid #000;padding:0 10px 1px;min-width:120px;display:inline-block;text-align:center}
+   table{border-collapse:collapse;width:100%;table-layout:fixed}
+   td{border:1px solid #000;padding:7px 10px;font-size:13px;vertical-align:top;line-height:1.6}
+   td.q{width:38%;font-weight:600;background:#f1f7f5}
+   .guide{font-size:12px;color:#444;line-height:1.6;margin:8px 0}
+   .guide ul{margin:4px 0 0;padding-left:18px}
+   .guide li{margin:2px 0}
+   .lines{background-image:repeating-linear-gradient(#fff 0 31px,#c9c9c9 31px 32px);background-position:0 7px}
+   .writebox{border:1px solid #000;border-radius:4px}
+   .check{font-size:12.5px;line-height:1.9;margin-top:12px}
+   @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
+   @page{margin:1.3cm}
+  </style></head><body>
+  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">英文作文稿紙（第一頁造句→擴寫、第二頁作文稿），直接列印或存成 PDF 給學生手寫。</span></div>
+  <div class="sheet">
+    <h1>造句 → 擴寫　Build a Sentence</h1>
+    <div class="dn"><span>Date：<u></u></span><span>Name：<u></u></span></div>
+    <p class="guide">用問題把一個短句一步步加長。範例：<b>The dog runs.</b> → <b>Every morning, the little dog runs quickly in the park because it loves to play.</b></p>
+    <table>
+      <tr><td class="q">① 主詞 + 動詞（起點）</td><td class="lines" style="height:42px"></td></tr>
+      <tr><td class="q">② 加形容詞（What kind?）</td><td class="lines" style="height:42px"></td></tr>
+      <tr><td class="q">③ 加副詞（How?）</td><td class="lines" style="height:42px"></td></tr>
+      <tr><td class="q">④ 加地點（Where?）</td><td class="lines" style="height:42px"></td></tr>
+      <tr><td class="q">⑤ 加時間（When?）</td><td class="lines" style="height:42px"></td></tr>
+      <tr><td class="q">⑥ 加原因（Why? because…）</td><td class="lines" style="height:42px"></td></tr>
+      <tr><td class="q"><b>完整句子 Final</b></td><td class="lines" style="height:80px"></td></tr>
+    </table>
+    <p class="guide"><b>連接詞小幫手：</b> and（加）· but（相反）· so（結果）· because（原因）· then（順序）</p>
+  </div>
+  <div class="sheet">
+    <h1>我的作文　My Writing</h1>
+    <div class="dn"><span>Date：<u></u></span><span>Title：<u></u></span></div>
+    <div class="guide"><b>題目靈感 Prompts：</b><ul>${prompts}</ul></div>
+    <div class="writebox lines" style="height:430px"></div>
+    <div class="check"><b>自我檢查 Self-check：</b> ☐ 每句有主詞和動詞 　☐ 開頭大寫、結尾句點 　☐ 拼字對 　☐ 用了連接詞（and / but / so / because）</div>
+  </div>
+  <\/body><\/html>`;
+  safeOpenPrintDoc(doc, "英文作文稿紙");
 }
 
 function renderTheoryList(){
