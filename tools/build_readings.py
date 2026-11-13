@@ -102,6 +102,17 @@ def load():
                 L = (r.get('levels') or {}).get(lv)
                 if not L: errs.append(f'{rid}：缺少 levels.{lv}'); continue
                 if not L.get('text'): errs.append(f'{rid}/{lv}：缺少 text')
+                if 'ph' in L:
+                    lo, hi = {'a': (3, 4), 'b': (4, 6), 'c': (5, 8)}[lv]
+                    if not lo <= len(L['ph']) <= hi:
+                        errs.append(f'{rid}/{lv}：片語 ph 有 {len(L["ph"])} 個，這個程度要 {lo}–{hi} 個')
+                    body = ' '.join(L.get('text') or [])
+                    for x in L['ph']:
+                        miss = [f for f in ('p', 'k', 'zh', 'ex', 'exzh') if not x.get(f)]
+                        if miss: errs.append(f'{rid}/{lv}：片語「{x.get("p")}」缺少 {", ".join(miss)}')
+                        form = x.get('m') or x.get('p') or ''
+                        if form and not re.search(r'\b' + r'\s+'.join(map(re.escape, form.split())) + r'\b', body, re.I):
+                            errs.append(f'{rid}/{lv}：片語「{form}」在文章裡找不到（寫法不同時請填 m）')
                 if 'tz' in L and len(L['tz']) != len(L.get('text') or []):
                     errs.append(f'{rid}/{lv}：tz（全文翻譯）有 {len(L["tz"])} 段，text 有 {len(L.get("text") or [])} 段，要一段對一段')
                 for qi, q in enumerate(L.get('q') or []):

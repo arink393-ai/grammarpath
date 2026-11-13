@@ -783,6 +783,22 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rd-gw:hover::after,.rd-gw:focus::after,.rd-gw.open::after,.rd-gw:hover::before,.rd-gw:focus::before,.rd-gw.open::before{opacity:1}
 .rd-tools{display:flex;gap:9px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:12px;margin-top:4px}
 .rd-gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px 16px;background:var(--teal-bg);border:1.5px solid var(--teal-line);border-radius:12px;padding:12px 14px;margin-top:12px}
+.rd-phm{border-bottom:2px dotted var(--teal);cursor:help}
+.rd-ph{margin:18px 0 6px;padding:16px 18px;border:1.5px solid var(--line);border-radius:16px;background:var(--paper)}
+.rd-ph-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:10px}
+.rd-ph-head h3{font:700 17px var(--sans);color:var(--navy);margin:0}
+.rd-ph-head span{font-size:12.5px;color:var(--muted)}
+.rd-ph-list{display:grid;gap:10px}
+.rd-ph-card{border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.rd-ph-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-bottom:6px}
+.rd-ph-top b{font:700 16px var(--sans);color:var(--navy)}
+.rd-ph-k{font:600 10.5px var(--sans);color:var(--teal);background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:99px;padding:1.5px 8px}
+.rd-ph-zh{font-size:14.5px;font-weight:600}
+.rd-ph-src,.rd-ph-ex{font-size:14.5px;line-height:1.7;margin-top:4px}
+.rd-ph-src>span,.rd-ph-ex>span:first-child{font:600 11.5px var(--sans);color:var(--muted);margin-right:7px}
+.rd-ph-src mark{background:var(--teal-bg);color:inherit;border-bottom:2px solid var(--teal);padding:0 2px;border-radius:3px}
+.rd-ph-tr{margin-left:6px;font:600 11.5px var(--sans);color:var(--teal);background:none;border:1px dashed var(--teal-line);border-radius:99px;padding:1px 9px;cursor:pointer}
+.rd-ph-exzh{display:block;margin-top:3px;color:var(--muted);font-size:14px}
 .rd-gl{font:400 13px var(--sans);color:var(--body)}
 .rd-gl b{color:var(--navy);font-weight:700}
 .rd-gl i{color:var(--muted);font-size:11px;margin:0 3px}
@@ -11293,7 +11309,7 @@ const READINGS = [
 {"id": "spacex-ipo", "cat": "business", "topic": "The Biggest Stock Market Debut Ever", "zh": "史上最大規模上市案", "src": "The Economist · The Washington Post · Reuters", "date": "2026-07-16", "week": "7/27–8/2", "tag": "Business 財經", "icon": "rocket"},
 {"id": "eclipse-2026", "cat": "science", "topic": "Europe's First Total Eclipse in 27 Years", "zh": "歐洲 27 年來首見日全食", "src": "Science · Nature · NASA", "date": "2026-07-16", "week": "7/20–7/26", "tag": "Science 科學", "icon": "eclipse"}
 ];
-const READINGS_FILES = {"2026-07": "readings/2026-07.json?v=1e701a45", "2026-08": "readings/2026-08.json?v=7cd081c1", "2026-09": "readings/2026-09.json?v=97cc7bdf", "2026-10": "readings/2026-10.json?v=200f3582", "2026-11": "readings/2026-11.json?v=7de186f1"};
+const READINGS_FILES = {"2026-07": "readings/2026-07.json?v=1e701a45", "2026-08": "readings/2026-08.json?v=7cd081c1", "2026-09": "readings/2026-09.json?v=97cc7bdf", "2026-10": "readings/2026-10.json?v=200f3582", "2026-11": "readings/2026-11.json?v=4fe8853b"};
 /*READINGS_END*/
 
 /* 單元題組閱讀 — 貓島情境短文，自然嵌入該單元文法點 */
@@ -13081,6 +13097,43 @@ if(!window.__rdGwClick){ window.__rdGwClick = true; document.addEventListener("c
   if(w) w.classList.toggle("open");
 }); }
 
+/* 🔗 片語・慣用語：levels[x].ph = [{p, k, zh, m?, ex, exzh}]
+   p 片語原形 · k 類型 · zh 中文意思 · m 本文中的實際寫法（和 p 不同時才填，如 took part in）
+   ex 新例句 · exzh 例句翻譯（學生點了才顯示，先讓他自己理解） */
+function rdPhForm(x){ return x.m || x.p; }
+function rdPhRe(x){ return new RegExp("\\b" + rdPhForm(x).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+") + "\\b", "gi"); }
+function rdPhSentence(lv, x){
+  const re = rdPhRe(x);
+  for(const para of lv.text){
+    const sents = para.match(/[^.!?]+[.!?]+["”’']?\s*|[^.!?]+$/g) || [para];
+    const hit = sents.find(t => { re.lastIndex = 0; return re.test(t); });
+    if(hit) return hit.trim();
+  }
+  return "";
+}
+// 先把片語換成佔位符，標完生詞再換回來，避免生詞標記插進片語的 HTML 裡
+function rdMarkText(text, lv){
+  const ph = [...(lv.ph || [])].sort((a,b)=> rdPhForm(b).length - rdPhForm(a).length), keep = [];   // 長的先標
+  let t = text;
+  ph.forEach(x => { t = t.replace(rdPhRe(x), m => { keep.push(`<span class="rd-phm" title="${esc(x.p)}：${esc(x.zh)}">${esc(m)}</span>`); return "\uE000" + (keep.length-1) + "\uE001"; }); });
+  return rdMarkGloss(t, lv.gloss).replace(/\uE000(\d+)\uE001/g, (_, i) => keep[+i]);
+}
+function rdPhrasesHTML(lv){
+  if(!lv.ph || !lv.ph.length) return "";
+  const cards = lv.ph.map(x => {
+    const src = rdPhSentence(lv, x);
+    const srcHTML = src ? esc(src).replace(rdPhRe(x), m => `<mark>${m}</mark>`) : "";
+    return `<div class="rd-ph-card">
+      <div class="rd-ph-top"><b>${esc(x.p)}</b><span class="rd-ph-k">${esc(x.k||"片語")}</span><span class="rd-ph-zh">${esc(x.zh)}</span>${tts.ok?`<button class="res-audio mini" onclick="speak(${esc(JSON.stringify(x.p))})" aria-label="朗讀片語">🔊</button>`:""}</div>
+      ${srcHTML?`<div class="rd-ph-src"><span>📰 原文</span>${srcHTML}</div>`:""}
+      <div class="rd-ph-ex"><span>✏️ 例句</span>${esc(x.ex)}${tts.ok?` <button class="res-audio mini" onclick="speak(${esc(JSON.stringify(x.ex))}, .9)" aria-label="朗讀例句">🔊</button>`:""}
+        <button class="rd-ph-tr" onclick="const z=this.nextElementSibling; z.hidden=!z.hidden; this.textContent=z.hidden?'看翻譯':'收起翻譯'; this.setAttribute('aria-expanded', !z.hidden)" aria-expanded="false">看翻譯</button><span class="rd-ph-exzh" hidden>${esc(x.exzh)}</span></div>
+    </div>`;
+  }).join("");
+  return `<section class="rd-ph">
+    <div class="rd-ph-head"><h3>🔗 片語・慣用語 Phrases & Idioms</h3><span>本篇 ${lv.ph.length} 個常用片語：先讀原文句子，再試著理解例句，真的不懂再點「看翻譯」</span></div>
+    <div class="rd-ph-list">${cards}</div></section>`;
+}
 function renderReading(id, keepScroll){
   if(!rdById(id).levels) return rdNeed(rdById(id), ()=>renderReading(id, keepScroll));
   const y = keepScroll ? window.scrollY : 0;
@@ -13088,7 +13141,7 @@ function renderReading(id, keepScroll){
   const lv = r.levels[RD_LEVEL];
   const tabs = [["a","A1–A2","初級"],["b","B1–B2","中級"],["c","C1–C2","高級"]]
     .map(t=>`<button class="rd-lv-tab ${RD_LEVEL===t[0]?"active":""}" onclick="rdSetLevel('${t[0]}')">${t[1]}<span>${t[2]}</span></button>`).join("");
-  const paras = lv.text.map((p,i)=>`<p class="rd-p"><span class="rd-pn">${i+1}</span>${rdMarkGloss(p, lv.gloss)}</p>`).join("");
+  const paras = lv.text.map((p,i)=>`<p class="rd-p"><span class="rd-pn">${i+1}</span>${rdMarkText(p, lv)}</p>`).join("");
   const gloss = lv.gloss.map(g=>`<div class="rd-gl"><b>${g[0]}</b> <i>${g[1]}</i> <span>${g[2]}</span>${tts.ok?` <button class="res-audio mini" onclick="speak('${String(g[0]).replace(/'/g,"\\'")}')">🔊</button>`:""}</div>`).join("");
   const LET = "ABCD";
   const qs = lv.q.map((q,qi)=>{
@@ -13137,6 +13190,7 @@ function renderReading(id, keepScroll){
         <button class="btn btn-primary" onclick="location.hash='#/readgame/${r.id}/${RD_LEVEL}'">🎮 聽力更正遊戲 Fix-it Game</button></div>
       ${RD_GLOSS?`<div class="rd-gloss">${gloss}</div>`:""}
     </div>
+    ${rdPhrasesHTML(lv)}
     <section class="rv">
       <div class="rv-head"><h3>🎮 玩單字 Play with these words</h3><span>用本篇 ${lv.gloss.length} 個單字，選一種玩法練習（${lv.cefr}）</span></div>
       <div id="rv-stage"></div>
