@@ -1,0 +1,53 @@
+# zh
+## 什麼是混合條件句
+單純的條件句，if 和結果在「同一個時間」；<b>混合條件句</b>的 if 和結果在「不同時間」。
+表：兩種混合
+| 類型 | if 子句（因） | 主句（果） | 例句 |
+|---|---|---|---|
+| 過去→現在 | If + had + p.p.（過去） | would + 原形（現在） | If I <b>had studied</b> medicine, I <b>would be</b> a doctor now. |
+| 現在→過去 | If + 過去式（現在狀態） | would have + p.p.（過去） | If I <b>were</b> braver, I <b>would have asked</b> her. |
+
+## 和第二、第三條件句比較
+| 條件句 | if 子句 | 主句 | 時間 |
+|---|---|---|---|
+| 第二 | 過去式 | would + 原形 | 都是現在 |
+| 第三 | had + p.p. | would have + p.p. | 都是過去 |
+| 混合 A | had + p.p. | would + 原形 | 過去 → 現在 |
+| 混合 B | 過去式 | would have + p.p. | 現在 → 過去 |
+
+## 看時間詞判斷
+now／today／these days 出現在結果，通常是「過去→現在」的混合，結果用 would + 原形。
+<span class="en">If she <b>had taken</b> the job, she <b>would live</b> in Tokyo <b>today</b>.</span>
+> 先找時間詞，再決定結果要用 would + 原形（現在）還是 would have + p.p.（過去）。
+
+## be 動詞用 were
+假設語氣所有人稱都用 were：
+<span class="en">If I <b>were</b> taller, I <b>would have made</b> the team.</span>
+
+# mc
+Q: If I had learned to drive, I ___ a car now. || 要是我當初學會開車，現在就有車了。
+A: would have | would own* | will own
+W: 過去假設→現在結果，用 would + 原形。
+Q: If he weren't so careless, he ___ his keys yesterday. || 要是他沒這麼粗心，昨天就不會弄丟鑰匙。
+A: wouldn't lose | wouldn't have lost* | won't lose
+W: 現在個性→過去結果，用 would have + p.p.。
+Q: If I ___ harder years ago, I'd be fluent now. || 要是我幾年前更用功，現在就流利了。
+A: studied | had studied* | would study
+W: 過去條件用過去完成式 had studied。
+Q: If I ___ you, I would have said no. || 要是我是你，當時我就會拒絕。
+A: was | were* | am
+W: 假設語氣用 were。
+
+# err
+S: If I [would have|had] known, I would be there now. || 要是我早知道，現在就會在那裡。
+W: if 子句用過去完成式 had known，不用 would have。
+S: If I had won the lottery, I [would have been|would be] rich now. || 要是我中了樂透，現在就有錢了。
+W: 有 now，現在結果用 would + 原形 be。
+S: If I [was|were] more confident, I would have spoken up. || 要是我更有自信，當時就會說出來。
+W: 假設語氣 be 動詞用 were。
+
+# mk
+- 過去假設→現在結果：had + p.p. … would + 原形。
+- 現在狀態→過去結果：過去式 … would have + p.p.。
+- if 子句不用 would／would have。
+- 假設語氣 be 動詞用 were。

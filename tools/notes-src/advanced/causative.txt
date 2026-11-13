@@ -1,0 +1,55 @@
+# zh
+## 使役式：請別人做事
+當「事情不是自己做、而是請／讓別人做」時，用 <b>have／get + 受詞 + 過去分詞</b>。過去分詞表示事情是「被」處理的。
+表：have vs. get（意思相同，get 較口語）
+| 句型 | 例句 | 意思 |
+|---|---|---|
+| have + 物 + p.p. | I <b>had</b> my car <b>washed</b>. | 我（請人）洗了車 |
+| get + 物 + p.p. | I <b>got</b> my car <b>washed</b>. | 同上，較口語 |
+
+## 自己做 vs. 請人做
+| 自己動手 | 請／讓別人做 |
+|---|---|
+| I <b>cut</b> my hair. | I <b>had</b> my hair <b>cut</b>. |
+| I <b>painted</b> the door. | I <b>had</b> the door <b>painted</b>. |
+
+## 時態變在 have／get 身上
+受詞 + 過去分詞不變，時態靠 have／get：
+| 時態 | 例句 |
+|---|---|
+| 現在 | I <b>have</b> my suits <b>cleaned</b> weekly. |
+| 過去 | She <b>had</b> her photo <b>taken</b>. |
+| 未來 | We'll <b>get</b> the sofa <b>delivered</b>. |
+
+## 遭遇壞事
+have／get + 受詞 + 過去分詞也用在「東西被偷、被弄壞」：
+<span class="en">I <b>had</b> my phone <b>stolen</b>. / He <b>got</b> his nose <b>broken</b>.</span>
+> 這裡沒有「請別人做」的意思，只是「某事發生在我身上」。
+
+# mc
+Q: I'm going to ___ my hair cut tomorrow. || 我明天要去（給人）剪頭髮。
+A: make | have* | do
+W: 使役請人做用 have + 受詞 + 過去分詞。
+Q: We had the house ___ last year. || 我們去年請人粉刷了房子。
+A: paint | painted* | painting
+W: 事情是被做的，用過去分詞 painted。
+Q: She ___ her bag stolen at the station. || 她的包在車站被偷了。
+A: made | had* | did
+W: 遭遇壞事用 had + 受詞 + 過去分詞。
+Q: We ___ the carpets cleaned before the party. || 派對前我們請人清洗了地毯。
+A: did | had* | made
+W: have + 受詞 + 過去分詞 ＝ 請別人做。
+
+# err
+S: I had my watch [repair|repaired] yesterday. || 我昨天（請人）修了手錶。
+W: 事情是被做的，用過去分詞 repaired。
+S: She [cut her hair|had her hair cut] at the salon. || 她在美髮店（請人）剪了頭髮。
+W: 別人幫你做，用 have + 受詞 + 過去分詞。
+S: I [got stolen my bike|had my bike stolen]. || 我的腳踏車被偷了。
+W: 語序是受詞在前：have + 物 + 過去分詞。
+
+# mk
+- 別人幫你做，用 have／get + 受詞 + 過去分詞。
+- 事情是被做的，用過去分詞。
+- 使役語序：受詞在前、過去分詞在後。
+- 遭遇壞事也用 have／get + 受詞 + 過去分詞。

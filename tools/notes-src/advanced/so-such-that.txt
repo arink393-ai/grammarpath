@@ -1,0 +1,55 @@
+# zh
+## so 還是 such？
+兩者都表「如此…以致於」，差別在後面接什麼：<b>so</b> 接形容詞／副詞，<b>such</b> 接名詞片語。
+表：so vs. such
+| 用 so | 用 such |
+|---|---|
+| so + 形容詞：so cold | such + a/an + 形容詞 + 單數名詞：such a cold day |
+| so + 副詞：so fast | such + 形容詞 + 複數名詞：such nice people |
+| so + many／much + 名詞：so many people | such + 形容詞 + 不可數名詞：such bad weather |
+
+## 結果子句 that
+that 帶出「結果」，口語中常省略：
+<span class="en">It was <b>so</b> hot <b>that</b> we left. ＝ It was so hot we left.</span>
+
+## 數量用 so，不用 such
+| ✗ 錯誤 | ✓ 正確 |
+|---|---|
+| such many people | <b>so</b> many people |
+| such much time | <b>so</b> much time |
+
+## 快速判斷
+後面第一個字是「形容詞／副詞」→ so；是「(a/an) 名詞片語」→ such。
+| 例 | 選擇 |
+|---|---|
+| ___ tall | so（形容詞） |
+| ___ a tall man | such（名詞片語） |
+> 數量詞 many／much／few／little 前面一律用 so。
+
+# mc
+Q: The box was ___ heavy that I couldn't lift it. || 箱子重到我抬不起來。
+A: such | so* | such a
+W: 形容詞 heavy 前用 so。
+Q: It was ___ exciting game that nobody sat down. || 比賽刺激到沒人坐下。
+A: so | such an* | so an
+W: 名詞片語 an exciting game 用 such an。
+Q: They are ___ kind people that everyone trusts them. || 他們人好到大家都信任。
+A: so | such* | such a
+W: 複數名詞前用 such（不加 a）。
+Q: There was ___ much traffic that we were late. || 車多到我們遲到了。
+A: such | so* | such a
+W: 數量 much 前用 so。
+
+# err
+S: It was [a so|such a] beautiful day that we went out. || 天氣好到我們出門了。
+W: 名詞片語 a beautiful day 前用 such a。
+S: She is [such|so] clever that she solved it fast. || 她聰明到很快就解開了。
+W: 形容詞 clever 單用 so。
+S: There were [such|so] many fans that the gate broke. || 球迷多到大門都被擠壞了。
+W: many + 名詞用 so。
+
+# mk
+- 形容詞／副詞前用 so。
+- (a/an) 名詞片語前用 such。
+- 數量 many／much 前用 so，不用 such。
+- that 帶出結果子句，可省略。
