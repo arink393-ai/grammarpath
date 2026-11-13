@@ -952,6 +952,39 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .dex-have{margin-top:4px;font:700 12px var(--sans);color:var(--dq-green,#4E8D5B)}
 .dex-unlock{margin-top:8px;font-size:12.5px;padding:8px 10px}
 .dex-unlock b{color:inherit}
+.rd-tip-btn{margin-left:8px;margin-right:auto;font:600 11.5px var(--sans);color:var(--muted);background:none;border:1px dashed var(--line);border-radius:99px;padding:2px 9px;cursor:pointer}
+.rd-tip-btn:hover,.rd-tip-btn.on{color:var(--navy);border-style:solid;border-color:var(--teal-line);background:var(--teal-bg)}
+.rd-tip{font-size:13.5px;line-height:1.7;background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:10px;padding:9px 12px;margin:0 0 9px}
+.rd-tip ul{margin:4px 0 4px 18px;padding:0}
+.rd-tip a{font-weight:600}
+.rd-skills{margin:18px 0 8px;padding:16px 18px;border:1.5px solid var(--line);border-radius:16px;background:var(--paper)}
+.rd-skills-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.rd-skills-head h2{font:700 18px var(--sans);color:var(--navy);margin:0}
+.rd-skills-head a{font:600 13px var(--sans)}
+.rd-skills-sub{font-size:13.5px;color:var(--muted);margin:4px 0 12px}
+.rd-skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.rd-skill{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:border-color .12s ease,transform .12s ease}
+.rd-skill:hover{border-color:var(--teal-line);transform:translateY(-1px)}
+.rd-skill-ic{font-size:22px;line-height:1}
+.rd-skill-body{display:flex;flex-direction:column;gap:2px;min-width:0}
+.rd-skill-body b{font:700 14.5px var(--sans)}
+.rd-skill-body small{font:600 11px var(--sans);color:var(--teal);letter-spacing:.02em}
+.rd-skill-body span{font-size:12.5px;color:var(--muted);line-height:1.5}
+.rd-sk-nav{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 16px}
+.rd-sk-nav a{font:600 13px var(--sans);text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:99px;padding:5px 12px;background:var(--paper)}
+.rd-sk-nav a.on{border-color:var(--teal-line);background:var(--teal-bg);color:var(--navy)}
+.rd-sk-card{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:14px;scroll-margin-top:80px}
+.rd-sk-card.open{border-color:var(--teal-line);box-shadow:0 0 0 3px var(--teal-bg)}
+.rd-sk-card h2{font:700 19px var(--sans);color:var(--navy);margin:0 0 6px;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+.rd-sk-card h2 small{font:600 12px var(--sans);color:var(--teal)}
+.rd-sk-one{font-size:15px;margin:0 0 8px}
+.rd-sk-steps{margin:0 0 12px 20px;padding:0;font-size:14.5px;line-height:1.8}
+.rd-sk-ex{background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:12px;padding:11px 14px}
+.rd-sk-ex-h{font:700 13px var(--sans);color:var(--navy);margin-bottom:6px}
+.rd-sk-ex blockquote{margin:0 0 6px;padding:2px 0 2px 12px;border-left:3px solid var(--teal);font-size:15px;font-style:italic}
+.rd-sk-ex p{margin:0;font-size:14px;line-height:1.75}
+.rd-sk-link{display:inline-block;margin-top:10px;font:600 13.5px var(--sans)}
+@media (max-width:560px){.rd-skills{padding:14px}.rd-sk-card{padding:15px}}
 .rd-q{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:11px}
 .rd-q-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
 .rd-qt{font:700 10.5px var(--sans);letter-spacing:.05em;color:var(--teal);background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:99px;padding:2.5px 9px}
@@ -2854,7 +2887,8 @@ async function route(){
   else if(h[0]==="resources") renderResources(h[1]);
   else if(h[0]==="reading" && h[1]==="topic") renderReadings(h[2]);
   else if(h[0]==="reading" && h[1]==="week") renderReadings(null, h[2]);
-  else if(h[0]==="reading" && h[1] && h[2]==="rec" && typeof hwOpenReadAloud==="function") hwOpenReadAloud(h[1], h[3], h[4]);   // 從作業跳到指定文章錄音
+  else if(h[0]==="reading" && h[1]==="skills") renderReadingSkills(h[2]);
+  else if(h[0]==="reading" && h[1] && h[2]==="rec"&& typeof hwOpenReadAloud==="function") hwOpenReadAloud(h[1], h[3], h[4]);   // 從作業跳到指定文章錄音
   else if(h[0]==="reading" && h[1]) renderReading(h[1]);
   else if(h[0]==="reading") renderReadings();
   else if(h[0]==="321") renderNL321(h[1]);
@@ -12290,6 +12324,95 @@ function renderReadGame(id, lvl, keepScroll){
   if(done===total && !RG.transShown){ RG.transShown = true; setTimeout(()=>document.getElementById("rgTrans")?.scrollIntoView({behavior:"smooth", block:"start"}), 700); }
 }
 
+/* 📖 閱讀技巧 Reading strategies — shown on the reading home (#/reading), full page at #/reading/skills[/key],
+   and as a 💡 tip on each quiz question (matched by the question-type label). Examples quote real sentences
+   from our own readings (ex.id + ex.lv), so students can open the article and see the strategy in action. */
+const RD_SKILLS = [
+  {key:"preview", icon:"🔭", zh:"讀前預測", en:"Preview & Predict",
+   one:"先花 30 秒看標題、圖片、第一段和最後一段，猜猜文章要講什麼。",
+   steps:["看標題和插圖：主題是什麼？","讀第一段和最後一段：作者的起點和結論。","問自己：我已經知道什麼？我想知道什麼？","讀完再對照：我猜對了嗎？哪裡不一樣？"],
+   ex:{id:"iceland", lv:"a", quote:"It is famous for fire and ice.", note:"只看這一句就能預測：文章會講火山（fire）和冰川（ice）。帶著預測去讀，眼睛會自動去找這兩個重點。"}},
+  {key:"main", icon:"🎯", zh:"抓主旨", en:"Skim for the Main Idea", qt:"主旨",
+   one:"主旨要能涵蓋「整篇」，太窄（只講一個細節）或太廣（超出文章）都不對。",
+   steps:["快速看每段第一句，和反覆出現的關鍵字。","注意作者在開頭提出的問題——全文常常就在回答它。","用一句話說：「這篇在講誰／什麼，重點是什麼？」","刪掉選項：只對應其中一段的細節、文章沒提的、說得太誇張的。"],
+   ex:{id:"food-day-2026", lv:"b", quote:"why, on a planet that grows plenty, do so many still go hungry?", note:"作者在第一段就丟出問題，整篇都在回答它。「三分之一的食物被浪費」雖然是真的，但只是其中一個細節，不是主旨。"}},
+  {key:"detail", icon:"🔎", zh:"掃讀找細節", en:"Scan for Details", qt:"細節",
+   one:"從題目抓關鍵字（數字、人名、日期），回到文章找到那一句再作答。",
+   steps:["圈出題目的關鍵字：誰？何時？多少？","回文章「掃」：眼睛只找那個關鍵字或它的同義字。","找到後讀整句，確認數字和主詞對得上。","小心：文章裡常同時出現好幾個數字或人名。"],
+   ex:{id:"norway-new-king", lv:"a", quote:"He was 89 years old. He was the king for 35 years.", note:"問「當了幾年國王」，答案是 35，不是 89。兩個數字都在同一段，只看到第一個數字就作答，正好掉進陷阱。"}},
+  {key:"vocab", icon:"🧩", zh:"上下文猜字義", en:"Guess from Context", qt:"字義",
+   one:"不認識的字先別查字典，看前後文的線索：破折號、定義、例子、對比。",
+   steps:["找「解釋」線索：破折號 —、逗號、which means、called、or。","找「例子」線索：such as、for example、like 後面列的東西。","找「對比」線索：but、however、unlike 前後意思相反。","拆字：認得的字首、字根、字尾（un-、re-、-able…）。","把猜的意思放回句子讀讀看，通不通？"],
+   ex:{id:"armistice-day", lv:"b", quote:"leaders had signed an armistice — an agreement to stop fighting —", note:"破折號中間就是 armistice 的解釋：停戰協定。作者常常在難字後面直接附上說明。"},
+   link:{href:"prefix-study.html", text:"練字首字根字尾 →"}},
+  {key:"infer", icon:"🕵️", zh:"推論", en:"Make Inferences", qt:"推論",
+   one:"推論＝文章裡的證據＋合理的常識。答案文章沒直說，但一定找得到支持它的句子。",
+   steps:["問：作者沒直接說，但從哪一句可以看出來？","找出那句「線索句」，把它和選項對照。","合理的推論不會超出文章：說得太絕對（always、all、never）的通常不對。","能指出證據，才算推論；只靠感覺就是猜。"],
+   ex:{id:"sloth-day-2026", lv:"b", quote:"Eagles and big cats notice movement, and a sloth that barely moves is hard to spot", note:"文章沒有直接說「慢可以保命」，但這一句就是證據：掠食者靠動作找獵物，所以幾乎不動的樹懶比較安全。"}},
+  {key:"signal", icon:"🚦", zh:"轉折與篇章結構", en:"Signal Words & Structure", qt:"篇章",
+   one:"看到 However、Yet、But，重點通常在後面；認出文章的架構，就知道每一段的任務。",
+   steps:["轉折（However, Yet, But, Still）：後面才是作者真正想說的。","因果（because, so, as a result）：找出原因和結果。","舉例（for example, such as）：前面那句才是重點，例子是用來支持它的。","常見架構：問題→解決、正方→反方→回應、時間順序、比較對照。"],
+   ex:{id:"basketball-wwc-2026", lv:"c", quote:"Yet the final scoreline flattered the winners.", note:"第一段都在稱讚美國隊稱霸，Yet 一出現，作者馬上轉向：比分讓贏家看起來比實際更好——比賽其實比分數接近。"},
+   link:{href:"#/lesson/transition-signals", text:"轉折與銜接訊號詞課程 →"}},
+  {key:"tone", icon:"🎭", zh:"作者語氣與態度", en:"Tone & Attitude", qt:"語氣",
+   one:"從作者選用的形容詞、副詞和修辭，判斷他是讚美、批評、懷疑，還是保持平衡。",
+   steps:["圈出帶感情的字：remarkable（讚嘆）、sadly（惋惜）、so-called（懷疑）。","注意保留語氣：may、perhaps、some argue 表示作者沒有完全下定論。","看作者有沒有同時呈現兩方說法——「平衡」也是一種態度。","別把文中某個人的看法，當成作者自己的看法。"],
+   ex:{id:"war-of-the-worlds", lv:"c", quote:"The irony is delicious", note:"delicious（美味的）在這裡是說這個諷刺「很有意思」：作者帶著一點玩味，指出「被假新聞騙的故事本身就是假新聞」。"}},
+  {key:"apply", icon:"🌏", zh:"素養題：應用與評估", en:"Apply & Evaluate", qt:"素養",
+   one:"先抓出文章的核心道理，再拿去判斷新情境或一則說法：有沒有誇大？證據夠不夠？",
+   steps:["用一句話寫下文章的核心道理或事實。","應用題：把這個道理放進題目的新情境，哪個選項最符合？","評估題：拿說法和文章比對——誇大了嗎？以偏概全？把可能說成一定？","最後檢查：選項有文章的證據支持嗎？"],
+   ex:{id:"nobel-medicine-2026", lv:"b", quote:"light-sensitive proteins helped restore partial vision to a man who had been blind for decades", note:"如果有標題寫「光療法治好所有腦部疾病！」，就是誇大：文章說的是「一個案例」、恢復「部分」視力，標題卻把它說成「所有」疾病都「治好」了。"}},
+  {key:"traps", icon:"🪤", zh:"選項陷阱與刪去法", en:"Spot the Traps",
+   one:"錯的選項通常也「來自文章」，只是動了手腳。先刪掉有陷阱的，再從剩下的選。",
+   steps:["張冠李戴：數字、人名、地點換成文章裡另一個。","太絕對：always、all、never、only、completely。","真的但答非所問：文章有寫，卻不是這題問的。","文章沒提：聽起來合理，但文章裡找不到。","半對半錯／因果顛倒：前半對、後半錯，或把原因和結果對調。","最長的選項不一定對，每個選項都要回文章核對。"],
+   ex:{id:"europe-heatwave-2026", lv:"a", quote:"In Austria, the temperature reached 41.2°C.", note:"同一段還有維也納的 40°C 和斯洛伐克的 42.2°C。問奧地利的最高溫，另外兩個數字就是「張冠李戴」的陷阱。"}},
+  {key:"summary", icon:"📝", zh:"讀後摘要與連結", en:"Summarise & Connect",
+   one:"讀完用自己的話說出重點，再想想它和自己、和台灣有什麼關係——這樣才記得住。",
+   steps:["一句話摘要：誰／什麼 + 發生了什麼 + 為什麼重要。","3-2-1：寫下 3 件學到的事、2 個新字或片語、1 個還想問的問題。","連結自己：這讓我想到什麼經驗？台灣有類似的事嗎？","隔天不看文章，再說一次重點——說得出來才是真的吸收了。"],
+   ex:{id:"water-week-2026", lv:"a", quote:"Every drop counts, and saving it is everyone's job.", note:"一句話摘要示範：「淡水很少又珍貴（什麼），二十億人沒有安全的水（為什麼重要），所以每個人都要節約用水。」"}}
+];
+const RD_SKILL_BY_QT = Object.fromEntries(RD_SKILLS.filter(s=>s.qt).map(s=>[s.qt, s]));
+function rdSkillOfQ(q){ return RD_SKILL_BY_QT[String(q.t||"").split(/\s/)[0]] || null; }
+function rdSkillsHomeHTML(){
+  return `<section class="rd-skills" aria-labelledby="rdSkillsH">
+    <div class="rd-skills-head"><h2 id="rdSkillsH">📖 閱讀技巧 Reading Strategies</h2>
+      <a href="#/reading/skills">看全部技巧與例句 →</a></div>
+    <p class="rd-skills-sub">讀文章之前先挑一個技巧來練。每個技巧都對應測驗的一種題型，例句都出自我們讀過的文章。</p>
+    <div class="rd-skills-grid">${RD_SKILLS.map(s=>`<a class="rd-skill" href="#/reading/skills/${s.key}">
+      <span class="rd-skill-ic" aria-hidden="true">${s.icon}</span>
+      <span class="rd-skill-body"><b>${s.zh}</b><small>${s.en}${s.qt?`・${s.qt}題`:""}</small><span>${s.one}</span></span></a>`).join("")}</div>
+  </section>`;
+}
+function rdSkillCardHTML(s, open){
+  const art = READINGS.find(r=>r.id===s.ex.id);
+  const lvName = {a:"A1–A2", b:"B1–B2", c:"C1–C2"}[s.ex.lv];
+  return `<article class="rd-sk-card ${open?"open":""}" id="sk-${s.key}">
+    <h2><span aria-hidden="true">${s.icon}</span> ${s.zh}<small>${s.en}${s.qt?`・對應「${s.qt}」題`:""}</small></h2>
+    <p class="rd-sk-one">${s.one}</p>
+    <ol class="rd-sk-steps">${s.steps.map(x=>`<li>${x}</li>`).join("")}</ol>
+    <div class="rd-sk-ex"><div class="rd-sk-ex-h">📰 文章裡的例子${art?`：<a href="#/reading/${art.id}" onclick="RD_LEVEL='${s.ex.lv}'">${esc(art.topic)}（${lvName}）</a>`:""}</div>
+      <blockquote>${esc(s.ex.quote)}</blockquote>
+      <p>${s.ex.note}</p></div>
+    ${s.link?`<a class="rd-sk-link" href="${s.link.href}">${s.link.text}</a>`:""}
+  </article>`;
+}
+function renderReadingSkills(key){
+  const sel = RD_SKILLS.find(s=>s.key===key);
+  app.innerHTML = `<div class="view rd-sk-view">
+    <div class="crumb"><a href="#/reading">時事閱讀</a> › 閱讀技巧</div>
+    <div class="eyebrow">Reading strategies · 閱讀技巧</div>
+    <h1 class="display">Read Smarter<span class="zh-term-lg">聰明讀的十個技巧</span></h1>
+    <p class="lede">好的讀者不是讀得比較快，而是<b>知道自己在找什麼</b>。下面十個技巧，前七個各對應一種測驗題型；做題時，題目旁的 <b>💡</b> 也會提醒你用哪個技巧。</p>
+    <nav class="rd-sk-nav" aria-label="技巧目錄">${RD_SKILLS.map(s=>`<a href="#/reading/skills/${s.key}" class="${sel===s?"on":""}">${s.icon} ${s.zh}</a>`).join("")}</nav>
+    <div class="rd-sk-list">${RD_SKILLS.map(s=>rdSkillCardHTML(s, s===sel)).join("")}</div>
+    <p class="rd-note">💡 建議每週專心練一、兩個技巧就好；讀完文章做測驗時，刻意用上它，比一次記住十個更有效。</p>
+  </div>`;
+  if(sel) requestAnimationFrame(()=>document.getElementById("sk-"+sel.key)?.scrollIntoView({block:"start"}));
+  else window.scrollTo(0,0);
+}
+let RD_TIP = {};   // 測驗題目旁 💡 技巧提示：哪幾題目前是展開的
+function rdToggleTip(qi){ RD_TIP[qi] = !RD_TIP[qi]; renderReading(rdCurId, true); }
+
 function renderReadings(cat, weekKey){
   const active = rdCatOf(cat) ? cat : null;          // null = 每日閱讀 (all topics, by day)
   const cur = weekArticle();
@@ -12346,6 +12469,7 @@ function renderReadings(cat, weekKey){
     ${head}
     ${tabs}
     ${active ? "" : rdWeekHTML(weekKey)}
+    ${active ? "" : rdSkillsHomeHTML()}
     ${echoPack}
     <a class="nl-pack" href="#/321"><span class="nl-badge">📬</span><span class="nl-pack-body"><b>James Clear「3-2-1」週報導讀</b><span>《原子習慣》作者每週四的電子報：3 個想法、2 句名言、1 個問題。每週五更新：中英重點、單字、思考寫作題。</span></span><span class="nl-go">看本週 →</span></a>
     ${nobelPack}
@@ -12560,7 +12684,7 @@ function renderNobelWeek(teacher){
   </div>`;
   window.scrollTo(0,0);
 }
-function rdSetLevel(l){ RD_LEVEL = l; RD_ANS = {}; RD_SHOW = false; renderReading(rdCurId); }
+function rdSetLevel(l){ RD_LEVEL = l; RD_ANS = {}; RD_SHOW = false; RD_TIP = {}; renderReading(rdCurId); }
 function rdPick(qi, oi){ if(RD_SHOW) return; RD_ANS[qi] = oi; renderReading(rdCurId, true); }
 function rdCheck(){ RD_SHOW = true; renderReading(rdCurId, true); }
 function rdReset(){ RD_ANS = {}; RD_SHOW = false; renderReading(rdCurId); }
@@ -12978,8 +13102,13 @@ function renderReading(id, keepScroll){
       return `<button class="${cls}" onclick="rdPick(${qi},${oi})"><span class="rd-let">${LET[oi]}</span>${o}</button>`;
     }).join("");
     const fb = RD_SHOW ? `<div class="rd-why ${picked===q.a?"ok":"no"}">${picked===q.a?"✓ 答對了！":"✗ 正確答案："+LET[q.a]}　${q.why}</div>` : "";
-    return `<div class="rd-q"><div class="rd-q-h"><span class="rd-qt">${q.t}</span><span class="rd-qn">${qi+1}</span></div>
-      <div class="rd-q-text">${q.q}</div><div class="rd-opts">${opts}</div>${fb}</div>`;
+    const sk = rdSkillOfQ(q);
+    const tipBtn = sk ? `<button class="rd-tip-btn ${RD_TIP[qi]?"on":""}" onclick="rdToggleTip(${qi})" aria-expanded="${!!RD_TIP[qi]}" title="這題可以用什麼技巧？">💡 技巧</button>` : "";
+    const tip = sk && RD_TIP[qi] ? `<div class="rd-tip"><b>${sk.icon} ${sk.zh}</b>　${sk.one}
+      <ul>${sk.steps.slice(0,3).map(x=>`<li>${x}</li>`).join("")}</ul>
+      <a href="#/reading/skills/${sk.key}">看完整技巧和例句 →</a></div>` : "";
+    return `<div class="rd-q"><div class="rd-q-h"><span class="rd-qt">${q.t}</span>${tipBtn}<span class="rd-qn">${qi+1}</span></div>
+      ${tip}<div class="rd-q-text">${q.q}</div><div class="rd-opts">${opts}</div>${fb}</div>`;
   }).join("");
   const done = Object.keys(RD_ANS).length, total = lv.q.length;
   const score = RD_SHOW ? lv.q.filter((q,i)=>RD_ANS[i]===q.a).length : 0;
