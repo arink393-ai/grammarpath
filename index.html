@@ -12826,6 +12826,42 @@ function wsCloze(r){
   return {html, bank, key, ans};
 }
 function wsHints(en, gloss){ return (gloss||[]).map(g=>g[0]).filter(w=>new RegExp("\\b"+wsRe(w)+"\\b","i").test(en)); }
+/* 片語填空：用文章原句把片語挖空，學生從片語庫選出並寫成句子裡正確的形式（時態、單複數） */
+// 片語原形的字 pw 和本文的字 mw 是否「同一個字的變化」：時態／單複數／不規則過去式／be 動詞／所有格
+const WS_IRR = {take:"took taken",grow:"grew grown",fall:"fell fallen",sit:"sat",come:"came",run:"ran",give:"gave given",bring:"brought",think:"thought",rise:"rose risen",hold:"held",keep:"kept",leave:"left",make:"made",get:"got gotten",go:"went gone",see:"saw seen",stand:"stood",find:"found",lead:"led",sell:"sold",fly:"flew flown",wake:"woke woken",tell:"told",say:"said",break:"broke broken",begin:"began begun",drive:"drove driven",wear:"wore worn",catch:"caught",teach:"taught",buy:"bought",fight:"fought",lose:"lost",build:"built",send:"sent",spend:"spent",feel:"felt",meet:"met",pay:"paid",write:"wrote written",speak:"spoke spoken",choose:"chose chosen",forget:"forgot forgotten",hide:"hid hidden",eat:"ate eaten",swim:"swam",drink:"drank",steal:"stole stolen",sing:"sang sung"};
+function wsTokOk(pw, mw){
+  const p = pw.toLowerCase(), m = mw.toLowerCase().replace(/[^a-z']/g,"");
+  if(p === m) return true;
+  if(p === "be") return /^(am|is|are|was|were|been|being|be)$/.test(m);
+  if(p === "one's" || p === "someone's") return /'s$/.test(m) || /^(my|your|his|her|its|our|their)$/.test(m);
+  if(p === "oneself") return /sel(f|ves)$/.test(m);
+  if(p === "doing" || p === "sb" || p === "sth") return false;
+  if((WS_IRR[p]||"").split(" ").includes(m)) return true;
+  const stem = p.replace(/(e|y)$/,"");
+  return stem.length >= 2 && m.startsWith(stem) && /^(s|es|ed|d|ing|ies|ied|ying|ly)?$/.test(m.slice(stem.length).replace(/^(e|i)/,""));
+}
+function wsPhrases(r, lv, lk){
+  // 只挑「本文寫法」和片語原形字數相同的（例如 took part in ↔ take part in）；
+  // 像 turn A into B 這種中間夾了別的字的，挖空後學生猜不到，就不放進填空
+  const core = p => p.replace(/\(.*?\)/g," ").split(/\s+/).filter(w=>w && w!=="…" && w!=="A" && w!=="B");
+  const ph = (lv.ph||[]).map(x=>({x, s: rdPhSentence(lv, x)}))
+    .filter(o=>{ if(!o.s) return false; const mt = rdPhForm(o.x).split(/\s+/), pt = core(o.x.p);
+      return mt.length === pt.length && mt.every((w,i)=>wsTokOk(pt[i], w)); });
+  if(ph.length < 2) return null;
+  // 同一句裡有兩個片語時合成一行、一起挖空，免得一題的句子洩漏另一題的答案
+  const bySent = [];
+  ph.forEach(o=>{ const m = o.s.match(new RegExp(rdPhRe(o.x).source, "i"));
+    let g = bySent.find(g=>g.s===o.s); if(!g){ g = {s:o.s, hits:[]}; bySent.push(g); }
+    if(!g.hits.some(h=>m.index < h.at + h.form.length && h.at < m.index + m[0].length)) g.hits.push({x:o.x, form:m[0], at:m.index}); });
+  const items = []; const lines = bySent.map(g=>{
+    g.hits.sort((u,v)=>u.at-v.at); let out = "", last = 0;
+    g.hits.forEach(h=>{ items.push({p:h.x.p, zh:h.x.zh, form:h.form});
+      out += rdEsc(g.s.slice(last, h.at)) + `<span class="cz-b">(${items.length})<span class="ak-inline"> ${rdEsc(h.form)}</span></span>`; last = h.at + h.form.length; });
+    return out + rdEsc(g.s.slice(last)); });
+  const bank = items.map(it=>it.p), rnd = wsSeed(r.id+"|ph|"+lk);
+  for(let i=bank.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); [bank[i],bank[j]]=[bank[j],bank[i]]; }
+  return {items, lines, bank, withZh: lk==="a"};
+}
 function rdSheetHTML(r, lv, label){
   const paras   = lv.text.map(p=>`<p>${rdEsc(p)}</p>`).join("");
   const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${rdEsc(g[0])}</b> <i>${rdEsc(g[1])}</i> ${rdEsc(g[2])}</span>`).join("");
@@ -12848,6 +12884,12 @@ function rdSheetHTML(r, lv, label){
     b:{lines:4, need:"每題寫 <b>2–3 個完整句子</b>，要說出理由。", frames:["I think … because …","For example, …","I agree / disagree that …"]},
     c:{lines:5, need:"每題寫 <b>3–4 個完整句子</b>：表明立場、說明理由、舉例。", frames:["In my view, …","This is because …","For instance, …","On the other hand, …"]}}[lk] || {lines:3, need:"", frames:[]};
   const discuss = (r.discuss||[]).map(d=>`<li><div class="dq">${rdEsc(d)}</div><div class="wl wl-s"><span>✏️ ${rdEsc(dwStarter(d, lk))}</span></div>${'<div class="wl"></div>'.repeat(DW.lines-1)}</li>`).join("");
+  const pf = wsPhrases(r, lv, lk);
+  const phSec = pf ? `<div class="ph-sec"><h2>Phrases 片語填空</h2>
+    <p class="ws-tip">從片語庫選出適合的片語填進句子裡（句子都出自本篇文章）。<b>注意要改成句子裡正確的形式</b>（時態、單複數、人稱）。</p>
+    <div class="cz-bank">${pf.bank.map(p=>`<span>${rdEsc(p)}${pf.withZh?` <i>${rdEsc(pf.items.find(it=>it.p===p).zh)}</i>`:""}</span>`).join("")}</div>
+    <ul class="ph-fill">${pf.lines.map(l=>`<li>${l}</li>`).join("")}</ul></div>` : "";
+  const phAns = pf ? `<div class="ak-sec"><b>Phrases 片語填空</b><div class="ak">${pf.items.map((it,i)=>`(${i+1}) ${rdEsc(it.form)}`).join("　")}</div></div>` : "";
   /* A1–A2: guided translation replaces discussion & writing (falls back to discussion until an article has gt data) */
   const gt = lk==="a" && lv.gt && lv.gt.length ? lv.gt : null;
   const gtSec = gt ? `<div class="gt-sec"><h2>Guided Translation 引導式翻譯</h2>
@@ -12877,14 +12919,14 @@ function rdSheetHTML(r, lv, label){
   ${cwSec}
   <h2>Comprehension Questions 閱讀測驗</h2>
   ${qs}
-  ${gtSec}${czSec}${trSec}
+  ${phSec}${gtSec}${czSec}${trSec}
   ${discuss && !gt?`<div class="dw-sec"><h2>Discussion &amp; Writing 討論與寫作</h2>
   <div class="dw-how"><span>① 先和老師、同學討論　② 用<b>完整的英文句子</b>寫下你的想法</span><span class="dw-when">☐ 課堂完成　☐ 回家作業　繳交日：________</span></div>
   <div class="dw-tip">${DW.need}　每題第一行有 ✏️ 開頭提示，可以照著接下去寫，也可以用自己的話開頭。</div>
   <ol class="disc">${discuss}</ol>
   <div class="dw-check">寫完自我檢查：☐ 大寫開頭　☐ 句尾有句號或問號　☐ 每句都有主詞和動詞　☐ 有說出理由（because / for example）</div></div>`:""}
   <div class="src-note">📰 Source 資料來源：改寫自 ${rdEsc(r.src)} 等媒體之公開報導（${rdEsc(r.date)}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</div>
-  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}${cwAns}${gtAns}${czAns}${trAns}</div>
+  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}${cwAns}${phAns}${gtAns}${czAns}${trAns}</div>
 </section>`;
 }
 /* Same-page preview avoids blocked popup windows and keeps the reading answers intact. */
@@ -12961,6 +13003,9 @@ function rdOpenWorksheet(sections, docTitle){
 #rd-print-preview .cz-lines{display:flex;flex-wrap:wrap;gap:6px 22px;font:10.5pt system-ui,sans-serif;margin-top:4px}
 #rd-print-preview .gt-sec,#rd-print-preview .cz-sec,#rd-print-preview .tr-sec{break-inside:avoid-page}
 #rd-print-preview .ak-sec{margin-top:10px}
+#rd-print-preview .ph-fill{margin:6px 0 0 20px;padding:0;font:11pt/2 Georgia,serif}
+#rd-print-preview .ph-fill li{margin-bottom:2px}
+#rd-print-preview .ph-sec .cz-bank i{font-style:normal;color:#8a6a4a;font-size:9.5pt}
 #rd-print-preview .ak-inline{display:none;color:#2E7D4F;font-weight:700}
 #rd-print-preview.show-answers .ak-inline{display:inline}
 #rd-print-preview.show-answers .tr .ak-inline{display:block;margin-top:2px}
