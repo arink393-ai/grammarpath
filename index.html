@@ -2377,8 +2377,30 @@ const curriculum = createCurriculumLoader(DATA);
 const STORE_BASE = "grammarpath_v1";
 let STORE_KEY = STORE_BASE;              // rebound to a per-student key on login
 const CHECKIN_REWARD = 10;               // 罐罐 per daily check-in
-const UNLOCK_COST = 5;                   // 罐罐 to feed / unlock one advanced unit
-const PRACTICE_CANS = 3;                 // 罐罐 for a lesson practice ≥70% (once per lesson per day)
+/* 罐罐經濟（2026-11 重新設計）：
+   收入：每日打卡 10／練習 3–5（依難度，每日上限 PRACTICE_DAY_CAP）／日記 3／玩單字 2（日上限 20）／冒險首次破關 5／驚喜 5。
+   一般認真學習一天約 15–30 罐。進階單元依份量與難度定價，約 2–4 天的認真學習可解鎖一個；貓咪扭蛋 50 罐。 */
+const UNLOCK_COSTS = {u5:40, u6:50, u9:60};   // 進階單元解鎖價；沒列到的進階單元用 UNLOCK_COST_DEFAULT
+const UNLOCK_COST_DEFAULT = 50;
+function unlockCost(id){ return UNLOCK_COSTS[id] || UNLOCK_COST_DEFAULT; }
+const PRACTICE_CANS = 3;                 // 罐罐 for a lesson practice ≥70% (once per lesson per day) — 初級；中級／進階見 practiceCansFor
+const PRACTICE_BY_LEVEL = {basic:3, intermediate:4, advanced:5};
+const PRACTICE_DAY_CAP = 20;             // 每天練習類罐罐上限，避免狂刷
+/* 練習類罐罐：同一項每天一次、全部加總每天最多 PRACTICE_DAY_CAP。回傳實際發的罐數（0＝已領過或今天額滿）；capped 表示是額滿造成的 */
+function awardPractice(id, amount){
+  const d = todayKey();
+  if(!store.data.pracCans || store.data.pracCans.d!==d) store.data.pracCans = {d, ids:{}, n:0};
+  const pc = store.data.pracCans; if(typeof pc.n!=="number") pc.n = Object.keys(pc.ids||{}).length * PRACTICE_CANS;
+  if(pc.ids[id]) return {n:0, capped:false};
+  const give = Math.max(0, Math.min(amount, PRACTICE_DAY_CAP - pc.n));
+  pc.ids[id] = 1;
+  if(give <= 0){ store.save(); return {n:0, capped:true}; }
+  pc.n += give; store.addCans(give); return {n:give, capped:false};
+}
+function practiceCansFor(lessonId){
+  const l = (typeof DATA!=="undefined" && DATA.lessons.find(x=>x.id===lessonId)); const u = l && DATA.units.find(x=>x.id===l.unit);
+  return PRACTICE_BY_LEVEL[u && u.level] || PRACTICE_CANS;
+}
 const REFLECT_REWARD = 3;                // 罐罐 for the first reflection each day
 function todayMid(){ const d = new Date(); d.setHours(0,0,0,0); return d.getTime(); }
 function todayKey(){ const d = new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
@@ -7238,12 +7260,8 @@ function prtAward(right,total){
   let xp=right*2; if(right===total) xp+=6;          // 每答對 +2 XP，全對再 +6
   let cansMsg="";
   if(total>0 && right/total>=0.7){                   // 答對 7 成以上，每日一次罐罐
-    const d=todayKey();
-    if(!store.data.pracCans || store.data.pracCans.d!==d) store.data.pracCans={d,ids:{}};
-    if(!store.data.pracCans.ids["participles-quiz"]){
-      store.data.pracCans.ids["participles-quiz"]=1; store.addCans(PRACTICE_CANS);
-      cansMsg=`　＋${PRACTICE_CANS} 🥫`;
-    } else { cansMsg="　（今日罐罐已領 🥫）"; }
+    const g=awardPractice("participles-quiz", PRACTICE_CANS);
+    cansMsg = g.n ? `　＋${g.n} 🥫` : g.capped ? "　（今日練習罐罐已達上限 🥫）" : "　（今日罐罐已領 🥫）";
   }
   let surprise="";
   if(Math.random()<0.25){ store.addCans(5); surprise="　🎁 隨機驚喜 ＋5 🥫！"; }   // 約 1/4 機率驚喜禮物
@@ -7698,10 +7716,8 @@ function ngAward(){
   const total=NG.items.length, m=NG.mistakes||0;
   let xp=total*2; if(m===0) xp+=6;
   let cansMsg="";
-  const d=todayKey();
-  if(!store.data.pracCans || store.data.pracCans.d!==d) store.data.pracCans={d,ids:{}};
-  if(!store.data.pracCans.ids["noun-game"]){ store.data.pracCans.ids["noun-game"]=1; store.addCans(PRACTICE_CANS); cansMsg=`　＋${PRACTICE_CANS} 🥫`; }
-  else cansMsg="　（今日罐罐已領 🥫）";
+  const g=awardPractice("noun-game", PRACTICE_CANS);
+  cansMsg = g.n ? `　＋${g.n} 🥫` : g.capped ? "　（今日練習罐罐已達上限 🥫）" : "　（今日罐罐已領 🥫）";
   let surprise=""; if(Math.random()<0.25){ store.addCans(5); surprise="　🎁 隨機驚喜 ＋5 🥫！"; }
   if(xp>0) store.addXP(xp);
   NG.reward=`🎉 分類完成！＋${xp} XP${cansMsg}${surprise}`;
@@ -9255,7 +9271,9 @@ function catMeow(kind){
 }
 function feedUnit(id){
   const u = DATA.units.find(x=>x.id===id); if(!u || store.data.unlocked[id]) return;
-  if(store.spendCans(UNLOCK_COST)){
+  const cost = unlockCost(id);
+  if((store.data.cans||0)>=cost && !confirm(`花 ${cost} 罐解鎖「${u.name}」？解鎖後永久保留。`)) return;
+  if(store.spendCans(cost)){
     store.data.unlocked[id] = true;
     if(!Array.isArray(store.data.fedCats)) store.data.fedCats = [];
     const cat = FED_CATS[store.data.fedCats.length % FED_CATS.length];
@@ -9264,7 +9282,7 @@ function feedUnit(id){
     toast("餵養成功！小貓「" + cat.zh + " " + cat.en + "」來到你的貓咪島了 🐱🎉");
     route();
   } else {
-    toast("罐罐不夠囉，先去打卡拿罐罐 🥫");
+    toast(`罐罐不夠囉，還差 ${cost-(store.data.cans||0)} 罐。每天打卡 +10、練習 +3~5 🥫`);
   }
 }
 function renderLevel(lvl){
@@ -9284,8 +9302,8 @@ function renderLevel(lvl){
       ? `<div class="card unit-locked">
            <div class="ul-icon">🔒</div>
            <div class="ul-txt"><div class="ul-t">進階單元 · 餵養解鎖 Advanced — feed to unlock</div>
-             <div class="ul-s">花 ${UNLOCK_COST} 個罐罐 🥫 餵養貓咪，就能打開這個單元的所有課程（解鎖後永久保留）。</div></div>
-           <button class="btn btn-navy" onclick="feedUnit('${u.id}')">🥫 餵養 ${UNLOCK_COST} 解鎖</button>
+             <div class="ul-s">花 ${unlockCost(u.id)} 個罐罐 🥫 餵養貓咪，就能打開這個單元的所有課程（解鎖後永久保留）。<br>你現在有 <b>${store.data.cans||0}</b> 罐${(store.data.cans||0)>=unlockCost(u.id)?"，夠了！":`，還差 <b>${unlockCost(u.id)-(store.data.cans||0)}</b> 罐（每天打卡 +10、做練習 +3~5）`}</div></div>
+           <button class="btn btn-navy" onclick="feedUnit('${u.id}')">🥫 餵養 ${unlockCost(u.id)} 解鎖</button>
          </div>`
       : `<div class="card">${rows}</div>${ur}`;
     return `<div class="unit"><div class="unit-h"><span class="u-eyebrow">${u.n}</span><h2 class="section" style="margin:0">${u.name}${locked?" 🔒":""}</h2></div>${body}</div>`;
@@ -16750,12 +16768,9 @@ function finishSession(){
       S.newCat = !store.data.completed[S.lessonId];
       store.complete(S.lessonId); sub += " Lesson marked complete ✓";
       /* learning feeds the cat collection: +3 🥫 once per lesson per day */
-      const d = todayKey();
-      if(!store.data.pracCans || store.data.pracCans.d!==d) store.data.pracCans = {d, ids:{}};
-      if(!store.data.pracCans.ids[S.lessonId]){
-        store.data.pracCans.ids[S.lessonId] = 1; store.addCans(PRACTICE_CANS);
-        sub += ` <b>+${PRACTICE_CANS} 🥫</b> <a href="#/cats" style="font-size:13px">去解鎖貓咪 →</a>`;
-      }
+      const g = awardPractice(S.lessonId, practiceCansFor(S.lessonId));
+      if(g.n) sub += ` <b>+${g.n} 🥫</b> <a href="#/cats" style="font-size:13px">去解鎖貓咪 →</a>`;
+      else if(g.capped) sub += ` <span style="font-size:13px;color:var(--muted)">（今天練習罐罐已達 ${PRACTICE_DAY_CAP} 罐上限，明天再來 🐾）</span>`;
     }
   }
   if(xp>0) store.addXP(xp);
