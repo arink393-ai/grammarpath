@@ -11317,7 +11317,7 @@ const READINGS = [
 {"id": "spacex-ipo", "cat": "business", "topic": "The Biggest Stock Market Debut Ever", "zh": "史上最大規模上市案", "src": "The Economist · The Washington Post · Reuters", "date": "2026-07-16", "week": "7/27–8/2", "tag": "Business 財經", "icon": "rocket"},
 {"id": "eclipse-2026", "cat": "science", "topic": "Europe's First Total Eclipse in 27 Years", "zh": "歐洲 27 年來首見日全食", "src": "Science · Nature · NASA", "date": "2026-07-16", "week": "7/20–7/26", "tag": "Science 科學", "icon": "eclipse"}
 ];
-const READINGS_FILES = {"2026-07": "readings/2026-07.json?v=b24fffbe", "2026-08": "readings/2026-08.json?v=a3750271", "2026-09": "readings/2026-09.json?v=2ca097de", "2026-10": "readings/2026-10.json?v=7cbbc3bf", "2026-11": "readings/2026-11.json?v=833c2a97", "2026-12": "readings/2026-12.json?v=9b452885"};
+const READINGS_FILES = {"2026-07": "readings/2026-07.json?v=b24fffbe", "2026-08": "readings/2026-08.json?v=a3750271", "2026-09": "readings/2026-09.json?v=2ca097de", "2026-10": "readings/2026-10.json?v=f4f9a7ad", "2026-11": "readings/2026-11.json?v=833c2a97", "2026-12": "readings/2026-12.json?v=9b452885"};
 /*READINGS_END*/
 
 /* 單元題組閱讀 — 貓島情境短文，自然嵌入該單元文法點 */
@@ -12857,10 +12857,16 @@ function wsPhrases(r, lv, lk){
   ph.forEach(o=>{ const m = o.s.match(new RegExp(rdPhRe(o.x).source, "i"));
     let g = bySent.find(g=>g.s===o.s); if(!g){ g = {s:o.s, hits:[]}; bySent.push(g); }
     if(!g.hits.some(h=>m.index < h.at + h.form.length && h.at < m.index + m[0].length)) g.hits.push({x:o.x, form:m[0], at:m.index}); });
+  // 同一個片語在別句又出現時，也挖成不編號的空格，免得洩漏答案
+  bySent.forEach(g=>{ ph.forEach(o=>{ const re = new RegExp(rdPhRe(o.x).source, "gi"); let m;
+    while((m = re.exec(g.s))){ const at = m.index, len = m[0].length;
+      if(!g.hits.some(h=>at < h.at + h.form.length && h.at < at + len)) g.hits.push({x:o.x, form:m[0], at, extra:true}); } }); });
   const items = []; const lines = bySent.map(g=>{
     g.hits.sort((u,v)=>u.at-v.at); let out = "", last = 0;
-    g.hits.forEach(h=>{ items.push({p:h.x.p, zh:h.x.zh, form:h.form});
-      out += rdEsc(g.s.slice(last, h.at)) + `<span class="cz-b">(${items.length})<span class="ak-inline"> ${rdEsc(h.form)}</span></span>`; last = h.at + h.form.length; });
+    g.hits.forEach(h=>{ out += rdEsc(g.s.slice(last, h.at));
+      if(h.extra) out += `<span class="cz-b">&nbsp;</span>`;
+      else { items.push({p:h.x.p, zh:h.x.zh, form:h.form}); out += `<span class="cz-b">(${items.length})<span class="ak-inline"> ${rdEsc(h.form)}</span></span>`; }
+      last = h.at + h.form.length; });
     return out + rdEsc(g.s.slice(last)); });
   const bank = items.map(it=>it.p), rnd = wsSeed(r.id+"|ph|"+lk);
   for(let i=bank.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); [bank[i],bank[j]]=[bank[j],bank[i]]; }
