@@ -2205,6 +2205,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .rg-prompt b{color:var(--lab-accent);font-family:var(--mono,monospace)}
 .rg-n{flex:none;width:23px;height:23px;border-radius:50%;background:var(--lab-accent);color:#fff;font:700 12.5px sans-serif;display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
 .rg-opts{display:flex;flex-direction:column;gap:8px}
+.vg-modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.vg-modes .rg-opt{width:auto;padding:6px 14px}
+.rg-opts.vg-opts{flex-direction:row}.vg-btn{flex:1;text-align:center;padding:14px 8px}.vg-btn small{font-weight:400;color:var(--muted)}
 .rg-opt{text-align:left;font:500 14px var(--body,sans-serif);color:var(--ink);background:var(--lab-paper);border:1.5px solid var(--lab-line);border-radius:10px;padding:10px 13px;cursor:pointer;transition:.15s}
 .rg-opt:hover:not(:disabled){border-color:var(--lab-accent);background:#fff}
 .rg-opt:disabled{cursor:default}
@@ -2354,6 +2356,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="homework.js?v=13"></script>
 <script src="student-info.js?v=9"></script>
 <script src="usage.js?v=1"></script>
+<script src="ving-game.js?v=1"></script>
 <script src="offline-content.js?v=19"></script>
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=5"></script>
@@ -7371,6 +7374,7 @@ function renderParticiples(){
       <p class="vf-sub"><b>-ing</b>＝「<b>令人</b>…的」（形容事物）；<b>-ed</b>＝「<b>感到</b>…的」（形容人心情）。</p>
       <div class="vf-tablewrap"><table class="vf-table"><thead><tr><th>-ing（令人…）</th><th>中文</th><th>-ed（感到…）</th><th>中文</th></tr></thead><tbody>${adjRows}</tbody></table></div>
     </div>
+    <div class="vf-sec"><h2>🎮 V-ing／p.p. 判斷遊戲</h2><p class="vf-sub">每題挑 <b>V-ing</b>（主動／進行）或 <b>p.p.</b>（被動／已完成），含 <code>with + O + OC</code>。一局 10 題，答完有 XP，答對 7 成以上每日一次罐罐 🥫。</p><div id="vgBox"></div></div>
     <div class="vf-sec"><h2>🎯 小練習 Practice</h2><p class="vf-sub">題庫共 ${PART_Q.length} 題，每次隨機出 ${PRT_BATCH} 題；選出正確的分詞形式，點選後看解析。做完按「換一批」再練新題。</p><div id="prtQuiz" class="rg-wrap"></div></div>
     <div class="vf-sec">
       <h2>🖨 考試學習單 Test Worksheet</h2>
@@ -7380,6 +7384,7 @@ function renderParticiples(){
     <div class="vf-xlink">🔁 還不熟動詞的過去分詞（V3）？先到 <a href="#/verbforms">動詞三態專區</a> 把三態記熟，分詞就會更輕鬆。也可看課程：<a href="#/lesson/participle-adjectives">分詞形容詞</a>、<a href="#/lesson/participle-clauses">分詞構句</a>。</div>
   </div>`;
   prtNewBatch();
+  if(window.VingGame&&VingGame.init) VingGame.init();
   window.scrollTo(0,0);
 }
 

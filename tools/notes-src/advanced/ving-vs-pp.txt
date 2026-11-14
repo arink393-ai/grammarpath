@@ -52,6 +52,15 @@ W: 手機是「壞掉」的結果狀態，用 p.p.。
 Q: The little girl fell asleep with tears ___ down her cheeks. || 小女孩睡著了，眼淚沿著臉頰滑落。
 A: rolled | rolling* | roll
 W: 眼淚正在滑落（主動、進行中），用 V-ing。
+Q: She listened with her baby ___ in her arms. || 她聽著，寶寶在她懷裡睡著。
+A: sleep | slept | sleeping*
+W: 寶寶自己在睡（主動、進行中），用 V-ing。
+Q: He stood in the doorway with his hands ___ behind his back. || 他雙手被綁在背後站在門口。
+A: tying | tied* | tie
+W: 手是「被綁住」的狀態，用 p.p.。
+Q: They waited in the car with the engine ___. || 他們在車裡等著，引擎開著。
+A: run | ran | running*
+W: 引擎正在運轉，用 V-ing。
 
 # err
 S: She sat quietly with her eyes [closing|closed]. || 她閉著眼睛安靜地坐著。
@@ -62,6 +71,10 @@ S: We stayed in with the rain [fell|falling] outside. || 外面下著雨，我�
 W: with + O 後面接分詞，不能用過去式 fell。
 S: I saw the leaves [fallen|falling] from the tree. || 我看到葉子從樹上落下。
 W: 看到「落下的過程」用 V-ing；fallen 是已經落下的結果。
+S: He ate dinner with the TV [played|playing] in the background. || 他吃晚餐，電視在背景播放著。
+W: 電視正在播（進行中），用 V-ing。
+S: Don't talk with your mouth [filling|filled] with food. || 嘴裡塞滿食物時不要說話。
+W: 嘴巴是「被塞滿」，用 p.p.。
 
 # mk
 - 眼睛是被閉上的狀態，用 closed。

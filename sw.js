@@ -78,6 +78,7 @@ const SHELL = [
   "./homework.js?v=13",
   "./student-info.js?v=9",
   "./usage.js?v=1",
+  "./ving-game.js?v=1",
   "./offline-content.js?v=19",
   "./daily.js?v=18",
   "./adventure.js?v=5",
