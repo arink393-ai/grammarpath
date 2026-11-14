@@ -2378,11 +2378,13 @@ const STORE_BASE = "grammarpath_v1";
 let STORE_KEY = STORE_BASE;              // rebound to a per-student key on login
 const CHECKIN_REWARD = 10;               // 罐罐 per daily check-in
 /* 罐罐經濟（2026-11 重新設計）：
-   收入：每日打卡 10／練習 3–5（依難度，每日上限 PRACTICE_DAY_CAP）／日記 3／玩單字 2（日上限 20）／冒險首次破關 5／驚喜 5。
+   收入：每日打卡 10（連續 7 天再 +10、30 天再 +30）／練習 3–5（依難度，每日上限 PRACTICE_DAY_CAP）／日記 3／玩單字 2（日上限 20）／冒險首次破關 5／驚喜 5。
    一般認真學習一天約 15–30 罐。進階單元依份量與難度定價，約 2–4 天的認真學習可解鎖一個；貓咪扭蛋 50 罐。 */
-const UNLOCK_COSTS = {u5:40, u6:50, u9:60};   // 進階單元解鎖價；沒列到的進階單元用 UNLOCK_COST_DEFAULT
-const UNLOCK_COST_DEFAULT = 50;
+const UNLOCK_COSTS = {u3:20, u4:25, u8:30, u5:40, u6:50, u9:60};   // 中級／進階單元解鎖價（初級免費）；沒列到的用預設
+const UNLOCK_COST_DEFAULT = 30;
 function unlockCost(id){ return UNLOCK_COSTS[id] || UNLOCK_COST_DEFAULT; }
+const STREAK_BONUS = {7:10, 30:30};       // 連續學習天數的打卡加碼：每滿 7 天 +10；每滿 30 天再 +30
+function streakBonus(n){ return (n>0&&n%7===0?STREAK_BONUS[7]:0) + (n>0&&n%30===0?STREAK_BONUS[30]:0); }
 const PRACTICE_CANS = 3;                 // 罐罐 for a lesson practice ≥70% (once per lesson per day) — 初級；中級／進階見 practiceCansFor
 const PRACTICE_BY_LEVEL = {basic:3, intermediate:4, advanced:5};
 const PRACTICE_DAY_CAP = 20;             // 每天練習類罐罐上限，避免狂刷
@@ -2434,7 +2436,7 @@ const store = {
   checkinClaimed(){return WordCheckin.claimed(this.data,todayKey(),todayMid());},
   canCheckIn(){ return !this.checkinClaimed() && this.dailyWords().length>=5; },
   recordWord(word){WordCheckin.record(this.data,todayKey(),word);this.save();paintHeader();},
-  checkIn(){if(!currentUser())return false;const words=this.dailyWords();if(!WordCheckin.claim(this.data,todayKey(),todayMid(),words,CHECKIN_REWARD))return false;words.forEach(w=>WordCheckin.record(this.data,todayKey(),w));this.touchStreak();this.save();paintHeader();return true; }
+  checkIn(){if(!currentUser())return false;const words=this.dailyWords();if(!WordCheckin.claim(this.data,todayKey(),todayMid(),words,CHECKIN_REWARD))return false;words.forEach(w=>WordCheckin.record(this.data,todayKey(),w));this.touchStreak();{const b=streakBonus((this.data.streak||{}).count||0);if(b){this.data.cans=(this.data.cans||0)+b;this._bonus=b;}}this.save();paintHeader();return true; }
 };
 store.data = store.defaults();
 
@@ -9252,7 +9254,11 @@ function printReflectSheet(){
    Views — Level
    ===================================================== */
 /* Advanced units are "進階" content — locked until fed with 罐罐. Core stays open. */
-function unitLocked(u){ return u && u.level==="advanced" && !store.data.unlocked[u.id]; }
+function unitLocked(u){
+  if(!u || (u.level!=="advanced" && u.level!=="intermediate") || store.data.unlocked[u.id]) return false;
+  /* 舊學生：這個單元已經有學過（完成過課程）的，視為已解鎖，不再收費 */
+  return !DATA.lessons.some(l=>l.unit===u.id && store.data.completed[l.id]);
+}
 /* Cats that come to the island when you feed (spend 罐罐). Drawn with catSVG (no heavy images). */
 const FED_CATS = [
   {kind:"orange", en:"Mango",  zh:"芒果",   lines:["喵～今天也很努力呢！Nice work today! 🐾", "再學一課好不好？One more lesson? 🍊"]},
@@ -9301,7 +9307,7 @@ function renderLevel(lvl){
     const body = locked
       ? `<div class="card unit-locked">
            <div class="ul-icon">🔒</div>
-           <div class="ul-txt"><div class="ul-t">進階單元 · 餵養解鎖 Advanced — feed to unlock</div>
+           <div class="ul-txt"><div class="ul-t">${u.level==="advanced"?"進階":"中級"}單元 · 餵養解鎖 Unlock with cans</div>
              <div class="ul-s">花 ${unlockCost(u.id)} 個罐罐 🥫 餵養貓咪，就能打開這個單元的所有課程（解鎖後永久保留）。<br>你現在有 <b>${store.data.cans||0}</b> 罐${(store.data.cans||0)>=unlockCost(u.id)?"，夠了！":`，還差 <b>${unlockCost(u.id)-(store.data.cans||0)}</b> 罐（每天打卡 +10、做練習 +3~5）`}</div></div>
            <button class="btn btn-navy" onclick="feedUnit('${u.id}')">🥫 餵養 ${unlockCost(u.id)} 解鎖</button>
          </div>`
@@ -9711,7 +9717,7 @@ const LESSON_RELATED = {
 };
 function renderLesson(id){
   const l = lessonById(id), u = unitOf(l), lv = levelById(u.level);
-  if(unitLocked(u)){ toast("先餵養解鎖這個進階單元 🥫"); location.hash = "#/level/" + u.level; return; }
+  if(unitLocked(u)){ toast("先餵養解鎖這個單元 🥫"); location.hash = "#/level/" + u.level; return; }
   const siblings = DATA.lessons.filter(x=>x.unit===u.id);
   const sideItems = siblings.map(x=>{
     const done = !!store.data.completed[x.id];
@@ -12079,7 +12085,7 @@ function renderIsland(){
   }).join("");
   const fedSec = `<div class="isl-sec"><div class="isl-sec-h"><span>🍰 餵養來的貓咪 · Fed cats</span><span>${fed.length}</span></div>`
     + (fed.length ? `<div class="cat-grid">${fedTiles}</div>`
-        : `<p style="font:400 13px var(--sans);color:var(--muted);margin:2px 0 0">在「進階單元」花罐罐 🥫 餵養貓咪，就會有新貓咪來到島上住下來 🐾</p>`)
+        : `<p style="font:400 13px var(--sans);color:var(--muted);margin:2px 0 0">在「中級／進階單元」花罐罐 🥫 餵養貓咪，就會有新貓咪來到島上住下來 🐾</p>`)
     + `</div>`;
   app.innerHTML = `<div class="view island-view">
     <div class="island-welcome"><div><div class="eyebrow">My cat island · 我的貓島</div>
@@ -17168,7 +17174,7 @@ $("#resetForm").addEventListener("submit", async (e)=>{
 });
 /* check-in */
 $("#checkinPill").addEventListener("click", ()=>{
-  if(store.checkIn()) toast("🐾 今日打卡完成 +" + CHECKIN_REWARD + " 🥫");
+  if(store.checkIn()){ const b=store._bonus||0; store._bonus=0; toast("🐾 今日打卡完成 +" + CHECKIN_REWARD + " 🥫" + (b?`　🔥 連續 ${store.data.streak.count} 天！額外 +${b} 🥫`:"")); }
   else if(store.checkinClaimed())toast("今天已領取過囉，明天背 5 個字再來 🐾");
   else {toast("先完成 5 個不同單字，再領取 10 罐 🥫");location.hash="#/vocab/"+todayKey();}
 });
