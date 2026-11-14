@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v209-cans-economy";
+const CACHE = "eci-v210-usage-time";
 const SHELL = [
   "./",
   "./index.html",
@@ -69,14 +69,15 @@ const SHELL = [
   "./daily.css?v=17",
   "./adventure.css?v=5",
   "./lesson-notes.css?v=3",
-  "./homework.css?v=13",
+  "./homework.css?v=14",
   "./nouns-art.css?v=3",
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=12",
   "./lesson-notes.js?v=18",
   "./homework.js?v=13",
-  "./student-info.js?v=7",
+  "./student-info.js?v=9",
+  "./usage.js?v=1",
   "./offline-content.js?v=19",
   "./daily.js?v=18",
   "./adventure.js?v=5",

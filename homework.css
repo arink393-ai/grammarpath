@@ -244,3 +244,14 @@ button.tc-scope.on .si-caret{transform:rotate(90deg)}
 .hide-alldone .tc-pick.alldone{display:none}
 /* 出作業表單裡的勾選框：不要被「.tc-newhw input」撐成 180px 寬（會讓勾選框飄在中間、文字被推走） */
 .tc-newhw .tc-pick input[type=checkbox],.tc-newhw .tc-inline input[type=checkbox],.tc-newhw .tc-hidedone input[type=checkbox]{flex:0 0 auto;width:auto;min-width:0;padding:0;margin:0 2px 0 0}
+/* 使用時間（usage.js） */
+.us-panel{margin:0 0 12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card,#fff)}
+.us-h{font:700 14px var(--sans);margin-bottom:8px}.us-h .tc-sub{font-weight:400;margin-left:6px}
+.us-stats{display:flex;flex-wrap:wrap;gap:6px 16px;font:400 13px var(--sans);margin-bottom:8px}.us-stats b{font-weight:700}
+.us-chart{display:flex;align-items:flex-end;gap:4px;height:84px;margin:4px 0 8px}
+.us-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;height:100%;cursor:default}
+.us-bar{flex:1;width:100%;display:flex;align-items:flex-end}
+.us-bar i{display:block;width:100%;background:var(--teal,#2a9d8f);border-radius:4px 4px 0 0;min-height:0}.us-bar i.zero{background:var(--line)}
+.us-d{font:400 10px var(--sans);color:var(--muted);margin-top:2px}.us-d.today{font-weight:700;color:var(--ink)}
+.us-kinds{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
+.us-kind{font:400 12px var(--sans);background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:2px 10px}.us-kind.asg{background:#fff8e6}

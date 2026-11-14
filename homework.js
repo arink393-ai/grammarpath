@@ -279,7 +279,7 @@ async function renderHomework(){
         </div>
         <button class="btn btn-navy" id="hw-btn-${a.id}" onclick="hwSubmit('${a.id}')">${s?"重新繳交 Re-submit":"繳交 Submit"}</button>
       </div>`;
-    return `<details class="hw-item ${isDone?'is-done':''} ${overdue?'is-over':''}" ${overdue?'open':''}>
+    return `<details class="hw-item ${isDone?'is-done':''} ${overdue?'is-over':''}" ${overdue?'open':''} ontoggle="window.Usage&&Usage.setCard&&Usage.setCard('${a.id}',this.open)">
       <summary class="hw-sum">
         <span class="hw-mark">${mark}</span>
         <span class="hw-sum-main"><span class="hw-sum-title">${esc(a.title)}</span>${tags?`<span class="hw-sum-tags">${tags}</span>`:""}</span>
@@ -709,7 +709,7 @@ function tcHomeworkBody(students){
           return `<div class="${dn?"dn":"nd"}">${dn?"✅":"⬜"} ${inf.icon} ${esc(inf.label)}${inf.zh?` <i>${esc(inf.zh)}</i>`:""}${dn?"":`<span class="tc-sub">　${hwScopeHint(it,d).replace(/[🎮🎤🦊📖📰]/g,"").trim()}</span>`}</div>`; }).join("")}</div></td></tr>` : "";
       const recs = TDATA.submissions.filter(x=>!x.assignment_id && x.user_id===uid && x.source && x.source.assignment===a.id);
       const recCell = recs.length ? `<div class="tc-recs">${recs.map(x=>`<div>${hwSourceLabel(x,true)} ${x.file_url?`<button class="btn btn-ghost tc-audiobtn" data-path="${esc(x.file_url)}" onclick="tcAudio(this)">▶️</button>`:""}${x.status==="returned"?` <span class="hw-gradechip">${esc(x.grade||"✓")}</span>`:""} <button class="btn btn-ghost tc-delmini" onclick="tcDelSub('${x.id}')" title="刪除這段錄音" aria-label="刪除這段錄音">🗑</button></div>`).join("")}</div>` : "";
-      return `<tr class="${s||recs.length?"":"tc-missing"}"><td>${esc(tName(uid))}</td>${sc}<td>${s?tcSubCell(s):(recs.length?"":tcSubCell(s))}${recCell}</td>${tcGradeCells(s)}</tr>${detail}`;
+      return `<tr class="${s||recs.length?"":"tc-missing"}"><td>${esc(tName(uid))}${(window.Usage&&Usage.asgSec(d,a.id)>0)?`<div class="tc-sub" title="這份作業相關頁面的實際操作時間">⏱ ${esc(Usage.fmt(Usage.asgSec(d,a.id)))}</div>`:""}</td>${sc}<td>${s?tcSubCell(s):(recs.length?"":tcSubCell(s))}${recCell}</td>${tcGradeCells(s)}</tr>${detail}`;
     }).join("") : `<tr><td colspan="${scope.length?7:6}" style="color:var(--muted);padding:12px">這份作業目前沒有指派到任何學生。</td></tr>`;
     const nSub = targets.filter(u=>subBy[u]).length;
     const nGraded = targets.filter(u=>subBy[u] && subBy[u].status==="returned").length;

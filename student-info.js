@@ -145,14 +145,14 @@ function tcStudentsBody(_visible, progById){
       <td>${s.grade?esc(s.grade):`<span class="tc-sub">—</span>`}</td>
       <td>${esc(s.school||"")}${s.class_name?`<div class="tc-sub">${esc(s.class_name)} 班</div>`:""}</td>
       <td>${esc(s.schedule||"")}</td>
-      <td class="num">${g?`<button class="si-progbtn ${SI_OPEN.has(x.uid)?"on":""}" onclick="siToggleProg('${x.uid}')" title="展開看做完哪些單元">${g.completed_count||0} <span class="si-caret">▸</span></button>`:"—"}</td><td class="num">${g?(g.xp||0):"—"}</td><td>${last}</td>
+      <td class="num">${g?`<button class="si-progbtn ${SI_OPEN.has(x.uid)?"on":""}" onclick="siToggleProg('${x.uid}')" title="展開看做完哪些單元">${g.completed_count||0} <span class="si-caret">▸</span></button>`:"—"}</td><td class="num">${g?(g.xp||0):"—"}</td><td>${last}</td><td class="num">${g&&window.Usage?`<span title="近 30 天 ${esc(Usage.fmt(Usage.sumDays(g.data,30).s))}">${esc(Usage.fmt(Usage.sumDays(g.data,7).s))}</span>`:"—"}</td>
       <td>${consentCell}</td>
       <td><div class="si-rowact"><button class="btn btn-ghost" onclick="${btn}">${x.kind==="rec"?"✏️ 資料／綁定":"✏️ 資料"}</button>${siRowDelBtns(x)}</div></td></tr>`
-      + (x.kind==="acct" && SI_OPEN.has(x.uid) ? `<tr class="si-prog-row"><td colspan="9">${siProgressPanel((g&&g.data)||{})}</td></tr>` : "");
-  }).join("") : `<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:20px">${roster.length||archN?"這個條件下沒有學生。":"還沒有學生。可以先按「➕ 新增學生（先建檔）」，等學生註冊再綁定帳號。"}</td></tr>`;
+      + (x.kind==="acct" && SI_OPEN.has(x.uid) ? `<tr class="si-prog-row"><td colspan="10">${siProgressPanel((g&&g.data)||{})}</td></tr>` : "");
+  }).join("") : `<tr><td colspan="10" style="text-align:center;color:var(--muted);padding:20px">${roster.length||archN?"這個條件下沒有學生。":"還沒有學生。可以先按「➕ 新增學生（先建檔）」，等學生註冊再綁定帳號。"}</td></tr>`;
   const warn = TDATA.infoErr ? `<div class="card" style="padding:12px 16px;margin-bottom:12px;color:#B23B2E">學生資料載入失敗：${esc(TDATA.infoErr)}</div>` : "";
   return warn + (SI_EDIT ? siEditor(students) : "") + filters +
-    `<div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>年級</th><th>學校</th><th>上課時間</th><th class="num">完成單元</th><th class="num">XP</th><th>最近登入</th><th>個資同意</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+    `<div class="tc-tablewrap"><table class="tc-table"><thead><tr><th>學生 Student</th><th>年級</th><th>學校</th><th>上課時間</th><th class="num">完成單元</th><th class="num">XP</th><th>最近登入</th><th class="num" title="畫面在前景、有實際操作的時間">近 7 天用時</th><th>個資同意</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
     <p class="tc-sub" style="margin-top:8px">🔒 這些資料只有老師看得到，學生（包括本人）都看不到。還沒註冊的學生可以先建檔；學生用你登記的 email 註冊時會自動綁定，也可以手動綁定。</p>`;
 }
 /* 列表每一列的刪除相關按鈕：已封存→還原；未綁帳號的檔案→刪除；已註冊學生→移出名單 */
@@ -227,7 +227,8 @@ function siProgressPanel(d){
     `🎤 交過跟讀錄音 <b>${ra}</b> 篇`,
     `🔥 連續 <b>${(d.streak&&d.streak.count)||0}</b> 天`
   ].map(t=>`<span>${t}</span>`).join("");
-  return `<div class="sp-panel"><div class="sp-extra">${extra}</div>${levels}
+  const usage = window.Usage ? Usage.panelHTML(d, aid => { const a=((typeof TDATA!=="undefined"&&TDATA&&TDATA.assignments)||[]).find(x=>x.id===aid); return a?a.title:""; }, esc) : "";
+  return `<div class="sp-panel"><div class="sp-extra">${extra}</div>${usage}${levels}
     <div class="tc-sub sp-legend">✅ 做完練習　👀 打開過但還沒做完　⬜ 還沒開始　<b class="sp-mis">錯 n</b> 這課還有 n 題錯題沒複習對</div></div>`;
 }
 function siEditor(students){
