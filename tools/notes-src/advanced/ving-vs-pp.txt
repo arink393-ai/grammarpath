@@ -1,0 +1,70 @@
+# zh
+## 先分清楚：同樣是 collapsing，功能不同
+<b>collapsing</b> 出現在三種句型，長得一樣、文法功能不一樣：
+表：三句都有 collapsing
+| 句子 | 句型 | 意思 |
+|---|---|---|
+| The house <b>is collapsing</b>. | 現在進行式：be + V-ing | 房子正在倒塌 |
+| I saw the house <b>collapsing</b>. | 感官動詞：see + O + V-ing | 我看到房子正在倒塌 |
+| He stood there <b>with the house collapsing</b> behind him. | 伴隨狀態：with + O + V-ing | 他站在那裡，房子正在他身後倒塌 |
+> 想成「O 自己正在做這個動作」→ V-ing。
+
+## V-ing：主動、正在發生
+| 現在進行式 | with + O + V-ing（伴隨狀態） |
+|---|---|
+| The house is collapsing.（房子正在倒塌） | He ran away with the house collapsing behind him.（他逃跑時，房子正在他身後倒塌） |
+| Her hair is blowing in the wind.（她的頭髮正在風中飄動） | She walked with her hair blowing in the wind.（她走著，頭髮隨風飄動） |
+| The dog is running.（狗正在奔跑） | She played in the park with her dog running beside her.（她在公園玩耍，狗在旁邊奔跑） |
+| The rain is falling.（雨正在落下） | We stayed inside with the rain falling outside.（外面下著雨，我們待在室內） |
+
+## V-ing vs p.p.：考試重點
+| V-ing（主動／進行） | p.p.（被動／已完成） |
+|---|---|
+| The leaves are falling.（葉子正在落下） | The leaves have fallen.（葉子已經落下） |
+| The boy is breaking the window.（男孩正在打破窗戶） | The window is broken.（窗戶破了） |
+| Someone is opening the door.（有人正在開門） | The door is closed.（門關著） |
+| The workers are repairing the road.（工人正在修路） | The road is being repaired.（道路正在被修復） |
+註：判斷時看兩件事：<b>O 是自己在做、還是被做／呈現結果狀態</b>，以及<b>動作正在進行、還是已經完成</b>。
+> V-ing 不一定代表主動，p.p. 也不一定代表被動。fall、collapse 是不及物動詞（沒有被動），fallen、collapsed 只是表示動作「已經完成」。
+
+## with + O + 補語（OC）
+表：with 後面的補語怎麼選
+| 補語 | 關係 | 例句 |
+|---|---|---|
+| V-ing | O 主動、進行中 | He stood outside with the building <b>collapsing</b> behind him. |
+| p.p. | O 被動／結果狀態 | She sat quietly with her eyes <b>closed</b>. |
+| 形容詞／介系詞片語 | O 的狀態 | He slept with the window <b>open</b>. |
+> 思考題：The house is collapsing. 和 The house has collapsed. 有什麼不同？第一句是「正在倒塌」（動作），第二句是「已經倒塌」（結果）。
+
+# mc
+Q: He stood outside with the building ___ behind him. || 他站在外面，大樓正在他身後倒塌。
+A: collapse | collapsing* | collapsed
+W: 大樓「正在」倒塌（主動、進行中），用 V-ing。
+Q: She sat quietly with her eyes ___. || 她閉著眼睛安靜地坐著。
+A: closing | closed* | close
+W: 眼睛是「被閉上」的狀態，用 p.p.。
+Q: The teacher entered the classroom with the students ___ loudly. || 老師走進教室，學生們正大聲聊天。
+A: talking* | talked | talk
+W: 學生自己在說話（主動、進行中），用 V-ing。
+Q: He walked home with his phone ___. || 他的手機壞了，走路回家。
+A: breaking | broke | broken*
+W: 手機是「壞掉」的結果狀態，用 p.p.。
+Q: The little girl fell asleep with tears ___ down her cheeks. || 小女孩睡著了，眼淚沿著臉頰滑落。
+A: rolled | rolling* | roll
+W: 眼淚正在滑落（主動、進行中），用 V-ing。
+
+# err
+S: She sat quietly with her eyes [closing|closed]. || 她閉著眼睛安靜地坐著。
+W: 眼睛是「被閉上」的狀態，用 p.p. closed。
+S: The road is [repairing|being repaired] now. || 道路現在正在修。
+W: 路是被修的，進行被動用 be being + p.p.。
+S: We stayed in with the rain [fell|falling] outside. || 外面下著雨，我們待在屋裡。
+W: with + O 後面接分詞，不能用過去式 fell。
+S: I saw the leaves [fallen|falling] from the tree. || 我看到葉子從樹上落下。
+W: 看到「落下的過程」用 V-ing；fallen 是已經落下的結果。
+
+# mk
+- 眼睛是被閉上的狀態，用 closed。
+- 道路被修，用 is being repaired。
+- with + O 後面接分詞，不能用過去式。
+- 看到動作的過程用 V-ing，fallen 表示已完成。
