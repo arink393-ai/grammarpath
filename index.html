@@ -11546,8 +11546,9 @@ function rgPickWords(paragraphs, level, proper, seed){
   const re = /[A-Za-z][A-Za-z'-]*/g;
   paragraphs.forEach(p=>{
     let m; while((m = re.exec(p))){
-      const w = m[0], lw = w.toLowerCase();
-      if(!seen.has(lw)) seen.set(lw, w);
+      // 去掉引號、所有格與結尾連字號：'midterm' → midterm、President's → President
+      const w = m[0].replace(/'s$/i, "").replace(/['-]+$/, ""), lw = w.toLowerCase();
+      if(w && !seen.has(lw)) seen.set(lw, w);
     }
   });
   const properLower = new Set((proper||[]).map(x=>x.toLowerCase()));
@@ -12243,8 +12244,11 @@ function rgBuild(id, lvl, reseed){
   const seed = reseed || (Date.now() & 0xffff);
   const words = rgPickWords(r.levels[lvl].text, lvl, r.proper, seed);
   const used = new Set(words.map(w=>w.toLowerCase()));
-  const pairs = words.map(w=>({correct:w, wrong:rgDistractor(w, used)}));
+  let pairs = words.map(w=>({correct:w, wrong:rgDistractor(w, used)}));
   const paras = rgBuildParas(r.levels[lvl].text, pairs);
+  // 保險：找不到位置的字不放進單字庫，否則遊戲永遠差一個做不完
+  const placed = new Set(paras.flat().filter(sg=>sg.type!=="text").map(sg=>sg.correct.toLowerCase()));
+  pairs = pairs.filter(pr=>placed.has(pr.correct.toLowerCase()));
   RG = {id, lvl, pairs, paras, seed, fixed:{}, selIdx:null, selSeg:null, shakeId:null, flashIdx:null, rewarded:new Set()};
 }
 function rgShuffle(){ rgBuild(RG.id, RG.lvl, (Date.now()&0xffff)); renderReadGame(RG.id, RG.lvl); }
