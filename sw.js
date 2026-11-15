@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v212-writing-pics-frames";
+const CACHE = "eci-v213-writing-photos";
 const SHELL = [
   "./",
   "./index.html",
@@ -32,6 +32,8 @@ const SHELL = [
   "./art/fables/aesop-shepherd-wolf.png",
   "./art/fables/aesop-wind-sun.png",
   "./art/vocab/unit42.png",
+  "./art/writing/beach.jpg",
+  "./art/writing/park.jpg",
   "./art/breeds/abyssinian.webp",
   "./art/breeds/american-curl.webp",
   "./art/breeds/american-shorthair.webp",

@@ -8028,7 +8028,7 @@ function renderWriting(){
     .writing .wr-start li{font-size:13px;line-height:1.95;color:var(--ink)}
     .writing .wr-pics{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .writing .wr-pic{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper)}
-    .writing .wr-pic svg{display:block;width:100%;height:auto}
+    .writing .wr-pic img,.writing .wr-pic svg{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
     .writing .wr-pic figcaption{padding:11px 14px;font-size:12.5px;line-height:1.7;color:var(--ink);border-top:1px solid var(--line)}
     .writing .wr-pic figcaption b{color:var(--teal)}
     @media(max-width:640px){.writing .wr-cards,.writing .wr-pics{grid-template-columns:1fr}}
@@ -8140,37 +8140,12 @@ function renderWriting(){
       <p class="vf-sub">看圖，照「人‧地點‧動作‧天氣‧感受」寫 4–6 句。先說看到什麼，再說他們在做什麼。</p>
       <div class="wr-pics">
         <figure class="wr-pic">
-          <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A sunny park with a child flying a kite and a dog running.">
-            <rect width="400" height="240" fill="#cfeaf7"/>
-            <circle cx="350" cy="44" r="26" fill="#FFD54A"/>
-            <g fill="#fff" opacity="0.9"><ellipse cx="92" cy="48" rx="34" ry="15"/><ellipse cx="122" cy="54" rx="26" ry="12"/></g>
-            <rect y="175" width="400" height="65" fill="#8FCB6B"/>
-            <path d="M0 175 Q200 160 400 175 V240 H0 Z" fill="#79BD56"/>
-            <rect x="48" y="120" width="13" height="60" fill="#8a5a33"/><circle cx="54" cy="112" r="33" fill="#5aa84a"/>
-            <g stroke="#7a5230" stroke-width="5"><line x1="300" y1="176" x2="360" y2="176"/><line x1="300" y1="186" x2="360" y2="186"/><line x1="306" y1="176" x2="306" y2="196"/><line x1="354" y1="176" x2="354" y2="196"/></g>
-            <g transform="translate(252,70)"><polygon points="0,-22 16,0 0,22 -16,0" fill="#E8604C" stroke="#b23b2e"/><path d="M0 22 q6 10 -2 18 q8 4 2 14" stroke="#b23b2e" fill="none" stroke-width="2"/></g>
-            <line x1="252" y1="92" x2="190" y2="150" stroke="#666" stroke-width="1.2"/>
-            <g transform="translate(182,150)"><circle cx="0" cy="-30" r="9" fill="#F0B080"/><rect x="-8" y="-21" width="16" height="26" rx="6" fill="#4a86c4"/><line x1="8" y1="-16" x2="18" y2="-2" stroke="#F0B080" stroke-width="5" stroke-linecap="round"/><line x1="-6" y1="5" x2="-10" y2="24" stroke="#36506b" stroke-width="5" stroke-linecap="round"/><line x1="6" y1="5" x2="10" y2="24" stroke="#36506b" stroke-width="5" stroke-linecap="round"/></g>
-            <g transform="translate(300,162)"><ellipse cx="0" cy="0" rx="17" ry="8" fill="#C8903F"/><circle cx="-17" cy="-4" r="7" fill="#C8903F"/><line x1="15" y1="-2" x2="25" y2="-10" stroke="#C8903F" stroke-width="4" stroke-linecap="round"/><line x1="-8" y1="7" x2="-10" y2="17" stroke="#C8903F" stroke-width="4"/><line x1="8" y1="7" x2="10" y2="17" stroke="#C8903F" stroke-width="4"/></g>
-            <g stroke="#555" stroke-width="2" fill="none"><path d="M120 58 q6 -6 12 0 q6 -6 12 0"/><path d="M158 44 q5 -5 10 0 q5 -5 10 0"/></g>
-          </svg>
-          <figcaption><b>Questions：</b>Who is in the picture? Where are they? What are they doing? What's the weather like?<br><b>Word bank：</b>park, tree, kite, dog, fly, run, sunny, happy</figcaption>
+          <img src="art/writing/park.jpg" alt="A person flying a kite in a grassy park with trees." loading="lazy" width="500" height="333">
+          <figcaption><b>Questions：</b>Who is in the picture? Where is this place? What is the person doing? What's the weather like?<br><b>Word bank：</b>park, field, kite, fly, trees, grass, sunny</figcaption>
         </figure>
         <figure class="wr-pic">
-          <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A sunny beach with a sailboat, someone swimming, and a child building a sandcastle.">
-            <rect width="400" height="240" fill="#bfe6f5"/>
-            <circle cx="54" cy="44" r="24" fill="#FFD54A"/>
-            <rect y="96" width="400" height="76" fill="#49A9D8"/>
-            <g stroke="#cfeefb" stroke-width="2" fill="none" opacity="0.85"><path d="M24 120 q10 -6 20 0 t20 0"/><path d="M250 134 q10 -6 20 0 t20 0"/></g>
-            <path d="M0 162 Q200 150 400 166 V240 H0 Z" fill="#EAD39A"/>
-            <g transform="translate(300,112)"><path d="M-22 0 h44 l-8 12 h-28 Z" fill="#B5462E"/><line x1="0" y1="0" x2="0" y2="-28" stroke="#7a5230" stroke-width="3"/><polygon points="2,-26 24,-6 2,-6" fill="#fff"/></g>
-            <g transform="translate(120,128)"><circle cx="0" cy="0" r="7" fill="#F0B080"/><line x1="-6" y1="-3" x2="-16" y2="-10" stroke="#F0B080" stroke-width="4" stroke-linecap="round"/><line x1="6" y1="-3" x2="16" y2="-10" stroke="#F0B080" stroke-width="4" stroke-linecap="round"/></g>
-            <g transform="translate(70,188)"><line x1="0" y1="0" x2="0" y2="-40" stroke="#7a5230" stroke-width="3"/><path d="M-34 -40 a34 20 0 0 1 68 0 Z" fill="#E8604C"/></g>
-            <g transform="translate(205,198)" fill="#D8B46A" stroke="#b9954a"><rect x="-26" y="-18" width="52" height="18"/><rect x="-26" y="-30" width="12" height="14"/><rect x="-6" y="-34" width="12" height="18"/><rect x="14" y="-30" width="12" height="14"/><polygon points="0,-44 9,-39 0,-39" fill="#E8604C" stroke="none"/></g>
-            <g transform="translate(250,190)"><circle cx="0" cy="-20" r="7" fill="#F0B080"/><rect x="-7" y="-13" width="14" height="14" rx="5" fill="#49a06a"/><line x1="-6" y1="0" x2="-8" y2="12" stroke="#36506b" stroke-width="4"/><line x1="6" y1="0" x2="8" y2="12" stroke="#36506b" stroke-width="4"/></g>
-            <g stroke="#555" stroke-width="2" fill="none"><path d="M124 46 q6 -6 12 0 q6 -6 12 0"/></g>
-          </svg>
-          <figcaption><b>Questions：</b>What can you see at the beach? What are the people doing? How do they feel?<br><b>Word bank：</b>beach, sea, boat, swim, sandcastle, umbrella, sunny, relaxed</figcaption>
+          <img src="art/writing/beach.jpg" alt="Two children making sandcastles on a sandy beach by the sea." loading="lazy" width="1000" height="705">
+          <figcaption><b>Questions：</b>Who can you see? Where are they? What are they doing? How do they feel?<br><b>Word bank：</b>beach, sand, sandcastle, bucket, children, play, sea</figcaption>
         </figure>
       </div>
       <div class="vf-xlink"><b>句型起手式：</b>In the picture, I can see … · There is / are … · They are ___ -ing. · It is a ___ day. · It looks … · I think they feel …</div>
