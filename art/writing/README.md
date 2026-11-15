@@ -10,7 +10,7 @@ sourced via the Openverse API (https://openverse.org) with `license=cc0`.
 | `beach.jpg` | two children making sandcastles on a beach | Wikimedia Commons "Children making sandcastles on Rossbeigh" (CC0) |
 | `market.jpg`    | a woman shopping at a vegetable market stall | USDA (public domain) farmers-market photo |
 | `classroom.jpg` | pupils at desks in a classroom | "Pupils, Qamar Primary School, Mogadishu" (CC0/PDM) |
-| `dinner.jpg`    | a family having dinner at a table (classic photo) | US Farm Security Administration / Library of Congress (public domain) |
+| `dinner.jpg`    | an adult and children eating a meal together at a table | USDA FNS photo 20210805-FNS-UNC-0018 (public domain) |
 
 Optimized with `sips` (beach resized to 1000px wide). To swap a photo, drop a
 new CC0/own image here with the same filename and bump the service-worker CACHE.
