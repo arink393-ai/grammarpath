@@ -8147,6 +8147,18 @@ function renderWriting(){
           <img src="art/writing/beach.jpg" alt="Two children making sandcastles on a sandy beach by the sea." loading="lazy" width="1000" height="705">
           <figcaption><b>Questions：</b>Who can you see? Where are they? What are they doing? How do they feel?<br><b>Word bank：</b>beach, sand, sandcastle, bucket, children, play, sea</figcaption>
         </figure>
+        <figure class="wr-pic">
+          <img src="art/writing/market.jpg" alt="A woman shopping at an outdoor vegetable market stall." loading="lazy" width="1000" height="780">
+          <figcaption><b>Questions：</b>Who is in the picture? Where is this place? What is she doing? What can you see on the table?<br><b>Word bank：</b>market, stall, vegetables, tomatoes, basket, buy, fresh</figcaption>
+        </figure>
+        <figure class="wr-pic">
+          <img src="art/writing/classroom.jpg" alt="Pupils sitting at desks in a classroom with books and pencils." loading="lazy" width="1000" height="667">
+          <figcaption><b>Questions：</b>Who are they? Where are they? What are they doing? What's on the desk?<br><b>Word bank：</b>classroom, students, desk, book, pencil, school, learn</figcaption>
+        </figure>
+        <figure class="wr-pic">
+          <img src="art/writing/dinner.jpg" alt="A family eating dinner together at a table at home." loading="lazy" width="739" height="1000">
+          <figcaption><b>Questions：</b>Who is at the table? Where are they? What are they doing? How do they feel?<br><b>Word bank：</b>family, dinner, table, eat, together, home</figcaption>
+        </figure>
       </div>
       <div class="vf-xlink"><b>句型起手式：</b>In the picture, I can see … · There is / are … · They are ___ -ing. · It is a ___ day. · It looks … · I think they feel …</div>
     </div>
@@ -8154,7 +8166,7 @@ function renderWriting(){
     <div class="vf-sec">
       <h2>🖨 列印稿紙 Printables</h2>
       <p class="vf-sub"><b>造句→擴寫稿</b>（第一頁擴寫階梯、第二頁作文稿）；<b>段落寫作稿</b>（第一頁主題句／支持句／結論句規劃、第二頁謄寫稿）。直接列印或存成 PDF。</p>
-      <div class="vf-print"><button class="btn btn-navy" onclick="printWritingSheet()">🖨 造句→擴寫稿</button> <button class="btn btn-navy" onclick="printParagraphSheet()">🖨 段落寫作稿</button> <button class="btn btn-navy" onclick="printEssaySheet()">🖨 五段式短文稿</button></div>
+      <div class="vf-print"><button class="btn btn-navy" onclick="printWritingSheet()">🖨 造句→擴寫稿</button> <button class="btn btn-navy" onclick="printParagraphSheet()">🖨 段落寫作稿</button> <button class="btn btn-navy" onclick="printEssaySheet()">🖨 五段式短文稿</button> <button class="btn btn-navy" onclick="printFramesSheet()">🖨 句型速查卡</button></div>
     </div>
   </div>`;
   window.scrollTo(0,0);
@@ -8307,6 +8319,47 @@ function printEssaySheet(){
   </div>
   <\/body><\/html>`;
   safeOpenPrintDoc(doc, "五段式短文稿");
+}
+function printFramesSheet(){
+  const cats=[
+    ["開場 Start","Have you ever ___ ?<br>These days, ___ .<br>Today I want to talk about ___ ."],
+    ["表達意見 Opinion","I think (that) ___ .<br>In my opinion, ___ .<br>I believe ___ . · For me, ___ ."],
+    ["舉例 Examples","For example, ___ .<br>such as ___ · like ___<br>One example is ___ ."],
+    ["原因 Reasons","because ___<br>The (main) reason is ___ .<br>This is because ___ ."],
+    ["列舉／順序 Order","First, … · Second, …<br>Also, … · In addition, …<br>Finally, …"],
+    ["對比 Contrast","However, …<br>On the other hand, …<br>Although ___ , … · … , but …"],
+    ["描述 Describe","There is / are ___ .<br>It looks ___ . · I can see ___ .<br>It is ___ -ing."],
+    ["感受 Feelings","I feel ___ .<br>It makes me ___ .<br>I am ___ because ___ ."],
+    ["結論 Conclusion","In conclusion, …<br>To sum up, … · Overall, …<br>That's why ___ ."]
+  ];
+  const cards=cats.map(c=>`<div class="fc"><div class="fc-h">${c[0]}</div><div class="fc-b">${c[1]}</div></div>`).join("");
+  const doc = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>寫作句型速查卡 Sentence Frames</title>
+  <style>
+   *{box-sizing:border-box}
+   body{font-family:Arial,"Helvetica Neue",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;color:#000;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
+   .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
+   .bar .hint{opacity:.85;font-size:12px}
+   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:34px 40px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+   h1{font-size:19px;font-weight:700;margin:0 0 3px}
+   .sub{font-size:12px;color:#555;margin:0 0 14px}
+   .cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+   .fc{border:1.5px solid #cfe2dd;border-radius:10px;padding:9px 12px;break-inside:avoid}
+   .fc-h{font-size:13px;font-weight:700;color:#1f7a6e;margin-bottom:4px;border-bottom:1px solid #e6efec;padding-bottom:3px}
+   .fc-b{font-size:12px;line-height:1.75;color:#222}
+   .foot{font-size:11px;color:#777;margin-top:14px;text-align:center}
+   @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} }
+   @page{margin:1.2cm}
+  </style></head><body>
+  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span class="hint">寫作句型速查卡——印出來夾在作文本裡，卡住就挑一句，把 ___ 換成自己的內容。</span></div>
+  <div class="sheet">
+    <h1>寫作句型速查卡　Writing Sentence Frames</h1>
+    <p class="sub">卡住就挑一句，把 ___ 換成你的內容。English Cat Island · 英文作文區</p>
+    <div class="cards">${cards}</div>
+    <p class="foot">✂️ 可對折當書籤 · 開場 → 意見 → 舉例 → 原因 → 順序 → 對比 → 描述 → 感受 → 結論</p>
+  </div>
+  <\/body><\/html>`;
+  safeOpenPrintDoc(doc, "寫作句型速查卡");
 }
 
 function renderTheoryList(){
