@@ -1,10 +1,8 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v219-ted-education";
+const CACHE = "eci-v220-adv-world6";
 const SHELL = [
   "./",
   "./index.html",
-  "./exams.html",
-  "./ted.html",
   "./art/cat-dex/meme-cats-atlas.png",
   "./art/cat-dex/meme-cats-atlas-2.png",
   "./art/cat-dex/meme-cats-atlas-3.png",
@@ -74,7 +72,7 @@ const SHELL = [
   "./art/breeds/turkish-angora.webp",
   "./art/breeds/turkish-van.webp",
   "./daily.css?v=17",
-  "./adventure.css?v=5",
+  "./adventure.css?v=6",
   "./lesson-notes.css?v=3",
   "./homework.css?v=14",
   "./nouns-art.css?v=3",
@@ -88,7 +86,7 @@ const SHELL = [
   "./ving-game.js?v=1",
   "./offline-content.js?v=19",
   "./daily.js?v=18",
-  "./adventure.js?v=5",
+  "./adventure.js?v=6",
   "./vocab/books.js?v=6",
   "./vocab-quest.js?v=18",
   "./manifest.webmanifest",

@@ -192,3 +192,14 @@
 .pg-time{color:#8a5a12}
 .adv-learn-pair.pg{font-size:clamp(20px,5.4vw,26px);line-height:1.25;text-align:center}
 .adv-learn-pair.pg i{font-style:normal}
+/* World 6 · 超能力學院 */
+.adv-can .adv-node.done{background:linear-gradient(160deg,#ece0ff,#c9a8f5)}
+.adv-can .adv-node.next{background:linear-gradient(160deg,#e4d4ff,#a57ef0)}
+.cn-mark{display:inline-block;margin-top:4px;border-radius:999px;padding:3px 10px;font:800 13px var(--sans);white-space:nowrap}
+.cn-mark.yes{background:#dff5e3;color:#23784a;border:2px solid #8fd1a4}
+.cn-mark.no{background:#ffe2de;color:#b33b2a;border:2px solid #f0a092}
+.adv-be-pic .cn-mark{font-size:15px;padding:4px 14px}
+.adv-say-e .cn-mark{display:block;width:max-content;margin:4px auto 0;font-size:15px}
+.be-can{color:#23784a}.be-cant{color:#b33b2a}.be-q{color:#7b4bb0}
+.cn-ans-btns{flex-direction:column;align-items:center;gap:10px;margin-bottom:12px}
+.adv-letter.cn-ans{width:min(300px,100%);height:auto;min-height:62px;padding:8px 18px;font:800 clamp(20px,5.6vw,26px) var(--serif)}
