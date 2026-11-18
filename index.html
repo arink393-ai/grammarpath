@@ -9576,7 +9576,7 @@ function printReflectSheet(){
    ===================================================== */
 /* Advanced units are "進階" content — locked until fed with 罐罐. Core stays open. */
 function unitLocked(u){
-  if(!u || (u.level!=="advanced" && u.level!=="intermediate") || store.data.unlocked[u.id]) return false;
+  if(!u || (u.level!=="advanced" && u.level!=="intermediate") || store.data.unlocked[u.id] || isTeacher()) return false;   // 老師預覽不鎖
   /* 舊學生：這個單元已經有學過（完成過課程）的，視為已解鎖，不再收費 */
   return !DATA.lessons.some(l=>l.unit===u.id && store.data.completed[l.id]);
 }
@@ -16398,6 +16398,7 @@ function wsSec(letter, en, zh, instr, inner){
 }
 function renderWorksheet(id){
   const l = lessonById(id); if(!l){ location.hash = "#/home"; return; }
+  if(!isTeacher() && unitLocked(unitOf(l))){ toast("先餵養解鎖這個單元 🥫"); location.hash = "#/level/" + unitOf(l).level; return; }
   const d = wsData(l), lv = levelById(unitOf(l).level);
   const blank = '<span class="wsblank"></span>';
   const B = s => s.replace(/___+/g, blank);
@@ -16861,6 +16862,7 @@ function poolFor(level, type){
 const S = {}; // current session
 function startPractice(id){
   const l = lessonById(id);
+  if(!isTeacher() && unitLocked(unitOf(l))){ toast("先餵養解鎖這個單元 🥫"); location.hash = "#/level/" + unitOf(l).level; return; }
   Object.assign(S, {mode:"practice", videoQuiz:false, lessonId:id, qs:shuffle(l.q.map((q,qi)=>Object.assign({ref:id+":"+qi}, q))), i:0, right:0, results:[], listen:false, title:"Practice · "+l.title+"｜"+l.zh, timed:false});
   renderQuestion();
 }
