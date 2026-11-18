@@ -1,8 +1,10 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v218-audit-fixes";
+const CACHE = "eci-v219-ted-education";
 const SHELL = [
   "./",
   "./index.html",
+  "./exams.html",
+  "./ted.html",
   "./art/cat-dex/meme-cats-atlas.png",
   "./art/cat-dex/meme-cats-atlas-2.png",
   "./art/cat-dex/meme-cats-atlas-3.png",

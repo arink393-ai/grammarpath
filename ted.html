@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TED 教育專區</title>
+<meta name="description" content="精選教育相關的 TED 演講（Ken Robinson、Carol Dweck、Angela Duckworth…），附中文導讀與討論問題，支援中文字幕，可課堂討論與列印。">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://i.ytimg.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --paper:#FFFEFB; --cream:#FBF3E9; --ink:#5D4A3E; --navy:#7A5B49; --body:#77655A; --muted:#A79484;
+  --terra:#E08862; --terra-bg:#FCF0E8; --terra-line:#F2D8C7; --line:#EEE2D2;
+  --gold:#C6892F; --red:#E62B1E;
+  --serif:'Lora',Georgia,serif; --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --shadow:0 6px 20px rgba(122,91,73,.10);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);color:var(--body);line-height:1.6;
+  background:radial-gradient(1200px 420px at 50% -150px,#FCEDE2,transparent),var(--cream);
+  padding:0 16px 64px}
+.wrap{max-width:1000px;margin:0 auto}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0 6px;flex-wrap:wrap}
+.crumb{font:600 13px var(--sans);color:var(--muted)}
+.crumb a{color:var(--navy);text-decoration:none}.crumb a:hover{text-decoration:underline}
+.print-btn{display:inline-flex;align-items:center;gap:7px;border:none;cursor:pointer;background:var(--navy);color:#fff;
+  border-radius:99px;padding:9px 18px;font:600 13.5px var(--sans);transition:transform .12s ease,box-shadow .12s ease}
+.print-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+
+.hero{margin:10px 0 6px}
+.eyebrow{font:600 12.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--terra);display:flex;align-items:center;gap:8px}
+.ted-chip{background:var(--red);color:#fff;font-weight:700;letter-spacing:.06em;border-radius:4px;padding:1px 6px;font-size:11px}
+.hero h1{font:700 clamp(28px,5vw,42px)/1.12 var(--serif);color:var(--ink);margin:6px 0 10px;text-wrap:balance}
+.hero h1 .zh{color:var(--terra)}
+.lede{font-size:15.5px;max-width:64ch;margin:0}
+.lede b{color:var(--navy)}
+
+.note{display:flex;gap:11px;align-items:flex-start;background:var(--paper);border:1.5px solid var(--line);
+  border-left:4px solid var(--gold);border-radius:12px;padding:12px 15px;margin:18px 0 6px;font-size:13.5px}
+.note .ic{font-size:17px;flex:none}.note b{color:var(--navy)}
+
+.grp{margin:34px 0 0}
+.grp-head{display:flex;align-items:center;gap:11px;flex-wrap:wrap;border-bottom:2px solid var(--terra-line);padding-bottom:8px}
+.grp-num{font:700 13px var(--sans);color:#fff;background:var(--terra);border-radius:99px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none}
+.grp h2{font:700 21px var(--serif);color:var(--ink);margin:0}
+.grp-sub{font-size:13px;color:var(--muted);flex-basis:100%;margin:0}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-top:18px}
+.tcard{background:var(--paper);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;
+  box-shadow:0 3px 12px rgba(122,91,73,.06);display:flex;flex-direction:column}
+.player{position:relative;aspect-ratio:16/9;background:#1a1a1a;border:none;padding:0;width:100%;cursor:pointer;display:block;overflow:hidden}
+.player img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:opacity .2s ease,transform .3s ease}
+.player:hover img{opacity:1;transform:scale(1.03)}
+.player .pbtn{position:absolute;inset:0;margin:auto;width:62px;height:44px;border-radius:12px;background:var(--red);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.35);transition:transform .15s ease}
+.player:hover .pbtn{transform:scale(1.08)}
+.player .pbtn::after{content:"";border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;margin-left:3px}
+.player .dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.8);color:#fff;font:600 11.5px var(--sans);padding:2px 7px;border-radius:5px}
+.player iframe{width:100%;height:100%;border:0;display:block}
+
+.tbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
+.spk{font:600 12px var(--sans);letter-spacing:.02em;color:var(--terra);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.spk .yt{margin-left:auto;font-size:11.5px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.spk .yt:hover{color:var(--navy);text-decoration:underline}
+.ttitle{font:600 16px/1.3 var(--serif);color:var(--ink);margin:0}
+.ttitle .en{display:block;font:italic 500 13px/1.35 var(--serif);color:var(--muted);margin-top:1px}
+.tsum{font-size:13.5px;margin:0}
+.twhy{font-size:12.5px;color:var(--navy);background:var(--terra-bg);border-radius:9px;padding:7px 11px;margin:0}
+.twhy b{color:#A85C3C}
+.tlink{font-size:12.5px}.tlink a{color:var(--navy)}
+.qs{margin:2px 0 0;border-top:1px dashed var(--terra-line);padding-top:10px}
+.qs-h{font:600 12px var(--sans);letter-spacing:.04em;color:var(--muted);margin:0 0 6px;text-transform:uppercase}
+.qs ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px}
+.qs li{font-size:13px}.qs li .z{display:block;color:var(--muted);font-size:12px}
+
+.tips{margin:40px 0 0;background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:20px 22px}
+.tips h3{font:700 18px var(--serif);color:var(--ink);margin:0 0 8px;display:flex;gap:8px;align-items:center}
+.tips ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px;font-size:13.5px}
+.tips b{color:var(--navy)}
+
+.foot{margin:28px 0 0;font-size:12.5px;color:var(--muted);line-height:1.7}
+.foot a{color:var(--navy)}
+
+@media(max-width:380px){.cards{grid-template-columns:1fr}}
+
+@media print{
+  body{background:#fff;padding:0 6mm;color:#000}
+  .topbar,.print-btn,.note,.twhy,.tlink,.player .pbtn,.player .dur,.tips{display:none!important}
+  .hero{margin:0 0 6px}.hero h1{font-size:22px;color:#000}.eyebrow{color:#555}.ted-chip{background:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .grp{margin:12px 0 0;break-inside:avoid}.grp h2,.ttitle,.grp-num{color:#000!important}.grp-num{background:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cards{grid-template-columns:1fr 1fr;gap:10px}
+  .tcard{box-shadow:none;border:1px solid #bbb;break-inside:avoid}
+  .player{aspect-ratio:auto;height:auto;background:#fff;border-bottom:1px solid #ddd}
+  .player img{display:none}
+  .player::after{content:"▶ " attr(data-url);display:block;font:400 9px/1.3 monospace;color:#333;padding:5px 8px;word-break:break-all}
+  .spk .yt{display:none}.tbody{padding:8px 10px}
+  .qs{border-top:1px solid #bbb}.qs li .z{color:#444}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="crumb"><a href="index.html">🐾 English Cat Island</a> › TED 教育專區</div>
+    <button class="print-btn" onclick="window.print()">🖨 列印討論單</button>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow"><span class="ted-chip">TED</span> Talks on Education · 教育演講</div>
+    <h1>TED 教育<span class="zh">專區</span></h1>
+    <p class="lede">精選適合<b>老師與學生</b>的教育主題 TED 演講——從 Ken Robinson 談創造力，到成長心態、恆毅力與師生關係。每支附<b>中文導讀</b>與<b>討論問題</b>，看完聊一聊，比只看更有收穫。</p>
+  </header>
+
+  <div class="note">
+    <span class="ic">💬</span>
+    <div>點影片封面即可<b>直接在本頁播放</b>。多數 TED 演講支援<b>中文字幕</b>：播放後點播放器右下角 ⚙️ → 字幕 → 選「中文（繁體）」。想用於課堂，按右上角「列印討論單」印出問題。</div>
+  </div>
+
+  <main id="ted-root"></main>
+
+  <section class="tips">
+    <h3>🎓 怎麼用這些演講最有效</h3>
+    <ul>
+      <li><b>看前先猜</b>：先看標題與講者，猜猜這場演講會講什麼，帶著問題看。</li>
+      <li><b>開中文字幕</b>：聽不懂沒關係，先用繁體中文字幕看懂內容，第二次再試英文字幕。</li>
+      <li><b>看後討論</b>：用每支下面的「討論問題」和同學或老師聊，說說自己的經驗與想法。</li>
+      <li><b>寫一句回應</b>：看完用一句英文寫下最有感的一點，練輸出也練思考。</li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <p>所有影片皆以官方 <a href="https://www.youtube.com/@TED" target="_blank" rel="noopener">TED</a>／TED-Ed 之 YouTube 嵌入播放，著作權屬 TED 及各講者所有；本頁僅合法嵌入連結並附上原創中文導讀與討論問題，未重製影片或講稿內容。</p>
+    <p class="updated">最後更新：2026-11-18</p>
+  </footer>
+
+</div>
+
+<script>
+const TED_GROUPS=[
+  {
+    num:"1", title:"創造力與重新想像教育", sub:"Creativity & rethinking school",
+    talks:[
+      {id:"iG9CE55wbtY", dur:"約 19 分", spk:"Sir Ken Robinson", zh:"學校扼殺了創造力嗎？", en:"Do schools kill creativity?",
+       sum:"史上最多人看的 TED 演講。Robinson 主張學校把「犯錯」當成最糟的事，反而磨掉孩子天生的創造力；他認為創造力應該和讀寫一樣被重視。",
+       why:"重新思考考試導向的教育，幽默又發人深省。",
+       q:[["Do you agree that schools make students afraid of being wrong?","你同意學校讓學生害怕犯錯嗎？為什麼？"],
+          ["What talent of yours does school not really value?","你有哪一種才能是學校不太重視的？"]]},
+      {id:"wX78iKhInsc", dur:"約 19 分", spk:"Sir Ken Robinson", zh:"如何逃出教育的死亡谷", en:"How to escape education's death valley",
+       sum:"延續第一支演講。Robinson 指出人天生好奇、多元、會主動學習，但標準化測驗讓教育變得單一；他用三個原則說明怎麼讓學習重新「活」起來。",
+       why:"從『批判問題』走到『怎麼改變』。",
+       q:[["What makes a class feel “alive” to you?","什麼樣的課會讓你覺得「活了起來」？"],
+          ["How is the way you learn best different from your classmates'?","你最有效的學習方式和同學有什麼不同？"]]},
+      {id:"-MTRxRO5SRA", dur:"約 11 分", spk:"Sal Khan", zh:"為「精熟」而教，而不是為分數", en:"Let's teach for mastery, not test scores",
+       sum:"可汗學院創辦人提出「精熟學習」：與其趕進度、留下一堆沒學懂的洞，不如學會了再往前，把「還沒學會」當成過程，而不是失敗。",
+       why:"和成長心態互相呼應，很實用。",
+       q:[["Have you ever moved to a new topic before really understanding the last one?","你曾經上一課還沒懂就被推去下一課嗎？結果呢？"],
+          ["What would change if “fail” became “not yet”?","如果把「不及格」換成「還沒學會」，會有什麼不同？"]]}
+    ]
+  },
+  {
+    num:"2", title:"心態、毅力與習慣", sub:"Mindset, grit & habits — 呼應本站「學習理論」",
+    talks:[
+      {id:"_X0mgOOSpLU", dur:"約 10 分", spk:"Carol Dweck", zh:"相信自己會進步的力量", en:"The power of believing that you can improve",
+       sum:"成長心態研究者 Dweck 說明「yet（還沒）」的力量：相信能力能靠努力變強的學生，面對難題更堅持，大腦也真的會改變。",
+       why:"直接對應本站學習理論的『成長心態』。", link:["看本站成長心態","index.html#/theory"],
+       q:[["When you say “I can't do this,” can you add “yet”?","你能在「我做不到」後面加上「還沒」嗎？"],
+          ["Name one skill you've watched yourself get better at.","說出一項你親眼看到自己靠練習變強的能力。"]]},
+      {id:"H14bBuluwB8", dur:"約 6 分", spk:"Angela Lee Duckworth", zh:"恆毅力：熱情與毅力的力量", en:"Grit: the power of passion and perseverance",
+       sum:"心理學家 Duckworth 發現，最能預測成功的不是智商，而是「恆毅力」——對長期目標的熱情與堅持到底。",
+       why:"短而有力，談堅持。",
+       q:[["What is a goal you'd work for years to reach?","有什麼目標你願意花好幾年去追？"],
+          ["How do you keep going when something is hard and boring?","遇到又難又無聊的事，你怎麼撐下去？"]]},
+      {id:"arj7oStGLkU", dur:"約 14 分", spk:"Tim Urban", zh:"拖延大師的腦袋在想什麼", en:"Inside the mind of a master procrastinator",
+       sum:"Urban 用爆笑方式解剖拖延：腦中的「及時行樂猴」和「驚慌怪獸」，還有為什麼沒有期限的夢想最危險。",
+       why:"幽默、超有共鳴，談時間管理。",
+       q:[["What's your “instant gratification monkey” when you should study?","該唸書時，你的「及時行樂猴」是什麼？"],
+          ["Which important things in your life have no deadline?","你生活裡有哪些重要、但「沒有期限」的事？"]]},
+      {id:"UNP03fDSj1U", dur:"約 3 分", spk:"Matt Cutts", zh:"用 30 天嘗試新事物", en:"Try something new for 30 days",
+       sum:"只有三分鐘。Cutts 分享用「30 天挑戰」養成或戒掉一個習慣，小小的改變能累積成大改變。",
+       why:"超短、英文簡單，最適合當行動起點。",
+       q:[["What could you try for 30 days?","你想挑戰 30 天做什麼？"],
+          ["Is it harder to add a good habit or drop a bad one?","養成好習慣和戒掉壞習慣，哪個比較難？"]]}
+    ]
+  },
+  {
+    num:"3", title:"關係、表達與視野", sub:"Teachers, voice & perspective",
+    talks:[
+      {id:"SFnMTHhKdkw", dur:"約 8 分", spk:"Rita Pierson", zh:"每個孩子都需要一個相信他的大人", en:"Every kid needs a champion",
+       sum:"資深教師 Pierson 熱情地說：學習建立在關係上；每個孩子都需要一個「無論如何都相信他」的大人。",
+       why:"給老師與學生都暖心，談師生關係。",
+       q:[["Who has been a “champion” that believed in you?","誰曾經是那個相信你的大人？"],
+          ["How does liking a teacher change the way you learn?","喜歡一個老師，會怎麼影響你的學習？"]]},
+      {id:"eIho2S0ZahI", dur:"約 10 分", spk:"Julian Treasure", zh:"如何說話，讓別人想聽", en:"How to speak so that people want to listen",
+       sum:"Treasure 點出說話的壞習慣，並給出讓聲音更有力的技巧（HAIL：誠實、真誠、正直、善意）。",
+       why:"直接練口說與表達，呼應本站簡報技巧區。", link:["看本站簡報技巧","index.html#/present"],
+       q:[["Which speaking habit do you most want to fix?","你最想改掉哪個說話壞習慣？"],
+          ["Whose voice do you love listening to, and why?","你最喜歡聽誰說話？為什麼？"]]},
+      {id:"D9Ihs241zeg", dur:"約 19 分", spk:"Chimamanda Ngozi Adichie", zh:"單一故事的危險", en:"The danger of a single story",
+       sum:"小說家 Adichie 說明：當我們只聽到關於一個人或一個地方的「單一故事」，就會形成刻板印象；多元的故事才能看見完整的人。",
+       why:"文化思辨＋絕佳英文聆聽，適合進階。",
+       q:[["What “single story” do people have about where you're from?","別人對你的家鄉有什麼「單一故事」？"],
+          ["How can reading widely give you more than one story?","廣泛閱讀怎麼幫你看見不只一個故事？"]]}
+    ]
+  }
+];
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+document.getElementById("ted-root").innerHTML = TED_GROUPS.map(g=>`
+  <section class="grp">
+    <div class="grp-head"><span class="grp-num">${g.num}</span><h2>${g.title}</h2><p class="grp-sub">${g.sub}</p></div>
+    <div class="cards">
+      ${g.talks.map(t=>{
+        const yt="https://www.youtube.com/watch?v="+t.id;
+        return `<article class="tcard">
+          <button class="player" data-url="${yt}" aria-label="播放：${esc(t.zh)}" onclick="playTed(this,'${t.id}')">
+            <img src="https://i.ytimg.com/vi/${t.id}/hqdefault.jpg" alt="${esc(t.en)}" loading="lazy" width="480" height="360">
+            <span class="pbtn"></span><span class="dur">${t.dur}</span>
+          </button>
+          <div class="tbody">
+            <div class="spk">🎤 ${esc(t.spk)}<a class="yt" href="${yt}" target="_blank" rel="noopener">YouTube ↗</a></div>
+            <h3 class="ttitle">${esc(t.zh)}<span class="en">${esc(t.en)}</span></h3>
+            <p class="tsum">${esc(t.sum)}</p>
+            <p class="twhy"><b>為什麼看：</b>${esc(t.why)}</p>
+            ${t.link?`<p class="tlink">🔗 <a href="${t.link[1]}">${esc(t.link[0])} →</a></p>`:""}
+            <div class="qs">
+              <p class="qs-h">💬 討論問題 Discuss</p>
+              <ol>${t.q.map(q=>`<li>${esc(q[0])}<span class="z">${esc(q[1])}</span></li>`).join("")}</ol>
+            </div>
+          </div>
+        </article>`;
+      }).join("")}
+    </div>
+  </section>`).join("");
+
+function playTed(el,id){
+  el.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=zh-TW&hl=zh-TW" title="TED talk" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;fullscreen" allowfullscreen></iframe>`;
+  el.style.cursor="default";
+}
+</script>
+</body>
+</html>
