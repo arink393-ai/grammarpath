@@ -2282,6 +2282,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/participles">🧩 分詞 Participles</button>
   <button data-nav="#/clauses">📚 子句總覽 Clauses</button>
   <button data-nav="#/writing">✍️ 英文作文 Writing</button>
+  <button data-nav="#/exams">📑 範文・考試模板 Models</button>
   <button data-nav="#/nouns">🍎 可數不可數 Nouns</button>
   <button data-nav="#/games">🎮 遊戲 Games</button>
   <div class="nav-group">島上資源 Island</div>
@@ -2953,6 +2954,7 @@ async function route(){
   else if(h[0]==="participles") renderParticiples();
   else if(h[0]==="clauses") renderClauses();
   else if(h[0]==="writing") renderWriting();
+  else if(h[0]==="exams") renderExamWriting();
   else if(h[0]==="nouns") renderNouns();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
@@ -8201,6 +8203,7 @@ function renderWriting(){
 
       <p class="vf-sub" style="margin-top:12px"><b>閱卷拿分檢查：</b>☐ 切題　☐ 架構清楚（起承轉合）　☐ 至少用 2–3 個高級句型　☐ 轉承詞連貫　☐ 時態與主詞動詞一致　☐ 字數達標　☐ 拼字標點正確</p>
       <p class="vf-sub">想熟悉這些句型？看 <a href="#/clauses">子句總覽</a>、<a href="#/participles">分詞專區</a>、課程〈倒裝〉〈強調句〉。</p>
+      <div class="vf-xlink">📑 想看<b>各文體範文</b>與<b>多益／雅思／全民英檢／學測</b>的版型模板？到 <a href="#/exams">範文・考試模板</a>。</div>
     </div>
 
     <div class="vf-sec">
@@ -8463,6 +8466,124 @@ function printTemplatesSheet(){
   </div>
   <\/body><\/html>`;
   safeOpenPrintDoc(doc, "高分寫作模板");
+}
+
+/* =====================================================
+   範文與考試模板 Model Essays & Exam Templates（#/exams）
+   ===================================================== */
+const WR_MODELS = [
+  {k:"opinion", zh:"議論／意見文", en:"Opinion", topic:"Should students wear school uniforms?",
+   body:`<p><span class="ew-lab">Intro · 引言</span>Should students wear school uniforms? This has long been a debate. <b>In my opinion</b>, uniforms do more good than harm, for two reasons.</p>
+   <p><span class="ew-lab">Body 1</span><b>First</b>, uniforms save time and reduce pressure. Students no longer worry about what to wear, so they can focus on studying. <b>For example</b>, I used to spend ten minutes every morning choosing clothes.</p>
+   <p><span class="ew-lab">Body 2</span><b>Second</b>, uniforms create a sense of belonging. When everyone dresses the same, students feel equal, <b>which</b> reduces bullying based on clothes.</p>
+   <p><span class="ew-lab">Conclusion</span><b>To sum up, although</b> some say uniforms limit freedom, the benefits are greater. <b>Therefore</b>, I believe schools should keep the uniform policy.</p>`,
+   note:"🎯 高分點：立場明確、兩個理由各一段＋例子、讓步(although)後重申立場、首尾呼應。"},
+  {k:"narrative", zh:"記敘文", en:"Narrative", topic:"An experience I will never forget",
+   body:`<p><span class="ew-lab">開場 · Set the scene</span>An experience I will never forget happened last summer. One hot afternoon, my little brother suddenly fell into the river <b>while</b> we were fishing.</p>
+   <p><span class="ew-lab">經過 · Events</span><b>At first</b>, I was frozen with fear. <b>Then</b>, without thinking, I jumped in and pulled him to the bank. My heart was pounding as I helped him breathe.</p>
+   <p><span class="ew-lab">結果＋體悟 · Result & lesson</span><b>Luckily</b>, he was safe. <b>Since that day</b>, I have learned that courage means acting even when you are afraid. I will always remember how I found that courage.</p>`,
+   note:"🎯 高分點：時間順序詞(At first/Then/Luckily)、情緒與動作描寫、結尾有一句體悟。"},
+  {k:"description", zh:"描述文", en:"Description", topic:"My hometown",
+   body:`<p><span class="ew-lab">總述 · Overview</span>My hometown is a small town by the sea. It is not big, <b>but</b> it is full of life.</p>
+   <p><span class="ew-lab">細節 · Details (時間／五感)</span><b>In the morning</b>, fishermen bring in fresh fish, and the market is noisy and busy. <b>In the evening</b>, the sky turns orange, and families walk along the beach.</p>
+   <p><span class="ew-lab">收尾 · Feeling</span><b>What I love most</b> is the friendly people, <b>who</b> always greet you with a smile. To me, my hometown is the warmest place in the world.</p>`,
+   note:"🎯 高分點：先總述再細節、用時間/五感鋪陳、結尾用 What I love most 強調情感。"},
+  {k:"email", zh:"書信／Email", en:"Email", topic:"A thank-you email",
+   body:`<p><span class="ew-lab">稱呼 · Greeting</span>Dear Mr. Lin,</p>
+   <p><span class="ew-lab">主旨 · Purpose</span><b>I am writing to</b> thank you for your help with my science project last week. Your advice on the experiment was very useful, and my group finally won second prize.</p>
+   <p><span class="ew-lab">細節＋結尾 · Detail & close</span>I really appreciate the time you spent with us after class. I hope I can make you proud again in the future.</p>
+   <p><span class="ew-lab">敬語 · Sign-off</span>Yours sincerely,<br>Amy</p>`,
+   note:"🎯 高分點：Dear + 主旨句(I am writing to…) + 具體事項 + 禮貌結尾 + 敬語(Yours sincerely)。"},
+  {k:"compare", zh:"比較對照", en:"Compare & Contrast", topic:"City life vs. country life",
+   body:`<p><span class="ew-lab">總述 · Overview</span>City life and country life are very different. Each has its own advantages.</p>
+   <p><span class="ew-lab">對比 · Two sides</span><b>On the one hand</b>, cities are convenient, with many shops and jobs, <b>but</b> they are often crowded and noisy. <b>On the other hand</b>, the countryside is quiet and clean, <b>though</b> it has fewer services.</p>
+   <p><span class="ew-lab">結論 · Conclusion</span><b>In conclusion, while</b> the city is exciting, the countryside is peaceful. Which one is better depends on what you value most.</p>`,
+   note:"🎯 高分點：On the one hand…On the other hand… 對稱、讓步(but/though)、結論可中立或表態。"}
+];
+const WR_EXAMS = [
+  {k:"toeic", zh:"多益 TOEIC", en:"TOEIC Writing",
+   html:`<div class="ew-meta">8 題 · 約 60 分鐘 · 0–200 分</div>
+   <p><b>題型與模板</b></p>
+   <ul class="ew-ul">
+     <li><b>Q1–5 看圖造句</b>（用指定的兩個字描述圖）：<code>[主詞] + [be V-ing] + [地點/情境].</code> 例：<i>The man is waiting at the bus stop.</i></li>
+     <li><b>Q6–7 回覆 Email</b>（讀一封信並回覆 2–3 個要求）：<code>Thank you for your email about ___ . → 回答要求1 ___ , 要求2 ___ . → Please let me know if you have any questions.</code></li>
+     <li><b>Q8 意見申論</b>（約 300 字，30 分鐘）：<code>I agree / disagree that ___ for two reasons. First, ___ . For example, ___ . Second, ___ . In conclusion, ___ .</code></li>
+   </ul>
+   <p class="ew-tip">💡 Q1–5 用現在進行式描述動作；Q8 要分段、至少 300 字、每個理由都舉例。</p>`},
+  {k:"ielts", zh:"雅思 IELTS", en:"IELTS Writing",
+   html:`<div class="ew-meta">Task 1＋Task 2 · 60 分鐘 · Band 0–9（Task 2 佔 2/3）</div>
+   <ul class="ew-ul">
+     <li><b>Task 1（≥150 字，20 分鐘）</b><br>學術組＝描述圖表：<code>The chart shows ___ . Overall, ___ . In detail, ___ .</code>（介紹→總覽→重點，<b>不寫個人意見</b>）<br>一般組＝寫信：<code>Dear ___ , I am writing to ___ . （目的→細節→結尾）</code></li>
+     <li><b>Task 2（≥250 字，40 分鐘）意見／討論／問題解決文</b>：<code>Intro：改寫題目 + 主旨。 Body 1 ___ 。 Body 2 ___ 。 Conclusion：重述立場。</code></li>
+   </ul>
+   <p class="ew-tip">💡 題目要「改寫」不要照抄；用 cohesive devices（However, Furthermore…）；Task 2 分數較重，先寫。</p>`},
+  {k:"gept-i", zh:"全民英檢中級", en:"GEPT Intermediate",
+   html:`<div class="ew-meta">2 題 · 40 分鐘</div>
+   <ul class="ew-ul">
+     <li><b>第一題 中譯英</b>（一段中文約 5 句翻成英文）：逐句翻，注意<b>時態、單複數、連接詞</b>。</li>
+     <li><b>第二題 英文作文</b>（看圖或主題，約 80–120 字一段）：<code>主題句 → First, ___ . Second, ___ . For example, ___ . → Therefore, ___ .</code></li>
+   </ul>
+   <p class="ew-tip">💡 翻譯求「正確」，作文求「通順＋連貫」；一個段落講一個主題即可。</p>`},
+  {k:"gept-h", zh:"全民英檢中高級", en:"GEPT High-Int",
+   html:`<div class="ew-meta">2 題 · 50 分鐘</div>
+   <ul class="ew-ul">
+     <li><b>中譯英</b>（較長段落）：注意高級句型與正式用語。</li>
+     <li><b>英文作文</b>（議論／說明文，約 150–180 字，多段）：用<b>五段式</b>——引言(含主旨)＋2–3 段本文＋結論。</li>
+   </ul>
+   <p class="ew-tip">💡 需要清楚論點、至少 2–3 個高級句型（分詞構句、關係子句、倒裝）。可搭配「🖨 高分模板卡」。</p>`},
+  {k:"gsat", zh:"學測 GSAT", en:"GSAT 英文作文",
+   html:`<div class="ew-meta">2 篇（混合題） · 約 30–40 分鐘 · 每篇約 120–150 字</div>
+   <ul class="ew-ul">
+     <li><b>常見題型</b>：看圖寫作、圖表作文、主題寫作（常要求<b>分兩段</b>）。</li>
+     <li><b>兩段式模板</b>：<code>第一段 描述圖片／情境（人、事、時、地、物）。 第二段 你的看法／經驗／建議（I think ___ . / If I were ___ , I would ___ .）。</code></li>
+   </ul>
+   <p class="ew-tip">💡 緊扣提示問題、分兩段、首句點題；描述段用現在式，看法段可用 I think / In my opinion。</p>`}
+];
+let EXW = {g:"opinion", e:"toeic"};
+function exwPick(type,k){ if(type==="g") EXW.g=k; else EXW.e=k; renderExamWriting(); }
+function renderExamWriting(){
+  const g = WR_MODELS.find(x=>x.k===EXW.g)||WR_MODELS[0];
+  const e = WR_EXAMS.find(x=>x.k===EXW.e)||WR_EXAMS[0];
+  const gTabs = WR_MODELS.map(m=>`<button class="ew-tab ${m.k===EXW.g?'on':''}" onclick="exwPick('g','${m.k}')">${m.zh}<span>${m.en}</span></button>`).join("");
+  const eTabs = WR_EXAMS.map(m=>`<button class="ew-tab ${m.k===EXW.e?'on':''}" onclick="exwPick('e','${m.k}')">${m.zh}<span>${m.en}</span></button>`).join("");
+  app.innerHTML = `<div class="view verb-forms examwriting">
+    <style>
+    .examwriting .ew-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}
+    .examwriting .ew-tab{font:inherit;cursor:pointer;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 12px;color:var(--ink);font-weight:700;font-size:13.5px;line-height:1.1;text-align:center}
+    .examwriting .ew-tab span{display:block;font-weight:400;font-size:10.5px;color:var(--muted);margin-top:2px}
+    .examwriting .ew-tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+    .examwriting .ew-tab.on span{color:#e6f3f1}
+    .examwriting .ew-model{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+    .examwriting .ew-model p{margin:0 0 11px;font-size:14px;line-height:1.75;color:var(--ink)}
+    .examwriting .ew-model p:last-child{margin-bottom:0}
+    .examwriting .ew-model b{color:var(--navy)}
+    .examwriting .ew-lab{display:inline-block;font:700 11px var(--sans);color:#fff;background:var(--teal);border-radius:6px;padding:1px 7px;margin-right:7px;vertical-align:1px}
+    .examwriting .ew-topic{font-size:13px;color:var(--muted);margin:0 0 10px}
+    .examwriting .ew-meta{display:inline-block;font:700 12px var(--sans);color:var(--teal);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:4px 10px;margin-bottom:10px}
+    .examwriting .ew-exam{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13.5px;line-height:1.7}
+    .examwriting .ew-ul{margin:6px 0 0;padding-left:20px} .examwriting .ew-ul li{margin:7px 0;line-height:1.7}
+    .examwriting .ew-exam code{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px;display:inline-block;line-height:1.5}
+    .examwriting .ew-tip{margin:12px 0 0;font-size:13px;color:var(--body);background:var(--bg);border-radius:8px;padding:9px 12px}
+    </style>
+    <div class="crumb"><a href="#/home">Home</a> › <a href="#/writing">英文作文</a> › 範文・考試模板</div>
+    <div class="eyebrow" style="color:var(--teal)">Models & Exams · 範文與考試模板</div>
+    <h1 class="display">範文・考試模板<span class="zh-term-lg" style="color:var(--teal)">Models & Exams</span></h1>
+    <p class="lede">各<b>文體範文</b>（標好結構，看懂高分怎麼寫）＋ 各<b>考試版型模板</b>（多益、雅思、全民英檢、學測）。挑一個分頁看。</p>
+
+    <div class="vf-sec"><h2>📄 各文體範文 Model Essays</h2>
+      <div class="ew-tabs">${gTabs}</div>
+      <p class="ew-topic">題目 Topic：<b>${g.topic}</b></p>
+      <div class="ew-model">${g.body}</div>
+      <div class="vf-xlink">${g.note}</div>
+    </div>
+
+    <div class="vf-sec"><h2>📝 不同考試版型模板 Exam Templates</h2>
+      <div class="ew-tabs">${eTabs}</div>
+      <div class="ew-exam">${e.html}</div>
+      <p class="vf-sub" style="margin-top:12px">配合 <a href="#/writing">英文作文區</a> 的句型庫、高分模板與可列印稿卡一起用效果更好。</p>
+    </div>
+  </div>`;
+  window.scrollTo(0,0);
 }
 
 function renderTheoryList(){
