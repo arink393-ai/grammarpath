@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v226-prompt-wordbanks";
+const CACHE = "eci-v227-exam-align";
 const SHELL = [
   "./",
   "./index.html",

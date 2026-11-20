@@ -43,3 +43,29 @@
 - 挑「學生寫作、說話用得到」的片語：片語動詞、介系詞片語、轉折語、常用搭配詞、慣用語；不要挑冷僻的。
 - `m`：文章裡的實際寫法和原形不同時才填（如 p=`take part in`、m=`took part in`），建置會確認找得到；文章頁會用 m 在內文畫虛線、自動抓出原句。
 - `exzh` 預設隱藏，學生點「看翻譯」才出現——先讓學生自己理解例句。
+
+## 對齊會考／學測（2026-11-20 起）
+
+**A1–A2 ＝ 會考難度；B1–B2 ＝ 學測難度。** C1–C2 維持進階延伸。
+
+### 新文章的選題與篇幅
+- **長度**：A 級 **180–250 字**（會考長篇閱讀）、B 級 **300–380 字**（學測閱讀測驗）、C 級 380–480 字。
+- **文體要多樣**：
+  - 會考常見的**實用文本**：公告、廣告、海報、電子郵件、行程表、菜單、簡短圖表說明。每週至少 1 篇 A 級用這類格式寫，例如「博物館活動公告」「交換學生的 email」。
+  - 學測常見的**說明文**：科普、環境、健康、科技與社會議題；也要有**論說文**（正反意見、作者立場），這樣才能出作者態度和段落目的的題目。
+- **主題**：貼近台灣中學生生活與時事（校園、家庭、台灣在地議題、國際新聞、節慶文化）。避免太冷門、需要大量背景知識才讀得懂的題材。
+
+### 出題藍圖（每級 6 題）
+| 題號 | A 級（會考） | B 級（學測） |
+|---|---|---|
+| 1 | 主旨／最佳標題 What is the reading mainly about? | 主旨／最佳標題 Which is the best title for the passage? |
+| 2 | 綜合判斷 According to the reading, which is TRUE? | 細節 Which of the following is true according to the passage? |
+| 3 | 指涉 What does "it/they" in paragraph N refer to? **或** 順序 Which is the right order? | 段落目的 What is the purpose of paragraph N? **或** 作者態度 **或** 指涉 |
+| 4 | 字義 What does the word "___" mean here? | 字義 The word "___" in paragraph N is closest in meaning to ___. |
+| 5 | 推論 What can we learn from the reading? | 推論 What can be inferred from the passage? |
+| 6 | 素養（生活應用） | 素養（評估說法或證據） |
+
+- 題型標籤 `t` 用：`主旨` `細節` `指涉` `順序` `字義` `推論` `語氣` `篇章` `素養`（加英文），💡 技巧提示會自動對應。
+- 「which is TRUE」的四個選項要分別對應文章不同段落，錯的選項用：換掉數字或人名、說得太絕對、把因果顛倒。
+- B 級選項要**換句話說**（paraphrase），不要直接照抄原句；A 級可以較貼近原文用字。
+- 順序題：列出 (a)(b)(c) 三件事，選項是不同的排列順序。

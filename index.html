@@ -12818,7 +12818,7 @@ const RD_SKILLS = [
    one:"主旨要能涵蓋「整篇」，太窄（只講一個細節）或太廣（超出文章）都不對。",
    steps:["快速看每段第一句，和反覆出現的關鍵字。","注意作者在開頭提出的問題——全文常常就在回答它。","用一句話說：「這篇在講誰／什麼，重點是什麼？」","刪掉選項：只對應其中一段的細節、文章沒提的、說得太誇張的。"],
    ex:{id:"food-day-2026", lv:"b", quote:"why, on a planet that grows plenty, do so many still go hungry?", note:"作者在第一段就丟出問題，整篇都在回答它。「三分之一的食物被浪費」雖然是真的，但只是其中一個細節，不是主旨。"}},
-  {key:"detail", icon:"🔎", zh:"掃讀找細節", en:"Scan for Details", qt:"細節",
+  {key:"detail", icon:"🔎", zh:"掃讀找細節", en:"Scan for Details", qt:"細節", also:["順序"],
    one:"從題目抓關鍵字（數字、人名、日期），回到文章找到那一句再作答。",
    steps:["圈出題目的關鍵字：誰？何時？多少？","回文章「掃」：眼睛只找那個關鍵字或它的同義字。","找到後讀整句，確認數字和主詞對得上。","小心：文章裡常同時出現好幾個數字或人名。"],
    ex:{id:"norway-new-king", lv:"a", quote:"He was 89 years old. He was the king for 35 years.", note:"問「當了幾年國王」，答案是 35，不是 89。兩個數字都在同一段，只看到第一個數字就作答，正好掉進陷阱。"}},
@@ -12827,6 +12827,10 @@ const RD_SKILLS = [
    steps:["找「解釋」線索：破折號 —、逗號、which means、called、or。","找「例子」線索：such as、for example、like 後面列的東西。","找「對比」線索：but、however、unlike 前後意思相反。","拆字：認得的字首、字根、字尾（un-、re-、-able…）。","把猜的意思放回句子讀讀看，通不通？"],
    ex:{id:"armistice-day", lv:"b", quote:"leaders had signed an armistice — an agreement to stop fighting —", note:"破折號中間就是 armistice 的解釋：停戰協定。作者常常在難字後面直接附上說明。"},
    link:{href:"prefix-study.html", text:"練字首字根字尾 →"}},
+  {key:"ref", icon:"👉", zh:"指涉：它指的是誰？", en:"Reference Words", qt:"指涉",
+   one:"it、they、this、that、these 這些字指的是前面提過的東西；往前找，最近、而且意思說得通的那個名詞通常就是答案。",
+   steps:["圈出代名詞，往前一兩句找它可能指的名詞。","單複數要對：it／this 指單數，they／these 指複數。","把找到的名詞代回句子裡讀讀看，意思通不通？","this／that 有時指的是「前面整句話說的事」，不一定是單一名詞。"],
+   ex:{id:"carl-sagan", lv:"a", quote:"He also made a famous TV show called Cosmos. It helped millions of people learn about space.", note:"It 往前找：最近的單數名詞是 Cosmos（電視節目）。代回去讀：「《宇宙》幫助數百萬人認識太空」——說得通，所以 It = Cosmos。"}},
   {key:"infer", icon:"🕵️", zh:"推論", en:"Make Inferences", qt:"推論",
    one:"推論＝文章裡的證據＋合理的常識。答案文章沒直說，但一定找得到支持它的句子。",
    steps:["問：作者沒直接說，但從哪一句可以看出來？","找出那句「線索句」，把它和選項對照。","合理的推論不會超出文章：說得太絕對（always、all、never）的通常不對。","能指出證據，才算推論；只靠感覺就是猜。"],
@@ -12853,7 +12857,7 @@ const RD_SKILLS = [
    steps:["一句話摘要：誰／什麼 + 發生了什麼 + 為什麼重要。","3-2-1：寫下 3 件學到的事、2 個新字或片語、1 個還想問的問題。","連結自己：這讓我想到什麼經驗？台灣有類似的事嗎？","隔天不看文章，再說一次重點——說得出來才是真的吸收了。"],
    ex:{id:"water-week-2026", lv:"a", quote:"Every drop counts, and saving it is everyone's job.", note:"一句話摘要示範：「淡水很少又珍貴（什麼），二十億人沒有安全的水（為什麼重要），所以每個人都要節約用水。」"}}
 ];
-const RD_SKILL_BY_QT = Object.fromEntries(RD_SKILLS.filter(s=>s.qt).map(s=>[s.qt, s]));
+const RD_SKILL_BY_QT = Object.fromEntries(RD_SKILLS.filter(s=>s.qt).flatMap(s=>[s.qt, ...(s.also||[])].map(t=>[t, s])));
 function rdSkillOfQ(q){ return RD_SKILL_BY_QT[String(q.t||"").split(/\s/)[0]] || null; }
 function rdSkillsHomeHTML(){
   return `<section class="rd-skills" aria-labelledby="rdSkillsH">
@@ -12883,8 +12887,8 @@ function renderReadingSkills(key){
   app.innerHTML = `<div class="view rd-sk-view">
     <div class="crumb"><a href="#/reading">時事閱讀</a> › 閱讀技巧</div>
     <div class="eyebrow">Reading strategies · 閱讀技巧</div>
-    <h1 class="display">Read Smarter<span class="zh-term-lg">聰明讀的十個技巧</span></h1>
-    <p class="lede">好的讀者不是讀得比較快，而是<b>知道自己在找什麼</b>。下面十個技巧，前七個各對應一種測驗題型；做題時，題目旁的 <b>💡</b> 也會提醒你用哪個技巧。</p>
+    <h1 class="display">Read Smarter<span class="zh-term-lg">聰明讀的十一個技巧</span></h1>
+    <p class="lede">好的讀者不是讀得比較快，而是<b>知道自己在找什麼</b>。下面十一個技巧，前八個各對應一種測驗題型（題型參考會考與學測）；做題時，題目旁的 <b>💡</b> 也會提醒你用哪個技巧。</p>
     <nav class="rd-sk-nav" aria-label="技巧目錄">${RD_SKILLS.map(s=>`<a href="#/reading/skills/${s.key}" class="${sel===s?"on":""}">${s.icon} ${s.zh}</a>`).join("")}</nav>
     <div class="rd-sk-list">${RD_SKILLS.map(s=>rdSkillCardHTML(s, s===sel)).join("")}</div>
     <p class="rd-note">💡 建議每週專心練一、兩個技巧就好；讀完文章做測驗時，刻意用上它，比一次記住十個更有效。</p>
