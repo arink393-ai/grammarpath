@@ -626,14 +626,26 @@ function tcScopePicker(){
     }).join("");
     return `<details class="tc-pick-grp"><summary>📘 文法 ${esc(lv.name)}｜${esc(lv.zh)}</summary><div class="tc-pick-body">${units}</div></details>`;
   }).join("");
-  const rds = (typeof READINGS!=="undefined"?READINGS:[]).slice().sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
-  const readings = `<details class="tc-pick-grp"><summary>📰 閱讀文章（${rds.length}）</summary><div class="tc-pick-body">${rds.map(r=>cb("reading",r.id,r.topic,r.zh)).join("")}</div></details>`;
+  const RDS = typeof READINGS!=="undefined" ? READINGS : [];
+  const hasRd = typeof rdMonday==="function" && typeof rdTodayStr==="function";
+  const today = hasRd ? rdTodayStr() : "", thisMon = hasRd ? rdMonday(today) : "", thisSun = hasRd ? rdShift(thisMon,6) : "";
+  const rdDay = r => r.day || r.date || "";
+  const wdOf = d => (hasRd && /^\d{4}-\d{2}-\d{2}$/.test(d)) ? `${rdMD(d)}（${rdWdOf(d)}）` : "";
+  const isFeat = r => !!(hasRd && r.week && rdFeatMonday(r)===thisMon);
+  const isWeekDaily = r => hasRd && r.day && r.day>=thisMon && r.day<=thisSun;
+  const byDate = (a,b) => rdDay(b).localeCompare(rdDay(a));
+  const lab = r => (isFeat(r) ? "⭐ 本週重點｜" : r.week && !r.day ? `⭐ 重點 ${r.week}｜` : "") + (r.day ? wdOf(r.day)+(r.day===today?" 今天":r.day>today?" 預告":"")+" " : (r.date ? r.date.slice(5).replace("-","/")+" " : "")) + r.topic;
+  const wk = RDS.filter(r=>isFeat(r)||isWeekDaily(r)).sort((a,b)=>(isFeat(b)-isFeat(a))||rdDay(a).localeCompare(rdDay(b)));
+  const rest = RDS.filter(r=>!(isFeat(r)||isWeekDaily(r))).sort(byDate);
+  const rdRows = list => list.map(r=>cb("reading",r.id,lab(r),r.zh)).join("");
+  const readings = (wk.length ? `<details class="tc-pick-grp" open><summary>⭐ 本週閱讀（${rdMD(thisMon)}–${rdMD(thisSun)}・${wk.length} 篇）</summary><div class="tc-pick-body">${rdRows(wk)}</div></details>` : "")
+    + `<details class="tc-pick-grp"><summary>📰 其他閱讀文章（${rest.length}，依日期新到舊）</summary><div class="tc-pick-body">${rdRows(rest)}</div></details>`;
   const raLv = TC_FORM.raLv||"";
   const recs = `<details class="tc-pick-grp"><summary>🎤 跟讀錄音（指定文章錄音）</summary><div class="tc-pick-body">
     <div class="hw-row" style="margin:4px 0 8px"><label class="tc-inline">勾選時指定程度
       <select onchange="TC_FORM.raLv=this.value;tcRefreshDone()"><option value="" ${raLv===""?"selected":""}>不限（學生自選）</option>${Object.entries(RA_LV).map(([k,l])=>`<option value="${k}" ${raLv===k?"selected":""}>${l}</option>`).join("")}</select></label></div>
     <div class="tc-sub" style="margin-bottom:6px">學生的作業會出現「去錄音 →」，點了直接跳到那篇文章的錄音區，錄完交出就算完成。</div>
-    ${rds.map(r=>cb("readaloud",r.id,r.topic,r.zh)).join("")}</div></details>`;
+    ${[...wk,...rest].map(r=>cb("readaloud",r.id,lab(r),r.zh)).join("")}</div></details>`;
   const sts = typeof STORIES!=="undefined"?STORIES:[];
   const stories = `<details class="tc-pick-grp"><summary>📖 故事／寓言（${sts.length}）</summary><div class="tc-pick-body">${sts.map(s=>cb("story",s.id,s.title,s.category==="fable"?"寓言":"繪本")).join("")}</div></details>`;
   return lessons + readings + recs + stories;
