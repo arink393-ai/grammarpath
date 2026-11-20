@@ -2958,7 +2958,7 @@ async function route(){
   else if(h[0]==="verbforms") renderVerbForms();
   else if(h[0]==="participles") renderParticiples();
   else if(h[0]==="clauses") renderClauses();
-  else if(h[0]==="writing") renderWriting();
+  else if(h[0]==="writing") renderWriting(h);
   else if(h[0]==="exams") renderExamWriting();
   else if(h[0]==="nouns") renderNouns();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
@@ -8023,7 +8023,57 @@ const WRITING_PROMPTS = [
   ["🖼️","看圖寫作 Describe a picture","看一張圖，寫出看到的人、地點、動作。",["In the picture, I can see ___ .","They are ___ -ing.","It looks ___ ."]],
   ["💭","我的想法 My opinion","給一個簡單意見並說一個理由。",["I think ___ .","One reason is ___ .","So I ___ ."]]
 ];
-function renderWriting(){
+/* ---- 造句練習：老師指定單字／片語 → 分享連結／列印練習單 ---- */
+let WR_PRAC = [];
+function wrEnc(list){ try{ return btoa(unescape(encodeURIComponent(list.join("\n")))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""); }catch(e){ return ""; } }
+function wrDec(s){ try{ s=s.replace(/-/g,"+").replace(/_/g,"/"); return decodeURIComponent(escape(atob(s))).split(/\n+/).map(x=>x.trim()).filter(Boolean); }catch(e){ return []; } }
+function wrPracParse(raw){ return (raw||"").split(/[\n,，、;；]+/).map(s=>s.trim()).filter(Boolean).slice(0,40); }
+function wrEsc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function wrPracApply(){ const el=document.getElementById("wrPracIn"); if(!el) return; WR_PRAC=wrPracParse(el.value); wrPracRender(); if(WR_PRAC.length) try{toast("已套用 "+WR_PRAC.length+" 個，往下開始練習 ✍️");}catch(e){} }
+function wrPracRender(){
+  const out=document.getElementById("wrPracOut"); if(!out) return;
+  if(!WR_PRAC.length){ out.innerHTML=`<p class="wr-hint" style="margin:0">還沒有指定單字／片語。老師在上面輸入後按「套用」，或把分享連結傳給學生。</p>`; return; }
+  out.innerHTML = WR_PRAC.map((w,i)=>`<div class="wr-prac-item"><div class="wr-prac-w"><span class="wr-prac-n">${i+1}</span><b>${wrEsc(w)}</b></div>
+    <div class="wr-prac-task">① 用它造一個完整句子（主詞＋動詞）。　② 照 <i>What kind? · How? · Where? · When? · Why?</i> 擴寫。</div>
+    <textarea class="wr-prac-ta" rows="2" placeholder="在這裡試寫…（不會儲存）"></textarea></div>`).join("");
+}
+function wrPracShare(){
+  const el=document.getElementById("wrPracIn"); if(el) WR_PRAC=wrPracParse(el.value);
+  if(!WR_PRAC.length){ try{toast("先輸入要指定的單字或片語");}catch(e){} return; }
+  const link=location.origin+location.pathname+"#/writing/w/"+wrEnc(WR_PRAC);
+  const box=document.getElementById("wrPracLink");
+  if(box){ box.hidden=false; const inp=box.querySelector("input"); inp.value=link; inp.select(); }
+  try{ navigator.clipboard.writeText(link); toast("分享連結已複製，傳給學生就能練習 🔗"); }catch(e){ try{toast("連結已產生，請手動複製");}catch(_){ } }
+}
+function wrPracCopyLink(){ const inp=document.querySelector("#wrPracLink input"); if(!inp) return; inp.select(); try{ navigator.clipboard.writeText(inp.value); }catch(e){ try{document.execCommand("copy");}catch(_){ } } try{toast("已複製 🔗");}catch(e){} }
+function wrPracPrintCustom(){
+  const el=document.getElementById("wrPracIn"); if(el) WR_PRAC=wrPracParse(el.value);
+  const list=WR_PRAC.length?WR_PRAC:["（請先在作文區輸入指定單字／片語）"];
+  const rows=list.map((w,i)=>`<tr><td class="q">${i+1}. <b>${wrEsc(w)}</b></td><td class="lines" style="height:80px"></td></tr>`).join("");
+  const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>指定造句練習單 Sentence Practice</title>
+  <style>
+   *{box-sizing:border-box} body{font-family:Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:#000;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+   .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
+   .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
+   .sheet{background:#fff;max-width:770px;margin:16px auto;padding:38px 46px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+   h1{font-size:20px;margin:0 0 4px} .dn{display:flex;justify-content:space-between;font-size:13px;margin:0 0 10px}
+   .dn u{border-bottom:1px solid #000;min-width:120px;display:inline-block}
+   .guide{font-size:12px;color:#444;line-height:1.6;margin:0 0 10px}
+   table{border-collapse:collapse;width:100%;table-layout:fixed} td{border:1px solid #000;padding:7px 10px;font-size:13px;vertical-align:top}
+   td.q{width:30%;font-weight:600;background:#f1f7f5} .lines{background-image:repeating-linear-gradient(#fff 0 25px,#c9c9c9 25px 26px);background-position:0 6px}
+   @media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0} } @page{margin:1.2cm}
+  </style></head><body>
+  <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span style="opacity:.85;font-size:12px">指定單字／片語造句練習單</span></div>
+  <div class="sheet"><h1>造句練習　Sentence Practice</h1>
+    <div class="dn"><span>Date：<u></u></span><span>Name：<u></u></span></div>
+    <p class="guide">用每個指定的<b>單字／片語</b>造一個完整句子，再照 What kind? · How? · Where? · When? · Why? 把句子擴寫長一點。</p>
+    <table><colgroup><col style="width:30%"><col style="width:70%"></colgroup><thead><tr><td class="q">指定單字／片語</td><td>造句 → 擴寫</td></tr></thead><tbody>${rows}</tbody></table>
+  </div></body></html>`;
+  safeOpenPrintDoc(doc,"指定造句練習單");
+}
+function renderWriting(h){
+  const pw=(h&&h[1]==="w"&&h[2])?wrDec(h[2]):[]; WR_PRAC=pw.slice();
+  const pwText=pw.map(wrEsc).join("\n");
   const card=(emoji,zh,hint,starters)=>`<div class="wr-card"><div class="wr-card-h"><span class="wr-emoji">${emoji}</span><b>${zh}</b></div><p class="wr-hint">${hint}</p><ul class="wr-start">${starters.map(s=>`<li>${s}</li>`).join("")}</ul></div>`;
   app.innerHTML=`<div class="view verb-forms writing">
     <style>
@@ -8039,6 +8089,18 @@ function renderWriting(){
     .writing .wr-pic img,.writing .wr-pic svg{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
     .writing .wr-pic figcaption{padding:11px 14px;font-size:12.5px;line-height:1.7;color:var(--ink);border-top:1px solid var(--line)}
     .writing .wr-pic figcaption b{color:var(--teal)}
+    .writing .wr-prac{margin-top:16px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+    .writing .wr-prac-h{font:700 1rem var(--sans);color:var(--navy);margin-bottom:4px}
+    .writing #wrPracIn{width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:9px 11px;border:1.5px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);resize:vertical}
+    .writing .wr-prac-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .writing .wr-prac-link{display:flex;gap:8px;margin-top:10px}
+    .writing .wr-prac-link input{flex:1;min-width:0;font:inherit;font-size:12.5px;padding:7px 9px;border:1.5px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+    .writing .wr-prac-out{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+    .writing .wr-prac-item{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+    .writing .wr-prac-w{font-size:15px;color:var(--navy)} .writing .wr-prac-w b{color:var(--teal)}
+    .writing .wr-prac-n{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;background:var(--teal);color:#fff;border-radius:50%;font-size:12px;font-weight:700;margin-right:7px}
+    .writing .wr-prac-task{font-size:12.5px;color:var(--muted);margin:5px 0 7px;line-height:1.6}
+    .writing .wr-prac-ta{width:100%;box-sizing:border-box;font:inherit;font-size:13.5px;padding:7px 9px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);resize:vertical}
     @media(max-width:640px){.writing .wr-cards,.writing .wr-pics{grid-template-columns:1fr}}
     </style>
     <div class="crumb"><a href="#/home">Home</a> › 英文作文</div>
@@ -8067,6 +8129,18 @@ function renderWriting(){
           <tr><td class="b1">Why?</td><td>原因 because…</td><td>…in the park <b>because it loves to play</b>.</td></tr>
         </tbody></table></div>
       <div class="vf-xlink">✍️ 完整版：<b>Every morning, the little dog runs quickly in the park because it loves to play.</b></div>
+      <div class="wr-prac">
+        <div class="wr-prac-h">✏️ 造句練習（老師可指定單字／片語）</div>
+        <p class="vf-sub" style="margin:2px 0 8px">輸入這週閱讀的<b>單字</b>或<b>片語</b>（每行一個，或用逗號分隔），讓學生用它們造句、再擴寫。可<b>產生分享連結</b>傳給學生，或<b>列印練習單</b>。</p>
+        <textarea id="wrPracIn" rows="3" placeholder="例：&#10;enjoy&#10;make a decision&#10;be interested in&#10;environment">${pwText}</textarea>
+        <div class="wr-prac-btns">
+          <button class="btn btn-navy" onclick="wrPracApply()">套用 Apply</button>
+          <button class="btn btn-ghost" onclick="wrPracShare()">🔗 產生分享連結</button>
+          <button class="btn btn-ghost" onclick="wrPracPrintCustom()">🖨 列印練習單</button>
+        </div>
+        <div id="wrPracLink" class="wr-prac-link" hidden><input readonly onclick="this.select()"><button class="btn btn-ghost" onclick="wrPracCopyLink()">複製</button></div>
+        <div id="wrPracOut" class="wr-prac-out"></div>
+      </div>
     </div>
 
     <div class="vf-sec"><h2>③ 用連接詞把句子串起來</h2>
@@ -8218,6 +8292,7 @@ function renderWriting(){
       <div class="vf-print"><button class="btn btn-navy" onclick="printWritingSheet()">🖨 造句→擴寫稿</button> <button class="btn btn-navy" onclick="printParagraphSheet()">🖨 段落寫作稿</button> <button class="btn btn-navy" onclick="printEssaySheet()">🖨 五段式短文稿</button> <button class="btn btn-navy" onclick="printFramesSheet()">🖨 句型速查卡</button> <button class="btn btn-navy" onclick="printTemplatesSheet()">🖨 高分模板卡</button></div>
     </div>
   </div>`;
+  wrPracRender();
   window.scrollTo(0,0);
 }
 function printWritingSheet(){
