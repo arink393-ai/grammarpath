@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v221-hw-readings";
+const CACHE = "eci-v222-usage-robust";
 const SHELL = [
   "./",
   "./index.html",
@@ -82,7 +82,7 @@ const SHELL = [
   "./lesson-notes.js?v=20",
   "./homework.js?v=17",
   "./student-info.js?v=9",
-  "./usage.js?v=1",
+  "./usage.js?v=2",
   "./ving-game.js?v=1",
   "./offline-content.js?v=19",
   "./daily.js?v=18",

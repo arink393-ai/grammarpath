@@ -73,11 +73,12 @@
     const out = {};
     Object.entries((data && data.usage) || {}).forEach(([d, devs]) => {
       const t = out[d] = {s:0, n:0, f:null, l:null, k:{}};
-      Object.values(devs||{}).forEach(r => {
+      Object.values(devs && typeof devs === "object" ? devs : {}).forEach(r => {
+        if(!r || typeof r !== "object") return;   // 壞資料不要讓老師後台整頁掛掉
         t.s += r.s||0; t.n += r.n||0;
         if(r.f && (!t.f || r.f < t.f)) t.f = r.f;
         if(r.l && (!t.l || r.l > t.l)) t.l = r.l;
-        Object.entries(r.k||{}).forEach(([k,v]) => { t.k[k] = (t.k[k]||0) + v; });
+        Object.entries(r.k||{}).forEach(([k,v]) => { t.k[k] = (t.k[k]||0) + (+v||0); });
       });
     });
     return out;
@@ -91,7 +92,7 @@
     }
     return t;
   }
-  const asgSec = (data, aid) => Object.values(((data && data.usageAsg) || {})[aid] || {}).reduce((a,b)=>a+b, 0);
+  const asgSec = (data, aid) => Object.values(((data && data.usageAsg) || {})[aid] || {}).reduce((a,b)=>a+(+b||0), 0);
 
   /* ---------- 老師看的畫面 ---------- */
   const escDef = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
