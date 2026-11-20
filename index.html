@@ -10134,7 +10134,7 @@ function lessonVideoHTML(id){
 function startVideoQuiz(id){
   const l = lessonById(id), qs = VIDEO_QUIZ[id];
   if(!l || !qs){ location.hash = "#/lesson/" + id; return; }
-  Object.assign(S, {mode:"practice", videoQuiz:true, lessonId:id,
+  Object.assign(S, {mode:"practice", videoQuiz:true, lessonId:id, fromLesson:null,
     qs:shuffle(qs.map((q,qi)=>Object.assign({ref:"vq:"+id+":"+qi}, q))),
     i:0, right:0, results:[], listen:false, title:"影片練習 · "+l.title+"｜"+l.zh, timed:false});
   renderQuestion();
@@ -16976,7 +16976,7 @@ const S = {}; // current session
 function startPractice(id){
   const l = lessonById(id);
   if(!isTeacher() && unitLocked(unitOf(l))){ toast("先餵養解鎖這個單元 🥫"); location.hash = "#/level/" + unitOf(l).level; return; }
-  Object.assign(S, {mode:"practice", videoQuiz:false, lessonId:id, qs:shuffle(l.q.map((q,qi)=>Object.assign({ref:id+":"+qi}, q))), i:0, right:0, results:[], listen:false, title:"Practice · "+l.title+"｜"+l.zh, timed:false});
+  Object.assign(S, {mode:"practice", videoQuiz:false, lessonId:id, fromLesson:null, qs:shuffle(l.q.map((q,qi)=>Object.assign({ref:id+":"+qi}, q))), i:0, right:0, results:[], listen:false, title:"Practice · "+l.title+"｜"+l.zh, timed:false});
   renderQuestion();
 }
 function refQ(ref){
@@ -16989,14 +16989,15 @@ function startReview(){
   const qs = shuffle(refs.map(refQ).filter(Boolean)).slice(0,10);
   if(!qs.length){ toast("錯題本是空的 — 太棒了喵！🐾"); location.hash = "#/games"; return; }
   Object.assign(S, {mode:"game", type:"review", level:"all", listen:false, qs, i:0, right:0, results:[],
-    title:"Review 錯題複習", timed:false});
+    title:"Review 錯題複習", timed:false, videoQuiz:false, fromLesson:null});
   renderQuestion();
 }
 function replayMissed(){
   const missed = S.qs.filter((q,ix)=>S.results[ix]===false);
   if(!missed.length) return;
+  /* a retry started from a lesson still belongs to that lesson (back / next buttons, ✕) */
   Object.assign(S, {mode:"game", type:"review", level:"all", listen:false, qs:shuffle(missed), i:0, right:0, results:[],
-    title:"Missed questions ↻", timed:false});
+    title:"Missed questions ↻", timed:false, fromLesson: S.mode==="practice" ? S.lessonId : (S.fromLesson||null)});
   renderQuestion();
 }
 /* Timed challenge pool: multiple choice only (no typing against the clock).
@@ -17015,13 +17016,13 @@ function timedPool(level){
 function startGame(type, level){
   if(type==="review"){ startReview(); return; }
   if(type==="timed"){
-    Object.assign(S, {mode:"timed", type, level, qs:timedPool(level), i:0, right:0, results:[], listen:false, score:0, combo:0,
+    Object.assign(S, {mode:"timed", type, level, videoQuiz:false, fromLesson:null, qs:timedPool(level), i:0, right:0, results:[], listen:false, score:0, combo:0,
       title:"Timed challenge · "+(level==="all"?"我學過的 Learned":levelById(level).name), timed:true, timeLeft:60});
     renderQuestion(); startTimer();
   } else {
     const qs = poolFor(level, type).slice(0,10);
     const gname = GAME_TYPES.find(g=>g.id===type).name;
-    Object.assign(S, {mode:"game", type, level, qs, i:0, right:0, results:[],
+    Object.assign(S, {mode:"game", type, level, videoQuiz:false, fromLesson:null, qs, i:0, right:0, results:[],
       listen:(type==="listen"), title:gname+" · "+(level==="all"?"All levels":levelById(level).name), timed:false});
     renderQuestion();
   }
@@ -17184,7 +17185,8 @@ function answerSpot(ix){
   });
 }
 function quitSession(){ clearInterval(S.timer);
-  location.hash = S.mode==="practice" ? "#/lesson/"+S.lessonId : "#/games"; }
+  const lid = S.mode==="practice" ? S.lessonId : S.fromLesson;
+  location.hash = lid ? "#/lesson/"+lid : "#/games"; }
 
 /* =====================================================
    Results
@@ -17217,21 +17219,25 @@ function finishSession(){
   }
   if(xp>0) store.addXP(xp);
   const R = 56, C = 2*Math.PI*R;
-  const back = S.mode==="practice" ? `<button class="btn btn-ghost" onclick="location.hash='#/lesson/${S.lessonId}'">Back to lesson</button>`
-                                   : `<button class="btn btn-ghost" onclick="location.hash='#/games'">All games</button>`;
-  const again = (S.mode==="practice" && S.videoQuiz) ? `<button class="btn btn-primary" onclick="startVideoQuiz('${S.lessonId}')">Try again</button>`
-             : S.mode==="practice" ? `<button class="btn btn-primary" onclick="startPractice('${S.lessonId}')">Try again</button>`
+  /* the lesson this round belongs to — a lesson's practice, or a "missed questions" retry started from one */
+  const lid = S.mode==="practice" ? S.lessonId : S.fromLesson;
+  const back = lid ? `<button class="btn btn-ghost" onclick="location.hash='#/lesson/${lid}'">← 回到課程</button>`
+                   : `<button class="btn btn-ghost" onclick="location.hash='#/games'">All games</button>`;
+  const again = (lid && S.videoQuiz) ? `<button class="btn btn-primary" onclick="startVideoQuiz('${lid}')">Try again</button>`
+             : S.mode==="practice" ? `<button class="btn btn-primary" onclick="startPractice('${lid}')">Try again</button>`
+             : lid ? `<button class="btn btn-primary" onclick="startPractice('${lid}')">整課再練一次 ↻</button>`
              : S.mode==="timed" ? `<button class="btn btn-primary" onclick="startGame('timed','${S.level}')">Play again</button>`
                                 : `<button class="btn btn-primary" onclick="startGame('${S.type}','${S.level}')">Play again</button>`;
   const missedN = S.results.filter(r=>r===false).length;
   const missedBtn = (missedN>0 && S.mode!=="timed") ? `<button class="btn btn-navy" onclick="replayMissed()">Practice missed (${missedN}) ↻</button>` : "";
   let nextLesson = "";
-  if(S.mode==="practice" && !S.videoQuiz && pct>=70){
-    const idx = DATA.lessons.findIndex(l=>l.id===S.lessonId);
+  /* next lesson once this one is passed (this round ≥70%, or — for a retry — the lesson was already completed) */
+  if(lid && !S.videoQuiz && (S.mode==="practice" ? pct>=70 : store.data.completed[lid])){
+    const idx = DATA.lessons.findIndex(l=>l.id===lid);
     const nl = DATA.lessons[idx+1];
-    if(nl) nextLesson = `<button class="btn btn-navy" onclick="location.hash='#/lesson/${nl.id}'">Next: ${nl.title} →</button>`;
+    if(nl) nextLesson = `<button class="btn btn-navy" onclick="location.hash='#/lesson/${nl.id}'">${unitLocked(unitOf(nl))?"🔒 ":""}下一課：${nl.title} →</button>`;
   }
-  if(S.videoQuiz){ nextLesson = `<button class="btn btn-navy" onclick="location.hash='#/practice/${S.lessonId}'">開始文法練習 Lesson practice →</button>`; }
+  if(lid && S.videoQuiz){ nextLesson = `<button class="btn btn-navy" onclick="location.hash='#/practice/${lid}'">開始文法練習 Lesson practice →</button>`; }
   let unlockCard = "";
   if(S.newCat){
     const gi = DATA.lessons.findIndex(l=>l.id===S.lessonId), b = BREEDS[gi % BREEDS.length];
