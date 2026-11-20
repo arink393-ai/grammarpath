@@ -8016,12 +8016,26 @@ function saveMyProfile(){
    英文作文區 Writing（基礎造句→擴寫；指引＋題目庫＋可列印稿紙）
    ===================================================== */
 const WRITING_PROMPTS = [
-  ["🧒","介紹自己 Myself","寫 3–5 句介紹自己：名字、年齡、學校、喜歡的東西。",["My name is ___ .","I am ___ years old.","I like ___ because ___ ."]],
-  ["👨‍👩‍👧","我的家人 My family","介紹一位家人：是誰、長相或個性、你們會一起做什麼。",["This is my ___ .","He / She is ___ .","We often ___ together."]],
-  ["📅","我的一天 My day","用時間順序寫你平常的一天。",["In the morning, I ___ .","Then I ___ .","At night, I ___ ."]],
-  ["🍜","我最喜歡的… My favorite","選一樣最愛（食物／動物／地方），說為什麼。",["My favorite ___ is ___ .","It is ___ .","I like it because ___ ."]],
-  ["🖼️","看圖寫作 Describe a picture","看一張圖，寫出看到的人、地點、動作。",["In the picture, I can see ___ .","They are ___ -ing.","It looks ___ ."]],
-  ["💭","我的想法 My opinion","給一個簡單意見並說一個理由。",["I think ___ .","One reason is ___ .","So I ___ ."]]
+  ["🧒","介紹自己 Myself","寫 3–5 句介紹自己：名字、年齡、學校、喜歡的東西。",["My name is ___ .","I am ___ years old.","I like ___ because ___ ."],
+   [{g:"關於我 About me",w:"name 名字 · age 年齡 · grade 年級 · student 學生 · live in 住在 · class 班級"},
+    {g:"喜好／專長 Hobbies",w:"hobby 嗜好 · sport 運動 · music 音樂 · read 閱讀 · draw 畫畫 · play games 打電動 · good at 擅長 · favorite 最愛的"}]],
+  ["👨‍👩‍👧","我的家人 My family","介紹一位家人：是誰、長相或個性、你們會一起做什麼。",["This is my ___ .","He / She is ___ .","We often ___ together."],
+   [{g:"家人 Family",w:"father/dad 爸爸 · mother/mom 媽媽 · brother 哥哥／弟弟 · sister 姊姊／妹妹 · grandparents 祖父母"},
+    {g:"個性／一起做 Traits & activities",w:"kind 親切 · funny 幽默 · strict 嚴格 · tall 高 · cook 煮飯 · watch TV 看電視 · go hiking 健行 · play together 一起玩"}]],
+  ["📅","我的一天 My day","用時間順序寫你平常的一天，加上心情。",["In the morning, I ___ .","Then I ___ .","At night, I ___ ."],
+   [{g:"早上 Morning",w:"wake up 起床 · get up · brush my teeth 刷牙 · wash my face 洗臉 · eat breakfast 吃早餐 · go to school 上學"},
+    {g:"白天 Daytime",w:"have class 上課 · study 讀書 · have lunch 吃午餐 · do homework 寫功課 · play 玩"},
+    {g:"晚上 Night",w:"eat dinner 吃晚餐 · take a shower 洗澡 · watch TV · read a book 看書 · go to bed 睡覺"},
+    {g:"心情 Feelings",w:"happy 開心 · tired 累 · excited 興奮 · bored 無聊 · relaxed 放鬆 · busy 忙 · hungry 餓"}]],
+  ["🍜","我最喜歡的… My favorite","選一樣最愛（食物／動物／地方），說為什麼。",["My favorite ___ is ___ .","It is ___ .","I like it because ___ ."],
+   [{g:"食物 Food",w:"rice 飯 · noodles 麵 · pizza · chicken 雞肉 · fruit 水果 · ice cream 冰淇淋 · bubble tea 珍奶 · dumpling 水餃 · delicious 美味 · sweet 甜 · spicy 辣"},
+    {g:"動物 Animal",w:"dog 狗 · cat 貓 · rabbit 兔子 · panda 貓熊 · lion 獅子 · elephant 大象 · bird 鳥 · cute 可愛 · fast 快 · strong 強壯"},
+    {g:"地方 Place",w:"park 公園 · beach 海灘 · library 圖書館 · night market 夜市 · zoo 動物園 · home 家 · quiet 安靜 · beautiful 美麗 · fun 好玩"}]],
+  ["🖼️","看圖寫作 Describe a picture","看一張圖，寫出看到的人、地點、動作。",["In the picture, I can see ___ .","They are ___ -ing.","It looks ___ ."],
+   [{g:"人物 People",w:"boy 男孩 · girl 女孩 · man 男人 · woman 女人 · children 孩子們 · family 一家人"},
+    {g:"動作／天氣 Actions & weather",w:"playing 玩 · running 跑 · eating 吃 · sitting 坐 · smiling 微笑 · sunny 晴 · rainy 雨 · happy 開心 · There is / are …"}]],
+  ["💭","我的想法 My opinion","給一個簡單意見並說一個理由。",["I think ___ .","One reason is ___ .","So I ___ ."],
+   [{g:"表達意見 Opinion",w:"I think 我認為 · agree 同意 · disagree 不同意 · important 重要 · good · bad · because 因為 · reason 理由 · for example 例如"}]]
 ];
 /* ---- 造句練習：老師指定單字／片語 → 分享連結／列印練習單 ---- */
 let WR_PRAC = [];
@@ -8077,7 +8091,7 @@ function wrPracPrintCustom(){
 function renderWriting(h){
   const pw=(h&&h[1]==="w"&&h[2])?wrDec(h[2]):[]; WR_PRAC=pw.slice();
   const pwText=pw.map(wrEsc).join("\n");
-  const card=(emoji,zh,hint,starters)=>`<div class="wr-card"><div class="wr-card-h"><span class="wr-emoji">${emoji}</span><b>${zh}</b></div><p class="wr-hint">${hint}</p><ul class="wr-start">${starters.map(s=>`<li>${s}</li>`).join("")}</ul></div>`;
+  const card=(emoji,zh,hint,starters,bank)=>`<div class="wr-card"><div class="wr-card-h"><span class="wr-emoji">${emoji}</span><b>${zh}</b></div><p class="wr-hint">${hint}</p><ul class="wr-start">${starters.map(s=>`<li>${s}</li>`).join("")}</ul>${bank&&bank.length?`<div class="wr-bank"><div class="wr-bank-h">📚 可用單字 Word bank</div>${bank.map(b=>`<div class="wr-bank-g"><b>${b.g}</b>：${b.w}</div>`).join("")}</div>`:""}</div>`;
   app.innerHTML=`<div class="view verb-forms writing">
     <style>
     .writing .wr-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -8087,6 +8101,10 @@ function renderWriting(h){
     .writing .wr-hint{font-size:13px;color:var(--muted);margin:7px 0 8px;line-height:1.55}
     .writing .wr-start{margin:0;padding-left:18px}
     .writing .wr-start li{font-size:13px;line-height:1.95;color:var(--ink)}
+    .writing .wr-bank{margin-top:10px;border-top:1px dashed var(--line);padding-top:9px}
+    .writing .wr-bank-h{font-size:12px;font-weight:700;color:var(--teal);margin-bottom:4px}
+    .writing .wr-bank-g{font-size:12.5px;line-height:1.7;color:var(--ink);margin:2px 0}
+    .writing .wr-bank-g b{color:var(--navy)}
     .writing .wr-pics{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .writing .wr-pic{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper)}
     .writing .wr-pic img,.writing .wr-pic svg{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
@@ -8206,7 +8224,7 @@ function renderWriting(h){
 
     <div class="vf-sec"><h2>⑦ 題目庫 Prompts</h2>
       <p class="vf-sub">挑一個題目，用下面的句型起手式開始寫。</p>
-      <div class="wr-cards">${WRITING_PROMPTS.map(p=>card(p[0],p[1],p[2],p[3])).join("")}</div>
+      <div class="wr-cards">${WRITING_PROMPTS.map(p=>card(p[0],p[1],p[2],p[3],p[4])).join("")}</div>
     </div>
 
     <div class="vf-sec"><h2>⑧ 常用寫作句型庫 Sentence Frames</h2>

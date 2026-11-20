@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v225-words-to-sections";
+const CACHE = "eci-v226-prompt-wordbanks";
 const SHELL = [
   "./",
   "./index.html",
