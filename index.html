@@ -8031,6 +8031,9 @@ function wrPracParse(raw){ return (raw||"").split(/[\n,，、;；]+/).map(s=>s.t
 function wrEsc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function wrPracApply(){ const el=document.getElementById("wrPracIn"); if(!el) return; WR_PRAC=wrPracParse(el.value); wrPracRender(); if(WR_PRAC.length) try{toast("已套用 "+WR_PRAC.length+" 個，往下開始練習 ✍️");}catch(e){} }
 function wrPracRender(){
+  /* 指定字詞也接到 段落(④) 與 看圖寫作(⑨)：顯示字詞提醒 */
+  const chips = WR_PRAC.length ? `<div class="wr-words-h">✏️ 老師指定字詞（試著用進去）</div><div class="wr-words-chips">${WR_PRAC.map(w=>`<span>${wrEsc(w)}</span>`).join("")}</div>` : "";
+  ["wrWordsPara","wrWordsPic"].forEach(id=>{ const el=document.getElementById(id); if(el){ el.innerHTML=chips; el.hidden=!WR_PRAC.length; } });
   const out=document.getElementById("wrPracOut"); if(!out) return;
   if(!WR_PRAC.length){ out.innerHTML=`<p class="wr-hint" style="margin:0">還沒有指定單字／片語。老師在上面輸入後按「套用」，或把分享連結傳給學生。</p>`; return; }
   out.innerHTML = WR_PRAC.map((w,i)=>`<div class="wr-prac-item"><div class="wr-prac-w"><span class="wr-prac-n">${i+1}</span><b>${wrEsc(w)}</b></div>
@@ -8101,6 +8104,10 @@ function renderWriting(h){
     .writing .wr-prac-n{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;background:var(--teal);color:#fff;border-radius:50%;font-size:12px;font-weight:700;margin-right:7px}
     .writing .wr-prac-task{font-size:12.5px;color:var(--muted);margin:5px 0 7px;line-height:1.6}
     .writing .wr-prac-ta{width:100%;box-sizing:border-box;font:inherit;font-size:13.5px;padding:7px 9px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);resize:vertical}
+    .writing .wr-words{margin:10px 0 2px;background:var(--bg);border:1px dashed var(--teal);border-radius:10px;padding:9px 12px}
+    .writing .wr-words-h{font-size:12.5px;font-weight:700;color:var(--teal);margin-bottom:5px}
+    .writing .wr-words-chips{display:flex;flex-wrap:wrap;gap:6px}
+    .writing .wr-words-chips span{font-size:12.5px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--ink)}
     @media(max-width:640px){.writing .wr-cards,.writing .wr-pics{grid-template-columns:1fr}}
     </style>
     <div class="crumb"><a href="#/home">Home</a> › 英文作文</div>
@@ -8158,6 +8165,7 @@ function renderWriting(h){
 
     <div class="vf-sec"><h2>④ 段落寫作：主題句＋支持句＋結論句</h2>
       <p class="vf-sub">句子會寫了，就能組成「一段」。一段只講<b>一個主題</b>，由三種句子組成：</p>
+      <div id="wrWordsPara" class="wr-words" hidden></div>
       <div class="vf-tablewrap"><table class="vf-table">
         <thead><tr><th>部分</th><th>功能</th><th>句型起手式</th></tr></thead>
         <tbody>
@@ -8220,6 +8228,7 @@ function renderWriting(h){
 
     <div class="vf-sec"><h2>⑨ 看圖寫作 Picture Writing</h2>
       <p class="vf-sub">看圖，照「人‧地點‧動作‧天氣‧感受」寫 4–6 句。先說看到什麼，再說他們在做什麼。</p>
+      <div id="wrWordsPic" class="wr-words" hidden></div>
       <div class="wr-pics">
         <figure class="wr-pic">
           <img src="art/writing/park.jpg" alt="A person flying a kite in a grassy park with trees." loading="lazy" width="500" height="333">
@@ -8375,6 +8384,7 @@ function printParagraphSheet(){
     <h1>段落寫作規劃　Plan a Paragraph</h1>
     <div class="dn"><span>Date：<u></u></span><span>Name：<u></u></span></div>
     <p class="guide">一段只講<b>一個主題</b>。先在這頁規劃，再到第二頁寫成完整段落。句型起手式：主題句 My favorite … is … ／支持句 First, … · For example, … · Also, … ／結論句 So, … · That's why …</p>
+    ${WR_PRAC.length?`<p class="guide" style="border:1px dashed #1f7a6e;border-radius:8px;padding:6px 10px"><b>✏️ 指定字詞（試著用進段落）：</b>${WR_PRAC.map(wrEsc).join(" · ")}</p>`:""}
     <table>
       <tr><td class="q">主題 Topic（這段要講什麼？）</td><td class="lines" style="height:40px"></td></tr>
       <tr><td class="q">🟦 主題句 Topic sentence</td><td class="lines" style="height:58px"></td></tr>
