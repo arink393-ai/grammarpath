@@ -237,7 +237,11 @@ async function renderHomework(){
   app.innerHTML = `<div class="view"><p class="tc-loading">載入作業中… Loading…</p></div>`;
   let assignments=[], subs=[];
   try{ [assignments, subs] = await Promise.all([CLOUD.listAssignments(), CLOUD.mySubmissions()]); }
-  catch(e){ app.innerHTML = `<div class="view"><p>載入失敗，請重新整理。 Could not load. ${esc(e.message||"")}</p></div>`; return; }
+  catch(e){ app.innerHTML = `<div class="view"><div class="card" style="max-width:560px;margin:30px auto;text-align:center;padding:24px">
+    <p style="font-size:1.05rem">😿 作業暫時載不出來</p>
+    <p style="color:var(--muted);line-height:1.6">可能是網路不穩，或登入太久已過期。<br>請先按「再試一次」；還是不行就到右上角 👤 登出後再登入。<br>Couldn't load your homework — check the internet or log in again.</p>
+    <p><button class="btn btn-primary" onclick="renderHomework()">🔄 再試一次 Try again</button></p>
+    <p style="color:var(--muted);font-size:12px">${esc(e.message||"")}</p></div></div>`; return; }
   if(!/^#\/homework/.test(location.hash)) return;
   HW_LAST = assignments;
   HW_SUBBED = new Set(subs.filter(s=>s.assignment_id).map(s=>s.assignment_id));

@@ -139,6 +139,9 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .lr-title{font:600 15px var(--sans);color:var(--navy)}
 .lr-sub{font:400 12.5px var(--sans);color:var(--muted)}
 .zh-term{display:inline-block;font:500 12px var(--sans);color:var(--teal);background:var(--teal-bg);border:1px solid var(--teal-line);border-radius:99px;padding:1.5px 9px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+/* weekly-qa 2026-11-20：長的中文標籤在手機上可換行，避免單元列表橫向溢出 */
+.lesson-row>span:nth-child(2){flex:1;min-width:0}
+.lesson-row .zh-term{white-space:normal}
 /* ---- Island home hero ---- */
 .island-hero{border:1.5px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);background:#FCE9D8}
 .isl{display:block;width:100%;height:auto}
@@ -1363,6 +1366,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .xw-cl-group li b{color:var(--navy)}
 .xw-zh{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
 @media(max-width:720px){.xw-wrap{grid-template-columns:1fr}.xw-cell{width:46px;height:46px}.xw-in{font-size:21px}}
+/* weekly-qa 2026-11-20：手機上依欄數縮小格子，整張填字格放得進螢幕 */
+@media(max-width:720px){.xw-gridwrap{min-width:0;max-width:100%}.xw-cell{width:min(46px,calc((100vw - 44px)/var(--xw-cols,7) - 4px));height:min(46px,calc((100vw - 44px)/var(--xw-cols,7) - 4px))}.xw-in{font-size:min(21px,calc((100vw - 44px)/var(--xw-cols,7) * .5))}}
 
 /* ---------- word guess (Wordle-style) 猜字 ---------- */
 .wd-view{max-width:520px;margin:0 auto}
@@ -2354,7 +2359,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="word-checkin.js?v=1"></script>
 <script src="curriculum-loader.js?v=14"></script>
 <script src="lesson-notes.js?v=20"></script>
-<script src="homework.js?v=17"></script>
+<script src="homework.js?v=18"></script>
 <script src="student-info.js?v=9"></script>
 <script src="usage.js?v=2"></script>
 <script src="ving-game.js?v=1"></script>
@@ -16703,7 +16708,7 @@ function paintCrossword(p){
     return `<div class="xw-cell">${badge}<input class="xw-in" maxlength="1" data-sol="${ch}" autocapitalize="characters" oninput="xwInput(this)" onkeydown="xwKey(event,this)"></div>`;
   }).join("")+`</div>`).join("");
   const clueList=(arr)=>arr.map(e=>`<li><b>${e.num}.</b> ${e.clue}${(e.sub||e.zh)?`<span class="xw-zh">${e.sub||e.zh}</span>`:""}</li>`).join("");
-  const gridEl=document.getElementById("xwGrid"); if(gridEl) gridEl.innerHTML=grid;
+  const gridEl=document.getElementById("xwGrid"); if(gridEl){ gridEl.innerHTML=grid; gridEl.style.setProperty("--xw-cols", Math.max(1,...p.rows.map(r=>r.length))); }
   const acEl=document.getElementById("xwAcross"); if(acEl) acEl.innerHTML=clueList(p.across);
   const dnEl=document.getElementById("xwDown"); if(dnEl) dnEl.innerHTML=clueList(p.down);
   const msg=document.getElementById("xwMsg"); if(msg){ msg.textContent=""; msg.className="xw-msg"; }
