@@ -69,3 +69,18 @@
 - 「which is TRUE」的四個選項要分別對應文章不同段落，錯的選項用：換掉數字或人名、說得太絕對、把因果顛倒。
 - B 級選項要**換句話說**（paraphrase），不要直接照抄原句；A 級可以較貼近原文用字。
 - 順序題：列出 (a)(b)(c) 三件事，選項是不同的排列順序。
+
+## 🧠 理論與效應 Ideas & Theories（2026-11-21 起）
+
+- `cat: "ideas"`、`tag: "Ideas 理論"`。分類頁 `#/reading/topic/ideas`。
+- **排程**：每週固定一篇放進每日閱讀——**每週三**（給 `day`）。不綁日期的常駐文章只給 `date`（不放 `day`／`week`），放在 `date` 月份的檔案。
+- **範圍**：心理效應、思考陷阱／邏輯、學習與動機、科學與社會。
+- **已寫（勿重複）**：barnum-effect、placebo-effect、confirmation-bias、sunk-cost-fallacy、forgetting-curve、maslow-hierarchy、butterfly-effect、tragedy-of-the-commons。
+- **候選題目**：比馬龍效應、旁觀者效應、達克效應、單純曝光效應、月暈效應、倖存者偏差、奧坎剃刀、可得性捷思、錨定效應、成長型思維、心流、一萬小時法則（含爭議）、墨菲定律、破窗理論（含爭議）、馬太效應、霍桑效應、帕金森定律、帕雷托法則（80/20）、古德哈特定律、史翠珊效應。
+- **寫法**：
+  - A：用生活例子講清楚概念，再加一個經典實驗。
+  - B：加入研究細節和限制。
+  - C：加入批評、修正與爭議。
+  - 寫出研究者與年份，不確定的數字不要寫；有爭議的理論要把爭議寫進去。
+  - 素養題讓學生把理論套到生活，或判斷某個說法是否站得住。
+- **圖示**：`RD_ART` 已有 crystal、pill、magnifier、ticket、curve、pyramid、butterfly、field，可重用或新增。
