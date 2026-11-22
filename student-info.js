@@ -145,7 +145,7 @@ function tcStudentsBody(_visible, progById){
       <td>${s.grade?esc(s.grade):`<span class="tc-sub">—</span>`}</td>
       <td>${esc(s.school||"")}${s.class_name?`<div class="tc-sub">${esc(s.class_name)} 班</div>`:""}</td>
       <td>${esc(s.schedule||"")}</td>
-      <td class="num">${g?`<button class="si-progbtn ${SI_OPEN.has(x.uid)?"on":""}" onclick="siToggleProg('${x.uid}')" title="展開看做完哪些單元">${g.completed_count||0} <span class="si-caret">▸</span></button>`:"—"}</td><td class="num">${g?(g.xp||0):"—"}</td><td>${last}</td><td class="num">${g&&window.Usage?`<span title="近 30 天 ${esc(Usage.fmt(Usage.sumDays(g.data,30).s))}">${esc(Usage.fmt(Usage.sumDays(g.data,7).s))}</span>`:"—"}</td>
+      <td class="num">${g?`<button class="si-progbtn ${SI_OPEN.has(x.uid)?"on":""}" onclick="siToggleProg('${x.uid}')" title="展開看做完哪些單元">${Number(g.completed_count)||0} <span class="si-caret">▸</span></button>`:"—"}</td><td class="num">${g?(g.xp||0):"—"}</td><td>${last}</td><td class="num">${g&&window.Usage?`<span title="近 30 天 ${esc(Usage.fmt(Usage.sumDays(g.data,30).s))}">${esc(Usage.fmt(Usage.sumDays(g.data,7).s))}</span>`:"—"}</td>
       <td>${consentCell}</td>
       <td><div class="si-rowact"><button class="btn btn-ghost" onclick="${btn}">${x.kind==="rec"?"✏️ 資料／綁定":"✏️ 資料"}</button>${siRowDelBtns(x)}</div></td></tr>`
       + (x.kind==="acct" && SI_OPEN.has(x.uid) ? `<tr class="si-prog-row"><td colspan="10">${siProgressPanel((g&&g.data)||{})}</td></tr>` : "");

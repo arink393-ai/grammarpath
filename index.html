@@ -1190,6 +1190,13 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .cs-zh{color:var(--teal);font-size:12px}
 .cs-form{font:500 12.5px var(--mono);color:var(--navy);width:30%}
 .cs-ex b{color:var(--teal)}
+@media screen and (max-width:640px){
+  .cs-table,.cs-table tbody{display:block}
+  .cs-table tr{display:grid;grid-template-columns:38px minmax(0,1fr);border-bottom:1px solid var(--line)}
+  .cs-table td{border:0;padding:7px 10px;min-width:0;overflow-wrap:anywhere}
+  .cs-table td.cs-form,.cs-table td.cs-ex{grid-column:1/-1;width:auto;padding-top:0}
+  .cs-table td.cs-form{padding-left:48px}.cs-table td.cs-ex{padding-left:48px;padding-bottom:10px}
+}
 
 @media print{
   *, *::before, *::after{
@@ -2360,7 +2367,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="curriculum-loader.js?v=14"></script>
 <script src="lesson-notes.js?v=20"></script>
 <script src="homework.js?v=18"></script>
-<script src="student-info.js?v=9"></script>
+<script src="student-info.js?v=10"></script>
 <script src="usage.js?v=2"></script>
 <script src="ving-game.js?v=1"></script>
 <script src="offline-content.js?v=19"></script>
@@ -2651,7 +2658,8 @@ const CLOUD = {
   },
 
   /* ---- homework (student) ---- */
-  async listAssignments(){ const { data } = await SB.from("assignments").select("*").order("created_at",{ascending:false}); return data||[]; },
+  async listAssignments(){ const { data } = await SB.from("assignments").select("*").order("created_at",{ascending:false});
+    return (data||[]).map(a=>({...a, scope:(Array.isArray(a.scope)?a.scope:[]).filter(it=>it&&typeof it==="object"&&it.t)})); },   // 壞掉的範圍項目（null 等）先濾掉，避免作業頁整頁當掉
   async mySubmissions(){ const { data } = await SB.from("submissions").select("*").eq("user_id", this.user.id); return data||[]; },
   async submitHomework(assignmentId, { text, link, file }){
     let payload = { assignment_id:assignmentId, user_id:this.user.id, text:text||null, link:link||null, status:"submitted", submitted_at:new Date().toISOString() };
