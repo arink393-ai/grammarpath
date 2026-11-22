@@ -1,10 +1,8 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v253-merged";
+const CACHE = "eci-v254-writing-submit";
 const SHELL = [
   "./",
   "./index.html",
-  "./exams.html",
-  "./ted.html",
   "./art/cat-dex/meme-cats-atlas.png",
   "./art/cat-dex/meme-cats-atlas-2.png",
   "./art/cat-dex/meme-cats-atlas-3.png",
@@ -82,7 +80,7 @@ const SHELL = [
   "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=14",
   "./lesson-notes.js?v=20",
-  "./homework.js?v=18",
+  "./homework.js?v=19",
   "./student-info.js?v=10",
   "./usage.js?v=2",
   "./ving-game.js?v=1",

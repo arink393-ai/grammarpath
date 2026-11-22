@@ -224,6 +224,7 @@ function hwSourceLabel(s, short){
     const asg = !short && src.assignment && ((typeof HW_LAST!=="undefined"&&HW_LAST||[]).concat((typeof TDATA!=="undefined"&&TDATA&&TDATA.assignments)||[])).find(x=>x.id===src.assignment);
     return `🎤 跟讀：${esc((r&&r.topic)||src.title||"閱讀文章")}${src.level?`（${esc(String(src.level).toUpperCase())}）`:""}${asg?`<span class="tc-sub">　📝 作業：${esc(asg.title)}</span>`:""}`;
   }
+  if(s.kind==="writing"){ const t=((src.title||"")+"").trim(); return "✍️ 作文"+(t?"："+esc(t):""); }
   return "🎙️ 自主錄音";
 }
 
