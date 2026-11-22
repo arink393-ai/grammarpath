@@ -15,6 +15,7 @@
   Then from the site folder:
     node tools/gen_audio.mjs            # only new / changed articles
     node tools/gen_audio.mjs --force    # re-render everything
+    node tools/gen_audio.mjs --cat=ideas  # only one category (others untouched)
 
   Config via env: KOKORO_URL (default http://localhost:8880), VOICE (default af_heart).
 */
@@ -31,6 +32,8 @@ const VOICE    = process.env.VOICE || "af_heart";
 const FORCE    = process.argv.includes("--force");
 const SPEED    = { a: 0.82, b: 0.90, c: 0.96 };   // beginners a little slower
 const LEVELS   = ["a", "b", "c"];
+// --cat=ideas  只錄這個分類的文章（其他文章不錄，但已存在的音檔仍會留在 RD_AUDIO 清單裡）
+const ONLY_CAT = (process.argv.find(a => a.startsWith("--cat=")) || "").slice(6) || null;
 
 // --- pull the `const READINGS = [ ... ];` array literal out of the HTML ---
 function extractArrayLiteral(src, marker) {
@@ -97,6 +100,10 @@ async function main() {
       const abs = path.join(ROOT, rel);
       const sig = crypto.createHash("sha256").update(VOICE + "|" + speed + "|" + text).digest("hex");
 
+      if (ONLY_CAT && (r.cat || "news") !== ONLY_CAT) {
+        if (fs.existsSync(abs)) { manifest[r.id] = manifest[r.id] || {}; manifest[r.id][lvl] = rel; }
+        continue;
+      }
       manifest[r.id] = manifest[r.id] || {};
       manifest[r.id][lvl] = rel;
 
