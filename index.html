@@ -5177,7 +5177,7 @@ STORIES.push.apply(STORIES, FABLES);
 /* Original storybook illustrations: cover and matching paragraph scenes. */
 function fableIllustration(story, panel){
   const label = panel === 0 ? story.zh : `${story.zh} · 第 ${panel} 段插圖`;
-  return `<span class="fable-illustration" role="img" aria-label="${label}" style="background-image:url('art/fables/${story.id}.png');background-position:${panel%2*100}% ${Math.floor(panel/2)*100}%"></span>`;
+  return `<span class="fable-illustration" role="img" aria-label="${label}" style="background-image:url('art/fables/${story.id}.webp');background-position:${panel%2*100}% ${Math.floor(panel/2)*100}%"></span>`;
 }
 const FABLE_ART = Object.fromEntries(FABLES.map(s=>[s.id,fableIllustration(s,0)]));
 const FABLE_SCENE_ART = Object.fromEntries(FABLES.map(s=>[s.id,s.scenes.map((_,i)=>fableIllustration(s,i+1))]));
