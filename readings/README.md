@@ -75,12 +75,13 @@
 - `cat: "ideas"`、`tag: "Ideas 理論"`。分類頁 `#/reading/topic/ideas`。
 - **排程**：每週固定一篇放進每日閱讀——**每週三**（給 `day`）。不綁日期的常駐文章只給 `date`（不放 `day`／`week`），放在 `date` 月份的檔案。
 - **範圍**：心理效應、思考陷阱／邏輯、學習與動機、科學與社會。
-- **已寫（勿重複）**：barnum-effect、placebo-effect、confirmation-bias、sunk-cost-fallacy、forgetting-curve、maslow-hierarchy、butterfly-effect、tragedy-of-the-commons、halo-effect、pygmalion-effect、survivorship-bias、anchoring-effect、growth-mindset、flow、pareto-principle、goodharts-law。新增後請把 id 補進這一行。
-- **候選題目**：旁觀者效應、達克效應、單純曝光效應、奧坎剃刀、可得性捷思、一萬小時法則（含爭議）、墨菲定律、破窗理論（含爭議）、馬太效應、霍桑效應（含爭議）、帕金森定律、史翠珊效應、框架效應、損失規避、從眾效應（Asch）、認知失調、棉花糖實驗（含爭議）、蔡格尼克效應、聚光燈效應、IKEA 效應。
+- **已寫（勿重複）**：barnum-effect、placebo-effect、confirmation-bias、sunk-cost-fallacy、forgetting-curve、maslow-hierarchy、butterfly-effect、tragedy-of-the-commons、halo-effect、pygmalion-effect、survivorship-bias、anchoring-effect、growth-mindset、flow、pareto-principle、goodharts-law、spotlight-effect、mere-exposure-effect、availability-heuristic、occams-razor、marshmallow-test、zeigarnik-effect、asch-conformity、matthew-effect。新增後請把 id 補進這一行。
+- **候選題目**：旁觀者效應、達克效應、一萬小時法則（含爭議）、墨菲定律、破窗理論（含爭議）、霍桑效應（含爭議）、帕金森定律、史翠珊效應、框架效應、損失規避、認知失調、IKEA 效應、基本歸因謬誤、後見之明偏誤、賭徒謬誤、虛假共識效應、社會惰化、鳥籠效應、刻板印象威脅（含爭議）、心理抗拒。
 - **寫法**：
   - A：用生活例子講清楚概念，再加一個經典實驗。
   - B：加入研究細節和限制。
   - C：加入批評、修正與爭議。
   - 寫出研究者與年份，不確定的數字不要寫；有爭議的理論要把爭議寫進去。
   - 素養題讓學生把理論套到生活，或判斷某個說法是否站得住。
-- **圖示**：`RD_ART` 已有 crystal、pill、magnifier、ticket、curve、pyramid、butterfly、field、halo、plane、anchor、sprout、pie、target，可重用或新增。
+- **語音**：常駐的 ideas 文章用 `node tools/gen_audio.mjs --cat=ideas` 只錄這個分類（不會動到其他文章）。
+- **圖示**：`RD_ART` 已有 crystal、pill、magnifier、ticket、curve、pyramid、butterfly、field、halo、plane、anchor、sprout、pie、target、spotlight、note、razor、marshmallow、checklist、lines、snowball，可重用或新增。
