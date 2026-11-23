@@ -2295,6 +2295,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/clauses">📚 子句總覽 Clauses</button>
   <button data-nav="#/writing">✍️ 英文作文 Writing</button>
   <button data-nav="#/exams">📑 範文・考試模板 Models</button>
+  <button data-nav="#/speaking">🎤 口說練習 Speaking</button>
   <button data-nav="#/nouns">🍎 可數不可數 Nouns</button>
   <button data-nav="#/games">🎮 遊戲 Games</button>
   <div class="nav-group">島上資源 Island</div>
@@ -2969,6 +2970,7 @@ async function route(){
   else if(h[0]==="clauses") renderClauses();
   else if(h[0]==="writing") renderWriting(h);
   else if(h[0]==="exams") renderExamWriting();
+  else if(h[0]==="speaking") renderSpeaking();
   else if(h[0]==="nouns") renderNouns();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
@@ -8739,6 +8741,76 @@ const WR_EXAMS = [
 ];
 let EXW = {g:"narrative", q:"picture", e:"gsat"};
 function exwPick(type,k){ EXW[type]=k; renderExamWriting(); }
+/* =====================================================
+   口說練習 Speaking（錄音→交給老師；沿用 homework.js 的錄音元件）
+   ===================================================== */
+const SPK_PROMPTS = [
+  ["🧒","自我介紹 Introduce yourself","用英文說 30–60 秒：名字、年齡、興趣、喜歡的科目。","Hi, my name is… · I am … years old. · I like… · My favorite subject is…"],
+  ["📅","我的一天 Your day","說說你平常的一天（早上→白天→晚上），加上心情。","In the morning… · Then… · At night… · I feel…"],
+  ["🍜","我最喜歡的 Favorite","選一樣最愛（食物／動物／地方），說為什麼。","My favorite … is … · I like it because…"],
+  ["💭","表達意見 Opinion","回答：Do you like studying at home? Why or why not?","I think… · because… · For example…"],
+  ["📖","朗讀練習 Read aloud","清楚念出：Every morning, the little dog runs quickly in the park because it loves to play.","注意句子重音、連音、句尾下降 ↓"],
+  ["🖼️","看圖說話 Describe","打開「看圖寫作」的照片，用英文描述你看到的人、地點、動作。","In the picture, I can see… · They are …-ing. · It looks…"]
+];
+let SPK_CUR="";
+function spkPick(t){ SPK_CUR=t; const el=document.getElementById("spkTitle"); if(el) el.value=t; const box=document.getElementById("spkBox"); if(box) box.scrollIntoView({behavior:"smooth",block:"center"}); try{ toast("已選題目，往下錄音 🎤"); }catch(e){} }
+async function spkSubmit(){
+  const msg=document.getElementById("spkMsg");
+  const show=(t,ok)=>{ if(msg){ msg.hidden=false; msg.textContent=t; msg.style.color=ok?"var(--teal)":"#c0392b"; } };
+  if(typeof HWREC!=="undefined" && HWREC.speak && HWREC.speak.state==="rec"){ show("請先按 ⏹ 停止錄音。",false); return; }
+  const file = (typeof hwRecFile==="function") ? hwRecFile("speak","speaking") : null;
+  if(!file){ show("⚠️ 請先按「🎤 直接錄音」錄一段聲音。",false); return; }
+  if(typeof CLOUD==="undefined" || !CLOUD.on || !CLOUD.user || typeof HWAPI==="undefined"){ show("⚠️ 請先登入帳號才能繳交錄音。",false); try{ openAuthModal(); }catch(e){} return; }
+  const title=((document.getElementById("spkTitle")?.value)||SPK_CUR||"").trim();
+  const btn=document.querySelector('button[onclick="spkSubmit()"]'); if(btn){ btn.disabled=true; btn.textContent="上傳中…"; }
+  try{
+    const r=await HWAPI.submitFree({ kind:"recording", source:{ title:title||null, speaking:true }, text:"🎤 口說："+(title||"自由口說"), file });
+    if(r&&r.ok){ show("✅ 錄音已交給老師！老師聽完會在「📝 作業繳交」給回饋。",true); if(typeof hwRecClear==="function") hwRecClear("speak"); try{ toast("口說錄音已交出 🐾"); }catch(e){} }
+    else { show("❌ 繳交失敗："+((r&&r.err)||"請稍後再試"),false); }
+  }catch(e){ show("❌ 繳交失敗："+String(e),false); }
+  if(btn){ btn.disabled=false; btn.textContent="📤 交給老師 Submit"; }
+}
+function renderSpeaking(){
+  if(typeof hwRecClear==="function") hwRecClear("speak");
+  const card=(p)=>`<button class="spk-card" onclick="spkPick('${p[1].replace(/'/g,"\\'")}')"><span class="spk-emoji">${p[0]}</span><span class="spk-body"><b>${p[1]}</b><span class="spk-task">${p[2]}</span><span class="spk-start">💬 ${p[3]}</span></span></button>`;
+  const recUI = (typeof hwRecSupported==="function" && hwRecSupported()) ? (typeof hwRecHTML==="function"?hwRecHTML("speak"):"") : `<p class="vf-sub">這個瀏覽器不支援錄音，請用 Chrome／Safari 最新版，並允許麥克風權限。</p>`;
+  app.innerHTML=`<div class="view verb-forms speaking2">
+    <style>
+    .speaking2 .spk-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .speaking2 .spk-card{display:flex;gap:10px;text-align:left;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:13px 15px;cursor:pointer;font:inherit;color:var(--ink);transition:border-color .12s,transform .12s}
+    .speaking2 .spk-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+    .speaking2 .spk-emoji{font-size:22px;flex:none}
+    .speaking2 .spk-body{display:flex;flex-direction:column;gap:3px;min-width:0}
+    .speaking2 .spk-body b{color:var(--navy);font-size:14px}
+    .speaking2 .spk-task{font-size:12.5px;color:var(--muted);line-height:1.55}
+    .speaking2 .spk-start{font-size:12px;color:var(--teal);line-height:1.5;margin-top:2px}
+    .speaking2 .spk-box{margin-top:4px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:15px 16px}
+    .speaking2 #spkTitle{width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:9px 11px;border:1.5px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);margin-bottom:10px}
+    .speaking2 .spk-rec{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    @media(max-width:640px){.speaking2 .spk-cards{grid-template-columns:1fr}}
+    </style>
+    <div class="crumb"><a href="#/home">Home</a> › 口說練習</div>
+    <div class="eyebrow" style="color:var(--teal)">Speaking · 口說練習</div>
+    <h1 class="display">口說練習<span class="zh-term-lg" style="color:var(--teal)">Speaking</span></h1>
+    <p class="lede">挑一個題目，<b>開口說</b>，按「🎤 直接錄音」錄一段，再<b>交給老師</b>。老師會聽完在「📝 作業繳交」給你回饋。需先<b>登入帳號</b>。</p>
+
+    <div class="vf-sec"><h2>🗣️ 題目庫 Prompts</h2>
+      <p class="vf-sub">點一個題目會自動帶到下方錄音區；也可以自己打題目。</p>
+      <div class="spk-cards">${SPK_PROMPTS.map(card).join("")}</div>
+    </div>
+
+    <div class="vf-sec" id="spkBox"><h2>🎤 錄音繳交 Record & Submit</h2>
+      <div class="spk-box">
+        <input id="spkTitle" placeholder="題目／內容（會一起交給老師），例如：自我介紹">
+        <div class="spk-rec"><div id="hwrec-speak">${recUI}</div></div>
+        <div class="wr-prac-btns" style="margin-top:12px"><button class="btn btn-navy" onclick="spkSubmit()">📤 交給老師 Submit</button> <a class="btn btn-ghost" href="#/homework">查看老師回饋 →</a></div>
+        <p id="spkMsg" class="vf-sub" style="margin-top:8px" hidden></p>
+      </div>
+    </div>
+    <div class="vf-xlink">🎧 想念課文？「📰 每週閱讀」文章裡的「🎤 跟讀錄音」也會交到同一個地方給老師。</div>
+  </div>`;
+  window.scrollTo(0,0);
+}
 function renderExamWriting(){
   const g = WR_MODELS.find(x=>x.k===EXW.g)||WR_MODELS[0];
   const q = WR_QTYPES.find(x=>x.k===EXW.q)||WR_QTYPES[0];
