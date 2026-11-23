@@ -2294,6 +2294,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
   <button data-nav="#/participles">🧩 分詞 Participles</button>
   <button data-nav="#/clauses">📚 子句總覽 Clauses</button>
   <button data-nav="#/writing">✍️ 英文作文 Writing</button>
+  <button data-nav="#/grammar">🔎 文法檢查 Grammar</button>
   <button data-nav="#/exams">📑 範文・考試模板 Models</button>
   <button data-nav="#/speaking">🎤 口說練習 Speaking</button>
   <button data-nav="#/nouns">🍎 可數不可數 Nouns</button>
@@ -2971,6 +2972,7 @@ async function route(){
   else if(h[0]==="writing") renderWriting(h);
   else if(h[0]==="exams") renderExamWriting();
   else if(h[0]==="speaking") renderSpeaking();
+  else if(h[0]==="grammar") renderGrammar();
   else if(h[0]==="nouns") renderNouns();
   else if(h[0]==="theory" && h[1]) renderTheory(h[1]);
   else if(h[0]==="theory") renderTheoryList();
@@ -8347,7 +8349,8 @@ function renderWriting(h){
     <div class="vf-sec"><h2>📤 繳交作文給老師批改 Submit for feedback</h2>
       ${guest?`<p class="vf-sub"><b>登入帳號</b>後，就能在這裡把作文交給老師批改、看回饋與分數。</p><button class="btn btn-navy" onclick="try{openAuthModal()}catch(e){}">登入 / 註冊</button>`:`<p class="vf-sub">寫好一篇就貼到這裡交給老師。老師會在<b>「📝 作業繳交」</b>後台批改、給分數與回饋；你之後到作業頁就能看到。需先<b>登入帳號</b>。</p>
       <input id="wrSubTitle" class="wr-sub-title" placeholder="標題／題目（選填），例如：My favorite food">
-      <textarea id="wrSubText" class="wr-sub-text" rows="7" placeholder="把你的作文貼上來或直接打在這裡…"></textarea>
+      <textarea id="wrSubText" class="wr-sub-text" rows="7" placeholder="把你的作文貼上來或直接打在這裡…" oninput="gcLive(this,'wrSubGC')"></textarea>
+      <div id="wrSubGC" class="gc-live"></div>
       <div class="wr-prac-btns"><button class="btn btn-navy" onclick="wrSubmitWriting()">📤 繳交 Submit</button> <a class="btn btn-ghost" href="#/homework">查看老師回饋 →</a></div>
       <p id="wrSubMsg" class="vf-sub" style="margin-top:8px" hidden></p>`}
     </div>
@@ -8741,6 +8744,107 @@ const WR_EXAMS = [
 ];
 let EXW = {g:"narrative", q:"picture", e:"gsat"};
 function exwPick(type,k){ EXW[type]=k; renderExamWriting(); }
+
+/* =====================================================
+   文法檢查 Grammar Check（離線規則式；抓台灣學生常見錯誤，即時提示）
+   ===================================================== */
+const GC = (function(){
+  const MISSPELL = {becuase:"because",beacuse:"because",becasue:"because",recieve:"receive",definately:"definitely",definatly:"definitely",seperate:"separate",tommorow:"tomorrow",tomorow:"tomorrow",freind:"friend",wich:"which",thier:"their",untill:"until",occured:"occurred",teh:"the",adn:"and",taht:"that",waht:"what",hte:"the",beutiful:"beautiful",beatiful:"beautiful",realy:"really",enviroment:"environment",goverment:"government",alot:"a lot",didnt:"didn't",dont:"don't",doesnt:"doesn't",cant:"can't",wont:"won't",isnt:"isn't",arent:"aren't",wasnt:"wasn't",werent:"weren't",havent:"haven't",hasnt:"hasn't",wouldnt:"wouldn't",couldnt:"couldn't",shouldnt:"shouldn't",im:"I'm",ive:"I've",youre:"you're",theyre:"they're",thats:"that's",whats:"what's"};
+  const BASE = ["go","eat","play","like","want","have","do","make","take","see","come","run","walk","read","write","study","work","watch","help","love","need","get","give","say","talk","sleep","sing","dance","swim","jump","look","feel","think","know","live","speak","listen","buy","cook","clean","open","close","start","finish","use","call","ask","try","wait","stop","drink","learn","teach","wash","fix","enjoy","meet","leave","bring","put","keep","begin","win","lose","sit","stand","fall","fly","draw","ride","drive","wear","cry","smile","worry","carry","hurry","visit","travel","move","stay","turn","grow","show","tell","hope","plan"];
+  const BASE_SET = new Set(BASE);
+  const PLURAL_SET = new Set(["books","friends","people","things","students","apples","cars","dogs","cats","toys","words","boys","girls","teachers","children","ideas","questions","photos","songs","games","shoes","classes","hours","days","years"]);
+  const UNCOUNT_SET = new Set(["water","money","time","rice","milk","bread","homework","information","music","food","fun","work","news","advice","weather","sugar","salt","tea","coffee","paper","air","love","help"]);
+  const CONS_SOUND = new Set(["university","unicorn","unique","european","one","once","uniform","useful","user","unit","used","euro","ukulele","utah"]);
+  const VOWEL_SOUND_H = new Set(["hour","honest","honor","honour","heir","hourly","honestly"]);
+  function thirdPerson(v){ const irr={have:"has",do:"does",go:"goes",be:"is"}; if(irr[v])return irr[v]; if(/(s|sh|ch|x|z|o)$/.test(v))return v+"es"; if(/[^aeiou]y$/.test(v))return v.slice(0,-1)+"ies"; return v+"s"; }
+  function vingForm(v){ if(/ie$/.test(v))return v.slice(0,-2)+"ying"; if(/[^aeiou]e$/.test(v)&&v!=="be")return v.slice(0,-1)+"ing"; return v+"ing"; }
+  function shouldBeAn(w){ const lw=w.toLowerCase(); if(CONS_SOUND.has(lw))return false; if(VOWEL_SOUND_H.has(lw))return true; return /^[aeiou]/.test(lw); }
+  function check(text){
+    const issues=[]; if(!text) return issues;
+    const add=(i,j,sev,msg,fix)=>{ issues.push({i,j,sev,msg,fix,snip:text.slice(i,j)}); };
+    let m;
+    const reWord=/[A-Za-z']+/g;
+    while((m=reWord.exec(text))){ const w=m[0], lw=w.toLowerCase(); if(MISSPELL[lw]){ let fix=MISSPELL[lw]; if(/^[A-Z]/.test(w)) fix=fix.charAt(0).toUpperCase()+fix.slice(1); add(m.index,m.index+w.length,"err","拼字／縮寫可能有誤：「"+w+"」",fix); } }
+    const reI=/\bi\b/g; while((m=reI.exec(text))){ add(m.index,m.index+1,"err","英文的「我」要用大寫 I","I"); }
+    const reArt=/\b(a|an)\s+([A-Za-z]{2,})/gi; while((m=reArt.exec(text))){ const art=m[1], word=m[2], an=shouldBeAn(word); if(art.toLowerCase()==="a" && an){ add(m.index,m.index+1,"err","母音開頭的字前面用 an：「"+art+" "+word+"」","an"); } else if(art.toLowerCase()==="an" && !an){ add(m.index,m.index+2,"err","子音開頭的字前面用 a：「"+art+" "+word+"」","a"); } }
+    const reBe=/\b(am|is|are|was|were)\s+([a-z]+)\b/gi; while((m=reBe.exec(text))){ const v=m[2].toLowerCase(); if(BASE_SET.has(v)){ const vi=m.index+m[0].length-m[2].length; add(vi,vi+m[2].length,"err","be 動詞後面動詞要用進行式 (-ing)，或拿掉 be 動詞：「"+m[1]+" "+m[2]+"」",vingForm(v)); } }
+    const re3=/\b(he|she|it)\s+([a-z]+)\b/gi; while((m=re3.exec(text))){ const v=m[2].toLowerCase(); if(BASE_SET.has(v)){ const vi=m.index+m[0].length-m[2].length; add(vi,vi+m[2].length,"err","主詞是 "+m[1]+"（第三人稱單數），動詞要加 s：「"+m[1]+" "+m[2]+"」",thirdPerson(v)); } }
+    const reDont=/\b(he|she|it)\s+do\s*n['’]?t\b/gi; while((m=reDont.exec(text))){ add(m.index,m.index+m[0].length,"err","第三人稱單數否定要用 doesn't：「"+m[0]+"」",m[1]+" doesn't"); }
+    const reThere=/\bthere\s+is\s+(many|some|several|two|three|four|five|six|seven|eight|nine|ten|a lot of|lots of|\d+)\b/gi; while((m=reThere.exec(text))){ const cap=/[A-Z]/.test(text[m.index]); add(m.index,m.index+8,"err","後面是複數，要用 there are：「"+m[0]+"」",(cap?"There":"there")+" are"); }
+    const reThere2=/\bthere\s+are\s+(a|an|one)\b/gi; while((m=reThere2.exec(text))){ const cap=/[A-Z]/.test(text[m.index]); add(m.index,m.index+9,"err","後面是單數，要用 there is：「"+m[0]+"」",(cap?"There":"there")+" is"); }
+    const reMuch=/\bmuch\s+([a-z]+)\b/gi; while((m=reMuch.exec(text))){ if(PLURAL_SET.has(m[1].toLowerCase())){ add(m.index,m.index+4,"err","可數複數用 many：「"+m[0]+"」","many"); } }
+    const reMany=/\bmany\s+([a-z]+)\b/gi; while((m=reMany.exec(text))){ if(UNCOUNT_SET.has(m[1].toLowerCase())){ add(m.index,m.index+4,"err","不可數名詞用 much：「"+m[0]+"」","much"); } }
+    const reDup=/\b(\w+)(\s+)(\1)\b/gi; while((m=reDup.exec(text))){ const i=m.index+m[1].length+m[2].length; add(i,i+m[3].length,"warn","重複的字：「"+m[1]+" "+m[3]+"」",""); }
+    const reSp=/ {2,}/g; while((m=reSp.exec(text))){ add(m.index,m.index+m[0].length,"warn","多餘的空格"," "); }
+    const rePsp=/\s+([,.!?;:])/g; while((m=rePsp.exec(text))){ add(m.index,m.index+m[0].length,"warn","標點符號前不要空格",m[1]); }
+    const reCm=/,([A-Za-z])/g; while((m=reCm.exec(text))){ add(m.index,m.index+m[0].length,"warn","逗號後要空一格",", "+m[1]); }
+    const reCap=/(^|[.!?]\s+)([a-z])/g; while((m=reCap.exec(text))){ const ci=m.index+m[0].length-1; if(!issues.some(x=>x.i===ci && x.sev==="err")) add(ci,ci+1,"warn","句首字母要大寫",text[ci].toUpperCase()); }
+    const trimmed=text.trim(); if(trimmed.length>=15 && !/[.!?]["'\)\]]?$/.test(trimmed)){ add(text.length,text.length,"warn","句子結尾別忘了標點（. ? !）",""); }
+    return issues.sort((a,b)=>a.i-b.i || a.j-b.j);
+  }
+  function autofix(text){
+    const issues=check(text).filter(x=>x.fix!==undefined && x.fix!=="" && x.j>x.i);
+    issues.sort((a,b)=>b.i-a.i); let used=Infinity, out=text;
+    for(const it of issues){ if(it.j>used) continue; out=out.slice(0,it.i)+it.fix+out.slice(it.j); used=it.i; }
+    return out;
+  }
+  return { check, autofix };
+})();
+let GC_T=null;
+function gcLive(ta, panelId){ clearTimeout(GC_T); GC_T=setTimeout(()=>{ const p=document.getElementById(panelId); if(p) gcRenderPanel(p, ta.value, ta.id); }, 350); }
+function gcCSSInject(){ if(document.getElementById("gcCSS"))return; const s=document.createElement("style"); s.id="gcCSS"; s.textContent=".gc-live{margin-top:10px}.gc-head{font-size:13px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.gc-ok{color:#2a8f66}.gc-count{background:rgba(190,80,90,.12);color:#b24a57;border-radius:999px;padding:1px 9px;font-size:12px}.gc-count.warn{background:rgba(224,150,40,.16);color:#b9771a}.gc-list{display:flex;flex-direction:column;gap:7px}.gc-item{display:flex;gap:9px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:9px;padding:8px 11px;font-size:13px;line-height:1.55}.gc-item.err{border-left-color:#d66}.gc-item.warn{border-left-color:#e0a73c}.gc-dot{font-size:13px;flex:none;margin-top:1px}.gc-msg{color:var(--ink)}.gc-fix{color:#2a8f66;font-weight:600}.gc-note{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.5}.gc-fixbtn{margin-top:9px}"; document.head.appendChild(s); }
+function gcRenderPanel(p, text, taId){
+  gcCSSInject();
+  if(!text || !text.trim()){ p.innerHTML=""; return; }
+  const issues=GC.check(text);
+  if(!issues.length){ p.innerHTML='<div class="gc-head gc-ok">✅ 沒有發現明顯的問題（還是自己再讀一次喔）</div>'; return; }
+  const errs=issues.filter(x=>x.sev==="err").length, warns=issues.length-errs;
+  const canFix=issues.some(x=>x.fix!==undefined && x.fix!=="");
+  const items=issues.map(it=>{
+    const dot=it.sev==="err"?"🔴":"🟡";
+    const fix=(it.fix && it.fix.trim())?' → <span class="gc-fix">'+esc(it.fix.trim())+'</span>':"";
+    return '<div class="gc-item '+it.sev+'"><span class="gc-dot">'+dot+'</span><span class="gc-msg">'+esc(it.msg)+fix+'</span></div>';
+  }).join("");
+  p.innerHTML='<div class="gc-head">發現 '+(errs?'<span class="gc-count">'+errs+' 個可能錯誤</span>':"")+(warns?'<span class="gc-count warn">'+warns+' 個提醒</span>':"")+'</div><div class="gc-list">'+items+'</div>'+(canFix&&taId?'<button class="btn btn-ghost gc-fixbtn" onclick="gcAutofix(\''+taId+'\',\''+p.id+'\')">✨ 一鍵自動修正可修正的項目</button>':"")+'<p class="gc-note">這是離線規則式檢查，會抓常見錯誤，但不保證抓到全部，也可能偶爾誤判；最後請自己或老師再確認一次。</p>';
+}
+function gcAutofix(taId, panelId){ const ta=document.getElementById(taId); if(!ta)return; ta.value=GC.autofix(ta.value); const p=document.getElementById(panelId); if(p) gcRenderPanel(p, ta.value, taId); try{ toast("已套用可自動修正的項目 ✨"); }catch(e){} }
+function gcDemo(){ const t=document.getElementById("gcIn"); if(!t)return; t.value="i went to the park yesterday.  my freind and me plays basketball. There is many dog there. She have a apple and he go home"; gcLive(t,"gcPanel"); }
+function gcClearIn(){ const t=document.getElementById("gcIn"); if(!t)return; t.value=""; gcLive(t,"gcPanel"); }
+function renderGrammar(){
+  app.innerHTML=`<div class="view verb-forms grammar2">
+    <style>
+    .grammar2 .gc-ta{width:100%;box-sizing:border-box;font:inherit;font-size:14px;line-height:1.7;padding:12px 13px;border:1.5px solid var(--line);border-radius:11px;background:var(--paper);color:var(--ink);resize:vertical;min-height:150px}
+    .grammar2 .gc-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .grammar2 .gc-what{margin:6px 0 0;padding-left:20px;line-height:1.9;font-size:13.5px;color:var(--ink)}
+    </style>
+    <div class="crumb"><a href="#/home">Home</a> › 文法檢查</div>
+    <div class="eyebrow" style="color:var(--teal)">Grammar Check · 文法檢查</div>
+    <h1 class="display">文法檢查<span class="zh-term-lg" style="color:var(--teal)">Grammar Check</span></h1>
+    <p class="lede">把你的英文句子或段落貼上來，系統會<b>即時</b>幫你找出常見錯誤（大小寫、a/an、be 動詞、第三人稱單數、標點…），你可以<b>注意並修正</b>後再交給老師。</p>
+    <div class="vf-sec">
+      <textarea id="gcIn" class="gc-ta" placeholder="在這裡輸入英文…例如：I like to play basketball with my friends." oninput="gcLive(this,'gcPanel')"></textarea>
+      <div class="gc-tools">
+        <button class="btn btn-ghost" onclick="gcDemo()">👀 看範例</button>
+        <button class="btn btn-ghost" onclick="gcClearIn()">🧹 清除</button>
+      </div>
+      <div id="gcPanel" class="gc-live"></div>
+    </div>
+    <div class="vf-sec"><h2>🔎 會檢查哪些常見錯誤？</h2>
+      <ul class="gc-what">
+        <li>句首字母大小寫、英文「我」要大寫 I</li>
+        <li>a / an 用法（a apple → an apple）</li>
+        <li>be 動詞 + 動詞（I am go → I am going）</li>
+        <li>第三人稱單數加 s（He like → He likes）</li>
+        <li>there is / are、much / many 搭配</li>
+        <li>常見拼字與縮寫漏撇號（dont → don't）</li>
+        <li>標點、空格、重複字</li>
+      </ul>
+      <p class="vf-sub">⚠️ 這是離線的規則式檢查，不是完整 AI，會抓常見錯誤但不保證全部；最後請自己或老師再確認一次。</p>
+    </div>
+    <div class="vf-xlink">✍️ 想交作文？到「✍️ 英文作文」頁，繳交框下方也會即時幫你檢查。</div>
+  </div>`;
+  window.scrollTo(0,0);
+}
 /* =====================================================
    口說練習 Speaking（錄音→交給老師；沿用 homework.js 的錄音元件）
    ===================================================== */
