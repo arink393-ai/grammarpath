@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v261-sinek-more";
+const CACHE = "eci-v262-speaking-levels";
 const SHELL = [
   "./",
   "./index.html",

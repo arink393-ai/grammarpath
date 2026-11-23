@@ -8745,12 +8745,25 @@ function exwPick(type,k){ EXW[type]=k; renderExamWriting(); }
    口說練習 Speaking（錄音→交給老師；沿用 homework.js 的錄音元件）
    ===================================================== */
 const SPK_PROMPTS = [
-  ["🧒","自我介紹 Introduce yourself","用英文說 30–60 秒：名字、年齡、興趣、喜歡的科目。","Hi, my name is… · I am … years old. · I like… · My favorite subject is…"],
-  ["📅","我的一天 Your day","說說你平常的一天（早上→白天→晚上），加上心情。","In the morning… · Then… · At night… · I feel…"],
-  ["🍜","我最喜歡的 Favorite","選一樣最愛（食物／動物／地方），說為什麼。","My favorite … is … · I like it because…"],
-  ["💭","表達意見 Opinion","回答：Do you like studying at home? Why or why not?","I think… · because… · For example…"],
-  ["📖","朗讀練習 Read aloud","清楚念出：Every morning, the little dog runs quickly in the park because it loves to play.","注意句子重音、連音、句尾下降 ↓"],
-  ["🖼️","看圖說話 Describe","打開「看圖寫作」的照片，用英文描述你看到的人、地點、動作。","In the picture, I can see… · They are …-ing. · It looks…"]
+  /* 🌱 初級 Beginner — 單句、熟悉主題、有明確句型可套 */
+  ["🧒","自我介紹 Introduce yourself","用英文說 30–60 秒：名字、年齡、興趣、喜歡的科目。","Hi, my name is… · I am … years old. · I like… · My favorite subject is…","初級"],
+  ["📅","我的一天 Your day","說說你平常的一天（早上→白天→晚上），加上心情。","In the morning… · Then… · At night… · I feel…","初級"],
+  ["🍜","我最喜歡的 Favorite","選一樣最愛（食物／動物／地方），說為什麼。","My favorite … is … · I like it because…","初級"],
+  ["👨‍👩‍👧","我的家人 My family","介紹你的家人：有誰、他們做什麼、你和誰最親。","There are … people in my family. · My … is a … · I love my…","初級"],
+  ["🎨","顏色與數字 Colors & numbers","說出你身邊東西的顏色和數量，並從 1 數到 20。","I can see a … · It is red/blue… · There are three…","初級"],
+  ["🌦️","今天天氣 The weather","說今天的天氣、你的穿著、以及你想做的事。","Today it is sunny/rainy… · I am wearing… · I want to…","初級"],
+  /* 🌿 中級 Intermediate — 連貫數句、時態、簡單理由 */
+  ["💭","表達意見 Opinion","回答：Do you like studying at home? Why or why not?","I think… · because… · For example…","中級"],
+  ["📖","朗讀練習 Read aloud","清楚念出：Every morning, the little dog runs quickly in the park because it loves to play.","注意句子重音、連音、句尾下降 ↓","中級"],
+  ["🖼️","看圖說話 Describe","打開「看圖寫作」的照片，用英文描述你看到的人、地點、動作。","In the picture, I can see… · They are …-ing. · It looks…","中級"],
+  ["🗓️","週末計畫 Weekend plan","用未來式說你這個週末的計畫（去哪、做什麼、和誰）。","This weekend, I am going to… · First… · After that…","中級"],
+  ["⚖️","比較兩樣東西 Compare","比較兩樣東西（貓和狗／夏天和冬天…），說差別和你的選擇。","… is bigger/better than … · I prefer … because…","中級"],
+  ["📚","說一個小故事 Tell a story","用過去式說一件最近發生的事（開始→經過→結果）。","Yesterday… · Then… · Finally… · I felt…","中級"],
+  /* 🌳 進階 Advanced — 表達立場、組織論點、即席發揮 */
+  ["🙋","支持或反對 Agree or disagree","針對一個主題表態並給三個理由，例：Students should have homework.","I agree/disagree that… · First… · Second… · In conclusion…","進階"],
+  ["🛠️","問題與解法 Problem & solution","描述一個校園或生活問題，並提出你的解決方法。","One problem is… · This happens because… · To solve it, we should…","進階"],
+  ["🎤","即席演講 Impromptu talk","抽一個主題，想 30 秒、講約 2 分鐘：My hero / A place I want to visit / If I had a superpower…","My topic is… · The main reason is… · To sum up…","進階"],
+  ["📰","複述新聞 Retell the news","讀「📰 每週閱讀」一篇文章，用自己的話在 1 分鐘內摘要重點與看法。","The article is about… · The main point is… · I think…","進階"]
 ];
 let SPK_CUR="";
 function spkPick(t){ SPK_CUR=t; const el=document.getElementById("spkTitle"); if(el) el.value=t; const box=document.getElementById("spkBox"); if(box) box.scrollIntoView({behavior:"smooth",block:"center"}); try{ toast("已選題目，往下錄音 🎤"); }catch(e){} }
@@ -8772,7 +8785,10 @@ async function spkSubmit(){
 }
 function renderSpeaking(){
   if(typeof hwRecClear==="function") hwRecClear("speak");
-  const card=(p)=>`<button class="spk-card" onclick="spkPick('${p[1].replace(/'/g,"\\'")}')"><span class="spk-emoji">${p[0]}</span><span class="spk-body"><b>${p[1]}</b><span class="spk-task">${p[2]}</span><span class="spk-start">💬 ${p[3]}</span></span></button>`;
+  const lvlCls={"初級":"spk-lv1","中級":"spk-lv2","進階":"spk-lv3"};
+  const card=(p)=>`<button class="spk-card" onclick="spkPick('${p[1].replace(/'/g,"\\'")}')"><span class="spk-emoji">${p[0]}</span><span class="spk-body"><span class="spk-top"><b>${p[1]}</b>${p[4]?`<span class="spk-lv ${lvlCls[p[4]]||''}">${p[4]}</span>`:""}</span><span class="spk-task">${p[2]}</span><span class="spk-start">💬 ${p[3]}</span></span></button>`;
+  const spkGroups=[["初級","🌱 初級 Beginner · 單句、熟悉主題"],["中級","🌿 中級 Intermediate · 連貫數句、時態"],["進階","🌳 進階 Advanced · 立場、組織論點"]];
+  const promptsHtml=spkGroups.map(([k,label])=>{ const items=SPK_PROMPTS.filter(p=>p[4]===k); if(!items.length) return ""; return `<div class="spk-grp"><h3 class="spk-grp-h ${lvlCls[k]}">${label}</h3><div class="spk-cards">${items.map(card).join("")}</div></div>`; }).join("");
   const recUI = (typeof hwRecSupported==="function" && hwRecSupported()) ? (typeof hwRecHTML==="function"?hwRecHTML("speak"):"") : `<p class="vf-sub">這個瀏覽器不支援錄音，請用 Chrome／Safari 最新版，並允許麥克風權限。</p>`;
   app.innerHTML=`<div class="view verb-forms speaking2">
     <style>
@@ -8784,6 +8800,14 @@ function renderSpeaking(){
     .speaking2 .spk-body b{color:var(--navy);font-size:14px}
     .speaking2 .spk-task{font-size:12.5px;color:var(--muted);line-height:1.55}
     .speaking2 .spk-start{font-size:12px;color:var(--teal);line-height:1.5;margin-top:2px}
+    .speaking2 .spk-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+    .speaking2 .spk-lv{font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:999px;white-space:nowrap;line-height:1.6}
+    .speaking2 .spk-lv1{background:rgba(46,160,120,.14);color:#2a8f66}
+    .speaking2 .spk-lv2{background:rgba(224,150,40,.16);color:#b9771a}
+    .speaking2 .spk-lv3{background:rgba(190,80,90,.14);color:#b24a57}
+    .speaking2 .spk-grp{margin-top:14px}
+    .speaking2 .spk-grp-h{font-size:13.5px;margin:0 0 9px;padding-left:9px;border-left:3px solid currentColor}
+    .speaking2 .spk-grp-h.spk-lv1{color:#2a8f66}.speaking2 .spk-grp-h.spk-lv2{color:#b9771a}.speaking2 .spk-grp-h.spk-lv3{color:#b24a57}
     .speaking2 .spk-box{margin-top:4px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:15px 16px}
     .speaking2 #spkTitle{width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:9px 11px;border:1.5px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);margin-bottom:10px}
     .speaking2 .spk-rec{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
@@ -8795,8 +8819,8 @@ function renderSpeaking(){
     <p class="lede">挑一個題目，<b>開口說</b>，按「🎤 直接錄音」錄一段，再<b>交給老師</b>。老師會聽完在「📝 作業繳交」給你回饋。需先<b>登入帳號</b>。</p>
 
     <div class="vf-sec"><h2>🗣️ 題目庫 Prompts</h2>
-      <p class="vf-sub">點一個題目會自動帶到下方錄音區；也可以自己打題目。</p>
-      <div class="spk-cards">${SPK_PROMPTS.map(card).join("")}</div>
+      <p class="vf-sub">先選適合你的<b>程度</b>，再點題目（會自動帶到下方錄音區）；也可以自己打題目。</p>
+      ${promptsHtml}
     </div>
 
     <div class="vf-sec" id="spkBox"><h2>🎤 錄音繳交 Record & Submit</h2>
