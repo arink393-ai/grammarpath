@@ -38,18 +38,21 @@ def main():
     shards = sorted(os.path.basename(f)[:-3] for f in glob.glob(os.path.join(REPO, 'vocab', 'info', '*.js')))
 
     idx, voc = page_assets('index.html'), page_assets('vocab/index.html')
+    # 獨立子頁（歷屆試題、TED 專區）：自成一頁，需各自列入離線清單與 SHELL，否則離線打不開
+    EXTRA_PAGES = ['exams.html', 'ted.html']
+    extra = list(dict.fromkeys(pp for pg in EXTRA_PAGES for pp in [pg] + page_assets(pg)))
     art = ['art/cat-dex/meme-cats-atlas.png', 'art/cat-dex/meme-cats-atlas-2.png', 'art/cat-dex/meme-cats-atlas-3.png'] + [f'art/island/cats-{i}.png' for i in range(1,5)] + sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/nouns/*')) if p.endswith(('.png', '.jpg'))) + sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/fables/*.webp')))
     art += sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/vocab/*.png')))
     art += sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/writing/*.jpg')))
     # 課程貓咪圖（原本 base64 內嵌在 index.html，2026-10-27 抽成檔案，index 改版時不必重下載）
     art += sorted('art/breeds/'+os.path.basename(f) for f in glob.glob(os.path.join(REPO, 'art', 'breeds', '*.webp')))
-    core = ['index.html'] + art + idx + [f'curriculum/{l}.json?v={cur_v}' for l in ('basic', 'intermediate', 'advanced')] + [f'curriculum/notes/{l}.json?v={notes_v}' for l in ('basic', 'intermediate', 'advanced')] + ['vocab/'] + voc
+    core = ['index.html'] + extra + art + idx + [f'curriculum/{l}.json?v={cur_v}' for l in ('basic', 'intermediate', 'advanced')] + [f'curriculum/notes/{l}.json?v={notes_v}' for l in ('basic', 'intermediate', 'advanced')] + ['vocab/'] + voc
     # 閱讀文章內文（readings/<YYYY-MM>.json，打開文章才下載）也要能離線
     m = re.search(r'const READINGS_FILES = (\{[^}]*\});', rd('index.html'))
     if m: core += list(__import__('json').loads(m.group(1)).values())
     else: errs.append('index.html 找不到 READINGS_FILES（請執行 python3 tools/build_readings.py）')
     core = list(dict.fromkeys(core)) + ['https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2']
-    shell = ['./', './index.html'] + ['./' + a for a in art] + ['./' + a for a in idx] + ['./manifest.webmanifest', './vocab/'] + ['./' + a for a in voc] + \
+    shell = ['./', './index.html'] + ['./' + a for a in extra] + ['./' + a for a in art] + ['./' + a for a in idx] + ['./manifest.webmanifest', './vocab/'] + ['./' + a for a in voc] + \
             ['./icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-180.png']
     shell = list(dict.fromkeys(shell))
 
