@@ -2908,7 +2908,8 @@ async function route(){
   const version=++routeVersion, hash=location.hash;
   const h = (location.hash || "#/home").slice(2).split("/");
   const isHome = (h[0]==="" || h[0]==="home");
-  if(!currentUser() && !isHome){ openAuthModal(); if(location.hash!=="#/home"){ location.hash = "#/home"; return; } }
+  const guestOk = (h[0]==="writing" && h[1]==="w" && h[2]);   // 老師分享的作文練習連結：未登入可唯讀
+  if(!currentUser() && !isHome && !guestOk){ openAuthModal(); if(location.hash!=="#/home"){ location.hash = "#/home"; return; } }
   const needed = ['lesson','practice','worksheet'].includes(h[0]) && lessonById(h[1])
     ? [unitOf(lessonById(h[1])).level]
     : ['game','games','cheatsheet','worksheets','resources'].includes(h[0]) ? DATA.levels.map(l=>l.id) : [];
@@ -8112,6 +8113,7 @@ async function wrSubmitWriting(){
   if(btn){ btn.disabled=false; btn.textContent="📤 繳交 Submit"; }
 }
 function renderWriting(h){
+  const guest = (typeof currentUser==="function") ? !currentUser() : false;
   const pw=(h&&h[1]==="w"&&h[2])?wrDec(h[2]):[]; WR_PRAC=pw.slice();
   const pwText=pw.map(wrEsc).join("\n");
   const card=(emoji,zh,hint,starters,bank)=>`<div class="wr-card"><div class="wr-card-h"><span class="wr-emoji">${emoji}</span><b>${zh}</b></div><p class="wr-hint">${hint}</p><ul class="wr-start">${starters.map(s=>`<li>${s}</li>`).join("")}</ul>${bank&&bank.length?`<div class="wr-bank"><div class="wr-bank-h">📚 可用單字 Word bank</div>${bank.map(b=>`<div class="wr-bank-g"><b>${b.g}</b>：${b.w}</div>`).join("")}</div>`:""}</div>`;
@@ -8158,6 +8160,7 @@ function renderWriting(h){
     <div class="eyebrow" style="color:var(--teal)">Writing · 英文作文</div>
     <h1 class="display">英文作文區<span class="zh-term-lg" style="color:var(--teal)">Writing</span></h1>
     <p class="lede">從<b>一個完整句子</b>開始，慢慢加長、再串成一段。這一區教你怎麼寫出好句子、怎麼把句子變豐富，還附<b>題目庫</b>和<b>可列印稿紙</b>。</p>
+    ${guest?`<div class="vf-xlink" style="border-left-color:#c98a3a">👀 這是老師分享的練習（<b>唯讀</b>）。你可以看範例、在畫面上試寫、列印練習單；<b>登入帳號</b>後才能繳交作文、累積罐罐與進度。 <a href="#/home" onclick="try{openAuthModal()}catch(e){}">登入 / 註冊 →</a></div>`:""}
 
     <div class="vf-sec"><h2>① 一個好句子的三件事</h2>
       <div class="vf-rule">
@@ -8340,11 +8343,11 @@ function renderWriting(h){
     </div>
 
     <div class="vf-sec"><h2>📤 繳交作文給老師批改 Submit for feedback</h2>
-      <p class="vf-sub">寫好一篇就貼到這裡交給老師。老師會在<b>「📝 作業繳交」</b>後台批改、給分數與回饋；你之後到作業頁就能看到。需先<b>登入帳號</b>。</p>
+      ${guest?`<p class="vf-sub"><b>登入帳號</b>後，就能在這裡把作文交給老師批改、看回饋與分數。</p><button class="btn btn-navy" onclick="try{openAuthModal()}catch(e){}">登入 / 註冊</button>`:`<p class="vf-sub">寫好一篇就貼到這裡交給老師。老師會在<b>「📝 作業繳交」</b>後台批改、給分數與回饋；你之後到作業頁就能看到。需先<b>登入帳號</b>。</p>
       <input id="wrSubTitle" class="wr-sub-title" placeholder="標題／題目（選填），例如：My favorite food">
       <textarea id="wrSubText" class="wr-sub-text" rows="7" placeholder="把你的作文貼上來或直接打在這裡…"></textarea>
       <div class="wr-prac-btns"><button class="btn btn-navy" onclick="wrSubmitWriting()">📤 繳交 Submit</button> <a class="btn btn-ghost" href="#/homework">查看老師回饋 →</a></div>
-      <p id="wrSubMsg" class="vf-sub" style="margin-top:8px" hidden></p>
+      <p id="wrSubMsg" class="vf-sub" style="margin-top:8px" hidden></p>`}
     </div>
 
     <div class="vf-sec">
