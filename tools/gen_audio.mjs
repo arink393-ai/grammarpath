@@ -16,6 +16,7 @@
     node tools/gen_audio.mjs            # only new / changed articles
     node tools/gen_audio.mjs --force    # re-render everything
     node tools/gen_audio.mjs --cat=ideas  # only one category (others untouched)
+    node tools/gen_audio.mjs --ids=a,b    # only these article ids (others untouched)
 
   Config via env: KOKORO_URL (default http://localhost:8880), VOICE (default af_heart).
 */
@@ -34,6 +35,8 @@ const SPEED    = { a: 0.82, b: 0.90, c: 0.96 };   // beginners a little slower
 const LEVELS   = ["a", "b", "c"];
 // --cat=ideas  只錄這個分類的文章（其他文章不錄，但已存在的音檔仍會留在 RD_AUDIO 清單裡）
 const ONLY_CAT = (process.argv.find(a => a.startsWith("--cat=")) || "").slice(6) || null;
+// --ids=a,b,c  只錄這幾篇（其他文章不錄，但已存在的音檔仍會留在 RD_AUDIO 清單裡）
+const ONLY_IDS = ((process.argv.find(a => a.startsWith("--ids=")) || "").slice(6) || "").split(",").filter(Boolean);
 
 // --- pull the `const READINGS = [ ... ];` array literal out of the HTML ---
 function extractArrayLiteral(src, marker) {
@@ -100,7 +103,7 @@ async function main() {
       const abs = path.join(ROOT, rel);
       const sig = crypto.createHash("sha256").update(VOICE + "|" + speed + "|" + text).digest("hex");
 
-      if (ONLY_CAT && (r.cat || "news") !== ONLY_CAT) {
+      if ((ONLY_CAT && (r.cat || "news") !== ONLY_CAT) || (ONLY_IDS.length && !ONLY_IDS.includes(r.id))) {
         if (fs.existsSync(abs)) { manifest[r.id] = manifest[r.id] || {}; manifest[r.id][lvl] = rel; }
         continue;
       }
