@@ -8761,25 +8761,25 @@ const GC = (function(){
   function shouldBeAn(w){ const lw=w.toLowerCase(); if(CONS_SOUND.has(lw))return false; if(VOWEL_SOUND_H.has(lw))return true; return /^[aeiou]/.test(lw); }
   function check(text){
     const issues=[]; if(!text) return issues;
-    const add=(i,j,sev,msg,fix)=>{ issues.push({i,j,sev,msg,fix,snip:text.slice(i,j)}); };
+    const add=(i,j,sev,msg,fix,cat)=>{ issues.push({i,j,sev,msg,fix,cat,snip:text.slice(i,j)}); };
     let m;
     const reWord=/[A-Za-z']+/g;
-    while((m=reWord.exec(text))){ const w=m[0], lw=w.toLowerCase(); if(MISSPELL[lw]){ let fix=MISSPELL[lw]; if(/^[A-Z]/.test(w)) fix=fix.charAt(0).toUpperCase()+fix.slice(1); add(m.index,m.index+w.length,"err","拼字／縮寫可能有誤：「"+w+"」",fix); } }
-    const reI=/\bi\b/g; while((m=reI.exec(text))){ add(m.index,m.index+1,"err","英文的「我」要用大寫 I","I"); }
-    const reArt=/\b(a|an)\s+([A-Za-z]{2,})/gi; while((m=reArt.exec(text))){ const art=m[1], word=m[2], an=shouldBeAn(word); if(art.toLowerCase()==="a" && an){ add(m.index,m.index+1,"err","母音開頭的字前面用 an：「"+art+" "+word+"」","an"); } else if(art.toLowerCase()==="an" && !an){ add(m.index,m.index+2,"err","子音開頭的字前面用 a：「"+art+" "+word+"」","a"); } }
-    const reBe=/\b(am|is|are|was|were)\s+([a-z]+)\b/gi; while((m=reBe.exec(text))){ const v=m[2].toLowerCase(); if(BASE_SET.has(v)){ const vi=m.index+m[0].length-m[2].length; add(vi,vi+m[2].length,"err","be 動詞後面動詞要用進行式 (-ing)，或拿掉 be 動詞：「"+m[1]+" "+m[2]+"」",vingForm(v)); } }
-    const re3=/\b(he|she|it)\s+([a-z]+)\b/gi; while((m=re3.exec(text))){ const v=m[2].toLowerCase(); if(BASE_SET.has(v)){ const vi=m.index+m[0].length-m[2].length; add(vi,vi+m[2].length,"err","主詞是 "+m[1]+"（第三人稱單數），動詞要加 s：「"+m[1]+" "+m[2]+"」",thirdPerson(v)); } }
-    const reDont=/\b(he|she|it)\s+do\s*n['’]?t\b/gi; while((m=reDont.exec(text))){ add(m.index,m.index+m[0].length,"err","第三人稱單數否定要用 doesn't：「"+m[0]+"」",m[1]+" doesn't"); }
-    const reThere=/\bthere\s+is\s+(many|some|several|two|three|four|five|six|seven|eight|nine|ten|a lot of|lots of|\d+)\b/gi; while((m=reThere.exec(text))){ const cap=/[A-Z]/.test(text[m.index]); add(m.index,m.index+8,"err","後面是複數，要用 there are：「"+m[0]+"」",(cap?"There":"there")+" are"); }
-    const reThere2=/\bthere\s+are\s+(a|an|one)\b/gi; while((m=reThere2.exec(text))){ const cap=/[A-Z]/.test(text[m.index]); add(m.index,m.index+9,"err","後面是單數，要用 there is：「"+m[0]+"」",(cap?"There":"there")+" is"); }
-    const reMuch=/\bmuch\s+([a-z]+)\b/gi; while((m=reMuch.exec(text))){ if(PLURAL_SET.has(m[1].toLowerCase())){ add(m.index,m.index+4,"err","可數複數用 many：「"+m[0]+"」","many"); } }
-    const reMany=/\bmany\s+([a-z]+)\b/gi; while((m=reMany.exec(text))){ if(UNCOUNT_SET.has(m[1].toLowerCase())){ add(m.index,m.index+4,"err","不可數名詞用 much：「"+m[0]+"」","much"); } }
-    const reDup=/\b(\w+)(\s+)(\1)\b/gi; while((m=reDup.exec(text))){ const i=m.index+m[1].length+m[2].length; add(i,i+m[3].length,"warn","重複的字：「"+m[1]+" "+m[3]+"」",""); }
-    const reSp=/ {2,}/g; while((m=reSp.exec(text))){ add(m.index,m.index+m[0].length,"warn","多餘的空格"," "); }
-    const rePsp=/\s+([,.!?;:])/g; while((m=rePsp.exec(text))){ add(m.index,m.index+m[0].length,"warn","標點符號前不要空格",m[1]); }
-    const reCm=/,([A-Za-z])/g; while((m=reCm.exec(text))){ add(m.index,m.index+m[0].length,"warn","逗號後要空一格",", "+m[1]); }
-    const reCap=/(^|[.!?]\s+)([a-z])/g; while((m=reCap.exec(text))){ const ci=m.index+m[0].length-1; if(!issues.some(x=>x.i===ci && x.sev==="err")) add(ci,ci+1,"warn","句首字母要大寫",text[ci].toUpperCase()); }
-    const trimmed=text.trim(); if(trimmed.length>=15 && !/[.!?]["'\)\]]?$/.test(trimmed)){ add(text.length,text.length,"warn","句子結尾別忘了標點（. ? !）",""); }
+    while((m=reWord.exec(text))){ const w=m[0], lw=w.toLowerCase(); if(MISSPELL[lw]){ let fix=MISSPELL[lw]; if(/^[A-Z]/.test(w)) fix=fix.charAt(0).toUpperCase()+fix.slice(1); add(m.index,m.index+w.length,"err","拼字／縮寫可能有誤：「"+w+"」",fix,"拼字／縮寫"); } }
+    const reI=/\bi\b/g; while((m=reI.exec(text))){ add(m.index,m.index+1,"err","英文的「我」要用大寫 I","I","大寫 I"); }
+    const reArt=/\b(a|an)\s+([A-Za-z]{2,})/gi; while((m=reArt.exec(text))){ const art=m[1], word=m[2], an=shouldBeAn(word); if(art.toLowerCase()==="a" && an){ add(m.index,m.index+1,"err","母音開頭的字前面用 an：「"+art+" "+word+"」","an","a / an"); } else if(art.toLowerCase()==="an" && !an){ add(m.index,m.index+2,"err","子音開頭的字前面用 a：「"+art+" "+word+"」","a","a / an"); } }
+    const reBe=/\b(am|is|are|was|were)\s+([a-z]+)\b/gi; while((m=reBe.exec(text))){ const v=m[2].toLowerCase(); if(BASE_SET.has(v)){ const vi=m.index+m[0].length-m[2].length; add(vi,vi+m[2].length,"err","be 動詞後面動詞要用進行式 (-ing)，或拿掉 be 動詞：「"+m[1]+" "+m[2]+"」",vingForm(v),"be＋動詞"); } }
+    const re3=/\b(he|she|it)\s+([a-z]+)\b/gi; while((m=re3.exec(text))){ const v=m[2].toLowerCase(); if(BASE_SET.has(v)){ const vi=m.index+m[0].length-m[2].length; add(vi,vi+m[2].length,"err","主詞是 "+m[1]+"（第三人稱單數），動詞要加 s：「"+m[1]+" "+m[2]+"」",thirdPerson(v),"第三人稱單數加 s"); } }
+    const reDont=/\b(he|she|it)\s+do\s*n['’]?t\b/gi; while((m=reDont.exec(text))){ add(m.index,m.index+m[0].length,"err","第三人稱單數否定要用 doesn't：「"+m[0]+"」",m[1]+" doesn't","第三人稱單數加 s"); }
+    const reThere=/\bthere\s+is\s+(many|some|several|two|three|four|five|six|seven|eight|nine|ten|a lot of|lots of|\d+)\b/gi; while((m=reThere.exec(text))){ const cap=/[A-Z]/.test(text[m.index]); add(m.index,m.index+8,"err","後面是複數，要用 there are：「"+m[0]+"」",(cap?"There":"there")+" are","there is／are"); }
+    const reThere2=/\bthere\s+are\s+(a|an|one)\b/gi; while((m=reThere2.exec(text))){ const cap=/[A-Z]/.test(text[m.index]); add(m.index,m.index+9,"err","後面是單數，要用 there is：「"+m[0]+"」",(cap?"There":"there")+" is","there is／are"); }
+    const reMuch=/\bmuch\s+([a-z]+)\b/gi; while((m=reMuch.exec(text))){ if(PLURAL_SET.has(m[1].toLowerCase())){ add(m.index,m.index+4,"err","可數複數用 many：「"+m[0]+"」","many","much／many"); } }
+    const reMany=/\bmany\s+([a-z]+)\b/gi; while((m=reMany.exec(text))){ if(UNCOUNT_SET.has(m[1].toLowerCase())){ add(m.index,m.index+4,"err","不可數名詞用 much：「"+m[0]+"」","much","much／many"); } }
+    const reDup=/\b(\w+)(\s+)(\1)\b/gi; while((m=reDup.exec(text))){ const i=m.index+m[1].length+m[2].length; add(i,i+m[3].length,"warn","重複的字：「"+m[1]+" "+m[3]+"」","","重複字"); }
+    const reSp=/ {2,}/g; while((m=reSp.exec(text))){ add(m.index,m.index+m[0].length,"warn","多餘的空格"," ","空格"); }
+    const rePsp=/\s+([,.!?;:])/g; while((m=rePsp.exec(text))){ add(m.index,m.index+m[0].length,"warn","標點符號前不要空格",m[1],"標點"); }
+    const reCm=/,([A-Za-z])/g; while((m=reCm.exec(text))){ add(m.index,m.index+m[0].length,"warn","逗號後要空一格",", "+m[1],"標點"); }
+    const reCap=/(^|[.!?]\s+)([a-z])/g; while((m=reCap.exec(text))){ const ci=m.index+m[0].length-1; if(!issues.some(x=>x.i===ci && x.sev==="err")) add(ci,ci+1,"warn","句首字母要大寫",text[ci].toUpperCase(),"句首大寫"); }
+    const trimmed=text.trim(); if(trimmed.length>=15 && !/[.!?]["'\)\]]?$/.test(trimmed)){ add(text.length,text.length,"warn","句子結尾別忘了標點（. ? !）","","句尾標點"); }
     return issues.sort((a,b)=>a.i-b.i || a.j-b.j);
   }
   function autofix(text){

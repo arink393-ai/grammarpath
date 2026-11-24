@@ -699,7 +699,53 @@ async function tcCreate(){
 }
 function tcSubCell(s){
   if(!s) return `<span class="hw-pill todo">未繳</span>`;
-  return `${s.text?`<div class="tc-answer">${esc(s.text)}</div>`:""}${s.link&&/^https?:\/\//i.test(s.link)?`<a href="${esc(s.link)}" target="_blank" rel="noopener">🔗 連結</a> `:s.link?`<span class="tc-sub">${esc(s.link)}</span> `:""}${s.file_url?(isAudioPath(s.file_url)?`<button class="btn btn-ghost tc-audiobtn" data-path="${esc(s.file_url)}" onclick="tcAudio(this)">▶️ 播放錄音</button>`:`<button class="btn btn-ghost" data-path="${esc(s.file_url)}" onclick="tcFile(this.dataset.path)">📎 開啟檔案</button>`):""}`;
+  return `${s.text?`<div class="tc-answer">${esc(s.text)}</div>`:""}${s.link&&/^https?:\/\//i.test(s.link)?`<a href="${esc(s.link)}" target="_blank" rel="noopener">🔗 連結</a> `:s.link?`<span class="tc-sub">${esc(s.link)}</span> `:""}${s.file_url?(isAudioPath(s.file_url)?`<button class="btn btn-ghost tc-audiobtn" data-path="${esc(s.file_url)}" onclick="tcAudio(this)">▶️ 播放錄音</button>`:`<button class="btn btn-ghost" data-path="${esc(s.file_url)}" onclick="tcFile(this.dataset.path)">📎 開啟檔案</button>`):""}${gcSubAnalysis(s)}`;
+}
+/* ---------- 文法分析（繳交時檢查結果＋原文↔修正對照；沿用主程式的 GC 引擎） ---------- */
+function gcwCSSInject(){ if(document.getElementById("gcwCSS"))return; const st=document.createElement("style"); st.id="gcwCSS"; st.textContent=".tc-gc{margin-top:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.tc-gc-badge{font-size:12px;font-weight:700;border-radius:999px;padding:2px 9px}.tc-gc-badge.err{background:rgba(190,80,90,.12);color:#b24a57}.tc-gc-badge.warn{background:rgba(224,150,40,.16);color:#b9771a}.tc-gc-badge.ok{background:rgba(46,160,120,.14);color:#2a8f66}.tc-gc-tgl{font-size:12px!important;padding:2px 8px!important}.tc-gc-panel{flex-basis:100%;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}.tc-gc-col{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:9px 11px}.tc-gc-h{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:5px}.tc-gc-fix{font-size:13px;line-height:1.6;white-space:pre-wrap}.tc-gc-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:12.5px;line-height:1.5}.gcw-wrap{display:flex;flex-direction:column;gap:12px}.gcw-stu{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}.gcw-name{font-size:14px;font-weight:700;color:var(--navy)}.gcw-meta{font-weight:400;color:var(--muted);font-size:12.5px}.gcw-trend{margin-top:6px;font-size:13px}.gcw-trend b{color:var(--navy)}.gcw-u{color:var(--muted);font-size:11px}.gcw-note{margin-top:6px;font-size:12px;color:var(--muted)}.gcw-good{color:#2a8f66}.gcw-cats{margin-top:9px;display:flex;flex-direction:column;gap:5px}.gcw-catsh{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px}.gcw-cat{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px}.gcw-cn{min-width:118px;font-weight:600}.gcw-cv{color:#b24a57;font-weight:700}.gcw-ce{color:var(--muted)}.gcw-dn{color:#2a8f66;font-weight:700}.gcw-up{color:#b24a57;font-weight:700}.gcw-eq{color:var(--muted)}@media(max-width:640px){.tc-gc-panel{grid-template-columns:1fr}.gcw-cn{min-width:0}}"; document.head.appendChild(st); }
+function gcSubAnalysis(s){
+  if(typeof GC==="undefined" || !s || s.kind!=="writing" || !s.text || !s.text.trim()) return "";
+  gcwCSSInject();
+  const iss=GC.check(s.text), e=iss.filter(x=>x.sev==="err").length, w=iss.length-e;
+  const badge = e ? `<span class="tc-gc-badge err">📝 文法 ${e} 錯${w?"・"+w+" 提醒":""}</span>`
+             : (w ? `<span class="tc-gc-badge warn">📝 文法 ${w} 提醒</span>`
+                  : `<span class="tc-gc-badge ok">📝 文法 ✓ 無明顯錯誤</span>`);
+  if(!iss.length) return `<div class="tc-gc">${badge}</div>`;
+  const fixed=GC.autofix(s.text);
+  const items=iss.map(it=>`<li>${it.sev==="err"?"🔴":"🟡"} ${esc(it.msg)}${(it.fix&&it.fix.trim())?' → <b>'+esc(it.fix.trim())+'</b>':""}</li>`).join("");
+  const panel=`<div id="tcgc-${s.id}" class="tc-gc-panel" hidden><div class="tc-gc-col"><div class="tc-gc-h">✏️ 建議修正版（上方為學生原文）</div><div class="tc-gc-fix">${esc(fixed)}</div></div><div class="tc-gc-col"><div class="tc-gc-h">發現的問題（${iss.length}）</div><ul class="tc-gc-list">${items}</ul></div></div>`;
+  return `<div class="tc-gc">${badge} <button class="btn btn-ghost tc-gc-tgl" onclick="tcGcToggle('${s.id}')">🔍 原文↔修正對照</button>${panel}</div>`;
+}
+function tcGcToggle(id){ const el=document.getElementById("tcgc-"+id); if(el) el.hidden=!el.hidden; }
+function gcWeaknessPanel(){
+  if(typeof GC==="undefined") return "";
+  const subs=(TDATA.submissions||[]).filter(s=>s.kind==="writing" && s.text && s.text.trim());
+  if(!subs.length) return "";
+  gcwCSSInject();
+  const byU={}; subs.forEach(s=>{ (byU[s.user_id]=byU[s.user_id]||[]).push(s); });
+  const wc=t=>(t.match(/[A-Za-z']+/g)||[]).length;
+  const arrow=(early,recent)=> recent<early? '<span class="gcw-dn">↓ 進步</span>' : recent>early? '<span class="gcw-up">↑ 要加強</span>' : '<span class="gcw-eq">→ 持平</span>';
+  const stu=Object.keys(byU).map(uid=>{
+    const list=byU[uid].slice().sort((a,b)=>String(a.submitted_at).localeCompare(String(b.submitted_at)));
+    const per=list.map(s=>{ const iss=GC.check(s.text).filter(x=>x.sev==="err"); const cats={}; iss.forEach(x=>{ if(x.cat) cats[x.cat]=(cats[x.cat]||0)+1; }); return {e:iss.length,words:wc(s.text),cats}; });
+    const totWords=per.reduce((a,p)=>a+p.words,0), totErr=per.reduce((a,p)=>a+p.e,0);
+    const allCats={}; per.forEach(p=>Object.entries(p.cats).forEach(([k,v])=>allCats[k]=(allCats[k]||0)+v));
+    const top=Object.entries(allCats).sort((a,b)=>b[1]-a[1]).slice(0,4);
+    const mid=Math.ceil(list.length/2), early=per.slice(0,mid), recent=per.slice(mid);
+    const rate=arr=>{ const w=arr.reduce((a,p)=>a+p.words,0), e=arr.reduce((a,p)=>a+p.e,0); return w?(e/w*100):0; };
+    let trendHtml;
+    if(list.length>=2){ const er=rate(early), rr=rate(recent); trendHtml=`<div class="gcw-trend">整體錯誤率：早期 <b>${er.toFixed(1)}</b> → 近期 <b>${rr.toFixed(1)}</b> <span class="gcw-u">/100字</span> ${arrow(er,rr)}</div>`; }
+    else trendHtml='<div class="gcw-note">（再交 1 篇以上就能看到早期 vs 近期的進步對照）</div>';
+    const catER=cat=>({e:early.reduce((a,p)=>a+(p.cats[cat]||0),0), r:recent.reduce((a,p)=>a+(p.cats[cat]||0),0)});
+    const catsHtml= top.length ? `<div class="gcw-cats"><div class="gcw-catsh">主要弱點（共 ${totErr} 個文法錯誤）</div>${top.map(([k,v])=>{ const er=catER(k); const tr=list.length>=2?` <span class="gcw-ce">早期 ${er.e}→近期 ${er.r}</span> ${arrow(er.e,er.r)}`:""; return `<div class="gcw-cat"><span class="gcw-cn">${esc(k)}</span><span class="gcw-cv">${v} 次</span>${tr}</div>`; }).join("")}</div>` : '<div class="gcw-note gcw-good">✅ 這些作文沒有偵測到明顯文法錯誤，很棒！</div>';
+    return `<div class="gcw-stu"><div class="gcw-name">${esc(tName(uid))} <span class="gcw-meta">· ${list.length} 篇作文 · 共 ${totWords} 字</span></div>${trendHtml}${catsHtml}</div>`;
+  }).join("");
+  return `<details class="tc-asgn-item" ontoggle="tcToggleOpen('__gcw__',this.open)" ${TC_OPEN.has('__gcw__')?'open':''}>
+    <summary class="tc-asgn-sum"><span class="tc-asgn-title">✍️ 作文文法弱點分析 Grammar</span><span class="tc-asgn-counts"><span class="tc-cnt ok">${Object.keys(byU).length} 位學生</span></span><span class="tc-mini-bar" style="visibility:hidden"></span><span class="hw-caret">▸</span></summary>
+    <div class="tc-asgn-body">
+      <p class="tc-sub" style="margin:0 0 10px">根據學生交到「✍️ 英文作文」的文章，用離線文法檢查即時統計每人的常犯錯誤與進步趨勢（錯誤率＝每 100 字的文法錯誤數，越低越好）。僅供參考，最後仍以老師判斷為準。</p>
+      <div class="gcw-wrap">${stu}</div>
+    </div></details>`;
 }
 function tcGradeCells(s){
   if(!s) return `<td></td><td></td><td></td><td></td>`;
@@ -773,7 +819,7 @@ function tcHomeworkBody(students){
     <summary class="tc-new-sum">${TC_FORM&&TC_FORM.id?"✏️ 編輯作業 Edit assignment":"➕ 出新作業 New assignment"}</summary>
     ${tcHomeworkForm(students)}</details>`;
   const overview = list ? `<div class="tc-overview">${list}</div>` : `<div class="hw-empty">還沒有任何作業。用上面的「➕ 出新作業」建立第一份。</div>`;
-  return groupsWarn + newForm + gradeLegend() + tcClearClosedBar() + overview + freeBox;
+  return groupsWarn + newForm + gradeLegend() + tcClearClosedBar() + overview + gcWeaknessPanel() + freeBox;
 }
 
 /* ---------- 老師：分組分頁 ---------- */

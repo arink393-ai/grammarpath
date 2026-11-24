@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v267-art-webp";
+const CACHE = "eci-v268-grammar-analysis";
 const SHELL = [
   "./",
   "./index.html",
