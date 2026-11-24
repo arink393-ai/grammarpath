@@ -5458,7 +5458,7 @@ function renderFableWorksheet(id){
   app.innerHTML = `<div class="view ws-view">
     <div class="ws-toolbar no-print">
       <a href="#/story/${s.id}" class="btn btn-ghost">← 回到故事 Back</a>
-      <button class="btn btn-primary" onclick="window.print()">🖨 列印學習單 Print / PDF（含解答）</button>
+      <button class="btn btn-primary" onclick="pvPrintPage(${esc(JSON.stringify(s.title+' 學習單'))})">🖨 列印 / 存成 PDF</button>
     </div>
     <div class="ws-sheet">
       ${head("FABLE WORKSHEET 伊索寓言學習單")}
@@ -5520,7 +5520,7 @@ function renderRubric(){
   app.innerHTML=`<div class="view ws-view">
     <div class="ws-toolbar no-print">
       <a href="#/teacher" class="btn btn-ghost">← 回老師後台 Back</a>
-      <button class="btn btn-primary" onclick="window.print()">🖨 列印 / PDF Print</button>
+      <button class="btn btn-primary" onclick="pvPrintPage('口說評分表 Speaking Rubric')">🖨 列印 / 存成 PDF</button>
     </div>
     <div class="ws-sheet">
       ${head("SPEAKING RUBRIC 口說評分表")}
@@ -7147,7 +7147,7 @@ function vfPrintWorksheet(four){
   const cg=four?`<colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c3"><col class="c3"></colgroup>`:`<colgroup><col class="d1"><col class="d2"><col class="d3"><col class="d3"></colgroup>`;
   const rBlank=v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td></td><td></td>${four?"<td></td>":""}</tr>`;
   const rAns=v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td>${v[2]}</td><td>${v[3]}</td>${four?`<td>${v[4]}</td>`:""}</tr>`;
-  const tbl=(fn,list)=>`<table${fn===rAns?' class="ans"':""}>${cg}<thead><tr>${headCells}</tr></thead><tbody>${list.map(fn).join("")}</tbody></table>`;
+  const tbl=(fn,list)=>`<table class="${fn===rAns?"ans":four?"f4":""}">${cg}<thead><tr>${headCells}</tr></thead><tbody>${list.map(fn).join("")}</tbody></table>`;
   const partA=four?tbl(rBlank,S):`<div class="cols"><div>${tbl(rBlank,S.slice(0,half))}</div><div>${tbl(rBlank,S.slice(half))}</div></div>`;
   const keyA=four?tbl(rAns,S):`<div class="cols"><div>${tbl(rAns,S.slice(0,half))}</div><div>${tbl(rAns,S.slice(half))}</div></div>`;
   const cloze=list=>list.map(s=>`<li>${s[0]} <span class="bl"></span> (${s[1]}) ${s[2]}</li>`).join("");
@@ -7182,7 +7182,7 @@ function vfPrintWorksheet(four){
    table{border-collapse:collapse;width:100%;table-layout:fixed}
    col.c1{width:15%} col.c2{width:13%} col.c3{width:24%} col.d1{width:22%} col.d2{width:16%} col.d3{width:31%}
    td,th{border:1px solid #333;padding:4px 7px;font-size:12px;text-align:left;vertical-align:middle;word-break:break-word}
-   tbody td{height:0.72cm} table.ans tbody td{height:auto;padding:3px 7px}
+   tbody td{height:0.72cm} table.f4 tbody td{height:0.66cm} table.ans tbody td{height:auto;padding:3px 7px}
    thead{display:table-header-group} tr{page-break-inside:avoid;break-inside:avoid}
    th{background:#eef5f3;font-size:10.5px;white-space:normal;font-weight:700} td.w{font-weight:700} td.zh{color:#555;font-size:11px}
    ol{margin:6px 0 0;padding-left:22px} li{font-size:13px;line-height:2.3;page-break-inside:avoid} .bl{display:inline-block;width:3.4cm;border-bottom:1px solid #000;vertical-align:-3px}
@@ -7191,7 +7191,7 @@ function vfPrintWorksheet(four){
    @media screen and (max-width:640px){.sheet{margin:10px 6px;padding:20px 14px} .cols{flex-direction:column} .bar{flex-wrap:wrap}}
    @media print{.bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0}} @page{size:A4;margin:1.3cm}
   </style></head><body>
-   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>動詞${n}學習單——${four?"第 1 頁填表、第 2 頁句子、後兩頁解答":"第 1 頁學習單、第 2 頁解答"}。</span></div>
+   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>動詞${n}學習單——${four?"第 1 頁填表、第 2 頁句子":"一頁學習單"}。</span></div>
    ${sheets.join("")}
   </body></html>`;
   safeOpenPrintDoc(doc, "動詞"+n+"學習單");
@@ -7364,7 +7364,7 @@ function prtPrintWorksheet(){
    .key{font-size:12.5px;line-height:2} .key b{color:#1f7a6e}
    @media print{.bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0}} @page{margin:1.3cm}
   </style></head><body>
-   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>分詞學習單——第 1 頁 -ing/-ed 形容詞、第 2 頁 V-ing/V3、第 3 頁解答。</span></div>
+   <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>分詞學習單——第 1 頁 -ing/-ed 形容詞、第 2 頁 V-ing/V3。</span></div>
    ${sheets.join("")}
   </body></html>`;
   safeOpenPrintDoc(doc, "分詞學習單");
@@ -9703,27 +9703,61 @@ function saveReflect(){
   else { toast("日記已更新 🐾"); }
   renderReflect();
 }
-/* Fallback in-page print preview when browser blocks popups (Safari/Chrome/iOS) */
-function safeOpenPrintDoc(docHtml, title){
-  let w = null;
-  try {
-    w = window.open("", "_blank");
-  } catch(e){}
-
-  if(w && !w.closed){
-    try {
-      w.document.open();
-      w.document.write(docHtml);
-      w.document.close();
-      return;
-    } catch(e){}
-  }
-
-  showPrintModalFallback(docHtml, title);
-}
-
-/* A print document's CSS, scoped to the in-page preview: its body / h1 / table / .bar rules must not restyle
-   the site behind it, and its body/html rules land on the preview's .gpp-doc. @page is dropped (the preview sets A4). */
+/* =====================================================
+   Print preview — every print page opens like the 每週閱讀 worksheet (rdOpenWorksheet): an in-page preview with the
+   same bar (🖨 列印、顯示解答（教師版）、彩色／黑白省墨、關閉預覽), the same sheet look (boxed Name / Class / Date row,
+   Georgia title, brown section headings, warm fills), one sheet per A4 page, and answer pages only in the teacher
+   version. A print document (a full HTML page string) goes through safeOpenPrintDoc(); a page that already shows its
+   sheets (.ws-sheet) goes through pvPrintPage().
+   ===================================================== */
+/* the older sheets' teal accents → the reading worksheet's browns and warm fills */
+const PV_COLORS = {"#1f7a6e":"#7A5B49","#2f6f6a":"#7A5B49","#eef5f3":"#FBF3E8","#f1f7f5":"#FBF3E8","#e6efec":"#FBF3E8","#cfe2dd":"#F0E2CE"};
+const PV_CSS = `
+#pv-print-preview *{box-sizing:border-box}
+#pv-print-preview{position:fixed;inset:0;z-index:3000;overflow:auto;overscroll-behavior:contain;text-align:left;background:#eee;color:#111;font:12pt/1.55 Georgia,'Times New Roman',serif}
+#pv-print-preview .pv-bar{position:sticky;top:0;z-index:5;background:#333;color:#fff;padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font:600 13px system-ui,-apple-system,sans-serif}
+#pv-print-preview .pv-bar button{font:600 13px system-ui,sans-serif;padding:7px 14px;border-radius:6px;border:none;cursor:pointer;background:#E08862;color:#fff}
+#pv-print-preview .pv-bar button.sec,#pv-print-preview .pv-bar label.sec,#pv-print-preview .pv-bar select{background:#666;font:600 13px system-ui,-apple-system,sans-serif;padding:7px 14px;border-radius:6px;cursor:pointer;color:#fff;border:none;user-select:none;-webkit-user-select:none}
+#pv-print-preview .pv-bar label.sec{display:flex;align-items:center;gap:8px}
+#pv-print-preview .pv-bar label.sec:has(input:checked){background:#2E8B57}
+#pv-print-preview .pv-bar label.sec:has(input:checked)::before{content:"✓ "}
+#pv-print-preview #pv-ak{width:18px;height:18px;margin:0;accent-color:#2E8B57}
+#pv-print-preview .pv-bar select{border:1px solid #aaa;padding:7px}
+#pv-print-preview .pv-bar .hint{font-weight:400;opacity:.75}
+#pv-print-preview .pv-doc{background:transparent!important;margin:0!important;padding:1px 0 24px!important;color:#111}`;
+/* after the document's own (scoped) CSS, so these win: the reading worksheet's sheet look */
+const PV_THEME = `
+#pv-print-preview .pv-doc .sheet{max-width:760px;margin:16px auto;background:#fff;padding:40px 46px;box-shadow:0 1px 6px rgba(0,0,0,.15);overflow-wrap:anywhere;color:#111;
+  font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;break-after:auto;page-break-after:auto}
+#pv-print-preview .pv-doc .sheet.abcws,#pv-print-preview .pv-doc .sheet.phsheet{max-width:900px;padding:26px 30px}
+#pv-print-preview .pv-doc .name-row{font:11px system-ui,sans-serif;color:#333;border:1px solid #ccc;border-radius:6px;padding:9px 12px;margin:0 0 18px;display:flex;gap:26px;flex-wrap:wrap}
+#pv-print-preview .pv-doc .sheet h1,#pv-print-preview .pv-doc .sheet .ws-topic{font:700 19pt/1.25 Georgia,'Times New Roman',"PingFang TC","Microsoft JhengHei",serif;color:#111;margin:0 0 5px;padding:0;border:0;text-align:left;letter-spacing:0}
+#pv-print-preview .pv-doc .sheet h1 .zh-term-lg{font-size:.6em;color:#7A5B49;margin-left:8px}
+#pv-print-preview .pv-doc .sheet>.sub,#pv-print-preview .pv-doc .sheet>.zh,#pv-print-preview .pv-doc .sheet>.pv-meta,
+#pv-print-preview .pv-doc .sheet .ws-topic-zh,#pv-print-preview .pv-doc .sheet .ws-lv{font:9.5pt/1.5 system-ui,sans-serif;color:#555;margin:0 8px 14px 0;background:none;border:0;padding:0;letter-spacing:0;text-transform:none}
+#pv-print-preview .pv-doc .sheet .ws-topicrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;border:0;margin:0 0 10px;padding:0}
+#pv-print-preview .pv-doc .sheet>.ey{display:inline-block;font:700 10pt system-ui,sans-serif;color:#fff;background:#B4623B;border-radius:6px;padding:2px 10px;margin:0 0 6px;letter-spacing:0;text-transform:none}
+#pv-print-preview .pv-doc .sheet>.guide{font:9.5pt/1.6 system-ui,sans-serif;color:#555;background:#F7F1E8;border-radius:6px;padding:6px 10px;margin:0 0 12px}
+#pv-print-preview .pv-doc .sheet h2{font:700 13pt system-ui,sans-serif;color:#7A5B49;border:0;border-bottom:2px solid #EEE0D0;padding:0 0 4px;margin:24px 0 12px;break-after:avoid;page-break-after:avoid}
+#pv-print-preview .pv-doc .sheet h2:first-child,#pv-print-preview .pv-doc .sheet .lbl+h2{margin-top:4px}
+#pv-print-preview .pv-doc .sheet th{background:#FBF3E8}
+#pv-print-preview .pv-doc .sheet .lbl{font:700 10px system-ui,sans-serif;color:#B4623B;letter-spacing:.08em;margin:0 0 4px}
+#pv-print-preview .pv-doc .pv-ans{display:none}
+#pv-print-preview.show-answers .pv-doc .pv-ans{display:block}
+#pv-print-preview.ink-saving .sheet,#pv-print-preview.ink-saving .sheet *{color:#111!important;background:#fff!important;border-color:#777!important;box-shadow:none!important}
+@media(max-width:600px){#pv-print-preview .pv-doc .sheet{padding:24px 18px;margin:12px 8px}#pv-print-preview .pv-doc .name-row{gap:12px}}
+@media print{
+ html:has(body.pv-printing){background:#fff!important}
+ body.pv-printing{overflow:visible!important;background:#fff!important}
+ body.pv-printing > :not(#pv-print-preview){display:none!important}
+ #pv-print-preview{position:static!important;overflow:visible!important;height:auto!important;width:auto!important;background:#fff}
+ #pv-print-preview .pv-bar{display:none!important}
+ #pv-print-preview .pv-doc{padding:0!important}
+ #pv-print-preview .pv-doc .sheet{box-shadow:none;margin:0;max-width:none;padding:0;break-before:page;page-break-before:always}
+ #pv-print-preview .pv-doc .sheet.pv-first{break-before:auto;page-break-before:auto}
+}`;
+/* A print document's CSS, scoped to the preview: its body / h1 / table / .bar rules must not restyle the site
+   behind it, and its body/html rules land on .pv-doc. @page is dropped (the preview sets one). */
 function gppScopeCss(css, scope){
   css = css.replace(/\/\*[\s\S]*?\*\//g, "");
   const sel = list => { const parts = []; let depth = 0, cur = "";
@@ -9744,91 +9778,123 @@ function gppScopeCss(css, scope){
   }
   return out;
 }
-function showPrintModalFallback(docHtml, title){
-  closePrintModalFallback();
-  const modal = document.createElement("section");
-  modal.id = "generic-print-preview";
-  modal.setAttribute("role", "dialog");
-  modal.setAttribute("aria-modal", "true");
-  modal.setAttribute("aria-label", title || "列印預覽");
-
-  const bodyMatch = docHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-  const styleMatch = docHtml.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
-  const innerBody = bodyMatch ? bodyMatch[1] : docHtml;
-  const innerStyle = styleMatch ? styleMatch[1] : "";
-  /* the document brings its own 🖨 bar for when it opens in a new window; here the preview's bar already prints,
-     so drop that button — a bar left with only a hint moves into the preview's bar, one with real controls stays */
-  const tpl = document.createElement("template"); tpl.innerHTML = innerBody;
-  let docHint = "";
+const pvNameRow = (teacher, score) => `<div class="name-row"><span>${teacher ? "Teacher 教師" : "Name 姓名"}: ____________</span><span>Class 班級: ________</span><span>Date 日期: ________</span>${score ? `<span>Score 分數: ______</span>` : ""}</div>`;
+/* one look for every sheet: the old name rows (.dn, the .ws-head logo bar, the ABC .wshdr) become the reading
+   worksheet's boxed row at the top; answer pages (.sheet.key / .ws-keypage) become teacher-only. Returns whether
+   the document has answers. */
+function pvNormalize(root){
+  let answers = false, first = true;
+  root.querySelectorAll(".sheet, .ws-sheet").forEach(sh=>{
+    sh.classList.add("sheet");
+    const dn = sh.querySelector(".dn"), head = sh.querySelector(".ws-head"), hdr = sh.querySelector(".wshdr");
+    const key = sh.classList.contains("key") || (sh.classList.contains("ws-keypage") && /answer|解答/i.test(head?.querySelector(".ws-type")?.textContent || ""));
+    const who = (dn || head || {}).textContent || "", teacher = /teacher/i.test(who);
+    const named = !!(dn || head || hdr), score = /score/i.test(who) || (!!head && !teacher);
+    if(hdr){
+      const h = document.createElement("h1"), m = document.createElement("div");
+      h.innerHTML = hdr.querySelector(".wsttl")?.innerHTML || ""; m.className = "pv-meta"; m.innerHTML = hdr.querySelector(".wsbrand")?.innerHTML || "";
+      hdr.replaceWith(h, m);
+    }
+    /* a page whose only title was the logo banner's label (the rubric) keeps it as its title */
+    if(head && !key && !sh.querySelector("h1, .ws-topic")){
+      const label = (head.querySelector(".ws-type")?.textContent || "").trim();
+      if(label){ const h = document.createElement("h1"); h.textContent = label.replace(/\b[A-Z]{2,}\b/g, w=>w[0]+w.slice(1).toLowerCase()); head.after(h); }
+    }
+    dn?.remove(); head?.remove();
+    if(key){ answers = true; sh.classList.add("pv-ans"); sh.insertAdjacentHTML("afterbegin", `<div class="lbl">ANSWER KEY 教師解答</div>`); }
+    else if(named) sh.insertAdjacentHTML("afterbegin", pvNameRow(teacher, score));
+    if(!key && first){ sh.classList.add("pv-first"); first = false; }
+  });
+  return answers;
+}
+let pvState = null;
+function pvClose(){
+  if(!pvState) return;
+  const state = pvState;
+  document.removeEventListener("keydown", state.onKey);
+  document.querySelector("#pv-print-preview")?.remove();
+  document.body.classList.remove("pv-printing");
+  document.body.style.overflow = state.overflow;
+  document.title = state.title;
+  state.siblings.forEach(([el, inert])=>{ el.inert = inert; });
+  pvState = null;
+  if(state.focus?.isConnected) state.focus.focus({preventScroll:true});
+}
+window.addEventListener("hashchange", pvClose);
+/* title: the document's name (bar + PDF file name); body: sheets as HTML or a fragment; css: extra scoped CSS;
+   page: the @page margin the sheets were laid out for */
+function printPreview({title, hint = "", body, css = "", page = "16mm"}){
+  pvClose(); if(typeof rdCloseWorksheet === "function") rdCloseWorksheet();
+  const pv = document.createElement("section");
+  pv.id = "pv-print-preview";
+  pv.setAttribute("role", "dialog"); pv.setAttribute("aria-modal", "true"); pv.setAttribute("aria-label", title + " 列印預覽");
+  const doc = document.createElement("div"); doc.className = "pv-doc";
+  if(typeof body === "string") doc.innerHTML = body; else doc.append(body);
+  const answers = pvNormalize(doc);
+  const tip = (hint ? hint.replace(/[。.]?\s*$/, "。") : "")
+    + (answers ? "預設學生版不含解答；勾選「顯示解答（教師版）」會加印解答頁。" : "")
+    + "彩色版請在列印視窗開啟「背景圖形」。可按列印按鈕或 Ctrl / ⌘ + P，Esc 關閉。";
+  pv.innerHTML = `<style>${PV_CSS}${css}${PV_THEME}@media print{@page{size:A4;margin:${page}}}</style>
+  <div class="pv-bar">
+    <span>🐱 ${esc(title)}${/[A-Za-z!?)]$/.test(title) ? " " : ""}預覽</span>
+    <button type="button" id="pv-print-submit">🖨 列印 / 存成 PDF</button>
+    ${answers ? `<label class="sec"><input type="checkbox" id="pv-ak">顯示解答（教師版）</label>` : ""}
+    <label for="pv-color">列印色彩</label><select id="pv-color"><option value="color">彩色</option><option value="mono">黑白省墨</option></select>
+    <button type="button" class="sec" id="pv-close">關閉預覽</button>
+    <span class="hint">${esc(tip)}</span>
+  </div>`;
+  pv.append(doc);
+  const state = {focus:document.activeElement, title:document.title, overflow:document.body.style.overflow,
+    siblings:[...document.body.children].map(el=>[el, el.inert]), onKey:null};
+  state.onKey = e=>{
+    if(e.key === "Escape"){ e.preventDefault(); pvClose(); return; }
+    if(e.key !== "Tab") return;
+    const controls = [...pv.querySelectorAll(".pv-bar button,.pv-bar input,.pv-bar select")], firstC = controls[0], lastC = controls.at(-1);
+    if(e.shiftKey && (document.activeElement === firstC || !pv.contains(document.activeElement))){ e.preventDefault(); lastC.focus(); }
+    else if(!e.shiftKey && (document.activeElement === lastC || !pv.contains(document.activeElement))){ e.preventDefault(); firstC.focus(); }
+  };
+  pvState = state;
+  state.siblings.forEach(([el])=>{ el.inert = true; });
+  document.body.append(pv);
+  document.body.classList.add("pv-printing");
+  document.body.style.overflow = "hidden";
+  document.title = title;
+  if(answers) pv.querySelector("#pv-ak").onchange = e=>{ pv.classList.toggle("show-answers", e.target.checked);
+    if(e.target.checked) toast("✓ 已顯示解答：解答頁會接在學習單後面一起列印"); };
+  pv.querySelector("#pv-color").onchange = e=>pv.classList.toggle("ink-saving", e.target.value === "mono");
+  pv.querySelector("#pv-close").onclick = pvClose;
+  pv.querySelector("#pv-print-submit").onclick = ()=>window.print();
+  document.addEventListener("keydown", state.onKey);
+  pv.querySelector("#pv-print-submit").focus();
+}
+/* a print document (full HTML page) → the preview: its own 🖨 bar is dropped (the hint moves into ours; a bar with
+   real controls stays), its CSS is scoped and its teal turned brown, and its page margin is kept */
+function safeOpenPrintDoc(docHtml, title){
+  const style = (docHtml.match(/<style[^>]*>([\s\S]*?)<\/style>/i) || [])[1] || "";
+  const bodyHtml = (docHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i) || [])[1] || docHtml;
+  const tpl = document.createElement("template"); tpl.innerHTML = bodyHtml;
+  let hint = "";
   tpl.content.querySelectorAll(".bar").forEach(bar=>{
     bar.querySelectorAll('button[onclick*="print"]').forEach(b=>b.remove());
     if(bar.querySelector("button,input,select,textarea,a,label")){ bar.style.position = "static"; return; }
-    docHint = docHint || bar.textContent.replace(/\s+/g," ").trim(); bar.remove();
+    hint = hint || bar.textContent.replace(/\s+/g, " ").replace(/^🐱 English Cat Island\s*/, "").trim(); bar.remove();
   });
-
-  modal.innerHTML = `
-    <style>
-      #generic-print-preview{
-        position:fixed;inset:0;z-index:3000;background:rgba(20,15,10,.75);
-        display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;
-      }
-      #generic-print-preview .gpp-bar{
-        position:sticky;top:0;z-index:20;background:#332920;color:#fff;
-        padding:10px 18px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;box-shadow:0 2px 10px rgba(0,0,0,.35);
-        font:600 13.5px system-ui,-apple-system,sans-serif;
-      }
-      #generic-print-preview .gpp-btn{
-        background:#E08862;color:#fff;border:none;border-radius:6px;padding:7px 16px;
-        font:600 13px system-ui,sans-serif;cursor:pointer;
-      }
-      #generic-print-preview .gpp-btn:hover{background:#cc734e}
-      #generic-print-preview .gpp-close{
-        background:#55493f;color:#fff;border:none;border-radius:6px;padding:7px 14px;
-        font:600 13px system-ui,sans-serif;cursor:pointer;margin-left:auto;
-      }
-      #generic-print-preview .gpp-close:hover{background:#6d5f53}
-      #generic-print-preview .gpp-hint{font-size:12px;opacity:.85;font-weight:400}
-      #generic-print-preview .gpp-wrap{padding:20px;min-height:100%}
-      ${gppScopeCss(innerStyle, "#generic-print-preview .gpp-doc")}
-      @media print{
-        html:has(body.gpp-printing){background:#fff!important}
-        body.gpp-printing{overflow:visible!important;background:#fff!important}
-        body.gpp-printing > :not(#generic-print-preview){display:none!important}
-        #generic-print-preview{position:static!important;inset:auto!important;background:#fff!important;overflow:visible!important;display:block!important}
-        #generic-print-preview .gpp-doc{background:#fff!important}
-        #generic-print-preview .gpp-bar{display:none!important}
-        #generic-print-preview .gpp-wrap{padding:0!important}
-        #generic-print-preview .bar{display:none!important}
-        #generic-print-preview .sheet{box-shadow:none!important;margin:0!important;max-width:none!important;padding:0!important}
-        @page{size:A4;margin:12mm 15mm}
-      }
-    </style>
-    <div class="gpp-bar">
-      <span>🐱 ${esc(title || "列印預覽")}</span>
-      <button type="button" class="gpp-btn" onclick="window.print()">🖨 列印 / 存成 PDF</button>
-      <span class="gpp-hint">${docHint ? esc(docHint)+"　（Esc 或 ✕ 關閉）" : "已開啟同頁預覽。可直接按列印，或按 Esc / 關閉返回。"}</span>
-      <button type="button" class="gpp-close" onclick="closePrintModalFallback()">✕ 關閉</button>
-    </div>
-    <div class="gpp-wrap"><div class="gpp-doc">${tpl.innerHTML}</div></div>
-  `;
-
-  const onKey = e => {
-    if(e.key === "Escape"){ e.preventDefault(); closePrintModalFallback(); }
-  };
-  modal._onKey = onKey;
-  document.addEventListener("keydown", onKey);
-  document.body.appendChild(modal);
-  document.body.classList.add("gpp-printing");
-  document.body.style.overflow = "hidden";
+  const margin = (style.match(/@page\s*\{[^}]*margin\s*:\s*([^;}]+)/i) || [])[1];
+  /* these sheets were laid out with the browser's normal line height, not the reading sheet's 1.55 */
+  const css = "#pv-print-preview .pv-doc{line-height:normal}" + gppScopeCss(style.replace(/#[0-9a-f]{6}\b/gi, c=>PV_COLORS[c.toLowerCase()] || c), "#pv-print-preview .pv-doc");
+  printPreview({title, hint, body:tpl.content, css, page: margin ? margin.trim() : "16mm"});
 }
-
-function closePrintModalFallback(){
-  const modal = document.getElementById("generic-print-preview");
-  if(!modal) return;
-  if(modal._onKey) document.removeEventListener("keydown", modal._onKey);
-  modal.remove();
-  document.body.classList.remove("gpp-printing");
-  document.body.style.overflow = "";
+/* a page that shows its sheets (.ws-sheet: lesson / fable worksheets, the rubric) or is one (the cheatsheet) */
+function pvPrintPage(title, hint){
+  const sheets = [...document.querySelectorAll("#app .ws-sheet")];
+  let html;
+  if(sheets.length) html = sheets.map(s=>s.outerHTML).join("");
+  else {
+    const v = document.querySelector("#app .view").cloneNode(true);
+    v.querySelectorAll(".no-print,.crumb,button").forEach(x=>x.remove());
+    html = `<div class="sheet">${v.innerHTML}</div>`;
+  }
+  printPreview({title, hint, body:html, page:"12mm 15mm"});
 }
 
 /* Printable class worksheet — "My Learning Journey" (daily log + weekly reflection).
@@ -16955,7 +17021,7 @@ function renderWorksheet(id){
     <div class="ws-toolbar no-print">
       <a href="#/lesson/${l.id}" class="btn btn-ghost">← Back to lesson</a>
       <a href="#/worksheets" class="btn btn-ghost">All worksheets</a>
-      <button class="btn btn-primary" onclick="window.print()">🖨 Print / PDF（含解答頁）</button>
+      <button class="btn btn-primary" onclick="pvPrintPage(${esc(JSON.stringify(l.title+' 練習單'))})">🖨 列印 / 存成 PDF</button>
     </div>
     <div class="ws-sheet">
       ${head("GRAMMAR WORKSHEET")}
@@ -17018,7 +17084,7 @@ function renderCheatsheet(){
     <div class="crumb no-print"><a href="#/home">Home</a> › Cheatsheet</div>
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
       <h1 class="display">Grammar Cheatsheet<span class="zh-term-lg">文法速查表</span></h1>
-      <button class="btn btn-primary no-print" onclick="window.print()">🖨 Print / PDF</button>
+      <button class="btn btn-primary no-print" onclick="pvPrintPage('文法速查表 Grammar Cheatsheet')">🖨 列印 / 存成 PDF</button>
     </div>
     <p class="lede no-print">All ${DATA.lessons.length} patterns on a few pages — print it as a classroom handout. 可直接列印或另存 PDF 當課堂講義。</p>
     ${secs}
