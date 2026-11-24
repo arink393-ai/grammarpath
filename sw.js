@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v265-speak-grammar";
+const CACHE = "eci-v266-daniel-pink-more";
 const SHELL = [
   "./",
   "./index.html",
