@@ -1,10 +1,11 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v272-dweck-more";
+const CACHE = "eci-v273-ted-homework";
 const SHELL = [
   "./",
   "./index.html",
   "./exams.html",
   "./ted.html",
+  "./ted-data.js?v=1",
   "./art/cat-dex/meme-cats-atlas.webp",
   "./art/cat-dex/meme-cats-atlas-2.webp",
   "./art/cat-dex/meme-cats-atlas-3.webp",
@@ -82,7 +83,7 @@ const SHELL = [
   "./word-checkin.js?v=1",
   "./curriculum-loader.js?v=14",
   "./lesson-notes.js?v=20",
-  "./homework.js?v=19",
+  "./homework.js?v=20",
   "./student-info.js?v=10",
   "./usage.js?v=2",
   "./ving-game.js?v=1",

@@ -95,7 +95,13 @@ function hwRow(f){
 /* 項目：{t:"lesson",id} 文法課 · {t:"reading",id} 閱讀文章 · {t:"story",id} 故事／寓言
         · {t:"readaloud",id,lv} 指定文章的跟讀錄音（lv＝a/b/c 指定程度，空＝不限） */
 const RA_LV = {a:"A 初級", b:"B 中級", c:"C 高級"};
+/* ---- TED 演講作業：看指定演講＋作業單（資料來自 ted-data.js 的 window.TED_GROUPS，單一來源） ---- */
+const TED_HW_TASK = "看完後抄下 15 個生字、3 句打動你的句子、5 個片語用法";
+function tedGroups(){ return (typeof window!=="undefined" && window.TED_GROUPS) || (typeof TED_GROUPS!=="undefined"?TED_GROUPS:[]); }
+function tedTalkById(id){ for(const g of tedGroups()){ const t=(g.talks||[]).find(x=>x.id===id); if(t) return {...t, grp:g.title, grpNum:g.num}; } return null; }
+function tedAllTalks(){ return tedGroups().flatMap(g=>(g.talks||[]).map(t=>({...t, grp:g.title, grpNum:g.num}))); }
 function scopeInfo(it){
+  if(it.t==="ted"){ const t=tedTalkById(it.id); return t && {icon:"🎬", label:t.zh, zh:"🎤 "+t.spk, href:"ted.html#t-"+t.id}; }
   if(it.t==="lesson"){ const l=lessonById(it.id); return l && {icon:"📘", label:l.title, zh:l.zh, href:"#/lesson/"+l.id}; }
   if(it.t==="reading"){ const r=(typeof READINGS!=="undefined"?READINGS:[]).find(x=>x.id===it.id); return r && {icon:"📰", label:r.topic, zh:r.zh, href:"#/reading/"+r.id}; }
   if(it.t==="story"){ const s=(typeof STORIES!=="undefined"?STORIES:[]).find(x=>x.id===it.id); return s && {icon:s.category==="fable"?"🦊":"📖", label:s.title, zh:s.zh||"", href:"#/story/"+s.id}; }
@@ -271,7 +277,8 @@ async function renderHomework(){
     const statusPill = isDone
       ? (s.status==="returned" ? `<span class="hw-pill done">已批改 Graded</span>` : `<span class="hw-pill sent">已繳交 Submitted</span>`)
       : (overdue ? `<span class="hw-pill due-over">未繳 Not done</span>` : `<span class="hw-pill todo">未繳 Not done</span>`);
-    const scopeBox = scope.length ? `<div class="hw-scope"><div class="hw-scope-h">📚 作業範圍（完成 ${sDone} / ${scope.length}）${!isDone&&sDone<scope.length?`<button type="button" class="hw-guide-btn" onclick="hwGuide('${a.id}')">📋 還差哪些？</button>`:""}</div><div class="hw-chips">${scopeChips(scope, me, true, a.id)}</div>
+    const tedNote = scope.some(it=>it.t==="ted") ? `<div class="tc-sub" style="margin-top:4px">🎬 TED 作業單：<b>${esc(TED_HW_TASK)}</b>（看完後在下面打字作答，或拍照／拍作業單上傳）。</div>` : "";
+    const scopeBox = scope.length ? `<div class="hw-scope"><div class="hw-scope-h">📚 作業範圍（完成 ${sDone} / ${scope.length}）${!isDone&&sDone<scope.length?`<button type="button" class="hw-guide-btn" onclick="hwGuide('${a.id}')">📋 還差哪些？</button>`:""}</div><div class="hw-chips">${scopeChips(scope, me, true, a.id)}</div>${tedNote}
       <div class="tc-sub">點進去完成：文法課做完練習、寓言做讀後練習、🎤 跟讀錄音錄完交出，其他打開讀過就算。全部完成後，即使沒有要寫的內容也可以直接按「繳交」。</div></div>` : "";
     const graded = s && s.status==="returned" ? `<div class="hw-grade"><b>老師評分 Grade：</b>${gradeShow(s.grade)}${s.feedback?`<div class="hw-fb">${esc(s.feedback)}</div>`:""}</div>` : "";
     const prev = s ? `<div class="hw-prev">你上次繳交：${s.text?`「${esc(s.text.slice(0,80))}${s.text.length>80?"…":""}」 `:""}${s.file_url?(isAudioPath(s.file_url)?'🎤 錄音 ':'📎 檔案 '):""}${s.link?'🔗 連結':""}</div>` : "";
@@ -370,6 +377,7 @@ function hwScopeHint(it, d){
   if(it.t==="lesson") return (d.visited||{})["lesson:"+it.id] ? "已經打開過，還要把練習做完 🎮" : "進去看說明，再把練習做完 🎮";
   if(it.t==="readaloud") return `錄一段整篇跟讀並交出${it.lv&&RA_LV[it.lv]?`（指定 ${RA_LV[it.lv]}）`:""} 🎤`;
   if(it.t==="story"){ const st=(typeof STORIES!=="undefined"?STORIES:[]).find(x=>x.id===it.id); return st&&st.category==="fable" ? "讀完後做「讀後練習」🦊" : "打開讀完就算 📖"; }
+  if(it.t==="ted") return "點進去 ▶️ 播放看完，再完成作業單 🎬";
   return "打開讀完就算 📰";
 }
 /* 所有「還沒交、範圍還沒做完」的作業項目；aid 指定時只看那一份 */
@@ -562,8 +570,13 @@ function tcFormToggle(list, id){
 }
 function tcScopeToggle(t, id){
   tcFormSync();
-  const i=TC_FORM.scope.findIndex(x=>x.t===t && x.id===id);
+  const i=TC_FORM.scope.findIndex(x=>x.t===t && x.id===id), added=i<0;
   if(i>=0) TC_FORM.scope.splice(i,1); else TC_FORM.scope.push(t==="readaloud" ? {t,id,lv:TC_FORM.raLv||""} : {t,id});
+  /* 勾選 TED 演講：第一次就自動帶入作業標題與作業單說明（老師仍可改） */
+  if(added && t==="ted"){ const talk=tedTalkById(id);
+    if(talk && !(TC_FORM.title||"").trim()){ TC_FORM.title=`TED 演講作業：${talk.zh}`; const el=document.getElementById("na-title"); if(el) el.value=TC_FORM.title; }
+    if(!(TC_FORM.desc||"").trim()){ TC_FORM.desc=`🎬 看指定 TED 演講${talk?`：${talk.spk}〈${talk.zh}〉`:""}\n📝 作業單：${TED_HW_TASK}（可在作業頁打字作答，或拍照／拍作業單上傳）`; const el=document.getElementById("na-desc"); if(el) el.value=TC_FORM.desc; }
+  }
   const c=document.getElementById("na-cnt-scope"); if(c) c.textContent=TC_FORM.scope.length;
   const box=document.getElementById("na-scope-chips"); if(box) box.innerHTML=TC_FORM.scope.length?scopeChips(TC_FORM.scope):`<span class="tc-sub">還沒選。可不選（純打字／錄音作業）。</span>`;
 }
@@ -600,7 +613,7 @@ function tcDoneInfo(t, id, ids){
   ids.forEach(uid=>{ (scopeDone(it, prog[uid]||{}) ? done : todo).push(tName(uid)); });
   return {n:ids.length, done, todo};
 }
-const TC_DONE_HOW = {lesson:"做完練習", story:"做完（寓言＝做過讀後練習；繪本＝打開讀過）", reading:"打開讀過", readaloud:"交過跟讀錄音"};
+const TC_DONE_HOW = {lesson:"做完練習", story:"做完（寓言＝做過讀後練習；繪本＝打開讀過）", reading:"打開讀過", readaloud:"交過跟讀錄音", ted:"看過演講（▶️ 播放）"};
 function tcDoneBadge(t, id, ids){
   ids = ids || tcTargetIds();
   const d = tcDoneInfo(t, id, ids); if(!d.n) return {html:"", all:false};
@@ -653,7 +666,13 @@ function tcScopePicker(){
     ${[...wk,...rest].map(r=>cb("readaloud",r.id,lab(r),r.zh)).join("")}</div></details>`;
   const sts = typeof STORIES!=="undefined"?STORIES:[];
   const stories = `<details class="tc-pick-grp"><summary>📖 故事／寓言（${sts.length}）</summary><div class="tc-pick-body">${sts.map(s=>cb("story",s.id,s.title,s.category==="fable"?"寓言":"繪本")).join("")}</div></details>`;
-  return lessons + readings + recs + stories;
+  const teds = tedAllTalks();
+  const tedByGrp = {}; teds.forEach(t=>{ (tedByGrp[t.grpNum]=tedByGrp[t.grpNum]||{name:t.grp, list:[]}).list.push(t); });
+  const tedBody = Object.keys(tedByGrp).sort().map(n=>{ const g=tedByGrp[n];
+    return `<div class="tc-pick-unit"><div class="tc-pick-uh">${esc(n)}・${esc(g.name)}</div>${g.list.map(t=>cb("ted",t.id,`${t.spk}：${t.zh}`,t.dur)).join("")}</div>`; }).join("");
+  const tedPick = teds.length ? `<details class="tc-pick-grp"><summary>🎬 TED 演講（${teds.length}・看影片＋作業單）</summary><div class="tc-pick-body">
+    <div class="tc-sub" style="margin-bottom:6px">勾選後學生作業會出現可點的演講連結，看完 ▶️ 播放就算完成；作業單：<b>${esc(TED_HW_TASK)}</b>。第一次勾選會自動帶入標題與說明（可改）。</div>${tedBody}</div></details>` : "";
+  return lessons + readings + recs + stories + tedPick;
 }
 function tcHomeworkForm(students){
   if(!TC_FORM) TC_FORM=tcFormBlank();
