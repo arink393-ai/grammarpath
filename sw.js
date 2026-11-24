@@ -1,13 +1,13 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v268-grammar-analysis";
+const CACHE = "eci-v269-art-webp2";
 const SHELL = [
   "./",
   "./index.html",
   "./exams.html",
   "./ted.html",
-  "./art/cat-dex/meme-cats-atlas.png",
-  "./art/cat-dex/meme-cats-atlas-2.png",
-  "./art/cat-dex/meme-cats-atlas-3.png",
+  "./art/cat-dex/meme-cats-atlas.webp",
+  "./art/cat-dex/meme-cats-atlas-2.webp",
+  "./art/cat-dex/meme-cats-atlas-3.webp",
   "./art/island/cats-1.webp",
   "./art/island/cats-2.webp",
   "./art/island/cats-3.webp",

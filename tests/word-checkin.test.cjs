@@ -25,6 +25,6 @@ test('expanded collection gives previous collectors six new unique draws without
  for(let i=0;i<7;i++)vm.runInContext('dexDraw()',ctx);
  assert.equal(prizes.length,6);assert.equal(new Set(prizes).size,6);assert.equal(store.data.cans,0);assert.equal(store.data.xp,42);assert.equal(Object.keys(store.data.catDex).length,30);
  for(const markup of ctx.art)assert.ok(!/undefined|NaN/.test(markup));
- assert.equal(ctx.art.filter(s=>s.includes('meme-cats-atlas-2.png')).length,6);
- assert.equal(ctx.art.filter(s=>s.includes('meme-cats-atlas-3.png')).length,6);
+ assert.equal(ctx.art.filter(s=>s.includes('meme-cats-atlas-2.webp')).length,6);
+ assert.equal(ctx.art.filter(s=>s.includes('meme-cats-atlas-3.webp')).length,6);
 });
