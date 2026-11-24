@@ -18,8 +18,12 @@ test('every fable has a cover and a distinct illustration for each story scene',
     assert.equal(new Set([result.covers[story.id], ...scenes]).size, scenes.length + 1);
     assert.match(result.covers[story.id], /background-position:0% 0%/);
     assert.match(scenes[0], /background-position:100% 0%/);
-    const image = fs.readFileSync(path.join(root, 'art/fables', story.id + '.png'));
-    assert.equal(image.subarray(1,4).toString(), 'PNG');
-    assert.equal(image.readUInt32BE(16) / image.readUInt32BE(20), 1.5);
+    const image = fs.readFileSync(path.join(root, 'art/fables', story.id + '.webp'));
+    assert.equal(image.subarray(0,4).toString(), 'RIFF');
+    assert.equal(image.subarray(8,12).toString(), 'WEBP');
+    // VP8 (lossy) 影格：寬高在 chunk 起點後第 14、16 位元組（14 bit）
+    assert.equal(image.subarray(12,16).toString(), 'VP8 ');
+    const w = image.readUInt16LE(26) & 0x3fff, h = image.readUInt16LE(28) & 0x3fff;
+    assert.equal(w / h, 1.5);
   }
 });

@@ -32,13 +32,13 @@
 .nouns.nouns .n-mass-group p{font-size:14px;line-height:1.8}
 .nouns.nouns .n-mass-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .nouns.nouns .n-mass-zh{font-size:12px;color:#796552;text-align:center}
-.nouns.nouns .n-mass-extra{display:block;width:90px;aspect-ratio:3/4;background-image:url('art/nouns/sand-jelly.png');background-size:200% 100%;background-repeat:no-repeat;border-radius:14px}
+.nouns.nouns .n-mass-extra{display:block;width:90px;aspect-ratio:3/4;background-image:url('art/nouns/sand-jelly.webp');background-size:200% 100%;background-repeat:no-repeat;border-radius:14px}
 .nouns.nouns .n-mass-example{background:#eaf4ee;border-radius:10px;padding:10px;color:#315e52;margin-bottom:0}
 .nouns.nouns .n-mass-tabs button:focus-visible{outline:3px solid #df9858;outline-offset:3px}
 @media(max-width:700px){.nouns.nouns .n-mass-groups{grid-template-columns:1fr}.nouns.nouns .n-mass-group{padding:14px}.nouns.nouns .n-mass-grid .n-food-art,.nouns.nouns .n-mass-extra{width:72px}}
 
-.nouns.nouns .n-concept-art{display:block;width:90px;aspect-ratio:9/8;background:url('art/nouns/concepts.png') no-repeat;background-size:400% 300%;flex:none}
-.nouns.nouns .n-dual-art{display:block;width:100%;aspect-ratio:9/4;background:url('art/nouns/count-mass.png') no-repeat;background-size:200% 300%;margin:16px auto}
+.nouns.nouns .n-concept-art{display:block;width:90px;aspect-ratio:9/8;background:url('art/nouns/concepts.webp') no-repeat;background-size:400% 300%;flex:none}
+.nouns.nouns .n-dual-art{display:block;width:100%;aspect-ratio:9/4;background:url('art/nouns/count-mass.webp') no-repeat;background-size:200% 300%;margin:16px auto}
 .nouns.nouns .nd-ic .n-concept-art,.nouns.nouns .nd-ic .n-dual-art{width:40px;margin:0}
 .nouns.nouns .n-dual-card{background:#fffaf1;border:1px solid #e6d8bf;border-radius:22px;padding:20px;margin:18px 0}
 .nouns.nouns .n-dual-card h3{font-size:26px;color:#79543d;margin:0 0 14px}

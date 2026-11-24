@@ -6,7 +6,7 @@ test('all 42 island portraits map to valid local atlas frames',()=>{
  const ctx=vm.createContext({});vm.runInContext(helper,ctx);
  const art=Array.from({length:42},(_,i)=>vm.runInContext(`islandCatArt(${i},'cat')`,ctx));
  assert.equal(new Set(art).size,42);assert.ok(art.every(s=>!s.includes('NaN')&&!s.includes('undefined')));
- assert.equal(art.filter(s=>s.includes('cats-4.png')).length,6);
+ assert.equal(art.filter(s=>s.includes('cats-4.webp')).length,6);
 });
 test('island rendering preserves course unlocks, fed companions and all progress',()=>{
  const lessons=Array.from({length:34},(_,i)=>({id:'lesson'+i,n:i+1,title:'Lesson',zh:'課程'}));

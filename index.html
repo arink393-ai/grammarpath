@@ -2262,7 +2262,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .vf-xlink a{color:var(--teal);font-weight:600;text-decoration:none}
 .vf-xlink a:hover{text-decoration:underline}
 </style>
-<link rel="stylesheet" href="nouns-art.css?v=3">
+<link rel="stylesheet" href="nouns-art.css?v=4">
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -7549,7 +7549,7 @@ const NOUN_ART_KEYS = ["apple","banana","orange","lemon","pear","grapes","strawb
 NOUN_ART_KEYS.forEach((key,i)=>{
   const slot=i%15, sheet=Math.floor(i/15)+1, row=Math.floor(slot/5);
   const cuts=sheet===2?[0,340,640,1024]:[0,341,683,1024], h=cuts[row+1]-cuts[row];
-  NICON[key]=`<span class="n-food-art" aria-hidden="true" style="background-image:url('art/nouns/foods-${Math.floor(i/15)+1}.png');aspect-ratio:${307.2/h};background-size:500% ${1024/h*100}%;background-position:${slot%5*25}% ${cuts[row]/(1024-h)*100}%"></span>`;
+  NICON[key]=`<span class="n-food-art" aria-hidden="true" style="background-image:url('art/nouns/foods-${Math.floor(i/15)+1}.webp');aspect-ratio:${307.2/h};background-size:500% ${1024/h*100}%;background-position:${slot%5*25}% ${cuts[row]/(1024-h)*100}%"></span>`;
 });
 const NOUN_MATERIALS=[
  {key:"meat",zh:"肉",alt:"不同部位、形狀與大小的肉塊",desc:"大塊、小塊、薄片都可以叫 meat。談肉這種食材時，沒有固定的一個肉。",units:["a piece of meat","two pieces of meat","four pieces of meat"]},
@@ -7575,7 +7575,7 @@ function nMaterialsHTML(){
  return `<section class="vf-sec"><h2>食材小實驗：切小了，還是同一種食材</h2>
  <p class="vf-sub">看看肉、麵包和起司：大小、形狀可以不一樣；繼續分成更小的份，日常語意上仍然是 meat、bread、cheese。</p>
  <div class="n-materials">${NOUN_MATERIALS.map(item=>`<article class="n-material" id="nMaterial-${item.key}">
- <figure><img src="art/nouns/${item.key}-photo.jpg" alt="${item.alt}" loading="lazy" decoding="async"><figcaption>觀察實物：${item.alt}</figcaption></figure>
+ <figure><img src="art/nouns/${item.key}-photo.webp" alt="${item.alt}" loading="lazy" decoding="async"><figcaption>觀察實物：${item.alt}</figcaption></figure>
  <div class="n-material-body"><h3>${item.key} · ${item.zh}</h3><p>${item.desc}</p>
  <div class="n-cut-stage" aria-hidden="true">${nMaterialPieces(item.key,0)}</div>
  <div class="n-cut-controls" role="group" aria-label="${item.zh}切分示範">${["一大塊","切成 2 塊","再切成 4 塊"].map((label,i)=>`<button type="button" data-step="${i}" aria-pressed="${i===0}" onclick="nMaterialStep('${item.key}',${i})">${label}</button>`).join("")}</div>
@@ -7614,7 +7614,7 @@ function nMassHTML(){return `<section class="vf-sec"><h2>不可數名詞，按�
 // Each atlas window includes the entire subject, including leaves and shadows.
 [['fruit',3,895,340,1270,680],['mustard',3,620,345,900,675],['icecream',3,1270,335,1536,680],['sandwich',2,335,0,614,340],['cookie',2,635,0,920,340]].forEach(([key,sheet,x,y,right,bottom])=>{
  const w=right-x,h=bottom-y;
- NICON[key]=`<span class="n-food-art" aria-hidden="true" style="background-image:url('art/nouns/foods-${sheet}.png');aspect-ratio:${w/h};background-size:${1536/w*100}% ${1024/h*100}%;background-position:${x/(1536-w)*100}% ${y/(1024-h)*100}%"></span>`;
+ NICON[key]=`<span class="n-food-art" aria-hidden="true" style="background-image:url('art/nouns/foods-${sheet}.webp');aspect-ratio:${w/h};background-size:${1536/w*100}% ${1024/h*100}%;background-position:${x/(1536-w)*100}% ${y/(1024-h)*100}%"></span>`;
 });
 ['information','advice','homework','music','money','time','idea','dream','plan','news','work','love'].forEach((key,i)=>{
  NICON[key]=`<span class="n-concept-art" aria-hidden="true" style="background-position:${i%4*100/3}% ${Math.floor(i/4)*50}%"></span>`;
@@ -12838,7 +12838,7 @@ function islandCatArt(index,label){
  const sheet=n<36?Math.floor(n/12)+1:4,slot=n<36?n%12:n-36,cols=sheet===4?3:4;
  const cuts=[[0,326,655,1024],[0,330,660,1024],[0,340,667,1024],[0,490,1024]][sheet-1];
  const row=Math.floor(slot/cols),w=1536/cols,h=cuts[row+1]-cuts[row],x=slot%cols*w,y=cuts[row];
- return `<span class="island-cat-art" role="img" aria-label="${label}" style="--cat-ratio:${w/h};background-image:url('art/island/cats-${sheet}.png');background-size:${1536/w*100}% ${1024/h*100}%;background-position:${x/(1536-w)*100}% ${y/(1024-h)*100}%"></span>`;
+ return `<span class="island-cat-art" role="img" aria-label="${label}" style="--cat-ratio:${w/h};background-image:url('art/island/cats-${sheet}.webp');background-size:${1536/w*100}% ${1024/h*100}%;background-position:${x/(1536-w)*100}% ${y/(1024-h)*100}%"></span>`;
 }
 function renderIsland(){
   const done = store.data.completed, streak = store.streakCount();
