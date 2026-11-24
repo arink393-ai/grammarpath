@@ -8915,6 +8915,7 @@ function renderSpeaking(){
     .speaking2 .spk-box{margin-top:4px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:15px 16px}
     .speaking2 #spkTitle{width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:9px 11px;border:1.5px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);margin-bottom:10px}
     .speaking2 .spk-rec{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .speaking2 .gc-ta2{width:100%;box-sizing:border-box;font:inherit;font-size:14px;line-height:1.7;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);resize:vertical}
     @media(max-width:640px){.speaking2 .spk-cards{grid-template-columns:1fr}}
     </style>
     <div class="crumb"><a href="#/home">Home</a> › 口說練習</div>
@@ -8925,6 +8926,14 @@ function renderSpeaking(){
     <div class="vf-sec"><h2>🗣️ 題目庫 Prompts</h2>
       <p class="vf-sub">先選適合你的<b>程度</b>，再點題目（會自動帶到下方錄音區）；也可以自己打題目。</p>
       ${promptsHtml}
+    </div>
+
+    <div class="vf-sec"><h2>✍️ 先打草稿・檢查文法 Draft & check <span style="font-size:13px;color:var(--muted);font-weight:400">（選填，不會交出）</span></h2>
+      <p class="vf-sub">開口前可以先把要說的英文寫下來，系統會<b>即時</b>幫你抓常見錯誤；改好再照著念、錄音會更順。這份草稿只幫你練習，<b>不會</b>交給老師。</p>
+      <div class="spk-box" style="margin-top:4px">
+        <textarea id="spkScript" class="gc-ta2" rows="4" placeholder="把你想說的英文寫在這裡…例如：Hi, my name is Amy. I am twelve years old. I like playing basketball." oninput="gcLive(this,'spkScriptGC')"></textarea>
+        <div id="spkScriptGC" class="gc-live"></div>
+      </div>
     </div>
 
     <div class="vf-sec" id="spkBox"><h2>🎤 錄音繳交 Record & Submit</h2>
