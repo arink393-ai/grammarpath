@@ -7147,10 +7147,10 @@ function vfPrintWorksheet(four){
   const cg=four?`<colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c3"><col class="c3"></colgroup>`:`<colgroup><col class="d1"><col class="d2"><col class="d3"><col class="d3"></colgroup>`;
   const rBlank=v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td></td><td></td>${four?"<td></td>":""}</tr>`;
   const rAns=v=>`<tr><td class="w">${v[0]}</td><td class="zh">${v[1]}</td><td>${v[2]}</td><td>${v[3]}</td>${four?`<td>${v[4]}</td>`:""}</tr>`;
-  const tbl=(fn,list)=>`<table>${cg}<thead><tr>${headCells}</tr></thead><tbody>${list.map(fn).join("")}</tbody></table>`;
+  const tbl=(fn,list)=>`<table${fn===rAns?' class="ans"':""}>${cg}<thead><tr>${headCells}</tr></thead><tbody>${list.map(fn).join("")}</tbody></table>`;
   const partA=four?tbl(rBlank,S):`<div class="cols"><div>${tbl(rBlank,S.slice(0,half))}</div><div>${tbl(rBlank,S.slice(half))}</div></div>`;
   const keyA=four?tbl(rAns,S):`<div class="cols"><div>${tbl(rAns,S.slice(0,half))}</div><div>${tbl(rAns,S.slice(half))}</div></div>`;
-  const cloze=list=>list.map(s=>`<li>${s[0]} <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (${s[1]}) ${s[2]}</li>`).join("");
+  const cloze=list=>list.map(s=>`<li>${s[0]} <span class="bl"></span> (${s[1]}) ${s[2]}</li>`).join("");
   const keyLine=list=>list.map((s,i)=>`${i+1}. ${s[3]}`).join("　");
   const n=four?"四態":"三態", forms=four?"V1 · V2 · V3 · V-ing":"V1 · V2 · V3";
   const nameRow=`<div class="dn"><span>Name：<u></u></span><span>Date：<u></u></span><span>Score：<u></u></span></div>`;
@@ -7159,7 +7159,7 @@ function vfPrintWorksheet(four){
   if(four){
     sheets=[
       `<div class="sheet"><h1>動詞四態學習單　Verb Forms (${forms})</h1><p class="sub">寫出每個動詞的過去式 V2、過去分詞 V3 與現在分詞 V-ing。</p>${nameRow}<h2>Part A　寫出動詞四態</h2>${partA}</div>`,
-      `<div class="sheet">${vingNote}<h2>Part B　句子填空（用括號動詞的正確形式）</h2><ol>${cloze(sents)}</ol><h2>Part C　現在分詞 V-ing（進行式）</h2><ol>${cloze(vings)}</ol></div>`,
+      `<div class="sheet"><h2>Part B　句子填空（用括號動詞的正確形式）</h2><ol>${cloze(sents)}</ol>${vingNote}<h2>Part C　現在分詞 V-ing（進行式）</h2><ol>${cloze(vings)}</ol></div>`,
       `<div class="sheet key"><h1>解答 Answer Key — Part A</h1>${keyA}</div>`,
       `<div class="sheet key"><h1>解答 Answer Key — Part B / C</h1><h2>Part B</h2><p class="key"><b>${keyLine(sents)}</b></p><h2>Part C</h2><p class="key"><b>${keyLine(vings)}</b></p><p class="sub" style="margin-top:18px">English Cat Island · 動詞三態專區</p></div>`
     ];
@@ -7169,7 +7169,7 @@ function vfPrintWorksheet(four){
       `<div class="sheet key"><h1>解答 Answer Key</h1><h2>Part A</h2>${keyA}<h2>Part B</h2><p class="key"><b>${keyLine(sents)}</b></p><p class="sub" style="margin-top:18px">English Cat Island · 動詞三態專區</p></div>`
     ];
   }
-  const doc=`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>動詞${n}學習單 Verb Forms Worksheet</title><style>
+  const doc=`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>動詞${n}學習單 Verb Forms Worksheet</title><style>
    *{box-sizing:border-box} body{font-family:Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:#111;margin:0;background:#e9e9e9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
    .bar{position:sticky;top:0;display:flex;gap:12px;align-items:center;background:#1f7a6e;color:#fff;padding:10px 16px;font-size:14px;z-index:2}
    .bar button{font:inherit;background:#fff;color:#1f7a6e;border:0;border-radius:8px;padding:7px 14px;font-weight:700;cursor:pointer}
@@ -7180,15 +7180,16 @@ function vfPrintWorksheet(four){
    h2{font-size:14.5px;margin:16px 0 8px;border-left:4px solid #1f7a6e;padding-left:8px;break-after:avoid;page-break-after:avoid}
    .cols{display:flex;gap:16px;align-items:flex-start} .cols>div{flex:1;min-width:0}
    table{border-collapse:collapse;width:100%;table-layout:fixed}
-   col.c1{width:16%} col.c2{width:14%} col.c3{width:23.33%} col.d1{width:26%} col.d2{width:22%} col.d3{width:26%}
+   col.c1{width:15%} col.c2{width:13%} col.c3{width:24%} col.d1{width:22%} col.d2{width:16%} col.d3{width:31%}
    td,th{border:1px solid #333;padding:4px 7px;font-size:12px;text-align:left;vertical-align:middle;word-break:break-word}
-   tbody td{height:0.64cm}
+   tbody td{height:0.72cm} table.ans tbody td{height:auto;padding:3px 7px}
    thead{display:table-header-group} tr{page-break-inside:avoid;break-inside:avoid}
    th{background:#eef5f3;font-size:10.5px;white-space:normal;font-weight:700} td.w{font-weight:700} td.zh{color:#555;font-size:11px}
-   ol{margin:6px 0 0;padding-left:22px} li{font-size:13px;line-height:2.1;page-break-inside:avoid} li u{letter-spacing:2px}
+   ol{margin:6px 0 0;padding-left:22px} li{font-size:13px;line-height:2.3;page-break-inside:avoid} .bl{display:inline-block;width:3.4cm;border-bottom:1px solid #000;vertical-align:-3px}
    ul.rule{margin:4px 0 0;padding-left:20px} ul.rule li{font-size:12.5px;line-height:1.75} ul.rule b{color:#1f7a6e}
    .key{font-size:12.5px;line-height:1.9} .key b{color:#1f7a6e}
-   @media print{.bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0}} @page{margin:1.3cm}
+   @media screen and (max-width:640px){.sheet{margin:10px 6px;padding:20px 14px} .cols{flex-direction:column} .bar{flex-wrap:wrap}}
+   @media print{.bar{display:none} body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none;padding:0}} @page{size:A4;margin:1.3cm}
   </style></head><body>
    <div class="bar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button><span>動詞${n}學習單——${four?"第 1 頁填表、第 2 頁句子、後兩頁解答":"第 1 頁學習單、第 2 頁解答"}。</span></div>
    ${sheets.join("")}
@@ -9721,6 +9722,28 @@ function safeOpenPrintDoc(docHtml, title){
   showPrintModalFallback(docHtml, title);
 }
 
+/* A print document's CSS, scoped to the in-page preview: its body / h1 / table / .bar rules must not restyle
+   the site behind it, and its body/html rules land on the preview's .gpp-doc. @page is dropped (the preview sets A4). */
+function gppScopeCss(css, scope){
+  css = css.replace(/\/\*[\s\S]*?\*\//g, "");
+  const sel = list => { const parts = []; let depth = 0, cur = "";
+    for(const ch of list){ if(ch==="("||ch==="[") depth++; else if(ch===")"||ch==="]") depth--; if(ch===","&&!depth){ parts.push(cur); cur=""; } else cur += ch; }
+    parts.push(cur);
+    return parts.map(x=>x.trim()).filter(Boolean).map(x=>/^(html|body|:root)$/i.test(x) ? scope : scope+" "+x.replace(/^(html|body)(?=[\s>+~])\s*/i,"")).join(","); };
+  let out = "", i = 0;
+  while(i < css.length){
+    const open = css.indexOf("{", i); if(open < 0) break;
+    const head = css.slice(i, open).trim();
+    let d = 1, j = open + 1; for(; j < css.length && d; j++){ if(css[j]==="{") d++; else if(css[j]==="}") d--; }
+    const body = css.slice(open + 1, j - 1);
+    if(/^@(media|supports)/i.test(head)) out += `${head}{${gppScopeCss(body, scope)}}`;
+    else if(/^@page/i.test(head)){ /* the preview's own @page wins */ }
+    else if(head[0]==="@") out += `${head}{${body}}`;
+    else if(head) out += `${sel(head)}{${body}}`;
+    i = j;
+  }
+  return out;
+}
 function showPrintModalFallback(docHtml, title){
   closePrintModalFallback();
   const modal = document.createElement("section");
@@ -9733,6 +9756,15 @@ function showPrintModalFallback(docHtml, title){
   const styleMatch = docHtml.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
   const innerBody = bodyMatch ? bodyMatch[1] : docHtml;
   const innerStyle = styleMatch ? styleMatch[1] : "";
+  /* the document brings its own 🖨 bar for when it opens in a new window; here the preview's bar already prints,
+     so drop that button — a bar left with only a hint moves into the preview's bar, one with real controls stays */
+  const tpl = document.createElement("template"); tpl.innerHTML = innerBody;
+  let docHint = "";
+  tpl.content.querySelectorAll(".bar").forEach(bar=>{
+    bar.querySelectorAll('button[onclick*="print"]').forEach(b=>b.remove());
+    if(bar.querySelector("button,input,select,textarea,a,label")){ bar.style.position = "static"; return; }
+    docHint = docHint || bar.textContent.replace(/\s+/g," ").trim(); bar.remove();
+  });
 
   modal.innerHTML = `
     <style>
@@ -9742,7 +9774,7 @@ function showPrintModalFallback(docHtml, title){
       }
       #generic-print-preview .gpp-bar{
         position:sticky;top:0;z-index:20;background:#332920;color:#fff;
-        padding:10px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.35);
+        padding:10px 18px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;box-shadow:0 2px 10px rgba(0,0,0,.35);
         font:600 13.5px system-ui,-apple-system,sans-serif;
       }
       #generic-print-preview .gpp-btn{
@@ -9756,15 +9788,14 @@ function showPrintModalFallback(docHtml, title){
       }
       #generic-print-preview .gpp-close:hover{background:#6d5f53}
       #generic-print-preview .gpp-hint{font-size:12px;opacity:.85;font-weight:400}
-      #generic-print-preview .gpp-wrap{
-        padding:20px;display:flex;flex-direction:column;align-items:center;min-height:100%;
-      }
-      ${innerStyle}
+      #generic-print-preview .gpp-wrap{padding:20px;min-height:100%}
+      ${gppScopeCss(innerStyle, "#generic-print-preview .gpp-doc")}
       @media print{
         html:has(body.gpp-printing){background:#fff!important}
         body.gpp-printing{overflow:visible!important;background:#fff!important}
         body.gpp-printing > :not(#generic-print-preview){display:none!important}
-        #generic-print-preview{position:static!important;inset:auto!important;background:#fff!important;overflow:visible!important}
+        #generic-print-preview{position:static!important;inset:auto!important;background:#fff!important;overflow:visible!important;display:block!important}
+        #generic-print-preview .gpp-doc{background:#fff!important}
         #generic-print-preview .gpp-bar{display:none!important}
         #generic-print-preview .gpp-wrap{padding:0!important}
         #generic-print-preview .bar{display:none!important}
@@ -9775,12 +9806,10 @@ function showPrintModalFallback(docHtml, title){
     <div class="gpp-bar">
       <span>🐱 ${esc(title || "列印預覽")}</span>
       <button type="button" class="gpp-btn" onclick="window.print()">🖨 列印 / 存成 PDF</button>
-      <span class="gpp-hint">已開啟同頁預覽。可直接按列印，或按 Esc / 關閉返回。</span>
+      <span class="gpp-hint">${docHint ? esc(docHint)+"　（Esc 或 ✕ 關閉）" : "已開啟同頁預覽。可直接按列印，或按 Esc / 關閉返回。"}</span>
       <button type="button" class="gpp-close" onclick="closePrintModalFallback()">✕ 關閉</button>
     </div>
-    <div class="gpp-wrap">
-      ${innerBody}
-    </div>
+    <div class="gpp-wrap"><div class="gpp-doc">${tpl.innerHTML}</div></div>
   `;
 
   const onKey = e => {
