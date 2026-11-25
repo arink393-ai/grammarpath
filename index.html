@@ -13882,6 +13882,30 @@ function rdSheetHTML(r, lv, label){
     return `<div class="q"><div class="qh"><span class="qn">${i+1}.</span> ${rdPlain(q.q)}<span class="qtag">${rdEsc(q.t)}</span></div><div class="rd-ws-options">${opts}</div></div>`;
   }).join("");
   const answers = (lv.q||[]).map((q,i)=>`<div class="ak"><b>${i+1}. (${RD_LET[q.a]})</b> ${rdPlain(q.why)}</div>`).join("");
+  /* 🧭 結構練習（學生版）：選擇題做完，回到文章用不同線條劃出主旨句、主題句、結論句，再用自己的話寫主旨。
+     教師版：文章本身已上色（見 wst-*），這裡再給 ✓ 答案，解答頁也列出。 */
+  const st = lv.st, nP = lv.text.length;
+  const stPar = x => { const k = lv.text.findIndex(p=>p.includes(x)); return k < 0 ? "" : `第 ${k+1} 段`; };
+  const stSec = st ? `<div class="sx-sec"><h2>Text Structure 文章結構練習</h2>
+    <p class="ws-tip">✏️ <b>回到上面的文章</b>，用筆照下面的記號把句子劃出來（這篇共 ${nP} 段）。</p>
+    <ol class="sx">
+      <li><b>主旨句 Main idea</b>：整篇最想告訴讀者的一句話（常在第一段或最後一段）。劃<span class="sx-m">雙底線</span>，它在第 ____ 段。
+        <div class="sx-note">找不到？代表作者沒有直接寫出來，請在第 5 題用自己的話寫。</div>
+        <div class="ak-inline">✓ ${st.m ? `${stPar(st.m)}：${rdEsc(st.m)}` : "本篇沒有明寫主旨句，看第 5 題"}</div></li>
+      <li><b>主題句 Topic sentences</b>：每一段的重點句（常在段首）。中間的段落各劃一句<span class="sx-t">底線</span>。
+        <div class="ak-inline">✓ ${(st.t||[]).length ? st.t.map(x=>`${stPar(x)}：${rdEsc(x)}`).join("<br>") : "（本篇段落短，沒有另標主題句）"}</div></li>
+      <li><b>支持論述 Supporting details</b>：在任一段的主題句後面，<span class="sx-s">圈出</span>一個支持它的例子、數字或原因。</li>
+      <li><b>結論句 Conclusion</b>：收尾、呼應主旨的句子。劃<span class="sx-c">波浪線</span>，它在第 ____ 段。
+        <div class="ak-inline">✓ ${st.c ? `${stPar(st.c)}：${rdEsc(st.c)}` : "本篇用事實收尾，沒有另寫結論句"}</div></li>
+      <li><b>全文主旨</b>：用自己的話寫出這篇文章的主旨（中文或英文都可以）。
+        <div class="wl"></div>${lv===r.levels.a ? "" : '<div class="wl"></div>'}
+        <div class="ak-inline">✓ 參考：${rdEsc(st.mz)}</div></li>
+    </ol></div>` : "";
+  const stAns = st ? `<div class="ak-sec"><b>Text Structure 文章結構（教師版文章已上色標示）</b>
+    <div class="ak">主旨句：${st.m ? `${stPar(st.m)}　${rdEsc(st.m)}` : "本篇沒有明寫，需自行歸納"}</div>
+    ${(st.t||[]).map(x=>`<div class="ak">主題句：${stPar(x)}　${rdEsc(x)}</div>`).join("")}
+    <div class="ak">結論句：${st.c ? `${stPar(st.c)}　${rdEsc(st.c)}` : "本篇用事實收尾，沒有另寫結論句"}</div>
+    <div class="ak">全文主旨（參考）：${rdEsc(st.mz)}</div></div>` : "";
   /* Discussion → writing: talk it over with the teacher, then answer each question in full English sentences
      (in class or as homework). More lines and a harder sentence frame at higher levels. */
   const lk = Object.keys(r.levels).find(k=>r.levels[k]===lv) || "a";
@@ -13926,6 +13950,7 @@ function rdSheetHTML(r, lv, label){
   ${cwSec}
   <h2>Comprehension Questions 閱讀測驗</h2>
   ${qs}
+  ${stSec}
   ${phSec}${gtSec}${czSec}${trSec}
   ${discuss && !gt?`<div class="dw-sec"><h2>Discussion &amp; Writing 討論與寫作</h2>
   <div class="dw-how"><span>① 先和老師、同學討論　② 用<b>完整的英文句子</b>寫下你的想法</span><span class="dw-when">☐ 課堂完成　☐ 回家作業　繳交日：________</span></div>
@@ -13933,7 +13958,7 @@ function rdSheetHTML(r, lv, label){
   <ol class="disc">${discuss}</ol>
   <div class="dw-check">寫完自我檢查：☐ 大寫開頭　☐ 句尾有句號或問號　☐ 每句都有主詞和動詞　☐ 有說出理由（because / for example）</div></div>`:""}
   <div class="src-note">📰 Source 資料來源：改寫自 ${rdEsc(r.src)} 等媒體之公開報導（${rdEsc(r.date)}）。本文為依據事實重新撰寫的分級英文教學稿，非原文轉載，著作權歸原報導媒體所有。</div>
-  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}${cwAns}${phAns}${gtAns}${czAns}${trAns}</div>
+  <div class="answers"><div class="lbl">ANSWER KEY 教師解答</div><h2 style="margin-top:6px">Answers 解答與解析</h2>${answers}${stAns}${cwAns}${phAns}${gtAns}${czAns}${trAns}</div>
 </section>`;
 }
 /* Same-page preview avoids blocked popup windows and keeps the reading answers intact. */
@@ -14068,6 +14093,15 @@ function rdOpenWorksheet(sections, docTitle){
 #rd-print-preview .cwp-clues i{color:#555;font-size:9pt}
 #rd-print-preview .ak-cw{margin-top:10px;break-inside:avoid}
 #rd-print-preview .wst-tag,#rd-print-preview .wst-panel{display:none}
+#rd-print-preview .sx-sec{break-inside:avoid-page}
+#rd-print-preview ol.sx{padding-left:22px;font:10.5pt/1.6 system-ui,sans-serif}
+#rd-print-preview ol.sx li{margin:0 0 9px;break-inside:avoid;page-break-inside:avoid}
+#rd-print-preview .sx-note{font-size:9pt;color:#777}
+#rd-print-preview .sx-m{text-decoration:underline double;font-weight:700;margin:0 3px}
+#rd-print-preview .sx-t{text-decoration:underline;font-weight:700;margin:0 3px}
+#rd-print-preview .sx-c{text-decoration:underline wavy;text-underline-offset:3px;font-weight:700;margin:0 3px}
+#rd-print-preview .sx-s{border:1.3px solid #333;border-radius:99px;padding:0 6px;font-weight:700;margin:0 3px}
+#rd-print-preview.show-answers ol.sx .ak-inline{display:block;font-weight:600;margin-top:2px}
 #rd-print-preview.show-answers .wst-panel{display:block;font:10pt system-ui,sans-serif;border:1.5px solid #E2CDB6;border-radius:8px;padding:8px 12px;margin:4px 0 6px;background:#FFFBF5;break-inside:avoid}
 #rd-print-preview .wst-h{font-weight:700;color:#79401F;margin-bottom:4px}
 #rd-print-preview .wst-legend{display:flex;flex-wrap:wrap;gap:4px 10px;margin-bottom:4px}
