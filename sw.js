@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v277-worksheet-structure-practice";
+const CACHE = "eci-v278-week-1214";
 const SHELL = [
   "./",
   "./index.html",
