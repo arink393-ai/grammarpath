@@ -13683,7 +13683,7 @@ function rdToggleGloss(){ RD_GLOSS = !RD_GLOSS; renderReading(rdCurId, true); }
 let RD_ST = false;
 function rdToggleSt(){ RD_ST = !RD_ST; renderReading(rdCurId, true); }
 const RD_ST_K = {m:"主旨", t:"主題", c:"結論"};
-function rdStMark(p, i, lv){
+function rdStMark(p, i, lv, fmt = g => rdMarkText(g, lv), pre = "st"){   // 學習單（教師版）用 rdEsc + "wst"
   const st = lv.st, n = lv.text.length, marks = [];
   const add = (x, k) => { if(!x) return; const j = p.indexOf(x); if(j < 0) return;
     const ex = marks.find(m => m.j === j && m.e === j + x.length);
@@ -13692,13 +13692,13 @@ function rdStMark(p, i, lv){
   marks.sort((a, b) => a.j - b.j);
   const body = (i > 0 && i < n - 1) || (st.t || []).some(x => p.includes(x));   // 首尾段若也標了主題句，就當正文段
   const gap = g => { if(!g.trim()) return g;
-    if(!body) return rdMarkText(g, lv);
+    if(!body) return fmt(g);
     const l = g.match(/^\s*/)[0], r = g.match(/\s*$/)[0];
-    return l + `<span class="st-s">${rdMarkText(g.trim(), lv)}</span>` + r; };
+    return l + `<span class="${pre}-s">${fmt(g.trim())}</span>` + r; };
   let out = "", at = 0;
   marks.forEach(m => { if(m.j < at) return;
     out += gap(p.slice(at, m.j));
-    out += `<span class="st-x st-${m.k[0]}">${m.k.map(k => `<span class="st-tag st-tag-${k}">${RD_ST_K[k]}</span>`).join("")}${rdMarkText(p.slice(m.j, m.e), lv)}</span>`;
+    out += `<span class="${pre}-x ${pre}-${m.k[0]}">${m.k.map(k => `<span class="${pre}-tag ${pre}-tag-${k}">${RD_ST_K[k]}</span>`).join("")}${fmt(p.slice(m.j, m.e))}</span>`;
     at = m.e; });
   return out + gap(p.slice(at));
 }
@@ -13865,7 +13865,11 @@ function wsPhrases(r, lv, lk){
   return {items, lines, bank, withZh: lk==="a"};
 }
 function rdSheetHTML(r, lv, label){
-  const paras   = lv.text.map(p=>`<p>${rdEsc(p)}</p>`).join("");
+  /* 🧭 文章結構：學生版看起來是一般文章；勾「顯示解答（教師版）」才上色、加標籤，並在文章下方顯示全文主旨 */
+  const paras   = lv.text.map((p,i)=>`<p>${lv.st ? rdStMark(p, i, lv, rdEsc, "wst") : rdEsc(p)}</p>`).join("");
+  const stBox   = lv.st ? `<div class="wst-panel"><div class="wst-h">🧭 文章結構（教師版）</div>
+    <div class="wst-legend"><span class="wst-chip wst-m">主旨句</span><span class="wst-chip wst-t">主題句</span><span class="wst-chip wst-s">支持論述</span><span class="wst-chip wst-c">結論句</span></div>
+    <div class="wst-main"><b>📌 全文主旨：</b>${rdEsc(lv.st.mz)}${lv.st.m ? "" : "（本篇沒有明寫主旨句，需自行歸納）"}${lv.st.c ? "" : "（本篇以事實收尾，沒有另寫結論句）"}</div></div>` : "";
   const gloss   = (lv.gloss||[]).map(g=>`<span class="g"><b>${rdEsc(g[0])}</b> <i>${rdEsc(g[1])}</i> ${rdEsc(g[2])}</span>`).join("");
   const cw = cwForLevel(lv);
   const cwSec = cw ? `<div class="cwp-sec"><h2>Vocabulary Crossword 單字填字</h2>
@@ -13917,6 +13921,7 @@ function rdSheetHTML(r, lv, label){
   <h1>${rdPlain(lv.title)}</h1>
   <div class="meta"><span class="cefr">${rdEsc(lv.cefr)}</span>${rdEsc(r.topic)} · ${rdEsc(r.zh)} · 改寫自 ${rdEsc(r.src)}</div>
   <div class="article">${paras}</div>
+  ${stBox}
   ${gloss?`<h2>Words 單字</h2><div class="gloss">${gloss}</div>`:""}
   ${cwSec}
   <h2>Comprehension Questions 閱讀測驗</h2>
@@ -14062,6 +14067,26 @@ function rdOpenWorksheet(sections, docTitle){
 #rd-print-preview .cwp-clues li{margin:3px 0;break-inside:avoid}
 #rd-print-preview .cwp-clues i{color:#555;font-size:9pt}
 #rd-print-preview .ak-cw{margin-top:10px;break-inside:avoid}
+#rd-print-preview .wst-tag,#rd-print-preview .wst-panel{display:none}
+#rd-print-preview.show-answers .wst-panel{display:block;font:10pt system-ui,sans-serif;border:1.5px solid #E2CDB6;border-radius:8px;padding:8px 12px;margin:4px 0 6px;background:#FFFBF5;break-inside:avoid}
+#rd-print-preview .wst-h{font-weight:700;color:#79401F;margin-bottom:4px}
+#rd-print-preview .wst-legend{display:flex;flex-wrap:wrap;gap:4px 10px;margin-bottom:4px}
+#rd-print-preview .wst-chip{padding:0 6px;border-radius:4px}
+#rd-print-preview.show-answers .wst-m{background:#FFDFAE}
+#rd-print-preview.show-answers .wst-t{background:#D6E8FB}
+#rd-print-preview.show-answers .wst-c{background:#E7DAF7}
+#rd-print-preview.show-answers .wst-s{background:linear-gradient(transparent 72%,#D3EFCB 72%)}
+#rd-print-preview.show-answers .wst-x{border-radius:3px;padding:0 1px}
+#rd-print-preview.show-answers .wst-tag{display:inline-block;font:700 7.5pt system-ui,sans-serif;color:#fff;border-radius:3px;padding:0 4px;margin-right:3px;vertical-align:1px;text-indent:0}
+#rd-print-preview .wst-tag-m{background:#C9741F}
+#rd-print-preview .wst-tag-t{background:#3A75B8}
+#rd-print-preview .wst-tag-c{background:#7E55B5}
+/* 黑白省墨：底色會被清掉，改用線條區分 */
+#rd-print-preview.ink-saving.show-answers .wst-m{text-decoration:underline double!important}
+#rd-print-preview.ink-saving.show-answers .wst-t{text-decoration:underline!important;font-weight:700}
+#rd-print-preview.ink-saving.show-answers .wst-c{text-decoration:underline wavy!important}
+#rd-print-preview.ink-saving.show-answers .wst-s{text-decoration:underline dotted!important}
+#rd-print-preview.ink-saving.show-answers .wst-tag{border:1px solid #111!important;color:#111!important;font-weight:700}
 </style>
 <div class="bar">
   <span>🐱 閱讀練習卷預覽</span>
@@ -14069,7 +14094,7 @@ function rdOpenWorksheet(sections, docTitle){
   <label class="sec"><input type="checkbox" id="ak-toggle">顯示解答（教師版）</label>
   <label for="rd-print-color">列印色彩</label><select id="rd-print-color"><option value="color">彩色</option><option value="mono">黑白省墨</option></select>
   <button type="button" class="sec" id="rd-print-close">關閉預覽</button>
-  <span class="hint">共 ${sections.length} 份練習卷，實際頁數依內容長度而定。預設學生版不含解答；教師版解答另起一頁。彩色版保留單字底色與標籤；列印視窗請選「彩色」並開啟「背景圖形」。可按列印按鈕或 Ctrl / ⌘ + P。若內建瀏覽器未開啟列印視窗，請改用 Chrome、Edge 或 Safari 開啟。</span>
+  <span class="hint">共 ${sections.length} 份練習卷，實際頁數依內容長度而定。預設學生版不含解答；教師版會在文章標出文章結構（主旨句・主題句・支持論述・結論句），解答另起一頁。彩色版保留單字底色與標籤；列印視窗請選「彩色」並開啟「背景圖形」。可按列印按鈕或 Ctrl / ⌘ + P。若內建瀏覽器未開啟列印視窗，請改用 Chrome、Edge 或 Safari 開啟。</span>
 </div>
 ${sections.map(s=>rdSheetHTML(s.r, s.lv, s.label)).join("")}`;
   const state = {focus:document.activeElement, title:document.title, overflow:document.body.style.overflow,
@@ -14088,7 +14113,7 @@ ${sections.map(s=>rdSheetHTML(s.r, s.lv, s.label)).join("")}`;
   document.body.style.overflow = "hidden";
   document.title = docTitle;
   preview.querySelector("#ak-toggle").onchange = e=>{ preview.classList.toggle("show-answers", e.target.checked);
-    if(e.target.checked) toast("✓ 已顯示解答：題目的正確選項標綠色、填字填好答案；解析在每份學習單最後"); };
+    if(e.target.checked) toast("✓ 已顯示解答：文章標出主旨句／主題句／支持論述／結論句，正確選項標綠色、填字填好答案；解析在每份學習單最後"); };
   preview.querySelector("#rd-print-color").onchange = e=>preview.classList.toggle("ink-saving", e.target.value === "mono");
   preview.querySelector("#rd-print-close").onclick = rdCloseWorksheet;
   preview.querySelector("#rd-print-submit").onclick = ()=>window.print();
