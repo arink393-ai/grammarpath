@@ -203,3 +203,24 @@
 .be-can{color:#23784a}.be-cant{color:#b33b2a}.be-q{color:#7b4bb0}
 .cn-ans-btns{flex-direction:column;align-items:center;gap:10px;margin-bottom:12px}
 .adv-letter.cn-ans{width:min(300px,100%);height:auto;min-height:62px;padding:8px 18px;font:800 clamp(20px,5.6vw,26px) var(--serif)}
+/* World 7 · 背包營地 */
+.adv-have .adv-node.done{background:linear-gradient(160deg,#d2f4f1,#86d8cf)}
+.adv-have .adv-node.next{background:linear-gradient(160deg,#c4eee9,#3fbcae)}
+.be-have{color:#7b4bb0}.be-has{color:#1f8f84}
+.hv-sent{font-size:clamp(19px,5.2vw,25px);line-height:1.35}
+.hv-bag{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:#effaf8;border:3px dashed #8fd6cc;border-radius:22px;padding:10px 14px;margin:4px auto 14px;max-width:420px}
+.hv-owner{display:flex;flex-direction:column;align-items:center;font-size:40px;line-height:1.1}
+.hv-owner small{font:800 13px var(--sans);color:#1f8f84}
+.hv-bag-ic{font-size:58px;line-height:1}
+.hv-slots{display:flex;gap:6px}
+.hv-slot{width:52px;height:52px;border-radius:14px;border:3px dashed #b9e3dd;background:#fff;display:flex;align-items:center;justify-content:center;font:800 22px var(--sans);color:#9fcfc8}
+.hv-slot.on{border-style:solid;border-color:#59b07a;font-size:32px;animation:hvDrop .35s ease-out}
+@keyframes hvDrop{0%{transform:translateY(-14px) scale(.7)}100%{transform:none}}
+.hv-tray{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:420px;margin:0 auto}
+.hv-item{border-radius:18px;border:3px solid var(--line);background:#fff;padding:8px 4px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.hv-item span{font-size:clamp(36px,10vw,46px);line-height:1.1}
+.hv-item small{font:700 14px var(--serif);color:var(--navy)}
+.hv-item:active{transform:scale(.95)}
+.hv-item.got{opacity:.25;border-style:dashed}
+.hv-item.no{opacity:.35;animation:advShake .35s}
+@media (prefers-reduced-motion:reduce){.hv-slot.on{animation:none}}
