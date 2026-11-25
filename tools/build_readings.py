@@ -113,6 +113,13 @@ def load():
                         form = x.get('m') or x.get('p') or ''
                         if form and not re.search(r'\b' + r'\s+'.join(map(re.escape, form.split())) + r'\b', body, re.I):
                             errs.append(f'{rid}/{lv}：片語「{form}」在文章裡找不到（寫法不同時請填 m）')
+                if 'st' in L:   # 文章結構：主旨句 m／各段主題句 t／結論句 c 都要是原文片段，mz＝中文主旨
+                    st, paras = L['st'], L.get('text') or []
+                    if not st.get('mz'): errs.append(f'{rid}/{lv}：文章結構 st 缺少 mz（中文主旨）')
+                    for k, xs in (('m', [st.get('m')]), ('t', st.get('t') or []), ('c', [st.get('c')])):
+                        for x in xs:
+                            if x and not any(x in p for p in paras):
+                                errs.append(f'{rid}/{lv}：文章結構 st.{k}「{x[:40]}」在文章裡找不到（要逐字照抄原文）')
                 if 'tz' in L and len(L['tz']) != len(L.get('text') or []):
                     errs.append(f'{rid}/{lv}：tz（全文翻譯）有 {len(L["tz"])} 段，text 有 {len(L.get("text") or [])} 段，要一段對一段')
                 for qi, q in enumerate(L.get('q') or []):
@@ -155,6 +162,8 @@ def main():
         if new != s: print('✗ index.html 的 READINGS 目錄過期，請執行 python3 tools/build_readings.py'); sys.exit(1)
         print(f'readings ok：{len(all_rs)} 篇，{len(files)} 個月份檔'); return
     if new != s: open(HTML, 'w', encoding='utf-8').write(new)
+    no_st = [r['id'] for r in all_rs if any('st' not in (r.get('levels') or {}).get(lv, {}) for lv in 'abc')]
+    if no_st: print(f'⚠️ 這 {len(no_st)} 篇還沒有文章結構 st（不影響上線，但不會出現「文章結構」按鈕）：', ', '.join(no_st))
     print(f'已建置 READINGS：{len(all_rs)} 篇（{", ".join(sorted(files))}）')
 
 if __name__ == '__main__':
