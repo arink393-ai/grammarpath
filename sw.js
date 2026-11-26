@@ -1,5 +1,5 @@
 /* English Cat Island — service worker (offline + installable PWA) */
-const CACHE = "eci-v278-week-1214";
+const CACHE = "eci-v279-weekly-qa";
 const SHELL = [
   "./",
   "./index.html",
@@ -34,7 +34,7 @@ const SHELL = [
   "./art/fables/aesop-milkmaid-pail.webp",
   "./art/fables/aesop-shepherd-wolf.webp",
   "./art/fables/aesop-wind-sun.webp",
-  "./art/vocab/unit42.png",
+  "./art/vocab/unit42.webp",
   "./art/writing/beach.jpg",
   "./art/writing/classroom.jpg",
   "./art/writing/dinner.jpg",
@@ -81,7 +81,7 @@ const SHELL = [
   "./nouns-art.css?v=4",
   "./progress-sync.js?v=1",
   "./word-checkin.js?v=1",
-  "./curriculum-loader.js?v=14",
+  "./curriculum-loader.js?v=15",
   "./lesson-notes.js?v=20",
   "./homework.js?v=20",
   "./student-info.js?v=10",
@@ -91,7 +91,7 @@ const SHELL = [
   "./daily.js?v=18",
   "./adventure.js?v=7",
   "./vocab/books.js?v=6",
-  "./vocab-quest.js?v=18",
+  "./vocab-quest.js?v=19",
   "./manifest.webmanifest",
   "./vocab/",
   "./vocab/style.css?v=2",

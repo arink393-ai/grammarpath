@@ -2385,7 +2385,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="progress-sync.js?v=1"></script>
 <script src="word-checkin.js?v=1"></script>
-<script src="curriculum-loader.js?v=14"></script>
+<script src="curriculum-loader.js?v=15"></script>
 <script src="lesson-notes.js?v=20"></script>
 <script src="ted-data.js?v=1"></script>
 <script src="homework.js?v=20"></script>
@@ -2396,7 +2396,7 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 <script src="daily.js?v=18"></script>
 <script src="adventure.js?v=7"></script>
 <script src="vocab/books.js?v=6"></script>
-<script src="vocab-quest.js?v=18"></script>
+<script src="vocab-quest.js?v=19"></script>
 <script>
 /* Supabase backend (teacher dashboard + progress sync + homework).
    The anon key is meant to be public; Row Level Security protects the data. */
@@ -17063,8 +17063,8 @@ function renderResources(tab){
    Views — Printable worksheets
    ===================================================== */
 function wsFixSpot(q){
-  const t = q.sent.split(" "), f = t.slice(); f[q.wrong] = q.fix;
-  const clean = a => a.join(" ").replace(/\s+([.,!?])/g, "$1");
+  const t = q.sent.split(" "), f = q.right ? q.right.split(" ") : t.slice(); if(!q.right) f[q.wrong] = q.fix;
+  const clean = a => a.join(" ").replace(/\s+([.,!?;])/g, "$1");
   return {s: clean(t), fix: clean(f)};
 }
 /* Full spelling-rule blocks, injected into each tense worksheet's Exceptions box. */
@@ -17790,7 +17790,7 @@ function answerSpot(ix){
       if(bix===q.wrong) b.classList.add(ok?"ok":"bad");
       if(!ok && bix===ix) b.classList.add("bad");
     });
-    $("#fbSlot").insertAdjacentHTML("beforebegin", `<div class="hint">Fix: <b style="color:var(--good)">${esc(q.fix)}</b></div>`);
+    $("#fbSlot").insertAdjacentHTML("beforebegin", `<div class="hint">Fix: <b style="color:var(--good)">${esc(q.fix)}</b><br>✓ 正確句子：<b style="color:var(--navy)">${esc(wsFixSpot(q).fix)}</b></div>`);
   });
 }
 function quitSession(){ clearInterval(S.timer);

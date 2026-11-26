@@ -233,7 +233,7 @@ function vqImg(w){
  const key=vqSlug(w),scene=VQ_SCENES[key];
  const rect=scene&&[[0,0,490,512],[490,0,1000,512],[1000,0,1536,512],[0,512,510,1024],[510,512,1024,1024]][scene[0]];
  const sw=rect?rect[2]-rect[0]:1,sh=rect?rect[3]-rect[1]:1;
- if(scene)return `<figure class="vq-pic-wrap" style="margin:16px auto;text-align:center"><span role="img" aria-label="${esc(scene[1])}" style="display:block;width:min(240px,100%);aspect-ratio:${sw/sh};margin:auto;background-image:url('art/vocab/unit42.png');background-size:${1536/sw*100}% ${1024/sh*100}%;background-position:${rect[0]/(1536-sw)*100}% ${rect[1]/(1024-sh)*100}%"></span><figcaption style="font-size:14px;color:#746554">${esc(scene[1])}</figcaption></figure>`;
+ if(scene)return `<figure class="vq-pic-wrap" style="margin:16px auto;text-align:center"><span role="img" aria-label="${esc(scene[1])}" style="display:block;width:min(240px,100%);aspect-ratio:${sw/sh};margin:auto;background-image:url('art/vocab/unit42.webp');background-size:${1536/sw*100}% ${1024/sh*100}%;background-position:${rect[0]/(1536-sw)*100}% ${rect[1]/(1024-sh)*100}%"></span><figcaption style="font-size:14px;color:#746554">${esc(scene[1])}</figcaption></figure>`;
  const aliases={'ice-cream':'icecream','hot-dog':'hotdog','hamburger':'burger'};
  const icon=aliases[key]||key;
  if(typeof NOUN_ART_KEYS!=='undefined'&&NOUN_ART_KEYS.includes(icon)&&!['chicken','tablet'].includes(key))return `<div class="vq-pic-wrap nouns" style="display:flex;justify-content:center;margin:16px auto">${NICON[icon]}</div>`;

@@ -42,7 +42,7 @@ def main():
     EXTRA_PAGES = ['exams.html', 'ted.html']
     extra = list(dict.fromkeys(pp for pg in EXTRA_PAGES for pp in [pg] + page_assets(pg)))
     art = ['art/cat-dex/meme-cats-atlas.webp', 'art/cat-dex/meme-cats-atlas-2.webp', 'art/cat-dex/meme-cats-atlas-3.webp'] + [f'art/island/cats-{i}.webp' for i in range(1,5)] + sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/nouns/*')) if p.endswith('.webp')) + sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/fables/*.webp')))
-    art += sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/vocab/*.png')))
+    art += sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/vocab/*.webp')))
     art += sorted(os.path.relpath(p, REPO) for p in glob.glob(os.path.join(REPO, 'art/writing/*.jpg')))
     # 課程貓咪圖（原本 base64 內嵌在 index.html，2026-10-27 抽成檔案，index 改版時不必重下載）
     art += sorted('art/breeds/'+os.path.basename(f) for f in glob.glob(os.path.join(REPO, 'art', 'breeds', '*.webp')))
