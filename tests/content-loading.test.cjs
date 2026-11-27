@@ -43,6 +43,7 @@ test('service worker keeps offline downloads and unrelated caches during upgrade
  let response;events.fetch({request:{method:'GET',mode:'navigate',url:'https://example.test/grammarpath/vocab/?book=jh7'},respondWith:p=>response=p});assert.equal(await(await response).text(),'vocab shell');
 });
 test('offline and service-worker asset lists match the pages (tools/sync_assets.py --check)',()=>{const r=require('node:child_process').spawnSync('python3',['tools/sync_assets.py','--check'],{encoding:'utf8'});assert.equal(r.status,0,r.stdout+r.stderr);});
+test('multiple-choice answers are spread evenly over A–D (tools/balance_lessons.py --check)',()=>{const r=require('node:child_process').spawnSync('python3',['tools/balance_lessons.py','--check'],{encoding:'utf8'});assert.equal(r.status,0,r.stdout+r.stderr);});
 test('lesson notes are rebuilt from tools/notes-src (tools/build_notes.py --check)',()=>{const r=require('node:child_process').spawnSync('python3',['tools/build_notes.py','--check'],{encoding:'utf8'});assert.equal(r.status,0,r.stdout+r.stderr);});
 test('lesson notes mark the wrong words from a ✗/✓ pair',()=>{const w={};const vm=require('node:vm');vm.runInNewContext(require('node:fs').readFileSync('lesson-notes.js','utf8'),{window:w});const d=w.LessonNotes.diffMark;
   assert.equal(d('That is a interesting book.','That is an interesting book.'),'That is [a|an] interesting book.');

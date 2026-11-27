@@ -1184,6 +1184,10 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .ws-body{flex:1}
 .ws-opts{display:block;margin-top:3px;color:#4A4038}
 .ws-opts span{margin-right:18px;white-space:nowrap}
+.ws-ctx{display:block;background:#F7F1E8;border-radius:6px;padding:4px 9px;margin:0 0 5px;font:13px/1.55 var(--sans);color:#5a4232}
+.ws-sy .ws-opts{display:grid;grid-template-columns:1fr 1fr;gap:3px 18px}
+.ws-sy .ws-opts span{white-space:normal;margin:0}
+@media(max-width:560px){.ws-sy .ws-opts{grid-template-columns:1fr}}
 .wsblank{display:inline-block;min-width:86px;border-bottom:1.5px solid #2E2620;height:15px;vertical-align:bottom}
 .ws-line{display:block;border-bottom:1px solid #B9AC9B;height:20px;margin-top:4px}
 .ws-foot{font:italic 400 10.5px var(--sans);color:#9A8C7C;border-top:1px solid var(--line);margin-top:18px;padding-top:8px}
@@ -1434,6 +1438,8 @@ h2.section{font:600 22px var(--serif);color:var(--navy);margin:0 0 14px}
 .qcard{padding:30px 34px;position:relative}
 .qtype{font:600 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
 .qprompt{font:500 21px/1.5 var(--serif);color:var(--navy);margin-bottom:22px}
+.q-ctx{background:#FBF3E8;border:1px solid #F0E2CE;border-radius:12px;padding:10px 14px;margin:0 0 14px;font:15px/1.6 var(--sans);color:#5a4232}
+.q-ctx-tag{display:inline-block;font:700 12px var(--sans);color:#fff;background:#B4623B;border-radius:6px;padding:1px 8px;margin-right:8px;vertical-align:1px}
 .qprompt .blank{display:inline-block;min-width:86px;border-bottom:2.5px solid var(--teal2);margin:0 3px;text-align:center;color:var(--teal);font-weight:600}
 .opts{display:flex;flex-direction:column;gap:10px}
 .opt{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:10px;padding:13px 16px;font:400 15.5px var(--sans);color:var(--ink);background:var(--paper);text-align:left;transition:border-color .12s ease,background .12s ease}
@@ -10689,10 +10695,10 @@ const WORKSHEETS = {
   "be 後面不加一般動詞原形：✗ I am go to school. → I go to school. 或 I am going to school."],
  mcq:[
   {q:"My brother knows how to cook. He ___ a chef.", opts:["is","are","am"], a:0},
-  {q:"A: Are you hungry?  B: Yes, I ___.", opts:["are","am","is"], a:1},
+  {q:"A: Are you hungry?  B: Yes, I ___.", opts:["are","is","am"], a:2},
   {q:"My friend and I ___ both students at the same school.", opts:["is","are","am"], a:1},
-  {q:"That movie ___ funny. In fact, it's quite boring.", opts:["is","isn't","aren't"], a:1},
-  {q:"There ___ many people in my English class.", opts:["are","am","is"], a:0}],
+  {q:"That movie ___ funny. In fact, it's quite boring.", opts:["isn't","is","aren't"], a:0},
+  {q:"There ___ many people in my English class.", opts:["am","are","is"], a:1}],
  fill:[
   {q:"I am from Taiwan and my classmate ___ from Japan.", ans:"is"},
   {q:"A: ___ your brother a teacher?  B: Yes, he is.", ans:"Is"},
@@ -10719,10 +10725,10 @@ const WORKSHEETS = {
   "it 可以指天氣、時間、距離：It is raining. / It is far."],
  mcq:[
   {q:"___ am twelve years old.", opts:["Me","I","My"], a:1},
-  {q:"This gift is for ___.", opts:["she","hers","her"], a:2},
-  {q:"My grandma loves ___ very much.", opts:["we","us","our"], a:1},
-  {q:"___ is my favorite teacher.", opts:["Him","He","His"], a:1},
-  {q:"Can you help ___ with this box?", opts:["I","my","me"], a:2}],
+  {q:"This gift is for ___.", opts:["her","she","hers"], a:0},
+  {q:"My grandma loves ___ very much.", opts:["we","our","us"], a:2},
+  {q:"___ is my favorite teacher.", opts:["He","Him","His"], a:0},
+  {q:"Can you help ___ with this box?", opts:["I","me","my"], a:1}],
  fill:[
   {q:"Amy is my best friend. I like ___ a lot.", ans:"her"},
   {q:"My brother is tall. ___ plays basketball.", ans:"He"},
@@ -10752,11 +10758,11 @@ const WORKSHEETS = {
   "頻率副詞放一般動詞前、be 動詞後：He usually walks. / He is usually late.",
   "否定與疑問用 do / does，動詞回到原形：Does she like it?（✗ Does she likes it?）"],
  mcq:[
-  {q:"My father ___ coffee every morning.", opts:["drink","drinks","drinking"], a:1},
-  {q:"___ your sister play the piano?", opts:["Do","Is","Does"], a:2},
-  {q:"We ___ to school by bus.", opts:["go","goes","going"], a:0},
-  {q:"The library ___ at nine o'clock.", opts:["open","opens","is open at"], a:1},
-  {q:"Cats ___ fish.", opts:["likes","like","is like"], a:1}],
+  {q:"My father ___ coffee every morning.", opts:["drink","drinking","drinks"], a:2},
+  {q:"___ your sister play the piano?", opts:["Does","Do","Is"], a:0},
+  {q:"We ___ to school by bus.", opts:["goes","go","going"], a:1},
+  {q:"The library ___ at nine o'clock.", opts:["opens","open","is open at"], a:0},
+  {q:"Cats ___ fish.", opts:["likes","is like","like"], a:2}],
  fill:[
   {q:"Emma ___ (study) English every day.", ans:"studies"},
   {q:"My parents ___ (work) in Taipei.", ans:"work"},
@@ -10782,10 +10788,10 @@ const WORKSHEETS = {
   "進行式也可表「最近的暫時狀態」：I am reading a great book this week."],
  mcq:[
   {q:"Look! The baby ___.", opts:["cries","is crying","cry"], a:1},
-  {q:"We ___ dinner right now.", opts:["are having","have","has"], a:0},
-  {q:"___ you listening to me?", opts:["Do","Is","Are"], a:2},
-  {q:"She can't talk now. She ___ a shower.", opts:["takes","is taking","taking"], a:1},
-  {q:"I ___ this song. It's great!", opts:["am loving","loves","love"], a:2}],
+  {q:"We ___ dinner right now.", opts:["have","has","are having"], a:2},
+  {q:"___ you listening to me?", opts:["Are","Do","Is"], a:0},
+  {q:"She can't talk now. She ___ a shower.", opts:["is taking","takes","taking"], a:0},
+  {q:"I ___ this song. It's great!", opts:["am loving","love","loves"], a:1}],
  fill:[
   {q:"Shh! The students ___ (take) a test.", ans:"are taking"},
   {q:"Mom ___ (cook) dumplings in the kitchen now.", ans:"is cooking"},
@@ -10814,8 +10820,8 @@ const WORKSHEETS = {
   {q:"I ___ brush my teeth before bed. (100%)", opts:["never","always","sometimes"], a:1},
   {q:"He is ___ late for class. He comes on time every day. (0%)", opts:["never","always","usually"], a:0},
   {q:"We ___ go hiking on weekends. (70%)", opts:["never","rarely","often"], a:2},
-  {q:"Which sentence is correct?", opts:["She drinks always tea.","She always drinks tea.","Always she drinks tea."], a:1},
-  {q:"They are ___ happy to help.", opts:["always","plays always","always play"], a:0}],
+  {q:"Which sentence is correct?", opts:["She always drinks tea.","She drinks always tea.","Always she drinks tea."], a:0},
+  {q:"They are ___ happy to help.", opts:["plays always","always play","always"], a:2}],
  fill:[
   {q:"My grandpa ___ gets up at five. (always) → 重寫：My grandpa always ___ up at five.", ans:"gets"},
   {q:"I am ___ tired on Monday mornings. (usually)", ans:"usually"},
@@ -10841,11 +10847,11 @@ const WORKSHEETS = {
   "單複數同形：fish, sheep, deer；只有複數：pants, glasses, scissors",
   "字尾 -f/-fe 多變 -ves：leaf→leaves、knife→knives（例外：roof→roofs）"],
  mcq:[
-  {q:"There are three ___ in the classroom.", opts:["child","childs","children"], a:2},
+  {q:"There are three ___ in the classroom.", opts:["children","child","childs"], a:0},
   {q:"I bought two ___ of shoes.", opts:["pair","pairs","paires"], a:1},
-  {q:"The ___ are falling from the trees.", opts:["leafs","leaves","leave"], a:1},
-  {q:"How many ___ do you see on the farm?", opts:["sheep","sheeps","sheepes"], a:0},
-  {q:"She has two ___.", opts:["watchs","watches","watch"], a:1}],
+  {q:"The ___ are falling from the trees.", opts:["leafs","leave","leaves"], a:2},
+  {q:"How many ___ do you see on the farm?", opts:["sheeps","sheep","sheepes"], a:1},
+  {q:"She has two ___.", opts:["watchs","watch","watches"], a:2}],
  fill:[
   {q:"One box, two ___.", ans:"boxes"},
   {q:"One city, two ___.", ans:"cities"},
@@ -10872,10 +10878,10 @@ const WORKSHEETS = {
   "that 可指剛發生的事：That was fun!（那真好玩）"],
  mcq:[
   {q:"___ pencil in my hand is new.", opts:["This","These","Those"], a:0},
-  {q:"___ mountains over there are beautiful.", opts:["This","That","Those"], a:2},
-  {q:"Hello? Hi, ___ is Kevin speaking.", opts:["that","this","these"], a:1},
+  {q:"___ mountains over there are beautiful.", opts:["This","Those","That"], a:1},
+  {q:"Hello? Hi, ___ is Kevin speaking.", opts:["that","these","this"], a:2},
   {q:"___ shoes here are too small for me.", opts:["That","This","These"], a:2},
-  {q:"Can you see ___ bird on the roof?", opts:["that","these","those"], a:0}],
+  {q:"Can you see ___ bird on the roof?", opts:["these","that","those"], a:1}],
  fill:[
   {q:"___ is my seat here. (near)", ans:"This"},
   {q:"___ stars in the sky are bright. (far)", ans:"Those"},
@@ -10902,10 +10908,10 @@ const WORKSHEETS = {
   "不加冠詞：語言（English）、運動（play basketball）、三餐（have breakfast）、多數國家名（Taiwan）"],
  mcq:[
   {q:"She is ___ honest student.", opts:["a","an","the"], a:1},
-  {q:"I waited for ___ hour at the station.", opts:["a","an","the"], a:1},
-  {q:"___ sun rises in the east.", opts:["A","An","The"], a:2},
+  {q:"I waited for ___ hour at the station.", opts:["a","the","an"], a:2},
+  {q:"___ sun rises in the east.", opts:["The","A","An"], a:0},
   {q:"He goes to ___ university in Taichung.", opts:["a","an","the"], a:0},
-  {q:"We play ___ basketball after school.", opts:["a","the","(不加冠詞)"], a:2}],
+  {q:"We play ___ basketball after school.", opts:["a","(不加冠詞)","the"], a:1}],
  fill:[
   {q:"I saw ___ dog in the park. ___ dog was very cute. (a / an / the)", ans:"a, The"},
   {q:"My aunt is ___ engineer. (a / an / the)", ans:"an"},
@@ -10932,10 +10938,10 @@ const WORKSHEETS = {
   "how many + 複數名詞；how much + 不可數（how much 也能問價錢：How much is it?）"],
  mcq:[
   {q:"How ___ money do you have?", opts:["many","much","a lot"], a:1},
-  {q:"There aren't ___ students in the classroom.", opts:["much","many","a lot"], a:1},
+  {q:"There aren't ___ students in the classroom.", opts:["many","much","a lot"], a:0},
   {q:"We ate ___ noodles last night.", opts:["much","many a","a lot of"], a:2},
-  {q:"How ___ apples are in the basket?", opts:["much","many","a lot of"], a:1},
-  {q:"I don't have ___ homework today.", opts:["many","much","a few"], a:1}],
+  {q:"How ___ apples are in the basket?", opts:["many","much","a lot of"], a:0},
+  {q:"I don't have ___ homework today.", opts:["many","a few","much"], a:2}],
  fill:[
   {q:"How ___ time do we have left?", ans:"much"},
   {q:"How ___ brothers and sisters do you have?", ans:"many"},
@@ -10961,10 +10967,10 @@ const WORKSHEETS = {
   "疑問：Is there…? / Are there…?；簡答：Yes, there is. / No, there aren't.",
   "there is/are 表「存在」；it is 表「指稱」：There is a book. It is mine."],
  mcq:[
-  {q:"___ a convenience store near my house.", opts:["There are","There is","It is"], a:1},
-  {q:"___ many temples in Tainan.", opts:["There is","It is","There are"], a:2},
-  {q:"___ there a test tomorrow?", opts:["Is","Are","Do"], a:0},
-  {q:"There ___ some milk in the fridge.", opts:["are","is","be"], a:1},
+  {q:"___ a convenience store near my house.", opts:["There is","There are","It is"], a:0},
+  {q:"___ many temples in Tainan.", opts:["There is","There are","It is"], a:1},
+  {q:"___ there a test tomorrow?", opts:["Are","Do","Is"], a:2},
+  {q:"There ___ some milk in the fridge.", opts:["is","are","be"], a:0},
   {q:"A: Are there any questions?  B: No, ___.", opts:["there isn't","they aren't","there aren't"], a:2}],
  fill:[
   {q:"There ___ a big tree in front of the school.", ans:"is"},
@@ -10991,11 +10997,11 @@ const WORKSHEETS = {
   "how 家族：how old（年齡）、how much（價錢/不可數量）、how many（可數量）、how often（頻率）、how long（多久）",
   "what time / what color / what kind 都是「what + 名詞」的組合"],
  mcq:[
-  {q:"___ is your English teacher? — Mr. Chen.", opts:["What","Who","Where"], a:1},
+  {q:"___ is your English teacher? — Mr. Chen.", opts:["What","Where","Who"], a:2},
   {q:"___ do you eat for breakfast? — Egg sandwiches.", opts:["What","When","Why"], a:0},
   {q:"___ does the movie start? — At 7:30.", opts:["Where","What time","How"], a:1},
-  {q:"___ are you late? — Because I missed the bus.", opts:["Why","What","Who"], a:0},
-  {q:"___ often do you exercise? — Twice a week.", opts:["What","How","When"], a:1}],
+  {q:"___ are you late? — Because I missed the bus.", opts:["What","Who","Why"], a:2},
+  {q:"___ often do you exercise? — Twice a week.", opts:["How","What","When"], a:0}],
  fill:[
   {q:"___ is your school? — It's next to the park.", ans:"Where"},
   {q:"___ old is your grandma? — She is seventy.", ans:"How"},
@@ -11022,10 +11028,10 @@ const WORKSHEETS = {
   "祈使句 + and/or：Hurry up, and you'll catch the bus. / Hurry up, or you'll be late."],
  mcq:[
   {q:"___ quiet in the library.", opts:["Be","Are","Being"], a:0},
-  {q:"___ touch the wet paint!", opts:["Not","Don't","Doesn't"], a:1},
+  {q:"___ touch the wet paint!", opts:["Not","Doesn't","Don't"], a:2},
   {q:"___ go to the movies tonight!", opts:["Let","Let's","Lets'"], a:1},
-  {q:"___ your homework before dinner.", opts:["Does","Doing","Do"], a:2},
-  {q:"Hurry up, ___ you'll miss the train.", opts:["and","or","but"], a:1}],
+  {q:"___ your homework before dinner.", opts:["Do","Does","Doing"], a:0},
+  {q:"Hurry up, ___ you'll miss the train.", opts:["and","but","or"], a:2}],
  fill:[
   {q:"___ (open) your books to page ten.", ans:"Open"},
   {q:"___ (not/run) in the hallway.", ans:"Don't run"},
@@ -11051,9 +11057,9 @@ const WORKSHEETS = {
   "so 和 because 方向相反：He was tired, so he slept. = He slept because he was tired.",
   "because 子句不能單獨存在，必須連著主要子句"],
  mcq:[
-  {q:"I like dogs ___ cats.", opts:["but","and","so"], a:1},
-  {q:"The food was cheap ___ delicious.", opts:["but","so","because"], a:0},
-  {q:"It was raining, ___ we stayed home.", opts:["because","but","so"], a:2},
+  {q:"I like dogs ___ cats.", opts:["and","but","so"], a:0},
+  {q:"The food was cheap ___ delicious.", opts:["so","because","but"], a:2},
+  {q:"It was raining, ___ we stayed home.", opts:["because","so","but"], a:1},
   {q:"She is happy ___ today is her birthday.", opts:["so","because","but"], a:1},
   {q:"I wanted to buy the toy, ___ I didn't have enough money.", opts:["but","and","so"], a:0}],
  fill:[
@@ -11081,11 +11087,11 @@ const WORKSHEETS = {
   "固定用法要背：at night, at noon, at home, on TV, on the bus, in bed, in the morning",
   "美式說 on the weekend，英式說 at the weekend，兩者都對"],
  mcq:[
-  {q:"School starts ___ eight o'clock.", opts:["in","on","at"], a:2},
-  {q:"My birthday is ___ October.", opts:["at","in","on"], a:1},
-  {q:"We have a test ___ Friday.", opts:["on","in","at"], a:0},
-  {q:"The cat is sleeping ___ the sofa.", opts:["at","on","in"], a:1},
-  {q:"The milk is ___ the fridge.", opts:["on","at","in"], a:2}],
+  {q:"School starts ___ eight o'clock.", opts:["in","at","on"], a:1},
+  {q:"My birthday is ___ October.", opts:["in","at","on"], a:0},
+  {q:"We have a test ___ Friday.", opts:["in","at","on"], a:2},
+  {q:"The cat is sleeping ___ the sofa.", opts:["on","at","in"], a:0},
+  {q:"The milk is ___ the fridge.", opts:["on","in","at"], a:1}],
  fill:[
   {q:"He was born ___ 2012.", ans:"in"},
   {q:"Let's meet ___ noon.", ans:"at"},
@@ -11111,10 +11117,10 @@ const WORKSHEETS = {
   "否定與疑問用 did + 原形：Did you go?（✗ Did you went?）",
   "拼字：stop→stopped（重複字尾）、study→studied、live→lived"],
  mcq:[
-  {q:"I ___ my grandma last weekend.", opts:["visit","visited","visits"], a:1},
-  {q:"She ___ a delicious beef noodle soup yesterday.", opts:["ate","eat","eaten"], a:0},
+  {q:"I ___ my grandma last weekend.", opts:["visited","visit","visits"], a:0},
+  {q:"She ___ a delicious beef noodle soup yesterday.", opts:["eat","ate","eaten"], a:1},
   {q:"___ you watch the game last night?", opts:["Do","Were","Did"], a:2},
-  {q:"They ___ to Japan in 2023.", opts:["go","went","gone"], a:1},
+  {q:"They ___ to Japan in 2023.", opts:["go","gone","went"], a:2},
   {q:"He ___ come to the party last Friday.", opts:["didn't","doesn't","wasn't"], a:0}],
  fill:[
   {q:"We ___ (buy) some fruit at the market yesterday.", ans:"bought"},
@@ -11142,10 +11148,10 @@ const WORKSHEETS = {
   "明確過去時間（yesterday, last year, in 2020）用過去簡單式，不用現在完成式"],
  mcq:[
   {q:"I ___ my homework already.", opts:["have finished","finished","finish"], a:0},
-  {q:"She has lived in Tainan ___ 2019.", opts:["for","since","from"], a:1},
-  {q:"___ you ever eaten stinky tofu?", opts:["Did","Do","Have"], a:2},
+  {q:"She has lived in Tainan ___ 2019.", opts:["for","from","since"], a:2},
+  {q:"___ you ever eaten stinky tofu?", opts:["Did","Have","Do"], a:1},
   {q:"He has studied English ___ five years.", opts:["since","for","in"], a:1},
-  {q:"They haven't arrived ___.", opts:["already","just","yet"], a:2}],
+  {q:"They haven't arrived ___.", opts:["yet","already","just"], a:0}],
  fill:[
   {q:"I ___ (see) that movie three times.", ans:"have seen"},
   {q:"She ___ just ___ (finish) her report.", ans:"has, finished"},
@@ -11171,11 +11177,11 @@ const WORKSHEETS = {
   "只有一個過去事件時用過去簡單式即可，不需要過去完成式",
   "after/before 已把先後說清楚時，兩個動作也可都用過去簡單式：After he ate, he left."],
  mcq:[
-  {q:"The train ___ when we got to the station.", opts:["left","had left","has left"], a:1},
-  {q:"By the time she called, I ___ to bed.", opts:["had gone","went","have gone"], a:0},
-  {q:"He was hungry because he ___ breakfast.", opts:["didn't eat","hadn't eaten","hasn't eaten"], a:1},
+  {q:"The train ___ when we got to the station.", opts:["had left","left","has left"], a:0},
+  {q:"By the time she called, I ___ to bed.", opts:["went","had gone","have gone"], a:1},
+  {q:"He was hungry because he ___ breakfast.", opts:["didn't eat","hasn't eaten","hadn't eaten"], a:2},
   {q:"When I arrived, the meeting ___ already ___.", opts:["has / started","had / started","was / start"], a:1},
-  {q:"I ___ him before the party last week.", opts:["had never met","never meet","have never met"], a:0}],
+  {q:"I ___ him before the party last week.", opts:["never meet","have never met","had never met"], a:2}],
  fill:[
   {q:"The movie ___ (start) before we arrived.", ans:"had started"},
   {q:"She couldn't pay because she ___ (lose) her wallet.", ans:"had lost"},
@@ -11202,10 +11208,10 @@ const WORKSHEETS = {
   "口語縮寫 gonna = going to（非正式，寫作避免）"],
  mcq:[
   {q:"Look at those dark clouds! It ___ rain.", opts:["will","is going to","goes to"], a:1},
-  {q:"A: The phone is ringing.  B: I ___ get it!", opts:["am going to","will","going to"], a:1},
-  {q:"We ___ visit our grandparents this weekend. (計畫)", opts:["will","are going to","go to"], a:1},
-  {q:"I promise I ___ be late again.", opts:["won't","am not going to","don't"], a:0},
-  {q:"I think our team ___ win the game.", opts:["is going to","will","would"], a:1}],
+  {q:"A: The phone is ringing.  B: I ___ get it!", opts:["am going to","going to","will"], a:2},
+  {q:"We ___ visit our grandparents this weekend. (計畫)", opts:["are going to","will","go to"], a:0},
+  {q:"I promise I ___ be late again.", opts:["am not going to","won't","don't"], a:1},
+  {q:"I think our team ___ win the game.", opts:["will","is going to","would"], a:0}],
  fill:[
   {q:"She ___ (be going to) study abroad next year.", ans:"is going to"},
   {q:"Don't worry. I ___ (will) help you with the boxes.", ans:"will"},
@@ -11231,11 +11237,11 @@ const WORKSHEETS = {
   "未來完成：will have + p.p.，「某個未來時間點之前會完成」；訊號詞 by + 未來時間",
   "Will you be + V-ing…? 比 Will you…? 更客氣，用來詢問對方的計畫"],
  mcq:[
-  {q:"This time tomorrow, I ___ on a beach in Kenting.", opts:["will lie","will be lying","will have lain"], a:1},
-  {q:"By 2030, she ___ from university.", opts:["will graduate","will be graduating","will have graduated"], a:2},
-  {q:"Don't call at 9 — he ___ his online class.", opts:["will have","will be having","has"], a:1},
-  {q:"By next month, we ___ in this house for ten years.", opts:["will live","will be living","will have lived"], a:2},
-  {q:"___ you ___ the car this afternoon? I need it.", opts:["Will / be using","Will / have used","Do / use"], a:0}],
+  {q:"This time tomorrow, I ___ on a beach in Kenting.", opts:["will lie","will have lain","will be lying"], a:2},
+  {q:"By 2030, she ___ from university.", opts:["will graduate","will have graduated","will be graduating"], a:1},
+  {q:"Don't call at 9 — he ___ his online class.", opts:["will be having","will have","has"], a:0},
+  {q:"By next month, we ___ in this house for ten years.", opts:["will have lived","will live","will be living"], a:0},
+  {q:"___ you ___ the car this afternoon? I need it.", opts:["Will / have used","Do / use","Will / be using"], a:2}],
  fill:[
   {q:"At midnight, most people ___ (sleep). (未來進行)", ans:"will be sleeping"},
   {q:"By Friday, I ___ (finish) all my exams. (未來完成)", ans:"will have finished"},
@@ -11261,11 +11267,11 @@ const WORKSHEETS = {
   "if 子句內不可加 will：✗ If you will heat ice…",
   "主句可用祈使句：If the alarm rings, leave the building."],
  mcq:[
-  {q:"If you heat ice, it ___.", opts:["will melt","melts","melted"], a:1},
-  {q:"Water ___ if it reaches 100°C.", opts:["boils","will boil","boiled"], a:0},
+  {q:"If you heat ice, it ___.", opts:["melts","will melt","melted"], a:0},
+  {q:"Water ___ if it reaches 100°C.", opts:["will boil","boils","boiled"], a:1},
   {q:"If I ___ coffee at night, I can't sleep.", opts:["will drink","drank","drink"], a:2},
-  {q:"If you mix red and blue, you ___ purple.", opts:["get","will got","are getting"], a:0},
-  {q:"___ the screen freezes, press restart.", opts:["Unless","If","So"], a:1}],
+  {q:"If you mix red and blue, you ___ purple.", opts:["will got","get","are getting"], a:1},
+  {q:"___ the screen freezes, press restart.", opts:["If","Unless","So"], a:0}],
  fill:[
   {q:"If it ___ (rain), I take the bus.", ans:"rains"},
   {q:"Plants ___ (die) if they get no water.", ans:"die"},
@@ -11291,10 +11297,10 @@ const WORKSHEETS = {
   "unless = if not：Unless you hurry, you'll be late. = If you don't hurry…",
   "主句也可用 can / may / might / 祈使句：If it rains, we can stay home."],
  mcq:[
-  {q:"If it rains tomorrow, we ___ the picnic.", opts:["cancel","will cancel","cancelled"], a:1},
-  {q:"If you ___ hard, you will pass the exam.", opts:["study","will study","studied"], a:0},
-  {q:"She will be angry if you ___ her cake.", opts:["will eat","eat","ate"], a:1},
-  {q:"___ you hurry, you will miss the train.", opts:["If","Unless","When"], a:1},
+  {q:"If it rains tomorrow, we ___ the picnic.", opts:["will cancel","cancel","cancelled"], a:0},
+  {q:"If you ___ hard, you will pass the exam.", opts:["will study","study","studied"], a:1},
+  {q:"She will be angry if you ___ her cake.", opts:["will eat","ate","eat"], a:2},
+  {q:"___ you hurry, you will miss the train.", opts:["Unless","If","When"], a:0},
   {q:"If I finish early, I ___ you a message.", opts:["send","will send","sent"], a:1}],
  fill:[
   {q:"If the weather ___ (be) nice, we will go hiking.", ans:"is"},
@@ -11320,10 +11326,10 @@ const WORKSHEETS = {
  extra:["as…as 一樣：She is as tall as her mom.；比較級強調可加 much：much better"],
  mcq:[
   {q:"Taipei 101 is ___ than this building.", opts:["tall","taller","tallest"], a:1},
-  {q:"This is ___ movie of the year.", opts:["better","good","the best"], a:2},
-  {q:"Math is ___ than English for me.", opts:["difficulter","more difficult","most difficult"], a:1},
-  {q:"My grades are ___ this semester. (bad → 比較級)", opts:["worse","badder","worst"], a:0},
-  {q:"She is as ___ as her sister.", opts:["taller","tall","tallest"], a:1}],
+  {q:"This is ___ movie of the year.", opts:["the best","better","good"], a:0},
+  {q:"Math is ___ than English for me.", opts:["difficulter","most difficult","more difficult"], a:2},
+  {q:"My grades are ___ this semester. (bad → 比較級)", opts:["badder","worse","worst"], a:1},
+  {q:"She is as ___ as her sister.", opts:["taller","tallest","tall"], a:2}],
  fill:[
   {q:"An elephant is ___ (big) than a horse.", ans:"bigger"},
   {q:"Today is ___ (hot) day of the year.", ans:"the hottest"},
@@ -11349,9 +11355,9 @@ const WORKSHEETS = {
   "例外：請求或提供東西時，疑問句也用 some：Would you like some tea? / Can I have some water?",
   "延伸家族：something/anything、someone/anyone、somewhere/anywhere 規則相同"],
  mcq:[
-  {q:"I have ___ good news for you!", opts:["any","some","a"], a:1},
+  {q:"I have ___ good news for you!", opts:["any","a","some"], a:2},
   {q:"There isn't ___ milk in the fridge.", opts:["some","any","no"], a:1},
-  {q:"Do you have ___ questions?", opts:["some","a","any"], a:2},
+  {q:"Do you have ___ questions?", opts:["any","some","a"], a:0},
   {q:"Would you like ___ more rice? (offer)", opts:["any","some","no"], a:1},
   {q:"I didn't buy ___ at the market.", opts:["something","nothing","anything"], a:2}],
  fill:[
@@ -11379,10 +11385,10 @@ const WORKSHEETS = {
   "although 和 but 不能同時用：✗ Although…, but…（中文的「雖然…但是」直翻是錯的！）",
   "結果類：therefore / as a result；補充類：moreover / in addition；舉例：for example"],
  mcq:[
-  {q:"___ it was raining, we went hiking.", opts:["However","Although","Therefore"], a:1},
-  {q:"The hotel was small. ___, it was very clean.", opts:["Although","Because","However"], a:2},
-  {q:"He trained hard; ___, he won the race.", opts:["therefore","however","although"], a:0},
-  {q:"The plan is cheap. ___, it is fast.", opts:["However","Moreover","Although"], a:1},
+  {q:"___ it was raining, we went hiking.", opts:["However","Therefore","Although"], a:2},
+  {q:"The hotel was small. ___, it was very clean.", opts:["However","Although","Because"], a:0},
+  {q:"He trained hard; ___, he won the race.", opts:["however","therefore","although"], a:1},
+  {q:"The plan is cheap. ___, it is fast.", opts:["However","Although","Moreover"], a:2},
   {q:"Many night markets are famous — ___, Raohe and Shilin.", opts:["for example","moreover","therefore"], a:0}],
  fill:[
   {q:"___ she was tired, she kept working. (雖然)", ans:"Although"},
@@ -11409,9 +11415,9 @@ const WORKSHEETS = {
   "動作者不重要或不知道時才用被動；要提動作者用 by：The song was written by Jay Chou.",
   "不及物動詞沒有被動：✗ was happened、✗ was arrived"],
  mcq:[
-  {q:"Rice ___ in many parts of Taiwan.", opts:["grows","is grown","is growing"], a:1},
+  {q:"Rice ___ in many parts of Taiwan.", opts:["is grown","grows","is growing"], a:0},
   {q:"This temple ___ over 300 years ago.", opts:["built","was built","has built"], a:1},
-  {q:"The new MRT line ___ next year.", opts:["will complete","will be completed","completes"], a:1},
+  {q:"The new MRT line ___ next year.", opts:["will complete","completes","will be completed"], a:2},
   {q:"The accident ___ last night.", opts:["was happened","happened","is happened"], a:1},
   {q:"These cookies ___ by my grandma.", opts:["were made","made","are making"], a:0}],
  fill:[
@@ -11440,10 +11446,10 @@ const WORKSHEETS = {
   "關係代名詞當受詞時可省略：The book (that) I bought is great."],
  mcq:[
   {q:"The girl ___ sits next to me is from Hualien.", opts:["which","who","whose"], a:1},
-  {q:"This is the phone ___ I bought last week.", opts:["who","where","which"], a:2},
-  {q:"The boy ___ bike was stolen is crying.", opts:["who","whose","which"], a:1},
+  {q:"This is the phone ___ I bought last week.", opts:["which","who","where"], a:0},
+  {q:"The boy ___ bike was stolen is crying.", opts:["who","which","whose"], a:2},
   {q:"That's the restaurant ___ we first met.", opts:["which","who","where"], a:2},
-  {q:"My uncle, ___ lives in Canada, is visiting us.", opts:["that","who","whose"], a:1}],
+  {q:"My uncle, ___ lives in Canada, is visiting us.", opts:["who","that","whose"], a:0}],
  fill:[
   {q:"A doctor is a person ___ helps sick people.", ans:"who"},
   {q:"The cake ___ she made was delicious.", ans:"which"},
@@ -11469,9 +11475,9 @@ const WORKSHEETS = {
   "having + p.p. 表「先發生」：Having missed the bus, we took a taxi.",
   "否定放最前面：Not knowing the answer, I stayed silent."],
  mcq:[
-  {q:"___ the news, she burst into tears.", opts:["Heard","Hearing","To hearing"], a:1},
-  {q:"___ in 1908, the station is very historic.", opts:["Building","Built","Build"], a:1},
-  {q:"___ finished the work, he took a rest.", opts:["Having","Had","Have"], a:0},
+  {q:"___ the news, she burst into tears.", opts:["Heard","To hearing","Hearing"], a:2},
+  {q:"___ in 1908, the station is very historic.", opts:["Built","Building","Build"], a:0},
+  {q:"___ finished the work, he took a rest.", opts:["Had","Having","Have"], a:1},
   {q:"___ what to say, I kept quiet.", opts:["Not knowing","Knowing not","Not known"], a:0},
   {q:"The typhoon hit at night, ___ major delays.", opts:["caused","causing","to cause"], a:1}],
  fill:[
@@ -11500,10 +11506,10 @@ const WORKSHEETS = {
   "疑問句轉述用陳述語序：He asked where I lived.（✗ He asked where did I live）"],
  mcq:[
   {q:"She said, \u201cI am tired.\u201d → She said that she ___ tired.", opts:["is","was","were"], a:1},
-  {q:"He said, \u201cI will call you.\u201d → He said he ___ call me.", opts:["will","would","can"], a:1},
-  {q:"They said, \u201cWe can swim.\u201d → They said they ___ swim.", opts:["can","could","may"], a:1},
-  {q:"She asked me where I ___.", opts:["live","lived","do live"], a:1},
-  {q:"He told me that he ___ the movie the day before.", opts:["saw","sees","had seen"], a:2}],
+  {q:"He said, \u201cI will call you.\u201d → He said he ___ call me.", opts:["would","will","can"], a:0},
+  {q:"They said, \u201cWe can swim.\u201d → They said they ___ swim.", opts:["can","may","could"], a:2},
+  {q:"She asked me where I ___.", opts:["lived","live","do live"], a:0},
+  {q:"He told me that he ___ the movie the day before.", opts:["saw","had seen","sees"], a:1}],
  fill:[
   {q:"\u201cI am busy,\u201d she said. → She said (that) she ___ busy.", ans:"was"},
   {q:"\u201cWe will win,\u201d they said. → They said they ___ win.", ans:"would"},
@@ -11530,9 +11536,9 @@ const WORKSHEETS = {
   "第一 vs 第二條件句：可能發生用第一（If it rains…），純想像用第二（If I won the lottery…）"],
  mcq:[
   {q:"If I ___ rich, I would travel around the world.", opts:["am","were","will be"], a:1},
-  {q:"If she had more time, she ___ learn Japanese.", opts:["will","would","can"], a:1},
+  {q:"If she had more time, she ___ learn Japanese.", opts:["would","will","can"], a:0},
   {q:"What ___ you do if you won the lottery?", opts:["will","do","would"], a:2},
-  {q:"If I ___ you, I would apologize.", opts:["was being","were","am"], a:1},
+  {q:"If I ___ you, I would apologize.", opts:["were","was being","am"], a:0},
   {q:"If cats ___ talk, what would they say?", opts:["can","could","will"], a:1}],
  fill:[
   {q:"If I ___ (have) wings, I would fly to school.", ans:"had"},
@@ -11559,7 +11565,7 @@ const WORKSHEETS = {
   "混合條件句：過去的假設影響現在 → If I had slept more, I would be awake now.",
   "would/could/might have 語氣不同：一定會/就能/可能會"],
  mcq:[
-  {q:"If I had studied, I ___ the test.", opts:["would pass","would have passed","passed"], a:1},
+  {q:"If I had studied, I ___ the test.", opts:["would pass","passed","would have passed"], a:2},
   {q:"If she ___ earlier, she would have caught the train.", opts:["left","had left","leaves"], a:1},
   {q:"We would have won if we ___ harder.", opts:["had practiced","practiced","practice"], a:0},
   {q:"If you had told me, I ___ you.", opts:["would help","would have helped","helped"], a:1},
@@ -11591,9 +11597,9 @@ const WORKSHEETS = {
  mcq:[
   {q:"I believe ___ the plan will work.", opts:["what","that","if"], a:1},
   {q:"I wonder ___ it will rain tomorrow.", opts:["that","what","whether"], a:2},
-  {q:"The doctor suggested that he ___ more rest.", opts:["gets","get","got"], a:1},
+  {q:"The doctor suggested that he ___ more rest.", opts:["get","gets","got"], a:0},
   {q:"It is essential that every student ___ ID.", opts:["brings","bring","brought"], a:1},
-  {q:"Do you know ___ the museum opens?", opts:["that","when","if…or"], a:1}],
+  {q:"Do you know ___ the museum opens?", opts:["when","that","if…or"], a:0}],
  fill:[
   {q:"She said ___ she was busy. (that)", ans:"that"},
   {q:"I don't know ___ he got the message or not.", ans:"whether"},
@@ -11619,11 +11625,11 @@ const WORKSHEETS = {
   "兩者皆可意思不變：like, love, start, begin；意思改變：stop to V（停下來去做）vs stop V-ing（停止做）",
   "介系詞後面一律接 V-ing：good at swimming, interested in reading"],
  mcq:[
-  {q:"I enjoy ___ comic books.", opts:["read","to read","reading"], a:2},
-  {q:"She wants ___ a doctor.", opts:["become","to become","becoming"], a:1},
+  {q:"I enjoy ___ comic books.", opts:["reading","read","to read"], a:0},
+  {q:"She wants ___ a doctor.", opts:["become","becoming","to become"], a:2},
   {q:"He stopped ___ when the teacher came in. (停止講話)", opts:["to talk","talking","talk"], a:1},
-  {q:"She is good at ___ pictures.", opts:["draw","to draw","drawing"], a:2},
-  {q:"We decided ___ by train.", opts:["travel","to travel","traveling"], a:1}],
+  {q:"She is good at ___ pictures.", opts:["draw","drawing","to draw"], a:1},
+  {q:"We decided ___ by train.", opts:["travel","traveling","to travel"], a:2}],
  fill:[
   {q:"I finished ___ (do) my homework at nine.", ans:"doing"},
   {q:"They hope ___ (visit) Japan next year.", ans:"to visit"},
@@ -11651,8 +11657,8 @@ const WORKSHEETS = {
  mcq:[
   {q:"Please turn ___ the music. It's too loud.", opts:["down","into","after"], a:0},
   {q:"I ran ___ my old teacher at the MRT station.", opts:["out","into","over"], a:1},
-  {q:"Can you look ___ my cat this weekend?", opts:["up","after","into"], a:1},
-  {q:"We've run out ___ rice.", opts:["from","of","for"], a:1},
+  {q:"Can you look ___ my cat this weekend?", opts:["up","into","after"], a:2},
+  {q:"We've run out ___ rice.", opts:["from","for","of"], a:2},
   {q:"She picked ___ quickly. (代名詞 it)", opts:["up it","it up","it over"], a:1}],
  fill:[
   {q:"Don't give ___ ! You're almost there.", ans:"up"},
@@ -11679,11 +11685,11 @@ const WORKSHEETS = {
   "過去推測：must have + p.p. / might have + p.p. / can't have + p.p.（不用 mustn't have）",
   "評論過去：should have（早該做而沒做）、needn't have（做了但其實不必）"],
  mcq:[
-  {q:"The lights are on. Someone ___ be home.", opts:["can't","must","needn't"], a:1},
-  {q:"The ground is wet. It ___ rained last night.", opts:["must have","should have","can't have"], a:0},
-  {q:"That ___ be true! I don't believe it.", opts:["must","might","can't"], a:2},
-  {q:"You ___ told me earlier! Now it's too late.", opts:["should have","must have","might have"], a:0},
-  {q:"We ___ hurried — the train was delayed anyway.", opts:["should have","needn't have","can't have"], a:1}],
+  {q:"The lights are on. Someone ___ be home.", opts:["can't","needn't","must"], a:2},
+  {q:"The ground is wet. It ___ rained last night.", opts:["should have","must have","can't have"], a:1},
+  {q:"That ___ be true! I don't believe it.", opts:["can't","must","might"], a:0},
+  {q:"You ___ told me earlier! Now it's too late.", opts:["must have","might have","should have"], a:2},
+  {q:"We ___ hurried — the train was delayed anyway.", opts:["needn't have","should have","can't have"], a:0}],
  fill:[
   {q:"She isn't answering. She ___ ___ (might) be in a meeting.", ans:"might"},
   {q:"He knows every scene. He ___ ___ (must) seen the movie.", ans:"must have"},
@@ -11710,10 +11716,10 @@ const WORKSHEETS = {
   "有些動詞兼具及物與不及物用法：'The door opened.'（不及物 S+V）vs 'She opened the door.'（及物 S+V+O）",
   "arrive 是不及物動詞，後接介系詞 at/in；reach 是及物動詞，直接接地點：✓ arrived at school / ✓ reached the station（✗ arrived to / ✗ reached to）"],
  mcq:[
-  {q:"The baby ___ all night because of the noise.", opts:["cried","cried tears","cry her tears","crying"], a:0},
-  {q:"Choose the correct S+V sentence.", opts:["She drank water.","The moon rose.","He gave me advice.","They made her happy."], a:1},
-  {q:"They ___ to Taichung last weekend.", opts:["went","went to went","go to","going"], a:0},
-  {q:"She ___ the station in ten minutes. (reach — transitive!)", opts:["arrived at","arrived","reached","reached to"], a:2}],
+  {q:"The baby ___ all night because of the noise.", opts:["cried tears","cry her tears","cried","crying"], a:2},
+  {q:"Choose the correct S+V sentence.", opts:["The moon rose.","She drank water.","He gave me advice.","They made her happy."], a:0},
+  {q:"They ___ to Taichung last weekend.", opts:["went to went","went","go to","going"], a:1},
+  {q:"She ___ the station in ten minutes. (reach — transitive!)", opts:["arrived at","arrived","reached to","reached"], a:3}],
  fill:[
   {q:"The train ___ (arrive) at the station at eight every morning.", ans:"arrives"},
   {q:"My cat ___ (sleep) on the sofa every afternoon.", ans:"sleeps"},
@@ -11741,9 +11747,9 @@ const WORKSHEETS = {
   "補語也可以是名詞（主詞補語）：She became a doctor.（a doctor 說明主詞身份，不是受詞）"],
  mcq:[
   {q:"After the match, the players felt ___.", opts:["exhaustedly","exhausting","exhausted","exhaustion"], a:2},
-  {q:"The soup ___ a little salty to me.", opts:["is tasting","tastes","taste","tasted like"], a:1},
-  {q:"Which verb is a linking verb in this sentence?", opts:["kick","build","remain","eat"], a:2},
-  {q:"The sky ___ dark before the storm.", opts:["turned","turned to","turning","turns into"], a:0}],
+  {q:"The soup ___ a little salty to me.", opts:["is tasting","taste","tasted like","tastes"], a:3},
+  {q:"Which verb is a linking verb in this sentence?", opts:["remain","kick","build","eat"], a:0},
+  {q:"The sky ___ dark before the storm.", opts:["turned to","turned","turning","turns into"], a:1}],
  fill:[
   {q:"The music ___ (sound) beautiful in the concert hall.", ans:"sounds"},
   {q:"After years of hard work, she ___ (become) a famous chef.", ans:"became"},
@@ -11770,10 +11776,10 @@ const WORKSHEETS = {
   "enjoy / mind / finish / avoid / consider + V-ing；want / decide / hope / plan / refuse / manage + to V",
   "remember/forget + V-ing（已做過）vs + to V（將來要做）：I remember locking the door.（記得鎖過了）/ Remember to lock the door.（記得去鎖）"],
  mcq:[
-  {q:"We enjoyed ___ at the beach last summer.", opts:["to swim","swim","swimming","swam"], a:2},
-  {q:"Please ___ the door on your way out.", opts:["close","close to","closing","closed at"], a:0},
+  {q:"We enjoyed ___ at the beach last summer.", opts:["swimming","to swim","swim","swam"], a:0},
+  {q:"Please ___ the door on your way out.", opts:["close to","closing","close","closed at"], a:2},
   {q:"She ___ the station by taxi in ten minutes.", opts:["reached to","reached","arrived","arrived to"], a:1},
-  {q:"He ___ the plan with his team yesterday.", opts:["discussed","discussed about","discussed on","discuss about"], a:0}],
+  {q:"He ___ the plan with his team yesterday.", opts:["discussed about","discussed on","discuss about","discussed"], a:3}],
  fill:[
   {q:"She ___ (enjoy) playing the piano since she was five.", ans:"has enjoyed"},
   {q:"They ___ (build) a new library in our town last year.", ans:"built"},
@@ -11801,9 +11807,9 @@ const WORKSHEETS = {
   "explain / suggest / introduce / say 不可用 IO+DO 順序：✓ explain the problem to me（✗ explain me the problem）"],
  mcq:[
   {q:"He ___ me the directions to the station.", opts:["showed","showed to","show to","showing"], a:0},
-  {q:"She cooked a meal ___.", opts:["for us","to us","for we","to we"], a:0},
-  {q:"Which sentence is correct?", opts:["She explained me the plan.","She explained the plan for me.","She explained the plan to me.","She explained me about the plan."], a:2},
-  {q:"My teacher ___ us a very interesting story.", opts:["told","told to","tell to","told for"], a:0}],
+  {q:"She cooked a meal ___.", opts:["to us","for us","for we","to we"], a:1},
+  {q:"Which sentence is correct?", opts:["She explained me the plan.","She explained the plan for me.","She explained me about the plan.","She explained the plan to me."], a:3},
+  {q:"My teacher ___ us a very interesting story.", opts:["told to","tell to","told","told for"], a:2}],
  fill:[
   {q:"My mom ___ (make) me a warm lunch every day.", ans:"makes"},
   {q:"He ___ (send) his grandma a postcard from Japan.", ans:"sent"},
@@ -11830,10 +11836,10 @@ const WORKSHEETS = {
   "make / keep / leave / find / consider + O + 形容詞；call / name / elect / appoint / consider + O + 名詞（頭銜、稱謂）",
   "感官動詞 see / hear / watch + O + 原形動詞（完整動作）/ V-ing（進行中）：I saw him run.（完整跑過去）/ I saw him running.（正在跑）"],
  mcq:[
-  {q:"The sad news made everyone ___.", opts:["sadly","sad","more sadly","a sadness"], a:1},
-  {q:"They ___ her the best player of the year.", opts:["named","named to","name to","elected to"], a:0},
-  {q:"I ___ him run across the finish line.", opts:["watched","watched to","watching","see"], a:0},
-  {q:"She kept the children ___ during the long trip.", opts:["quietly","quiet","a quiet","in quiet"], a:1}],
+  {q:"The sad news made everyone ___.", opts:["sad","sadly","more sadly","a sadness"], a:0},
+  {q:"They ___ her the best player of the year.", opts:["named to","name to","named","elected to"], a:2},
+  {q:"I ___ him run across the finish line.", opts:["watched to","watched","watching","see"], a:1},
+  {q:"She kept the children ___ during the long trip.", opts:["quietly","a quiet","in quiet","quiet"], a:3}],
  fill:[
   {q:"The long meeting made everyone ___ (tired / tiredly).", ans:"tired"},
   {q:"They ___ (elect) him class president last week.", ans:"elected"},
@@ -17106,13 +17112,14 @@ function wsData(l){
   const dedupe = (arr, key) => { const seen = new Set(); return arr.filter(x=>{
     const k = key(x).toLowerCase().replace(/<[^>]*>/g,"").replace(/\s+/g," ").trim();
     if(seen.has(k)) return false; seen.add(k); return true; }); };
-  const mcq = dedupe([...(w.mcq||[]), ...l.q.filter(q=>q.t==="mcq").map(q=>({q:q.q, opts:q.opts, a:q.a}))], x=>x.q).slice(0,9);
+  const mcq = dedupe([...(w.mcq||[]), ...l.q.filter(q=>q.t==="mcq" && !q.ctx).map(q=>({q:q.q, opts:q.opts, a:q.a}))], x=>x.q).slice(0,9);
+  const sy = l.q.filter(q=>q.t==="mcq" && q.ctx).map(q=>({ctx:q.ctx, q:q.q, opts:q.opts, a:q.a, why:q.why||""}));
   const fill = dedupe([...(w.fill||[]), ...l.q.filter(q=>q.t==="fill").map(q=>({q:q.q, ans:q.ans[0]}))], x=>x.q).slice(0,9);
   const err = dedupe([...(w.err||[]), ...l.q.filter(q=>q.t==="spot").map(wsFixSpot)], x=>x.s).slice(0,9);
   const scr = l.q.filter(q=>q.t==="order").map(q=>({words:q.words.slice().sort((a,b)=>a.toLowerCase()<b.toLowerCase()?-1:1), sent:q.sent}));
   const tr = (w.tr||[]);
   const sp = WS_SPELL[WS_SPELL_MAP[l.id]] || [];
-  return {mcq, fill, err, scr, tr, extra:[...sp, ...(w.extra||[])]};
+  return {mcq, fill, err, scr, tr, sy, extra:[...sp, ...(w.extra||[])]};
 }
 function wsSec(letter, en, zh, instr, inner){
   return `<div class="ws-sec"><div class="ws-sec-h"><span class="ws-let">${letter}</span> ${en} <span class="ws-sec-zh">${zh}</span></div>
@@ -17139,10 +17146,19 @@ function renderWorksheet(id){
   const errHTML = d.err.map((x,i)=>`<div class="ws-item"><span class="ws-n">${i+1}.</span><span class="ws-body">${x.s}<span class="ws-line"></span></span></div>`).join("");
   const scrHTML = d.scr.length? d.scr.map((x,i)=>`<div class="ws-item"><span class="ws-n">${i+1}.</span><span class="ws-body">${x.words.join(" / ")}<span class="ws-line"></span></span></div>`).join("") : "";
   const trHTML = d.tr.map((x,i)=>`<div class="ws-item"><span class="ws-n">${i+1}.</span><span class="ws-body">${x.zh}<span class="ws-line"></span></span></div>`).join("");
-  const total = d.mcq.length + d.fill.length + d.err.length + d.scr.length + d.tr.length;
+  const syHTML = d.sy.map((x,i)=>`<div class="ws-item ws-sy"><span class="ws-n">${i+1}.</span><span class="ws-body"><span class="ws-ctx">🧭 ${esc(x.ctx)}</span>${B(esc(x.q))}<span class="ws-opts">${x.opts.map((o,j)=>`<span>(${LET[j]}) ${esc(o)}</span>`).join("")}</span></span></div>`).join("");
+  const keyList = (arr, f) => `<ol class="ws-key-list">${arr.map(x=>`<li>${f(x)}</li>`).join("")}</ol>`;
+  const parts = [
+    {n:d.mcq.length, en:"Multiple Choice", zh:"選擇題", instr:"Circle the best answer. 圈出最合適的答案。", html:mcqHTML, key:()=>keyList(d.mcq, x=>LET[x.a])},
+    {n:d.fill.length, en:"Fill in the Blanks", zh:"填空", instr:"Complete each sentence. 完成句子（括號內為提示）。", html:fillHTML, key:()=>keyList(d.fill, x=>esc(x.ans))},
+    {n:d.err.length, en:"Error Correction", zh:"改錯", instr:"Find and correct the mistake. Write ✓ if the sentence is already correct. 找出錯誤並在線上改寫；正確的句子打 ✓。", html:errHTML, wide:true, key:()=>keyList(d.err, x=>x.ok? "✓ （正確）" : esc(x.fix))},
+    {n:d.scr.length, en:"Sentence Scramble", zh:"句子重組", instr:"Put the words in the correct order. 將單字排成正確的句子。", html:scrHTML, wide:true, key:()=>keyList(d.scr, x=>esc(x.sent))},
+    {n:d.tr.length, en:"Translation", zh:"翻譯", keyEn:"Translation（參考答案）", instr:"Translate into English. 把中文翻成完整的英文句子。", html:trHTML, wide:true, key:()=>keyList(d.tr, x=>esc(x.en))},
+    {n:d.sy.length, en:"Real-life Application", zh:"素養題", instr:"Read each situation and choose the best English. 讀情境，選出最合適、最正確的英文。", html:syHTML, wide:true, key:()=>keyList(d.sy, x=>`<b>${LET[x.a]}</b>　${esc(x.why)}`)}
+  ].filter(p=>p.n).map((p,i)=>({...p, let:"ABCDEFG"[i]}));
+  const total = parts.reduce((t,p)=>t+p.n, 0);
   let grades = "";
   for(let k=total; k>=0; k--) grades += `<span><b>${k}</b>/${total} = ${Math.round(k/total*100)}%</span>`;
-  const keyList = (arr, f) => `<ol class="ws-key-list">${arr.map(x=>`<li>${f(x)}</li>`).join("")}</ol>`;
   app.innerHTML = `<div class="view ws-view">
     <div class="ws-toolbar no-print">
       <a href="#/lesson/${l.id}" class="btn btn-ghost">← Back to lesson</a>
@@ -17152,21 +17168,13 @@ function renderWorksheet(id){
     <div class="ws-sheet">
       ${head("GRAMMAR WORKSHEET")}
       ${ref}
-      ${wsSec("A","Multiple Choice","選擇題","Circle the best answer. 圈出最合適的答案。", mcqHTML)}
-      ${wsSec("B","Fill in the Blanks","填空","Complete each sentence. 完成句子（括號內為提示）。", fillHTML)}
-      ${wsSec("C","Error Correction","改錯","Find and correct the mistake. Write ✓ if the sentence is already correct. 找出錯誤並在線上改寫；正確的句子打 ✓。", errHTML)}
-      ${d.scr.length? wsSec("D","Sentence Scramble","句子重組","Put the words in the correct order. 將單字排成正確的句子。", scrHTML):""}
-      ${wsSec(d.scr.length?"E":"D","Translation","翻譯","Translate into English. 把中文翻成完整的英文句子。", trHTML)}
+      ${parts.map(p=>wsSec(p.let, p.en, p.zh, p.instr, p.html)).join("")}
       <div class="ws-foot">英語貓咪島 Englishcat Island 🐾 — for classroom use</div>
     </div>
     <div class="ws-sheet ws-keypage">
       ${head("ANSWER KEY 解答")}
       <div class="ws-key-grid">
-        <div><h3>A. Multiple Choice</h3>${keyList(d.mcq, x=>LET[x.a])}</div>
-        <div><h3>B. Fill in the Blanks</h3>${keyList(d.fill, x=>esc(x.ans))}</div>
-        <div class="ws-key-wide"><h3>C. Error Correction</h3>${keyList(d.err, x=>x.ok? "✓ （正確）" : esc(x.fix))}</div>
-        ${d.scr.length? `<div class="ws-key-wide"><h3>D. Sentence Scramble</h3>${keyList(d.scr, x=>esc(x.sent))}</div>`:""}
-        <div class="ws-key-wide"><h3>${d.scr.length?"E":"D"}. Translation（參考答案）</h3>${keyList(d.tr, x=>esc(x.en))}</div>
+        ${parts.map(p=>`<div${p.wide?' class="ws-key-wide"':""}><h3>${p.let}. ${p.keyEn||p.en}${p.zh==="素養題"?" 素養題":""}</h3>${p.key()}</div>`).join("")}
       </div>
       <div class="ws-grades"><b>Grades as percentages</b><div class="ws-grades-grid">${grades}</div></div>
       <div class="ws-foot">英語貓咪島 Englishcat Island 🐾 — Answer Key</div>
@@ -17577,7 +17585,7 @@ function poolFor(level, type){
   ls.forEach(l=> l.q.forEach((q,qi)=> qs.push(Object.assign({lesson:l.title+(l.zh?"｜"+l.zh:""), ref:l.id+":"+qi}, q))));
   if(type==="listen") qs = qs.filter(q=>q.t==="fill"||q.t==="order");
   else if(type && type!=="timed") qs = qs.filter(q=>q.t===type);
-  if(type==="timed") qs = qs.filter(q=>q.t!=="order");
+  if(type==="timed") qs = qs.filter(q=>q.t!=="order" && !q.ctx);
   return shuffle(qs);
 }
 
@@ -17613,7 +17621,7 @@ function replayMissed(){
    "all" = lessons this student has completed or practised; falls back to the
    first Basic lessons so a newcomer never gets advanced grammar on a timer. */
 function timedPool(level){
-  const mcqOf = ls => { const qs=[]; ls.forEach(l=> (l.q||[]).forEach((q,qi)=>{ if(q.t==="mcq") qs.push(Object.assign({lesson:l.title+(l.zh?"｜"+l.zh:""), ref:l.id+":"+qi}, q)); })); return qs; };
+  const mcqOf = ls => { const qs=[]; ls.forEach(l=> (l.q||[]).forEach((q,qi)=>{ if(q.t==="mcq" && !q.ctx) qs.push(Object.assign({lesson:l.title+(l.zh?"｜"+l.zh:""), ref:l.id+":"+qi}, q)); })); return qs; };
   if(level!=="all") return shuffle(mcqOf(lessonsOf(level)));
   const learned = new Set([...Object.keys(store.data.completed||{}), ...Object.keys(store.data.best||{}).filter(k=>lessonById(k))]);
   let ls = DATA.lessons.filter(l=>learned.has(l.id));
@@ -17668,7 +17676,7 @@ function renderQuestion(){
   let body = "";
   if(q.t==="mcq"){
     const prompt = esc(q.q).replace(/___/g,'<span class="blank">&nbsp;</span>');
-    body = `<div class="qprompt">${prompt}</div><div class="opts">${q.opts.map((o,ix)=>
+    body = `${q.ctx?`<div class="q-ctx"><span class="q-ctx-tag">🧭 素養題</span>${esc(q.ctx)}</div>`:""}<div class="qprompt">${prompt}</div><div class="opts">${q.opts.map((o,ix)=>
       `<button class="opt" data-ix="${ix}" onclick="answerMCQ(${ix})"><span class="key">${"ABCD"[ix]}</span>${esc(o)}</button>`).join("")}</div>`;
   }
   else if(q.t==="fill"){
